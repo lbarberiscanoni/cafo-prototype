@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Import Lato globally */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import "./styles/fonts.css";
+
+/* Global font defaults */
+@layer base {
+  html, body {
+    @apply font-lato;
+  }
+}

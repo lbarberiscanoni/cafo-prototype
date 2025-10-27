@@ -1,0 +1,8 @@
+/* Main script face */
+@font-face {
+  font-family: "Nexa Rust Script";
+  src: url("../assets/fonts/NexaRustScriptR-00.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

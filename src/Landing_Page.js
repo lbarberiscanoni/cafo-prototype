@@ -27,7 +27,7 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
       className="relative min-h-screen overflow-hidden font-lato"
       style={{ backgroundColor: "rgba(2,173,238,0.16)" }}
     >
-      {/* Lighter map with breathing room above */}
+      {/* Map with better definition and state outlines visible */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-0 left-0 right-0 h-20" />
         <img
@@ -35,12 +35,12 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
           alt="US map background"
           className="absolute left-1/2 top-[7.5rem] -translate-x-1/2 object-contain"
           style={{
-            width: "118%",
-            height: "118%",
-            filter: "grayscale(100%) brightness(1.8) contrast(0.8)",
+            width: "110%",
+            height: "110%",
+            filter: "grayscale(100%) brightness(1.3) contrast(0.9)",
           }}
         />
-        <div className="absolute inset-0 bg-white/50" />
+        <div className="absolute inset-0 bg-white/20" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center px-4 pb-28 pt-6">
@@ -56,37 +56,35 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
           Explore the data and connect to local organizations
         </p>
 
-        {/* === ALIGNED BLOCK (icon column + content column) === */}
-        {/* County prompt + select */}
-<div className="mt-10 w-full max-w-2xl">
-  {/* ⬇️ add flex-col + items-start to align left */}
-  <div className="mb-3 flex flex-col items-start gap-2">
-    {/* map point (larger) */}
-    <div className="flex items-center gap-3">
-      <img src={MapPin} alt="" className="h-9 w-9 opacity-90" aria-hidden />
-      <div className="text-[1.5rem] font-semibold text-gray-900 text-left">
-        What county do you live in?
-      </div>
-    </div>
+        {/* County prompt + select - Re-centered */}
+        <div className="mt-10 w-full max-w-2xl">
+          {/* Changed to items-center for centering */}
+          <div className="mb-3 flex flex-col items-center gap-2">
+            {/* map point and text centered */}
+            <div className="flex items-center gap-3">
+              <img src={MapPin} alt="" className="h-9 w-9 opacity-90" aria-hidden />
+              <div className="text-[1.5rem] font-semibold text-gray-900 text-center">
+                What county do you live in?
+              </div>
+            </div>
 
-    {/* label: bigger + aligned with the select's left edge */}
-    <div className="pl-[2.6rem] text-sm text-gray-600">
-      County or county equivalent
-    </div>
-  </div>
+            {/* label: centered and no left padding */}
+            <div className="text-sm text-gray-600 text-center">
+              County or county equivalent
+            </div>
+          </div>
 
-  <CountySelect
-    options={countyOptions}
-    placeholder="Select a county"
-    onChange={handleCountyChange}
-    containerClassName="w-full"
-    controlClassName="w-full rounded-xl border border-black/10 bg-white/80 backdrop-blur px-4 py-3 text-left shadow-sm focus-within:ring-2 focus-within:ring-[#02ADEE]"
-    menuClassName="rounded-xl border border-black/10 bg-white/95 shadow-lg overflow-hidden"
-    optionClassName="px-4 py-2 text-left hover:bg-[#02ADEE] hover:text-white"
-    inputClassName="text-left"
-  />
-</div>
-        {/* === /ALIGNED BLOCK === */}
+          <CountySelect
+            options={countyOptions}
+            placeholder="Select a county"
+            onChange={handleCountyChange}
+            containerClassName="w-full"
+            controlClassName="w-full rounded-xl border border-black/10 bg-white/80 backdrop-blur px-4 py-3 text-left shadow-sm focus-within:ring-2 focus-within:ring-[#02ADEE]"
+            menuClassName="rounded-xl border border-black/10 bg-white/95 shadow-lg overflow-hidden"
+            optionClassName="px-4 py-2 text-left hover:bg-[#02ADEE] hover:text-white"
+            inputClassName="text-left"
+          />
+        </div>
 
         {/* CTA */}
         <div className="pointer-events-none fixed inset-x-0 bottom-6 z-10 flex justify-center px-4">

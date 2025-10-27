@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Tooltip, Polyline } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -21,7 +21,7 @@ const CATEGORY_COLORS = {
   "Placement Agency": { bg: "bg-purple-200", text: "text-purple-800", border: "border-purple-300", dot: "#a855f7" },
 };
 
-// Expanded organization data with more examples
+// Expanded organization data with more examples and connection relationships
 const orgData = [
   {
     name: "Bridge Ministry",
@@ -32,6 +32,7 @@ const orgData = [
     phone: "516-456-7891",
     email: "info@nassaubridgeministry.org",
     coords: [40.73061, -73.935242],
+    connections: ["Hope Family Services", "Grace Church Foster Ministry"], // Organizations this connects to
   },
   {
     name: "Hope Family Services",
@@ -42,6 +43,7 @@ const orgData = [
     phone: "516-456-7891",
     email: "info@nassauhope.org",
     coords: [40.732, -73.94],
+    connections: ["Community Support Network", "Family Connect Services"],
   },
   {
     name: "Community Support Network",
@@ -52,6 +54,7 @@ const orgData = [
     phone: "516-456-7891",
     email: "info@nassaucommunity.org",
     coords: [40.728, -73.93],
+    connections: ["Children First Placement"],
   },
   {
     name: "Grace Church Foster Ministry",
@@ -62,6 +65,7 @@ const orgData = [
     phone: "516-555-0123",
     email: "foster@gracechurch.org",
     coords: [40.735, -73.925],
+    connections: ["Family Connect Services"],
   },
   {
     name: "Children First Placement",
@@ -72,6 +76,7 @@ const orgData = [
     phone: "516-555-0456",
     email: "placements@childrenfirst.org",
     coords: [40.740, -73.920],
+    connections: ["Hope Family Services"],
   },
   {
     name: "Family Connect Services",
@@ -82,6 +87,7 @@ const orgData = [
     phone: "516-555-0789",
     email: "connect@familyservices.org",
     coords: [40.725, -73.945],
+    connections: [], // No outgoing connections for this example
   },
 ];
 
@@ -134,6 +140,69 @@ export default function County_Organizational_View({ countyName = "Nassau County
     
     return categoryMatch && impactAreaMatch;
   });
+
+  // Generate connection lines between organizations
+  const generateConnectionLines = () => {
+    const connectionLines = [];
+    
+    filteredOrgs.forEach(org => {
+      if (org.connections && org.connections.length > 0) {
+        org.connections.forEach(connectionName => {
+          const targetOrg = filteredOrgs.find(target => target.name === connectionName);
+          if (targetOrg) {
+            connectionLines.push({
+              from: org.coords,
+              to: targetOrg.coords,
+              fromName: org.name,
+              toName: targetOrg.name,
+              category: org.category
+            });
+          }
+        });
+      }
+    });
+    
+    return connectionLines;
+  };
+
+  const connectionLines = showConnectionLines ? generateConnectionLines() : [];
+
+  // Generate network clusters for local networks
+  const generateNetworkClusters = () => {
+    if (!showLocalNetworks) return [];
+    
+    // Create clusters based on shared focus areas
+    const clusters = {};
+    
+    filteredOrgs.forEach(org => {
+      org.focus.forEach(focusArea => {
+        if (!clusters[focusArea]) {
+          clusters[focusArea] = [];
+        }
+        clusters[focusArea].push(org);
+      });
+    });
+    
+    // Only return clusters with more than one organization
+    return Object.entries(clusters)
+      .filter(([_, orgs]) => orgs.length > 1)
+      .map(([focusArea, orgs]) => ({
+        focusArea,
+        organizations: orgs,
+        center: [
+          orgs.reduce((sum, org) => sum + org.coords[0], 0) / orgs.length,
+          orgs.reduce((sum, org) => sum + org.coords[1], 0) / orgs.length
+        ],
+        radius: Math.max(...orgs.map(org => 
+          Math.sqrt(
+            Math.pow(org.coords[0] - (orgs.reduce((sum, o) => sum + o.coords[0], 0) / orgs.length), 2) +
+            Math.pow(org.coords[1] - (orgs.reduce((sum, o) => sum + o.coords[1], 0) / orgs.length), 2)
+          )
+        )) * 111000 // Convert to meters approximately
+      }));
+  };
+
+  const networkClusters = generateNetworkClusters();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -301,46 +370,66 @@ export default function County_Organizational_View({ countyName = "Nassau County
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              {filteredOrgs.map((org) => (
-                <Marker key={org.name} position={org.coords} icon={createDotIcon(org.category)}>
-                  <Tooltip>{org.name}</Tooltip>
-                </Marker>
+              
+              {/* Connection Lines */}
+              {connectionLines.map((connection, index) => (
+                <Polyline
+                  key={`connection-${index}`}
+                  positions={[connection.from, connection.to]}
+                  pathOptions={{
+                    color: "#3b82f6",
+                    weight: 2,
+                    opacity: 0.7,
+                    dashArray: "5, 10"
+                  }}
+                >
+                  <Tooltip>
+                    <div>
+                      <strong>Connection:</strong><br/>
+                      {connection.fromName} ↔ {connection.toName}
+                    </div>
+                  </Tooltip>
+                </Polyline>
               ))}
               
-              {/* Connection Lines - shown when enabled */}
-              {showConnectionLines && filteredOrgs.length > 1 && (
-                <>
-                  {filteredOrgs.slice(0, -1).map((org, index) => {
-                    const nextOrg = filteredOrgs[index + 1];
-                    return (
-                      <svg key={`line-${index}`} className="leaflet-zoom-hide" style={{position: 'absolute', top: 0, left: 0, pointerEvents: 'none'}}>
-                        <line
-                          x1={org.coords[1]}
-                          y1={org.coords[0]}
-                          x2={nextOrg.coords[1]}
-                          y2={nextOrg.coords[0]}
-                          stroke="#3b82f6"
-                          strokeWidth="2"
-                          strokeDasharray="5,5"
-                          opacity="0.7"
-                        />
-                      </svg>
-                    );
-                  })}
-                </>
-              )}
+              {/* Network Clusters - Visual circles around groups */}
+              {networkClusters.map((cluster, index) => (
+                <div key={`cluster-${index}`}>
+                  {/* Network cluster visualization would need a custom Leaflet component */}
+                  {/* For now, we'll show them in the status indicators */}
+                </div>
+              ))}
+              
+              {/* Organization Markers */}
+              {filteredOrgs.map((org) => (
+                <Marker key={org.name} position={org.coords} icon={createDotIcon(org.category)}>
+                  <Tooltip>
+                    <div>
+                      <strong>{org.name}</strong><br/>
+                      <span className="text-sm">{org.category}</span><br/>
+                      <span className="text-xs">{org.focus.join(", ")}</span>
+                      {org.connections && org.connections.length > 0 && (
+                        <>
+                          <br/><span className="text-xs font-semibold">Connected to:</span><br/>
+                          <span className="text-xs">{org.connections.join(", ")}</span>
+                        </>
+                      )}
+                    </div>
+                  </Tooltip>
+                </Marker>
+              ))}
             </MapContainer>
             
             {/* Status indicators */}
             <div className="mt-3 flex flex-wrap gap-2 text-xs">
-              {showConnectionLines && (
+              {showConnectionLines && connectionLines.length > 0 && (
                 <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded">
-                  Connection Lines Active
+                  {connectionLines.length} Connection Lines Active
                 </span>
               )}
-              {showLocalNetworks && (
+              {showLocalNetworks && networkClusters.length > 0 && (
                 <span className="px-2 py-1 bg-green-100 text-green-800 rounded">
-                  Local Networks Visible
+                  {networkClusters.length} Local Networks Visible
                 </span>
               )}
               {filteredOrgs.length !== orgData.length && (

@@ -95,8 +95,10 @@ const createDotIcon = (category) => {
 };
 
 export default function County_Organizational_View({ countyName = "Nassau County, New York" }) {
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedImpactAreas, setSelectedImpactAreas] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState(Object.keys(CATEGORY_COLORS));
+  const [selectedImpactAreas, setSelectedImpactAreas] = useState(["Foster and Kinship Families", "Adoptive", "Biological", "Wraparound"]);
+  const [showConnectionLines, setShowConnectionLines] = useState(true);
+  const [showLocalNetworks, setShowLocalNetworks] = useState(true);
 
   const handleCategoryToggle = (category) => {
     setSelectedCategories(prev =>
@@ -112,6 +114,14 @@ export default function County_Organizational_View({ countyName = "Nassau County
         ? prev.filter(area => area !== impactArea)
         : [...prev, impactArea]
     );
+  };
+
+  const handleConnectionLinesToggle = () => {
+    setShowConnectionLines(prev => !prev);
+  };
+
+  const handleLocalNetworksToggle = () => {
+    setShowLocalNetworks(prev => !prev);
   };
 
   const filteredOrgs = orgData.filter(org => {
@@ -145,7 +155,8 @@ export default function County_Organizational_View({ countyName = "Nassau County
         <div className="w-full lg:w-1/4 space-y-6">
           {/* Organization Categories with Colors */}
           <div className="bg-white p-4 rounded-lg shadow-sm">
-            <h3 className="font-semibold mb-3">Organization Categories</h3>
+            <h3 className="font-semibold mb-1">Organization Categories</h3>
+            <p className="text-xs text-gray-600 mb-3">Check categories to explore who is working in your community</p>
             <div className="space-y-2 text-sm">
               {Object.entries(CATEGORY_COLORS).map(([category, colors]) => (
                 <label key={category} className="flex items-center gap-2 cursor-pointer">
@@ -165,7 +176,8 @@ export default function County_Organizational_View({ countyName = "Nassau County
 
           {/* Impact Areas */}
           <div className="bg-white p-4 rounded-lg shadow-sm">
-            <h3 className="font-semibold mb-3">Impact Areas</h3>
+            <h3 className="font-semibold mb-1">Impact Areas</h3>
+            <p className="text-xs text-gray-600 mb-3">Check images to identify who is working in MTE's four impact areas</p>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <label className="flex flex-col items-center cursor-pointer">
                 <div className="relative">
@@ -201,7 +213,7 @@ export default function County_Organizational_View({ countyName = "Nassau County
                     className="absolute -top-1 -right-1 w-4 h-4"
                   />
                 </div>
-                <span className="text-center">Biological</span>
+                <span className="text-center">Support for Biological Families</span>
               </label>
               <label className="flex flex-col items-center cursor-pointer">
                 <div className="relative">
@@ -213,20 +225,64 @@ export default function County_Organizational_View({ countyName = "Nassau County
                     className="absolute -top-1 -right-1 w-4 h-4"
                   />
                 </div>
-                <span className="text-center">Wraparound</span>
+                <span className="text-center">Wraparound Support</span>
               </label>
             </div>
           </div>
 
           {/* Relationships */}
           <div className="bg-white p-4 rounded-lg shadow-sm">
-            <h3 className="font-semibold mb-3">Relationships</h3>
-            <div className="space-y-2 text-sm">
-              <label className="flex items-center gap-2">
-                <input type="checkbox" /> <span>View Connection Lines</span>
+            <h3 className="font-semibold mb-1">Relationships</h3>
+            <p className="text-xs text-gray-600 mb-3">Display collaborations to see how organizations work together</p>
+            <div className="space-y-2">
+              <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-sm cursor-pointer transition-colors ${
+                showConnectionLines ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}>
+                <div className="flex items-center gap-2">
+                  <input 
+                    type="checkbox" 
+                    className="sr-only"
+                    checked={showConnectionLines}
+                    onChange={handleConnectionLinesToggle}
+                  />
+                  {showConnectionLines && (
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  )}
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                  </svg>
+                  <span>View Connection Lines</span>
+                </div>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                </svg>
               </label>
-              <label className="flex items-center gap-2">
-                <input type="checkbox" /> <span>View Local Networks</span>
+              
+              <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-sm cursor-pointer transition-colors ${
+                showLocalNetworks ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}>
+                <div className="flex items-center gap-2">
+                  <input 
+                    type="checkbox" 
+                    className="sr-only"
+                    checked={showLocalNetworks}
+                    onChange={handleLocalNetworksToggle}
+                  />
+                  {showLocalNetworks && (
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  )}
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                  </svg>
+                  <span>View Local Networks</span>
+                </div>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                </svg>
               </label>
             </div>
           </div>
@@ -250,7 +306,49 @@ export default function County_Organizational_View({ countyName = "Nassau County
                   <Tooltip>{org.name}</Tooltip>
                 </Marker>
               ))}
+              
+              {/* Connection Lines - shown when enabled */}
+              {showConnectionLines && filteredOrgs.length > 1 && (
+                <>
+                  {filteredOrgs.slice(0, -1).map((org, index) => {
+                    const nextOrg = filteredOrgs[index + 1];
+                    return (
+                      <svg key={`line-${index}`} className="leaflet-zoom-hide" style={{position: 'absolute', top: 0, left: 0, pointerEvents: 'none'}}>
+                        <line
+                          x1={org.coords[1]}
+                          y1={org.coords[0]}
+                          x2={nextOrg.coords[1]}
+                          y2={nextOrg.coords[0]}
+                          stroke="#3b82f6"
+                          strokeWidth="2"
+                          strokeDasharray="5,5"
+                          opacity="0.7"
+                        />
+                      </svg>
+                    );
+                  })}
+                </>
+              )}
             </MapContainer>
+            
+            {/* Status indicators */}
+            <div className="mt-3 flex flex-wrap gap-2 text-xs">
+              {showConnectionLines && (
+                <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded">
+                  Connection Lines Active
+                </span>
+              )}
+              {showLocalNetworks && (
+                <span className="px-2 py-1 bg-green-100 text-green-800 rounded">
+                  Local Networks Visible
+                </span>
+              )}
+              {filteredOrgs.length !== orgData.length && (
+                <span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded">
+                  {filteredOrgs.length} of {orgData.length} organizations shown
+                </span>
+              )}
+            </div>
           </div>
 
           {/* Organization Cards - Horizontal Scrolling */}

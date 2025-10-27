@@ -1,5 +1,4 @@
 import React from "react";
-import Region_Menu from "./Region_Menu";
 
 // Assets
 import ChartsIcon from "./assets/Charts.png";
@@ -15,11 +14,35 @@ export default function TopNav({ currentView, onSelectRegion, onSwitchView }) {
     { id: "download", label: "Download Data", icon: DownloadIcon },
   ];
 
-  return (
-    <div className="py-3 px-4 flex justify-between items-center relative ]">
+  const handleNationalView = () => {
+    onSelectRegion({ level: "national", id: "usa", name: "United States" });
+    onSwitchView("organizational"); // or whatever default view you prefer
+  };
 
-      {/* Region Menu */}
-      <Region_Menu onSelectRegion={onSelectRegion} onSwitchView={onSwitchView} />
+  const handleStateView = () => {
+    // You might want to make this dynamic based on current context
+    // For now, defaulting to Alabama, but you could pass current state
+    onSelectRegion({ level: "state", id: "alabama", name: "Alabama" });
+    onSwitchView("organizational");
+  };
+
+  return (
+    <div className="py-3 px-4 flex justify-between items-center relative">
+      {/* Map View Buttons */}
+      <div className="flex gap-2">
+        <button
+          onClick={handleNationalView}
+          className="px-3 py-2 bg-white border rounded shadow-sm hover:bg-gray-50 text-sm"
+        >
+          National Map View
+        </button>
+        <button
+          onClick={handleStateView}
+          className="px-3 py-2 bg-white border rounded shadow-sm hover:bg-gray-50 text-sm"
+        >
+          State Map View
+        </button>
+      </div>
 
       {/* Navigation Buttons */}
       <div className="flex gap-3">

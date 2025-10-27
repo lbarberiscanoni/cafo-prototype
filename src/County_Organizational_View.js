@@ -96,6 +96,7 @@ const createDotIcon = (category) => {
 
 export default function County_Organizational_View({ countyName = "Nassau County, New York" }) {
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedImpactAreas, setSelectedImpactAreas] = useState([]);
 
   const handleCategoryToggle = (category) => {
     setSelectedCategories(prev =>
@@ -105,9 +106,24 @@ export default function County_Organizational_View({ countyName = "Nassau County
     );
   };
 
-  const filteredOrgs = selectedCategories.length === 0
-    ? orgData
-    : orgData.filter(org => selectedCategories.includes(org.category));
+  const handleImpactAreaToggle = (impactArea) => {
+    setSelectedImpactAreas(prev =>
+      prev.includes(impactArea)
+        ? prev.filter(area => area !== impactArea)
+        : [...prev, impactArea]
+    );
+  };
+
+  const filteredOrgs = orgData.filter(org => {
+    // Filter by category
+    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(org.category);
+    
+    // Filter by impact area
+    const impactAreaMatch = selectedImpactAreas.length === 0 || 
+      org.focus.some(focus => selectedImpactAreas.includes(focus));
+    
+    return categoryMatch && impactAreaMatch;
+  });
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -151,22 +167,54 @@ export default function County_Organizational_View({ countyName = "Nassau County
           <div className="bg-white p-4 rounded-lg shadow-sm">
             <h3 className="font-semibold mb-3">Impact Areas</h3>
             <div className="grid grid-cols-2 gap-3 text-sm">
-              <div className="flex flex-col items-center">
-                <img src={FosterKinshipIcon} alt="Foster Kinship" className="w-10 h-10 mb-1" />
+              <label className="flex flex-col items-center cursor-pointer">
+                <div className="relative">
+                  <img src={FosterKinshipIcon} alt="Foster Kinship" className="w-10 h-10 mb-1" />
+                  <input
+                    type="checkbox"
+                    checked={selectedImpactAreas.includes("Foster and Kinship Families")}
+                    onChange={() => handleImpactAreaToggle("Foster and Kinship Families")}
+                    className="absolute -top-1 -right-1 w-4 h-4"
+                  />
+                </div>
                 <span className="text-center">Foster & Kinship</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src={AdoptiveFamilyIcon} alt="Adoptive" className="w-10 h-10 mb-1" />
+              </label>
+              <label className="flex flex-col items-center cursor-pointer">
+                <div className="relative">
+                  <img src={AdoptiveFamilyIcon} alt="Adoptive" className="w-10 h-10 mb-1" />
+                  <input
+                    type="checkbox"
+                    checked={selectedImpactAreas.includes("Adoptive")}
+                    onChange={() => handleImpactAreaToggle("Adoptive")}
+                    className="absolute -top-1 -right-1 w-4 h-4"
+                  />
+                </div>
                 <span className="text-center">Adoptive</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src={BiologicalFamilyIcon} alt="Biological" className="w-10 h-10 mb-1" />
+              </label>
+              <label className="flex flex-col items-center cursor-pointer">
+                <div className="relative">
+                  <img src={BiologicalFamilyIcon} alt="Biological" className="w-10 h-10 mb-1" />
+                  <input
+                    type="checkbox"
+                    checked={selectedImpactAreas.includes("Biological")}
+                    onChange={() => handleImpactAreaToggle("Biological")}
+                    className="absolute -top-1 -right-1 w-4 h-4"
+                  />
+                </div>
                 <span className="text-center">Biological</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src={WrapAroundIcon} alt="Wraparound" className="w-10 h-10 mb-1" />
+              </label>
+              <label className="flex flex-col items-center cursor-pointer">
+                <div className="relative">
+                  <img src={WrapAroundIcon} alt="Wraparound" className="w-10 h-10 mb-1" />
+                  <input
+                    type="checkbox"
+                    checked={selectedImpactAreas.includes("Wraparound")}
+                    onChange={() => handleImpactAreaToggle("Wraparound")}
+                    className="absolute -top-1 -right-1 w-4 h-4"
+                  />
+                </div>
                 <span className="text-center">Wraparound</span>
-              </div>
+              </label>
             </div>
           </div>
 

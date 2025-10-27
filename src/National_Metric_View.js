@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import { nationalStats } from './mock-data';
+import InteractiveUSMap from './InteractiveUSMap';
 
 // Import asset icons
 import BiologicalFamilyIcon from './assets/BiologicalFamily_icon.png';
 import AdoptiveFamilyIcon from './assets/Adoptive_family_icon.png';
 import ChurchIcon from './assets/church_icon.png';
-import HandIcon from './assets/front_hand.png';
-import PointerIcon from './assets/Mouse pointer.png';
-import RecoloredMap from './assets/RecoloredMap.png';
-import KeyForMap from './assets/KeyForMap.png';
 import MTELogo from './assets/MTE_Logo.png';
 
 // Metric definitions for tooltips
@@ -59,7 +56,6 @@ const National_Metric_View = ({
   onViewMetrics 
 }) => {
   const [selectedMetric, setSelectedMetric] = useState("Count of Family Preservation Cases");
-  const [hoveredState, setHoveredState] = useState(null);
 
   const currentTrends = TRENDS_DATA[selectedMetric] || [];
   const maxValue = Math.max(...currentTrends.map(d => d.value));
@@ -175,62 +171,17 @@ const National_Metric_View = ({
 
         {/* Main Area */}
         <div className="col-span-9">
-          {/* Map + Legend */}
-          <div className="bg-white rounded-lg shadow-sm p-4 mb-6 relative">
-            <div className="text-blue-700 p-2 rounded mb-4 text-sm space-y-2">
-              <div className="flex items-center gap-2">
-                <img src={HandIcon} alt="Hover hand" className="w-5 h-5" />
-                <span>Hover over a state to display the data</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <img src={PointerIcon} alt="Click pointer" className="w-5 h-5" />
-                <span>Click to deep-dive into a particular state</span>
-              </div>
-            </div>
-            <div className="relative overflow-hidden">
-              <img
-                src={RecoloredMap}
-                alt="US map showing metric data by state"
-                className="w-[95%] mx-auto rounded transform scale-105"
-                onMouseMove={(e) => {
-                  // Simple hover detection - in real implementation you'd use proper map regions
-                  const rect = e.target.getBoundingClientRect();
-                  const x = e.clientX - rect.left;
-                  const y = e.clientY - rect.top;
-                  
-                  // Example: detect New York area (you'd implement proper state detection)
-                  if (x > 600 && x < 700 && y > 100 && y < 200) {
-                    setHoveredState({
-                      name: "NEW YORK",
-                      value: "2000 Family Preservation Cases",
-                      x: x,
-                      y: y
-                    });
-                  } else {
-                    setHoveredState(null);
-                  }
-                }}
-              />
-              <img
-                src={KeyForMap}
-                alt="Map Legend"
-                className="absolute bottom-4 right-4 w-40"
-              />
-              
-              {/* State Hover Tooltip */}
-              {hoveredState && (
-                <div 
-                  className="absolute z-10 bg-gray-800 text-white text-sm p-2 rounded shadow-lg pointer-events-none"
-                  style={{ 
-                    left: hoveredState.x + 10, 
-                    top: hoveredState.y - 40 
-                  }}
-                >
-                  <div className="font-semibold">{hoveredState.name}</div>
-                  <div>{hoveredState.value}</div>
-                </div>
-              )}
-            </div>
+          {/* Interactive Map */}
+          <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
+            <InteractiveUSMap 
+              selectedMetric={selectedMetric}
+              onStateClick={(stateCode, stateData) => {
+                console.log('State clicked:', stateCode, stateData);
+                if (onSelectState) {
+                  onSelectState(stateCode);
+                }
+              }}
+            />
           </div>
 
           {/* Bottom Stats */}

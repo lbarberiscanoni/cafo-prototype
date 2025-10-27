@@ -1,13 +1,15 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import MTELogo from "./assets/MTE_Logo.png";
 import USMap from "./assets/United_States.png";
 import MapPin from "./assets/Map_Pin_icon.png";
 import CountySelect from "./CountySelect";
-import { countyData } from "./mock-data";
+import { countyData, stateData } from "./mock-data";
 
 const STATE_ABBR = { Alabama: "AL", "New York": "NY" };
 
 export default function LandingPage({ onSelectRegion, onExploreMap }) {
+  const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);
+
   const countyOptions = useMemo(() => {
     return Object.entries(countyData)
       .map(([id, c]) => {
@@ -19,7 +21,15 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
   }, []);
 
   const handleCountyChange = (opt) => {
-    onSelectRegion?.({ type: "county", id: opt.id, label: opt.label, data: opt.data });
+    onSelectRegion?.({ level: "county", id: opt.id, name: opt.data.name });
+  };
+
+  const handleNationalSelect = () => {
+    onSelectRegion?.({ level: "national", id: "usa", name: "United States" });
+  };
+
+  const handleStateSelect = (stateId, stateName) => {
+    onSelectRegion?.({ level: "state", id: stateId, name: stateName });
   };
 
   return (
@@ -44,10 +54,10 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center px-4 pb-28 pt-6">
-        {/* smaller logo */}
+        {/* Logo */}
         <img src={MTELogo} alt="More Than Enough logo" className="h-9 w-auto object-contain mt-1" />
 
-        {/* smaller title */}
+        {/* Title */}
         <h1 className="mt-4 text-center text-[1.6rem] md:text-[1.9rem] font-extrabold leading-tight tracking-tight text-gray-900">
           Foster Care <span className="text-[#02ADEE]">Where You Live</span>
         </h1>
@@ -56,19 +66,15 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
           Explore the data and connect to local organizations
         </p>
 
-        {/* County prompt + select - Re-centered */}
+        {/* County Selection */}
         <div className="mt-10 w-full max-w-2xl">
-          {/* Changed to items-center for centering */}
           <div className="mb-3 flex flex-col items-center gap-2">
-            {/* map point and text centered */}
             <div className="flex items-center gap-3">
               <img src={MapPin} alt="" className="h-9 w-9 opacity-90" aria-hidden />
               <div className="text-[1.5rem] font-semibold text-gray-900 text-center">
                 What county do you live in?
               </div>
             </div>
-
-            {/* label: centered and no left padding */}
             <div className="text-sm text-gray-600 text-center">
               County or county equivalent
             </div>
@@ -84,6 +90,53 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
             optionClassName="px-4 py-2 text-left hover:bg-[#02ADEE] hover:text-white"
             inputClassName="text-left"
           />
+
+          {/* Advanced Options Toggle */}
+          <div className="mt-4 text-center">
+            <button
+              onClick={() => setShowAdvancedOptions(!showAdvancedOptions)}
+              className="text-sm text-gray-600 hover:text-[#02ADEE] underline"
+            >
+              {showAdvancedOptions ? "Hide" : "Show"} state and national options
+            </button>
+          </div>
+
+          {/* Advanced Region Selection */}
+          {showAdvancedOptions && (
+            <div className="mt-4 space-y-3">
+              <div className="bg-white/80 backdrop-blur rounded-xl border border-black/10 p-4 shadow-sm">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3 text-center">
+                  Or explore by region:
+                </h3>
+                
+                {/* National Option */}
+                <button
+                  onClick={handleNationalSelect}
+                  className="w-full mb-3 px-4 py-3 bg-white rounded-lg border border-gray-200 text-left hover:bg-gray-50 hover:border-[#02ADEE] transition-colors"
+                >
+                  <div className="font-medium text-gray-900">United States</div>
+                  <div className="text-sm text-gray-600">View national statistics</div>
+                </button>
+
+                {/* State Options */}
+                <div className="space-y-2">
+                  <div className="text-sm font-medium text-gray-700 mb-2">Select a state:</div>
+                  {Object.entries(stateData).map(([stateId, state]) => (
+                    <button
+                      key={stateId}
+                      onClick={() => handleStateSelect(stateId, state.name)}
+                      className="w-full px-4 py-2 bg-white rounded-lg border border-gray-200 text-left hover:bg-gray-50 hover:border-[#02ADEE] transition-colors"
+                    >
+                      <div className="font-medium text-gray-900">{state.name}</div>
+                      <div className="text-xs text-gray-500">
+                        {state.totalChildren.toLocaleString()} children in care
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* CTA */}

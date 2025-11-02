@@ -34,8 +34,7 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
 
   return (
     <div
-      className="relative min-h-screen overflow-hidden font-lato"
-      style={{ backgroundColor: "rgba(2,173,238,0.16)" }}
+      className="relative min-h-screen overflow-hidden font-lato bg-mte-blue-20"
     >
       {/* Map with better definition and state outlines visible */}
       <div className="pointer-events-none absolute inset-0">
@@ -59,12 +58,12 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
 
         {/* Main Content Area - Centered on Map */}
         <div className="flex-1 flex flex-col justify-center items-center min-h-0">
-          {/* Title - Centered responsively */}
-          <h1 className="text-center text-[1.6rem] md:text-[1.9rem] font-extrabold leading-tight tracking-tight text-gray-900">
-            Foster Care <span className="text-[#02ADEE]">Where You Live</span>
+          {/* Title - Brand-compliant typography */}
+          <h1 className="text-center text-4xl md:text-5xl font-lato font-black leading-tight text-mte-black">
+            Foster Care <span className="text-mte-blue">Where You Live</span>
           </h1>
 
-          <p className="mt-2 text-center text-lg text-gray-800">
+          <p className="mt-3 text-center text-lg font-lato text-mte-charcoal">
             Explore the data and connect to local organizations
           </p>
 
@@ -73,11 +72,11 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
             <div className="mb-3 flex flex-col items-center gap-2">
               <div className="flex items-center gap-3">
                 <img src={MapPin} alt="" className="h-9 w-9 opacity-90" aria-hidden />
-                <div className="text-[1.5rem] font-semibold text-gray-900 text-center">
+                <div className="text-2xl font-lato font-bold text-mte-black text-center">
                   What county do you live in?
                 </div>
               </div>
-              <div className="text-sm text-gray-600 text-center">
+              <div className="text-sm font-lato text-mte-charcoal text-center">
                 County or county equivalent
               </div>
             </div>
@@ -87,17 +86,17 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
               placeholder="Select a county"
               onChange={handleCountyChange}
               containerClassName="w-full"
-              controlClassName="w-full rounded-xl border border-black/10 bg-white/80 backdrop-blur px-4 py-3 text-left shadow-sm focus-within:ring-2 focus-within:ring-[#02ADEE]"
+              controlClassName="w-full rounded-xl border border-black/10 bg-white/80 backdrop-blur px-4 py-3 text-left shadow-sm focus-within:ring-2 focus-within:ring-mte-blue"
               menuClassName="rounded-xl border border-black/10 bg-white/95 shadow-lg overflow-hidden"
-              optionClassName="px-4 py-2 text-left hover:bg-[#02ADEE] hover:text-white"
-              inputClassName="text-left"
+              optionClassName="px-4 py-2 text-left hover:bg-mte-blue hover:text-white transition-colors"
+              inputClassName="text-left font-lato"
             />
 
             {/* Advanced Options Toggle */}
             <div className="mt-4 text-center">
               <button
                 onClick={() => setShowAdvancedOptions(!showAdvancedOptions)}
-                className="text-sm text-gray-600 hover:text-[#02ADEE] underline"
+                className="text-sm font-lato text-mte-charcoal hover:text-mte-blue underline transition-colors"
               >
                 {showAdvancedOptions ? "Hide" : "Show"} state and national options
               </button>
@@ -106,31 +105,31 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
             {/* Advanced Region Selection */}
             {showAdvancedOptions && (
               <div className="mt-4 space-y-3">
-                <div className="bg-white/80 backdrop-blur rounded-xl border border-black/10 p-4 shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3 text-center">
+                <div className="bg-white/80 backdrop-blur rounded-xl border border-mte-light-grey p-4 shadow-sm">
+                  <h3 className="text-lg font-lato font-bold text-mte-black mb-3 text-center">
                     Or explore by region:
                   </h3>
                   
                   {/* National Option */}
                   <button
                     onClick={handleNationalSelect}
-                    className="w-full mb-3 px-4 py-3 bg-white rounded-lg border border-gray-200 text-left hover:bg-gray-50 hover:border-[#02ADEE] transition-colors"
+                    className="w-full mb-3 px-4 py-3 bg-white rounded-lg border border-mte-light-grey text-left hover:bg-mte-blue-20 hover:border-mte-blue transition-colors"
                   >
-                    <div className="font-medium text-gray-900">United States</div>
-                    <div className="text-sm text-gray-600">View national statistics</div>
+                    <div className="font-lato font-semibold text-mte-black">United States</div>
+                    <div className="text-sm font-lato text-mte-charcoal">View national statistics</div>
                   </button>
 
                   {/* State Options */}
                   <div className="space-y-2">
-                    <div className="text-sm font-medium text-gray-700 mb-2">Select a state:</div>
+                    <div className="text-sm font-lato font-semibold text-mte-charcoal mb-2">Select a state:</div>
                     {Object.entries(stateData).map(([stateId, state]) => (
                       <button
                         key={stateId}
                         onClick={() => handleStateSelect(stateId, state.name)}
-                        className="w-full px-4 py-2 bg-white rounded-lg border border-gray-200 text-left hover:bg-gray-50 hover:border-[#02ADEE] transition-colors"
+                        className="w-full px-4 py-2 bg-white rounded-lg border border-mte-light-grey text-left hover:bg-mte-blue-20 hover:border-mte-blue transition-colors"
                       >
-                        <div className="font-medium text-gray-900">{state.name}</div>
-                        <div className="text-xs text-gray-500">
+                        <div className="font-lato font-semibold text-mte-black">{state.name}</div>
+                        <div className="text-xs font-lato text-mte-charcoal">
                           {state.totalChildren.toLocaleString()} children in care
                         </div>
                       </button>
@@ -142,22 +141,21 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
           </div>
         </div>
 
-        {/* CTA */}
+        {/* CTA - Brand-compliant button styling */}
         <div className="pointer-events-none fixed inset-x-0 bottom-6 z-10 flex justify-center px-4">
           <div className="pointer-events-auto flex w-full max-w-2xl items-center justify-between gap-4 rounded-2xl bg-white/90 backdrop-blur p-4 shadow-lg ring-1 ring-black/5">
-            <div className="flex items-center gap-3 text-gray-800">
+            <div className="flex items-center gap-3 text-mte-charcoal">
               <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
                 <path fill="currentColor" d="M9 3 4 5v16l5-2 6 2 5-2V3l-5 2-6-2ZM9 5l6 2v12l-6-2V5Z" />
               </svg>
-              <span className="text-sm sm:text-base">
+              <span className="text-sm sm:text-base font-lato">
                 Want to explore multiple counties or states?
               </span>
             </div>
             <button
               type="button"
               onClick={() => onExploreMap?.()}
-              className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-white shadow hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2"
-              style={{ backgroundColor: "#02ADEE" }}
+              className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-lato font-semibold text-white bg-mte-blue shadow hover:bg-mte-blue-80 focus:outline-none focus:ring-2 focus:ring-mte-blue focus:ring-offset-2 transition-colors"
             >
               Explore the map <span aria-hidden="true">→</span>
             </button>

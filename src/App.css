@@ -1,6 +1,7 @@
-/* Global background for entire app */
+/* Global background per More Than Enough Brand Guide */
+/* Using MTE Blue at 15% opacity for subtle brand presence */
 body {
-  background-color:rgba(2, 173, 238, 0.15);
+  background-color: rgba(0, 173, 238, 0.15);
   margin: 0;
   min-height: 100vh;
 }
@@ -20,21 +21,20 @@ body {
   }
 }
 
-/* You probably don’t need App-header anymore if you’re using your own header,
-   but I left it here in case other parts still rely on it. */
+/* Brand-compliant header styling */
 .App-header {
-  background-color:rgba(2, 173, 238, 0.15);
+  background-color: rgba(0, 173, 238, 0.15);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #000; /* use dark text instead of white */
+  color: #5c5d5f; /* MTE Charcoal */
 }
 
 .App-link {
-  color: #61dafb;
+  color: #00ADEE; /* MTE Blue */
 }
 
 @keyframes App-logo-spin {

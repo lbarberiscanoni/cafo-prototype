@@ -3,13 +3,40 @@
 @tailwind utilities;
 
 
-/* Import Lato globally */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+/* Import brand fonts per More Than Enough Brand Guide */
+/* Lato - Primary brand typeface (workhorse sans-serif) */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700;900&display=swap');
+/* Source Serif Pro - Secondary brand typeface (accent serif) */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+/* Nexa Rust Script - Specialty script font (use sparingly) */
 @import "./styles/fonts.css";
 
-/* Global font defaults */
+/* Global font defaults - Lato is primary brand font */
 @layer base {
   html, body {
-    @apply font-lato;
+    @apply font-lato text-mte-charcoal;
+  }
+  
+  /* Brand-compliant heading styles */
+  h1 {
+    @apply font-lato font-black text-mte-black;
+  }
+  
+  h2 {
+    @apply font-lato font-bold text-mte-charcoal;
+  }
+  
+  h3, h4 {
+    @apply font-lato font-semibold text-mte-charcoal;
+  }
+  
+  /* Secondary font for emphasis/subheads */
+  .text-serif {
+    @apply font-source-serif;
+  }
+  
+  /* Specialty script font - use sparingly */
+  .text-script {
+    @apply font-nexa;
   }
 }

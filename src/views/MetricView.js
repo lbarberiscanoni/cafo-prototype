@@ -28,7 +28,7 @@ const MetricView = ({ regionLevel, regionId }) => {
           churchesWithMinistry: nationalStats.churchesWithMinistry,
         };
       case "state":
-        const state = stateData[regionId];
+        const state = stateData[regionId] || stateData.alabama; // fallback to alabama
         return {
           name: state.name,
           subtitle: "Explore foster care data in this state",
@@ -39,7 +39,7 @@ const MetricView = ({ regionLevel, regionId }) => {
           familyPreservationCases: state.familyPreservationCases,
         };
       case "county":
-        const county = countyData[regionId];
+        const county = countyData[regionId] || countyData['butler-al']; // fallback to butler
         return {
           name: county.name,
           subtitle: "",
@@ -70,6 +70,7 @@ const MetricView = ({ regionLevel, regionId }) => {
   // Conditional rendering helpers
   const showMap = regionLevel === "national";
   const showCountyDetails = regionLevel === "county";
+  const showStateDetails = regionLevel === "state";
   const showStateContext = regionLevel === "county";
   const showPopulation = regionLevel === "county";
   const showAlabamaMap = regionLevel === "county";
@@ -259,6 +260,58 @@ const MetricView = ({ regionLevel, regionId }) => {
                   {(data.churchesWithMinistry / 1000).toFixed(0)}K Churches with a Foster Care Ministry
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* State Stats Section */}
+      {showStateDetails && (
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Children in Care */}
+            <div className="bg-white rounded-2xl shadow p-6 text-center">
+              <img src={BiologicalFamilyIcon} alt="Children" className="w-16 h-16 mx-auto mb-4" />
+              <div className="text-3xl font-bold text-blue-500 mb-2">
+                {data.totalChildren?.toLocaleString() || 'N/A'}
+              </div>
+              <div className="text-sm text-gray-600">Children in Care</div>
+            </div>
+
+            {/* Licensed Homes */}
+            <div className="bg-white rounded-2xl shadow p-6 text-center">
+              <img src={FosterKinshipIcon} alt="Homes" className="w-16 h-16 mx-auto mb-4" />
+              <div className="text-3xl font-bold text-blue-500 mb-2">
+                {data.licensedHomes?.toLocaleString() || 'N/A'}
+              </div>
+              <div className="text-sm text-gray-600">Licensed Homes</div>
+            </div>
+
+            {/* Waiting for Adoption */}
+            <div className="bg-white rounded-2xl shadow p-6 text-center">
+              <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-16 h-16 mx-auto mb-4" />
+              <div className="text-3xl font-bold text-blue-500 mb-2">
+                {data.waitingForAdoption?.toLocaleString() || 'N/A'}
+              </div>
+              <div className="text-sm text-gray-600">Children Waiting For Adoption</div>
+            </div>
+
+            {/* Reunification Rate */}
+            <div className="bg-white rounded-2xl shadow p-6 text-center">
+              <img src={BiologicalFamilyIcon} alt="Reunification" className="w-16 h-16 mx-auto mb-4" />
+              <div className="text-3xl font-bold text-blue-500 mb-2">
+                {data.reunificationRate}%
+              </div>
+              <div className="text-sm text-gray-600">Reunification Rate</div>
+            </div>
+
+            {/* Family Preservation */}
+            <div className="bg-white rounded-2xl shadow p-6 text-center">
+              <img src={WrapAroundIcon} alt="Preservation" className="w-16 h-16 mx-auto mb-4" />
+              <div className="text-3xl font-bold text-blue-500 mb-2">
+                {data.familyPreservationCases?.toLocaleString() || 'N/A'}
+              </div>
+              <div className="text-sm text-gray-600">Family Preservation Cases</div>
             </div>
           </div>
         </div>

@@ -10,17 +10,15 @@ import LandingPage from "./Landing_Page";
 
 // Unified Views
 import MetricView from "./views/MetricView";
+import OrganizationalView from "./views/OrganizationalView";
 
 // National
-import National_Organizational_View from "./National_Organizational_View";
 import National_Historic_View from "./National_Historic_View";
 
 // State
-import State_Organizational_View from "./State_Organizational_View";
 import State_Historic_View from "./State_Historic_View";
 
 // County
-import County_Organizational_View from "./County_Organizational_View";
 import County_Historic_View from "./County_Historic_View";
 
 // Download Page
@@ -75,26 +73,25 @@ function App() {
       return <MetricView regionLevel={region} regionId={selectedRegion?.id} />;
     }
 
+    // ORGANIZATIONAL VIEW - Consolidated!
+    if (view === "organizational") {
+      return <OrganizationalView regionLevel={region} regionId={selectedRegion?.id} />;
+    }
+
     // NATIONAL
     if (region === "national") {
-      if (view === "organizational")
-        return <National_Organizational_View country={selectedRegion?.id} />;
       if (view === "historic")
         return <National_Historic_View country={selectedRegion?.id} />;
     }
 
     // STATE
     if (region === "state") {
-      if (view === "organizational")
-        return <State_Organizational_View state={selectedRegion?.id} />;
       if (view === "historic")
         return <State_Historic_View state={selectedRegion?.id} />;
     }
 
     // COUNTY
     if (region === "county") {
-      if (view === "organizational")
-        return <County_Organizational_View county={selectedRegion?.id} />;
       if (view === "historic")
         return <County_Historic_View county={selectedRegion?.id} />;
     }

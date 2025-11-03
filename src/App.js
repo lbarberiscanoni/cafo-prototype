@@ -8,18 +8,18 @@ import TopNav from "./TopNav";
 // Landing
 import LandingPage from "./Landing_Page";
 
+// Unified Views
+import MetricView from "./views/MetricView";
+
 // National
-import National_Metric_View from "./National_Metric_View";
 import National_Organizational_View from "./National_Organizational_View";
 import National_Historic_View from "./National_Historic_View";
 
 // State
-import State_Metric_View from "./State_Metric_View";
 import State_Organizational_View from "./State_Organizational_View";
 import State_Historic_View from "./State_Historic_View";
 
 // County
-import County_Metric_View from "./County_Metric_View";
 import County_Organizational_View from "./County_Organizational_View";
 import County_Historic_View from "./County_Historic_View";
 
@@ -70,10 +70,13 @@ function App() {
       );
     }
 
+    // METRIC VIEW - Consolidated!
+    if (view === "metric") {
+      return <MetricView regionLevel={region} regionId={selectedRegion?.id} />;
+    }
+
     // NATIONAL
     if (region === "national") {
-      if (view === "metric")
-        return <National_Metric_View country={selectedRegion?.id} />;
       if (view === "organizational")
         return <National_Organizational_View country={selectedRegion?.id} />;
       if (view === "historic")
@@ -82,8 +85,6 @@ function App() {
 
     // STATE
     if (region === "state") {
-      if (view === "metric")
-        return <State_Metric_View state={selectedRegion?.id} />;
       if (view === "organizational")
         return <State_Organizational_View state={selectedRegion?.id} />;
       if (view === "historic")
@@ -92,8 +93,6 @@ function App() {
 
     // COUNTY
     if (region === "county") {
-      if (view === "metric")
-        return <County_Metric_View county={selectedRegion?.id} />;
       if (view === "organizational")
         return <County_Organizational_View county={selectedRegion?.id} />;
       if (view === "historic")

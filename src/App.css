@@ -1,15 +1,54 @@
+/* ========================================
+   MORE THAN ENOUGH APP STYLES
+   Brand-compliant global styles with responsive design
+   ======================================== */
+
 /* Global background per More Than Enough Brand Guide */
-/* Using MTE Blue at 15% opacity for subtle brand presence */
+/* Using MTE Blue at 20% opacity for subtle brand presence */
 body {
-  background-color: rgba(0, 173, 238, 0.15);
+  background-color: rgba(0, 173, 238, 0.2);
   margin: 0;
   min-height: 100vh;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  color: #5c5d5f; /* MTE Charcoal */
 }
 
 .App {
-  text-align: center;
+  text-align: left; /* Rule 01: Stay left-aligned */
 }
 
+/* Brand-compliant header styling */
+.App-header {
+  background-color: rgba(0, 173, 238, 0.2);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px; /* Mobile */
+  color: #5c5d5f; /* MTE Charcoal */
+}
+
+@media (min-width: 768px) {
+  .App-header {
+    font-size: 16px; /* Desktop */
+  }
+}
+
+/* Brand-compliant link styling */
+.App-link {
+  color: #00ADEE; /* MTE Blue */
+  text-decoration: underline;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 400; /* Regular */
+}
+
+.App-link:hover {
+  color: rgba(0, 173, 238, 0.8); /* MTE Blue 80% */
+  text-decoration: none;
+}
+
+/* Logo styling */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -21,27 +60,213 @@ body {
   }
 }
 
-/* Brand-compliant header styling */
-.App-header {
-  background-color: rgba(0, 173, 238, 0.15);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #5c5d5f; /* MTE Charcoal */
-}
-
-.App-link {
-  color: #00ADEE; /* MTE Blue */
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   TYPOGRAPHY OVERRIDES
+   Ensure brand compliance throughout app
+   ======================================== */
+
+/* Headings should use brand colors */
+h1, h2, h3, h4, h5, h6 {
+  color: #000000; /* MTE Black for maximum contrast */
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
+
+/* Alternative heading color option */
+.heading-charcoal {
+  color: #5c5d5f; /* MTE Charcoal */
+}
+
+/* Body text should be readable */
+p, li, span {
+  color: #5c5d5f; /* MTE Charcoal */
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
+
+/* ========================================
+   COMPONENT UTILITIES
+   ======================================== */
+
+/* Brand-compliant buttons with responsive sizing */
+.btn-mte-primary {
+  background-color: #00ADEE;
+  color: #ffffff;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 500; /* Medium */
+  padding: 10px 20px; /* Mobile */
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  display: inline-block;
+  min-height: 44px; /* Touch-friendly */
+}
+
+@media (min-width: 768px) {
+  .btn-mte-primary {
+    padding: 12px 24px; /* Desktop */
+    font-size: 16px;
+  }
+}
+
+.btn-mte-primary:hover {
+  background-color: rgba(0, 173, 238, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-mte-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Secondary button style */
+.btn-mte-secondary {
+  background-color: #ffffff;
+  color: #00ADEE;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  padding: 10px 20px; /* Mobile */
+  font-size: 14px;
+  border-radius: 8px;
+  border: 2px solid #00ADEE;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-height: 44px; /* Touch-friendly */
+}
+
+@media (min-width: 768px) {
+  .btn-mte-secondary {
+    padding: 12px 24px; /* Desktop */
+    font-size: 16px;
+  }
+}
+
+.btn-mte-secondary:hover {
+  background-color: rgba(0, 173, 238, 0.1);
+  border-color: rgba(0, 173, 238, 0.8);
+}
+
+/* Cards with brand-compliant shadows and responsive padding */
+.card-mte {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px; /* Mobile */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .card-mte {
+    padding: 24px; /* Desktop */
+  }
+}
+
+.card-mte:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   LAYOUT HELPERS
+   ======================================== */
+
+/* Rule 05: Give things space - Responsive */
+.section-spacing {
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    margin-bottom: 48px;
+  }
+}
+
+.component-spacing {
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .component-spacing {
+    margin-bottom: 24px;
+  }
+}
+
+/* Rule 06: Keep line length reasonable */
+.readable-content {
+  max-width: 70ch;
+  margin-left: 0; /* Left-aligned per Rule 01 */
+}
+
+/* ========================================
+   BRAND COLOR BACKGROUNDS
+   ======================================== */
+
+.bg-mte-blue-subtle {
+  background-color: rgba(0, 173, 238, 0.2);
+}
+
+.bg-mte-light-grey {
+  background-color: #f1f1f1;
+}
+
+.bg-mte-subdued-white {
+  background-color: #eeeff0;
+}
+
+/* When using light backgrounds, ensure dark text */
+.bg-mte-blue-20,
+.bg-mte-blue-40 {
+  color: #000000; /* Required for accessibility per brand guide */
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+/* Ensure focus states are visible */
+button:focus,
+a:focus,
+input:focus,
+select:focus {
+  outline: 2px solid #00ADEE;
+  outline-offset: 2px;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 767px) {
+  /* Mobile-specific overrides */
+  body {
+    font-size: 14px;
+  }
+  
+  .App-header {
+    font-size: 14px;
+    padding: 16px;
   }
 }

@@ -103,88 +103,88 @@ export default function HistoricView({ regionLevel, regionId }) {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <div className="border-b">
-        <div className="max-w-7xl mx-auto px-4 py-6 text-center">
-          <h1 className="text-3xl sm:text-4xl text-gray-900 font-nexa">
+      <div className="border-b border-mte-light-grey">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 text-center">
+          <h1 className="text-2xl md:text-4xl font-nexa text-mte-black">
             {name}
           </h1>
-          <p className="text-gray-700 mt-1">Historic Trends (2020–2024)</p>
+          <p className="text-sm md:text-base text-mte-charcoal mt-1 font-lato">Historic Trends (2020–2024)</p>
         </div>
       </div>
 
       {/* Metrics Grid */}
-      <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-6 flex-grow">
+      <div className="max-w-7xl mx-auto px-4 py-4 md:py-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 flex-grow">
         {/* Foster & Kinship */}
-        <div className="bg-white p-3 rounded-lg shadow-sm">
-          <div className="flex items-center gap-2 mb-1">
-            <img src={FosterKinshipIcon} alt="Kinship" className="w-6 h-6" />
-            <h3 className="text-md font-semibold">Foster and Kinship Families</h3>
+        <div className="bg-white p-3 md:p-4 rounded-lg shadow-mte-card">
+          <div className="flex items-center gap-2 mb-2">
+            <img src={FosterKinshipIcon} alt="Kinship" className="w-5 h-5 md:w-6 md:h-6" />
+            <h3 className="text-sm md:text-base font-bold uppercase text-mte-black">Foster and Kinship Families</h3>
           </div>
-          <div className="h-48 flex items-end justify-between">
+          <div className="h-32 md:h-32 md:h-48 flex items-end justify-between">
             {history.kinship.map((value, idx) => (
               <div key={idx} className="flex flex-col items-center">
                 <div
-                  className="bg-green-500 w-7 rounded"
+                  className="bg-mte-green w-7 rounded"
                   style={{ height: `${value * 2}px` }}
                 ></div>
-                <span className="text-xs mt-1">{years[idx]}</span>
+                <span className="text-sm mt-1 font-lato text-mte-charcoal">{years[idx]}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Adoptive */}
-        <div className="bg-white p-3 rounded-lg shadow-sm">
+        <div className="bg-white p-3 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-2 mb-1">
-            <img src={AdoptiveFamilyIcon} alt="Adoptive" className="w-6 h-6" />
-            <h3 className="text-md font-semibold">Adoptive Families</h3>
+            <img src={AdoptiveFamilyIcon} alt="Adoptive" className="w-5 h-5 md:w-6 md:h-6" />
+            <h3 className="text-sm md:text-base font-bold uppercase text-mte-black">Adoptive Families</h3>
           </div>
-          <div className="h-48 flex items-end justify-between">
+          <div className="h-32 md:h-48 flex items-end justify-between">
             {history.adoption.map((value, idx) => (
               <div key={idx} className="flex flex-col items-center">
                 <div
-                  className="bg-yellow-400 w-7 rounded"
+                  className="bg-mte-yellow w-7 rounded"
                   style={{ height: `${value * 12}px` }}
                 ></div>
-                <span className="text-xs mt-1">{years[idx]}</span>
+                <span className="text-sm mt-1 font-lato text-mte-charcoal">{years[idx]}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Biological */}
-        <div className="bg-white p-3 rounded-lg shadow-sm">
+        <div className="bg-white p-3 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-2 mb-1">
-            <img src={BiologicalFamilyIcon} alt="Biological" className="w-6 h-6" />
-            <h3 className="text-md font-semibold">Support for Biological Families</h3>
+            <img src={BiologicalFamilyIcon} alt="Biological" className="w-5 h-5 md:w-6 md:h-6" />
+            <h3 className="text-sm md:text-base font-bold uppercase text-mte-black">Support for Biological Families</h3>
           </div>
-          <div className="h-48 flex items-end justify-between">
+          <div className="h-32 md:h-48 flex items-end justify-between">
             {history.biological.map((value, idx) => (
               <div key={idx} className="flex flex-col items-center">
                 <div
-                  className="bg-orange-500 w-7 rounded"
+                  className="bg-mte-orange w-7 rounded"
                   style={{ height: `${value * 4}px` }}
                 ></div>
-                <span className="text-xs mt-1">{years[idx]}</span>
+                <span className="text-sm mt-1 font-lato text-mte-charcoal">{years[idx]}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Wraparound */}
-        <div className="bg-white p-3 rounded-lg shadow-sm">
+        <div className="bg-white p-3 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-2 mb-1">
-            <img src={WrapAroundIcon} alt="Wraparound" className="w-6 h-6" />
-            <h3 className="text-md font-semibold">Wraparound Support</h3>
+            <img src={WrapAroundIcon} alt="Wraparound" className="w-5 h-5 md:w-6 md:h-6" />
+            <h3 className="text-sm md:text-base font-bold uppercase text-mte-black">Wraparound Support</h3>
           </div>
-          <div className="h-48 flex items-end justify-between">
+          <div className="h-32 md:h-48 flex items-end justify-between">
             {history.wraparound.map((value, idx) => (
               <div key={idx} className="flex flex-col items-center">
                 <div
-                  className="bg-purple-500 w-7 rounded"
+                  className="bg-mte-purple w-7 rounded"
                   style={{ height: `${value * 15}px` }}
                 ></div>
-                <span className="text-xs mt-1">{years[idx]}</span>
+                <span className="text-sm mt-1 font-lato text-mte-charcoal">{years[idx]}</span>
               </div>
             ))}
           </div>
@@ -192,40 +192,40 @@ export default function HistoricView({ regionLevel, regionId }) {
       </div>
 
       {/* Historical Change */}
-      <div className="bg-white max-w-5xl mx-auto rounded-lg shadow-sm p-6 mb-8 text-center">
-        <h3 className="text-xl font-semibold italic mb-4 font-nexa">
+      <div className="bg-white max-w-5xl mx-auto rounded-lg shadow-mte-card p-4 md:p-6 mb-6 md:mb-8 text-center">
+        <h3 className="text-lg md:text-2xl font-source-serif italic mb-3 md:mb-4 text-mte-black">
           Historical Change (2020 to 2024)
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 text-sm md:text-base font-lato">
           <div>
-            <div className={`font-bold ${trends.childrenInCare < 0 ? 'text-green-600' : 'text-red-600'}`}>
+            <div className={`font-bold ${trends.childrenInCare < 0 ? 'text-mte-green' : 'text-mte-orange'}`}>
               {trends.childrenInCare > 0 ? '+' : ''}{trends.childrenInCare}%
             </div>
-            <div>Children in Care</div>
+            <div className="text-mte-charcoal">Children in Care</div>
           </div>
           <div>
-            <div className={`font-bold ${trends.licensedHomes > 0 ? 'text-green-600' : 'text-red-600'}`}>
+            <div className={`font-bold ${trends.licensedHomes > 0 ? 'text-mte-green' : 'text-mte-orange'}`}>
               {trends.licensedHomes > 0 ? '+' : ''}{trends.licensedHomes}%
             </div>
-            <div>Licensed Homes</div>
+            <div className="text-mte-charcoal">Licensed Homes</div>
           </div>
           <div>
-            <div className={`font-bold ${trends.waitingForAdoption < 0 ? 'text-green-600' : 'text-red-600'}`}>
+            <div className={`font-bold ${trends.waitingForAdoption < 0 ? 'text-mte-green' : 'text-mte-orange'}`}>
               {trends.waitingForAdoption > 0 ? '+' : ''}{trends.waitingForAdoption}%
             </div>
-            <div>Waiting for Adoption</div>
+            <div className="text-mte-charcoal">Waiting for Adoption</div>
           </div>
           <div>
-            <div className={`font-bold ${trends.reunificationRate > 0 ? 'text-green-600' : 'text-red-600'}`}>
+            <div className={`font-bold ${trends.reunificationRate > 0 ? 'text-mte-green' : 'text-mte-orange'}`}>
               {trends.reunificationRate > 0 ? '+' : ''}{trends.reunificationRate}%
             </div>
-            <div>Reunification Rate</div>
+            <div className="text-mte-charcoal">Reunification Rate</div>
           </div>
           <div>
-            <div className={`font-bold ${trends.familyPreservationCases < 0 ? 'text-red-600' : 'text-green-600'}`}>
+            <div className={`font-bold ${trends.familyPreservationCases < 0 ? 'text-mte-orange' : 'text-mte-green'}`}>
               {trends.familyPreservationCases > 0 ? '+' : ''}{trends.familyPreservationCases}%
             </div>
-            <div>Family Preservation</div>
+            <div className="text-mte-charcoal">Family Preservation</div>
           </div>
         </div>
       </div>

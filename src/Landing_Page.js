@@ -58,25 +58,26 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
 
         {/* Main Content Area - Centered on Map */}
         <div className="flex-1 flex flex-col justify-center items-center min-h-0">
-          {/* Title - Brand-compliant typography */}
-          <h1 className="text-center text-4xl md:text-5xl font-lato font-black leading-tight text-mte-black">
+          {/* Title - Responsive: 28px mobile, 40px desktop */}
+          <h1 className="text-center font-lato font-black leading-tight text-mte-black text-[28px] md:text-[40px]" style={{ lineHeight: '1.2' }}>
             Foster Care <span className="text-mte-blue">Where You Live</span>
           </h1>
 
-          <p className="mt-3 text-center text-lg font-lato text-mte-charcoal">
+          {/* Subtitle - Responsive: 14px mobile, 16px desktop */}
+          <p className="mt-2 md:mt-3 text-center text-sm md:text-base font-lato text-mte-charcoal px-4">
             Explore the data and connect to local organizations
           </p>
 
           {/* County Selection */}
-          <div className="mt-10 w-full max-w-2xl">
+          <div className="mt-6 md:mt-10 w-full max-w-2xl px-4 md:px-0">
             <div className="mb-3 flex flex-col items-center gap-2">
-              <div className="flex items-center gap-3">
-                <img src={MapPin} alt="" className="h-9 w-9 opacity-90" aria-hidden />
-                <div className="text-2xl font-lato font-bold text-mte-black text-center">
+              <div className="flex items-center gap-2 md:gap-3">
+                <img src={MapPin} alt="" className="h-7 w-7 md:h-9 md:w-9 opacity-90" aria-hidden />
+                <div className="text-lg md:text-2xl font-lato font-bold text-mte-black text-center">
                   What county do you live in?
                 </div>
               </div>
-              <div className="text-sm font-lato text-mte-charcoal text-center">
+              <div className="text-xs md:text-sm font-lato text-mte-charcoal text-center">
                 County or county equivalent
               </div>
             </div>
@@ -86,8 +87,8 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
               placeholder="Select a county"
               onChange={handleCountyChange}
               containerClassName="w-full"
-              controlClassName="w-full rounded-xl border border-black/10 bg-white/80 backdrop-blur px-4 py-3 text-left shadow-sm focus-within:ring-2 focus-within:ring-mte-blue"
-              menuClassName="rounded-xl border border-black/10 bg-white/95 shadow-lg overflow-hidden"
+              controlClassName="w-full rounded-xl border border-mte-light-grey bg-white/80 backdrop-blur px-4 py-3 text-left shadow-mte-card focus-within:ring-2 focus-within:ring-mte-blue"
+              menuClassName="rounded-xl border border-mte-light-grey bg-white/95 shadow-lg overflow-hidden"
               optionClassName="px-4 py-2 text-left hover:bg-mte-blue hover:text-white transition-colors"
               inputClassName="text-left font-lato"
             />
@@ -96,7 +97,7 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
             <div className="mt-4 text-center">
               <button
                 onClick={() => setShowAdvancedOptions(!showAdvancedOptions)}
-                className="text-sm font-lato text-mte-charcoal hover:text-mte-blue underline transition-colors"
+                className="text-base font-lato text-mte-charcoal hover:text-mte-blue underline transition-colors"
               >
                 {showAdvancedOptions ? "Hide" : "Show"} state and national options
               </button>
@@ -105,8 +106,8 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
             {/* Advanced Region Selection */}
             {showAdvancedOptions && (
               <div className="mt-4 space-y-3">
-                <div className="bg-white/80 backdrop-blur rounded-xl border border-mte-light-grey p-4 shadow-sm">
-                  <h3 className="text-lg font-lato font-bold text-mte-black mb-3 text-center">
+                <div className="bg-white/80 backdrop-blur rounded-xl border border-mte-light-grey p-4 shadow-mte-card">
+                  <h3 className="text-h4 font-lato font-bold uppercase text-mte-black mb-3 text-center">
                     Or explore by region:
                   </h3>
                   
@@ -116,12 +117,12 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
                     className="w-full mb-3 px-4 py-3 bg-white rounded-lg border border-mte-light-grey text-left hover:bg-mte-blue-20 hover:border-mte-blue transition-colors"
                   >
                     <div className="font-lato font-semibold text-mte-black">United States</div>
-                    <div className="text-sm font-lato text-mte-charcoal">View national statistics</div>
+                    <div className="text-base font-lato text-mte-charcoal">View national statistics</div>
                   </button>
 
                   {/* State Options */}
                   <div className="space-y-2">
-                    <div className="text-sm font-lato font-semibold text-mte-charcoal mb-2">Select a state:</div>
+                    <div className="text-base font-lato font-semibold text-mte-charcoal mb-2">Select a state:</div>
                     {Object.entries(stateData).map(([stateId, state]) => (
                       <button
                         key={stateId}
@@ -129,7 +130,7 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
                         className="w-full px-4 py-2 bg-white rounded-lg border border-mte-light-grey text-left hover:bg-mte-blue-20 hover:border-mte-blue transition-colors"
                       >
                         <div className="font-lato font-semibold text-mte-black">{state.name}</div>
-                        <div className="text-xs font-lato text-mte-charcoal">
+                        <div className="text-sm font-lato text-mte-charcoal">
                           {state.totalChildren.toLocaleString()} children in care
                         </div>
                       </button>
@@ -141,21 +142,21 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
           </div>
         </div>
 
-        {/* CTA - Brand-compliant button styling */}
-        <div className="pointer-events-none fixed inset-x-0 bottom-6 z-10 flex justify-center px-4">
-          <div className="pointer-events-auto flex w-full max-w-2xl items-center justify-between gap-4 rounded-2xl bg-white/90 backdrop-blur p-4 shadow-lg ring-1 ring-black/5">
-            <div className="flex items-center gap-3 text-mte-charcoal">
-              <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+        {/* CTA - Responsive design */}
+        <div className="pointer-events-none fixed inset-x-0 bottom-4 md:bottom-6 z-10 flex justify-center px-2 md:px-4">
+          <div className="pointer-events-auto flex w-full max-w-2xl flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 rounded-2xl bg-white/90 backdrop-blur p-3 md:p-4 shadow-lg ring-1 ring-black/5">
+            <div className="flex items-center gap-2 md:gap-3 text-mte-charcoal">
+              <svg viewBox="0 0 24 24" className="h-5 w-5 md:h-6 md:w-6 flex-shrink-0" aria-hidden="true">
                 <path fill="currentColor" d="M9 3 4 5v16l5-2 6 2 5-2V3l-5 2-6-2ZM9 5l6 2v12l-6-2V5Z" />
               </svg>
-              <span className="text-sm sm:text-base font-lato">
+              <span className="text-sm md:text-base font-lato">
                 Want to explore multiple counties or states?
               </span>
             </div>
             <button
               type="button"
               onClick={() => onExploreMap?.()}
-              className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-lato font-semibold text-white bg-mte-blue shadow hover:bg-mte-blue-80 focus:outline-none focus:ring-2 focus:ring-mte-blue focus:ring-offset-2 transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm md:text-base font-lato font-semibold text-white bg-mte-blue shadow-mte-card hover:bg-mte-blue-80 focus:outline-none focus:ring-2 focus:ring-mte-blue focus:ring-offset-2 transition-colors whitespace-nowrap"
             >
               Explore the map <span aria-hidden="true">→</span>
             </button>

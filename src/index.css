@@ -2,41 +2,401 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ========================================
+   MORE THAN ENOUGH BRAND GUIDE STYLES
+   Based on MTE Brand Guide Rev Oct 2023
+   ======================================== */
 
-/* Import brand fonts per More Than Enough Brand Guide */
+/* FONT IMPORTS - Per MTE Brand Guide */
+
 /* Lato - Primary brand typeface (workhorse sans-serif) */
+/* Weights: 300 (Light), 400 (Regular), 500 (Medium), 700 (Bold), 900 (Heavy/Black) */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700;900&display=swap');
+
 /* Source Serif Pro - Secondary brand typeface (accent serif) */
+/* Weights: 400 (Regular), 600 (SemiBold), with italic variations */
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
 /* Nexa Rust Script - Specialty script font (use sparingly) */
 @import "./styles/fonts.css";
 
-/* Global font defaults - Lato is primary brand font */
+/* ========================================
+   BASE LAYER - Global Defaults
+   ======================================== */
+
 @layer base {
-  html, body {
+  /* Global font defaults - Lato is primary brand font */
+  /* Responsive base: 14px mobile, 16px desktop */
+  html, 
+  body {
     @apply font-lato text-mte-charcoal;
+    font-size: 14px; /* Mobile base */
+    line-height: 1.5;
+    text-align: left; /* Rule 01: Stay left-aligned */
   }
   
-  /* Brand-compliant heading styles */
+  @media (min-width: 768px) {
+    html, 
+    body {
+      font-size: 16px; /* Desktop base */
+      line-height: 1.5;
+    }
+  }
+  
+  /* Brand-compliant heading styles - Responsive for web */
   h1 {
     @apply font-lato font-black text-mte-black;
+    font-size: 24px; /* Mobile */
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 36px; /* Tablet */
+      margin-bottom: 30px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 48px; /* Desktop - approaches brand spec */
+      margin-bottom: 40px;
+    }
   }
   
   h2 {
-    @apply font-lato font-bold text-mte-charcoal;
-  }
-  
-  h3, h4 {
     @apply font-lato font-semibold text-mte-charcoal;
+    font-size: 20px; /* Mobile */
+    line-height: 1.3;
+    margin-bottom: 16px;
   }
   
-  /* Secondary font for emphasis/subheads */
-  .text-serif {
-    @apply font-source-serif;
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 28px; /* Tablet */
+      margin-bottom: 24px;
+    }
   }
   
-  /* Specialty script font - use sparingly */
+  @media (min-width: 1024px) {
+    h2 {
+      font-size: 36px; /* Desktop */
+      margin-bottom: 30px;
+    }
+  }
+  
+  h3 {
+    @apply font-source-serif italic text-mte-charcoal;
+    font-size: 18px; /* Mobile */
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 24px; /* Tablet */
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h3 {
+      font-size: 30px; /* Desktop - brand spec */
+      margin-bottom: 30px;
+    }
+  }
+  
+  h4 {
+    @apply font-lato font-bold text-mte-charcoal uppercase;
+    font-size: 14px; /* Mobile */
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  
+  @media (min-width: 768px) {
+    h4 {
+      font-size: 16px; /* Tablet */
+      margin-bottom: 16px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h4 {
+      font-size: 18px; /* Desktop - brand spec */
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Paragraph styles - Responsive */
+  p {
+    @apply font-lato font-normal text-mte-charcoal;
+    font-size: 14px; /* Mobile */
+    line-height: 1.5;
+    margin-bottom: 12px;
+    max-width: 70ch; /* Rule 06: Keep line length reasonable */
+  }
+  
+  @media (min-width: 768px) {
+    p {
+      font-size: 16px; /* Desktop */
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+  }
+  
+  /* Link styles - Per brand guide */
+  a {
+    @apply font-lato font-normal text-mte-blue underline;
+  }
+  
+  a:hover {
+    @apply text-mte-blue-80;
+    text-decoration: none; /* Remove underline on hover */
+  }
+  
+  /* Block quote styles - Responsive */
+  blockquote {
+    @apply font-lato;
+    font-size: 20px; /* Mobile */
+    line-height: 1.4;
+    margin: 16px 0;
+    padding: 0 0 0 24px;
+    border-left: 3px solid theme('colors.mte-blue');
+  }
+  
+  @media (min-width: 768px) {
+    blockquote {
+      font-size: 24px; /* Tablet */
+      line-height: 1.4;
+      margin: 20px 0;
+      padding: 0 0 0 32px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    blockquote {
+      font-size: 30px; /* Desktop - brand spec */
+      line-height: 1.4;
+      padding: 0 0 0 40px;
+    }
+  }
+  
+  /* Strong/Bold text */
+  strong,
+  b {
+    @apply font-bold;
+  }
+  
+  /* Emphasis/Italic text */
+  em,
+  i {
+    @apply italic;
+  }
+}
+
+/* ========================================
+   COMPONENTS LAYER - Reusable Patterns
+   ======================================== */
+
+@layer components {
+  /* Typography Hierarchy - Option 2 (Content Structure) - Responsive */
+  .headline {
+    @apply font-lato font-black;
+    font-size: 32px; /* Mobile */
+    line-height: 1.2;
+    color: theme('colors.mte-charcoal');
+    margin-bottom: 16px;
+  }
+  
+  @media (min-width: 768px) {
+    .headline {
+      font-size: 42px; /* Tablet */
+      line-height: 1.2;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .headline {
+      font-size: 50px; /* Desktop - brand spec */
+      line-height: 56px;
+    }
+  }
+  
+  .subhead {
+    @apply font-source-serif italic;
+    font-size: 20px; /* Mobile */
+    line-height: 1.3;
+    color: theme('colors.mte-charcoal');
+  }
+  
+  @media (min-width: 768px) {
+    .subhead {
+      font-size: 26px; /* Tablet */
+      line-height: 1.3;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .subhead {
+      font-size: 30px; /* Desktop - brand spec */
+      line-height: 36px;
+    }
+  }
+  
+  .body-text {
+    @apply font-lato font-normal;
+    font-size: 14px; /* Mobile */
+    line-height: 1.5;
+    color: theme('colors.mte-charcoal');
+    margin-bottom: 12px;
+  }
+  
+  @media (min-width: 768px) {
+    .body-text {
+      font-size: 16px; /* Tablet */
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .body-text {
+      font-size: 18px; /* Desktop - brand spec */
+      line-height: 26px;
+    }
+  }
+  
+  /* Button styles - Brand compliant with touch-friendly sizes */
+  .btn-primary {
+    @apply bg-mte-blue text-white font-lato font-medium rounded-lg;
+    padding: 12px 20px; /* Mobile - touch-friendly */
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  @media (min-width: 768px) {
+    .btn-primary {
+      padding: 12px 24px; /* Desktop */
+      font-size: 16px;
+    }
+  }
+  
+  .btn-primary:hover {
+    @apply bg-mte-blue-80 shadow-mte-card-hover;
+  }
+  
+  /* Card styles - Brand compliant */
+  .card {
+    @apply bg-white rounded-lg;
+    padding: 16px; /* Mobile */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+  }
+  
+  @media (min-width: 768px) {
+    .card {
+      padding: 24px; /* Desktop */
+    }
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Specialty script text - Use sparingly per brand guide */
   .text-script {
     @apply font-nexa;
   }
+}
+
+/* ========================================
+   UTILITIES LAYER - Helper Classes
+   ======================================== */
+
+@layer utilities {
+  /* Typography weight utilities aligned with brand */
+  .font-lato-light {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+  }
+  
+  .font-lato-regular {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+  }
+  
+  .font-lato-medium {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+  }
+  
+  .font-lato-bold {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+  }
+  
+  .font-lato-heavy {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-weight: 900;
+  }
+  
+  /* Brand-compliant text alignment (Rule 01) */
+  .text-brand-left {
+    text-align: left;
+  }
+  
+  /* Line length control (Rule 06) */
+  .line-length-optimal {
+    max-width: 70ch; /* Optimal: 45-70 characters */
+  }
+  
+  .line-length-minimum {
+    max-width: 45ch;
+  }
+  
+  /* Background tints - Brand compliant */
+  .bg-mte-blue-tint {
+    background-color: rgba(0, 173, 238, 0.2);
+  }
+  
+  /* Gradient backgrounds */
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, #00ADEE 0%, #0896d4 100%);
+  }
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY
+   Already handled in base layer above
+   ======================================== */
+
+/* Mobile adjustments are built into the base layer */
+
+/* ========================================
+   ACCESSIBILITY & BRAND COMPLIANCE
+   ======================================== */
+
+/* Ensure contrast for tints below 60% (Brand Guide requirement) */
+.bg-mte-blue-40,
+.bg-mte-blue-20 {
+  color: theme('colors.mte-black');
+}
+
+/* Focus states for accessibility */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid theme('colors.mte-blue');
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for interactive elements */
+a,
+button,
+.card,
+.btn-primary {
+  transition: all 0.2s ease-in-out;
 }

@@ -20,11 +20,11 @@ import KeyForMap from "../assets/KeyForMap.png";
 
 // Organization category color mapping
 const CATEGORY_COLORS = {
-  "Bridge Ministry": { bg: "bg-yellow-200", text: "text-yellow-800", border: "border-yellow-300", dot: "#facc15" },
-  "Service Organization": { bg: "bg-green-200", text: "text-green-800", border: "border-green-300", dot: "#22c55e" },
-  "Church Ministry": { bg: "bg-blue-200", text: "text-blue-800", border: "border-blue-300", dot: "#3b82f6" },
-  "Government": { bg: "bg-red-200", text: "text-red-800", border: "border-red-300", dot: "#ef4444" },
-  "Placement Agency": { bg: "bg-purple-200", text: "text-purple-800", border: "border-purple-300", dot: "#a855f7" },
+  "Bridge Ministry": { bg: "bg-mte-yellow-20", text: "text-mte-black", border: "border-mte-yellow", dot: "#e7d151" },
+  "Service Organization": { bg: "bg-mte-green-20", text: "text-mte-black", border: "border-mte-green", dot: "#4aa456" },
+  "Church Ministry": { bg: "bg-mte-blue-20", text: "text-mte-black", border: "border-mte-blue", dot: "#00ADEE" },
+  "Government": { bg: "bg-mte-orange-20", text: "text-mte-black", border: "border-mte-orange", dot: "#dc6a42" },
+  "Placement Agency": { bg: "bg-mte-purple-20", text: "text-mte-black", border: "border-mte-purple", dot: "#882781" },
 };
 
 // Mock organization data (would come from props in real app)
@@ -99,7 +99,7 @@ const orgData = [
 
 // Create custom dot icons based on category
 const createDotIcon = (category) => {
-  const color = CATEGORY_COLORS[category]?.dot || "#1d4ed8";
+  const color = CATEGORY_COLORS[category]?.dot || "#00ADEE";
   return new L.DivIcon({
     className: "custom-dot",
     html: `<div style="width:12px; height:12px; background:${color}; border:2px solid white; border-radius:50%; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
@@ -239,31 +239,31 @@ export default function OrganizationalView({ regionLevel, regionId }) {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <div className="border-b">
-        <div className="max-w-7xl mx-auto px-4 py-6 text-center">
-          <h1 className="text-3xl sm:text-4xl text-gray-900 font-nexa">
+      <div className="border-b border-mte-light-grey">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 text-center">
+          <h1 className="text-2xl md:text-4xl font-nexa text-mte-black">
             {getDisplayName()}
           </h1>
-          <p className="text-gray-700 mt-1">
+          <p className="text-sm md:text-base text-mte-charcoal mt-1 px-4">
             {getSubtitle()}
           </p>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col lg:flex-row gap-6 flex-grow">
+      <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col lg:flex-row gap-4 md:gap-6 flex-grow">
         {/* Sidebar */}
         {showSidebar && (
-          <div className="w-full lg:w-1/4 space-y-6">
+          <div className="w-full lg:w-1/4 space-y-4 md:space-y-6">
             {/* National: Jump selectors */}
             {showNationalMap && (
-              <div className="bg-white p-4 rounded-lg shadow-sm space-y-3">
-                <select className="w-full border border-gray-300 rounded p-2 text-sm">
+              <div className="bg-white p-4 rounded-lg shadow-mte-card space-y-3">
+                <select className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal">
                   <option>Jump to a State</option>
                   <option value="alabama">Alabama</option>
                   <option value="new-york">New York</option>
                 </select>
-                <select className="w-full border border-gray-300 rounded p-2 text-sm">
+                <select className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal">
                   <option>Jump to a County</option>
                   <option value="butler-al">Butler County, AL</option>
                   <option value="nassau-ny">Nassau County, NY</option>
@@ -272,10 +272,10 @@ export default function OrganizationalView({ regionLevel, regionId }) {
             )}
 
             {/* Organization Categories */}
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h3 className="font-semibold mb-1">Organization Categories</h3>
-              <p className="text-xs text-gray-600 mb-3">Check categories to explore who is working in your community</p>
-              <div className="space-y-2 text-sm">
+            <div className="bg-white p-4 rounded-lg shadow-mte-card">
+              <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black">Organization Categories</h3>
+              <p className="text-sm text-mte-charcoal mb-3 font-lato">Check categories to explore who is working in your community</p>
+              <div className="space-y-2 text-base font-lato">
                 {Object.entries(CATEGORY_COLORS).map(([category, colors]) => (
                   <label key={category} className="flex items-center gap-2 cursor-pointer">
                     <input
@@ -286,17 +286,17 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                     <div
                       className={`w-3 h-3 rounded-full ${colors.bg} ${colors.border} border`}
                     ></div>
-                    <span>{category}</span>
+                    <span className="text-mte-charcoal">{category}</span>
                   </label>
                 ))}
               </div>
             </div>
 
             {/* Impact Areas */}
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h3 className="font-semibold mb-1">Impact Areas</h3>
-              <p className="text-xs text-gray-600 mb-3">Check images to identify who is working in MTE's four impact areas</p>
-              <div className="grid grid-cols-2 gap-3 text-sm">
+            <div className="bg-white p-4 rounded-lg shadow-mte-card">
+              <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black">Impact Areas</h3>
+              <p className="text-sm text-mte-charcoal mb-3 font-lato">Check images to identify who is working in MTE's four impact areas</p>
+              <div className="grid grid-cols-2 gap-3 text-base font-lato">
                 <label className="flex flex-col items-center cursor-pointer">
                   <div className="relative">
                     <img src={FosterKinshipIcon} alt="Foster Kinship" className="w-10 h-10 mb-1" />
@@ -307,7 +307,7 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                       className="absolute -top-1 -right-1 w-4 h-4"
                     />
                   </div>
-                  <span className="text-center">Foster & Kinship</span>
+                  <span className="text-center text-mte-charcoal">Foster & Kinship</span>
                 </label>
                 <label className="flex flex-col items-center cursor-pointer">
                   <div className="relative">
@@ -319,7 +319,7 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                       className="absolute -top-1 -right-1 w-4 h-4"
                     />
                   </div>
-                  <span className="text-center">Adoptive</span>
+                  <span className="text-center text-mte-charcoal">Adoptive</span>
                 </label>
                 <label className="flex flex-col items-center cursor-pointer">
                   <div className="relative">
@@ -331,7 +331,7 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                       className="absolute -top-1 -right-1 w-4 h-4"
                     />
                   </div>
-                  <span className="text-center">Support for Biological Families</span>
+                  <span className="text-center text-mte-charcoal">Support for Biological Families</span>
                 </label>
                 <label className="flex flex-col items-center cursor-pointer">
                   <div className="relative">
@@ -343,19 +343,19 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                       className="absolute -top-1 -right-1 w-4 h-4"
                     />
                   </div>
-                  <span className="text-center">Wraparound Support</span>
+                  <span className="text-center text-mte-charcoal">Wraparound Support</span>
                 </label>
               </div>
             </div>
 
             {/* Relationships - County only */}
             {showInteractiveMap && (
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h3 className="font-semibold mb-1">Relationships</h3>
-                <p className="text-xs text-gray-600 mb-3">Display collaborations to see how organizations work together</p>
+              <div className="bg-white p-4 rounded-lg shadow-mte-card">
+                <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black">Relationships</h3>
+                <p className="text-sm text-mte-charcoal mb-3 font-lato">Display collaborations to see how organizations work together</p>
                 <div className="space-y-2">
-                  <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-sm cursor-pointer transition-colors ${
-                    showConnectionLines ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-base font-lato cursor-pointer transition-colors ${
+                    showConnectionLines ? 'bg-mte-blue text-white' : 'bg-mte-light-grey text-mte-charcoal hover:bg-mte-blue-20'
                   }`}>
                     <div className="flex items-center gap-2">
                       <input 
@@ -379,8 +379,8 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                     </svg>
                   </label>
                   
-                  <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-sm cursor-pointer transition-colors ${
-                    showLocalNetworks ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-base font-lato cursor-pointer transition-colors ${
+                    showLocalNetworks ? 'bg-mte-blue text-white' : 'bg-mte-light-grey text-mte-charcoal hover:bg-mte-blue-20'
                   }`}>
                     <div className="flex items-center gap-2">
                       <input 
@@ -413,8 +413,8 @@ export default function OrganizationalView({ regionLevel, regionId }) {
         <div className="w-full lg:w-3/4 flex flex-col gap-6">
           {/* National Static Map */}
           {showNationalMap && (
-            <div className="bg-white rounded-lg shadow-sm p-4">
-              <div className="text-blue-700 p-2 rounded mb-4 text-sm space-y-2">
+            <div className="bg-white rounded-lg shadow-mte-card p-4">
+              <div className="text-mte-blue p-2 rounded mb-4 text-base font-lato space-y-2">
                 <div className="flex items-center gap-2">
                   <img src={HandIcon} alt="Hover hand" className="w-5 h-5" />
                   <span>Hover over a state to display the data</span>
@@ -441,7 +441,7 @@ export default function OrganizationalView({ regionLevel, regionId }) {
 
           {/* County Interactive Map */}
           {showInteractiveMap && (
-            <div className="bg-white rounded-lg shadow-sm p-4">
+            <div className="bg-white rounded-lg shadow-mte-card p-4">
               <MapContainer
                 center={[40.73, -73.935]}
                 zoom={12}
@@ -458,7 +458,7 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                     key={`connection-${index}`}
                     positions={[connection.from, connection.to]}
                     pathOptions={{
-                      color: "#3b82f6",
+                      color: "#00ADEE",
                       weight: 2,
                       opacity: 0.7,
                       dashArray: "5, 10"
@@ -479,12 +479,12 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                     <Tooltip>
                       <div>
                         <strong>{org.name}</strong><br/>
-                        <span className="text-sm">{org.category}</span><br/>
-                        <span className="text-xs">{org.focus.join(", ")}</span>
+                        <span className="text-base">{org.category}</span><br/>
+                        <span className="text-sm">{org.focus.join(", ")}</span>
                         {org.connections && org.connections.length > 0 && (
                           <>
-                            <br/><span className="text-xs font-semibold">Connected to:</span><br/>
-                            <span className="text-xs">{org.connections.join(", ")}</span>
+                            <br/><span className="text-sm font-semibold">Connected to:</span><br/>
+                            <span className="text-sm">{org.connections.join(", ")}</span>
                           </>
                         )}
                       </div>
@@ -494,19 +494,19 @@ export default function OrganizationalView({ regionLevel, regionId }) {
               </MapContainer>
               
               {/* Status indicators */}
-              <div className="mt-3 flex flex-wrap gap-2 text-xs">
+              <div className="mt-3 flex flex-wrap gap-2 text-sm font-lato">
                 {showConnectionLines && connectionLines.length > 0 && (
-                  <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded">
+                  <span className="px-2 py-1 bg-mte-blue-20 text-mte-charcoal rounded">
                     {connectionLines.length} Connection Lines Active
                   </span>
                 )}
                 {showLocalNetworks && networkClusters.length > 0 && (
-                  <span className="px-2 py-1 bg-green-100 text-green-800 rounded">
+                  <span className="px-2 py-1 bg-mte-green-20 text-mte-charcoal rounded">
                     {networkClusters.length} Local Networks Visible
                   </span>
                 )}
                 {filteredOrgs.length !== orgData.length && (
-                  <span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded">
+                  <span className="px-2 py-1 bg-mte-yellow-20 text-mte-charcoal rounded">
                     {filteredOrgs.length} of {orgData.length} organizations shown
                   </span>
                 )}
@@ -515,8 +515,8 @@ export default function OrganizationalView({ regionLevel, regionId }) {
           )}
 
           {/* Organization Cards - Horizontal Scrolling */}
-          <div className="bg-white rounded-lg shadow-sm p-4">
-            <h3 className="font-semibold mb-4">Organizations ({filteredOrgs.length})</h3>
+          <div className="bg-white rounded-lg shadow-mte-card p-4">
+            <h3 className="text-h4 font-bold uppercase mb-4 text-mte-black">Organizations ({filteredOrgs.length})</h3>
             <div className="overflow-x-auto">
               <div className="flex gap-4 pb-4" style={{ minWidth: "max-content" }}>
                 {filteredOrgs.map((org) => {
@@ -524,24 +524,24 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                   return (
                     <div
                       key={org.name}
-                      className={`bg-white p-4 rounded-lg shadow-sm border-l-4 ${colors.border} flex-shrink-0`}
+                      className={`bg-white p-4 rounded-lg shadow-mte-card border-l-4 ${colors.border} flex-shrink-0`}
                       style={{ minWidth: "300px", maxWidth: "300px" }}
                     >
                       <div className="flex items-center gap-2 mb-2">
                         <div className={`w-3 h-3 rounded-full ${colors.bg} ${colors.border} border`}></div>
-                        <h4 className={`font-semibold ${colors.text}`}>{org.name}</h4>
+                        <h4 className={`font-semibold ${colors.text} font-lato`}>{org.name}</h4>
                       </div>
-                      <div className={`text-xs px-2 py-1 rounded ${colors.bg} ${colors.text} inline-block mb-2`}>
+                      <div className={`text-sm px-2 py-1 rounded ${colors.bg} ${colors.text} inline-block mb-2 font-lato`}>
                         {org.category}
                       </div>
-                      <p className="text-sm text-gray-600 mb-2">{org.description}</p>
-                      <div className="text-xs text-gray-500 mb-2">
+                      <p className="text-base text-mte-charcoal mb-2 font-lato">{org.description}</p>
+                      <div className="text-sm text-mte-charcoal mb-2 font-lato">
                         <strong>Focus Areas:</strong> {org.focus.join(", ")}
                       </div>
-                      <div className="text-xs text-gray-500">Location: {org.location}</div>
-                      <div className="text-xs text-gray-500">Phone: {org.phone}</div>
-                      <div className="text-xs text-gray-500">Email: {org.email}</div>
-                      <button className="mt-3 px-3 py-1 text-sm bg-blue-400 text-white rounded hover:bg-blue-500 w-full">
+                      <div className="text-sm text-mte-charcoal font-lato">Location: {org.location}</div>
+                      <div className="text-sm text-mte-charcoal font-lato">Phone: {org.phone}</div>
+                      <div className="text-sm text-mte-charcoal font-lato">Email: {org.email}</div>
+                      <button className="mt-3 px-3 py-1 text-base bg-mte-blue text-white rounded hover:bg-mte-blue-80 w-full font-lato font-medium transition-colors">
                         View Full Profile
                       </button>
                     </div>

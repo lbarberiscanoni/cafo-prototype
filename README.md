@@ -1,3 +1,4 @@
 - [ ] On the historical view page, I would also enlarge the icons and add the “Select a Metric” drop-down. If you need me to re-share what should be included in each drop-down, let me know
 - [ ] The generated map needs to be updated and states should take you to the state view
 - [ ] Create real maps for everything
+

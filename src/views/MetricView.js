@@ -157,11 +157,27 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   };
 
   // Handler for when a county is clicked on the state map
-  const handleCountyClick = (fips, countyName, countyData) => {
-    console.log('County clicked:', fips, countyName);
+  const handleCountyClick = (fips, countyName, clickedCountyData) => {
+    console.log('County clicked:', { fips, countyName, clickedCountyData });
+    
+    // Get the state code from current state
+    const stateCode = stateNameToCode[data.name];
+    
+    // Convert county name to lowercase with hyphens and add state code
+    // "Butler" -> "butler-al", "Nassau" -> "nassau-ny"
+    const countyId = `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode?.toLowerCase()}`;
+    
+    console.log('Converted to county ID:', countyId);
+    console.log('Available county keys:', Object.keys(countyData));
+    
     // Navigate to county view
     if (onSelectRegion) {
-      onSelectRegion({ level: 'county', id: fips, name: countyName });
+      onSelectRegion({ 
+        level: 'county', 
+        id: countyId,           // "butler-al" or "nassau-ny"
+        name: `${countyName} County, ${data.name}`,  // "Butler County, Alabama"
+        fips: fips 
+      });
     }
   };
 

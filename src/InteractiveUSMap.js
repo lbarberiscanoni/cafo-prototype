@@ -115,7 +115,7 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
             
             if (data) {
               d3.select(this)
-                .attr("stroke", "#3b82f6")
+                .attr("stroke", "#00ADEE")
                 .attr("stroke-width", 2);
                 
               const [x, y] = d3.pointer(event, svg.node());
@@ -137,7 +137,8 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
             const stateName = d.properties.name;
             const data = stateData[stateName];
             if (data && onStateClick) {
-              onStateClick(data.code, data);
+              // Pass state code, name, and data to parent
+              onStateClick(data.code, stateName, data);
             }
           });
       })

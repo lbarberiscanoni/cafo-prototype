@@ -10,8 +10,63 @@ import WrapAroundIcon from "../assets/WrapAround_icon.png";
 import AlabamaMap from "../assets/Alabama.png";
 import MTELogo from "../assets/MTE_Logo.png";
 import InteractiveUSMap from "../InteractiveUSMap";
+import InteractiveStateMap from "../InteractiveStateMap";
 
-const MetricView = ({ regionLevel, regionId }) => {
+const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
+  // Convert state names to codes
+  const stateNameToCode = {
+    'Alabama': 'AL',
+    'Alaska': 'AK',
+    'Arizona': 'AZ',
+    'Arkansas': 'AR',
+    'California': 'CA',
+    'Colorado': 'CO',
+    'Connecticut': 'CT',
+    'Delaware': 'DE',
+    'Florida': 'FL',
+    'Georgia': 'GA',
+    'Hawaii': 'HI',
+    'Idaho': 'ID',
+    'Illinois': 'IL',
+    'Indiana': 'IN',
+    'Iowa': 'IA',
+    'Kansas': 'KS',
+    'Kentucky': 'KY',
+    'Louisiana': 'LA',
+    'Maine': 'ME',
+    'Maryland': 'MD',
+    'Massachusetts': 'MA',
+    'Michigan': 'MI',
+    'Minnesota': 'MN',
+    'Mississippi': 'MS',
+    'Missouri': 'MO',
+    'Montana': 'MT',
+    'Nebraska': 'NE',
+    'Nevada': 'NV',
+    'New Hampshire': 'NH',
+    'New Jersey': 'NJ',
+    'New Mexico': 'NM',
+    'New York': 'NY',
+    'North Carolina': 'NC',
+    'North Dakota': 'ND',
+    'Ohio': 'OH',
+    'Oklahoma': 'OK',
+    'Oregon': 'OR',
+    'Pennsylvania': 'PA',
+    'Rhode Island': 'RI',
+    'South Carolina': 'SC',
+    'South Dakota': 'SD',
+    'Tennessee': 'TN',
+    'Texas': 'TX',
+    'Utah': 'UT',
+    'Vermont': 'VT',
+    'Virginia': 'VA',
+    'Washington': 'WA',
+    'West Virginia': 'WV',
+    'Wisconsin': 'WI',
+    'Wyoming': 'WY'
+  };
+
   // Get data based on region level
   const getData = () => {
     switch (regionLevel) {
@@ -28,7 +83,19 @@ const MetricView = ({ regionLevel, regionId }) => {
           churchesWithMinistry: nationalStats.churchesWithMinistry,
         };
       case "state":
-        const state = stateData[regionId] || stateData.alabama; // fallback to alabama
+        // regionId is lowercase-hyphenated format: "alabama", "new-york", etc.
+        console.log('Looking up state data for regionId:', regionId);
+        console.log('Available state keys:', Object.keys(stateData));
+        
+        let state = stateData[regionId];
+        
+        // Fallback to first available state if not found
+        if (!state) {
+          console.warn('State not found for regionId:', regionId, '- using first available state');
+          console.warn('Make sure your mock-data.js has an entry for:', regionId);
+          state = Object.values(stateData)[0];
+        }
+        
         return {
           name: state.name,
           subtitle: "Explore foster care data in this state",
@@ -66,6 +133,37 @@ const MetricView = ({ regionLevel, regionId }) => {
   };
 
   const data = getData();
+
+  // Handler for when a state is clicked on the national map
+  const handleStateClick = (stateCode, stateName, clickedStateData) => {
+    console.log('State clicked:', { stateCode, stateName, clickedStateData });
+    
+    // Convert state name to lowercase with hyphens to match mock-data format
+    // "New York" -> "new-york", "Alabama" -> "alabama"
+    const stateId = stateName.toLowerCase().replace(/\s+/g, '-');
+    
+    console.log('Converted to state ID:', stateId);
+    console.log('Available state keys in stateData:', Object.keys(stateData));
+    
+    // Navigate to state view
+    if (onSelectRegion) {
+      onSelectRegion({ 
+        level: 'state', 
+        id: stateId,        // "new-york" or "alabama"
+        name: stateName,    // "New York" or "Alabama"
+        code: stateCode     // "NY" or "AL"
+      });
+    }
+  };
+
+  // Handler for when a county is clicked on the state map
+  const handleCountyClick = (fips, countyName, countyData) => {
+    console.log('County clicked:', fips, countyName);
+    // Navigate to county view
+    if (onSelectRegion) {
+      onSelectRegion({ level: 'county', id: fips, name: countyName });
+    }
+  };
 
   // Conditional rendering helpers
   const showMap = regionLevel === "national";
@@ -205,9 +303,7 @@ const MetricView = ({ regionLevel, regionId }) => {
             <div className="bg-white rounded-lg shadow-mte-card p-4 mb-6">
               <InteractiveUSMap 
                 selectedMetric="Count of Family Preservation Cases"
-                onStateClick={(stateCode, stateData) => {
-                  console.log('State clicked:', stateCode, stateData);
-                }}
+                onStateClick={handleStateClick}
               />
             </div>
 
@@ -267,8 +363,22 @@ const MetricView = ({ regionLevel, regionId }) => {
 
       {/* State Stats Section */}
       {showStateDetails && (
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <>
+          {/* State Map */}
+          <div className="max-w-7xl mx-auto px-4 py-4 md:py-6">
+            <div className="bg-white rounded-lg shadow-mte-card p-4">
+              <InteractiveStateMap
+                stateCode={stateNameToCode[data.name] || 'AL'}
+                stateName={data.name}
+                selectedMetric="Children in Care"
+                onCountyClick={handleCountyClick}
+              />
+            </div>
+          </div>
+
+          {/* State Stats Cards */}
+          <div className="max-w-7xl mx-auto px-4 py-4 md:py-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Children in Care */}
             <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
               <img src={BiologicalFamilyIcon} alt="Children" className="w-16 h-16 mx-auto mb-4" />
@@ -315,6 +425,7 @@ const MetricView = ({ regionLevel, regionId }) => {
             </div>
           </div>
         </div>
+        </>
       )}
 
       {/* County-specific: Church stat bar */}

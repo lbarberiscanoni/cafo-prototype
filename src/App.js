@@ -23,10 +23,11 @@ function App() {
   const [view, setView] = useState("metric");
   const [selectedRegion, setSelectedRegion] = useState(null);
 
-  const handleSelectRegion = ({ level, id }) => {
+  const handleSelectRegion = ({ level, id, name, code }) => {
+    console.log('App: handleSelectRegion', { level, id, name, code });
     setRegion(level);
     setView("metric");
-    setSelectedRegion({ level, id });
+    setSelectedRegion({ level, id, name, code });
   };
 
   const handleSwitchView = (newView) => {
@@ -59,6 +60,7 @@ function App() {
           <ViewComponent
             regionLevel={region}
             regionId={selectedRegion?.id}
+            onSelectRegion={handleSelectRegion}
           />
         )}
       </div>

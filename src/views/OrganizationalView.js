@@ -24,76 +24,103 @@ const CATEGORY_COLORS = {
   "Placement Agency": { bg: "bg-mte-purple-20", text: "text-mte-black", border: "border-mte-purple", dot: "#882781" },
 };
 
-
-// Mock organizations for county level
-const countyOrgs = [
-  {
-    name: "Bridge Ministry",
-    category: "Bridge Ministry",
-    description: "Supporting foster families through faith-based community connections and practical assistance.",
-    focus: ["Foster and Kinship Families", "Wraparound"],
-    location: "Nassau County - 10100",
-    phone: "516-456-7891",
-    email: "info@nassaubridgeministry.org",
-    coords: [40.73061, -73.935242],
-    connections: ["Hope Family Services", "Grace Church Foster Ministry"],
-  },
-  {
-    name: "Hope Family Services",
-    category: "Service Organization",
-    description: "Supporting foster families through faith-based community connections and practical assistance.",
-    focus: ["Adoptive", "Wraparound", "Biological"],
-    location: "Nassau County - 10100",
-    phone: "516-456-7891",
-    email: "info@nassauhope.org",
-    coords: [40.732, -73.94],
-    connections: ["Community Support Network", "Family Connect Services"],
-  },
-  {
-    name: "Community Support Network",
-    category: "Government",
-    description: "Supporting foster families through faith-based community connections and practical assistance.",
-    focus: ["Foster and Kinship Families", "Wraparound"],
-    location: "Nassau County - 10100",
-    phone: "516-456-7891",
-    email: "info@nassaucommunity.org",
-    coords: [40.728, -73.93],
-    connections: ["Children First Placement"],
-  },
-  {
-    name: "Grace Church Foster Ministry",
-    category: "Church Ministry",
-    description: "Local church providing comprehensive support for foster families in the community.",
-    focus: ["Foster and Kinship Families", "Wraparound"],
-    location: "Nassau County - 10101",
-    phone: "516-555-0123",
-    email: "foster@gracechurch.org",
-    coords: [40.735, -73.925],
-    connections: ["Family Connect Services"],
-  },
-  {
-    name: "Children First Placement",
-    category: "Placement Agency",
-    description: "Licensed placement agency specializing in matching children with loving families.",
-    focus: ["Adoptive", "Foster and Kinship Families"],
-    location: "Nassau County - 10102",
-    phone: "516-555-0456",
-    email: "placements@childrenfirst.org",
-    coords: [40.740, -73.920],
-    connections: ["Hope Family Services"],
-  },
-  {
-    name: "Family Connect Services",
-    category: "Service Organization",
-    description: "Comprehensive family support services including counseling and resources.",
-    focus: ["Biological", "Wraparound"],
-    location: "Nassau County - 10103",
-    phone: "516-555-0789",
-    email: "connect@familyservices.org",
-    coords: [40.725, -73.945],
-    connections: [],
-  },
-];
+// Function to generate mock organizations dynamically based on county location
+const generateCountyOrgs = (centerCoords, countyName = "County", stateCode = "XX") => {
+  const [centerLat, centerLng] = centerCoords;
+  
+  // Helper to generate coordinates near the center
+  const offsetCoord = (base, offsetLat, offsetLng) => [
+    base[0] + offsetLat,
+    base[1] + offsetLng
+  ];
+  
+  // Generate a pseudo-random but consistent zip code based on coordinates
+  const generateZip = (lat, lng, index) => {
+    const hash = Math.abs(Math.floor((lat + lng) * 10000 + index));
+    return String(hash).slice(-5).padStart(5, '0');
+  };
+  
+  // Generate area code based on state code (simplified)
+  const getAreaCode = (stateCode) => {
+    const areaCodes = {
+      'NY': '516', 'AL': '334', 'CA': '415', 'TX': '512', 'FL': '305',
+      'PA': '215', 'OH': '216', 'IL': '312', 'MI': '313', 'GA': '404',
+    };
+    return areaCodes[stateCode] || '555';
+  };
+  
+  const areaCode = getAreaCode(stateCode);
+  const cleanCountyName = countyName.replace(/\s+County.*$/, '').trim();
+  
+  return [
+    {
+      name: "Bridge Ministry",
+      category: "Bridge Ministry",
+      description: "Supporting foster families through faith-based community connections and practical assistance.",
+      focus: ["Foster and Kinship Families", "Wraparound"],
+      location: `${countyName} - ${generateZip(centerLat, centerLng, 0)}`,
+      phone: `${areaCode}-456-7891`,
+      email: `info@${cleanCountyName.toLowerCase().replace(/\s+/g, '')}bridgeministry.org`,
+      coords: offsetCoord(centerCoords, 0.00061, -0.000242),
+      connections: ["Hope Family Services", "Grace Church Foster Ministry"],
+    },
+    {
+      name: "Hope Family Services",
+      category: "Service Organization",
+      description: "Comprehensive family support organization providing resources and counseling for all family types.",
+      focus: ["Adoptive", "Wraparound", "Biological"],
+      location: `${countyName} - ${generateZip(centerLat, centerLng, 1)}`,
+      phone: `${areaCode}-456-7892`,
+      email: `info@${cleanCountyName.toLowerCase().replace(/\s+/g, '')}hope.org`,
+      coords: offsetCoord(centerCoords, 0.002, -0.005),
+      connections: ["Community Support Network", "Family Connect Services"],
+    },
+    {
+      name: "Community Support Network",
+      category: "Government",
+      description: "Government-funded community organization providing wraparound services and family support.",
+      focus: ["Foster and Kinship Families", "Wraparound"],
+      location: `${countyName} - ${generateZip(centerLat, centerLng, 2)}`,
+      phone: `${areaCode}-456-7893`,
+      email: `info@${cleanCountyName.toLowerCase().replace(/\s+/g, '')}community.org`,
+      coords: offsetCoord(centerCoords, -0.002, -0.005),
+      connections: ["Children First Placement"],
+    },
+    {
+      name: "Grace Church Foster Ministry",
+      category: "Church Ministry",
+      description: "Local church providing comprehensive support for foster families in the community.",
+      focus: ["Foster and Kinship Families", "Wraparound"],
+      location: `${countyName} - ${generateZip(centerLat, centerLng, 3)}`,
+      phone: `${areaCode}-555-0123`,
+      email: `foster@gracechurch.org`,
+      coords: offsetCoord(centerCoords, 0.005, 0.01),
+      connections: ["Family Connect Services"],
+    },
+    {
+      name: "Children First Placement",
+      category: "Placement Agency",
+      description: "Licensed placement agency specializing in matching children with loving families.",
+      focus: ["Adoptive", "Foster and Kinship Families"],
+      location: `${countyName} - ${generateZip(centerLat, centerLng, 4)}`,
+      phone: `${areaCode}-555-0456`,
+      email: `placements@childrenfirst.org`,
+      coords: offsetCoord(centerCoords, 0.010, 0.015),
+      connections: ["Hope Family Services"],
+    },
+    {
+      name: "Family Connect Services",
+      category: "Service Organization",
+      description: "Comprehensive family support services including counseling and resources.",
+      focus: ["Biological", "Wraparound"],
+      location: `${countyName} - ${generateZip(centerLat, centerLng, 5)}`,
+      phone: `${areaCode}-555-0789`,
+      email: `connect@familyservices.org`,
+      coords: offsetCoord(centerCoords, -0.005, -0.01),
+      connections: [],
+    },
+  ];
+};
 
 // Create custom dot icons based on category
 const createDotIcon = (category, size = "16px") => {
@@ -221,44 +248,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     }
   };
 
-  const filteredOrgs = countyOrgs.filter(org => {
-    const categoryMatch = selectedCategories.includes(org.category);
-    const impactAreaMatch = org.focus.some(focus => selectedImpactAreas.includes(focus));
-    return categoryMatch && impactAreaMatch;
-  });
-
-  // Generate connection lines between organizations
-  const generateConnectionLines = () => {
-    const connectionLines = [];
-    
-    filteredOrgs.forEach(org => {
-      if (org.connections && org.connections.length > 0) {
-        org.connections.forEach(connectionName => {
-          const targetOrg = filteredOrgs.find(target => target.name === connectionName);
-          if (targetOrg) {
-            connectionLines.push({
-              from: org.coords,
-              to: targetOrg.coords,
-              fromName: org.name,
-              toName: targetOrg.name,
-              category: org.category
-            });
-          }
-        });
-      }
-    });
-    
-    return connectionLines;
-  };
-
-  const connectionLines = showConnectionLines ? generateConnectionLines() : [];
-
-  // Conditional rendering
-  const showNationalMap = regionLevel === "national";
-  const showStateMap = regionLevel === "state";
-  const showCountyMap = regionLevel === "county";
-  const showSidebar = true;
-
   // Get appropriate map center and zoom based on level
   const getMapConfig = () => {
     switch (regionLevel) {
@@ -312,6 +301,62 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   };
 
   const mapConfig = getMapConfig();
+  
+  // Generate organizations dynamically for county level
+  const countyOrgs = React.useMemo(() => {
+    if (regionLevel !== 'county') return [];
+    
+    const displayName = getDisplayName();
+    // Extract county name without state
+    const countyName = displayName.split(',')[0] || displayName;
+    
+    // Extract state code from regionId
+    let stateCode = 'XX';
+    if (regionId && regionId.includes('-')) {
+      const parts = regionId.split('-');
+      stateCode = parts[parts.length - 1].toUpperCase();
+    }
+    
+    return generateCountyOrgs(mapConfig.center, countyName, stateCode);
+  }, [regionLevel, regionId, mapConfig.center]);
+
+  const filteredOrgs = countyOrgs.filter(org => {
+    const categoryMatch = selectedCategories.includes(org.category);
+    const impactAreaMatch = org.focus.some(focus => selectedImpactAreas.includes(focus));
+    return categoryMatch && impactAreaMatch;
+  });
+
+  // Generate connection lines between organizations
+  const generateConnectionLines = () => {
+    const connectionLines = [];
+    
+    filteredOrgs.forEach(org => {
+      if (org.connections && org.connections.length > 0) {
+        org.connections.forEach(connectionName => {
+          const targetOrg = filteredOrgs.find(target => target.name === connectionName);
+          if (targetOrg) {
+            connectionLines.push({
+              from: org.coords,
+              to: targetOrg.coords,
+              fromName: org.name,
+              toName: targetOrg.name,
+              category: org.category
+            });
+          }
+        });
+      }
+    });
+    
+    return connectionLines;
+  };
+
+  const connectionLines = showConnectionLines ? generateConnectionLines() : [];
+
+  // Conditional rendering
+  const showNationalMap = regionLevel === "national";
+  const showStateMap = regionLevel === "state";
+  const showCountyMap = regionLevel === "county";
+  const showSidebar = true;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -546,7 +591,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     <>
                       {/* Network 1: Bridge Ministry cluster */}
                       <Circle
-                        center={[40.732, -73.93]}
+                        center={[mapConfig.center[0] + 0.002, mapConfig.center[1] - 0.005]}
                         radius={800}
                         pathOptions={{
                           color: "#882781",
@@ -567,7 +612,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       
                       {/* Network 2: Community Support cluster */}
                       <Circle
-                        center={[40.727, -73.936]}
+                        center={[mapConfig.center[0] - 0.003, mapConfig.center[1] - 0.001]}
                         radius={600}
                         pathOptions={{
                           color: "#dc6a42",
@@ -641,7 +686,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                 )}
                 {showLocalNetworks && (
                   <span className="px-2 py-1 bg-mte-green-20 text-mte-charcoal rounded">
-                    4 Local Networks Visible
+                    2 Local Networks Visible
                   </span>
                 )}
                 {filteredOrgs.length !== countyOrgs.length && (

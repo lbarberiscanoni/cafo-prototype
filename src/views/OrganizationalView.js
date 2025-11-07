@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MapContainer, TileLayer, Marker, Tooltip, Polyline } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Tooltip, Polyline, Circle } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -12,12 +12,6 @@ import AdoptiveFamilyIcon from "../assets/Adoptive_family_icon.png";
 import BiologicalFamilyIcon from "../assets/BiologicalFamily_icon.png";
 import WrapAroundIcon from "../assets/WrapAround_icon.png";
 
-// National view assets
-import HandIcon from "../assets/front_hand.png";
-import PointerIcon from "../assets/Mouse pointer.png";
-import RecoloredMap from "../assets/RecoloredMap.png";
-import KeyForMap from "../assets/KeyForMap.png";
-
 // Organization category color mapping
 const CATEGORY_COLORS = {
   "Bridge Ministry": { bg: "bg-mte-yellow-20", text: "text-mte-black", border: "border-mte-yellow", dot: "#e7d151" },
@@ -27,8 +21,52 @@ const CATEGORY_COLORS = {
   "Placement Agency": { bg: "bg-mte-purple-20", text: "text-mte-black", border: "border-mte-purple", dot: "#882781" },
 };
 
-// Mock organization data (would come from props in real app)
-const orgData = [
+// State coordinates for national view (capital cities as representative points)
+const stateCoordinates = {
+  'Alabama': { coords: [32.806671, -86.791130], orgCount: 45 },
+  'Alaska': { coords: [61.370716, -152.404419], orgCount: 12 },
+  'Arizona': { coords: [33.729759, -111.431221], orgCount: 67 },
+  'Arkansas': { coords: [34.969704, -92.373123], orgCount: 32 },
+  'California': { coords: [36.116203, -119.681564], orgCount: 198 },
+  'Colorado': { coords: [39.059811, -105.311104], orgCount: 54 },
+  'Connecticut': { coords: [41.597782, -72.755371], orgCount: 38 },
+  'Delaware': { coords: [39.318523, -75.507141], orgCount: 15 },
+  'Florida': { coords: [27.766279, -81.686783], orgCount: 145 },
+  'Georgia': { coords: [33.040619, -83.643074], orgCount: 89 },
+  'New York': { coords: [42.165726, -74.948051], orgCount: 156 },
+  'Texas': { coords: [31.054487, -97.563461], orgCount: 187 },
+  'Illinois': { coords: [40.349457, -88.986137], orgCount: 98 },
+};
+
+// County coordinates for state view (using Alabama as example)
+const countyCoordinates = {
+  'Butler': { coords: [31.7532, -86.6803], orgCount: 5 },
+  'Montgomery': { coords: [32.3792, -86.3077], orgCount: 23 },
+  'Mobile': { coords: [30.6954, -88.0399], orgCount: 34 },
+  'Jefferson': { coords: [33.5207, -86.8025], orgCount: 56 },
+  'Madison': { coords: [34.7304, -86.5861], orgCount: 41 },
+  'Tuscaloosa': { coords: [33.2098, -87.5692], orgCount: 28 },
+};
+
+// State name to code mapping
+const stateNameToCode = {
+  'Alabama': 'AL',
+  'Alaska': 'AK',
+  'Arizona': 'AZ',
+  'Arkansas': 'AR',
+  'California': 'CA',
+  'Colorado': 'CO',
+  'Connecticut': 'CT',
+  'Delaware': 'DE',
+  'Florida': 'FL',
+  'Georgia': 'GA',
+  'New York': 'NY',
+  'Texas': 'TX',
+  'Illinois': 'IL',
+};
+
+// Mock organizations for county level
+const countyOrgs = [
   {
     name: "Bridge Ministry",
     category: "Bridge Ministry",
@@ -98,15 +136,25 @@ const orgData = [
 ];
 
 // Create custom dot icons based on category
-const createDotIcon = (category) => {
+const createDotIcon = (category, size = "12px") => {
   const color = CATEGORY_COLORS[category]?.dot || "#00ADEE";
   return new L.DivIcon({
     className: "custom-dot",
-    html: `<div style="width:12px; height:12px; background:${color}; border:2px solid white; border-radius:50%; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
+    html: `<div style="width:${size}; height:${size}; background:${color}; border:2px solid white; border-radius:50%; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
+    iconSize: [parseInt(size), parseInt(size)],
   });
 };
 
-export default function OrganizationalView({ regionLevel, regionId }) {
+// Create clickable state marker
+const createStateIcon = () => {
+  return new L.DivIcon({
+    className: "state-marker",
+    html: `<div style="width:20px; height:20px; background:#00ADEE; border:3px solid white; border-radius:50%; box-shadow: 0 2px 8px rgba(0,0,0,0.4); cursor:pointer;"></div>`,
+    iconSize: [20, 20],
+  });
+};
+
+export default function OrganizationalView({ regionLevel, regionId, onSelectRegion }) {
   const [selectedCategories, setSelectedCategories] = useState(Object.keys(CATEGORY_COLORS));
   const [selectedImpactAreas, setSelectedImpactAreas] = useState(["Foster and Kinship Families", "Adoptive", "Biological", "Wraparound"]);
   const [showConnectionLines, setShowConnectionLines] = useState(true);
@@ -129,7 +177,7 @@ export default function OrganizationalView({ regionLevel, regionId }) {
   const getSubtitle = () => {
     switch (regionLevel) {
       case "national":
-        return "Explore foster care data where you live";
+        return "Explore foster care organizations across the country";
       case "state":
         return "Explore local organizations in this state";
       case "county":
@@ -163,7 +211,39 @@ export default function OrganizationalView({ regionLevel, regionId }) {
     setShowLocalNetworks(prev => !prev);
   };
 
-  const filteredOrgs = orgData.filter(org => {
+  // Handler for when a state marker is clicked
+  const handleStateMarkerClick = (stateName) => {
+    console.log('State marker clicked:', stateName);
+    const stateId = stateName.toLowerCase().replace(/\s+/g, '-');
+    const stateCode = stateNameToCode[stateName];
+    
+    if (onSelectRegion) {
+      onSelectRegion({ 
+        level: 'state', 
+        id: stateId,
+        name: stateName,
+        code: stateCode
+      });
+    }
+  };
+
+  // Handler for when a county marker is clicked
+  const handleCountyMarkerClick = (countyName) => {
+    console.log('County marker clicked:', countyName);
+    const displayName = getDisplayName();
+    const stateCode = stateNameToCode[displayName];
+    const countyId = `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode?.toLowerCase()}`;
+    
+    if (onSelectRegion) {
+      onSelectRegion({ 
+        level: 'county', 
+        id: countyId,
+        name: `${countyName} County, ${displayName}`,
+      });
+    }
+  };
+
+  const filteredOrgs = countyOrgs.filter(org => {
     const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(org.category);
     const impactAreaMatch = selectedImpactAreas.length === 0 || 
       org.focus.some(focus => selectedImpactAreas.includes(focus));
@@ -196,45 +276,27 @@ export default function OrganizationalView({ regionLevel, regionId }) {
 
   const connectionLines = showConnectionLines ? generateConnectionLines() : [];
 
-  // Generate network clusters for local networks
-  const generateNetworkClusters = () => {
-    if (!showLocalNetworks) return [];
-    
-    const clusters = {};
-    
-    filteredOrgs.forEach(org => {
-      org.focus.forEach(focusArea => {
-        if (!clusters[focusArea]) {
-          clusters[focusArea] = [];
-        }
-        clusters[focusArea].push(org);
-      });
-    });
-    
-    return Object.entries(clusters)
-      .filter(([_, orgs]) => orgs.length > 1)
-      .map(([focusArea, orgs]) => ({
-        focusArea,
-        organizations: orgs,
-        center: [
-          orgs.reduce((sum, org) => sum + org.coords[0], 0) / orgs.length,
-          orgs.reduce((sum, org) => sum + org.coords[1], 0) / orgs.length
-        ],
-        radius: Math.max(...orgs.map(org => 
-          Math.sqrt(
-            Math.pow(org.coords[0] - (orgs.reduce((sum, o) => sum + o.coords[0], 0) / orgs.length), 2) +
-            Math.pow(org.coords[1] - (orgs.reduce((sum, o) => sum + o.coords[1], 0) / orgs.length), 2)
-          )
-        )) * 111000
-      }));
-  };
-
-  const networkClusters = generateNetworkClusters();
-
   // Conditional rendering
   const showNationalMap = regionLevel === "national";
-  const showInteractiveMap = regionLevel === "county";
-  const showSidebar = true; // Show for all levels
+  const showStateMap = regionLevel === "state";
+  const showCountyMap = regionLevel === "county";
+  const showSidebar = true;
+
+  // Get appropriate map center and zoom based on level
+  const getMapConfig = () => {
+    switch (regionLevel) {
+      case "national":
+        return { center: [39.8283, -98.5795], zoom: 4 }; // Center of USA
+      case "state":
+        return { center: [32.806671, -86.791130], zoom: 7 }; // Alabama center
+      case "county":
+        return { center: [40.73, -73.935], zoom: 12 }; // Nassau County
+      default:
+        return { center: [39.8283, -98.5795], zoom: 4 };
+    }
+  };
+
+  const mapConfig = getMapConfig();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -307,7 +369,7 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                       className="absolute -top-1 -right-1 w-4 h-4"
                     />
                   </div>
-                  <span className="text-center text-mte-charcoal">Foster & Kinship</span>
+                  <span className="text-center text-mte-charcoal text-sm">Foster & Kinship</span>
                 </label>
                 <label className="flex flex-col items-center cursor-pointer">
                   <div className="relative">
@@ -319,7 +381,7 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                       className="absolute -top-1 -right-1 w-4 h-4"
                     />
                   </div>
-                  <span className="text-center text-mte-charcoal">Adoptive</span>
+                  <span className="text-center text-mte-charcoal text-sm">Adoptive</span>
                 </label>
                 <label className="flex flex-col items-center cursor-pointer">
                   <div className="relative">
@@ -331,7 +393,7 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                       className="absolute -top-1 -right-1 w-4 h-4"
                     />
                   </div>
-                  <span className="text-center text-mte-charcoal">Support for Biological Families</span>
+                  <span className="text-center text-mte-charcoal text-sm">Biological</span>
                 </label>
                 <label className="flex flex-col items-center cursor-pointer">
                   <div className="relative">
@@ -343,13 +405,13 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                       className="absolute -top-1 -right-1 w-4 h-4"
                     />
                   </div>
-                  <span className="text-center text-mte-charcoal">Wraparound Support</span>
+                  <span className="text-center text-mte-charcoal text-sm">Wraparound</span>
                 </label>
               </div>
             </div>
 
             {/* Relationships - County only */}
-            {showInteractiveMap && (
+            {showCountyMap && (
               <div className="bg-white p-4 rounded-lg shadow-mte-card">
                 <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black">Relationships</h3>
                 <p className="text-sm text-mte-charcoal mb-3 font-lato">Display collaborations to see how organizations work together</p>
@@ -372,11 +434,8 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                       </svg>
-                      <span>View Connection Lines</span>
+                      <span>Connection Lines</span>
                     </div>
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                    </svg>
                   </label>
                   
                   <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-base font-lato cursor-pointer transition-colors ${
@@ -397,11 +456,8 @@ export default function OrganizationalView({ regionLevel, regionId }) {
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                       </svg>
-                      <span>View Local Networks</span>
+                      <span>Local Networks</span>
                     </div>
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                    </svg>
                   </label>
                 </div>
               </div>
@@ -411,145 +467,163 @@ export default function OrganizationalView({ regionLevel, regionId }) {
 
         {/* Map + Organizations */}
         <div className="w-full lg:w-3/4 flex flex-col gap-6">
-          {/* National Static Map */}
-          {showNationalMap && (
-            <div className="bg-white rounded-lg shadow-mte-card p-4">
-              <div className="text-mte-blue p-2 rounded mb-4 text-base font-lato space-y-2">
-                <div className="flex items-center gap-2">
-                  <img src={HandIcon} alt="Hover hand" className="w-5 h-5" />
-                  <span>Hover over a state to display the data</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <img src={PointerIcon} alt="Click pointer" className="w-5 h-5" />
-                  <span>Click to deep-dive into a particular state</span>
-                </div>
-              </div>
-              <div className="relative overflow-hidden">
-                <img
-                  src={RecoloredMap}
-                  alt="Recolored US map"
-                  className="w-[95%] mx-auto rounded transform scale-105"
-                />
-                <img
-                  src={KeyForMap}
-                  alt="Map Legend"
-                  className="absolute bottom-4 right-4 w-40"
-                />
-              </div>
-            </div>
-          )}
-
-          {/* County Interactive Map */}
-          {showInteractiveMap && (
-            <div className="bg-white rounded-lg shadow-mte-card p-4">
-              <MapContainer
-                center={[40.73, -73.935]}
-                zoom={12}
-                style={{ height: "400px", width: "100%" }}
-              >
-                <TileLayer
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                
-                {/* Connection Lines */}
-                {connectionLines.map((connection, index) => (
-                  <Polyline
-                    key={`connection-${index}`}
-                    positions={[connection.from, connection.to]}
-                    pathOptions={{
-                      color: "#00ADEE",
-                      weight: 2,
-                      opacity: 0.7,
-                      dashArray: "5, 10"
-                    }}
-                  >
-                    <Tooltip>
-                      <div>
-                        <strong>Connection:</strong><br/>
-                        {connection.fromName} ↔ {connection.toName}
-                      </div>
-                    </Tooltip>
-                  </Polyline>
-                ))}
-                
-                {/* Organization Markers */}
-                {filteredOrgs.map((org) => (
-                  <Marker key={org.name} position={org.coords} icon={createDotIcon(org.category)}>
-                    <Tooltip>
-                      <div>
-                        <strong>{org.name}</strong><br/>
-                        <span className="text-base">{org.category}</span><br/>
-                        <span className="text-sm">{org.focus.join(", ")}</span>
-                        {org.connections && org.connections.length > 0 && (
-                          <>
-                            <br/><span className="text-sm font-semibold">Connected to:</span><br/>
-                            <span className="text-sm">{org.connections.join(", ")}</span>
-                          </>
-                        )}
-                      </div>
-                    </Tooltip>
-                  </Marker>
-                ))}
-              </MapContainer>
+          {/* Universal Leaflet Map for All Levels */}
+          <div className="bg-white rounded-lg shadow-mte-card p-4">
+            <MapContainer
+              center={mapConfig.center}
+              zoom={mapConfig.zoom}
+              style={{ height: "500px", width: "100%" }}
+              scrollWheelZoom={true}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
               
-              {/* Status indicators */}
+              {/* National Level: State Markers */}
+              {showNationalMap && Object.entries(stateCoordinates).map(([stateName, data]) => (
+                <Marker 
+                  key={stateName}
+                  position={data.coords}
+                  icon={createStateIcon()}
+                  eventHandlers={{
+                    click: () => handleStateMarkerClick(stateName)
+                  }}
+                >
+                  <Tooltip>
+                    <div className="font-lato">
+                      <strong>{stateName}</strong><br/>
+                      {data.orgCount} Organizations
+                    </div>
+                  </Tooltip>
+                </Marker>
+              ))}
+
+              {/* State Level: County Markers */}
+              {showStateMap && Object.entries(countyCoordinates).map(([countyName, data]) => (
+                <Marker 
+                  key={countyName}
+                  position={data.coords}
+                  icon={createStateIcon()}
+                  eventHandlers={{
+                    click: () => handleCountyMarkerClick(countyName)
+                  }}
+                >
+                  <Tooltip>
+                    <div className="font-lato">
+                      <strong>{countyName} County</strong><br/>
+                      {data.orgCount} Organizations
+                    </div>
+                  </Tooltip>
+                </Marker>
+              ))}
+
+              {/* County Level: Organization Markers with Connection Lines */}
+              {showCountyMap && (
+                <>
+                  {/* Connection Lines */}
+                  {connectionLines.map((connection, index) => (
+                    <Polyline
+                      key={`connection-${index}`}
+                      positions={[connection.from, connection.to]}
+                      pathOptions={{
+                        color: "#00ADEE",
+                        weight: 2,
+                        opacity: 0.7,
+                        dashArray: "5, 10"
+                      }}
+                    >
+                      <Tooltip>
+                        <div className="font-lato">
+                          <strong>Connection:</strong><br/>
+                          {connection.fromName} ↔ {connection.toName}
+                        </div>
+                      </Tooltip>
+                    </Polyline>
+                  ))}
+                  
+                  {/* Organization Markers */}
+                  {filteredOrgs.map((org) => (
+                    <Marker key={org.name} position={org.coords} icon={createDotIcon(org.category)}>
+                      <Tooltip>
+                        <div className="font-lato">
+                          <strong>{org.name}</strong><br/>
+                          <span className="text-sm">{org.category}</span><br/>
+                          <span className="text-sm">{org.focus.join(", ")}</span>
+                          {org.connections && org.connections.length > 0 && (
+                            <>
+                              <br/><span className="text-sm font-semibold">Connected to:</span><br/>
+                              <span className="text-sm">{org.connections.join(", ")}</span>
+                            </>
+                          )}
+                        </div>
+                      </Tooltip>
+                    </Marker>
+                  ))}
+                </>
+              )}
+            </MapContainer>
+            
+            {/* Status indicators - County only */}
+            {showCountyMap && (
               <div className="mt-3 flex flex-wrap gap-2 text-sm font-lato">
                 {showConnectionLines && connectionLines.length > 0 && (
                   <span className="px-2 py-1 bg-mte-blue-20 text-mte-charcoal rounded">
                     {connectionLines.length} Connection Lines Active
                   </span>
                 )}
-                {showLocalNetworks && networkClusters.length > 0 && (
+                {showLocalNetworks && (
                   <span className="px-2 py-1 bg-mte-green-20 text-mte-charcoal rounded">
-                    {networkClusters.length} Local Networks Visible
+                    4 Local Networks Visible
                   </span>
                 )}
-                {filteredOrgs.length !== orgData.length && (
+                {filteredOrgs.length !== countyOrgs.length && (
                   <span className="px-2 py-1 bg-mte-yellow-20 text-mte-charcoal rounded">
-                    {filteredOrgs.length} of {orgData.length} organizations shown
+                    {filteredOrgs.length} of {countyOrgs.length} organizations shown
                   </span>
                 )}
+              </div>
+            )}
+          </div>
+
+          {/* Organization Cards - County Level Only */}
+          {showCountyMap && (
+            <div className="bg-white rounded-lg shadow-mte-card p-4">
+              <h3 className="text-h4 font-bold uppercase mb-4 text-mte-black">Organizations ({filteredOrgs.length})</h3>
+              <div className="overflow-x-auto">
+                <div className="flex gap-4 pb-4" style={{ minWidth: "max-content" }}>
+                  {filteredOrgs.map((org) => {
+                    const colors = CATEGORY_COLORS[org.category];
+                    return (
+                      <div
+                        key={org.name}
+                        className={`bg-white p-4 rounded-lg shadow-mte-card border-l-4 ${colors.border} flex-shrink-0`}
+                        style={{ minWidth: "300px", maxWidth: "300px" }}
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className={`w-3 h-3 rounded-full ${colors.bg} ${colors.border} border`}></div>
+                          <h4 className={`font-semibold ${colors.text} font-lato`}>{org.name}</h4>
+                        </div>
+                        <div className={`text-sm px-2 py-1 rounded ${colors.bg} ${colors.text} inline-block mb-2 font-lato`}>
+                          {org.category}
+                        </div>
+                        <p className="text-base text-mte-charcoal mb-2 font-lato">{org.description}</p>
+                        <div className="text-sm text-mte-charcoal mb-2 font-lato">
+                          <strong>Focus Areas:</strong> {org.focus.join(", ")}
+                        </div>
+                        <div className="text-sm text-mte-charcoal font-lato">Location: {org.location}</div>
+                        <div className="text-sm text-mte-charcoal font-lato">Phone: {org.phone}</div>
+                        <div className="text-sm text-mte-charcoal font-lato">Email: {org.email}</div>
+                        <button className="mt-3 px-3 py-1 text-base bg-mte-blue text-white rounded hover:bg-mte-blue-80 w-full font-lato font-medium transition-colors">
+                          View Full Profile
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           )}
-
-          {/* Organization Cards - Horizontal Scrolling */}
-          <div className="bg-white rounded-lg shadow-mte-card p-4">
-            <h3 className="text-h4 font-bold uppercase mb-4 text-mte-black">Organizations ({filteredOrgs.length})</h3>
-            <div className="overflow-x-auto">
-              <div className="flex gap-4 pb-4" style={{ minWidth: "max-content" }}>
-                {filteredOrgs.map((org) => {
-                  const colors = CATEGORY_COLORS[org.category];
-                  return (
-                    <div
-                      key={org.name}
-                      className={`bg-white p-4 rounded-lg shadow-mte-card border-l-4 ${colors.border} flex-shrink-0`}
-                      style={{ minWidth: "300px", maxWidth: "300px" }}
-                    >
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className={`w-3 h-3 rounded-full ${colors.bg} ${colors.border} border`}></div>
-                        <h4 className={`font-semibold ${colors.text} font-lato`}>{org.name}</h4>
-                      </div>
-                      <div className={`text-sm px-2 py-1 rounded ${colors.bg} ${colors.text} inline-block mb-2 font-lato`}>
-                        {org.category}
-                      </div>
-                      <p className="text-base text-mte-charcoal mb-2 font-lato">{org.description}</p>
-                      <div className="text-sm text-mte-charcoal mb-2 font-lato">
-                        <strong>Focus Areas:</strong> {org.focus.join(", ")}
-                      </div>
-                      <div className="text-sm text-mte-charcoal font-lato">Location: {org.location}</div>
-                      <div className="text-sm text-mte-charcoal font-lato">Phone: {org.phone}</div>
-                      <div className="text-sm text-mte-charcoal font-lato">Email: {org.email}</div>
-                      <button className="mt-3 px-3 py-1 text-base bg-mte-blue text-white rounded hover:bg-mte-blue-80 w-full font-lato font-medium transition-colors">
-                        View Full Profile
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 

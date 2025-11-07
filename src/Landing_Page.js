@@ -1,6 +1,7 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect, useRef } from "react";
+import * as d3 from "d3";
+import * as topojson from "topojson-client";
 import MTELogo from "./assets/MTE_Logo.png";
-import USMap from "./assets/United_States.png";
 import MapPin from "./assets/Map_Pin_icon.png";
 import CountySelect from "./CountySelect";
 import { countyData, stateData } from "./mock-data";
@@ -9,6 +10,7 @@ const STATE_ABBR = { Alabama: "AL", "New York": "NY" };
 
 export default function LandingPage({ onSelectRegion, onExploreMap }) {
   const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);
+  const mapRef = useRef();
 
   const countyOptions = useMemo(() => {
     return Object.entries(countyData)
@@ -18,6 +20,48 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
         return { id, label: `${base}, ${abbr}`, data: c };
       })
       .sort((a, b) => a.label.localeCompare(b.label));
+  }, []);
+
+  // D3.js map rendering
+  useEffect(() => {
+    if (!mapRef.current) return;
+
+    const svg = d3.select(mapRef.current);
+    svg.selectAll("*").remove();
+
+    const width = 1200;
+    const height = 700;
+    
+    svg.attr("width", width).attr("height", height);
+    svg.attr("viewBox", `0 0 ${width} ${height}`);
+    svg.attr("preserveAspectRatio", "xMidYMid meet");
+
+    // US AlbersUSA projection
+    const projection = d3.geoAlbersUsa()
+      .scale(1400)
+      .translate([width / 2, height / 2]);
+
+    const path = d3.geoPath().projection(projection);
+
+    // Load US states TopoJSON
+    d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json")
+      .then(us => {
+        const states = topojson.feature(us, us.objects.states);
+
+        svg.selectAll("path")
+          .data(states.features)
+          .enter()
+          .append("path")
+          .attr("d", path)
+          .attr("fill", "#f8f8f8")
+          .attr("stroke", "#d0d0d0")
+          .attr("stroke-width", 1.5)
+          .attr("opacity", 0.9);
+      })
+      .catch(error => {
+        console.error("Error loading map data:", error);
+      });
+
   }, []);
 
   const handleCountyChange = (opt) => {
@@ -36,20 +80,12 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
     <div
       className="relative min-h-screen overflow-hidden font-lato bg-mte-blue-20"
     >
-      {/* Map with better definition and state outlines visible */}
+      {/* D3.js generated map with visible state boundaries */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-0 left-0 right-0 h-20" />
-        <img
-          src={USMap}
-          alt="US map background"
-          className="absolute left-1/2 top-[7.5rem] -translate-x-1/2 object-contain"
-          style={{
-            width: "110%",
-            height: "110%",
-            filter: "grayscale(100%) brightness(1.3) contrast(0.9)",
-          }}
-        />
-        <div className="absolute inset-0 bg-white/20" />
+        <div className="absolute left-1/2 top-[4rem] -translate-x-1/2 w-full h-full flex items-center justify-center overflow-hidden">
+          <svg ref={mapRef} className="w-full h-auto max-w-[110%]" style={{ opacity: 0.6 }}></svg>
+        </div>
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col px-4 pb-28 pt-6">

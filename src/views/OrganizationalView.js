@@ -315,18 +315,18 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   const mapConfig = getMapConfig();
 
   return (
-    <div className="min-h-screen flex flex-col bg-mte-subdued-white">
+    <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <div className="border-b border-mte-light-grey bg-white">
-        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 text-center">
-          <h1 className="text-2xl md:text-4xl font-nexa text-mte-black">
+      <header className="relative border-b border-mte-light-grey">
+        <div className="max-w-7xl mx-auto px-4 pt-4 md:pt-8 pb-2 flex flex-col items-center">
+          <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4">
             {getDisplayName()}
           </h1>
-          <p className="text-sm md:text-base text-mte-charcoal mt-1 px-4 font-lato">
+          <p className="text-sm md:text-base text-mte-charcoal text-center mt-1 md:mt-2 px-4 font-lato">
             {getSubtitle()}
           </p>
         </div>
-      </div>
+      </header>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col lg:flex-row gap-4 md:gap-6 flex-grow w-full">
@@ -649,7 +649,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
       </div>
 
       {/* Footer */}
-      <div className="py-4 text-right pr-6 bg-white border-t border-mte-light-grey mt-auto">
+      <div className="py-4 text-right pr-6 border-t border-mte-light-grey mt-auto">
         <img src={MTELogo} alt="More Than Enough" className="h-8 inline-block" />
       </div>
     </div>

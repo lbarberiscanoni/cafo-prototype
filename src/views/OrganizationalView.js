@@ -621,9 +621,9 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         className={`bg-white p-4 rounded-lg shadow-mte-card border-l-4 ${colors.border} flex-shrink-0`}
                         style={{ minWidth: "300px", maxWidth: "300px" }}
                       >
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className={`w-3 h-3 rounded-full ${colors.bg} ${colors.border} border`}></div>
-                          <h4 className={`font-semibold ${colors.text} font-lato`}>{org.name}</h4>
+                        <div className="flex items-start gap-2 mb-2">
+                          <div className={`w-3 h-3 rounded-full flex-shrink-0 ${colors.bg} ${colors.border} border mt-1`}></div>
+                          <h4 className={`font-semibold ${colors.text} font-lato leading-tight`}>{org.name}</h4>
                         </div>
                         <div className={`text-sm px-2 py-1 rounded ${colors.bg} ${colors.text} inline-block mb-2 font-lato`}>
                           {org.category}

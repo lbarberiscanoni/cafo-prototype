@@ -222,9 +222,8 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   };
 
   const filteredOrgs = countyOrgs.filter(org => {
-    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(org.category);
-    const impactAreaMatch = selectedImpactAreas.length === 0 || 
-      org.focus.some(focus => selectedImpactAreas.includes(focus));
+    const categoryMatch = selectedCategories.includes(org.category);
+    const impactAreaMatch = org.focus.some(focus => selectedImpactAreas.includes(focus));
     return categoryMatch && impactAreaMatch;
   });
 
@@ -549,9 +548,9 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       positions={[connection.from, connection.to]}
                       pathOptions={{
                         color: "#00ADEE",
-                        weight: 2,
-                        opacity: 0.7,
-                        dashArray: "5, 10"
+                        weight: 4,
+                        opacity: 0.8,
+                        dashArray: "8, 12"
                       }}
                     >
                       <Tooltip>

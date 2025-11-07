@@ -541,6 +541,53 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               {/* County Level: Organization Markers with Connection Lines */}
               {showCountyMap && (
                 <>
+                  {/* Local Network Circles */}
+                  {showLocalNetworks && (
+                    <>
+                      {/* Network 1: Bridge Ministry cluster */}
+                      <Circle
+                        center={[40.732, -73.93]}
+                        radius={800}
+                        pathOptions={{
+                          color: "#882781",
+                          weight: 3,
+                          opacity: 0.6,
+                          fillColor: "#882781",
+                          fillOpacity: 0.1,
+                          dashArray: "10, 10"
+                        }}
+                      >
+                        <Tooltip>
+                          <div className="font-lato">
+                            <strong>Local Network 1</strong><br/>
+                            Bridge Ministry, Hope Family Services, Grace Church
+                          </div>
+                        </Tooltip>
+                      </Circle>
+                      
+                      {/* Network 2: Community Support cluster */}
+                      <Circle
+                        center={[40.727, -73.936]}
+                        radius={600}
+                        pathOptions={{
+                          color: "#dc6a42",
+                          weight: 3,
+                          opacity: 0.6,
+                          fillColor: "#dc6a42",
+                          fillOpacity: 0.1,
+                          dashArray: "10, 10"
+                        }}
+                      >
+                        <Tooltip>
+                          <div className="font-lato">
+                            <strong>Local Network 2</strong><br/>
+                            Community Support Network, Children First, Family Connect
+                          </div>
+                        </Tooltip>
+                      </Circle>
+                    </>
+                  )}
+                  
                   {/* Connection Lines */}
                   {connectionLines.map((connection, index) => (
                     <Polyline

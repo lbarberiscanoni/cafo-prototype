@@ -53,11 +53,13 @@ export default function TopNav({ currentView, onSelectRegion, onSwitchView }) {
             className={`flex items-center gap-2 px-3 md:px-4 py-2 rounded-lg text-sm md:text-base font-lato font-medium shadow-mte-card transition-colors whitespace-nowrap
               ${
                 currentView === btn.id
-                  ? "bg-mte-charcoal text-white"
+                  ? "bg-mte-blue text-white hover:bg-mte-blue-80"
                   : "bg-white text-mte-charcoal hover:bg-mte-blue-20"
               }`}
           >
-            <img src={btn.icon} alt={btn.label} className="w-4 h-4 md:w-5 md:h-5" />
+            <img src={btn.icon} alt={btn.label} className="w-4 h-4 md:w-5 md:h-5" style={{
+              filter: currentView === btn.id ? 'brightness(0) invert(1)' : 'none'
+            }} />
             <span className="hidden sm:inline">{btn.label}</span>
           </button>
         ))}

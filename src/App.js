@@ -55,6 +55,7 @@ function App() {
       <TopNav
         currentRegion={region}
         currentView={view}
+        selectedRegion={selectedRegion}
         onSelectRegion={handleSelectRegion}
         onSwitchView={handleSwitchView}
       />

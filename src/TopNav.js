@@ -6,7 +6,7 @@ import ChurchIcon from "./assets/church_icon.png";
 import HistoryIcon from "./assets/HistoryArrow.png";
 import DownloadIcon from "./assets/download_icon.png";
 
-export default function TopNav({ currentView, onSelectRegion, onSwitchView }) {
+export default function TopNav({ currentView, currentRegion, selectedRegion, onSelectRegion, onSwitchView }) {
   const navButtons = [
     { id: "metric", label: "Metrics", icon: ChartsIcon },
     { id: "organizational", label: "Organizations", icon: ChurchIcon },
@@ -16,13 +16,86 @@ export default function TopNav({ currentView, onSelectRegion, onSwitchView }) {
 
   const handleNationalView = () => {
     onSelectRegion({ level: "national", id: "usa", name: "United States" });
-    onSwitchView("organizational"); // or whatever default view you prefer
+    onSwitchView("organizational");
   };
 
   const handleStateView = () => {
-    // You might want to make this dynamic based on current context
-    // For now, defaulting to Alabama, but you could pass current state
-    onSelectRegion({ level: "state", id: "alabama", name: "Alabama" });
+    // Determine which state to navigate to based on current region
+    let stateId = "alabama"; // default fallback
+    let stateName = "Alabama";
+    let stateCode = "AL";
+    
+    if (currentRegion === "county" && selectedRegion?.id) {
+      // Extract state code from county ID (format: "countyname-statecode")
+      const parts = selectedRegion.id.split('-');
+      stateCode = parts[parts.length - 1]?.toUpperCase();
+      
+      // Complete map of state codes to state names and IDs
+      const stateCodeToName = {
+        'AL': { name: 'Alabama', id: 'alabama' },
+        'AK': { name: 'Alaska', id: 'alaska' },
+        'AZ': { name: 'Arizona', id: 'arizona' },
+        'AR': { name: 'Arkansas', id: 'arkansas' },
+        'CA': { name: 'California', id: 'california' },
+        'CO': { name: 'Colorado', id: 'colorado' },
+        'CT': { name: 'Connecticut', id: 'connecticut' },
+        'DE': { name: 'Delaware', id: 'delaware' },
+        'FL': { name: 'Florida', id: 'florida' },
+        'GA': { name: 'Georgia', id: 'georgia' },
+        'HI': { name: 'Hawaii', id: 'hawaii' },
+        'ID': { name: 'Idaho', id: 'idaho' },
+        'IL': { name: 'Illinois', id: 'illinois' },
+        'IN': { name: 'Indiana', id: 'indiana' },
+        'IA': { name: 'Iowa', id: 'iowa' },
+        'KS': { name: 'Kansas', id: 'kansas' },
+        'KY': { name: 'Kentucky', id: 'kentucky' },
+        'LA': { name: 'Louisiana', id: 'louisiana' },
+        'ME': { name: 'Maine', id: 'maine' },
+        'MD': { name: 'Maryland', id: 'maryland' },
+        'MA': { name: 'Massachusetts', id: 'massachusetts' },
+        'MI': { name: 'Michigan', id: 'michigan' },
+        'MN': { name: 'Minnesota', id: 'minnesota' },
+        'MS': { name: 'Mississippi', id: 'mississippi' },
+        'MO': { name: 'Missouri', id: 'missouri' },
+        'MT': { name: 'Montana', id: 'montana' },
+        'NE': { name: 'Nebraska', id: 'nebraska' },
+        'NV': { name: 'Nevada', id: 'nevada' },
+        'NH': { name: 'New Hampshire', id: 'new-hampshire' },
+        'NJ': { name: 'New Jersey', id: 'new-jersey' },
+        'NM': { name: 'New Mexico', id: 'new-mexico' },
+        'NY': { name: 'New York', id: 'new-york' },
+        'NC': { name: 'North Carolina', id: 'north-carolina' },
+        'ND': { name: 'North Dakota', id: 'north-dakota' },
+        'OH': { name: 'Ohio', id: 'ohio' },
+        'OK': { name: 'Oklahoma', id: 'oklahoma' },
+        'OR': { name: 'Oregon', id: 'oregon' },
+        'PA': { name: 'Pennsylvania', id: 'pennsylvania' },
+        'RI': { name: 'Rhode Island', id: 'rhode-island' },
+        'SC': { name: 'South Carolina', id: 'south-carolina' },
+        'SD': { name: 'South Dakota', id: 'south-dakota' },
+        'TN': { name: 'Tennessee', id: 'tennessee' },
+        'TX': { name: 'Texas', id: 'texas' },
+        'UT': { name: 'Utah', id: 'utah' },
+        'VT': { name: 'Vermont', id: 'vermont' },
+        'VA': { name: 'Virginia', id: 'virginia' },
+        'WA': { name: 'Washington', id: 'washington' },
+        'WV': { name: 'West Virginia', id: 'west-virginia' },
+        'WI': { name: 'Wisconsin', id: 'wisconsin' },
+        'WY': { name: 'Wyoming', id: 'wyoming' },
+      };
+      
+      const stateInfo = stateCodeToName[stateCode];
+      if (stateInfo) {
+        stateId = stateInfo.id;
+        stateName = stateInfo.name;
+      }
+    } else if (currentRegion === "state" && selectedRegion?.id) {
+      // Already at state level, use current state
+      stateId = selectedRegion.id;
+      stateName = selectedRegion.name;
+    }
+    
+    onSelectRegion({ level: "state", id: stateId, name: stateName, code: stateCode });
     onSwitchView("organizational");
   };
 

@@ -23,10 +23,13 @@ function App() {
   const [view, setView] = useState("metric");
   const [selectedRegion, setSelectedRegion] = useState(null);
 
-  const handleSelectRegion = ({ level, id, name, code }) => {
-    console.log('App: handleSelectRegion', { level, id, name, code });
+  const handleSelectRegion = ({ level, id, name, code, view: requestedView }) => {
+    console.log('App: handleSelectRegion', { level, id, name, code, requestedView });
     setRegion(level);
-    setView("metric");
+    // Only change view if explicitly requested, otherwise keep current view
+    if (requestedView) {
+      setView(requestedView);
+    }
     setSelectedRegion({ level, id, name, code });
   };
 
@@ -60,6 +63,7 @@ function App() {
           <ViewComponent
             regionLevel={region}
             regionId={selectedRegion?.id}
+            selectedRegion={selectedRegion}
             onSelectRegion={handleSelectRegion}
           />
         )}

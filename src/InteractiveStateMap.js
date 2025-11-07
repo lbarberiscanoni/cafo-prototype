@@ -1,43 +1,38 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
+import { countyData } from './mock-data';
 
-// Mock county data for states
-const countyData = {
-  // Alabama counties
-  'AL': {
-    'Autauga': { value: 45, fips: '01001' },
-    'Baldwin': { value: 120, fips: '01003' },
-    'Barbour': { value: 32, fips: '01005' },
-    'Bibb': { value: 28, fips: '01007' },
-    'Blount': { value: 55, fips: '01009' },
-    'Bullock': { value: 18, fips: '01011' },
-    'Butler': { value: 21, fips: '01013' },
-    'Calhoun': { value: 95, fips: '01015' },
-    // Add more Alabama counties as needed
-  },
-  // New York counties
-  'NY': {
-    'Albany': { value: 180, fips: '36001' },
-    'Allegany': { value: 35, fips: '36003' },
-    'Bronx': { value: 450, fips: '36005' },
-    'Broome': { value: 120, fips: '36007' },
-    'Cattaraugus': { value: 55, fips: '36009' },
-    'Cayuga': { value: 68, fips: '36011' },
-    'Chautauqua': { value: 85, fips: '36013' },
-    'Nassau': { value: 543, fips: '36059' },
-    // Add more New York counties as needed
-  }
+// Helper function to convert county data to state-based lookup
+const getCountyDataByState = (stateCode) => {
+  const stateCounties = {};
+  
+  // Iterate through all counties and filter by state code
+  Object.entries(countyData).forEach(([countyId, data]) => {
+    // County IDs are formatted as "countyname-statecode" (e.g., "butler-al")
+    const countyStateCode = countyId.split('-')[1]?.toUpperCase();
+    
+    if (countyStateCode === stateCode) {
+      // Extract county name from the full name (e.g., "Butler County, Alabama" -> "Butler")
+      const countyName = data.name.split(' County')[0];
+      stateCounties[countyName] = {
+        value: data.childrenInCare,
+        fips: countyId
+      };
+    }
+  });
+  
+  return stateCounties;
 };
 
-// Color scale - same as US map for consistency
+// Color scale - updated to match MTE brand colors
 const getCountyColor = (value) => {
-  if (!value) return '#e5e7eb';
+  if (!value) return '#f1f1f1'; // MTE Light Grey for no data
   if (value < 50) return '#dcfce7';
   if (value < 100) return '#bbf7d0';
   if (value < 200) return '#86efac';
-  if (value < 300) return '#4ade80';
-  if (value < 400) return '#22c55e';
+  if (value < 500) return '#4ade80';
+  if (value < 1000) return '#22c55e';
   return '#16a34a';
 };
 
@@ -116,6 +111,10 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
       return;
     }
 
+    // Get county data for this state from the imported data
+    const stateCountyData = getCountyDataByState(stateCode);
+    console.log(`County data for ${stateCode}:`, stateCountyData);
+
     // Load US counties TopoJSON
     d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json")
       .then(us => {
@@ -151,8 +150,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
           .attr("d", path)
           .attr("fill", d => {
             const countyName = d.properties.name;
-            const counties = countyData[stateCode] || {};
-            const data = counties[countyName];
+            const data = stateCountyData[countyName];
             return getCountyColor(data?.value);
           })
           .attr("stroke", "#ffffff")
@@ -160,8 +158,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
           .style("cursor", "pointer")
           .on("mouseenter", function(event, d) {
             const countyName = d.properties.name;
-            const counties = countyData[stateCode] || {};
-            const data = counties[countyName];
+            const data = stateCountyData[countyName];
             
             d3.select(this)
               .attr("stroke", "#00ADEE")
@@ -172,7 +169,8 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
             setHoveredCounty({
               name: countyName,
               value: data?.value || 0,
-              fips: d.id
+              fips: d.id,
+              hasData: !!data
             });
           })
           .on("mouseleave", function() {
@@ -183,10 +181,11 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
           })
           .on("click", function(event, d) {
             const countyName = d.properties.name;
-            const counties = countyData[stateCode] || {};
-            const data = counties[countyName];
-            if (onCountyClick) {
-              onCountyClick(d.id, countyName, data);
+            const data = stateCountyData[countyName];
+            if (onCountyClick && data) {
+              // Create county ID in the format expected by the app
+              const countyId = `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
+              onCountyClick(countyId, countyName, data);
             }
           });
 
@@ -219,46 +218,50 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
           </svg>
-          <span>Hover over a county to display the data</span>
+          <span className="font-lato text-mte-charcoal">Hover over a county to display the data</span>
         </div>
         <div className="flex items-center gap-2">
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M6.672 1.911a1 1 0 10-1.932.518l.259.966a1 1 0 001.932-.518l-.26-.966zM2.429 4.74a1 1 0 10-.517 1.932l.966.259a1 1 0 00.517-1.932l-.966-.26zm8.814-.569a1 1 0 00-1.415-1.414l-.707.707a1 1 0 101.415 1.415l.707-.708zm-7.071 7.072l.707-.707A1 1 0 003.465 9.12l-.708.707a1 1 0 001.415 1.415zm3.2-5.171a1 1 0 00-1.3 1.3l4 10a1 1 0 001.823.075l1.38-2.759 3.018 3.02a1 1 0 001.414-1.415l-3.019-3.02 2.76-1.379a1 1 0 00-.076-1.822l-10-4z" clipRule="evenodd" />
           </svg>
-          <span>Click to view detailed county data</span>
+          <span className="font-lato text-mte-charcoal">Click to view detailed county data</span>
         </div>
       </div>
 
       {/* Map Legend */}
       <div className="absolute bottom-4 right-4 bg-white p-3 rounded shadow-lg z-10">
-        <div className="text-sm font-semibold mb-2">
+        <div className="text-sm font-semibold mb-2 font-lato text-mte-black">
           {selectedMetric}
         </div>
-        <div className="text-xs text-gray-600 mb-2">{stateName} Counties</div>
-        <div className="space-y-1 text-xs">
+        <div className="text-xs text-mte-charcoal mb-2 font-lato">{stateName} Counties</div>
+        <div className="space-y-1 text-xs font-lato">
           <div className="flex items-center gap-2">
             <div className="w-4 h-3" style={{backgroundColor: '#16a34a'}}></div>
-            <span>400+</span>
+            <span className="text-mte-charcoal">1000+</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-3" style={{backgroundColor: '#22c55e'}}></div>
-            <span>300-400</span>
+            <span className="text-mte-charcoal">500-1000</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-3" style={{backgroundColor: '#4ade80'}}></div>
-            <span>200-300</span>
+            <span className="text-mte-charcoal">200-500</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-3" style={{backgroundColor: '#86efac'}}></div>
-            <span>100-200</span>
+            <span className="text-mte-charcoal">100-200</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-3" style={{backgroundColor: '#bbf7d0'}}></div>
-            <span>50-100</span>
+            <span className="text-mte-charcoal">50-100</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-3" style={{backgroundColor: '#dcfce7'}}></div>
-            <span>&lt;50</span>
+            <span className="text-mte-charcoal">&lt;50</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-3" style={{backgroundColor: '#f1f1f1'}}></div>
+            <span className="text-mte-charcoal">No Data</span>
           </div>
         </div>
       </div>
@@ -271,14 +274,18 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
       {/* Hover Tooltip */}
       {hoveredCounty && (
         <div 
-          className="absolute z-20 bg-gray-800 text-white p-3 rounded shadow-lg pointer-events-none transform -translate-x-1/2 -translate-y-full"
+          className="absolute z-20 bg-mte-charcoal text-white p-3 rounded shadow-lg pointer-events-none transform -translate-x-1/2 -translate-y-full font-lato"
           style={{
             left: mousePosition.x,
             top: mousePosition.y - 10
           }}
         >
           <div className="font-semibold">{hoveredCounty.name} County</div>
-          <div>{hoveredCounty.value.toLocaleString()} {selectedMetric}</div>
+          {hoveredCounty.hasData ? (
+            <div>{hoveredCounty.value.toLocaleString()} {selectedMetric}</div>
+          ) : (
+            <div className="text-mte-subdued-white">No data available</div>
+          )}
         </div>
       )}
     </div>

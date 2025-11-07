@@ -3,6 +3,9 @@ import { MapContainer, TileLayer, Marker, Tooltip, Polyline, Circle } from "reac
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
+// Import data from mock-data
+import { countyCoordinatesByState, stateCoordinates, stateNameToCode } from "../mock-data";
+
 // Assets
 import MTELogo from "../assets/MTE_Logo.png";
 
@@ -21,49 +24,6 @@ const CATEGORY_COLORS = {
   "Placement Agency": { bg: "bg-mte-purple-20", text: "text-mte-black", border: "border-mte-purple", dot: "#882781" },
 };
 
-// State coordinates for national view (capital cities as representative points)
-const stateCoordinates = {
-  'Alabama': { coords: [32.806671, -86.791130], orgCount: 45 },
-  'Alaska': { coords: [61.370716, -152.404419], orgCount: 12 },
-  'Arizona': { coords: [33.729759, -111.431221], orgCount: 67 },
-  'Arkansas': { coords: [34.969704, -92.373123], orgCount: 32 },
-  'California': { coords: [36.116203, -119.681564], orgCount: 198 },
-  'Colorado': { coords: [39.059811, -105.311104], orgCount: 54 },
-  'Connecticut': { coords: [41.597782, -72.755371], orgCount: 38 },
-  'Delaware': { coords: [39.318523, -75.507141], orgCount: 15 },
-  'Florida': { coords: [27.766279, -81.686783], orgCount: 145 },
-  'Georgia': { coords: [33.040619, -83.643074], orgCount: 89 },
-  'New York': { coords: [42.165726, -74.948051], orgCount: 156 },
-  'Texas': { coords: [31.054487, -97.563461], orgCount: 187 },
-  'Illinois': { coords: [40.349457, -88.986137], orgCount: 98 },
-};
-
-// County coordinates for state view (using Alabama as example)
-const countyCoordinates = {
-  'Butler': { coords: [31.7532, -86.6803], orgCount: 5 },
-  'Montgomery': { coords: [32.3792, -86.3077], orgCount: 23 },
-  'Mobile': { coords: [30.6954, -88.0399], orgCount: 34 },
-  'Jefferson': { coords: [33.5207, -86.8025], orgCount: 56 },
-  'Madison': { coords: [34.7304, -86.5861], orgCount: 41 },
-  'Tuscaloosa': { coords: [33.2098, -87.5692], orgCount: 28 },
-};
-
-// State name to code mapping
-const stateNameToCode = {
-  'Alabama': 'AL',
-  'Alaska': 'AK',
-  'Arizona': 'AZ',
-  'Arkansas': 'AR',
-  'California': 'CA',
-  'Colorado': 'CO',
-  'Connecticut': 'CT',
-  'Delaware': 'DE',
-  'Florida': 'FL',
-  'Georgia': 'GA',
-  'New York': 'NY',
-  'Texas': 'TX',
-  'Illinois': 'IL',
-};
 
 // Mock organizations for county level
 const countyOrgs = [
@@ -136,29 +96,35 @@ const countyOrgs = [
 ];
 
 // Create custom dot icons based on category
-const createDotIcon = (category, size = "12px") => {
+const createDotIcon = (category, size = "16px") => {
   const color = CATEGORY_COLORS[category]?.dot || "#00ADEE";
   return new L.DivIcon({
     className: "custom-dot",
-    html: `<div style="width:${size}; height:${size}; background:${color}; border:2px solid white; border-radius:50%; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
+    html: `<div style="width:${size}; height:${size}; background:${color}; border:2px solid white; border-radius:50%; box-shadow: 0 2px 4px rgba(0,0,0,0.3); cursor:pointer;"></div>`,
     iconSize: [parseInt(size), parseInt(size)],
   });
 };
 
-// Create clickable state marker
-const createStateIcon = () => {
+// Create clickable state/county marker
+const createClickableIcon = (size = "20px") => {
   return new L.DivIcon({
-    className: "state-marker",
-    html: `<div style="width:20px; height:20px; background:#00ADEE; border:3px solid white; border-radius:50%; box-shadow: 0 2px 8px rgba(0,0,0,0.4); cursor:pointer;"></div>`,
-    iconSize: [20, 20],
+    className: "clickable-marker",
+    html: `<div style="width:${size}; height:${size}; background:#00ADEE; border:3px solid white; border-radius:50%; box-shadow: 0 2px 8px rgba(0,0,0,0.4); cursor:pointer;"></div>`,
+    iconSize: [parseInt(size), parseInt(size)],
   });
 };
 
-export default function OrganizationalView({ regionLevel, regionId, onSelectRegion }) {
+export default function OrganizationalView({ regionLevel, regionId, onSelectRegion, selectedRegion }) {
   const [selectedCategories, setSelectedCategories] = useState(Object.keys(CATEGORY_COLORS));
   const [selectedImpactAreas, setSelectedImpactAreas] = useState(["Foster and Kinship Families", "Adoptive", "Biological", "Wraparound"]);
   const [showConnectionLines, setShowConnectionLines] = useState(true);
   const [showLocalNetworks, setShowLocalNetworks] = useState(true);
+  const [mapKey, setMapKey] = useState(0); // Force map remount when region changes
+
+  // Update map when region changes
+  React.useEffect(() => {
+    setMapKey(prev => prev + 1);
+  }, [regionLevel, regionId]);
 
   // Get display name based on region level
   const getDisplayName = () => {
@@ -166,9 +132,19 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
       case "national":
         return "United States of America";
       case "state":
-        return "Alabama"; // Would come from regionId lookup in real app
+        // Look up state name from regionId
+        // regionId format: "alabama", "new-york", "california"
+        const stateName = Object.keys(stateNameToCode).find(
+          name => name.toLowerCase().replace(/\s+/g, '-') === regionId
+        );
+        return stateName || "Unknown State";
       case "county":
-        return "Nassau County, New York"; // Would come from regionId lookup
+        // For county, extract from full name or use regionId
+        // regionId format: "nassau-ny", "butler-al"
+        if (selectedRegion?.name) {
+          return selectedRegion.name;
+        }
+        return "Unknown County";
       default:
         return "";
     }
@@ -211,7 +187,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     setShowLocalNetworks(prev => !prev);
   };
 
-  // Handler for when a state marker is clicked
+  // Handler for when a state marker is clicked - STAY IN ORGANIZATIONAL VIEW
   const handleStateMarkerClick = (stateName) => {
     console.log('State marker clicked:', stateName);
     const stateId = stateName.toLowerCase().replace(/\s+/g, '-');
@@ -222,12 +198,13 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         level: 'state', 
         id: stateId,
         name: stateName,
-        code: stateCode
+        code: stateCode,
+        view: 'organizational' // Tell parent to stay in organizational view
       });
     }
   };
 
-  // Handler for when a county marker is clicked
+  // Handler for when a county marker is clicked - STAY IN ORGANIZATIONAL VIEW
   const handleCountyMarkerClick = (countyName) => {
     console.log('County marker clicked:', countyName);
     const displayName = getDisplayName();
@@ -239,6 +216,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         level: 'county', 
         id: countyId,
         name: `${countyName} County, ${displayName}`,
+        view: 'organizational' // Tell parent to stay in organizational view
       });
     }
   };
@@ -288,9 +266,47 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
       case "national":
         return { center: [39.8283, -98.5795], zoom: 4 }; // Center of USA
       case "state":
-        return { center: [32.806671, -86.791130], zoom: 7 }; // Alabama center
+        // Look up the state from regionId and get its coordinates
+        const stateName = Object.keys(stateNameToCode).find(
+          name => name.toLowerCase().replace(/\s+/g, '-') === regionId
+        );
+        const stateCoords = stateName ? stateCoordinates[stateName] : null;
+        if (stateCoords) {
+          return { center: stateCoords.coords, zoom: 7 };
+        }
+        // Fallback to Alabama if not found
+        return { center: [32.806671, -86.791130], zoom: 7 };
       case "county":
-        return { center: [40.73, -73.935], zoom: 12 }; // Nassau County
+        // Extract county name and state code from regionId (format: "nassau-ny", "butler-al")
+        if (regionId && regionId.includes('-')) {
+          const parts = regionId.split('-');
+          const stateCode = parts[parts.length - 1]; // Last part is state code
+          const countyName = parts.slice(0, -1).join('-'); // Everything before last part is county name
+          
+          // Find the state by code
+          const stateName = Object.keys(stateNameToCode).find(
+            name => stateNameToCode[name]?.toLowerCase() === stateCode.toLowerCase()
+          );
+          
+          if (stateName) {
+            const stateId = stateName.toLowerCase().replace(/\s+/g, '-');
+            const countyCoords = countyCoordinatesByState[stateId];
+            
+            if (countyCoords) {
+              // Find the county in this state's data
+              const county = Object.keys(countyCoords).find(
+                name => name.toLowerCase().replace(/\s+/g, '-') === countyName
+              );
+              
+              if (county && countyCoords[county]) {
+                return { center: countyCoords[county].coords, zoom: 11 };
+              }
+            }
+          }
+        }
+        
+        // Fallback to Nassau County if lookup fails
+        return { center: [40.73, -73.935], zoom: 11 };
       default:
         return { center: [39.8283, -98.5795], zoom: 4 };
     }
@@ -299,24 +315,24 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   const mapConfig = getMapConfig();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-mte-subdued-white">
       {/* Header */}
-      <div className="border-b border-mte-light-grey">
+      <div className="border-b border-mte-light-grey bg-white">
         <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 text-center">
           <h1 className="text-2xl md:text-4xl font-nexa text-mte-black">
             {getDisplayName()}
           </h1>
-          <p className="text-sm md:text-base text-mte-charcoal mt-1 px-4">
+          <p className="text-sm md:text-base text-mte-charcoal mt-1 px-4 font-lato">
             {getSubtitle()}
           </p>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col lg:flex-row gap-4 md:gap-6 flex-grow">
+      <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col lg:flex-row gap-4 md:gap-6 flex-grow w-full">
         {/* Sidebar */}
         {showSidebar && (
-          <div className="w-full lg:w-1/4 space-y-4 md:space-y-6">
+          <div className="w-full lg:w-1/4 space-y-4 md:space-y-4">
             {/* National: Jump selectors */}
             {showNationalMap && (
               <div className="bg-white p-4 rounded-lg shadow-mte-card space-y-3">
@@ -324,6 +340,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                   <option>Jump to a State</option>
                   <option value="alabama">Alabama</option>
                   <option value="new-york">New York</option>
+                  <option value="california">California</option>
                 </select>
                 <select className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal">
                   <option>Jump to a County</option>
@@ -335,7 +352,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
             {/* Organization Categories */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
-              <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black">Organization Categories</h3>
+              <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black font-lato">Organization Categories</h3>
               <p className="text-sm text-mte-charcoal mb-3 font-lato">Check categories to explore who is working in your community</p>
               <div className="space-y-2 text-base font-lato">
                 {Object.entries(CATEGORY_COLORS).map(([category, colors]) => (
@@ -356,7 +373,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
             {/* Impact Areas */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
-              <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black">Impact Areas</h3>
+              <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black font-lato">Impact Areas</h3>
               <p className="text-sm text-mte-charcoal mb-3 font-lato">Check images to identify who is working in MTE's four impact areas</p>
               <div className="grid grid-cols-2 gap-3 text-base font-lato">
                 <label className="flex flex-col items-center cursor-pointer">
@@ -413,7 +430,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
             {/* Relationships - County only */}
             {showCountyMap && (
               <div className="bg-white p-4 rounded-lg shadow-mte-card">
-                <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black">Relationships</h3>
+                <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black font-lato">Relationships</h3>
                 <p className="text-sm text-mte-charcoal mb-3 font-lato">Display collaborations to see how organizations work together</p>
                 <div className="space-y-2">
                   <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-base font-lato cursor-pointer transition-colors ${
@@ -466,13 +483,14 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         )}
 
         {/* Map + Organizations */}
-        <div className="w-full lg:w-3/4 flex flex-col gap-6">
-          {/* Universal Leaflet Map for All Levels */}
+        <div className="w-full lg:w-3/4 flex flex-col gap-4 md:gap-6">
+          {/* Leaflet Map for All Levels */}
           <div className="bg-white rounded-lg shadow-mte-card p-4">
             <MapContainer
+              key={mapKey}
               center={mapConfig.center}
               zoom={mapConfig.zoom}
-              style={{ height: "500px", width: "100%" }}
+              style={{ height: "500px", width: "100%", borderRadius: "8px" }}
               scrollWheelZoom={true}
             >
               <TileLayer
@@ -485,7 +503,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                 <Marker 
                   key={stateName}
                   position={data.coords}
-                  icon={createStateIcon()}
+                  icon={createClickableIcon()}
                   eventHandlers={{
                     click: () => handleStateMarkerClick(stateName)
                   }}
@@ -500,23 +518,26 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               ))}
 
               {/* State Level: County Markers */}
-              {showStateMap && Object.entries(countyCoordinates).map(([countyName, data]) => (
-                <Marker 
-                  key={countyName}
-                  position={data.coords}
-                  icon={createStateIcon()}
-                  eventHandlers={{
-                    click: () => handleCountyMarkerClick(countyName)
-                  }}
-                >
-                  <Tooltip>
-                    <div className="font-lato">
-                      <strong>{countyName} County</strong><br/>
-                      {data.orgCount} Organizations
-                    </div>
-                  </Tooltip>
-                </Marker>
-              ))}
+              {showStateMap && (() => {
+                const countyCoords = countyCoordinatesByState[regionId] || {};
+                return Object.entries(countyCoords).map(([countyName, data]) => (
+                  <Marker 
+                    key={countyName}
+                    position={data.coords}
+                    icon={createClickableIcon()}
+                    eventHandlers={{
+                      click: () => handleCountyMarkerClick(countyName)
+                    }}
+                  >
+                    <Tooltip>
+                      <div className="font-lato">
+                        <strong>{countyName} County</strong><br/>
+                        {data.orgCount} Organizations
+                      </div>
+                    </Tooltip>
+                  </Marker>
+                ));
+              })()}
 
               {/* County Level: Organization Markers with Connection Lines */}
               {showCountyMap && (
@@ -589,7 +610,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
           {/* Organization Cards - County Level Only */}
           {showCountyMap && (
             <div className="bg-white rounded-lg shadow-mte-card p-4">
-              <h3 className="text-h4 font-bold uppercase mb-4 text-mte-black">Organizations ({filteredOrgs.length})</h3>
+              <h3 className="text-h4 font-bold uppercase mb-4 text-mte-black font-lato">Organizations ({filteredOrgs.length})</h3>
               <div className="overflow-x-auto">
                 <div className="flex gap-4 pb-4" style={{ minWidth: "max-content" }}>
                   {filteredOrgs.map((org) => {
@@ -628,7 +649,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
       </div>
 
       {/* Footer */}
-      <div className="py-4 text-right pr-6">
+      <div className="py-4 text-right pr-6 bg-white border-t border-mte-light-grey mt-auto">
         <img src={MTELogo} alt="More Than Enough" className="h-8 inline-block" />
       </div>
     </div>

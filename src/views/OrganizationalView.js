@@ -287,14 +287,14 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               );
               
               if (county && countyCoords[county]) {
-                return { center: countyCoords[county].coords, zoom: 11 };
+                return { center: countyCoords[county].coords, zoom: 13 }; // Increased from 11 to 13 for closer view
               }
             }
           }
         }
         
         // Fallback to Nassau County if lookup fails
-        return { center: [40.73, -73.935], zoom: 11 };
+        return { center: [40.73, -73.935], zoom: 13 }; // Increased from 11 to 13 for closer view
       default:
         return { center: [39.8283, -98.5795], zoom: 4 };
     }
@@ -633,16 +633,15 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     </>
                   )}
                   
-                  {/* Connection Lines */}
+                  {/* Connection Lines - Changed to solid lines */}
                   {connectionLines.map((connection, index) => (
                     <Polyline
                       key={`connection-${index}`}
                       positions={[connection.from, connection.to]}
                       pathOptions={{
                         color: "#00ADEE",
-                        weight: 4,
-                        opacity: 0.8,
-                        dashArray: "8, 12"
+                        weight: 3,
+                        opacity: 0.7
                       }}
                     >
                       <Tooltip>

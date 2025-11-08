@@ -1,2734 +1,372 @@
 // Mock data for the Foster Care App - All 50 States with County Data
+// County data is algorithmically generated for efficiency
+
+// ==================== UTILITY FUNCTIONS ====================
+
+// Deterministic random number generator using string seed
+function seededRandom(seed) {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+function hashString(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return Math.abs(hash);
+}
+
+// Generate county metrics based on population and state data
+function generateCountyMetrics(countyName, stateName, population, stateData) {
+  const seed = hashString(countyName + stateName);
+  const random = (offset = 0) => seededRandom(seed + offset);
+  
+  // Calculate base metrics from population and state averages
+  const statePopulation = 5000000; // Approximate average state population
+  const populationRatio = population / statePopulation;
+  
+  const totalChurches = Math.round(population / 1000 * (0.8 + random(1) * 0.4));
+  const childrenInCare = Math.round(stateData.totalChildren * populationRatio * (0.8 + random(2) * 0.4));
+  const childrenInFamily = Math.round(childrenInCare * (0.35 + random(3) * 0.20));
+  const childrenInKinship = Math.round(childrenInCare * (0.25 + random(4) * 0.15));
+  const childrenOutOfCounty = Math.round(childrenInCare * (0.03 + random(5) * 0.04));
+  const licensedHomes = Math.round(childrenInCare * (0.35 + random(6) * 0.15));
+  const licensedHomesPerChild = parseFloat((licensedHomes / childrenInCare).toFixed(2));
+  const waitingForAdoption = Math.round(childrenInCare * (0.08 + random(7) * 0.06));
+  const childrenAdopted2024 = Math.round(waitingForAdoption * (0.65 + random(8) * 0.25));
+  const avgMonthsToAdoption = parseFloat((11 + random(9) * 4).toFixed(1));
+  const familyPreservationCases = Math.round(childrenInCare * (0.12 + random(10) * 0.08));
+  const reunificationRate = Math.round(stateData.reunificationRate * (0.95 + random(11) * 0.10));
+  const churchesProvidingSupport = Math.round(totalChurches * (0.68 + random(12) * 0.10));
+  const supportPercentage = Math.round((churchesProvidingSupport / totalChurches) * 100);
+  
+  return {
+    name: countyName,
+    state: stateName,
+    population,
+    totalChurches,
+    childrenInCare,
+    childrenInFamily,
+    childrenInKinship,
+    childrenOutOfCounty,
+    licensedHomes,
+    licensedHomesPerChild,
+    waitingForAdoption,
+    childrenAdopted2024,
+    avgMonthsToAdoption,
+    familyPreservationCases,
+    reunificationRate,
+    churchesProvidingSupport,
+    supportPercentage
+  };
+}
+
+// ==================== STATE DATA ====================
 
 export const stateData = {
-  alabama: {
-    name: 'Alabama',
-    totalChildren: 5809,
-    licensedHomes: 2474,
-    waitingForAdoption: 486,
-    reunificationRate: 79.2,
-    familyPreservationCases: 50
-  },
-  alaska: {
-    name: 'Alaska',
-    totalChildren: 2156,
-    licensedHomes: 892,
-    waitingForAdoption: 178,
-    reunificationRate: 71.5,
-    familyPreservationCases: 28
-  },
-  arizona: {
-    name: 'Arizona',
-    totalChildren: 14567,
-    licensedHomes: 5823,
-    waitingForAdoption: 1245,
-    reunificationRate: 68.9,
-    familyPreservationCases: 189
-  },
-  arkansas: {
-    name: 'Arkansas',
-    totalChildren: 4892,
-    licensedHomes: 2156,
-    waitingForAdoption: 398,
-    reunificationRate: 77.8,
-    familyPreservationCases: 67
-  },
-  california: {
-    name: 'California',
-    totalChildren: 58341,
-    licensedHomes: 24567,
-    waitingForAdoption: 4892,
-    reunificationRate: 69.4,
-    familyPreservationCases: 823
-  },
-  colorado: {
-    name: 'Colorado',
-    totalChildren: 6234,
-    licensedHomes: 2789,
-    waitingForAdoption: 534,
-    reunificationRate: 74.6,
-    familyPreservationCases: 98
-  },
-  connecticut: {
-    name: 'Connecticut',
-    totalChildren: 4123,
-    licensedHomes: 1876,
-    waitingForAdoption: 356,
-    reunificationRate: 73.2,
-    familyPreservationCases: 72
-  },
-  delaware: {
-    name: 'Delaware',
-    totalChildren: 1234,
-    licensedHomes: 567,
-    waitingForAdoption: 98,
-    reunificationRate: 75.8,
-    familyPreservationCases: 23
-  },
-  florida: {
-    name: 'Florida',
-    totalChildren: 23456,
-    licensedHomes: 9876,
-    waitingForAdoption: 2134,
-    reunificationRate: 70.3,
-    familyPreservationCases: 345
-  },
-  georgia: {
-    name: 'Georgia',
-    totalChildren: 13567,
-    licensedHomes: 5678,
-    waitingForAdoption: 1234,
-    reunificationRate: 72.9,
-    familyPreservationCases: 267
-  },
-  hawaii: {
-    name: 'Hawaii',
-    totalChildren: 2345,
-    licensedHomes: 987,
-    waitingForAdoption: 189,
-    reunificationRate: 68.7,
-    familyPreservationCases: 45
-  },
-  idaho: {
-    name: 'Idaho',
-    totalChildren: 2789,
-    licensedHomes: 1234,
-    waitingForAdoption: 234,
-    reunificationRate: 76.5,
-    familyPreservationCases: 52
-  },
-  illinois: {
-    name: 'Illinois',
-    totalChildren: 17234,
-    licensedHomes: 7234,
-    waitingForAdoption: 1567,
-    reunificationRate: 71.8,
-    familyPreservationCases: 298
-  },
-  indiana: {
-    name: 'Indiana',
-    totalChildren: 11234,
-    licensedHomes: 4789,
-    waitingForAdoption: 987,
-    reunificationRate: 74.2,
-    familyPreservationCases: 189
-  },
-  iowa: {
-    name: 'Iowa',
-    totalChildren: 5678,
-    licensedHomes: 2456,
-    waitingForAdoption: 456,
-    reunificationRate: 78.3,
-    familyPreservationCases: 89
-  },
-  kansas: {
-    name: 'Kansas',
-    totalChildren: 6789,
-    licensedHomes: 2890,
-    waitingForAdoption: 578,
-    reunificationRate: 75.6,
-    familyPreservationCases: 102
-  },
-  kentucky: {
-    name: 'Kentucky',
-    totalChildren: 8234,
-    licensedHomes: 3456,
-    waitingForAdoption: 723,
-    reunificationRate: 76.9,
-    familyPreservationCases: 134
-  },
-  louisiana: {
-    name: 'Louisiana',
-    totalChildren: 7892,
-    licensedHomes: 3234,
-    waitingForAdoption: 689,
-    reunificationRate: 70.4,
-    familyPreservationCases: 145
-  },
-  maine: {
-    name: 'Maine',
-    totalChildren: 2123,
-    licensedHomes: 945,
-    waitingForAdoption: 178,
-    reunificationRate: 77.2,
-    familyPreservationCases: 42
-  },
-  maryland: {
-    name: 'Maryland',
-    totalChildren: 4567,
-    licensedHomes: 2012,
-    waitingForAdoption: 389,
-    reunificationRate: 72.8,
-    familyPreservationCases: 87
-  },
-  massachusetts: {
-    name: 'Massachusetts',
-    totalChildren: 9876,
-    licensedHomes: 4234,
-    waitingForAdoption: 834,
-    reunificationRate: 73.5,
-    familyPreservationCases: 167
-  },
-  michigan: {
-    name: 'Michigan',
-    totalChildren: 12456,
-    licensedHomes: 5234,
-    waitingForAdoption: 1098,
-    reunificationRate: 74.7,
-    familyPreservationCases: 223
-  },
-  minnesota: {
-    name: 'Minnesota',
-    totalChildren: 7456,
-    licensedHomes: 3234,
-    waitingForAdoption: 634,
-    reunificationRate: 76.4,
-    familyPreservationCases: 128
-  },
-  mississippi: {
-    name: 'Mississippi',
-    totalChildren: 5234,
-    licensedHomes: 2178,
-    waitingForAdoption: 445,
-    reunificationRate: 75.3,
-    familyPreservationCases: 89
-  },
-  missouri: {
-    name: 'Missouri',
-    totalChildren: 13234,
-    licensedHomes: 5567,
-    waitingForAdoption: 1156,
-    reunificationRate: 73.6,
-    familyPreservationCases: 234
-  },
-  montana: {
-    name: 'Montana',
-    totalChildren: 2567,
-    licensedHomes: 1123,
-    waitingForAdoption: 212,
-    reunificationRate: 74.9,
-    familyPreservationCases: 48
-  },
-  nebraska: {
-    name: 'Nebraska',
-    totalChildren: 4123,
-    licensedHomes: 1789,
-    waitingForAdoption: 345,
-    reunificationRate: 77.1,
-    familyPreservationCases: 72
-  },
-  nevada: {
-    name: 'Nevada',
-    totalChildren: 5678,
-    licensedHomes: 2345,
-    waitingForAdoption: 478,
-    reunificationRate: 69.8,
-    familyPreservationCases: 98
-  },
-  "new-hampshire": {
-    name: 'New Hampshire',
-    totalChildren: 1456,
-    licensedHomes: 634,
-    waitingForAdoption: 123,
-    reunificationRate: 78.5,
-    familyPreservationCases: 28
-  },
-  "new-jersey": {
-    name: 'New Jersey',
-    totalChildren: 6789,
-    licensedHomes: 2956,
-    waitingForAdoption: 578,
-    reunificationRate: 72.3,
-    familyPreservationCases: 112
-  },
-  "new-mexico": {
-    name: 'New Mexico',
-    totalChildren: 3456,
-    licensedHomes: 1478,
-    waitingForAdoption: 289,
-    reunificationRate: 71.7,
-    familyPreservationCases: 67
-  },
-  "new-york": {
-    name: 'New York',
-    totalChildren: 18045,
-    licensedHomes: 7420,
-    waitingForAdoption: 934,
-    reunificationRate: 76.3,
-    familyPreservationCases: 320
-  },
-  "north-carolina": {
-    name: 'North Carolina',
-    totalChildren: 10234,
-    licensedHomes: 4321,
-    waitingForAdoption: 867,
-    reunificationRate: 75.8,
-    familyPreservationCases: 178
-  },
-  "north-dakota": {
-    name: 'North Dakota',
-    totalChildren: 1789,
-    licensedHomes: 756,
-    waitingForAdoption: 145,
-    reunificationRate: 76.9,
-    familyPreservationCases: 34
-  },
-  ohio: {
-    name: 'Ohio',
-    totalChildren: 15678,
-    licensedHomes: 6543,
-    waitingForAdoption: 1345,
-    reunificationRate: 73.4,
-    familyPreservationCases: 278
-  },
-  oklahoma: {
-    name: 'Oklahoma',
-    totalChildren: 9234,
-    licensedHomes: 3876,
-    waitingForAdoption: 789,
-    reunificationRate: 72.6,
-    familyPreservationCases: 167
-  },
-  oregon: {
-    name: 'Oregon',
-    totalChildren: 7345,
-    licensedHomes: 3123,
-    waitingForAdoption: 623,
-    reunificationRate: 74.8,
-    familyPreservationCases: 134
-  },
-  pennsylvania: {
-    name: 'Pennsylvania',
-    totalChildren: 14789,
-    licensedHomes: 6234,
-    waitingForAdoption: 1267,
-    reunificationRate: 74.2,
-    familyPreservationCases: 256
-  },
-  "rhode-island": {
-    name: 'Rhode Island',
-    totalChildren: 2012,
-    licensedHomes: 867,
-    waitingForAdoption: 167,
-    reunificationRate: 73.9,
-    familyPreservationCases: 39
-  },
-  "south-carolina": {
-    name: 'South Carolina',
-    totalChildren: 4567,
-    licensedHomes: 1923,
-    waitingForAdoption: 389,
-    reunificationRate: 74.7,
-    familyPreservationCases: 82
-  },
-  "south-dakota": {
-    name: 'South Dakota',
-    totalChildren: 1678,
-    licensedHomes: 723,
-    waitingForAdoption: 134,
-    reunificationRate: 77.4,
-    familyPreservationCases: 32
-  },
-  tennessee: {
-    name: 'Tennessee',
-    totalChildren: 8456,
-    licensedHomes: 3567,
-    waitingForAdoption: 723,
-    reunificationRate: 75.6,
-    familyPreservationCases: 145
-  },
-  texas: {
-    name: 'Texas',
-    totalChildren: 29876,
-    licensedHomes: 12345,
-    waitingForAdoption: 2567,
-    reunificationRate: 71.2,
-    familyPreservationCases: 489
-  },
-  utah: {
-    name: 'Utah',
-    totalChildren: 2890,
-    licensedHomes: 1234,
-    waitingForAdoption: 245,
-    reunificationRate: 76.8,
-    familyPreservationCases: 56
-  },
-  vermont: {
-    name: 'Vermont',
-    totalChildren: 1123,
-    licensedHomes: 489,
-    waitingForAdoption: 89,
-    reunificationRate: 78.9,
-    familyPreservationCases: 21
-  },
-  virginia: {
-    name: 'Virginia',
-    totalChildren: 5678,
-    licensedHomes: 2456,
-    waitingForAdoption: 478,
-    reunificationRate: 75.3,
-    familyPreservationCases: 98
-  },
-  washington: {
-    name: 'Washington',
-    totalChildren: 9345,
-    licensedHomes: 3978,
-    waitingForAdoption: 789,
-    reunificationRate: 73.7,
-    familyPreservationCases: 167
-  },
-  "west-virginia": {
-    name: 'West Virginia',
-    totalChildren: 6789,
-    licensedHomes: 2845,
-    waitingForAdoption: 578,
-    reunificationRate: 74.5,
-    familyPreservationCases: 123
-  },
-  wisconsin: {
-    name: 'Wisconsin',
-    totalChildren: 7234,
-    licensedHomes: 3098,
-    waitingForAdoption: 612,
-    reunificationRate: 76.2,
-    familyPreservationCases: 134
-  },
-  wyoming: {
-    name: 'Wyoming',
-    totalChildren: 1345,
-    licensedHomes: 578,
-    waitingForAdoption: 112,
-    reunificationRate: 77.8,
-    familyPreservationCases: 26
-  }
+  alabama: { name: 'Alabama', totalChildren: 5809, licensedHomes: 2474, waitingForAdoption: 486, reunificationRate: 79.2, familyPreservationCases: 50 },
+  alaska: { name: 'Alaska', totalChildren: 2156, licensedHomes: 892, waitingForAdoption: 178, reunificationRate: 71.5, familyPreservationCases: 28 },
+  arizona: { name: 'Arizona', totalChildren: 14567, licensedHomes: 5823, waitingForAdoption: 1245, reunificationRate: 68.9, familyPreservationCases: 189 },
+  arkansas: { name: 'Arkansas', totalChildren: 4892, licensedHomes: 2156, waitingForAdoption: 398, reunificationRate: 77.8, familyPreservationCases: 67 },
+  california: { name: 'California', totalChildren: 58341, licensedHomes: 24567, waitingForAdoption: 4892, reunificationRate: 69.4, familyPreservationCases: 823 },
+  colorado: { name: 'Colorado', totalChildren: 6234, licensedHomes: 2789, waitingForAdoption: 534, reunificationRate: 74.6, familyPreservationCases: 98 },
+  connecticut: { name: 'Connecticut', totalChildren: 4123, licensedHomes: 1876, waitingForAdoption: 356, reunificationRate: 73.2, familyPreservationCases: 72 },
+  delaware: { name: 'Delaware', totalChildren: 1234, licensedHomes: 567, waitingForAdoption: 98, reunificationRate: 75.8, familyPreservationCases: 23 },
+  florida: { name: 'Florida', totalChildren: 23456, licensedHomes: 9876, waitingForAdoption: 2134, reunificationRate: 70.3, familyPreservationCases: 345 },
+  georgia: { name: 'Georgia', totalChildren: 13567, licensedHomes: 5678, waitingForAdoption: 1234, reunificationRate: 72.9, familyPreservationCases: 267 },
+  hawaii: { name: 'Hawaii', totalChildren: 2345, licensedHomes: 987, waitingForAdoption: 189, reunificationRate: 68.7, familyPreservationCases: 45 },
+  idaho: { name: 'Idaho', totalChildren: 2789, licensedHomes: 1234, waitingForAdoption: 234, reunificationRate: 76.5, familyPreservationCases: 52 },
+  illinois: { name: 'Illinois', totalChildren: 17234, licensedHomes: 7234, waitingForAdoption: 1567, reunificationRate: 71.8, familyPreservationCases: 298 },
+  indiana: { name: 'Indiana', totalChildren: 11234, licensedHomes: 4789, waitingForAdoption: 987, reunificationRate: 74.2, familyPreservationCases: 189 },
+  iowa: { name: 'Iowa', totalChildren: 5678, licensedHomes: 2456, waitingForAdoption: 456, reunificationRate: 78.3, familyPreservationCases: 89 },
+  kansas: { name: 'Kansas', totalChildren: 6789, licensedHomes: 2890, waitingForAdoption: 578, reunificationRate: 75.6, familyPreservationCases: 102 },
+  kentucky: { name: 'Kentucky', totalChildren: 8234, licensedHomes: 3456, waitingForAdoption: 723, reunificationRate: 76.9, familyPreservationCases: 134 },
+  louisiana: { name: 'Louisiana', totalChildren: 7892, licensedHomes: 3234, waitingForAdoption: 689, reunificationRate: 70.4, familyPreservationCases: 145 },
+  maine: { name: 'Maine', totalChildren: 2123, licensedHomes: 945, waitingForAdoption: 178, reunificationRate: 77.2, familyPreservationCases: 42 },
+  maryland: { name: 'Maryland', totalChildren: 4567, licensedHomes: 2012, waitingForAdoption: 389, reunificationRate: 72.8, familyPreservationCases: 87 },
+  massachusetts: { name: 'Massachusetts', totalChildren: 9876, licensedHomes: 4234, waitingForAdoption: 834, reunificationRate: 73.5, familyPreservationCases: 167 },
+  michigan: { name: 'Michigan', totalChildren: 12456, licensedHomes: 5234, waitingForAdoption: 1098, reunificationRate: 74.7, familyPreservationCases: 223 },
+  minnesota: { name: 'Minnesota', totalChildren: 7456, licensedHomes: 3234, waitingForAdoption: 634, reunificationRate: 76.4, familyPreservationCases: 128 },
+  mississippi: { name: 'Mississippi', totalChildren: 5234, licensedHomes: 2178, waitingForAdoption: 445, reunificationRate: 75.3, familyPreservationCases: 89 },
+  missouri: { name: 'Missouri', totalChildren: 13234, licensedHomes: 5567, waitingForAdoption: 1156, reunificationRate: 73.6, familyPreservationCases: 234 },
+  montana: { name: 'Montana', totalChildren: 2567, licensedHomes: 1123, waitingForAdoption: 212, reunificationRate: 74.9, familyPreservationCases: 48 },
+  nebraska: { name: 'Nebraska', totalChildren: 4123, licensedHomes: 1789, waitingForAdoption: 345, reunificationRate: 77.1, familyPreservationCases: 72 },
+  nevada: { name: 'Nevada', totalChildren: 5678, licensedHomes: 2345, waitingForAdoption: 478, reunificationRate: 69.8, familyPreservationCases: 98 },
+  "new-hampshire": { name: 'New Hampshire', totalChildren: 1456, licensedHomes: 634, waitingForAdoption: 123, reunificationRate: 78.5, familyPreservationCases: 28 },
+  "new-jersey": { name: 'New Jersey', totalChildren: 6789, licensedHomes: 2956, waitingForAdoption: 578, reunificationRate: 72.3, familyPreservationCases: 112 },
+  "new-mexico": { name: 'New Mexico', totalChildren: 3456, licensedHomes: 1478, waitingForAdoption: 289, reunificationRate: 71.7, familyPreservationCases: 67 },
+  "new-york": { name: 'New York', totalChildren: 18045, licensedHomes: 7420, waitingForAdoption: 934, reunificationRate: 76.3, familyPreservationCases: 320 },
+  "north-carolina": { name: 'North Carolina', totalChildren: 10234, licensedHomes: 4321, waitingForAdoption: 867, reunificationRate: 75.8, familyPreservationCases: 178 },
+  "north-dakota": { name: 'North Dakota', totalChildren: 1789, licensedHomes: 756, waitingForAdoption: 145, reunificationRate: 76.9, familyPreservationCases: 34 },
+  ohio: { name: 'Ohio', totalChildren: 15678, licensedHomes: 6543, waitingForAdoption: 1345, reunificationRate: 73.4, familyPreservationCases: 278 },
+  oklahoma: { name: 'Oklahoma', totalChildren: 9234, licensedHomes: 3876, waitingForAdoption: 789, reunificationRate: 72.6, familyPreservationCases: 167 },
+  oregon: { name: 'Oregon', totalChildren: 7345, licensedHomes: 3123, waitingForAdoption: 623, reunificationRate: 74.8, familyPreservationCases: 134 },
+  pennsylvania: { name: 'Pennsylvania', totalChildren: 14789, licensedHomes: 6234, waitingForAdoption: 1267, reunificationRate: 74.2, familyPreservationCases: 256 },
+  "rhode-island": { name: 'Rhode Island', totalChildren: 2012, licensedHomes: 867, waitingForAdoption: 167, reunificationRate: 73.9, familyPreservationCases: 39 },
+  "south-carolina": { name: 'South Carolina', totalChildren: 4567, licensedHomes: 1923, waitingForAdoption: 389, reunificationRate: 74.7, familyPreservationCases: 82 },
+  "south-dakota": { name: 'South Dakota', totalChildren: 1678, licensedHomes: 723, waitingForAdoption: 134, reunificationRate: 77.4, familyPreservationCases: 32 },
+  tennessee: { name: 'Tennessee', totalChildren: 8456, licensedHomes: 3567, waitingForAdoption: 723, reunificationRate: 75.6, familyPreservationCases: 145 },
+  texas: { name: 'Texas', totalChildren: 29876, licensedHomes: 12345, waitingForAdoption: 2567, reunificationRate: 71.2, familyPreservationCases: 489 },
+  utah: { name: 'Utah', totalChildren: 2890, licensedHomes: 1234, waitingForAdoption: 245, reunificationRate: 76.8, familyPreservationCases: 56 },
+  vermont: { name: 'Vermont', totalChildren: 1123, licensedHomes: 489, waitingForAdoption: 89, reunificationRate: 78.9, familyPreservationCases: 21 },
+  virginia: { name: 'Virginia', totalChildren: 5678, licensedHomes: 2456, waitingForAdoption: 478, reunificationRate: 75.3, familyPreservationCases: 98 },
+  washington: { name: 'Washington', totalChildren: 9345, licensedHomes: 3978, waitingForAdoption: 789, reunificationRate: 73.7, familyPreservationCases: 167 },
+  "west-virginia": { name: 'West Virginia', totalChildren: 6789, licensedHomes: 2845, waitingForAdoption: 578, reunificationRate: 74.5, familyPreservationCases: 123 },
+  wisconsin: { name: 'Wisconsin', totalChildren: 7234, licensedHomes: 3098, waitingForAdoption: 612, reunificationRate: 76.2, familyPreservationCases: 134 },
+  wyoming: { name: 'Wyoming', totalChildren: 1345, licensedHomes: 578, waitingForAdoption: 112, reunificationRate: 77.8, familyPreservationCases: 26 }
 };
 
+// ==================== COUNTY BASE DATA ====================
+// Stores only essential data: name, population, and coordinates
+// All other metrics are generated algorithmically
 
-export const countyData = {
-  // ==================== ALABAMA COUNTIES ====================
-  'butler-al': {
-    name: 'Butler County, Alabama',
-    state: 'Alabama',
-    population: 18832,
-    totalChurches: 5,
-    childrenInCare: 21,
-    childrenInFamily: 34,
-    childrenInKinship: 28,
-    childrenOutOfCounty: 4,
-    licensedHomes: 43,
-    licensedHomesPerChild: 2.04,
-    waitingForAdoption: 5,
-    childrenAdopted2024: 6,
-    avgMonthsToAdoption: 8.4,
-    familyPreservationCases: 12,
-    reunificationRate: 85,
-    churchesProvidingSupport: 4,
-    supportPercentage: 80
-  },
-  'jefferson-al': {
-    name: 'Jefferson County, Alabama',
-    state: 'Alabama',
-    population: 674721,
-    totalChurches: 312,
-    childrenInCare: 892,
-    childrenInFamily: 456,
-    childrenInKinship: 298,
-    childrenOutOfCounty: 67,
-    licensedHomes: 534,
-    licensedHomesPerChild: 0.60,
-    waitingForAdoption: 89,
-    childrenAdopted2024: 67,
-    avgMonthsToAdoption: 11.2,
-    familyPreservationCases: 145,
-    reunificationRate: 78,
-    churchesProvidingSupport: 234,
-    supportPercentage: 75
-  },
-  'mobile-al': {
-    name: 'Mobile County, Alabama',
-    state: 'Alabama',
-    population: 413210,
-    totalChurches: 189,
-    childrenInCare: 567,
-    childrenInFamily: 289,
-    childrenInKinship: 198,
-    childrenOutOfCounty: 45,
-    licensedHomes: 334,
-    licensedHomesPerChild: 0.59,
-    waitingForAdoption: 56,
-    childrenAdopted2024: 43,
-    avgMonthsToAdoption: 10.8,
-    familyPreservationCases: 89,
-    reunificationRate: 81,
-    churchesProvidingSupport: 142,
-    supportPercentage: 75
-  },
-  'montgomery-al': {
-    name: 'Montgomery County, Alabama',
-    state: 'Alabama',
-    population: 228954,
-    totalChurches: 145,
-    childrenInCare: 423,
-    childrenInFamily: 213,
-    childrenInKinship: 156,
-    childrenOutOfCounty: 34,
-    licensedHomes: 267,
-    licensedHomesPerChild: 0.63,
-    waitingForAdoption: 45,
-    childrenAdopted2024: 38,
-    avgMonthsToAdoption: 9.6,
-    familyPreservationCases: 67,
-    reunificationRate: 79,
-    churchesProvidingSupport: 108,
-    supportPercentage: 74
-  },
+const countyBaseData = {
+  // Alabama
+  'butler-al': { name: 'Butler County, Alabama', state: 'Alabama', pop: 18832, coords: [31.7532, -86.6803] },
+  'jefferson-al': { name: 'Jefferson County, Alabama', state: 'Alabama', pop: 674721, coords: [33.5207, -86.8025] },
+  'mobile-al': { name: 'Mobile County, Alabama', state: 'Alabama', pop: 413210, coords: [30.6954, -88.0399] },
+  'montgomery-al': { name: 'Montgomery County, Alabama', state: 'Alabama', pop: 228954, coords: [32.3792, -86.3077] },
 
-  // ==================== NEW YORK COUNTIES ====================
-  'nassau-ny': {
-    name: 'Nassau County, New York',
-    state: 'New York',
-    population: 1395774,
-    totalChurches: 127,
-    childrenInCare: 543,
-    childrenInFamily: 234,
-    childrenInKinship: 189,
-    childrenOutOfCounty: 15,
-    licensedHomes: 289,
-    licensedHomesPerChild: 0.53,
-    waitingForAdoption: 67,
-    childrenAdopted2024: 45,
-    avgMonthsToAdoption: 12.3,
-    familyPreservationCases: 156,
-    reunificationRate: 72,
-    churchesProvidingSupport: 89,
-    supportPercentage: 70
-  },
-  'suffolk-ny': {
-    name: 'Suffolk County, New York',
-    state: 'New York',
-    population: 1525920,
-    totalChurches: 198,
-    childrenInCare: 678,
-    childrenInFamily: 312,
-    childrenInKinship: 234,
-    childrenOutOfCounty: 23,
-    licensedHomes: 367,
-    licensedHomesPerChild: 0.54,
-    waitingForAdoption: 78,
-    childrenAdopted2024: 56,
-    avgMonthsToAdoption: 11.8,
-    familyPreservationCases: 189,
-    reunificationRate: 74,
-    churchesProvidingSupport: 145,
-    supportPercentage: 73
-  },
-  'erie-ny': {
-    name: 'Erie County, New York',
-    state: 'New York',
-    population: 954236,
-    totalChurches: 234,
-    childrenInCare: 823,
-    childrenInFamily: 423,
-    childrenInKinship: 267,
-    childrenOutOfCounty: 45,
-    licensedHomes: 456,
-    licensedHomesPerChild: 0.55,
-    waitingForAdoption: 92,
-    childrenAdopted2024: 67,
-    avgMonthsToAdoption: 12.1,
-    familyPreservationCases: 178,
-    reunificationRate: 75,
-    churchesProvidingSupport: 176,
-    supportPercentage: 75
-  },
-  'westchester-ny': {
-    name: 'Westchester County, New York',
-    state: 'New York',
-    population: 1004457,
-    totalChurches: 156,
-    childrenInCare: 456,
-    childrenInFamily: 234,
-    childrenInKinship: 178,
-    childrenOutOfCounty: 18,
-    licensedHomes: 289,
-    licensedHomesPerChild: 0.63,
-    waitingForAdoption: 56,
-    childrenAdopted2024: 42,
-    avgMonthsToAdoption: 11.4,
-    familyPreservationCases: 123,
-    reunificationRate: 77,
-    churchesProvidingSupport: 112,
-    supportPercentage: 72
-  },
+  // Alaska
+  'anchorage-ak': { name: 'Anchorage Municipality, Alaska', state: 'Alaska', pop: 291247, coords: [61.2181, -149.9003] },
+  'fairbanks-ak': { name: 'Fairbanks North Star Borough, Alaska', state: 'Alaska', pop: 95655, coords: [64.8378, -147.7164] },
 
-  // ==================== CALIFORNIA COUNTIES ====================
-  'los-angeles-ca': {
-    name: 'Los Angeles County, California',
-    state: 'California',
-    population: 10014009,
-    totalChurches: 2156,
-    childrenInCare: 18234,
-    childrenInFamily: 7892,
-    childrenInKinship: 5634,
-    childrenOutOfCounty: 234,
-    licensedHomes: 4567,
-    licensedHomesPerChild: 0.25,
-    waitingForAdoption: 1234,
-    childrenAdopted2024: 892,
-    avgMonthsToAdoption: 15.7,
-    familyPreservationCases: 2345,
-    reunificationRate: 68,
-    churchesProvidingSupport: 1523,
-    supportPercentage: 71
-  },
-  'san-diego-ca': {
-    name: 'San Diego County, California',
-    state: 'California',
-    population: 3298634,
-    totalChurches: 876,
-    childrenInCare: 5678,
-    childrenInFamily: 2456,
-    childrenInKinship: 1789,
-    childrenOutOfCounty: 123,
-    licensedHomes: 1456,
-    licensedHomesPerChild: 0.26,
-    waitingForAdoption: 423,
-    childrenAdopted2024: 298,
-    avgMonthsToAdoption: 14.2,
-    familyPreservationCases: 789,
-    reunificationRate: 70,
-    churchesProvidingSupport: 623,
-    supportPercentage: 71
-  },
-  'orange-ca': {
-    name: 'Orange County, California',
-    state: 'California',
-    population: 3186989,
-    totalChurches: 789,
-    childrenInCare: 4234,
-    childrenInFamily: 1876,
-    childrenInKinship: 1345,
-    childrenOutOfCounty: 98,
-    licensedHomes: 1123,
-    licensedHomesPerChild: 0.27,
-    waitingForAdoption: 356,
-    childrenAdopted2024: 245,
-    avgMonthsToAdoption: 13.8,
-    familyPreservationCases: 623,
-    reunificationRate: 69,
-    churchesProvidingSupport: 567,
-    supportPercentage: 72
-  },
-  'riverside-ca': {
-    name: 'Riverside County, California',
-    state: 'California',
-    population: 2470546,
-    totalChurches: 534,
-    childrenInCare: 3456,
-    childrenInFamily: 1567,
-    childrenInKinship: 1123,
-    childrenOutOfCounty: 89,
-    licensedHomes: 923,
-    licensedHomesPerChild: 0.27,
-    waitingForAdoption: 289,
-    childrenAdopted2024: 198,
-    avgMonthsToAdoption: 14.5,
-    familyPreservationCases: 512,
-    reunificationRate: 68,
-    churchesProvidingSupport: 378,
-    supportPercentage: 71
-  },
+  // Arizona
+  'maricopa-az': { name: 'Maricopa County, Arizona', state: 'Arizona', pop: 4485414, coords: [33.4484, -112.0740] },
+  'pima-az': { name: 'Pima County, Arizona', state: 'Arizona', pop: 1043433, coords: [32.2226, -110.9747] },
+  'pinal-az': { name: 'Pinal County, Arizona', state: 'Arizona', pop: 462967, coords: [32.8439, -111.3847] },
 
-  // ==================== TEXAS COUNTIES ====================
-  'harris-tx': {
-    name: 'Harris County, Texas',
-    state: 'Texas',
-    population: 4731145,
-    totalChurches: 1234,
-    childrenInCare: 8901,
-    childrenInFamily: 3456,
-    childrenInKinship: 2789,
-    childrenOutOfCounty: 189,
-    licensedHomes: 3234,
-    licensedHomesPerChild: 0.36,
-    waitingForAdoption: 723,
-    childrenAdopted2024: 456,
-    avgMonthsToAdoption: 13.8,
-    familyPreservationCases: 1234,
-    reunificationRate: 70,
-    churchesProvidingSupport: 876,
-    supportPercentage: 71
-  },
-  'dallas-tx': {
-    name: 'Dallas County, Texas',
-    state: 'Texas',
-    population: 2613539,
-    totalChurches: 876,
-    childrenInCare: 6234,
-    childrenInFamily: 2789,
-    childrenInKinship: 1923,
-    childrenOutOfCounty: 145,
-    licensedHomes: 2156,
-    licensedHomesPerChild: 0.35,
-    waitingForAdoption: 534,
-    childrenAdopted2024: 367,
-    avgMonthsToAdoption: 13.2,
-    familyPreservationCases: 892,
-    reunificationRate: 71,
-    churchesProvidingSupport: 623,
-    supportPercentage: 71
-  },
-  'bexar-tx': {
-    name: 'Bexar County, Texas',
-    state: 'Texas',
-    population: 2009324,
-    totalChurches: 723,
-    childrenInCare: 4567,
-    childrenInFamily: 2012,
-    childrenInKinship: 1456,
-    childrenOutOfCounty: 112,
-    licensedHomes: 1678,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 398,
-    childrenAdopted2024: 267,
-    avgMonthsToAdoption: 12.9,
-    familyPreservationCases: 678,
-    reunificationRate: 72,
-    churchesProvidingSupport: 512,
-    supportPercentage: 71
-  },
-  'travis-tx': {
-    name: 'Travis County, Texas',
-    state: 'Texas',
-    population: 1318652,
-    totalChurches: 456,
-    childrenInCare: 2789,
-    childrenInFamily: 1234,
-    childrenInKinship: 892,
-    childrenOutOfCounty: 78,
-    licensedHomes: 1023,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 234,
-    childrenAdopted2024: 178,
-    avgMonthsToAdoption: 12.6,
-    familyPreservationCases: 423,
-    reunificationRate: 73,
-    churchesProvidingSupport: 334,
-    supportPercentage: 73
-  },
+  // Arkansas
+  'pulaski-ar': { name: 'Pulaski County, Arkansas', state: 'Arkansas', pop: 399125, coords: [34.7465, -92.2896] },
+  'washington-ar': { name: 'Washington County, Arkansas', state: 'Arkansas', pop: 245871, coords: [36.0653, -94.1574] },
 
-  // ==================== ILLINOIS COUNTIES ====================
-  'cook-il': {
-    name: 'Cook County, Illinois',
-    state: 'Illinois',
-    population: 5275541,
-    totalChurches: 987,
-    childrenInCare: 5678,
-    childrenInFamily: 2345,
-    childrenInKinship: 1876,
-    childrenOutOfCounty: 123,
-    licensedHomes: 2134,
-    licensedHomesPerChild: 0.38,
-    waitingForAdoption: 478,
-    childrenAdopted2024: 312,
-    avgMonthsToAdoption: 14.2,
-    familyPreservationCases: 876,
-    reunificationRate: 71,
-    churchesProvidingSupport: 698,
-    supportPercentage: 71
-  },
-  'dupage-il': {
-    name: 'DuPage County, Illinois',
-    state: 'Illinois',
-    population: 932675,
-    totalChurches: 234,
-    childrenInCare: 1234,
-    childrenInFamily: 567,
-    childrenInKinship: 423,
-    childrenOutOfCounty: 34,
-    licensedHomes: 478,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 98,
-    childrenAdopted2024: 67,
-    avgMonthsToAdoption: 13.5,
-    familyPreservationCases: 189,
-    reunificationRate: 73,
-    churchesProvidingSupport: 167,
-    supportPercentage: 71
-  },
-  'lake-il': {
-    name: 'Lake County, Illinois',
-    state: 'Illinois',
-    population: 714342,
-    totalChurches: 198,
-    childrenInCare: 1023,
-    childrenInFamily: 478,
-    childrenInKinship: 356,
-    childrenOutOfCounty: 28,
-    licensedHomes: 398,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 82,
-    childrenAdopted2024: 56,
-    avgMonthsToAdoption: 13.1,
-    familyPreservationCases: 156,
-    reunificationRate: 72,
-    churchesProvidingSupport: 142,
-    supportPercentage: 72
-  },
+  // California
+  'los-angeles-ca': { name: 'Los Angeles County, California', state: 'California', pop: 10014009, coords: [34.0522, -118.2437] },
+  'san-diego-ca': { name: 'San Diego County, California', state: 'California', pop: 3298634, coords: [32.7157, -117.1611] },
+  'orange-ca': { name: 'Orange County, California', state: 'California', pop: 3186989, coords: [33.7175, -117.8311] },
+  'riverside-ca': { name: 'Riverside County, California', state: 'California', pop: 2470546, coords: [33.9533, -117.3961] },
 
-  // ==================== FLORIDA COUNTIES ====================
-  'miami-dade-fl': {
-    name: 'Miami-Dade County, Florida',
-    state: 'Florida',
-    population: 2716940,
-    totalChurches: 923,
-    childrenInCare: 6789,
-    childrenInFamily: 2892,
-    childrenInKinship: 2156,
-    childrenOutOfCounty: 178,
-    licensedHomes: 2456,
-    licensedHomesPerChild: 0.36,
-    waitingForAdoption: 567,
-    childrenAdopted2024: 389,
-    avgMonthsToAdoption: 13.9,
-    familyPreservationCases: 923,
-    reunificationRate: 69,
-    churchesProvidingSupport: 656,
-    supportPercentage: 71
-  },
-  'broward-fl': {
-    name: 'Broward County, Florida',
-    state: 'Florida',
-    population: 1952778,
-    totalChurches: 678,
-    childrenInCare: 4567,
-    childrenInFamily: 1923,
-    childrenInKinship: 1456,
-    childrenOutOfCounty: 123,
-    licensedHomes: 1678,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 389,
-    childrenAdopted2024: 267,
-    avgMonthsToAdoption: 13.4,
-    familyPreservationCases: 634,
-    reunificationRate: 70,
-    churchesProvidingSupport: 478,
-    supportPercentage: 71
-  },
-  'palm-beach-fl': {
-    name: 'Palm Beach County, Florida',
-    state: 'Florida',
-    population: 1496770,
-    totalChurches: 534,
-    childrenInCare: 3456,
-    childrenInFamily: 1456,
-    childrenInKinship: 1098,
-    childrenOutOfCounty: 98,
-    licensedHomes: 1267,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 298,
-    childrenAdopted2024: 203,
-    avgMonthsToAdoption: 13.1,
-    familyPreservationCases: 478,
-    reunificationRate: 71,
-    churchesProvidingSupport: 378,
-    supportPercentage: 71
-  },
+  // Colorado
+  'denver-co': { name: 'Denver County, Colorado', state: 'Colorado', pop: 715522, coords: [39.7392, -104.9903] },
+  'el-paso-co': { name: 'El Paso County, Colorado', state: 'Colorado', pop: 730395, coords: [38.8339, -104.8214] },
 
-  // ==================== OHIO COUNTIES ====================
-  'cuyahoga-oh': {
-    name: 'Cuyahoga County, Ohio',
-    state: 'Ohio',
-    population: 1264817,
-    totalChurches: 456,
-    childrenInCare: 3234,
-    childrenInFamily: 1456,
-    childrenInKinship: 1023,
-    childrenOutOfCounty: 89,
-    licensedHomes: 1234,
-    licensedHomesPerChild: 0.38,
-    waitingForAdoption: 267,
-    childrenAdopted2024: 189,
-    avgMonthsToAdoption: 13.7,
-    familyPreservationCases: 456,
-    reunificationRate: 72,
-    churchesProvidingSupport: 323,
-    supportPercentage: 71
-  },
-  'franklin-oh': {
-    name: 'Franklin County, Ohio',
-    state: 'Ohio',
-    population: 1323807,
-    totalChurches: 487,
-    childrenInCare: 3456,
-    childrenInFamily: 1567,
-    childrenInKinship: 1098,
-    childrenOutOfCounty: 92,
-    licensedHomes: 1323,
-    licensedHomesPerChild: 0.38,
-    waitingForAdoption: 289,
-    childrenAdopted2024: 198,
-    avgMonthsToAdoption: 13.4,
-    familyPreservationCases: 489,
-    reunificationRate: 73,
-    churchesProvidingSupport: 345,
-    supportPercentage: 71
-  },
-  'hamilton-oh': {
-    name: 'Hamilton County, Ohio',
-    state: 'Ohio',
-    population: 830639,
-    totalChurches: 367,
-    childrenInCare: 2456,
-    childrenInFamily: 1098,
-    childrenInKinship: 789,
-    childrenOutOfCounty: 67,
-    licensedHomes: 923,
-    licensedHomesPerChild: 0.38,
-    waitingForAdoption: 203,
-    childrenAdopted2024: 145,
-    avgMonthsToAdoption: 13.2,
-    familyPreservationCases: 356,
-    reunificationRate: 74,
-    churchesProvidingSupport: 267,
-    supportPercentage: 73
-  },
+  // Connecticut
+  'hartford-ct': { name: 'Hartford County, Connecticut', state: 'Connecticut', pop: 899498, coords: [41.7658, -72.6734] },
+  'new-haven-ct': { name: 'New Haven County, Connecticut', state: 'Connecticut', pop: 864835, coords: [41.3083, -72.9279] },
 
-  // ==================== PENNSYLVANIA COUNTIES ====================
-  'philadelphia-pa': {
-    name: 'Philadelphia County, Pennsylvania',
-    state: 'Pennsylvania',
-    population: 1584064,
-    totalChurches: 623,
-    childrenInCare: 4234,
-    childrenInFamily: 1892,
-    childrenInKinship: 1345,
-    childrenOutOfCounty: 112,
-    licensedHomes: 1567,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 356,
-    childrenAdopted2024: 245,
-    avgMonthsToAdoption: 14.1,
-    familyPreservationCases: 623,
-    reunificationRate: 73,
-    churchesProvidingSupport: 445,
-    supportPercentage: 71
-  },
-  'allegheny-pa': {
-    name: 'Allegheny County, Pennsylvania',
-    state: 'Pennsylvania',
-    population: 1250578,
-    totalChurches: 534,
-    childrenInCare: 3567,
-    childrenInFamily: 1598,
-    childrenInKinship: 1134,
-    childrenOutOfCounty: 95,
-    licensedHomes: 1323,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 298,
-    childrenAdopted2024: 208,
-    avgMonthsToAdoption: 13.8,
-    familyPreservationCases: 523,
-    reunificationRate: 74,
-    churchesProvidingSupport: 378,
-    supportPercentage: 71
-  },
-  'montgomery-pa': {
-    name: 'Montgomery County, Pennsylvania',
-    state: 'Pennsylvania',
-    population: 856553,
-    totalChurches: 398,
-    childrenInCare: 2234,
-    childrenInFamily: 998,
-    childrenInKinship: 712,
-    childrenOutOfCounty: 62,
-    licensedHomes: 823,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 187,
-    childrenAdopted2024: 134,
-    avgMonthsToAdoption: 13.3,
-    familyPreservationCases: 334,
-    reunificationRate: 75,
-    churchesProvidingSupport: 289,
-    supportPercentage: 73
-  },
+  // Delaware
+  'new-castle-de': { name: 'New Castle County, Delaware', state: 'Delaware', pop: 570719, coords: [39.6626, -75.6006] },
+  'sussex-de': { name: 'Sussex County, Delaware', state: 'Delaware', pop: 237378, coords: [38.6926, -75.4008] },
 
-  // ==================== GEORGIA COUNTIES ====================
-  'fulton-ga': {
-    name: 'Fulton County, Georgia',
-    state: 'Georgia',
-    population: 1066710,
-    totalChurches: 467,
-    childrenInCare: 2892,
-    childrenInFamily: 1298,
-    childrenInKinship: 923,
-    childrenOutOfCounty: 78,
-    licensedHomes: 1067,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 242,
-    childrenAdopted2024: 167,
-    avgMonthsToAdoption: 13.5,
-    familyPreservationCases: 423,
-    reunificationRate: 72,
-    churchesProvidingSupport: 334,
-    supportPercentage: 72
-  },
-  'gwinnett-ga': {
-    name: 'Gwinnett County, Georgia',
-    state: 'Georgia',
-    population: 957062,
-    totalChurches: 412,
-    childrenInCare: 2456,
-    childrenInFamily: 1098,
-    childrenInKinship: 782,
-    childrenOutOfCounty: 65,
-    licensedHomes: 908,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 205,
-    childrenAdopted2024: 142,
-    avgMonthsToAdoption: 13.1,
-    familyPreservationCases: 356,
-    reunificationRate: 73,
-    churchesProvidingSupport: 298,
-    supportPercentage: 72
-  },
-  'cobb-ga': {
-    name: 'Cobb County, Georgia',
-    state: 'Georgia',
-    population: 766149,
-    totalChurches: 356,
-    childrenInCare: 1987,
-    childrenInFamily: 889,
-    childrenInKinship: 634,
-    childrenOutOfCounty: 53,
-    licensedHomes: 734,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 166,
-    childrenAdopted2024: 115,
-    avgMonthsToAdoption: 12.9,
-    familyPreservationCases: 289,
-    reunificationRate: 74,
-    churchesProvidingSupport: 256,
-    supportPercentage: 72
-  },
+  // Florida
+  'miami-dade-fl': { name: 'Miami-Dade County, Florida', state: 'Florida', pop: 2716940, coords: [25.7617, -80.1918] },
+  'broward-fl': { name: 'Broward County, Florida', state: 'Florida', pop: 1952778, coords: [26.1224, -80.1373] },
+  'palm-beach-fl': { name: 'Palm Beach County, Florida', state: 'Florida', pop: 1496770, coords: [26.7153, -80.0534] },
 
-  // ==================== MICHIGAN COUNTIES ====================
-  'wayne-mi': {
-    name: 'Wayne County, Michigan',
-    state: 'Michigan',
-    population: 1793561,
-    totalChurches: 678,
-    childrenInCare: 4123,
-    childrenInFamily: 1845,
-    childrenInKinship: 1312,
-    childrenOutOfCounty: 109,
-    licensedHomes: 1523,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 345,
-    childrenAdopted2024: 237,
-    avgMonthsToAdoption: 14.3,
-    familyPreservationCases: 601,
-    reunificationRate: 73,
-    churchesProvidingSupport: 482,
-    supportPercentage: 71
-  },
-  'oakland-mi': {
-    name: 'Oakland County, Michigan',
-    state: 'Michigan',
-    population: 1274395,
-    totalChurches: 512,
-    childrenInCare: 2789,
-    childrenInFamily: 1248,
-    childrenInKinship: 888,
-    childrenOutOfCounty: 74,
-    licensedHomes: 1031,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 233,
-    childrenAdopted2024: 161,
-    avgMonthsToAdoption: 13.6,
-    familyPreservationCases: 407,
-    reunificationRate: 75,
-    churchesProvidingSupport: 364,
-    supportPercentage: 71
-  },
-  'macomb-mi': {
-    name: 'Macomb County, Michigan',
-    state: 'Michigan',
-    population: 881217,
-    totalChurches: 398,
-    childrenInCare: 2134,
-    childrenInFamily: 955,
-    childrenInKinship: 679,
-    childrenOutOfCounty: 57,
-    licensedHomes: 789,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 178,
-    childrenAdopted2024: 123,
-    avgMonthsToAdoption: 13.3,
-    familyPreservationCases: 311,
-    reunificationRate: 74,
-    churchesProvidingSupport: 283,
-    supportPercentage: 71
-  },
+  // Georgia
+  'fulton-ga': { name: 'Fulton County, Georgia', state: 'Georgia', pop: 1066710, coords: [33.7490, -84.3880] },
+  'gwinnett-ga': { name: 'Gwinnett County, Georgia', state: 'Georgia', pop: 957062, coords: [33.9526, -83.9877] },
+  'cobb-ga': { name: 'Cobb County, Georgia', state: 'Georgia', pop: 766149, coords: [33.9698, -84.5547] },
 
-  // ==================== NORTH CAROLINA COUNTIES ====================
-  'mecklenburg-nc': {
-    name: 'Mecklenburg County, North Carolina',
-    state: 'North Carolina',
-    population: 1115482,
-    totalChurches: 489,
-    childrenInCare: 2678,
-    childrenInFamily: 1198,
-    childrenInKinship: 852,
-    childrenOutOfCounty: 71,
-    licensedHomes: 990,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 224,
-    childrenAdopted2024: 155,
-    avgMonthsToAdoption: 13.4,
-    familyPreservationCases: 390,
-    reunificationRate: 75,
-    churchesProvidingSupport: 348,
-    supportPercentage: 71
-  },
-  'wake-nc': {
-    name: 'Wake County, North Carolina',
-    state: 'North Carolina',
-    population: 1129410,
-    totalChurches: 501,
-    childrenInCare: 2734,
-    childrenInFamily: 1223,
-    childrenInKinship: 871,
-    childrenOutOfCounty: 72,
-    licensedHomes: 1011,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 229,
-    childrenAdopted2024: 158,
-    avgMonthsToAdoption: 13.2,
-    familyPreservationCases: 398,
-    reunificationRate: 76,
-    churchesProvidingSupport: 356,
-    supportPercentage: 71
-  },
-  'guilford-nc': {
-    name: 'Guilford County, North Carolina',
-    state: 'North Carolina',
-    population: 541299,
-    totalChurches: 298,
-    childrenInCare: 1634,
-    childrenInFamily: 731,
-    childrenInKinship: 520,
-    childrenOutOfCounty: 43,
-    licensedHomes: 604,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 137,
-    childrenAdopted2024: 94,
-    avgMonthsToAdoption: 13.0,
-    familyPreservationCases: 238,
-    reunificationRate: 76,
-    churchesProvidingSupport: 212,
-    supportPercentage: 71
-  },
+  // Hawaii
+  'honolulu-hi': { name: 'Honolulu County, Hawaii', state: 'Hawaii', pop: 1016508, coords: [21.3099, -157.8581] },
+  'hawaii-hi': { name: 'Hawaii County, Hawaii', state: 'Hawaii', pop: 200629, coords: [19.5429, -155.6659] },
 
-  // ==================== ARIZONA COUNTIES ====================
-  'maricopa-az': {
-    name: 'Maricopa County, Arizona',
-    state: 'Arizona',
-    population: 4485414,
-    totalChurches: 1089,
-    childrenInCare: 10234,
-    childrenInFamily: 4578,
-    childrenInKinship: 3256,
-    childrenOutOfCounty: 271,
-    licensedHomes: 3786,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 856,
-    childrenAdopted2024: 591,
-    avgMonthsToAdoption: 14.5,
-    familyPreservationCases: 1490,
-    reunificationRate: 68,
-    churchesProvidingSupport: 774,
-    supportPercentage: 71
-  },
-  'pima-az': {
-    name: 'Pima County, Arizona',
-    state: 'Arizona',
-    population: 1043433,
-    totalChurches: 412,
-    childrenInCare: 2567,
-    childrenInFamily: 1148,
-    childrenInKinship: 817,
-    childrenOutOfCounty: 68,
-    licensedHomes: 949,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 215,
-    childrenAdopted2024: 148,
-    avgMonthsToAdoption: 13.9,
-    familyPreservationCases: 374,
-    reunificationRate: 69,
-    churchesProvidingSupport: 293,
-    supportPercentage: 71
-  },
-  'pinal-az': {
-    name: 'Pinal County, Arizona',
-    state: 'Arizona',
-    population: 462967,
-    totalChurches: 198,
-    childrenInCare: 1234,
-    childrenInFamily: 552,
-    childrenInKinship: 393,
-    childrenOutOfCounty: 33,
-    licensedHomes: 456,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 103,
-    childrenAdopted2024: 71,
-    avgMonthsToAdoption: 13.5,
-    familyPreservationCases: 180,
-    reunificationRate: 69,
-    churchesProvidingSupport: 141,
-    supportPercentage: 71
-  },
+  // Idaho
+  'ada-id': { name: 'Ada County, Idaho', state: 'Idaho', pop: 481587, coords: [43.4527, -116.2417] },
+  'canyon-id': { name: 'Canyon County, Idaho', state: 'Idaho', pop: 231105, coords: [43.6424, -116.6873] },
 
-  // ==================== WASHINGTON COUNTIES ====================
-  'king-wa': {
-    name: 'King County, Washington',
-    state: 'Washington',
-    population: 2269675,
-    totalChurches: 734,
-    childrenInCare: 4567,
-    childrenInFamily: 2043,
-    childrenInKinship: 1454,
-    childrenOutOfCounty: 121,
-    licensedHomes: 1689,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 382,
-    childrenAdopted2024: 263,
-    avgMonthsToAdoption: 13.8,
-    familyPreservationCases: 665,
-    reunificationRate: 73,
-    churchesProvidingSupport: 521,
-    supportPercentage: 71
-  },
-  'pierce-wa': {
-    name: 'Pierce County, Washington',
-    state: 'Washington',
-    population: 921130,
-    totalChurches: 398,
-    childrenInCare: 2234,
-    childrenInFamily: 999,
-    childrenInKinship: 711,
-    childrenOutOfCounty: 59,
-    licensedHomes: 826,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 187,
-    childrenAdopted2024: 129,
-    avgMonthsToAdoption: 13.4,
-    familyPreservationCases: 325,
-    reunificationRate: 74,
-    churchesProvidingSupport: 283,
-    supportPercentage: 71
-  },
-  'snohomish-wa': {
-    name: 'Snohomish County, Washington',
-    state: 'Washington',
-    population: 827957,
-    totalChurches: 356,
-    childrenInCare: 2001,
-    childrenInFamily: 895,
-    childrenInKinship: 637,
-    childrenOutOfCounty: 53,
-    licensedHomes: 740,
-    licensedHomesPerChild: 0.37,
-    waitingForAdoption: 167,
-    childrenAdopted2024: 115,
-    avgMonthsToAdoption: 13.2,
-    familyPreservationCases: 291,
-    reunificationRate: 74,
-    churchesProvidingSupport: 253,
-    supportPercentage: 71
-  },
+  // Illinois
+  'cook-il': { name: 'Cook County, Illinois', state: 'Illinois', pop: 5275541, coords: [41.8781, -87.6298] },
+  'dupage-il': { name: 'DuPage County, Illinois', state: 'Illinois', pop: 932675, coords: [41.8781, -88.0798] },
+  'lake-il': { name: 'Lake County, Illinois', state: 'Illinois', pop: 714342, coords: [42.3369, -87.8450] },
 
-  // ==================== ARKANSAS COUNTIES ====================
-  'pulaski-ar': {
-    name: 'Pulaski County, Arkansas',
-    state: 'Arkansas',
-    population: 399125,
-    totalChurches: 234,
-    childrenInCare: 1234,
-    childrenInFamily: 567,
-    childrenInKinship: 398,
-    childrenOutOfCounty: 56,
-    licensedHomes: 478,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 98,
-    childrenAdopted2024: 67,
-    avgMonthsToAdoption: 12.8,
-    familyPreservationCases: 189,
-    reunificationRate: 78,
-    churchesProvidingSupport: 167,
-    supportPercentage: 71
-  },
-  'washington-ar': {
-    name: 'Washington County, Arkansas',
-    state: 'Arkansas',
-    population: 245871,
-    totalChurches: 156,
-    childrenInCare: 678,
-    childrenInFamily: 312,
-    childrenInKinship: 219,
-    childrenOutOfCounty: 34,
-    licensedHomes: 267,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 54,
-    childrenAdopted2024: 38,
-    avgMonthsToAdoption: 12.5,
-    familyPreservationCases: 98,
-    reunificationRate: 79,
-    churchesProvidingSupport: 112,
-    supportPercentage: 72
-  },
+  // Indiana
+  'marion-in': { name: 'Marion County, Indiana', state: 'Indiana', pop: 977203, coords: [39.7684, -86.1581] },
+  'lake-in': { name: 'Lake County, Indiana', state: 'Indiana', pop: 498700, coords: [41.4789, -87.4097] },
 
-  // ==================== ALASKA COUNTIES ====================
-  'anchorage-ak': {
-    name: 'Anchorage Municipality, Alaska',
-    state: 'Alaska',
-    population: 291247,
-    totalChurches: 98,
-    childrenInCare: 1456,
-    childrenInFamily: 678,
-    childrenInKinship: 478,
-    childrenOutOfCounty: 67,
-    licensedHomes: 567,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 112,
-    childrenAdopted2024: 78,
-    avgMonthsToAdoption: 13.2,
-    familyPreservationCases: 167,
-    reunificationRate: 72,
-    churchesProvidingSupport: 67,
-    supportPercentage: 68
-  },
-  'fairbanks-ak': {
-    name: 'Fairbanks North Star Borough, Alaska',
-    state: 'Alaska',
-    population: 95655,
-    totalChurches: 45,
-    childrenInCare: 456,
-    childrenInFamily: 212,
-    childrenInKinship: 149,
-    childrenOutOfCounty: 23,
-    licensedHomes: 178,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 35,
-    childrenAdopted2024: 24,
-    avgMonthsToAdoption: 12.9,
-    familyPreservationCases: 54,
-    reunificationRate: 71,
-    churchesProvidingSupport: 31,
-    supportPercentage: 69
-  },
+  // Iowa
+  'polk-ia': { name: 'Polk County, Iowa', state: 'Iowa', pop: 492401, coords: [41.5868, -93.6250] },
+  'linn-ia': { name: 'Linn County, Iowa', state: 'Iowa', pop: 230299, coords: [42.0784, -91.5987] },
 
-  // ==================== COLORADO COUNTIES ====================
-  'denver-co': {
-    name: 'Denver County, Colorado',
-    state: 'Colorado',
-    population: 715522,
-    totalChurches: 289,
-    childrenInCare: 1789,
-    childrenInFamily: 823,
-    childrenInKinship: 578,
-    childrenOutOfCounty: 78,
-    licensedHomes: 698,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 142,
-    childrenAdopted2024: 98,
-    avgMonthsToAdoption: 13.1,
-    familyPreservationCases: 234,
-    reunificationRate: 75,
-    churchesProvidingSupport: 206,
-    supportPercentage: 71
-  },
-  'el-paso-co': {
-    name: 'El Paso County, Colorado',
-    state: 'Colorado',
-    population: 730395,
-    totalChurches: 312,
-    childrenInCare: 1456,
-    childrenInFamily: 671,
-    childrenInKinship: 471,
-    childrenOutOfCounty: 62,
-    licensedHomes: 567,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 116,
-    childrenAdopted2024: 80,
-    avgMonthsToAdoption: 12.8,
-    familyPreservationCases: 191,
-    reunificationRate: 74,
-    churchesProvidingSupport: 222,
-    supportPercentage: 71
-  },
+  // Kansas
+  'johnson-ks': { name: 'Johnson County, Kansas', state: 'Kansas', pop: 609863, coords: [38.9140, -94.7880] },
+  'sedgwick-ks': { name: 'Sedgwick County, Kansas', state: 'Kansas', pop: 523824, coords: [37.6872, -97.3301] },
 
-  // ==================== CONNECTICUT COUNTIES ====================
-  'hartford-ct': {
-    name: 'Hartford County, Connecticut',
-    state: 'Connecticut',
-    population: 899498,
-    totalChurches: 234,
-    childrenInCare: 1234,
-    childrenInFamily: 567,
-    childrenInKinship: 398,
-    childrenOutOfCounty: 54,
-    licensedHomes: 481,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 98,
-    childrenAdopted2024: 68,
-    avgMonthsToAdoption: 13.3,
-    familyPreservationCases: 171,
-    reunificationRate: 73,
-    churchesProvidingSupport: 167,
-    supportPercentage: 71
-  },
-  'new-haven-ct': {
-    name: 'New Haven County, Connecticut',
-    state: 'Connecticut',
-    population: 864835,
-    totalChurches: 223,
-    childrenInCare: 1178,
-    childrenInFamily: 542,
-    childrenInKinship: 380,
-    childrenOutOfCounty: 51,
-    licensedHomes: 459,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 94,
-    childrenAdopted2024: 65,
-    avgMonthsToAdoption: 13.1,
-    familyPreservationCases: 163,
-    reunificationRate: 73,
-    churchesProvidingSupport: 159,
-    supportPercentage: 71
-  },
+  // Kentucky
+  'jefferson-ky': { name: 'Jefferson County, Kentucky', state: 'Kentucky', pop: 782969, coords: [38.2527, -85.7585] },
+  'fayette-ky': { name: 'Fayette County, Kentucky', state: 'Kentucky', pop: 322570, coords: [38.0406, -84.5037] },
 
-  // ==================== DELAWARE COUNTIES ====================
-  'new-castle-de': {
-    name: 'New Castle County, Delaware',
-    state: 'Delaware',
-    population: 570719,
-    totalChurches: 145,
-    childrenInCare: 789,
-    childrenInFamily: 363,
-    childrenInKinship: 255,
-    childrenOutOfCounty: 35,
-    licensedHomes: 308,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 63,
-    childrenAdopted2024: 44,
-    avgMonthsToAdoption: 13.0,
-    familyPreservationCases: 109,
-    reunificationRate: 76,
-    churchesProvidingSupport: 103,
-    supportPercentage: 71
-  },
-  'sussex-de': {
-    name: 'Sussex County, Delaware',
-    state: 'Delaware',
-    population: 237378,
-    totalChurches: 98,
-    childrenInCare: 445,
-    childrenInFamily: 205,
-    childrenInKinship: 144,
-    childrenOutOfCounty: 19,
-    licensedHomes: 174,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 35,
-    childrenAdopted2024: 24,
-    avgMonthsToAdoption: 12.7,
-    familyPreservationCases: 62,
-    reunificationRate: 76,
-    churchesProvidingSupport: 70,
-    supportPercentage: 71
-  },
+  // Louisiana
+  'orleans-la': { name: 'Orleans Parish, Louisiana', state: 'Louisiana', pop: 383997, coords: [29.9511, -90.0715] },
+  'jefferson-la': { name: 'Jefferson Parish, Louisiana', state: 'Louisiana', pop: 440781, coords: [29.8388, -90.1547] },
 
-  // ==================== HAWAII COUNTIES ====================
-  'honolulu-hi': {
-    name: 'Honolulu County, Hawaii',
-    state: 'Hawaii',
-    population: 1016508,
-    totalChurches: 178,
-    childrenInCare: 1678,
-    childrenInFamily: 772,
-    childrenInKinship: 542,
-    childrenOutOfCounty: 72,
-    licensedHomes: 654,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 134,
-    childrenAdopted2024: 92,
-    avgMonthsToAdoption: 13.5,
-    familyPreservationCases: 232,
-    reunificationRate: 69,
-    churchesProvidingSupport: 127,
-    supportPercentage: 71
-  },
-  'hawaii-hi': {
-    name: 'Hawaii County, Hawaii',
-    state: 'Hawaii',
-    population: 200629,
-    totalChurches: 67,
-    childrenInCare: 456,
-    childrenInFamily: 210,
-    childrenInKinship: 147,
-    childrenOutOfCounty: 20,
-    licensedHomes: 178,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 36,
-    childrenAdopted2024: 25,
-    avgMonthsToAdoption: 13.2,
-    familyPreservationCases: 63,
-    reunificationRate: 69,
-    churchesProvidingSupport: 48,
-    supportPercentage: 72
-  },
+  // Maine
+  'cumberland-me': { name: 'Cumberland County, Maine', state: 'Maine', pop: 303069, coords: [43.7820, -70.2562] },
+  'york-me': { name: 'York County, Maine', state: 'Maine', pop: 211972, coords: [43.4554, -70.6231] },
 
-  // ==================== IDAHO COUNTIES ====================
-  'ada-id': {
-    name: 'Ada County, Idaho',
-    state: 'Idaho',
-    population: 481587,
-    totalChurches: 167,
-    childrenInCare: 1023,
-    childrenInFamily: 471,
-    childrenInKinship: 331,
-    childrenOutOfCounty: 45,
-    licensedHomes: 399,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 81,
-    childrenAdopted2024: 56,
-    avgMonthsToAdoption: 12.6,
-    familyPreservationCases: 142,
-    reunificationRate: 77,
-    churchesProvidingSupport: 119,
-    supportPercentage: 71
-  },
-  'canyon-id': {
-    name: 'Canyon County, Idaho',
-    state: 'Idaho',
-    population: 231105,
-    totalChurches: 89,
-    childrenInCare: 567,
-    childrenInFamily: 261,
-    childrenInKinship: 183,
-    childrenOutOfCounty: 25,
-    licensedHomes: 221,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 45,
-    childrenAdopted2024: 31,
-    avgMonthsToAdoption: 12.4,
-    familyPreservationCases: 79,
-    reunificationRate: 77,
-    churchesProvidingSupport: 63,
-    supportPercentage: 71
-  },
+  // Maryland
+  'montgomery-md': { name: 'Montgomery County, Maryland', state: 'Maryland', pop: 1062061, coords: [39.1434, -77.1997] },
+  'prince-georges-md': { name: 'Prince Georges County, Maryland', state: 'Maryland', pop: 967201, coords: [38.8127, -76.8633] },
 
-  // ==================== INDIANA COUNTIES ====================
-  'marion-in': {
-    name: 'Marion County, Indiana',
-    state: 'Indiana',
-    population: 977203,
-    totalChurches: 378,
-    childrenInCare: 3456,
-    childrenInFamily: 1590,
-    childrenInKinship: 1117,
-    childrenOutOfCounty: 149,
-    licensedHomes: 1347,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 275,
-    childrenAdopted2024: 190,
-    avgMonthsToAdoption: 13.4,
-    familyPreservationCases: 479,
-    reunificationRate: 74,
-    churchesProvidingSupport: 269,
-    supportPercentage: 71
-  },
-  'lake-in': {
-    name: 'Lake County, Indiana',
-    state: 'Indiana',
-    population: 498700,
-    totalChurches: 198,
-    childrenInCare: 1789,
-    childrenInFamily: 823,
-    childrenInKinship: 578,
-    childrenOutOfCounty: 77,
-    licensedHomes: 697,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 142,
-    childrenAdopted2024: 98,
-    avgMonthsToAdoption: 13.6,
-    familyPreservationCases: 248,
-    reunificationRate: 74,
-    churchesProvidingSupport: 141,
-    supportPercentage: 71
-  },
+  // Massachusetts
+  'middlesex-ma': { name: 'Middlesex County, Massachusetts', state: 'Massachusetts', pop: 1632002, coords: [42.4865, -71.3824] },
+  'worcester-ma': { name: 'Worcester County, Massachusetts', state: 'Massachusetts', pop: 862111, coords: [42.3515, -71.9077] },
 
-  // ==================== IOWA COUNTIES ====================
-  'polk-ia': {
-    name: 'Polk County, Iowa',
-    state: 'Iowa',
-    population: 492401,
-    totalChurches: 234,
-    childrenInCare: 1456,
-    childrenInFamily: 670,
-    childrenInKinship: 471,
-    childrenOutOfCounty: 63,
-    licensedHomes: 567,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 116,
-    childrenAdopted2024: 80,
-    avgMonthsToAdoption: 12.3,
-    familyPreservationCases: 202,
-    reunificationRate: 78,
-    churchesProvidingSupport: 167,
-    supportPercentage: 71
-  },
-  'linn-ia': {
-    name: 'Linn County, Iowa',
-    state: 'Iowa',
-    population: 230299,
-    totalChurches: 123,
-    childrenInCare: 678,
-    childrenInFamily: 312,
-    childrenInKinship: 219,
-    childrenOutOfCounty: 29,
-    licensedHomes: 264,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 54,
-    childrenAdopted2024: 37,
-    avgMonthsToAdoption: 12.1,
-    familyPreservationCases: 94,
-    reunificationRate: 79,
-    churchesProvidingSupport: 88,
-    supportPercentage: 72
-  },
+  // Michigan
+  'wayne-mi': { name: 'Wayne County, Michigan', state: 'Michigan', pop: 1793561, coords: [42.3314, -83.0458] },
+  'oakland-mi': { name: 'Oakland County, Michigan', state: 'Michigan', pop: 1274395, coords: [42.6589, -83.3816] },
+  'macomb-mi': { name: 'Macomb County, Michigan', state: 'Michigan', pop: 881217, coords: [42.6667, -82.9326] },
 
-  // ==================== KANSAS COUNTIES ====================
-  'johnson-ks': {
-    name: 'Johnson County, Kansas',
-    state: 'Kansas',
-    population: 609863,
-    totalChurches: 267,
-    childrenInCare: 1678,
-    childrenInFamily: 772,
-    childrenInKinship: 542,
-    childrenOutOfCounty: 72,
-    licensedHomes: 654,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 134,
-    childrenAdopted2024: 92,
-    avgMonthsToAdoption: 12.7,
-    familyPreservationCases: 232,
-    reunificationRate: 76,
-    churchesProvidingSupport: 190,
-    supportPercentage: 71
-  },
-  'sedgwick-ks': {
-    name: 'Sedgwick County, Kansas',
-    state: 'Kansas',
-    population: 523824,
-    totalChurches: 234,
-    childrenInCare: 1456,
-    childrenInFamily: 670,
-    childrenInKinship: 471,
-    childrenOutOfCounty: 63,
-    licensedHomes: 567,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 116,
-    childrenAdopted2024: 80,
-    avgMonthsToAdoption: 12.8,
-    familyPreservationCases: 202,
-    reunificationRate: 75,
-    churchesProvidingSupport: 167,
-    supportPercentage: 71
-  },
+  // Minnesota
+  'hennepin-mn': { name: 'Hennepin County, Minnesota', state: 'Minnesota', pop: 1281565, coords: [44.9778, -93.2650] },
+  'ramsey-mn': { name: 'Ramsey County, Minnesota', state: 'Minnesota', pop: 552352, coords: [45.0153, -93.0939] },
 
-  // ==================== KENTUCKY COUNTIES ====================
-  'jefferson-ky': {
-    name: 'Jefferson County, Kentucky',
-    state: 'Kentucky',
-    population: 782969,
-    totalChurches: 334,
-    childrenInCare: 2456,
-    childrenInFamily: 1130,
-    childrenInKinship: 794,
-    childrenOutOfCounty: 106,
-    licensedHomes: 957,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 195,
-    childrenAdopted2024: 135,
-    avgMonthsToAdoption: 13.2,
-    familyPreservationCases: 340,
-    reunificationRate: 77,
-    churchesProvidingSupport: 238,
-    supportPercentage: 71
-  },
-  'fayette-ky': {
-    name: 'Fayette County, Kentucky',
-    state: 'Kentucky',
-    population: 322570,
-    totalChurches: 178,
-    childrenInCare: 1023,
-    childrenInFamily: 471,
-    childrenInKinship: 331,
-    childrenOutOfCounty: 44,
-    licensedHomes: 399,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 81,
-    childrenAdopted2024: 56,
-    avgMonthsToAdoption: 13.0,
-    familyPreservationCases: 142,
-    reunificationRate: 77,
-    churchesProvidingSupport: 127,
-    supportPercentage: 71
-  },
+  // Mississippi
+  'hinds-ms': { name: 'Hinds County, Mississippi', state: 'Mississippi', pop: 227742, coords: [32.3068, -90.1848] },
+  'harrison-ms': { name: 'Harrison County, Mississippi', state: 'Mississippi', pop: 208621, coords: [30.4155, -89.0700] },
 
-  // ==================== LOUISIANA COUNTIES ====================
-  'orleans-la': {
-    name: 'Orleans Parish, Louisiana',
-    state: 'Louisiana',
-    population: 383997,
-    totalChurches: 234,
-    childrenInCare: 1789,
-    childrenInFamily: 823,
-    childrenInKinship: 578,
-    childrenOutOfCounty: 77,
-    licensedHomes: 697,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 142,
-    childrenAdopted2024: 98,
-    avgMonthsToAdoption: 13.8,
-    familyPreservationCases: 248,
-    reunificationRate: 70,
-    churchesProvidingSupport: 167,
-    supportPercentage: 71
-  },
-  'jefferson-la': {
-    name: 'Jefferson Parish, Louisiana',
-    state: 'Louisiana',
-    population: 440781,
-    totalChurches: 198,
-    childrenInCare: 1234,
-    childrenInFamily: 567,
-    childrenInKinship: 398,
-    childrenOutOfCounty: 53,
-    licensedHomes: 481,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 98,
-    childrenAdopted2024: 68,
-    avgMonthsToAdoption: 13.5,
-    familyPreservationCases: 171,
-    reunificationRate: 71,
-    churchesProvidingSupport: 141,
-    supportPercentage: 71
-  },
+  // Missouri
+  'st-louis-mo': { name: 'St Louis County, Missouri', state: 'Missouri', pop: 1004125, coords: [38.6270, -90.1994] },
+  'jackson-mo': { name: 'Jackson County, Missouri', state: 'Missouri', pop: 717204, coords: [39.0997, -94.5786] },
 
-  // ==================== MAINE COUNTIES ====================
-  'cumberland-me': {
-    name: 'Cumberland County, Maine',
-    state: 'Maine',
-    population: 303069,
-    totalChurches: 123,
-    childrenInCare: 789,
-    childrenInFamily: 363,
-    childrenInKinship: 255,
-    childrenOutOfCounty: 34,
-    licensedHomes: 308,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 63,
-    childrenAdopted2024: 43,
-    avgMonthsToAdoption: 12.5,
-    familyPreservationCases: 109,
-    reunificationRate: 77,
-    churchesProvidingSupport: 88,
-    supportPercentage: 72
-  },
-  'york-me': {
-    name: 'York County, Maine',
-    state: 'Maine',
-    population: 211972,
-    totalChurches: 89,
-    childrenInCare: 567,
-    childrenInFamily: 261,
-    childrenInKinship: 183,
-    childrenOutOfCounty: 24,
-    licensedHomes: 221,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 45,
-    childrenAdopted2024: 31,
-    avgMonthsToAdoption: 12.3,
-    familyPreservationCases: 79,
-    reunificationRate: 78,
-    churchesProvidingSupport: 63,
-    supportPercentage: 71
-  },
+  // Montana
+  'yellowstone-mt': { name: 'Yellowstone County, Montana', state: 'Montana', pop: 161300, coords: [45.7833, -108.5007] },
+  'missoula-mt': { name: 'Missoula County, Montana', state: 'Montana', pop: 119600, coords: [46.8721, -113.9940] },
 
-  // ==================== MARYLAND COUNTIES ====================
-  'montgomery-md': {
-    name: 'Montgomery County, Maryland',
-    state: 'Maryland',
-    population: 1062061,
-    totalChurches: 289,
-    childrenInCare: 1456,
-    childrenInFamily: 670,
-    childrenInKinship: 471,
-    childrenOutOfCounty: 63,
-    licensedHomes: 567,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 116,
-    childrenAdopted2024: 80,
-    avgMonthsToAdoption: 13.2,
-    familyPreservationCases: 202,
-    reunificationRate: 73,
-    churchesProvidingSupport: 206,
-    supportPercentage: 71
-  },
-  'prince-georges-md': {
-    name: 'Prince Georges County, Maryland',
-    state: 'Maryland',
-    population: 967201,
-    totalChurches: 267,
-    childrenInCare: 1678,
-    childrenInFamily: 772,
-    childrenInKinship: 542,
-    childrenOutOfCounty: 72,
-    licensedHomes: 654,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 134,
-    childrenAdopted2024: 92,
-    avgMonthsToAdoption: 13.4,
-    familyPreservationCases: 232,
-    reunificationRate: 72,
-    churchesProvidingSupport: 190,
-    supportPercentage: 71
-  },
+  // Nebraska
+  'douglas-ne': { name: 'Douglas County, Nebraska', state: 'Nebraska', pop: 584526, coords: [41.2565, -96.0103] },
+  'lancaster-ne': { name: 'Lancaster County, Nebraska', state: 'Nebraska', pop: 322343, coords: [40.8000, -96.6670] },
 
-  // ==================== MASSACHUSETTS COUNTIES ====================
-  'middlesex-ma': {
-    name: 'Middlesex County, Massachusetts',
-    state: 'Massachusetts',
-    population: 1632002,
-    totalChurches: 456,
-    childrenInCare: 2789,
-    childrenInFamily: 1284,
-    childrenInKinship: 901,
-    childrenOutOfCounty: 120,
-    licensedHomes: 1087,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 222,
-    childrenAdopted2024: 153,
-    avgMonthsToAdoption: 13.1,
-    familyPreservationCases: 386,
-    reunificationRate: 73,
-    churchesProvidingSupport: 325,
-    supportPercentage: 71
-  },
-  'worcester-ma': {
-    name: 'Worcester County, Massachusetts',
-    state: 'Massachusetts',
-    population: 862111,
-    totalChurches: 289,
-    childrenInCare: 1789,
-    childrenInFamily: 823,
-    childrenInKinship: 578,
-    childrenOutOfCounty: 77,
-    licensedHomes: 697,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 142,
-    childrenAdopted2024: 98,
-    avgMonthsToAdoption: 12.9,
-    familyPreservationCases: 248,
-    reunificationRate: 74,
-    churchesProvidingSupport: 206,
-    supportPercentage: 71
-  },
+  // Nevada
+  'clark-nv': { name: 'Clark County, Nevada', state: 'Nevada', pop: 2265461, coords: [36.1699, -115.1398] },
+  'washoe-nv': { name: 'Washoe County, Nevada', state: 'Nevada', pop: 486492, coords: [39.5296, -119.8138] },
 
-  // ==================== MINNESOTA COUNTIES ====================
-  'hennepin-mn': {
-    name: 'Hennepin County, Minnesota',
-    state: 'Minnesota',
-    population: 1281565,
-    totalChurches: 398,
-    childrenInCare: 2456,
-    childrenInFamily: 1130,
-    childrenInKinship: 794,
-    childrenOutOfCounty: 106,
-    licensedHomes: 957,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 195,
-    childrenAdopted2024: 135,
-    avgMonthsToAdoption: 13.0,
-    familyPreservationCases: 340,
-    reunificationRate: 76,
-    churchesProvidingSupport: 284,
-    supportPercentage: 71
-  },
-  'ramsey-mn': {
-    name: 'Ramsey County, Minnesota',
-    state: 'Minnesota',
-    population: 552352,
-    totalChurches: 234,
-    childrenInCare: 1456,
-    childrenInFamily: 670,
-    childrenInKinship: 471,
-    childrenOutOfCounty: 63,
-    licensedHomes: 567,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 116,
-    childrenAdopted2024: 80,
-    avgMonthsToAdoption: 12.8,
-    familyPreservationCases: 202,
-    reunificationRate: 77,
-    churchesProvidingSupport: 167,
-    supportPercentage: 71
-  },
+  // New Hampshire
+  'hillsborough-nh': { name: 'Hillsborough County, New Hampshire', state: 'New Hampshire', pop: 422937, coords: [42.9667, -71.7000] },
+  'rockingham-nh': { name: 'Rockingham County, New Hampshire', state: 'New Hampshire', pop: 314176, coords: [42.9667, -70.9500] },
 
-  // ==================== MISSISSIPPI COUNTIES ====================
-  'hinds-ms': {
-    name: 'Hinds County, Mississippi',
-    state: 'Mississippi',
-    population: 227742,
-    totalChurches: 178,
-    childrenInCare: 1023,
-    childrenInFamily: 471,
-    childrenInKinship: 331,
-    childrenOutOfCounty: 44,
-    licensedHomes: 399,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 81,
-    childrenAdopted2024: 56,
-    avgMonthsToAdoption: 13.1,
-    familyPreservationCases: 142,
-    reunificationRate: 75,
-    churchesProvidingSupport: 127,
-    supportPercentage: 71
-  },
-  'harrison-ms': {
-    name: 'Harrison County, Mississippi',
-    state: 'Mississippi',
-    population: 208621,
-    totalChurches: 145,
-    childrenInCare: 789,
-    childrenInFamily: 363,
-    childrenInKinship: 255,
-    childrenOutOfCounty: 34,
-    licensedHomes: 308,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 63,
-    childrenAdopted2024: 43,
-    avgMonthsToAdoption: 12.9,
-    familyPreservationCases: 109,
-    reunificationRate: 76,
-    churchesProvidingSupport: 103,
-    supportPercentage: 71
-  },
+  // New Jersey
+  'bergen-nj': { name: 'Bergen County, New Jersey', state: 'New Jersey', pop: 955732, coords: [40.9604, -74.0776] },
+  'essex-nj': { name: 'Essex County, New Jersey', state: 'New Jersey', pop: 863728, coords: [40.7943, -74.2587] },
 
-  // ==================== MISSOURI COUNTIES ====================
-  'st-louis-mo': {
-    name: 'St Louis County, Missouri',
-    state: 'Missouri',
-    population: 1004125,
-    totalChurches: 398,
-    childrenInCare: 2789,
-    childrenInFamily: 1284,
-    childrenInKinship: 901,
-    childrenOutOfCounty: 120,
-    licensedHomes: 1087,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 222,
-    childrenAdopted2024: 153,
-    avgMonthsToAdoption: 13.3,
-    familyPreservationCases: 386,
-    reunificationRate: 74,
-    churchesProvidingSupport: 284,
-    supportPercentage: 71
-  },
-  'jackson-mo': {
-    name: 'Jackson County, Missouri',
-    state: 'Missouri',
-    population: 717204,
-    totalChurches: 289,
-    childrenInCare: 1789,
-    childrenInFamily: 823,
-    childrenInKinship: 578,
-    childrenOutOfCounty: 77,
-    licensedHomes: 697,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 142,
-    childrenAdopted2024: 98,
-    avgMonthsToAdoption: 13.1,
-    familyPreservationCases: 248,
-    reunificationRate: 73,
-    churchesProvidingSupport: 206,
-    supportPercentage: 71
-  },
+  // New Mexico
+  'bernalillo-nm': { name: 'Bernalillo County, New Mexico', state: 'New Mexico', pop: 676444, coords: [35.0844, -106.6504] },
+  'dona-ana-nm': { name: 'Dona Ana County, New Mexico', state: 'New Mexico', pop: 219561, coords: [32.3199, -106.7789] },
 
-  // ==================== MONTANA COUNTIES ====================
-  'yellowstone-mt': {
-    name: 'Yellowstone County, Montana',
-    state: 'Montana',
-    population: 161300,
-    totalChurches: 98,
-    childrenInCare: 678,
-    childrenInFamily: 312,
-    childrenInKinship: 219,
-    childrenOutOfCounty: 29,
-    licensedHomes: 264,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 54,
-    childrenAdopted2024: 37,
-    avgMonthsToAdoption: 12.4,
-    familyPreservationCases: 94,
-    reunificationRate: 75,
-    churchesProvidingSupport: 70,
-    supportPercentage: 71
-  },
-  'missoula-mt': {
-    name: 'Missoula County, Montana',
-    state: 'Montana',
-    population: 119600,
-    totalChurches: 78,
-    childrenInCare: 456,
-    childrenInFamily: 210,
-    childrenInKinship: 147,
-    childrenOutOfCounty: 20,
-    licensedHomes: 178,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 36,
-    childrenAdopted2024: 25,
-    avgMonthsToAdoption: 12.2,
-    familyPreservationCases: 63,
-    reunificationRate: 75,
-    churchesProvidingSupport: 56,
-    supportPercentage: 72
-  },
+  // New York
+  'nassau-ny': { name: 'Nassau County, New York', state: 'New York', pop: 1395774, coords: [40.7391, -73.5893] },
+  'suffolk-ny': { name: 'Suffolk County, New York', state: 'New York', pop: 1525920, coords: [40.9849, -72.6151] },
+  'erie-ny': { name: 'Erie County, New York', state: 'New York', pop: 954236, coords: [42.8864, -78.8784] },
+  'westchester-ny': { name: 'Westchester County, New York', state: 'New York', pop: 1004457, coords: [41.1220, -73.7949] },
 
-  // ==================== NEBRASKA COUNTIES ====================
-  'douglas-ne': {
-    name: 'Douglas County, Nebraska',
-    state: 'Nebraska',
-    population: 584526,
-    totalChurches: 234,
-    childrenInCare: 1456,
-    childrenInFamily: 670,
-    childrenInKinship: 471,
-    childrenOutOfCounty: 63,
-    licensedHomes: 567,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 116,
-    childrenAdopted2024: 80,
-    avgMonthsToAdoption: 12.6,
-    familyPreservationCases: 202,
-    reunificationRate: 77,
-    churchesProvidingSupport: 167,
-    supportPercentage: 71
-  },
-  'lancaster-ne': {
-    name: 'Lancaster County, Nebraska',
-    state: 'Nebraska',
-    population: 322343,
-    totalChurches: 156,
-    childrenInCare: 789,
-    childrenInFamily: 363,
-    childrenInKinship: 255,
-    childrenOutOfCounty: 34,
-    licensedHomes: 308,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 63,
-    childrenAdopted2024: 43,
-    avgMonthsToAdoption: 12.4,
-    familyPreservationCases: 109,
-    reunificationRate: 78,
-    churchesProvidingSupport: 111,
-    supportPercentage: 71
-  },
+  // North Carolina
+  'mecklenburg-nc': { name: 'Mecklenburg County, North Carolina', state: 'North Carolina', pop: 1115482, coords: [35.2271, -80.8431] },
+  'wake-nc': { name: 'Wake County, North Carolina', state: 'North Carolina', pop: 1129410, coords: [35.7796, -78.6382] },
+  'guilford-nc': { name: 'Guilford County, North Carolina', state: 'North Carolina', pop: 541299, coords: [36.0726, -79.7920] },
 
-  // ==================== NEVADA COUNTIES ====================
-  'clark-nv': {
-    name: 'Clark County, Nevada',
-    state: 'Nevada',
-    population: 2265461,
-    totalChurches: 478,
-    childrenInCare: 3789,
-    childrenInFamily: 1744,
-    childrenInKinship: 1225,
-    childrenOutOfCounty: 163,
-    licensedHomes: 1477,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 301,
-    childrenAdopted2024: 208,
-    avgMonthsToAdoption: 14.1,
-    familyPreservationCases: 525,
-    reunificationRate: 70,
-    churchesProvidingSupport: 340,
-    supportPercentage: 71
-  },
-  'washoe-nv': {
-    name: 'Washoe County, Nevada',
-    state: 'Nevada',
-    population: 486492,
-    totalChurches: 178,
-    childrenInCare: 1234,
-    childrenInFamily: 567,
-    childrenInKinship: 398,
-    childrenOutOfCounty: 53,
-    licensedHomes: 481,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 98,
-    childrenAdopted2024: 68,
-    avgMonthsToAdoption: 13.8,
-    familyPreservationCases: 171,
-    reunificationRate: 69,
-    churchesProvidingSupport: 127,
-    supportPercentage: 71
-  },
+  // North Dakota
+  'cass-nd': { name: 'Cass County, North Dakota', state: 'North Dakota', pop: 184525, coords: [46.8772, -97.0325] },
+  'burleigh-nd': { name: 'Burleigh County, North Dakota', state: 'North Dakota', pop: 98458, coords: [46.8083, -100.7837] },
 
-  // ==================== NEW HAMPSHIRE COUNTIES ====================
-  'hillsborough-nh': {
-    name: 'Hillsborough County, New Hampshire',
-    state: 'New Hampshire',
-    population: 422937,
-    totalChurches: 145,
-    childrenInCare: 678,
-    childrenInFamily: 312,
-    childrenInKinship: 219,
-    childrenOutOfCounty: 29,
-    licensedHomes: 264,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 54,
-    childrenAdopted2024: 37,
-    avgMonthsToAdoption: 12.3,
-    familyPreservationCases: 94,
-    reunificationRate: 79,
-    churchesProvidingSupport: 103,
-    supportPercentage: 71
-  },
-  'rockingham-nh': {
-    name: 'Rockingham County, New Hampshire',
-    state: 'New Hampshire',
-    population: 314176,
-    totalChurches: 112,
-    childrenInCare: 478,
-    childrenInFamily: 220,
-    childrenInKinship: 154,
-    childrenOutOfCounty: 21,
-    licensedHomes: 186,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 38,
-    childrenAdopted2024: 26,
-    avgMonthsToAdoption: 12.1,
-    familyPreservationCases: 66,
-    reunificationRate: 79,
-    churchesProvidingSupport: 80,
-    supportPercentage: 71
-  },
+  // Ohio
+  'cuyahoga-oh': { name: 'Cuyahoga County, Ohio', state: 'Ohio', pop: 1264817, coords: [41.4993, -81.6944] },
+  'franklin-oh': { name: 'Franklin County, Ohio', state: 'Ohio', pop: 1323807, coords: [39.9612, -82.9988] },
+  'hamilton-oh': { name: 'Hamilton County, Ohio', state: 'Ohio', pop: 830639, coords: [39.1031, -84.5120] },
 
-  // ==================== NEW JERSEY COUNTIES ====================
-  'bergen-nj': {
-    name: 'Bergen County, New Jersey',
-    state: 'New Jersey',
-    population: 955732,
-    totalChurches: 289,
-    childrenInCare: 1456,
-    childrenInFamily: 670,
-    childrenInKinship: 471,
-    childrenOutOfCounty: 63,
-    licensedHomes: 567,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 116,
-    childrenAdopted2024: 80,
-    avgMonthsToAdoption: 13.0,
-    familyPreservationCases: 202,
-    reunificationRate: 72,
-    churchesProvidingSupport: 206,
-    supportPercentage: 71
-  },
-  'essex-nj': {
-    name: 'Essex County, New Jersey',
-    state: 'New Jersey',
-    population: 863728,
-    totalChurches: 267,
-    childrenInCare: 1678,
-    childrenInFamily: 772,
-    childrenInKinship: 542,
-    childrenOutOfCounty: 72,
-    licensedHomes: 654,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 134,
-    childrenAdopted2024: 92,
-    avgMonthsToAdoption: 13.2,
-    familyPreservationCases: 232,
-    reunificationRate: 72,
-    churchesProvidingSupport: 190,
-    supportPercentage: 71
-  },
+  // Oklahoma
+  'oklahoma-ok': { name: 'Oklahoma County, Oklahoma', state: 'Oklahoma', pop: 796292, coords: [35.4676, -97.5164] },
+  'tulsa-ok': { name: 'Tulsa County, Oklahoma', state: 'Oklahoma', pop: 669279, coords: [36.1540, -95.9928] },
 
-  // ==================== NEW MEXICO COUNTIES ====================
-  'bernalillo-nm': {
-    name: 'Bernalillo County, New Mexico',
-    state: 'New Mexico',
-    population: 676444,
-    totalChurches: 234,
-    childrenInCare: 1789,
-    childrenInFamily: 823,
-    childrenInKinship: 578,
-    childrenOutOfCounty: 77,
-    licensedHomes: 697,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 142,
-    childrenAdopted2024: 98,
-    avgMonthsToAdoption: 13.5,
-    familyPreservationCases: 248,
-    reunificationRate: 72,
-    churchesProvidingSupport: 167,
-    supportPercentage: 71
-  },
-  'dona-ana-nm': {
-    name: 'Dona Ana County, New Mexico',
-    state: 'New Mexico',
-    population: 219561,
-    totalChurches: 98,
-    childrenInCare: 678,
-    childrenInFamily: 312,
-    childrenInKinship: 219,
-    childrenOutOfCounty: 29,
-    licensedHomes: 264,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 54,
-    childrenAdopted2024: 37,
-    avgMonthsToAdoption: 13.2,
-    familyPreservationCases: 94,
-    reunificationRate: 71,
-    churchesProvidingSupport: 70,
-    supportPercentage: 71
-  },
+  // Oregon
+  'multnomah-or': { name: 'Multnomah County, Oregon', state: 'Oregon', pop: 815428, coords: [45.5152, -122.6784] },
+  'lane-or': { name: 'Lane County, Oregon', state: 'Oregon', pop: 382971, coords: [44.0521, -122.8713] },
 
-  // ==================== NORTH DAKOTA COUNTIES ====================
-  'cass-nd': {
-    name: 'Cass County, North Dakota',
-    state: 'North Dakota',
-    population: 184525,
-    totalChurches: 89,
-    childrenInCare: 567,
-    childrenInFamily: 261,
-    childrenInKinship: 183,
-    childrenOutOfCounty: 24,
-    licensedHomes: 221,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 45,
-    childrenAdopted2024: 31,
-    avgMonthsToAdoption: 12.2,
-    familyPreservationCases: 79,
-    reunificationRate: 77,
-    churchesProvidingSupport: 63,
-    supportPercentage: 71
-  },
-  'burleigh-nd': {
-    name: 'Burleigh County, North Dakota',
-    state: 'North Dakota',
-    population: 98458,
-    totalChurches: 67,
-    childrenInCare: 389,
-    childrenInFamily: 179,
-    childrenInKinship: 126,
-    childrenOutOfCounty: 17,
-    licensedHomes: 152,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 31,
-    childrenAdopted2024: 21,
-    avgMonthsToAdoption: 12.0,
-    familyPreservationCases: 54,
-    reunificationRate: 77,
-    churchesProvidingSupport: 48,
-    supportPercentage: 72
-  },
+  // Pennsylvania
+  'philadelphia-pa': { name: 'Philadelphia County, Pennsylvania', state: 'Pennsylvania', pop: 1584064, coords: [39.9526, -75.1652] },
+  'allegheny-pa': { name: 'Allegheny County, Pennsylvania', state: 'Pennsylvania', pop: 1250578, coords: [40.4406, -79.9959] },
+  'montgomery-pa': { name: 'Montgomery County, Pennsylvania', state: 'Pennsylvania', pop: 856553, coords: [40.1754, -75.2535] },
 
-  // ==================== OKLAHOMA COUNTIES ====================
-  'oklahoma-ok': {
-    name: 'Oklahoma County, Oklahoma',
-    state: 'Oklahoma',
-    population: 796292,
-    totalChurches: 334,
-    childrenInCare: 2456,
-    childrenInFamily: 1130,
-    childrenInKinship: 794,
-    childrenOutOfCounty: 106,
-    licensedHomes: 957,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 195,
-    childrenAdopted2024: 135,
-    avgMonthsToAdoption: 13.1,
-    familyPreservationCases: 340,
-    reunificationRate: 73,
-    churchesProvidingSupport: 238,
-    supportPercentage: 71
-  },
-  'tulsa-ok': {
-    name: 'Tulsa County, Oklahoma',
-    state: 'Oklahoma',
-    population: 669279,
-    totalChurches: 289,
-    childrenInCare: 1789,
-    childrenInFamily: 823,
-    childrenInKinship: 578,
-    childrenOutOfCounty: 77,
-    licensedHomes: 697,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 142,
-    childrenAdopted2024: 98,
-    avgMonthsToAdoption: 12.9,
-    familyPreservationCases: 248,
-    reunificationRate: 72,
-    churchesProvidingSupport: 206,
-    supportPercentage: 71
-  },
+  // Rhode Island
+  'providence-ri': { name: 'Providence County, Rhode Island', state: 'Rhode Island', pop: 660741, coords: [41.8240, -71.4128] },
+  'kent-ri': { name: 'Kent County, Rhode Island', state: 'Rhode Island', pop: 170363, coords: [41.6693, -71.5939] },
 
-  // ==================== OREGON COUNTIES ====================
-  'multnomah-or': {
-    name: 'Multnomah County, Oregon',
-    state: 'Oregon',
-    population: 815428,
-    totalChurches: 267,
-    childrenInCare: 1789,
-    childrenInFamily: 823,
-    childrenInKinship: 578,
-    childrenOutOfCounty: 77,
-    licensedHomes: 697,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 142,
-    childrenAdopted2024: 98,
-    avgMonthsToAdoption: 13.4,
-    familyPreservationCases: 248,
-    reunificationRate: 75,
-    churchesProvidingSupport: 190,
-    supportPercentage: 71
-  },
-  'lane-or': {
-    name: 'Lane County, Oregon',
-    state: 'Oregon',
-    population: 382971,
-    totalChurches: 156,
-    childrenInCare: 1023,
-    childrenInFamily: 471,
-    childrenInKinship: 331,
-    childrenOutOfCounty: 44,
-    licensedHomes: 399,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 81,
-    childrenAdopted2024: 56,
-    avgMonthsToAdoption: 13.1,
-    familyPreservationCases: 142,
-    reunificationRate: 75,
-    churchesProvidingSupport: 111,
-    supportPercentage: 71
-  },
+  // South Carolina
+  'greenville-sc': { name: 'Greenville County, South Carolina', state: 'South Carolina', pop: 525534, coords: [34.8526, -82.3940] },
+  'richland-sc': { name: 'Richland County, South Carolina', state: 'South Carolina', pop: 416147, coords: [34.0007, -80.8532] },
 
-  // ==================== RHODE ISLAND COUNTIES ====================
-  'providence-ri': {
-    name: 'Providence County, Rhode Island',
-    state: 'Rhode Island',
-    population: 660741,
-    totalChurches: 198,
-    childrenInCare: 1234,
-    childrenInFamily: 567,
-    childrenInKinship: 398,
-    childrenOutOfCounty: 53,
-    licensedHomes: 481,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 98,
-    childrenAdopted2024: 68,
-    avgMonthsToAdoption: 13.1,
-    familyPreservationCases: 171,
-    reunificationRate: 74,
-    churchesProvidingSupport: 141,
-    supportPercentage: 71
-  },
-  'kent-ri': {
-    name: 'Kent County, Rhode Island',
-    state: 'Rhode Island',
-    population: 170363,
-    totalChurches: 78,
-    childrenInCare: 456,
-    childrenInFamily: 210,
-    childrenInKinship: 147,
-    childrenOutOfCounty: 20,
-    licensedHomes: 178,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 36,
-    childrenAdopted2024: 25,
-    avgMonthsToAdoption: 12.8,
-    familyPreservationCases: 63,
-    reunificationRate: 74,
-    churchesProvidingSupport: 56,
-    supportPercentage: 72
-  },
+  // South Dakota
+  'minnehaha-sd': { name: 'Minnehaha County, South Dakota', state: 'South Dakota', pop: 197214, coords: [43.6500, -96.7500] },
+  'pennington-sd': { name: 'Pennington County, South Dakota', state: 'South Dakota', pop: 116522, coords: [44.0805, -103.2310] },
 
-  // ==================== SOUTH CAROLINA COUNTIES ====================
-  'greenville-sc': {
-    name: 'Greenville County, South Carolina',
-    state: 'South Carolina',
-    population: 525534,
-    totalChurches: 234,
-    childrenInCare: 1234,
-    childrenInFamily: 567,
-    childrenInKinship: 398,
-    childrenOutOfCounty: 53,
-    licensedHomes: 481,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 98,
-    childrenAdopted2024: 68,
-    avgMonthsToAdoption: 12.9,
-    familyPreservationCases: 171,
-    reunificationRate: 75,
-    churchesProvidingSupport: 167,
-    supportPercentage: 71
-  },
-  'richland-sc': {
-    name: 'Richland County, South Carolina',
-    state: 'South Carolina',
-    population: 416147,
-    totalChurches: 189,
-    childrenInCare: 1023,
-    childrenInFamily: 471,
-    childrenInKinship: 331,
-    childrenOutOfCounty: 44,
-    licensedHomes: 399,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 81,
-    childrenAdopted2024: 56,
-    avgMonthsToAdoption: 12.7,
-    familyPreservationCases: 142,
-    reunificationRate: 75,
-    churchesProvidingSupport: 135,
-    supportPercentage: 71
-  },
+  // Tennessee
+  'shelby-tn': { name: 'Shelby County, Tennessee', state: 'Tennessee', pop: 929744, coords: [35.1495, -90.0490] },
+  'davidson-tn': { name: 'Davidson County, Tennessee', state: 'Tennessee', pop: 715884, coords: [36.1627, -86.7816] },
 
-  // ==================== SOUTH DAKOTA COUNTIES ====================
-  'minnehaha-sd': {
-    name: 'Minnehaha County, South Dakota',
-    state: 'South Dakota',
-    population: 197214,
-    totalChurches: 112,
-    childrenInCare: 678,
-    childrenInFamily: 312,
-    childrenInKinship: 219,
-    childrenOutOfCounty: 29,
-    licensedHomes: 264,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 54,
-    childrenAdopted2024: 37,
-    avgMonthsToAdoption: 12.2,
-    familyPreservationCases: 94,
-    reunificationRate: 77,
-    churchesProvidingSupport: 80,
-    supportPercentage: 71
-  },
-  'pennington-sd': {
-    name: 'Pennington County, South Dakota',
-    state: 'South Dakota',
-    population: 116522,
-    totalChurches: 78,
-    childrenInCare: 456,
-    childrenInFamily: 210,
-    childrenInKinship: 147,
-    childrenOutOfCounty: 20,
-    licensedHomes: 178,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 36,
-    childrenAdopted2024: 25,
-    avgMonthsToAdoption: 12.0,
-    familyPreservationCases: 63,
-    reunificationRate: 78,
-    churchesProvidingSupport: 56,
-    supportPercentage: 72
-  },
+  // Texas
+  'harris-tx': { name: 'Harris County, Texas', state: 'Texas', pop: 4731145, coords: [29.7604, -95.3698] },
+  'dallas-tx': { name: 'Dallas County, Texas', state: 'Texas', pop: 2613539, coords: [32.7767, -96.7970] },
+  'bexar-tx': { name: 'Bexar County, Texas', state: 'Texas', pop: 2009324, coords: [29.4241, -98.4936] },
+  'travis-tx': { name: 'Travis County, Texas', state: 'Texas', pop: 1318652, coords: [30.2672, -97.7431] },
 
-  // ==================== TENNESSEE COUNTIES ====================
-  'shelby-tn': {
-    name: 'Shelby County, Tennessee',
-    state: 'Tennessee',
-    population: 929744,
-    totalChurches: 378,
-    childrenInCare: 2456,
-    childrenInFamily: 1130,
-    childrenInKinship: 794,
-    childrenOutOfCounty: 106,
-    licensedHomes: 957,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 195,
-    childrenAdopted2024: 135,
-    avgMonthsToAdoption: 13.2,
-    familyPreservationCases: 340,
-    reunificationRate: 76,
-    churchesProvidingSupport: 269,
-    supportPercentage: 71
-  },
-  'davidson-tn': {
-    name: 'Davidson County, Tennessee',
-    state: 'Tennessee',
-    population: 715884,
-    totalChurches: 312,
-    childrenInCare: 1789,
-    childrenInFamily: 823,
-    childrenInKinship: 578,
-    childrenOutOfCounty: 77,
-    licensedHomes: 697,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 142,
-    childrenAdopted2024: 98,
-    avgMonthsToAdoption: 13.0,
-    familyPreservationCases: 248,
-    reunificationRate: 76,
-    churchesProvidingSupport: 222,
-    supportPercentage: 71
-  },
+  // Utah
+  'salt-lake-ut': { name: 'Salt Lake County, Utah', state: 'Utah', pop: 1185238, coords: [40.7608, -111.8910] },
+  'utah-ut': { name: 'Utah County, Utah', state: 'Utah', pop: 665665, coords: [40.2338, -111.6585] },
 
-  // ==================== UTAH COUNTIES ====================
-  'salt-lake-ut': {
-    name: 'Salt Lake County, Utah',
-    state: 'Utah',
-    population: 1185238,
-    totalChurches: 289,
-    childrenInCare: 1789,
-    childrenInFamily: 823,
-    childrenInKinship: 578,
-    childrenOutOfCounty: 77,
-    licensedHomes: 697,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 142,
-    childrenAdopted2024: 98,
-    avgMonthsToAdoption: 12.5,
-    familyPreservationCases: 248,
-    reunificationRate: 77,
-    churchesProvidingSupport: 206,
-    supportPercentage: 71
-  },
-  'utah-ut': {
-    name: 'Utah County, Utah',
-    state: 'Utah',
-    population: 665665,
-    totalChurches: 198,
-    childrenInCare: 1023,
-    childrenInFamily: 471,
-    childrenInKinship: 331,
-    childrenOutOfCounty: 44,
-    licensedHomes: 399,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 81,
-    childrenAdopted2024: 56,
-    avgMonthsToAdoption: 12.3,
-    familyPreservationCases: 142,
-    reunificationRate: 77,
-    churchesProvidingSupport: 141,
-    supportPercentage: 71
-  },
+  // Vermont
+  'chittenden-vt': { name: 'Chittenden County, Vermont', state: 'Vermont', pop: 168323, coords: [44.4759, -73.1353] },
+  'rutland-vt': { name: 'Rutland County, Vermont', state: 'Vermont', pop: 58292, coords: [43.6106, -72.9726] },
 
-  // ==================== VERMONT COUNTIES ====================
-  'chittenden-vt': {
-    name: 'Chittenden County, Vermont',
-    state: 'Vermont',
-    population: 168323,
-    totalChurches: 89,
-    childrenInCare: 456,
-    childrenInFamily: 210,
-    childrenInKinship: 147,
-    childrenOutOfCounty: 20,
-    licensedHomes: 178,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 36,
-    childrenAdopted2024: 25,
-    avgMonthsToAdoption: 12.1,
-    familyPreservationCases: 63,
-    reunificationRate: 79,
-    churchesProvidingSupport: 63,
-    supportPercentage: 71
-  },
-  'rutland-vt': {
-    name: 'Rutland County, Vermont',
-    state: 'Vermont',
-    population: 58292,
-    totalChurches: 45,
-    childrenInCare: 267,
-    childrenInFamily: 123,
-    childrenInKinship: 86,
-    childrenOutOfCounty: 11,
-    licensedHomes: 104,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 21,
-    childrenAdopted2024: 15,
-    avgMonthsToAdoption: 11.9,
-    familyPreservationCases: 37,
-    reunificationRate: 79,
-    churchesProvidingSupport: 32,
-    supportPercentage: 71
-  },
+  // Virginia
+  'fairfax-va': { name: 'Fairfax County, Virginia', state: 'Virginia', pop: 1150309, coords: [38.8462, -77.3064] },
+  'virginia-beach-va': { name: 'Virginia Beach City, Virginia', state: 'Virginia', pop: 459470, coords: [36.8529, -75.9780] },
 
-  // ==================== VIRGINIA COUNTIES ====================
-  'fairfax-va': {
-    name: 'Fairfax County, Virginia',
-    state: 'Virginia',
-    population: 1150309,
-    totalChurches: 334,
-    childrenInCare: 1789,
-    childrenInFamily: 823,
-    childrenInKinship: 578,
-    childrenOutOfCounty: 77,
-    licensedHomes: 697,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 142,
-    childrenAdopted2024: 98,
-    avgMonthsToAdoption: 13.0,
-    familyPreservationCases: 248,
-    reunificationRate: 75,
-    churchesProvidingSupport: 238,
-    supportPercentage: 71
-  },
-  'virginia-beach-va': {
-    name: 'Virginia Beach City, Virginia',
-    state: 'Virginia',
-    population: 459470,
-    totalChurches: 189,
-    childrenInCare: 1023,
-    childrenInFamily: 471,
-    childrenInKinship: 331,
-    childrenOutOfCounty: 44,
-    licensedHomes: 399,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 81,
-    childrenAdopted2024: 56,
-    avgMonthsToAdoption: 12.8,
-    familyPreservationCases: 142,
-    reunificationRate: 76,
-    churchesProvidingSupport: 135,
-    supportPercentage: 71
-  },
+  // Washington
+  'king-wa': { name: 'King County, Washington', state: 'Washington', pop: 2269675, coords: [47.6062, -122.3321] },
+  'pierce-wa': { name: 'Pierce County, Washington', state: 'Washington', pop: 921130, coords: [47.2529, -122.4443] },
+  'snohomish-wa': { name: 'Snohomish County, Washington', state: 'Washington', pop: 827957, coords: [47.9290, -122.2015] },
 
-  // ==================== WEST VIRGINIA COUNTIES ====================
-  'kanawha-wv': {
-    name: 'Kanawha County, West Virginia',
-    state: 'West Virginia',
-    population: 180745,
-    totalChurches: 145,
-    childrenInCare: 1789,
-    childrenInFamily: 823,
-    childrenInKinship: 578,
-    childrenOutOfCounty: 77,
-    licensedHomes: 697,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 142,
-    childrenAdopted2024: 98,
-    avgMonthsToAdoption: 13.5,
-    familyPreservationCases: 248,
-    reunificationRate: 75,
-    churchesProvidingSupport: 103,
-    supportPercentage: 71
-  },
-  'berkeley-wv': {
-    name: 'Berkeley County, West Virginia',
-    state: 'West Virginia',
-    population: 122076,
-    totalChurches: 89,
-    childrenInCare: 678,
-    childrenInFamily: 312,
-    childrenInKinship: 219,
-    childrenOutOfCounty: 29,
-    licensedHomes: 264,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 54,
-    childrenAdopted2024: 37,
-    avgMonthsToAdoption: 13.2,
-    familyPreservationCases: 94,
-    reunificationRate: 74,
-    churchesProvidingSupport: 63,
-    supportPercentage: 71
-  },
+  // West Virginia
+  'kanawha-wv': { name: 'Kanawha County, West Virginia', state: 'West Virginia', pop: 180745, coords: [38.3498, -81.6326] },
+  'berkeley-wv': { name: 'Berkeley County, West Virginia', state: 'West Virginia', pop: 122076, coords: [39.4554, -77.9836] },
 
-  // ==================== WISCONSIN COUNTIES ====================
-  'milwaukee-wi': {
-    name: 'Milwaukee County, Wisconsin',
-    state: 'Wisconsin',
-    population: 939489,
-    totalChurches: 334,
-    childrenInCare: 2456,
-    childrenInFamily: 1130,
-    childrenInKinship: 794,
-    childrenOutOfCounty: 106,
-    licensedHomes: 957,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 195,
-    childrenAdopted2024: 135,
-    avgMonthsToAdoption: 13.1,
-    familyPreservationCases: 340,
-    reunificationRate: 76,
-    churchesProvidingSupport: 238,
-    supportPercentage: 71
-  },
-  'dane-wi': {
-    name: 'Dane County, Wisconsin',
-    state: 'Wisconsin',
-    population: 561504,
-    totalChurches: 223,
-    childrenInCare: 1234,
-    childrenInFamily: 567,
-    childrenInKinship: 398,
-    childrenOutOfCounty: 53,
-    licensedHomes: 481,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 98,
-    childrenAdopted2024: 68,
-    avgMonthsToAdoption: 12.8,
-    familyPreservationCases: 171,
-    reunificationRate: 77,
-    churchesProvidingSupport: 159,
-    supportPercentage: 71
-  },
+  // Wisconsin
+  'milwaukee-wi': { name: 'Milwaukee County, Wisconsin', state: 'Wisconsin', pop: 939489, coords: [43.0389, -87.9065] },
+  'dane-wi': { name: 'Dane County, Wisconsin', state: 'Wisconsin', pop: 561504, coords: [43.0731, -89.4012] },
 
-  // ==================== WYOMING COUNTIES ====================
-  'laramie-wy': {
-    name: 'Laramie County, Wyoming',
-    state: 'Wyoming',
-    population: 100512,
-    totalChurches: 78,
-    childrenInCare: 456,
-    childrenInFamily: 210,
-    childrenInKinship: 147,
-    childrenOutOfCounty: 20,
-    licensedHomes: 178,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 36,
-    childrenAdopted2024: 25,
-    avgMonthsToAdoption: 12.0,
-    familyPreservationCases: 63,
-    reunificationRate: 78,
-    churchesProvidingSupport: 56,
-    supportPercentage: 72
-  },
-  'natrona-wy': {
-    name: 'Natrona County, Wyoming',
-    state: 'Wyoming',
-    population: 79955,
-    totalChurches: 56,
-    childrenInCare: 334,
-    childrenInFamily: 154,
-    childrenInKinship: 108,
-    childrenOutOfCounty: 14,
-    licensedHomes: 130,
-    licensedHomesPerChild: 0.39,
-    waitingForAdoption: 27,
-    childrenAdopted2024: 18,
-    avgMonthsToAdoption: 11.8,
-    familyPreservationCases: 46,
-    reunificationRate: 78,
-    churchesProvidingSupport: 40,
-    supportPercentage: 71
-  }
+  // Wyoming
+  'laramie-wy': { name: 'Laramie County, Wyoming', state: 'Wyoming', pop: 100512, coords: [41.3114, -105.5911] },
+  'natrona-wy': { name: 'Natrona County, Wyoming', state: 'Wyoming', pop: 79955, coords: [42.8666, -106.3131] }
 };
 
+// ==================== COUNTY DATA (Generated) ====================
+// This object is built dynamically from countyBaseData
+
+export const countyData = {};
+
+// Generate full county data from base data
+Object.entries(countyBaseData).forEach(([countyId, baseData]) => {
+  const stateId = countyId.split('-').pop(); // Extract state abbreviation
+  const stateKey = Object.keys(stateData).find(key => 
+    stateData[key].name === baseData.state || 
+    key === stateId || 
+    key.includes(stateId)
+  );
+  
+  if (stateKey) {
+    countyData[countyId] = generateCountyMetrics(
+      baseData.name,
+      baseData.state,
+      baseData.pop,
+      stateData[stateKey]
+    );
+  }
+});
+
+// ==================== ORGANIZATIONS ====================
 
 export const organizations = [
   {
@@ -2763,6 +401,8 @@ export const organizations = [
   }
 ];
 
+// ==================== NATIONAL STATS ====================
+
 export const nationalStats = {
   childrenInCare: 343077,
   childrenInFamilyFoster: 52483,
@@ -2773,276 +413,26 @@ export const nationalStats = {
   churchesWithMinistry: 30000
 };
 
+// ==================== MAP COORDINATES ====================
+
 // County coordinates by state for map visualization
-export const countyCoordinatesByState = {
-  // Alabama
-  'alabama': {
-    'Butler': { coords: [31.7532, -86.6803], orgCount: 5 },
-    'Jefferson': { coords: [33.5207, -86.8025], orgCount: 56 },
-    'Mobile': { coords: [30.6954, -88.0399], orgCount: 34 },
-    'Montgomery': { coords: [32.3792, -86.3077], orgCount: 23 },
-  },
-  // New York
-  'new-york': {
-    'Nassau': { coords: [40.7391, -73.5893], orgCount: 89 },
-    'Suffolk': { coords: [40.9849, -72.6151], orgCount: 67 },
-    'Erie': { coords: [42.8864, -78.8784], orgCount: 78 },
-    'Westchester': { coords: [41.1220, -73.7949], orgCount: 56 },
-  },
-  // California
-  'california': {
-    'Los Angeles': { coords: [34.0522, -118.2437], orgCount: 234 },
-    'San Diego': { coords: [32.7157, -117.1611], orgCount: 156 },
-    'Orange': { coords: [33.7175, -117.8311], orgCount: 123 },
-    'Riverside': { coords: [33.9533, -117.3961], orgCount: 98 },
-  },
-  // Texas
-  'texas': {
-    'Harris': { coords: [29.7604, -95.3698], orgCount: 189 },
-    'Dallas': { coords: [32.7767, -96.7970], orgCount: 145 },
-    'Bexar': { coords: [29.4241, -98.4936], orgCount: 112 },
-    'Travis': { coords: [30.2672, -97.7431], orgCount: 87 },
-  },
-  // Illinois
-  'illinois': {
-    'Cook': { coords: [41.8781, -87.6298], orgCount: 178 },
-    'DuPage': { coords: [41.8781, -88.0798], orgCount: 67 },
-    'Lake': { coords: [42.3369, -87.8450], orgCount: 54 },
-  },
-  // Florida
-  'florida': {
-    'Miami-Dade': { coords: [25.7617, -80.1918], orgCount: 198 },
-    'Broward': { coords: [26.1224, -80.1373], orgCount: 134 },
-    'Palm Beach': { coords: [26.7153, -80.0534], orgCount: 98 },
-  },
-  // Ohio
-  'ohio': {
-    'Cuyahoga': { coords: [41.4993, -81.6944], orgCount: 123 },
-    'Franklin': { coords: [39.9612, -82.9988], orgCount: 109 },
-    'Hamilton': { coords: [39.1031, -84.5120], orgCount: 87 },
-  },
-  // Pennsylvania
-  'pennsylvania': {
-    'Philadelphia': { coords: [39.9526, -75.1652], orgCount: 156 },
-    'Allegheny': { coords: [40.4406, -79.9959], orgCount: 134 },
-    'Montgomery': { coords: [40.1754, -75.2535], orgCount: 89 },
-  },
-  // Georgia
-  'georgia': {
-    'Fulton': { coords: [33.7490, -84.3880], orgCount: 112 },
-    'Gwinnett': { coords: [33.9526, -83.9877], orgCount: 87 },
-    'Cobb': { coords: [33.9698, -84.5547], orgCount: 76 },
-  },
-  // Michigan
-  'michigan': {
-    'Wayne': { coords: [42.3314, -83.0458], orgCount: 145 },
-    'Oakland': { coords: [42.6589, -83.3816], orgCount: 98 },
-    'Macomb': { coords: [42.6667, -82.9326], orgCount: 76 },
-  },
-  // North Carolina
-  'north-carolina': {
-    'Mecklenburg': { coords: [35.2271, -80.8431], orgCount: 98 },
-    'Wake': { coords: [35.7796, -78.6382], orgCount: 87 },
-    'Guilford': { coords: [36.0726, -79.7920], orgCount: 67 },
-  },
-  // Arizona
-  'arizona': {
-    'Maricopa': { coords: [33.4484, -112.0740], orgCount: 189 },
-    'Pima': { coords: [32.2226, -110.9747], orgCount: 78 },
-    'Pinal': { coords: [32.8439, -111.3847], orgCount: 45 },
-  },
-  // Washington
-  'washington': {
-    'King': { coords: [47.6062, -122.3321], orgCount: 134 },
-    'Pierce': { coords: [47.2529, -122.4443], orgCount: 76 },
-    'Snohomish': { coords: [47.9290, -122.2015], orgCount: 65 },
-  },
-  // Arkansas
-  'arkansas': {
-    'Pulaski': { coords: [34.7465, -92.2896], orgCount: 67 },
-    'Washington': { coords: [36.0653, -94.1574], orgCount: 45 },
-  },
-  // Alaska
-  'alaska': {
-    'Anchorage': { coords: [61.2181, -149.9003], orgCount: 78 },
-    'Fairbanks': { coords: [64.8378, -147.7164], orgCount: 34 },
-  },
-  // Colorado
-  'colorado': {
-    'Denver': { coords: [39.7392, -104.9903], orgCount: 98 },
-    'El Paso': { coords: [38.8339, -104.8214], orgCount: 87 },
-  },
-  // Connecticut
-  'connecticut': {
-    'Hartford': { coords: [41.7658, -72.6734], orgCount: 76 },
-    'New Haven': { coords: [41.3083, -72.9279], orgCount: 71 },
-  },
-  // Delaware
-  'delaware': {
-    'New Castle': { coords: [39.6626, -75.6006], orgCount: 54 },
-    'Sussex': { coords: [38.6926, -75.4008], orgCount: 32 },
-  },
-  // Hawaii
-  'hawaii': {
-    'Honolulu': { coords: [21.3099, -157.8581], orgCount: 89 },
-    'Hawaii': { coords: [19.5429, -155.6659], orgCount: 34 },
-  },
-  // Idaho
-  'idaho': {
-    'Ada': { coords: [43.4527, -116.2417], orgCount: 67 },
-    'Canyon': { coords: [43.6424, -116.6873], orgCount: 43 },
-  },
-  // Indiana
-  'indiana': {
-    'Marion': { coords: [39.7684, -86.1581], orgCount: 134 },
-    'Lake': { coords: [41.4789, -87.4097], orgCount: 78 },
-  },
-  // Iowa
-  'iowa': {
-    'Polk': { coords: [41.5868, -93.6250], orgCount: 89 },
-    'Linn': { coords: [42.0784, -91.5987], orgCount: 56 },
-  },
-  // Kansas
-  'kansas': {
-    'Johnson': { coords: [38.9140, -94.7880], orgCount: 98 },
-    'Sedgwick': { coords: [37.6872, -97.3301], orgCount: 87 },
-  },
-  // Kentucky
-  'kentucky': {
-    'Jefferson': { coords: [38.2527, -85.7585], orgCount: 112 },
-    'Fayette': { coords: [38.0406, -84.5037], orgCount: 76 },
-  },
-  // Louisiana
-  'louisiana': {
-    'Orleans': { coords: [29.9511, -90.0715], orgCount: 98 },
-    'Jefferson': { coords: [29.8388, -90.1547], orgCount: 87 },
-  },
-  // Maine
-  'maine': {
-    'Cumberland': { coords: [43.7820, -70.2562], orgCount: 56 },
-    'York': { coords: [43.4554, -70.6231], orgCount: 43 },
-  },
-  // Maryland
-  'maryland': {
-    'Montgomery': { coords: [39.1434, -77.1997], orgCount: 98 },
-    'Prince Georges': { coords: [38.8127, -76.8633], orgCount: 87 },
-  },
-  // Massachusetts
-  'massachusetts': {
-    'Middlesex': { coords: [42.4865, -71.3824], orgCount: 145 },
-    'Worcester': { coords: [42.3515, -71.9077], orgCount: 98 },
-  },
-  // Minnesota
-  'minnesota': {
-    'Hennepin': { coords: [44.9778, -93.2650], orgCount: 123 },
-    'Ramsey': { coords: [45.0153, -93.0939], orgCount: 89 },
-  },
-  // Mississippi
-  'mississippi': {
-    'Hinds': { coords: [32.3068, -90.1848], orgCount: 67 },
-    'Harrison': { coords: [30.4155, -89.0700], orgCount: 54 },
-  },
-  // Missouri
-  'missouri': {
-    'St Louis': { coords: [38.6270, -90.1994], orgCount: 134 },
-    'Jackson': { coords: [39.0997, -94.5786], orgCount: 98 },
-  },
-  // Montana
-  'montana': {
-    'Yellowstone': { coords: [45.7833, -108.5007], orgCount: 45 },
-    'Missoula': { coords: [46.8721, -113.9940], orgCount: 34 },
-  },
-  // Nebraska
-  'nebraska': {
-    'Douglas': { coords: [41.2565, -96.0103], orgCount: 89 },
-    'Lancaster': { coords: [40.8000, -96.6670], orgCount: 67 },
-  },
-  // Nevada
-  'nevada': {
-    'Clark': { coords: [36.1699, -115.1398], orgCount: 189 },
-    'Washoe': { coords: [39.5296, -119.8138], orgCount: 78 },
-  },
-  // New Hampshire
-  'new-hampshire': {
-    'Hillsborough': { coords: [42.9667, -71.7000], orgCount: 54 },
-    'Rockingham': { coords: [42.9667, -70.9500], orgCount: 43 },
-  },
-  // New Jersey
-  'new-jersey': {
-    'Bergen': { coords: [40.9604, -74.0776], orgCount: 98 },
-    'Essex': { coords: [40.7943, -74.2587], orgCount: 87 },
-  },
-  // New Mexico
-  'new-mexico': {
-    'Bernalillo': { coords: [35.0844, -106.6504], orgCount: 98 },
-    'Dona Ana': { coords: [32.3199, -106.7789], orgCount: 54 },
-  },
-  // North Dakota
-  'north-dakota': {
-    'Cass': { coords: [46.8772, -97.0325], orgCount: 45 },
-    'Burleigh': { coords: [46.8083, -100.7837], orgCount: 32 },
-  },
-  // Oklahoma
-  'oklahoma': {
-    'Oklahoma': { coords: [35.4676, -97.5164], orgCount: 112 },
-    'Tulsa': { coords: [36.1540, -95.9928], orgCount: 98 },
-  },
-  // Oregon
-  'oregon': {
-    'Multnomah': { coords: [45.5152, -122.6784], orgCount: 98 },
-    'Lane': { coords: [44.0521, -122.8713], orgCount: 76 },
-  },
-  // Rhode Island
-  'rhode-island': {
-    'Providence': { coords: [41.8240, -71.4128], orgCount: 76 },
-    'Kent': { coords: [41.6693, -71.5939], orgCount: 43 },
-  },
-  // South Carolina
-  'south-carolina': {
-    'Greenville': { coords: [34.8526, -82.3940], orgCount: 76 },
-    'Richland': { coords: [34.0007, -80.8532], orgCount: 67 },
-  },
-  // South Dakota
-  'south-dakota': {
-    'Minnehaha': { coords: [43.6500, -96.7500], orgCount: 54 },
-    'Pennington': { coords: [44.0805, -103.2310], orgCount: 43 },
-  },
-  // Tennessee
-  'tennessee': {
-    'Shelby': { coords: [35.1495, -90.0490], orgCount: 112 },
-    'Davidson': { coords: [36.1627, -86.7816], orgCount: 98 },
-  },
-  // Utah
-  'utah': {
-    'Salt Lake': { coords: [40.7608, -111.8910], orgCount: 98 },
-    'Utah': { coords: [40.2338, -111.6585], orgCount: 76 },
-  },
-  // Vermont
-  'vermont': {
-    'Chittenden': { coords: [44.4759, -73.1353], orgCount: 43 },
-    'Rutland': { coords: [43.6106, -72.9726], orgCount: 32 },
-  },
-  // Virginia
-  'virginia': {
-    'Fairfax': { coords: [38.8462, -77.3064], orgCount: 98 },
-    'Virginia Beach': { coords: [36.8529, -75.9780], orgCount: 76 },
-  },
-  // West Virginia
-  'west-virginia': {
-    'Kanawha': { coords: [38.3498, -81.6326], orgCount: 76 },
-    'Berkeley': { coords: [39.4554, -77.9836], orgCount: 54 },
-  },
-  // Wisconsin
-  'wisconsin': {
-    'Milwaukee': { coords: [43.0389, -87.9065], orgCount: 112 },
-    'Dane': { coords: [43.0731, -89.4012], orgCount: 89 },
-  },
-  // Wyoming
-  'wyoming': {
-    'Laramie': { coords: [41.3114, -105.5911], orgCount: 45 },
-    'Natrona': { coords: [42.8666, -106.3131], orgCount: 34 },
-  },
-};
+export const countyCoordinatesByState = Object.entries(countyBaseData).reduce((acc, [countyId, data]) => {
+  const stateKey = data.state.toLowerCase().replace(/ /g, '-');
+  
+  if (!acc[stateKey]) {
+    acc[stateKey] = {};
+  }
+  
+  // Extract county name without state suffix
+  const countyName = data.name.split(',')[0].replace(' County', '').replace(' Parish', '').replace(' Municipality', '').replace(' Borough', '').replace(' City', '');
+  
+  acc[stateKey][countyName] = {
+    coords: data.coords,
+    orgCount: Math.round(data.pop / 10000) // Approximate org count based on population
+  };
+  
+  return acc;
+}, {});
 
 // State coordinates for national map view
 export const stateCoordinates = {
@@ -3100,63 +490,22 @@ export const stateCoordinates = {
 
 // State name to code mapping for maps
 export const stateNameToCode = {
-  'Alabama': 'AL',
-  'Alaska': 'AK',
-  'Arizona': 'AZ',
-  'Arkansas': 'AR',
-  'California': 'CA',
-  'Colorado': 'CO',
-  'Connecticut': 'CT',
-  'Delaware': 'DE',
-  'Florida': 'FL',
-  'Georgia': 'GA',
-  'Hawaii': 'HI',
-  'Idaho': 'ID',
-  'Illinois': 'IL',
-  'Indiana': 'IN',
-  'Iowa': 'IA',
-  'Kansas': 'KS',
-  'Kentucky': 'KY',
-  'Louisiana': 'LA',
-  'Maine': 'ME',
-  'Maryland': 'MD',
-  'Massachusetts': 'MA',
-  'Michigan': 'MI',
-  'Minnesota': 'MN',
-  'Mississippi': 'MS',
-  'Missouri': 'MO',
-  'Montana': 'MT',
-  'Nebraska': 'NE',
-  'Nevada': 'NV',
-  'New Hampshire': 'NH',
-  'New Jersey': 'NJ',
-  'New Mexico': 'NM',
-  'New York': 'NY',
-  'North Carolina': 'NC',
-  'North Dakota': 'ND',
-  'Ohio': 'OH',
-  'Oklahoma': 'OK',
-  'Oregon': 'OR',
-  'Pennsylvania': 'PA',
-  'Rhode Island': 'RI',
-  'South Carolina': 'SC',
-  'South Dakota': 'SD',
-  'Tennessee': 'TN',
-  'Texas': 'TX',
-  'Utah': 'UT',
-  'Vermont': 'VT',
-  'Virginia': 'VA',
-  'Washington': 'WA',
-  'West Virginia': 'WV',
-  'Wisconsin': 'WI',
-  'Wyoming': 'WY'
+  'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR', 'California': 'CA',
+  'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE', 'Florida': 'FL', 'Georgia': 'GA',
+  'Hawaii': 'HI', 'Idaho': 'ID', 'Illinois': 'IL', 'Indiana': 'IN', 'Iowa': 'IA',
+  'Kansas': 'KS', 'Kentucky': 'KY', 'Louisiana': 'LA', 'Maine': 'ME', 'Maryland': 'MD',
+  'Massachusetts': 'MA', 'Michigan': 'MI', 'Minnesota': 'MN', 'Mississippi': 'MS', 'Missouri': 'MO',
+  'Montana': 'MT', 'Nebraska': 'NE', 'Nevada': 'NV', 'New Hampshire': 'NH', 'New Jersey': 'NJ',
+  'New Mexico': 'NM', 'New York': 'NY', 'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH',
+  'Oklahoma': 'OK', 'Oregon': 'OR', 'Pennsylvania': 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC',
+  'South Dakota': 'SD', 'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT', 'Vermont': 'VT',
+  'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY'
 };
 
 // Helper to get state data in format for InteractiveUSMap
 export const getStateMapData = () => {
   const mapData = {};
   
-  // Use actual state data where available
   Object.entries(stateData).forEach(([stateId, data]) => {
     mapData[data.name] = {
       value: data.totalChildren,

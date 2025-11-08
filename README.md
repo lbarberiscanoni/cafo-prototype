@@ -1,3 +1,5 @@
+- [ ] Zoom the org view to show the dots more 
+- [ ] replace dotted lines with solid
 - [ ] Add more mock-data for all possible counties
     - there is data for a county at all levels but the state level metrics view is not colored properly
 - [ ] Further reponsivize the rest of the pages 

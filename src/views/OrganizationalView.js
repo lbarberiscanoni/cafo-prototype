@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { MapContainer, TileLayer, Marker, Tooltip, Polyline, Circle } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -153,8 +153,8 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     setMapKey(prev => prev + 1);
   }, [regionLevel, regionId]);
 
-  // Get display name based on region level
-  const getDisplayName = () => {
+  // Get display name based on region level - wrapped in useCallback
+  const getDisplayName = useCallback(() => {
     switch (regionLevel) {
       case "national":
         return "United States of America";
@@ -175,7 +175,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
       default:
         return "";
     }
-  };
+  }, [regionLevel, regionId, selectedRegion]);
 
   const getSubtitle = () => {
     switch (regionLevel) {
@@ -318,7 +318,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     }
     
     return generateCountyOrgs(mapConfig.center, countyName, stateCode);
-  }, [regionLevel, regionId, mapConfig.center]);
+  }, [regionLevel, regionId, mapConfig.center, getDisplayName]);
 
   const filteredOrgs = countyOrgs.filter(org => {
     const categoryMatch = selectedCategories.includes(org.category);

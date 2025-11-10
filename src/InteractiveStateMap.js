@@ -127,12 +127,6 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
           return;
         }
 
-        // Calculate bounds for this state
-        const bounds = d3.geoBounds({
-          type: "FeatureCollection",
-          features: stateCounties
-        });
-
         // Create projection centered on state
         const projection = d3.geoMercator()
           .fitSize([width, height], {

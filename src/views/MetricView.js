@@ -483,17 +483,19 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         </>
       )}
 
-      {/* County-specific: Church stat bar */}
+      {/* County-specific: Total Churches Card - Redesigned to match other cards */}
       {showCountyDetails && (
-        <section className="max-w-7xl mx-auto px-4 mt-6">
-          <div className="bg-white text-center py-6 shadow-mte-card rounded-2xl mx-auto" style={{ maxWidth: '800px' }}>
-            <img src={ChurchIcon} alt="Church" className="mx-auto w-20 h-20 mb-2" />
-            <p className="text-2xl md:text-3xl font-black text-mte-blue">{data.totalChurches}</p>
-            <p className="text-sm md:text-base text-mte-charcoal font-lato">
-              Total Churches in {data.name}
-            </p>
+        <div className="max-w-7xl mx-auto px-4 mt-6">
+          <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center mx-auto" style={{ maxWidth: '800px' }}>
+            <img src={ChurchIcon} alt="Church" className="mx-auto w-20 h-20 mb-3" />
+            <h3 className="text-lg font-lato font-bold mb-6 text-mte-black text-center">Total Churches</h3>
+            
+            <div className="flex justify-center items-baseline gap-3">
+              <div className="text-xl md:text-2xl font-black text-mte-blue">{data.totalChurches}</div>
+              <div className="text-base text-mte-charcoal font-lato">in {data.name}</div>
+            </div>
           </div>
-        </section>
+        </div>
       )}
 
       {/* Cards - County only (for now, can be extended to state) */}

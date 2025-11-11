@@ -198,10 +198,10 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             {data.name}
           </h1>
           {data.subtitle && (
-            <p className="text-sm md:text-base text-mte-charcoal text-center mt-1 md:mt-2 px-4">{data.subtitle}</p>
+            <p className="text-sm md:text-base text-mte-charcoal text-center mt-1 md:mt-2 px-4 font-lato">{data.subtitle}</p>
           )}
           {showPopulation && (
-            <p className="text-sm md:text-base text-mte-charcoal text-center mt-1 md:mt-2 px-4">
+            <p className="text-sm md:text-base text-mte-charcoal text-center mt-1 md:mt-2 px-4 font-lato">
               Population: {data.population.toLocaleString()}
             </p>
           )}
@@ -211,7 +211,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         {showAlabamaMap && (
           <div className="hidden md:block absolute top-4 right-4 text-center">
             <img src={AlabamaMap} alt="Alabama Map" className="w-20 h-auto mx-auto" />
-            <div className="text-sm text-mte-charcoal mt-1">
+            <div className="text-sm text-mte-charcoal mt-1 font-lato">
               {data.name.split(",")[0]}
             </div>
           </div>
@@ -239,8 +239,8 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
 
             {/* Metrics */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
-              <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black">Metrics</h3>
-              <p className="text-sm text-mte-charcoal mb-2">
+              <h3 className="text-base font-lato font-bold mb-1 text-mte-black">Metrics</h3>
+              <p className="text-sm text-mte-charcoal mb-2 font-lato">
                 Filter by metric type to see what is happening across the country
               </p>
               <select className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal">
@@ -262,9 +262,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             {/* Trends */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
               <div className="flex items-center gap-2 mb-3">
-                <h3 className="text-h4 font-bold uppercase text-mte-black">Trends</h3>
+                <h3 className="text-base font-lato font-bold text-mte-black">Trends</h3>
               </div>
-              <p className="text-sm text-mte-charcoal mb-2">
+              <p className="text-sm text-mte-charcoal mb-2 font-lato">
                 See trends for your selected metric over the past five years
               </p>
               <div className="bg-mte-subdued-white p-3 rounded relative">
@@ -281,7 +281,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                         <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
                       </div>
                     </div>
-                    <span className="text-xs text-mte-charcoal">2022</span>
+                    <span className="text-xs text-mte-charcoal font-lato">2022</span>
                   </div>
                   <div className="flex flex-col items-center relative group">
                     <div className="bg-mte-orange w-8 rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: "60px" }}>
@@ -292,7 +292,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                         <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
                       </div>
                     </div>
-                    <span className="text-xs text-mte-charcoal">2023</span>
+                    <span className="text-xs text-mte-charcoal font-lato">2023</span>
                   </div>
                   <div className="flex flex-col items-center relative group">
                     <div className="bg-mte-orange w-8 rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: "62px" }}>
@@ -303,10 +303,10 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                         <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
                       </div>
                     </div>
-                    <span className="text-xs text-mte-charcoal">2024</span>
+                    <span className="text-xs text-mte-charcoal font-lato">2024</span>
                   </div>
                 </div>
-                <div className="mt-3 text-xs text-mte-charcoal">
+                <div className="mt-3 text-xs text-mte-charcoal font-lato">
                   Source: AFCARS 2022–2024
                 </div>
               </div>
@@ -463,7 +463,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           {/* Foster & Kinship */}
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={FosterKinshipIcon} alt="Foster & Kinship" className="mx-auto w-20 h-20 mb-3" />
-            <h3 className="text-h4 font-bold uppercase mb-6 text-mte-black">Foster and Kinship Families</h3>
+            <h3 className="text-lg font-lato font-bold mb-6 text-mte-black">Foster and Kinship Families</h3>
 
             <div className="flex justify-center items-baseline gap-3 mb-6">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{data.licensedHomesPerChild}</div>
@@ -491,7 +491,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           {/* Adoptive Families */}
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={AdoptiveFamilyIcon} alt="Adoptive Families" className="mx-auto w-20 h-20 mb-3" />
-            <h3 className="text-h4 font-bold uppercase mb-6 text-mte-black">Adoptive Families</h3>
+            <h3 className="text-lg font-lato font-bold mb-6 text-mte-black">Adoptive Families</h3>
 
             <div className="flex justify-center items-baseline gap-3 mb-6">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{data.waitingForAdoption}</div>
@@ -510,7 +510,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           {/* Support for Biological Families */}
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={BiologicalFamilyIcon} alt="Biological Families" className="mx-auto w-20 h-20 mb-3" />
-            <h3 className="text-h4 font-bold uppercase mb-6 text-mte-black">Support for Biological Families</h3>
+            <h3 className="text-lg font-lato font-bold mb-6 text-mte-black">Support for Biological Families</h3>
 
             <div className="flex justify-center items-baseline gap-3 mb-6">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{data.familyPreservationCases}</div>
@@ -526,7 +526,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           {/* Wraparound Support */}
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={WrapAroundIcon} alt="Wraparound Support" className="mx-auto w-20 h-20 mb-3" />
-            <h3 className="text-h4 font-bold uppercase mb-6 text-mte-black">Wraparound Support</h3>
+            <h3 className="text-lg font-lato font-bold mb-6 text-mte-black">Wraparound Support</h3>
 
             <div className="flex justify-center items-baseline gap-3 mb-6">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{data.supportPercentage}%</div>

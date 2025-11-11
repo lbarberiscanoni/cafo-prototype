@@ -6,8 +6,6 @@ import MapPin from "./assets/Map_Pin_icon.png";
 import CountySelect from "./CountySelect";
 import { countyData, stateData } from "./mock-data";
 
-const STATE_ABBR = { Alabama: "AL", "New York": "NY" };
-
 export default function LandingPage({ onSelectRegion, onExploreMap }) {
   const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);
   const mapRef = useRef();
@@ -15,9 +13,8 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
   const countyOptions = useMemo(() => {
     return Object.entries(countyData)
       .map(([id, c]) => {
-        const abbr = STATE_ABBR[c.state] ?? c.state;
         const base = c.name.includes(",") ? c.name.split(",")[0].trim() : c.name;
-        return { id, label: `${base}, ${abbr}`, data: c, state: c.state };
+        return { id, label: `${base}, ${c.state}`, data: c, state: c.state };
       })
       .sort((a, b) => {
         // Sort by state first, then by county name

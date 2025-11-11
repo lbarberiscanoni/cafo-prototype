@@ -359,65 +359,49 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Top Navigation Bar */}
-      <div className="bg-white border-b border-mte-light-grey py-3 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto flex flex-wrap gap-3 md:gap-4">
-          <button className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors">
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd"/>
-            </svg>
-            Download Data
-          </button>
-          <button 
-            onClick={() => onSelectRegion && onSelectRegion({ level: 'county', id: regionId, name: getDisplayName(), view: 'metric' })}
-            className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-            </svg>
-            Return to County Metrics
-          </button>
-          <button 
-            onClick={() => onSelectRegion && onSelectRegion({ level: 'county', id: regionId, name: getDisplayName(), view: 'organizational' })}
-            className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clipRule="evenodd"/>
-            </svg>
-            Explore the Map
-          </button>
-        </div>
-      </div>
-
-      {/* Header */}
-      <div className="border-b border-mte-light-grey relative">
-        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col items-center">
-          <h1 className="text-2xl md:text-4xl font-nexa text-mte-black text-center">
-            {name}
-          </h1>
-          <p className="text-sm md:text-base text-mte-charcoal mt-2 font-lato">
-            {regionLevel === "county" && regionId && countyData[regionId] && (
-              <>Population: {countyData[regionId].population.toLocaleString()}</>
-            )}
-          </p>
-        </div>
-        
-        {/* County Selector - Top Right (County view only) */}
-        {regionLevel === "county" && (
-          <div className="absolute top-4 right-4 md:right-8 flex flex-col items-end gap-3">
-            {/* Text Label */}
-            <div className="text-sm font-lato text-mte-charcoal">
-              Select a Different County
-            </div>
-            
-            {/* County Dropdown with Map Pin Icon - Light Blue Background */}
-            <div className="flex items-center gap-3 bg-mte-blue-20 rounded-lg border border-mte-light-grey shadow-mte-card px-4 py-2">
-              <svg className="w-6 h-6 text-mte-charcoal" fill="currentColor" viewBox="0 0 24 24">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'rgba(2, 173, 238, 0.2)' }}>
+      {/* Context Navigation Bar - Specific to Historic View */}
+      <div className="py-3 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 md:gap-4">
+          <div className="flex flex-wrap gap-3 md:gap-4">
+            <button 
+              onClick={() => onSelectRegion && onSelectRegion({ level: regionLevel, id: regionId, name: getDisplayName(), view: 'metric' })}
+              className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+              </svg>
+              {regionLevel === 'county' ? 'Return to County Metrics' : 
+               regionLevel === 'state' ? 'Return to State Metrics' : 
+               'Return to National Metrics'}
+            </button>
+            <button 
+              onClick={() => onSelectRegion && onSelectRegion({ level: regionLevel, id: regionId, name: getDisplayName(), view: 'organizational' })}
+              className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clipRule="evenodd"/>
+              </svg>
+              Explore the Map
+            </button>
+            <button 
+              className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd"/>
+              </svg>
+              Download Data
+            </button>
+          </div>
+          
+          {/* County Selector - Moved to navigation bar (County view only) */}
+          {regionLevel === "county" && (
+            <div className="flex items-center gap-3 bg-white rounded-lg border border-mte-light-grey shadow-mte-card px-4 py-2">
+              <svg className="w-5 h-5 text-mte-charcoal" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
               </svg>
               <select 
-                className="appearance-none bg-transparent border-none outline-none font-lato text-mte-black font-semibold text-base pr-6 cursor-pointer focus:ring-0"
+                className="appearance-none bg-transparent border-none outline-none font-lato text-mte-black font-semibold text-sm md:text-base pr-6 cursor-pointer focus:ring-0"
                 value={regionId || "butler-al"}
                 onChange={handleCountyChange}
               >
@@ -431,8 +415,22 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                 <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"/>
               </svg>
             </div>
-          </div>
-        )}
+          )}
+        </div>
+      </div>
+
+      {/* Header */}
+      <div className="relative">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col items-center">
+          <h1 className="text-2xl md:text-4xl font-nexa text-mte-black text-center">
+            {name}
+          </h1>
+          <p className="text-sm md:text-base text-mte-charcoal mt-2 font-lato">
+            {regionLevel === "county" && regionId && countyData[regionId] && (
+              <>Population: {countyData[regionId].population.toLocaleString()}</>
+            )}
+          </p>
+        </div>
       </div>
 
       {/* Metrics Grid - Fully Responsive */}
@@ -693,7 +691,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         </div>
       </div>
 
-      {/* Historical Change - Responsive Grid */}
+      {/* Historical Change - Responsive Grid - Changed title to Nexa Rust font */}
       <div className="bg-white max-w-5xl mx-auto rounded-lg shadow-mte-card p-4 md:p-6 mb-6 md:mb-8 mx-4">
         <h3 className="text-2xl md:text-3xl font-nexa mb-3 md:mb-4 text-mte-black text-center">
           Historical Change (2020 to 2024)

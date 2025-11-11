@@ -50,15 +50,20 @@ function App() {
   // Get the view component
   const ViewComponent = VIEW_COMPONENTS[view];
 
+  // Historic view has its own navigation, so don't show TopNav
+  const showTopNav = view !== 'historic';
+
   return (
     <div className="App min-h-screen">
-      <TopNav
-        currentRegion={region}
-        currentView={view}
-        selectedRegion={selectedRegion}
-        onSelectRegion={handleSelectRegion}
-        onSwitchView={handleSwitchView}
-      />
+      {showTopNav && (
+        <TopNav
+          currentRegion={region}
+          currentView={view}
+          selectedRegion={selectedRegion}
+          onSelectRegion={handleSelectRegion}
+          onSwitchView={handleSwitchView}
+        />
+      )}
       <div className="w-full">
         {ViewComponent && (
           <ViewComponent

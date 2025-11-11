@@ -4,7 +4,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 // Import data from mock-data
-import { countyCoordinatesByState, stateCoordinates, stateNameToCode } from "../mock-data";
+import { countyData, countyCoordinatesByState, stateCoordinates, stateNameToCode } from "../mock-data";
 
 // Assets
 import MTELogo from "../assets/MTE_Logo.png";
@@ -380,16 +380,66 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
             {/* National: Jump selectors */}
             {showNationalMap && (
               <div className="bg-white p-4 rounded-lg shadow-mte-card space-y-3">
-                <select className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal">
-                  <option>Jump to a State</option>
-                  <option value="alabama">Alabama</option>
-                  <option value="new-york">New York</option>
-                  <option value="california">California</option>
+                {/* Jump to State Dropdown */}
+                <select 
+                  className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal"
+                  value=""
+                  onChange={(e) => {
+                    if (e.target.value && onSelectRegion) {
+                      const stateId = e.target.value;
+                      const stateName = Object.keys(stateNameToCode).find(
+                        name => name.toLowerCase().replace(/\s+/g, '-') === stateId
+                      );
+                      const stateCode = stateNameToCode[stateName];
+                      onSelectRegion({ 
+                        level: 'state', 
+                        id: stateId,
+                        name: stateName,
+                        code: stateCode
+                      });
+                    }
+                  }}
+                >
+                  <option value="">Jump to a State</option>
+                  {Object.keys(stateNameToCode).sort().map(stateName => {
+                    const stateId = stateName.toLowerCase().replace(/\s+/g, '-');
+                    return (
+                      <option key={stateId} value={stateId}>
+                        {stateName}
+                      </option>
+                    );
+                  })}
                 </select>
-                <select className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal">
-                  <option>Jump to a County</option>
-                  <option value="butler-al">Butler County, AL</option>
-                  <option value="nassau-ny">Nassau County, NY</option>
+                
+                {/* Jump to County Dropdown */}
+                <select 
+                  className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal"
+                  value=""
+                  onChange={(e) => {
+                    if (e.target.value && onSelectRegion) {
+                      const countyId = e.target.value;
+                      const county = countyData[countyId];
+                      if (county) {
+                        onSelectRegion({ 
+                          level: 'county', 
+                          id: countyId,
+                          name: county.name,
+                          fips: county.fips
+                        });
+                      }
+                    }
+                  }}
+                >
+                  <option value="">Jump to a County</option>
+                  {Object.keys(countyData).sort((a, b) => {
+                    const nameA = countyData[a].name;
+                    const nameB = countyData[b].name;
+                    return nameA.localeCompare(nameB);
+                  }).map(countyId => (
+                    <option key={countyId} value={countyId}>
+                      {countyData[countyId].name}
+                    </option>
+                  ))}
                 </select>
               </div>
             )}

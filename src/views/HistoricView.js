@@ -215,26 +215,65 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       case "county":
         // Extract county name from regionId or use default
         if (regionId) {
-          // regionId format: "butler-al", "nassau-ny"
+          // regionId format: "butler-al", "nassau-ny", "ada-id"
           const parts = regionId.split('-');
           const countyName = parts.slice(0, -1).map(word => 
             word.charAt(0).toUpperCase() + word.slice(1)
           ).join(' ');
           const stateCode = parts[parts.length - 1].toUpperCase();
           
-          // Map state codes to full names
+          // Map state codes to full names - ALL 50 STATES
           const stateNames = {
             'AL': 'Alabama',
-            'NY': 'New York',
+            'AK': 'Alaska',
+            'AZ': 'Arizona',
+            'AR': 'Arkansas',
             'CA': 'California',
-            'TX': 'Texas',
+            'CO': 'Colorado',
+            'CT': 'Connecticut',
+            'DE': 'Delaware',
             'FL': 'Florida',
-            'PA': 'Pennsylvania',
-            'IL': 'Illinois',
-            'OH': 'Ohio',
             'GA': 'Georgia',
+            'HI': 'Hawaii',
+            'ID': 'Idaho',
+            'IL': 'Illinois',
+            'IN': 'Indiana',
+            'IA': 'Iowa',
+            'KS': 'Kansas',
+            'KY': 'Kentucky',
+            'LA': 'Louisiana',
+            'ME': 'Maine',
+            'MD': 'Maryland',
+            'MA': 'Massachusetts',
+            'MI': 'Michigan',
+            'MN': 'Minnesota',
+            'MS': 'Mississippi',
+            'MO': 'Missouri',
+            'MT': 'Montana',
+            'NE': 'Nebraska',
+            'NV': 'Nevada',
+            'NH': 'New Hampshire',
+            'NJ': 'New Jersey',
+            'NM': 'New Mexico',
+            'NY': 'New York',
             'NC': 'North Carolina',
-            'MI': 'Michigan'
+            'ND': 'North Dakota',
+            'OH': 'Ohio',
+            'OK': 'Oklahoma',
+            'OR': 'Oregon',
+            'PA': 'Pennsylvania',
+            'RI': 'Rhode Island',
+            'SC': 'South Carolina',
+            'SD': 'South Dakota',
+            'TN': 'Tennessee',
+            'TX': 'Texas',
+            'UT': 'Utah',
+            'VT': 'Vermont',
+            'VA': 'Virginia',
+            'WA': 'Washington',
+            'WV': 'West Virginia',
+            'WI': 'Wisconsin',
+            'WY': 'Wyoming'
           };
           
           return `${countyName} County, ${stateNames[stateCode] || stateCode}`;

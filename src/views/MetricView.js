@@ -548,9 +548,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
       {showStateContext && (
         <section className="max-w-7xl mx-auto px-4">
           <div className="bg-white rounded-2xl shadow-mte-card px-6 py-6 text-center">
-            <h4 className="text-2xl font-nexa text-mte-black mb-4">
+            <h3 className="text-2xl font-nexa text-mte-black mb-4">
               Statewide Data Summary for {data.state}
-            </h4>
+            </h3>
 
             <div className="flex flex-wrap justify-around gap-6 md:gap-10 text-center">
               <div>

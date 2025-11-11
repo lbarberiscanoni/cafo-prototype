@@ -78,7 +78,8 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
 
   return (
     <div
-      className="relative min-h-screen overflow-hidden font-lato bg-mte-blue-20"
+      className="relative min-h-screen overflow-hidden font-lato"
+      style={{ backgroundColor: 'rgba(2, 173, 238, 0.2)' }}
     >
       {/* D3.js generated map with visible state boundaries */}
       <div className="pointer-events-none absolute inset-0">

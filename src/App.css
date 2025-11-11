@@ -6,7 +6,7 @@
 /* Global background per More Than Enough Brand Guide */
 /* Using MTE Blue at 20% opacity for subtle brand presence */
 body {
-  background-color: rgba(0, 173, 238, 0.2);
+  background-color: rgba(2, 173, 238, 0.2);
   margin: 0;
   min-height: 100vh;
   font-family: 'Lato', Helvetica, Arial, sans-serif;
@@ -19,7 +19,7 @@ body {
 
 /* Brand-compliant header styling */
 .App-header {
-  background-color: rgba(0, 173, 238, 0.2);
+  background-color: rgba(2, 173, 238, 0.2);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,14 +37,14 @@ body {
 
 /* Brand-compliant link styling */
 .App-link {
-  color: #00ADEE; /* MTE Blue */
+  color: #02ADEE; /* MTE Blue */
   text-decoration: underline;
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   font-weight: 400; /* Regular */
 }
 
 .App-link:hover {
-  color: rgba(0, 173, 238, 0.8); /* MTE Blue 80% */
+  color: rgba(2, 173, 238, 0.8); /* MTE Blue 80% */
   text-decoration: none;
 }
 
@@ -97,7 +97,7 @@ p, li, span {
 
 /* Brand-compliant buttons with responsive sizing */
 .btn-mte-primary {
-  background-color: #00ADEE;
+  background-color: #02ADEE;
   color: #ffffff;
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   font-weight: 500; /* Medium */
@@ -120,7 +120,7 @@ p, li, span {
 }
 
 .btn-mte-primary:hover {
-  background-color: rgba(0, 173, 238, 0.8);
+  background-color: rgba(2, 173, 238, 0.8);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transform: translateY(-1px);
 }
@@ -133,13 +133,13 @@ p, li, span {
 /* Secondary button style */
 .btn-mte-secondary {
   background-color: #ffffff;
-  color: #00ADEE;
+  color: #02ADEE;
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   font-weight: 500;
   padding: 10px 20px; /* Mobile */
   font-size: 14px;
   border-radius: 8px;
-  border: 2px solid #00ADEE;
+  border: 2px solid #02ADEE;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   min-height: 44px; /* Touch-friendly */
@@ -153,8 +153,8 @@ p, li, span {
 }
 
 .btn-mte-secondary:hover {
-  background-color: rgba(0, 173, 238, 0.1);
-  border-color: rgba(0, 173, 238, 0.8);
+  background-color: rgba(2, 173, 238, 0.1);
+  border-color: rgba(2, 173, 238, 0.8);
 }
 
 /* Cards with brand-compliant shadows and responsive padding */
@@ -212,7 +212,7 @@ p, li, span {
    ======================================== */
 
 .bg-mte-blue-subtle {
-  background-color: rgba(0, 173, 238, 0.2);
+  background-color: rgba(2, 173, 238, 0.2);
 }
 
 .bg-mte-light-grey {
@@ -238,7 +238,7 @@ button:focus,
 a:focus,
 input:focus,
 select:focus {
-  outline: 2px solid #00ADEE;
+  outline: 2px solid #02ADEE;
   outline-offset: 2px;
 }
 

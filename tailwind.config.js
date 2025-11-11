@@ -28,7 +28,7 @@ module.exports = {
       // COLORS - Per MTE Brand Guide (exact RGB values)
       colors: {
         // PRIMARY BRAND COLORS
-        'mte-blue': '#00ADEE',          // RGB: 0, 173, 238 (NOTE: Brand guide shows 0, 170, 238 but design files use #00ADEE)
+        'mte-blue': '#02ADEE',          // RGB: 2, 173, 238 (Updated per brand requirements)
         'mte-charcoal': '#5c5d5f',      // RGB: 92, 93, 95
         'mte-light-grey': '#f1f1f1',    // RGB: 241, 241, 241
         'mte-black': '#000000',         // RGB: 0, 0, 0
@@ -36,17 +36,17 @@ module.exports = {
         'mte-subdued-white': '#eeeff0', // RGB: 239, 239, 240
         
         // SECONDARY COLORS (use sparingly)
-        'mte-green': '#4aa456',         // RGB: 75, 165, 87 (NOTE: Brand shows 75, 165, 87 but HEX calculates differently)
-        'mte-orange': '#dc6a42',        // RGB: 220, 107, 67 (NOTE: Brand shows 220, 107, 67)
-        'mte-purple': '#882781',        // RGB: 137, 39, 130 (NOTE: Brand shows 137, 39, 130)
-        'mte-yellow': '#e7d151',        // RGB: 232, 210, 82 (NOTE: Brand shows 232, 210, 82 but HEX is e8d252)
+        'mte-green': '#4aa456',         // RGB: 75, 165, 87
+        'mte-orange': '#dc6a42',        // RGB: 220, 107, 67
+        'mte-purple': '#882781',        // RGB: 137, 39, 130
+        'mte-yellow': '#e7d151',        // RGB: 232, 210, 82
         
         // TINT SYSTEM - 20% increments (100%, 80%, 60%, 40%, 20%)
-        // MTE Blue Tints
-        'mte-blue-80': 'rgba(0, 173, 238, 0.8)',
-        'mte-blue-60': 'rgba(0, 173, 238, 0.6)',
-        'mte-blue-40': 'rgba(0, 173, 238, 0.4)',
-        'mte-blue-20': 'rgba(0, 173, 238, 0.2)',
+        // MTE Blue Tints (Updated to use #02ADEE)
+        'mte-blue-80': 'rgba(2, 173, 238, 0.8)',
+        'mte-blue-60': 'rgba(2, 173, 238, 0.6)',
+        'mte-blue-40': 'rgba(2, 173, 238, 0.4)',
+        'mte-blue-20': 'rgba(2, 173, 238, 0.2)',
         
         // Secondary Color Tints (if needed)
         'mte-green-80': 'rgba(74, 164, 86, 0.8)',
@@ -117,7 +117,7 @@ module.exports = {
       
       // BACKGROUND IMAGES (optional utilities)
       backgroundImage: {
-        'mte-gradient': 'linear-gradient(135deg, #00ADEE 0%, #0896d4 100%)',
+        'mte-gradient': 'linear-gradient(135deg, #02ADEE 0%, #0896d4 100%)',
       },
     },
   },

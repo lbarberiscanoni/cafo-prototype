@@ -446,12 +446,12 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
 
       {/* County-specific: Church stat bar */}
       {showCountyDetails && (
-        <section className="mt-6">
-          <div className="bg-white max-w-5xl mx-auto text-center py-6 shadow-mte-card rounded-2xl">
+        <section className="max-w-7xl mx-auto px-4 mt-6">
+          <div className="bg-white text-center py-6 shadow-mte-card rounded-2xl mx-auto" style={{ maxWidth: '800px' }}>
             <img src={ChurchIcon} alt="Church" className="mx-auto w-20 h-20 mb-2" />
             <p className="text-2xl md:text-3xl font-black text-mte-blue">{data.totalChurches}</p>
-            <p className="text-body text-mte-charcoal font-lato tracking-wide">
-              TOTAL CHURCHES IN {data.name.toUpperCase()}
+            <p className="text-body text-mte-charcoal font-lato">
+              Total Churches in {data.name}
             </p>
           </div>
         </section>

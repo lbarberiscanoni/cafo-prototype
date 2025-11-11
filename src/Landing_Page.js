@@ -183,9 +183,11 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
         <div className="pointer-events-none fixed inset-x-0 bottom-4 md:bottom-6 z-10 flex justify-center px-2 md:px-4">
           <div className="pointer-events-auto flex w-full max-w-2xl flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 rounded-2xl bg-white/90 backdrop-blur p-3 md:p-4 shadow-lg ring-1 ring-black/5">
             <div className="flex items-center gap-2 md:gap-3 text-mte-charcoal">
-              <svg viewBox="0 0 24 24" className="h-5 w-5 md:h-6 md:w-6 flex-shrink-0" aria-hidden="true">
-                <path fill="currentColor" d="M9 3 4 5v16l5-2 6 2 5-2V3l-5 2-6-2ZM9 5l6 2v12l-6-2V5Z" />
-              </svg>
+              <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-mte-blue-20 flex-shrink-0">
+                <svg viewBox="0 0 24 24" className="h-5 w-5 md:h-6 md:w-6 text-mte-blue" fill="currentColor" aria-hidden="true">
+                  <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/>
+                </svg>
+              </div>
               <span className="text-sm md:text-base font-lato">
                 Want to explore multiple counties or states?
               </span>

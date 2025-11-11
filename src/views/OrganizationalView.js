@@ -361,7 +361,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="relative border-b border-mte-light-grey">
+      <header className="relative">
         <div className="max-w-7xl mx-auto px-4 pt-4 md:pt-8 pb-2 flex flex-col items-center">
           <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4">
             {getDisplayName()}

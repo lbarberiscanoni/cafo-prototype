@@ -192,7 +192,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className={`relative ${showAlabamaMap ? '' : 'border-b'}`}>
+      <header className={`relative`}>
         <div className="max-w-7xl mx-auto px-4 pt-4 md:pt-8 pb-2 flex flex-col items-center">
           <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4">
             {data.name}

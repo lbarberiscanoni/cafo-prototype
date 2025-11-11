@@ -362,7 +362,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
   };
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'rgba(2, 173, 238, 0.2)' }}>
+    <div className="min-h-screen flex flex-col">
       {/* Context Navigation Bar - Specific to Historic View */}
       <div className="py-3 px-4 md:px-8">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 md:gap-4">

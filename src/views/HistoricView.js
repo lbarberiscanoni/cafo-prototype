@@ -456,8 +456,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         {/* Foster & Kinship */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <img src={FosterKinshipIcon} alt="Kinship" className="w-10 h-10 md:w-12 md:h-12" />
-            <h3 className="text-base md:text-lg font-bold text-mte-black font-lato">Foster and Kinship Families</h3>
+            <img src={FosterKinshipIcon} alt="Kinship" className="w-16 h-16 md:w-20 md:h-20" />
+            <h3 className="text-xl md:text-2xl font-bold text-mte-black font-lato">Foster and Kinship Families</h3>
           </div>
           
           {/* Metric Dropdown */}
@@ -519,8 +519,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         {/* Adoptive */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <img src={AdoptiveFamilyIcon} alt="Adoptive" className="w-10 h-10 md:w-12 md:h-12" />
-            <h3 className="text-base md:text-lg font-bold text-mte-black font-lato">Adoptive Families</h3>
+            <img src={AdoptiveFamilyIcon} alt="Adoptive" className="w-16 h-16 md:w-20 md:h-20" />
+            <h3 className="text-xl md:text-2xl font-bold text-mte-black font-lato">Adoptive Families</h3>
           </div>
           
           {/* Metric Dropdown */}
@@ -582,8 +582,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         {/* Biological */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <img src={BiologicalFamilyIcon} alt="Biological" className="w-10 h-10 md:w-12 md:h-12" />
-            <h3 className="text-base md:text-lg font-bold text-mte-black font-lato">Support for Biological Families</h3>
+            <img src={BiologicalFamilyIcon} alt="Biological" className="w-16 h-16 md:w-20 md:h-20" />
+            <h3 className="text-xl md:text-2xl font-bold text-mte-black font-lato">Support for Biological Families</h3>
           </div>
           
           {/* Metric Dropdown */}
@@ -646,8 +646,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         {/* Wraparound */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <img src={WrapAroundIcon} alt="Wraparound" className="w-10 h-10 md:w-12 md:h-12" />
-            <h3 className="text-base md:text-lg font-bold text-mte-black font-lato">Wraparound Support</h3>
+            <img src={WrapAroundIcon} alt="Wraparound" className="w-16 h-16 md:w-20 md:h-20" />
+            <h3 className="text-xl md:text-2xl font-bold text-mte-black font-lato">Wraparound Support</h3>
           </div>
           
           {/* Metric Dropdown */}

@@ -361,7 +361,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="relative">
+      <header className="relative border-b border-mte-light-grey">
         <div className="max-w-7xl mx-auto px-4 pt-4 md:pt-8 pb-2 flex flex-col items-center">
           <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4">
             {getDisplayName()}
@@ -396,7 +396,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
             {/* Organization Categories */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
-              <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black font-lato">Organization Categories</h3>
+              <h3 className="text-base font-bold mb-1 text-mte-black font-lato">Organization Categories</h3>
               <p className="text-sm text-mte-charcoal mb-3 font-lato">Check categories to explore who is working in your community</p>
               <div className="space-y-2 text-base font-lato">
                 {Object.entries(CATEGORY_COLORS).map(([category, colors]) => (
@@ -417,7 +417,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
             {/* Impact Areas */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
-              <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black font-lato">Impact Areas</h3>
+              <h3 className="text-base font-bold mb-1 text-mte-black font-lato">Impact Areas</h3>
               <p className="text-sm text-mte-charcoal mb-3 font-lato">Check images to identify who is working in MTE's four impact areas</p>
               <div className="grid grid-cols-2 gap-3 text-base font-lato">
                 <label className="flex flex-col items-center cursor-pointer">
@@ -474,7 +474,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
             {/* Relationships - County only */}
             {showCountyMap && (
               <div className="bg-white p-4 rounded-lg shadow-mte-card">
-                <h3 className="text-h4 font-bold uppercase mb-1 text-mte-black font-lato">Relationships</h3>
+                <h3 className="text-base font-bold mb-1 text-mte-black font-lato">Relationships</h3>
                 <p className="text-sm text-mte-charcoal mb-3 font-lato">Display collaborations to see how organizations work together</p>
                 <div className="space-y-2">
                   <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-base font-lato cursor-pointer transition-colors ${

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
+import { countyData } from "../mock-data";
 
 // Assets
 import FosterKinshipIcon from "../assets/FosterKinship_icon.png";
@@ -9,28 +10,122 @@ import MTELogo from "../assets/MTE_Logo.png";
 
 const years = [2020, 2021, 2022, 2023, 2024];
 
-// Available metrics for each category
-const categoryMetrics = {
-  kinship: [
-    { id: 'children_in_care', label: 'Children in Care', data: { national: [120, 115, 110, 105, 100], state: [80, 75, 70, 65, 60], county: [60, 55, 50, 40, 30] } },
-    { id: 'licensed_homes', label: 'Licensed Homes', data: { national: [100, 105, 110, 115, 120], state: [65, 68, 72, 75, 78], county: [45, 47, 50, 52, 55] } },
-    { id: 'kinship_placements', label: 'Kinship Placements', data: { national: [85, 88, 90, 92, 95], state: [55, 57, 60, 62, 65], county: [35, 38, 40, 42, 45] } }
-  ],
-  adoption: [
-    { id: 'waiting_adoption', label: 'Children Waiting for Adoption', data: { national: [50, 48, 47, 49, 50], state: [15, 14, 15, 16, 18], county: [2, 2, 3, 4, 6] } },
-    { id: 'finalized_adoptions', label: 'Finalized Adoptions', data: { national: [45, 47, 48, 50, 52], state: [12, 13, 14, 15, 16], county: [1, 2, 2, 3, 4] } },
-    { id: 'avg_months_adoption', label: 'Avg Months to Adoption', data: { national: [18, 17, 16, 15, 14], state: [19, 18, 17, 16, 15], county: [20, 19, 18, 17, 16] } }
-  ],
-  biological: [
-    { id: 'family_preservation', label: 'Family Preservation Cases', data: { national: [140, 135, 130, 110, 105], state: [60, 55, 50, 45, 40], county: [30, 35, 32, 25, 20] } },
-    { id: 'reunification_rate', label: 'Reunification Rate (%)', data: { national: [70, 72, 74, 76, 78], state: [68, 70, 72, 74, 76], county: [65, 67, 70, 72, 75] } },
-    { id: 'support_services', label: 'Support Services Provided', data: { national: [160, 165, 170, 175, 180], state: [75, 78, 82, 85, 88], county: [35, 38, 40, 42, 45] } }
-  ],
-  wraparound: [
-    { id: 'wraparound_cases', label: 'Wraparound Support Cases', data: { national: [30, 32, 35, 38, 40], state: [10, 12, 14, 15, 16], county: [1, 2, 3, 3, 4] } },
-    { id: 'community_support', label: 'Community Support Programs', data: { national: [25, 28, 32, 35, 38], state: [8, 10, 12, 13, 15], county: [1, 1, 2, 2, 3] } },
-    { id: 'respite_services', label: 'Respite Services Hours', data: { national: [40, 42, 45, 48, 50], state: [15, 17, 19, 21, 23], county: [3, 4, 5, 6, 7] } }
-  ]
+// Function to generate historical data based on current value
+const generateHistoricalData = (currentValue, years = 5) => {
+  const data = [];
+  const variance = 0.15; // 15% variance year over year
+  
+  for (let i = years - 1; i >= 0; i--) {
+    const yearFactor = 1 + (i * variance * (Math.random() - 0.5));
+    data.push(Math.round(currentValue * yearFactor));
+  }
+  
+  return data;
+};
+
+// Available metrics for each category - will be populated with actual data
+const getCategoryMetrics = (regionKey, regionId) => {
+  // Get actual county data if available
+  let baseData = {};
+  
+  if (regionKey === 'county' && regionId && countyData[regionId]) {
+    const county = countyData[regionId];
+    baseData = {
+      childrenInCare: county.childrenInCare,
+      licensedHomes: county.licensedHomes,
+      kinshipPlacements: county.childrenInKinship,
+      waitingAdoption: county.waitingForAdoption,
+      finalizedAdoptions: county.childrenAdopted2024,
+      avgMonthsAdoption: county.avgMonthsToAdoption,
+      familyPreservation: county.familyPreservationCases,
+      reunificationRate: county.reunificationRate,
+      supportServices: Math.round(county.familyPreservationCases * 1.5)
+    };
+  } else {
+    // Default/placeholder data for national/state
+    baseData = {
+      childrenInCare: 100,
+      licensedHomes: 120,
+      kinshipPlacements: 95,
+      waitingAdoption: 50,
+      finalizedAdoptions: 52,
+      avgMonthsAdoption: 14,
+      familyPreservation: 105,
+      reunificationRate: 78,
+      supportServices: 180
+    };
+  }
+
+  return {
+    kinship: [
+      { 
+        id: 'children_in_care', 
+        label: 'Children in Care', 
+        data: generateHistoricalData(baseData.childrenInCare)
+      },
+      { 
+        id: 'licensed_homes', 
+        label: 'Licensed Homes', 
+        data: generateHistoricalData(baseData.licensedHomes)
+      },
+      { 
+        id: 'kinship_placements', 
+        label: 'Kinship Placements', 
+        data: generateHistoricalData(baseData.kinshipPlacements)
+      }
+    ],
+    adoption: [
+      { 
+        id: 'waiting_adoption', 
+        label: 'Children Waiting for Adoption', 
+        data: generateHistoricalData(baseData.waitingAdoption)
+      },
+      { 
+        id: 'finalized_adoptions', 
+        label: 'Finalized Adoptions', 
+        data: generateHistoricalData(baseData.finalizedAdoptions)
+      },
+      { 
+        id: 'avg_months_adoption', 
+        label: 'Avg Months to Adoption', 
+        data: generateHistoricalData(baseData.avgMonthsAdoption)
+      }
+    ],
+    biological: [
+      { 
+        id: 'family_preservation', 
+        label: 'Family Preservation Cases', 
+        data: generateHistoricalData(baseData.familyPreservation)
+      },
+      { 
+        id: 'reunification_rate', 
+        label: 'Reunification Rate (%)', 
+        data: generateHistoricalData(baseData.reunificationRate)
+      },
+      { 
+        id: 'support_services', 
+        label: 'Support Services Provided', 
+        data: generateHistoricalData(baseData.supportServices)
+      }
+    ],
+    wraparound: [
+      { 
+        id: 'wraparound_cases', 
+        label: 'Wraparound Support Cases', 
+        data: generateHistoricalData(Math.round(baseData.childrenInCare * 0.15))
+      },
+      { 
+        id: 'community_support', 
+        label: 'Community Support Programs', 
+        data: generateHistoricalData(Math.round(baseData.childrenInCare * 0.12))
+      },
+      { 
+        id: 'respite_services', 
+        label: 'Respite Services Hours', 
+        data: generateHistoricalData(Math.round(baseData.childrenInCare * 0.20))
+      }
+    ]
+  };
 };
 
 const mockTrendsData = {
@@ -57,14 +152,58 @@ const mockTrendsData = {
   }
 };
 
-export default function HistoricView({ regionLevel, regionId }) {
-  // State for selected metrics in each category
-  const [selectedMetrics, setSelectedMetrics] = useState({
-    kinship: 'children_in_care',
-    adoption: 'waiting_adoption',
-    biological: 'family_preservation',
-    wraparound: 'wraparound_cases'
-  });
+export default function HistoricView({ regionLevel, regionId, onSelectRegion }) {
+  // State for selected metrics in each category - each card tracks independently
+  const [selectedKinshipMetric, setSelectedKinshipMetric] = useState('children_in_care');
+  const [selectedAdoptionMetric, setSelectedAdoptionMetric] = useState('waiting_adoption');
+  const [selectedBiologicalMetric, setSelectedBiologicalMetric] = useState('family_preservation');
+  const [selectedWraparoundMetric, setSelectedWraparoundMetric] = useState('wraparound_cases');
+
+  // Get dynamic category metrics based on current region
+  // Use useMemo to prevent regenerating random data on every state change
+  const categoryMetrics = useMemo(() => {
+    return getCategoryMetrics(regionLevel, regionId);
+  }, [regionLevel, regionId]);
+
+  // Get current state code from regionId
+  const getCurrentStateCode = () => {
+    if (!regionId) return 'AL';
+    const parts = regionId.split('-');
+    return parts[parts.length - 1].toUpperCase();
+  };
+
+  // Get counties for the current state from countyData
+  const getCountiesForCurrentState = () => {
+    const stateCode = getCurrentStateCode().toLowerCase();
+    
+    // Filter counties from mock-data that match the current state
+    const countiesInState = Object.entries(countyData)
+      .filter(([countyId, data]) => {
+        // County IDs are formatted as "countyname-statecode"
+        const countyStateCode = countyId.split('-').pop();
+        return countyStateCode === stateCode;
+      })
+      .map(([countyId, data]) => {
+        // Extract just the county name without state suffix
+        const countyName = data.name.split(',')[0].trim();
+        return {
+          id: countyId,
+          name: countyName
+        };
+      })
+      .sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
+
+    // If no counties found, return a fallback based on state code
+    if (countiesInState.length === 0) {
+      const fallbackCounties = {
+        'al': [{ id: 'butler-al', name: 'Butler County' }],
+        'ny': [{ id: 'nassau-ny', name: 'Nassau County' }]
+      };
+      return fallbackCounties[stateCode] || fallbackCounties['al'];
+    }
+
+    return countiesInState;
+  };
 
   // Get data based on region level
   const getDisplayName = () => {
@@ -74,9 +213,73 @@ export default function HistoricView({ regionLevel, regionId }) {
       case "state":
         return "Alabama"; // Would come from regionId lookup
       case "county":
-        return "Butler County, Alabama"; // Would come from regionId lookup
+        // Extract county name from regionId or use default
+        if (regionId) {
+          // regionId format: "butler-al", "nassau-ny"
+          const parts = regionId.split('-');
+          const countyName = parts.slice(0, -1).map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+          ).join(' ');
+          const stateCode = parts[parts.length - 1].toUpperCase();
+          
+          // Map state codes to full names
+          const stateNames = {
+            'AL': 'Alabama',
+            'NY': 'New York',
+            'CA': 'California',
+            'TX': 'Texas',
+            'FL': 'Florida',
+            'PA': 'Pennsylvania',
+            'IL': 'Illinois',
+            'OH': 'Ohio',
+            'GA': 'Georgia',
+            'NC': 'North Carolina',
+            'MI': 'Michigan'
+          };
+          
+          return `${countyName} County, ${stateNames[stateCode] || stateCode}`;
+        }
+        return "Butler County, Alabama"; // Default fallback
       default:
         return "";
+    }
+  };
+
+  const handleCountyChange = (e) => {
+    const countyId = e.target.value;
+    
+    // Extract county name and state code from countyId
+    const parts = countyId.split('-');
+    const countyName = parts.slice(0, -1).map(word => 
+      word.charAt(0).toUpperCase() + word.slice(1)
+    ).join(' ');
+    const stateCode = parts[parts.length - 1].toUpperCase();
+    
+    // Map state codes to full names
+    const stateNames = {
+      'AL': 'Alabama',
+      'NY': 'New York',
+      'CA': 'California',
+      'TX': 'Texas',
+      'FL': 'Florida',
+      'PA': 'Pennsylvania',
+      'IL': 'Illinois',
+      'OH': 'Ohio',
+      'GA': 'Georgia',
+      'NC': 'North Carolina',
+      'MI': 'Michigan'
+    };
+    
+    const fullName = `${countyName} County, ${stateNames[stateCode] || stateCode}`;
+    
+    // Call parent's onSelectRegion to update the app state
+    if (onSelectRegion) {
+      onSelectRegion({
+        level: 'county',
+        id: countyId,
+        name: fullName,
+        code: stateCode
+      });
     }
   };
 
@@ -112,34 +315,140 @@ export default function HistoricView({ regionLevel, regionId }) {
 
   // Get selected metric data for each category
   const getMetricData = (category) => {
-    const metricId = selectedMetrics[category];
+    let metricId;
+    switch(category) {
+      case 'kinship':
+        metricId = selectedKinshipMetric;
+        break;
+      case 'adoption':
+        metricId = selectedAdoptionMetric;
+        break;
+      case 'biological':
+        metricId = selectedBiologicalMetric;
+        break;
+      case 'wraparound':
+        metricId = selectedWraparoundMetric;
+        break;
+      default:
+        metricId = null;
+    }
     const metric = categoryMetrics[category].find(m => m.id === metricId);
-    return metric ? metric.data[regionKey] : [];
+    return metric ? metric.data : [];
   };
 
   const getMetricLabel = (category) => {
-    const metricId = selectedMetrics[category];
+    let metricId;
+    switch(category) {
+      case 'kinship':
+        metricId = selectedKinshipMetric;
+        break;
+      case 'adoption':
+        metricId = selectedAdoptionMetric;
+        break;
+      case 'biological':
+        metricId = selectedBiologicalMetric;
+        break;
+      case 'wraparound':
+        metricId = selectedWraparoundMetric;
+        break;
+      default:
+        metricId = null;
+    }
     const metric = categoryMetrics[category].find(m => m.id === metricId);
     return metric ? metric.label : '';
   };
 
-  const handleMetricChange = (category, metricId) => {
-    setSelectedMetrics(prev => ({
-      ...prev,
-      [category]: metricId
-    }));
-  };
-
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Top Navigation Bar */}
+      <div className="bg-white border-b border-mte-light-grey py-3 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto flex flex-wrap gap-3 md:gap-4">
+          <button className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd"/>
+            </svg>
+            Download Data
+          </button>
+          <button 
+            onClick={() => onSelectRegion && onSelectRegion({ level: 'county', id: regionId, name: getDisplayName(), view: 'metric' })}
+            className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+            </svg>
+            Return to County Metrics
+          </button>
+          <button 
+            onClick={() => onSelectRegion && onSelectRegion({ level: 'county', id: regionId, name: getDisplayName(), view: 'organizational' })}
+            className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clipRule="evenodd"/>
+            </svg>
+            Explore the Map
+          </button>
+        </div>
+      </div>
+
       {/* Header */}
-      <div className="border-b border-mte-light-grey">
-        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 text-center">
-          <h1 className="text-2xl md:text-4xl font-nexa text-mte-black">
+      <div className="border-b border-mte-light-grey relative">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col items-center">
+          <h1 className="text-2xl md:text-4xl font-nexa text-mte-black text-center">
             {name}
           </h1>
-          <p className="text-sm md:text-base text-mte-charcoal mt-1 font-lato">Historic Trends (2020–2024)</p>
+          <p className="text-sm md:text-base text-mte-charcoal mt-2 font-lato">
+            {regionLevel === "county" && regionId && countyData[regionId] && (
+              <>Population: {countyData[regionId].population.toLocaleString()}</>
+            )}
+          </p>
         </div>
+        
+        {/* County Selector - Top Right (County view only) */}
+        {regionLevel === "county" && (
+          <div className="absolute top-4 right-4 md:right-8 flex flex-col items-end gap-3">
+            {/* Text Label */}
+            <div className="text-sm font-lato text-mte-charcoal">
+              Select a Different County
+            </div>
+            
+            {/* County Dropdown with Map Pin Icon - Light Blue Background */}
+            <div className="flex items-center gap-3 bg-mte-blue-20 rounded-lg border border-mte-light-grey shadow-mte-card px-4 py-2">
+              <svg className="w-6 h-6 text-mte-charcoal" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <select 
+                className="appearance-none bg-transparent border-none outline-none font-lato text-mte-black font-semibold text-base pr-6 cursor-pointer focus:ring-0"
+                value={regionId || "butler-al"}
+                onChange={handleCountyChange}
+              >
+                {getCountiesForCurrentState().map(county => (
+                  <option key={county.id} value={county.id}>
+                    {county.name}
+                  </option>
+                ))}
+              </select>
+              <svg className="w-4 h-4 text-mte-charcoal -ml-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"/>
+              </svg>
+            </div>
+            
+            {/* State Map with County Label */}
+            <div className="flex flex-col items-center bg-mte-blue-20 rounded-lg p-3">
+              {/* State Map Placeholder - Will show actual state silhouette */}
+              <div className="w-24 h-24 flex items-center justify-center mb-2">
+                <svg viewBox="0 0 100 100" className="w-full h-full fill-mte-blue opacity-60">
+                  {/* Generic state shape - should be replaced with actual state SVG */}
+                  <path d="M20 30 L80 30 L85 50 L75 80 L25 80 L15 50 Z" />
+                  {/* County marker dot */}
+                  <circle cx="50" cy="50" r="4" className="fill-mte-blue" />
+                </svg>
+              </div>
+              <div className="text-sm font-lato text-mte-black font-semibold">
+                {name.split(',')[0]}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Metrics Grid - Fully Responsive */}
@@ -153,11 +462,11 @@ export default function HistoricView({ regionLevel, regionId }) {
           
           {/* Metric Dropdown */}
           <div className="mb-4">
-            <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric:</label>
+            <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
             <select 
-              value={selectedMetrics.kinship}
-              onChange={(e) => handleMetricChange('kinship', e.target.value)}
-              className="w-full border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+              value={selectedKinshipMetric}
+              onChange={(e) => setSelectedKinshipMetric(e.target.value)}
+              className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
             >
               {categoryMetrics.kinship.map(metric => (
                 <option key={metric.id} value={metric.id}>{metric.label}</option>
@@ -177,19 +486,32 @@ export default function HistoricView({ regionLevel, regionId }) {
             {/* Y-axis line */}
             <div className="w-px bg-mte-light-grey"></div>
             {/* Chart area */}
-            <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey">
-              {getMetricData('kinship').map((value, idx) => (
-                <div key={idx} className="flex flex-col items-center flex-1">
-                  <div
-                    className="bg-mte-green w-full rounded transition-all hover:opacity-80"
-                    style={{ 
-                      height: `${Math.max(value * 1.5, 20)}px`,
-                      maxWidth: '50px'
-                    }}
-                  ></div>
-                  <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
-                </div>
-              ))}
+            <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey overflow-hidden">
+              {(() => {
+                const data = getMetricData('kinship');
+                const maxValue = Math.max(...data, 1);
+                const containerHeight = 192; // h-48 = 192px (12rem)
+                const maxBarHeight = containerHeight * 0.75; // Use 75% of container height
+                
+                return data.map((value, idx) => {
+                  const heightPercent = (value / maxValue) * 100;
+                  const heightPx = (heightPercent / 100) * maxBarHeight;
+                  
+                  return (
+                    <div key={idx} className="flex flex-col items-center flex-1">
+                      <div
+                        className="bg-mte-green w-full rounded transition-all hover:opacity-80"
+                        style={{ 
+                          height: `${Math.max(heightPx, 20)}px`,
+                          maxWidth: '50px',
+                          maxHeight: `${maxBarHeight}px`
+                        }}
+                      ></div>
+                      <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
+                    </div>
+                  );
+                });
+              })()}
             </div>
           </div>
         </div>
@@ -203,11 +525,11 @@ export default function HistoricView({ regionLevel, regionId }) {
           
           {/* Metric Dropdown */}
           <div className="mb-4">
-            <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric:</label>
+            <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
             <select 
-              value={selectedMetrics.adoption}
-              onChange={(e) => handleMetricChange('adoption', e.target.value)}
-              className="w-full border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+              value={selectedAdoptionMetric}
+              onChange={(e) => setSelectedAdoptionMetric(e.target.value)}
+              className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
             >
               {categoryMetrics.adoption.map(metric => (
                 <option key={metric.id} value={metric.id}>{metric.label}</option>
@@ -227,19 +549,32 @@ export default function HistoricView({ regionLevel, regionId }) {
             {/* Y-axis line */}
             <div className="w-px bg-mte-light-grey"></div>
             {/* Chart area */}
-            <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey">
-              {getMetricData('adoption').map((value, idx) => (
-                <div key={idx} className="flex flex-col items-center flex-1">
-                  <div
-                    className="bg-mte-yellow w-full rounded transition-all hover:opacity-80"
-                    style={{ 
-                      height: `${Math.max(value * 8, 20)}px`,
-                      maxWidth: '50px'
-                    }}
-                  ></div>
-                  <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
-                </div>
-              ))}
+            <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey overflow-hidden">
+              {(() => {
+                const data = getMetricData('adoption');
+                const maxValue = Math.max(...data, 1);
+                const containerHeight = 192; // h-48 = 192px
+                const maxBarHeight = containerHeight * 0.75; // Use 75% of container height
+                
+                return data.map((value, idx) => {
+                  const heightPercent = (value / maxValue) * 100;
+                  const heightPx = (heightPercent / 100) * maxBarHeight;
+                  
+                  return (
+                    <div key={idx} className="flex flex-col items-center flex-1">
+                      <div
+                        className="bg-mte-yellow w-full rounded transition-all hover:opacity-80"
+                        style={{ 
+                          height: `${Math.max(heightPx, 20)}px`,
+                          maxWidth: '50px',
+                          maxHeight: `${maxBarHeight}px`
+                        }}
+                      ></div>
+                      <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
+                    </div>
+                  );
+                });
+              })()}
             </div>
           </div>
         </div>
@@ -253,11 +588,11 @@ export default function HistoricView({ regionLevel, regionId }) {
           
           {/* Metric Dropdown */}
           <div className="mb-4">
-            <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric:</label>
+            <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
             <select 
-              value={selectedMetrics.biological}
-              onChange={(e) => handleMetricChange('biological', e.target.value)}
-              className="w-full border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+              value={selectedBiologicalMetric}
+              onChange={(e) => setSelectedBiologicalMetric(e.target.value)}
+              className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
             >
               {categoryMetrics.biological.map(metric => (
                 <option key={metric.id} value={metric.id}>{metric.label}</option>
@@ -278,19 +613,32 @@ export default function HistoricView({ regionLevel, regionId }) {
             {/* Y-axis line */}
             <div className="w-px bg-mte-light-grey"></div>
             {/* Chart area */}
-            <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey">
-              {getMetricData('biological').map((value, idx) => (
-                <div key={idx} className="flex flex-col items-center flex-1">
-                  <div
-                    className="bg-mte-orange w-full rounded transition-all hover:opacity-80"
-                    style={{ 
-                      height: `${Math.max(value * 3, 20)}px`,
-                      maxWidth: '50px'
-                    }}
-                  ></div>
-                  <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
-                </div>
-              ))}
+            <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey overflow-hidden">
+              {(() => {
+                const data = getMetricData('biological');
+                const maxValue = Math.max(...data, 1);
+                const containerHeight = 192; // h-48 = 192px
+                const maxBarHeight = containerHeight * 0.75; // Use 75% of container height
+                
+                return data.map((value, idx) => {
+                  const heightPercent = (value / maxValue) * 100;
+                  const heightPx = (heightPercent / 100) * maxBarHeight;
+                  
+                  return (
+                    <div key={idx} className="flex flex-col items-center flex-1">
+                      <div
+                        className="bg-mte-orange w-full rounded transition-all hover:opacity-80"
+                        style={{ 
+                          height: `${Math.max(heightPx, 20)}px`,
+                          maxWidth: '50px',
+                          maxHeight: `${maxBarHeight}px`
+                        }}
+                      ></div>
+                      <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
+                    </div>
+                  );
+                });
+              })()}
             </div>
           </div>
         </div>
@@ -304,11 +652,11 @@ export default function HistoricView({ regionLevel, regionId }) {
           
           {/* Metric Dropdown */}
           <div className="mb-4">
-            <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric:</label>
+            <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
             <select 
-              value={selectedMetrics.wraparound}
-              onChange={(e) => handleMetricChange('wraparound', e.target.value)}
-              className="w-full border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+              value={selectedWraparoundMetric}
+              onChange={(e) => setSelectedWraparoundMetric(e.target.value)}
+              className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
             >
               {categoryMetrics.wraparound.map(metric => (
                 <option key={metric.id} value={metric.id}>{metric.label}</option>
@@ -330,19 +678,32 @@ export default function HistoricView({ regionLevel, regionId }) {
             {/* Y-axis line */}
             <div className="w-px bg-mte-light-grey"></div>
             {/* Chart area */}
-            <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey">
-              {getMetricData('wraparound').map((value, idx) => (
-                <div key={idx} className="flex flex-col items-center flex-1">
-                  <div
-                    className="bg-mte-purple w-full rounded transition-all hover:opacity-80"
-                    style={{ 
-                      height: `${Math.max(value * 10, 20)}px`,
-                      maxWidth: '50px'
-                    }}
-                  ></div>
-                  <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
-                </div>
-              ))}
+            <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey overflow-hidden">
+              {(() => {
+                const data = getMetricData('wraparound');
+                const maxValue = Math.max(...data, 1);
+                const containerHeight = 192; // h-48 = 192px
+                const maxBarHeight = containerHeight * 0.75; // Use 75% of container height
+                
+                return data.map((value, idx) => {
+                  const heightPercent = (value / maxValue) * 100;
+                  const heightPx = (heightPercent / 100) * maxBarHeight;
+                  
+                  return (
+                    <div key={idx} className="flex flex-col items-center flex-1">
+                      <div
+                        className="bg-mte-purple w-full rounded transition-all hover:opacity-80"
+                        style={{ 
+                          height: `${Math.max(heightPx, 20)}px`,
+                          maxWidth: '50px',
+                          maxHeight: `${maxBarHeight}px`
+                        }}
+                      ></div>
+                      <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
+                    </div>
+                  );
+                });
+              })()}
             </div>
           </div>
         </div>

@@ -538,8 +538,8 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               scrollWheelZoom={true}
             >
               <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
               />
               
               {/* National Level: State Markers */}
@@ -595,10 +595,10 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         radius={800}
                         pathOptions={{
                           color: "#882781",
-                          weight: 3,
-                          opacity: 0.6,
+                          weight: 4,
+                          opacity: 0.8,
                           fillColor: "#882781",
-                          fillOpacity: 0.1,
+                          fillOpacity: 0.15,
                           dashArray: "10, 10"
                         }}
                       >
@@ -616,10 +616,10 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         radius={600}
                         pathOptions={{
                           color: "#dc6a42",
-                          weight: 3,
-                          opacity: 0.6,
+                          weight: 4,
+                          opacity: 0.8,
                           fillColor: "#dc6a42",
-                          fillOpacity: 0.1,
+                          fillOpacity: 0.15,
                           dashArray: "10, 10"
                         }}
                       >
@@ -633,15 +633,15 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     </>
                   )}
                   
-                  {/* Connection Lines - Changed to solid lines */}
+                  {/* Connection Lines - Enhanced for better visibility */}
                   {connectionLines.map((connection, index) => (
                     <Polyline
                       key={`connection-${index}`}
                       positions={[connection.from, connection.to]}
                       pathOptions={{
                         color: "#00ADEE",
-                        weight: 3,
-                        opacity: 0.7
+                        weight: 4,
+                        opacity: 0.9
                       }}
                     >
                       <Tooltip>

@@ -194,7 +194,7 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
             </div>
             <button
               type="button"
-              onClick={() => onExploreMap?.()}
+              onClick={() => onSelectRegion?.({ level: 'national', id: 'usa', name: 'United States', view: 'organizational' })}
               className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm md:text-base font-lato font-semibold text-white bg-mte-blue shadow-mte-card hover:bg-mte-blue-80 focus:outline-none focus:ring-2 focus:ring-mte-blue focus:ring-offset-2 transition-colors whitespace-nowrap"
             >
               Explore the map <span aria-hidden="true">→</span>

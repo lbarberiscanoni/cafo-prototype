@@ -294,19 +294,58 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     ).join(' ');
     const stateCode = parts[parts.length - 1].toUpperCase();
     
-    // Map state codes to full names
+    // Map state codes to full names - ALL 50 STATES
     const stateNames = {
       'AL': 'Alabama',
-      'NY': 'New York',
+      'AK': 'Alaska',
+      'AZ': 'Arizona',
+      'AR': 'Arkansas',
       'CA': 'California',
-      'TX': 'Texas',
+      'CO': 'Colorado',
+      'CT': 'Connecticut',
+      'DE': 'Delaware',
       'FL': 'Florida',
-      'PA': 'Pennsylvania',
-      'IL': 'Illinois',
-      'OH': 'Ohio',
       'GA': 'Georgia',
+      'HI': 'Hawaii',
+      'ID': 'Idaho',
+      'IL': 'Illinois',
+      'IN': 'Indiana',
+      'IA': 'Iowa',
+      'KS': 'Kansas',
+      'KY': 'Kentucky',
+      'LA': 'Louisiana',
+      'ME': 'Maine',
+      'MD': 'Maryland',
+      'MA': 'Massachusetts',
+      'MI': 'Michigan',
+      'MN': 'Minnesota',
+      'MS': 'Mississippi',
+      'MO': 'Missouri',
+      'MT': 'Montana',
+      'NE': 'Nebraska',
+      'NV': 'Nevada',
+      'NH': 'New Hampshire',
+      'NJ': 'New Jersey',
+      'NM': 'New Mexico',
+      'NY': 'New York',
       'NC': 'North Carolina',
-      'MI': 'Michigan'
+      'ND': 'North Dakota',
+      'OH': 'Ohio',
+      'OK': 'Oklahoma',
+      'OR': 'Oregon',
+      'PA': 'Pennsylvania',
+      'RI': 'Rhode Island',
+      'SC': 'South Carolina',
+      'SD': 'South Dakota',
+      'TN': 'Tennessee',
+      'TX': 'Texas',
+      'UT': 'Utah',
+      'VT': 'Vermont',
+      'VA': 'Virginia',
+      'WA': 'Washington',
+      'WV': 'West Virginia',
+      'WI': 'Wisconsin',
+      'WY': 'Wyoming'
     };
     
     const fullName = `${countyName} County, ${stateNames[stateCode] || stateCode}`;
@@ -441,8 +480,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         {/* Foster & Kinship */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <img src={FosterKinshipIcon} alt="Kinship" className="w-16 h-16 md:w-20 md:h-20" />
-            <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center">Foster and Kinship Families</h3>
+            <img src={FosterKinshipIcon} alt="Kinship" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
+            <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Foster and Kinship Families</h3>
           </div>
           
           {/* Metric Dropdown */}
@@ -504,8 +543,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         {/* Adoptive */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <img src={AdoptiveFamilyIcon} alt="Adoptive" className="w-16 h-16 md:w-20 md:h-20" />
-            <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center">Adoptive Families</h3>
+            <img src={AdoptiveFamilyIcon} alt="Adoptive" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
+            <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Adoptive Families</h3>
           </div>
           
           {/* Metric Dropdown */}
@@ -567,8 +606,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         {/* Biological */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <img src={BiologicalFamilyIcon} alt="Biological" className="w-16 h-16 md:w-20 md:h-20" />
-            <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center">Support for Biological Families</h3>
+            <img src={BiologicalFamilyIcon} alt="Biological" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
+            <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Support for Biological Families</h3>
           </div>
           
           {/* Metric Dropdown */}
@@ -631,8 +670,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         {/* Wraparound */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <img src={WrapAroundIcon} alt="Wraparound" className="w-16 h-16 md:w-20 md:h-20" />
-            <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center">Wraparound Support</h3>
+            <img src={WrapAroundIcon} alt="Wraparound" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
+            <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Wraparound Support</h3>
           </div>
           
           {/* Metric Dropdown */}

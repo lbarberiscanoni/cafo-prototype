@@ -7,7 +7,6 @@ import FosterKinshipIcon from "../assets/FosterKinship_icon.png";
 import AdoptiveFamilyIcon from "../assets/Adoptive_family_icon.png";
 import BiologicalFamilyIcon from "../assets/BiologicalFamily_icon.png";
 import WrapAroundIcon from "../assets/WrapAround_icon.png";
-import AlabamaMap from "../assets/Alabama.png";
 import MTELogo from "../assets/MTE_Logo.png";
 import InteractiveUSMap from "../InteractiveUSMap";
 import InteractiveStateMap from "../InteractiveStateMap";
@@ -187,7 +186,6 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   const showStateDetails = regionLevel === "state";
   const showStateContext = regionLevel === "county";
   const showPopulation = regionLevel === "county";
-  const showAlabamaMap = regionLevel === "county";
 
   return (
     <div className="min-h-screen">
@@ -206,16 +204,6 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </p>
           )}
         </div>
-
-        {/* Alabama map (top-right) - County only - Hidden on mobile */}
-        {showAlabamaMap && (
-          <div className="hidden md:block absolute top-4 right-4 text-center">
-            <img src={AlabamaMap} alt="Alabama Map" className="w-20 h-auto mx-auto" />
-            <div className="text-sm text-mte-charcoal mt-1 font-lato">
-              {data.name.split(",")[0]}
-            </div>
-          </div>
-        )}
       </header>
 
       {/* National Map Section */}

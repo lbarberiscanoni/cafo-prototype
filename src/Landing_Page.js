@@ -17,9 +17,14 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
       .map(([id, c]) => {
         const abbr = STATE_ABBR[c.state] ?? c.state;
         const base = c.name.includes(",") ? c.name.split(",")[0].trim() : c.name;
-        return { id, label: `${base}, ${abbr}`, data: c };
+        return { id, label: `${base}, ${abbr}`, data: c, state: c.state };
       })
-      .sort((a, b) => a.label.localeCompare(b.label));
+      .sort((a, b) => {
+        // Sort by state first, then by county name
+        const stateCompare = a.state.localeCompare(b.state);
+        if (stateCompare !== 0) return stateCompare;
+        return a.label.localeCompare(b.label);
+      });
   }, []);
 
   // D3.js map rendering

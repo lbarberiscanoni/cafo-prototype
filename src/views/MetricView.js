@@ -438,7 +438,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           <div className="bg-white text-center py-6 shadow-mte-card rounded-2xl mx-auto" style={{ maxWidth: '800px' }}>
             <img src={ChurchIcon} alt="Church" className="mx-auto w-20 h-20 mb-2" />
             <p className="text-2xl md:text-3xl font-black text-mte-blue">{data.totalChurches}</p>
-            <p className="text-body text-mte-charcoal font-lato">
+            <p className="text-sm md:text-base text-mte-charcoal font-lato">
               Total Churches in {data.name}
             </p>
           </div>

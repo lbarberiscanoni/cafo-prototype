@@ -283,19 +283,6 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     }
   };
 
-  const getRegionKey = () => {
-    switch (regionLevel) {
-      case "national":
-        return "national";
-      case "state":
-        return "state";
-      case "county":
-        return "county";
-      default:
-        return "county";
-    }
-  };
-
   const getTrends = () => {
     switch (regionLevel) {
       case "national":
@@ -310,7 +297,6 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
   };
 
   const name = getDisplayName();
-  const regionKey = getRegionKey();
   const trends = getTrends();
 
   // Get selected metric data for each category
@@ -334,28 +320,6 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     }
     const metric = categoryMetrics[category].find(m => m.id === metricId);
     return metric ? metric.data : [];
-  };
-
-  const getMetricLabel = (category) => {
-    let metricId;
-    switch(category) {
-      case 'kinship':
-        metricId = selectedKinshipMetric;
-        break;
-      case 'adoption':
-        metricId = selectedAdoptionMetric;
-        break;
-      case 'biological':
-        metricId = selectedBiologicalMetric;
-        break;
-      case 'wraparound':
-        metricId = selectedWraparoundMetric;
-        break;
-      default:
-        metricId = null;
-    }
-    const metric = categoryMetrics[category].find(m => m.id === metricId);
-    return metric ? metric.label : '';
   };
 
   return (

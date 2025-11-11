@@ -140,11 +140,11 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
               </button>
             </div>
 
-            {/* Advanced Region Selection */}
+            {/* Advanced Region Selection - SIMPLIFIED: No nested USA dropdown */}
             {showAdvancedOptions && (
               <div className="mt-4 space-y-3">
                 <div className="bg-white/80 backdrop-blur rounded-xl border border-mte-light-grey p-4 shadow-mte-card">
-                  <h3 className="text-h4 font-lato font-bold uppercase text-mte-black mb-3 text-center">
+                  <h3 className="text-base font-lato font-bold text-mte-black mb-3 text-center">
                     Or explore by region:
                   </h3>
                   
@@ -154,12 +154,12 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
                     className="w-full mb-3 px-4 py-3 bg-white rounded-lg border border-mte-light-grey text-left hover:bg-mte-blue-20 hover:border-mte-blue transition-colors"
                   >
                     <div className="font-lato font-semibold text-mte-black">United States</div>
-                    <div className="text-base font-lato text-mte-charcoal">View national statistics</div>
+                    <div className="text-sm font-lato text-mte-charcoal">View national statistics</div>
                   </button>
 
-                  {/* State Options */}
+                  {/* State Options - Direct list, no nesting */}
                   <div className="space-y-2">
-                    <div className="text-base font-lato font-semibold text-mte-charcoal mb-2">Select a state:</div>
+                    <div className="text-sm font-lato font-semibold text-mte-charcoal mb-2">Select a state:</div>
                     {Object.entries(stateData).map(([stateId, state]) => (
                       <button
                         key={stateId}

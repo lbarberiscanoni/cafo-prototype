@@ -431,22 +431,6 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                 <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"/>
               </svg>
             </div>
-            
-            {/* State Map with County Label */}
-            <div className="flex flex-col items-center bg-mte-blue-20 rounded-lg p-3">
-              {/* State Map Placeholder - Will show actual state silhouette */}
-              <div className="w-24 h-24 flex items-center justify-center mb-2">
-                <svg viewBox="0 0 100 100" className="w-full h-full fill-mte-blue opacity-60">
-                  {/* Generic state shape - should be replaced with actual state SVG */}
-                  <path d="M20 30 L80 30 L85 50 L75 80 L25 80 L15 50 Z" />
-                  {/* County marker dot */}
-                  <circle cx="50" cy="50" r="4" className="fill-mte-blue" />
-                </svg>
-              </div>
-              <div className="text-sm font-lato text-mte-black font-semibold">
-                {name.split(',')[0]}
-              </div>
-            </div>
           </div>
         )}
       </div>

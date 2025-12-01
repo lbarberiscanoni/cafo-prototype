@@ -132,12 +132,58 @@ const createDotIcon = (category, size = "16px") => {
   });
 };
 
-// Create clickable state/county marker
-const createClickableIcon = (size = "20px") => {
+// Create clickable state text label
+const createStateTextLabel = (stateCode) => {
   return new L.DivIcon({
-    className: "clickable-marker",
-    html: `<div style="width:${size}; height:${size}; background:#00ADEE; border:3px solid white; border-radius:50%; box-shadow: 0 2px 8px rgba(0,0,0,0.4); cursor:pointer;"></div>`,
-    iconSize: [parseInt(size), parseInt(size)],
+    className: "state-text-label",
+    html: `<div style="
+      font-family: 'Lato', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: #5c5d5f;
+      text-align: center;
+      text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.8), 0px 0px 6px rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      user-select: none;
+      padding: 4px 8px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 4px;
+      border: 1px solid #00ADEE;
+      min-width: 32px;
+    ">${stateCode}</div>`,
+    iconSize: [40, 24],
+    iconAnchor: [20, 12],
+  });
+};
+
+// Create clickable county text label
+const createCountyTextLabel = (countyName) => {
+  // Shorten county name if too long (e.g., "Los Angeles" -> "LA")
+  const shortName = countyName.split(' ')
+    .map(word => word[0])
+    .join('')
+    .toUpperCase()
+    .substring(0, 3);
+    
+  return new L.DivIcon({
+    className: "county-text-label",
+    html: `<div style="
+      font-family: 'Lato', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      color: #5c5d5f;
+      text-align: center;
+      text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.8), 0px 0px 6px rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      user-select: none;
+      padding: 3px 6px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 4px;
+      border: 1px solid #00ADEE;
+      min-width: 28px;
+    ">${shortName}</div>`,
+    iconSize: [36, 20],
+    iconAnchor: [18, 10],
   });
 };
 
@@ -592,12 +638,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                 url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
               />
               
-              {/* National Level: State Markers */}
+              {/* National Level: State Text Labels */}
               {showNationalMap && Object.entries(stateCoordinates).map(([stateName, data]) => (
                 <Marker 
                   key={stateName}
                   position={data.coords}
-                  icon={createClickableIcon()}
+                  icon={createStateTextLabel(stateNameToCode[stateName])}
                   eventHandlers={{
                     click: () => handleStateMarkerClick(stateName)
                   }}
@@ -611,14 +657,14 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                 </Marker>
               ))}
 
-              {/* State Level: County Markers */}
+              {/* State Level: County Text Labels */}
               {showStateMap && (() => {
                 const countyCoords = countyCoordinatesByState[regionId] || {};
                 return Object.entries(countyCoords).map(([countyName, data]) => (
                   <Marker 
                     key={countyName}
                     position={data.coords}
-                    icon={createClickableIcon()}
+                    icon={createCountyTextLabel(countyName)}
                     eventHandlers={{
                       click: () => handleCountyMarkerClick(countyName)
                     }}

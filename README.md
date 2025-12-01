@@ -1,17 +1,5 @@
-- [ ]  Add new font
-- [ ]  Landing Page Changes
-    - [ ]  Test on mobile
-    - [ ]  Change landing page blue
-    - [ ]  Add new cursive font
-    - [ ]  Remove National View from landing page/TopNav
-    - [ ]  Icon of for the landing page The dropdown should have rounded corners and a more prominent appearance
-    - [ ]  The selected option (Nassau County, NY) should be highlighted in bright cyan/blue
-    - [ ]  The "Explore the map" button should be on the RIGHT side
-    - [ ]  The "Want to explore a specific county or state?" text should be on the LEFT side
-    - [ ]  There should be a small map icon (in cyan) to the left of the "Want to explore..." text
-    - [ ]  The dropdown container needs better shadow/elevation
-    - [ ]  The button should be more prominent with the bright cyan color (`#00B8E6` or similar)
-    - [ ]  Better spacing and alignment overall
-    - [ ]  The desktop version shows a "Choose Region" button that opens a modal/dropdown
-    - [ ]  The dropdown shows "United States of America" with nested state options (remove)
-    - [ ]  Options should have right-pointing arrows (›) for navigation
+- [ ] Fix trend bars overflow issue on national metrics view
+- [ ] Make metrics drop-down functional on national metrics view to update the page
+- [ ] Add state abbreviations to national metrics view if feasible
+- [ ] Add outline of Canada and Mexico to make US map not appear floating
+- [ ] Replace state dots with state abbreviations on national and state maps for organization view by December 9th

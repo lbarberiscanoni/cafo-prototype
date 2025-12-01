@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { countyData, stateData, nationalStats } from "../mock-data";
 
 // Assets
@@ -12,6 +12,9 @@ import InteractiveUSMap from "../InteractiveUSMap";
 import InteractiveStateMap from "../InteractiveStateMap";
 
 const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
+  // State for selected metric
+  const [selectedMetric, setSelectedMetric] = useState("Count of Family Preservation Cases");
+
   // Convert state names to codes
   const stateNameToCode = {
     'Alabama': 'AL',
@@ -132,6 +135,54 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   };
 
   const data = getData();
+
+  // Get trend data based on selected metric
+  const getTrendData = () => {
+    switch (selectedMetric) {
+      case "Count of Family Preservation Cases":
+        return {
+          title: "Number of Family Preservation Cases in the U.S. (by 1000s)",
+          values: [140, 105, 110],
+          years: [2022, 2023, 2024],
+          labels: ["140,000 Cases", "105,000 Cases", "110,000 Cases"],
+          source: "AFCARS 2022–2024"
+        };
+      case "Count of Children Waiting For Adoption":
+        return {
+          title: "Children Waiting For Adoption in the U.S. (by 1000s)",
+          values: [52, 50, 48],
+          years: [2022, 2023, 2024],
+          labels: ["52,000 Children", "50,000 Children", "48,000 Children"],
+          source: "AFCARS 2022–2024"
+        };
+      case "Ratio of Licensed Homes to Children in Care":
+        return {
+          title: "Licensed Foster Homes per Child in Care (U.S.)",
+          values: [0.68, 0.72, 0.75],
+          years: [2022, 2023, 2024],
+          labels: ["0.68 Homes per Child", "0.72 Homes per Child", "0.75 Homes per Child"],
+          source: "AFCARS 2022–2024"
+        };
+      case "Biological Family Reunification Rate":
+        return {
+          title: "Biological Family Reunification Rate (% of exits)",
+          values: [72, 74, 76],
+          years: [2022, 2023, 2024],
+          labels: ["72% Reunified", "74% Reunified", "76% Reunified"],
+          source: "AFCARS 2022–2024"
+        };
+      default:
+        return {
+          title: "Number of Family Preservation Cases in the U.S. (by 1000s)",
+          values: [140, 105, 110],
+          years: [2022, 2023, 2024],
+          labels: ["140,000 Cases", "105,000 Cases", "110,000 Cases"],
+          source: "AFCARS 2022–2024"
+        };
+    }
+  };
+
+  const trendData = getTrendData();
 
   // Handler for when a state is clicked on the national map
   const handleStateClick = (stateCode, stateName, clickedStateData) => {
@@ -282,23 +333,35 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <p className="text-sm text-mte-charcoal mb-2 font-lato">
                 Filter by metric type to see what is happening across the country
               </p>
-              <select className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal">
-                <option value="Ratio of Licensed Homes to Children in Care">
-                  Ratio of Licensed Homes to Children in Care
-                </option>
-                <option value="Count of Children Waiting For Adoption">
-                  Count of Children Waiting For Adoption
-                </option>
-                <option value="Count of Family Preservation Cases">
-                  Count of Family Preservation Cases
-                </option>
-                <option value="Biological Family Reunification Rate">
-                  Biological Family Reunification Rate
-                </option>
-              </select>
+              <div className="relative">
+                <select 
+                  className="w-full border-2 border-mte-light-grey rounded-lg p-3 text-base font-lato text-mte-charcoal cursor-pointer appearance-none bg-white hover:border-mte-blue focus:border-mte-blue focus:ring-2 focus:ring-mte-blue-20 focus:outline-none transition-colors"
+                  value={selectedMetric}
+                  onChange={(e) => setSelectedMetric(e.target.value)}
+                >
+                  <option value="Ratio of Licensed Homes to Children in Care">
+                    Ratio of Licensed Homes to Children in Care
+                  </option>
+                  <option value="Count of Children Waiting For Adoption">
+                    Count of Children Waiting For Adoption
+                  </option>
+                  <option value="Count of Family Preservation Cases">
+                    Count of Family Preservation Cases
+                  </option>
+                  <option value="Biological Family Reunification Rate">
+                    Biological Family Reunification Rate
+                  </option>
+                </select>
+                {/* Custom dropdown arrow */}
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                  <svg className="w-5 h-5 text-mte-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
             </div>
 
-            {/* Trends - FIXED OVERFLOW ISSUE */}
+            {/* Trends - FIXED OVERFLOW ISSUE + DYNAMIC DATA */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
               <div className="flex items-center gap-2 mb-3">
                 <h3 className="text-base font-lato font-bold text-mte-black">Trends</h3>
@@ -308,45 +371,34 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               </p>
               <div className="bg-mte-subdued-white p-3 rounded relative overflow-hidden">
                 <div className="text-base font-medium mb-2 font-lato text-mte-black">
-                  Number of Family Preservation Cases in the U.S. (by 1000s)
+                  {trendData.title}
                 </div>
                 <div className="h-28 bg-white rounded flex items-end justify-between px-3 pb-2 relative overflow-visible">
-                  <div className="flex flex-col items-center relative group flex-1 max-w-[60px]">
-                    <div className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: "72px", maxHeight: "72px" }}>
-                      <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
-                        <div className="font-semibold">140,000 Cases</div>
-                        <div>Family Preservation Cases on</div>
-                        <div>December 31, 2022</div>
-                        <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
+                  {trendData.values.map((value, index) => {
+                    const maxValue = Math.max(...trendData.values);
+                    const heightPercent = (value / maxValue) * 100;
+                    const heightPx = Math.round((heightPercent / 100) * 72); // 72px max height
+                    
+                    return (
+                      <div key={index} className="flex flex-col items-center relative group flex-1 max-w-[60px]">
+                        <div 
+                          className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" 
+                          style={{ height: `${heightPx}px`, maxHeight: "72px" }}
+                        >
+                          <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
+                            <div className="font-semibold">{trendData.labels[index]}</div>
+                            <div>{selectedMetric} on</div>
+                            <div>December 31, {trendData.years[index]}</div>
+                            <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
+                          </div>
+                        </div>
+                        <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">{trendData.years[index]}</span>
                       </div>
-                    </div>
-                    <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">2022</span>
-                  </div>
-                  <div className="flex flex-col items-center relative group flex-1 max-w-[60px]">
-                    <div className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: "54px", maxHeight: "72px" }}>
-                      <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
-                        <div className="font-semibold">105,000 Cases</div>
-                        <div>Family Preservation Cases on</div>
-                        <div>December 31, 2023</div>
-                        <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
-                      </div>
-                    </div>
-                    <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">2023</span>
-                  </div>
-                  <div className="flex flex-col items-center relative group flex-1 max-w-[60px]">
-                    <div className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: "56px", maxHeight: "72px" }}>
-                      <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
-                        <div className="font-semibold">110,000 Cases</div>
-                        <div>Family Preservation Cases on</div>
-                        <div>December 31, 2024</div>
-                        <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
-                      </div>
-                    </div>
-                    <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">2024</span>
-                  </div>
+                    );
+                  })}
                 </div>
                 <div className="mt-3 text-xs text-mte-charcoal font-lato">
-                  Source: AFCARS 2022–2024
+                  Source: {trendData.source}
                 </div>
               </div>
             </div>
@@ -357,7 +409,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             {/* Interactive Map */}
             <div className="bg-white rounded-lg shadow-mte-card p-4 mb-6">
               <InteractiveUSMap 
-                selectedMetric="Count of Family Preservation Cases"
+                selectedMetric={selectedMetric}
                 onStateClick={handleStateClick}
               />
             </div>

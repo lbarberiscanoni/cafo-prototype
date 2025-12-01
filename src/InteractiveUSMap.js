@@ -52,92 +52,111 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
 
     const path = d3.geoPath().projection(projection);
 
-    // Load US states TopoJSON
-    d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json")
-      .then(us => {
-        const states = topojson.feature(us, us.objects.states);
+    // Load both world data (for Canada/Mexico) and US states data
+    Promise.all([
+      d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
+      d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json")
+    ]).then(([world, us]) => {
+      const countries = topojson.feature(world, world.objects.countries);
+      const states = topojson.feature(us, us.objects.states);
 
-        // Draw state paths
-        svg.selectAll("path")
-          .data(states.features)
-          .enter()
-          .append("path")
-          .attr("d", path)
-          .attr("fill", d => {
-            const stateName = d.properties.name;
-            const data = stateData[stateName];
-            return getStateColor(data?.value);
-          })
-          .attr("stroke", "#ffffff")
-          .attr("stroke-width", 0.5)
-          .style("cursor", "pointer")
-          .on("mouseenter", function(event, d) {
-            const stateName = d.properties.name;
-            const data = stateData[stateName];
-            
-            if (data) {
-              d3.select(this)
-                .attr("stroke", "#00ADEE") // MTE Blue
-                .attr("stroke-width", 2);
-                
-              const [x, y] = d3.pointer(event, svg.node());
-              setMousePosition({ x, y });
-              setHoveredState({
-                name: stateName.toUpperCase(),
-                value: data.value,
-                code: data.code
-              });
-            }
-          })
-          .on("mouseleave", function() {
+      // Draw Canada and Mexico first (background layer)
+      svg.selectAll("path.neighbor-country")
+        .data(countries.features.filter(d => {
+          // Filter for Canada (124) and Mexico (484)
+          return d.id === "124" || d.id === "484";
+        }))
+        .enter()
+        .append("path")
+        .attr("class", "neighbor-country")
+        .attr("d", path)
+        .attr("fill", "#f5f5f5") // Very light gray
+        .attr("stroke", "#d4d4d4") // Light gray border
+        .attr("stroke-width", 1)
+        .style("pointer-events", "none"); // Not clickable
+
+      // Draw US state paths on top
+      svg.selectAll("path.us-state")
+        .data(states.features)
+        .enter()
+        .append("path")
+        .attr("class", "us-state")
+        .attr("d", path)
+        .attr("fill", d => {
+          const stateName = d.properties.name;
+          const data = stateData[stateName];
+          return getStateColor(data?.value);
+        })
+        .attr("stroke", "#ffffff")
+        .attr("stroke-width", 0.5)
+        .style("cursor", "pointer")
+        .on("mouseenter", function(event, d) {
+          const stateName = d.properties.name;
+          const data = stateData[stateName];
+          
+          if (data) {
             d3.select(this)
-              .attr("stroke", "#ffffff")
-              .attr("stroke-width", 0.5);
-            setHoveredState(null);
-          })
-          .on("click", function(event, d) {
-            const stateName = d.properties.name;
-            const data = stateData[stateName];
-            if (data && onStateClick) {
-              // Pass state code, name, and data to parent
-              onStateClick(data.code, stateName, data);
-            }
-          });
+              .attr("stroke", "#00ADEE") // MTE Blue
+              .attr("stroke-width", 2);
+              
+            const [x, y] = d3.pointer(event, svg.node());
+            setMousePosition({ x, y });
+            setHoveredState({
+              name: stateName.toUpperCase(),
+              value: data.value,
+              code: data.code
+            });
+          }
+        })
+        .on("mouseleave", function() {
+          d3.select(this)
+            .attr("stroke", "#ffffff")
+            .attr("stroke-width", 0.5);
+          setHoveredState(null);
+        })
+        .on("click", function(event, d) {
+          const stateName = d.properties.name;
+          const data = stateData[stateName];
+          if (data && onStateClick) {
+            // Pass state code, name, and data to parent
+            onStateClick(data.code, stateName, data);
+          }
+        });
 
-        // Add state abbreviation labels
-        svg.selectAll("text.state-label")
-          .data(states.features)
-          .enter()
-          .append("text")
-          .attr("class", "state-label")
-          .attr("x", d => {
-            const centroid = path.centroid(d);
-            return centroid[0];
-          })
-          .attr("y", d => {
-            const centroid = path.centroid(d);
-            return centroid[1];
-          })
-          .attr("text-anchor", "middle")
-          .attr("dominant-baseline", "middle")
-          .attr("font-family", "'Lato', sans-serif")
-          .attr("font-size", d => {
-            // Adjust font size based on state size
-            const stateName = d.properties.name;
-            const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
-            return smallStates.includes(stateName) ? "10px" : "12px";
-          })
-          .attr("font-weight", "600")
-          .attr("fill", "#5c5d5f") // MTE Charcoal
-          .attr("pointer-events", "none") // Allow clicks to pass through to state
-          .style("user-select", "none")
-          .text(d => stateNameToAbbreviation[d.properties.name] || "")
-          // Add text shadow for better readability
-          .style("text-shadow", "0px 0px 3px rgba(255, 255, 255, 0.8), 0px 0px 6px rgba(255, 255, 255, 0.6)");
-      })
-      .catch(error => {
-        console.error("Error loading map data:", error);
-      });
+      // Add state abbreviation labels on top
+      svg.selectAll("text.state-label")
+        .data(states.features)
+        .enter()
+        .append("text")
+        .attr("class", "state-label")
+        .attr("x", d => {
+          const centroid = path.centroid(d);
+          return centroid[0];
+        })
+        .attr("y", d => {
+          const centroid = path.centroid(d);
+          return centroid[1];
+        })
+        .attr("text-anchor", "middle")
+        .attr("dominant-baseline", "middle")
+        .attr("font-family", "'Lato', sans-serif")
+        .attr("font-size", d => {
+          // Adjust font size based on state size
+          const stateName = d.properties.name;
+          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
+          return smallStates.includes(stateName) ? "10px" : "12px";
+        })
+        .attr("font-weight", "600")
+        .attr("fill", "#5c5d5f") // MTE Charcoal
+        .attr("pointer-events", "none") // Allow clicks to pass through to state
+        .style("user-select", "none")
+        .text(d => stateNameToAbbreviation[d.properties.name] || "")
+        // Add text shadow for better readability
+        .style("text-shadow", "0px 0px 3px rgba(255, 255, 255, 0.8), 0px 0px 6px rgba(255, 255, 255, 0.6)");
+    })
+    .catch(error => {
+      console.error("Error loading map data:", error);
+    });
 
   }, [selectedMetric, onStateClick]);
 

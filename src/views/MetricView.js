@@ -298,7 +298,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               </select>
             </div>
 
-            {/* Trends */}
+            {/* Trends - FIXED OVERFLOW ISSUE */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
               <div className="flex items-center gap-2 mb-3">
                 <h3 className="text-base font-lato font-bold text-mte-black">Trends</h3>
@@ -306,43 +306,43 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <p className="text-sm text-mte-charcoal mb-2 font-lato">
                 See trends for your selected metric over the past five years
               </p>
-              <div className="bg-mte-subdued-white p-3 rounded relative">
+              <div className="bg-mte-subdued-white p-3 rounded relative overflow-hidden">
                 <div className="text-base font-medium mb-2 font-lato text-mte-black">
                   Number of Family Preservation Cases in the U.S. (by 1000s)
                 </div>
-                <div className="h-24 bg-white rounded flex items-end justify-between px-2 pb-2 relative">
-                  <div className="flex flex-col items-center relative group">
-                    <div className="bg-mte-orange w-8 rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: "80px" }}>
-                      <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+                <div className="h-28 bg-white rounded flex items-end justify-between px-3 pb-2 relative overflow-visible">
+                  <div className="flex flex-col items-center relative group flex-1 max-w-[60px]">
+                    <div className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: "72px", maxHeight: "72px" }}>
+                      <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
                         <div className="font-semibold">140,000 Cases</div>
                         <div>Family Preservation Cases on</div>
                         <div>December 31, 2022</div>
                         <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
                       </div>
                     </div>
-                    <span className="text-xs text-mte-charcoal font-lato">2022</span>
+                    <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">2022</span>
                   </div>
-                  <div className="flex flex-col items-center relative group">
-                    <div className="bg-mte-orange w-8 rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: "60px" }}>
-                      <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+                  <div className="flex flex-col items-center relative group flex-1 max-w-[60px]">
+                    <div className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: "54px", maxHeight: "72px" }}>
+                      <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
                         <div className="font-semibold">105,000 Cases</div>
                         <div>Family Preservation Cases on</div>
                         <div>December 31, 2023</div>
                         <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
                       </div>
                     </div>
-                    <span className="text-xs text-mte-charcoal font-lato">2023</span>
+                    <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">2023</span>
                   </div>
-                  <div className="flex flex-col items-center relative group">
-                    <div className="bg-mte-orange w-8 rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: "62px" }}>
-                      <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+                  <div className="flex flex-col items-center relative group flex-1 max-w-[60px]">
+                    <div className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: "56px", maxHeight: "72px" }}>
+                      <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
                         <div className="font-semibold">110,000 Cases</div>
                         <div>Family Preservation Cases on</div>
                         <div>December 31, 2024</div>
                         <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
                       </div>
                     </div>
-                    <span className="text-xs text-mte-charcoal font-lato">2024</span>
+                    <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">2024</span>
                   </div>
                 </div>
                 <div className="mt-3 text-xs text-mte-charcoal font-lato">

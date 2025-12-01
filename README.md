@@ -1,5 +1,5 @@
-- [ ] Fix trend bars overflow issue on national metrics view
 - [ ] Make metrics drop-down functional on national metrics view to update the page
 - [ ] Add state abbreviations to national metrics view if feasible
 - [ ] Add outline of Canada and Mexico to make US map not appear floating
 - [ ] Replace state dots with state abbreviations on national and state maps for organization view by December 9th
+- [ ] Use the Real Data from the Google Sheets

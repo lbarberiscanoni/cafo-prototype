@@ -17,6 +17,20 @@ const getStateColor = (value) => {
   return '#16a34a';
 };
 
+// State name to abbreviation mapping
+const stateNameToAbbreviation = {
+  'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR', 'California': 'CA',
+  'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE', 'Florida': 'FL', 'Georgia': 'GA',
+  'Hawaii': 'HI', 'Idaho': 'ID', 'Illinois': 'IL', 'Indiana': 'IN', 'Iowa': 'IA',
+  'Kansas': 'KS', 'Kentucky': 'KY', 'Louisiana': 'LA', 'Maine': 'ME', 'Maryland': 'MD',
+  'Massachusetts': 'MA', 'Michigan': 'MI', 'Minnesota': 'MN', 'Mississippi': 'MS', 'Missouri': 'MO',
+  'Montana': 'MT', 'Nebraska': 'NE', 'Nevada': 'NV', 'New Hampshire': 'NH', 'New Jersey': 'NJ',
+  'New Mexico': 'NM', 'New York': 'NY', 'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH',
+  'Oklahoma': 'OK', 'Oregon': 'OR', 'Pennsylvania': 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC',
+  'South Dakota': 'SD', 'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT', 'Vermont': 'VT',
+  'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY'
+};
+
 const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStateClick }) => {
   const mapRef = useRef();
   const [hoveredState, setHoveredState] = useState(null);
@@ -43,6 +57,7 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
       .then(us => {
         const states = topojson.feature(us, us.objects.states);
 
+        // Draw state paths
         svg.selectAll("path")
           .data(states.features)
           .enter()
@@ -88,6 +103,37 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
               onStateClick(data.code, stateName, data);
             }
           });
+
+        // Add state abbreviation labels
+        svg.selectAll("text.state-label")
+          .data(states.features)
+          .enter()
+          .append("text")
+          .attr("class", "state-label")
+          .attr("x", d => {
+            const centroid = path.centroid(d);
+            return centroid[0];
+          })
+          .attr("y", d => {
+            const centroid = path.centroid(d);
+            return centroid[1];
+          })
+          .attr("text-anchor", "middle")
+          .attr("dominant-baseline", "middle")
+          .attr("font-family", "'Lato', sans-serif")
+          .attr("font-size", d => {
+            // Adjust font size based on state size
+            const stateName = d.properties.name;
+            const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
+            return smallStates.includes(stateName) ? "10px" : "12px";
+          })
+          .attr("font-weight", "600")
+          .attr("fill", "#5c5d5f") // MTE Charcoal
+          .attr("pointer-events", "none") // Allow clicks to pass through to state
+          .style("user-select", "none")
+          .text(d => stateNameToAbbreviation[d.properties.name] || "")
+          // Add text shadow for better readability
+          .style("text-shadow", "0px 0px 3px rgba(255, 255, 255, 0.8), 0px 0px 6px rgba(255, 255, 255, 0.6)");
       })
       .catch(error => {
         console.error("Error loading map data:", error);

@@ -100,8 +100,8 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
     const svg = d3.select(mapRef.current);
     svg.selectAll("*").remove();
 
-    const width = 800;
-    const height = 500;
+    const width = 1000;
+    const height = 700;
     
     svg.attr("width", width).attr("height", height);
 
@@ -349,9 +349,9 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
           .attr("x", d => {
             const countyName = d.properties.name;
             const textLength = countyName.length;
-            // Estimate width based on name length and font size
             const baseWidth = isMobile ? 5 : isTablet ? 5.5 : 6;
-            return -(textLength * baseWidth) / 2;
+            const totalWidth = textLength * baseWidth + (isMobile ? 10 : isTablet ? 12 : 16);
+            return -totalWidth / 2;
           })
           .attr("y", d => {
             const countyName = d.properties.name;
@@ -377,7 +377,8 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
             const countyName = d.properties.name;
             const textLength = countyName.length;
             const baseWidth = isMobile ? 5 : isTablet ? 5.5 : 6;
-            return -(textLength * baseWidth) / 2;
+            const totalWidth = textLength * baseWidth + (isMobile ? 10 : isTablet ? 12 : 16);
+            return -totalWidth / 2;
           })
           .attr("y", d => {
             const countyName = d.properties.name;
@@ -405,7 +406,13 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
         labelGroups.append("text")
           .attr("class", "card-text")
           .attr("x", 0)
-          .attr("y", 0)
+          .attr("y", d => {
+            const countyName = d.properties.name;
+            const params = getResponsiveParams(countyName);
+            const cardHeight = isMobile ? 18 : isTablet ? 20 : 22;
+            // Center text vertically, accounting for border at bottom
+            return params.yOffset + ((cardHeight - params.borderHeight) / 2);
+          })
           .attr("text-anchor", "middle")
           .attr("dominant-baseline", "middle")
           .attr("font-family", "'Lato', sans-serif")
@@ -498,8 +505,8 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
       </div>
 
       {/* D3 SVG Map */}
-      <div className="w-full overflow-hidden">
-        <svg ref={mapRef} className="w-full h-auto"></svg>
+      <div className="w-full overflow-hidden flex justify-center items-center">
+        <svg ref={mapRef} className="w-full h-auto max-w-5xl"></svg>
       </div>
 
       {/* Hover Tooltip */}

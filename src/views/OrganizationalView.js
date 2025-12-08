@@ -132,58 +132,108 @@ const createDotIcon = (category, size = "16px") => {
   });
 };
 
-// Create clickable state text label
+// Create clickable state text label with elevated card design
 const createStateTextLabel = (stateCode) => {
+  // Responsive scaling based on screen width
+  const isMobile = window.innerWidth < 768;
+  const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+  
+  let fontSize, padding, minWidth, borderWidth;
+  
+  if (isMobile) {
+    fontSize = '10px';
+    padding = '4px 6px 6px 6px';
+    minWidth = '28px';
+    borderWidth = '3px';
+  } else if (isTablet) {
+    fontSize = '11px';
+    padding = '5px 7px 7px 7px';
+    minWidth = '32px';
+    borderWidth = '3.5px';
+  } else {
+    fontSize = '13px';
+    padding = '6px 10px 10px 10px';
+    minWidth = '36px';
+    borderWidth = '4px';
+  }
+  
   return new L.DivIcon({
     className: "state-text-label",
     html: `<div style="
       font-family: 'Lato', sans-serif;
       font-weight: 600;
-      font-size: 14px;
+      font-size: ${fontSize};
       color: #5c5d5f;
       text-align: center;
-      text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.8), 0px 0px 6px rgba(255, 255, 255, 0.6);
       cursor: pointer;
       user-select: none;
-      padding: 4px 8px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 4px;
-      border: 1px solid #00ADEE;
-      min-width: 32px;
-    ">${stateCode}</div>`,
-    iconSize: [40, 24],
-    iconAnchor: [20, 12],
+      padding: ${padding};
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      min-width: ${minWidth};
+      position: relative;
+      transition: all 0.15s ease;
+      border-bottom: ${borderWidth} solid #02ADEE;
+    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.15)';">${stateCode}</div>`,
+    iconSize: [40, 32],
+    iconAnchor: [20, 16],
   });
 };
 
-// Create clickable county text label
+// Create clickable county text label with elevated card design - FULL NAME
 const createCountyTextLabel = (countyName) => {
-  // Shorten county name if too long (e.g., "Los Angeles" -> "LA")
-  const shortName = countyName.split(' ')
-    .map(word => word[0])
-    .join('')
-    .toUpperCase()
-    .substring(0, 3);
-    
+  // Display full county name
+  const displayName = countyName;
+  
+  // Responsive scaling based on screen width
+  const isMobile = window.innerWidth < 768;
+  const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+  
+  // Calculate font size based on name length and device
+  let fontSize, padding, borderWidth;
+  
+  if (isMobile) {
+    // Mobile: smaller overall
+    fontSize = countyName.length > 12 ? '7px' : countyName.length > 8 ? '8px' : '9px';
+    padding = '3px 5px 5px 5px';
+    borderWidth = '2px';
+  } else if (isTablet) {
+    // Tablet: medium
+    fontSize = countyName.length > 12 ? '8px' : countyName.length > 8 ? '9px' : '10px';
+    padding = '3px 6px 6px 6px';
+    borderWidth = '2.5px';
+  } else {
+    // Desktop: full size
+    fontSize = countyName.length > 12 ? '9px' : countyName.length > 8 ? '10px' : '11px';
+    padding = '4px 8px 8px 8px';
+    borderWidth = '3px';
+  }
+  
   return new L.DivIcon({
     className: "county-text-label",
     html: `<div style="
       font-family: 'Lato', sans-serif;
       font-weight: 600;
-      font-size: 12px;
+      font-size: ${fontSize};
       color: #5c5d5f;
       text-align: center;
-      text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.8), 0px 0px 6px rgba(255, 255, 255, 0.6);
       cursor: pointer;
       user-select: none;
-      padding: 3px 6px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 4px;
-      border: 1px solid #00ADEE;
-      min-width: 28px;
-    ">${shortName}</div>`,
-    iconSize: [36, 20],
-    iconAnchor: [18, 10],
+      padding: ${padding};
+      background: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      border-bottom: ${borderWidth} solid #02ADEE;
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.18)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.12)';">${displayName}</div>`,
+    iconSize: null, // Auto-size to content
+    iconAnchor: null, // Auto-center
   });
 };
 

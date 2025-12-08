@@ -183,6 +183,215 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
             }
           });
 
+        // Add drop shadow filters for elevated cards
+        const defs = svg.append("defs");
+        
+        const dropShadow = defs.append("filter")
+          .attr("id", "county-drop-shadow")
+          .attr("x", "-50%")
+          .attr("y", "-50%")
+          .attr("width", "200%")
+          .attr("height", "200%");
+        
+        dropShadow.append("feGaussianBlur")
+          .attr("in", "SourceAlpha")
+          .attr("stdDeviation", 3);
+        
+        dropShadow.append("feOffset")
+          .attr("dx", 0)
+          .attr("dy", 2)
+          .attr("result", "offsetblur");
+        
+        dropShadow.append("feComponentTransfer")
+          .append("feFuncA")
+          .attr("type", "linear")
+          .attr("slope", 0.15);
+        
+        const feMerge = dropShadow.append("feMerge");
+        feMerge.append("feMergeNode");
+        feMerge.append("feMergeNode").attr("in", "SourceGraphic");
+
+        // Hover shadow
+        const dropShadowHover = defs.append("filter")
+          .attr("id", "county-drop-shadow-hover")
+          .attr("x", "-50%")
+          .attr("y", "-50%")
+          .attr("width", "200%")
+          .attr("height", "200%");
+        
+        dropShadowHover.append("feGaussianBlur")
+          .attr("in", "SourceAlpha")
+          .attr("stdDeviation", 5);
+        
+        dropShadowHover.append("feOffset")
+          .attr("dx", 0)
+          .attr("dy", 4)
+          .attr("result", "offsetblur");
+        
+        dropShadowHover.append("feComponentTransfer")
+          .append("feFuncA")
+          .attr("type", "linear")
+          .attr("slope", 0.2);
+        
+        const feMergeHover = dropShadowHover.append("feMerge");
+        feMergeHover.append("feMergeNode");
+        feMergeHover.append("feMergeNode").attr("in", "SourceGraphic");
+
+        // Responsive sizing based on screen width
+        const isMobile = window.innerWidth < 768;
+        const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+        
+        // Define responsive parameters for county labels
+        const getResponsiveParams = (countyName) => {
+          const nameLength = countyName.length;
+          
+          if (isMobile) {
+            return {
+              fontSize: nameLength > 12 ? '7px' : nameLength > 8 ? '8px' : '9px',
+              yOffset: -11,
+              yOffsetHover: -13,
+              borderHeight: 2
+            };
+          } else if (isTablet) {
+            return {
+              fontSize: nameLength > 12 ? '8px' : nameLength > 8 ? '9px' : '10px',
+              yOffset: -12,
+              yOffsetHover: -14,
+              borderHeight: 2.5
+            };
+          } else {
+            return {
+              fontSize: nameLength > 12 ? '9px' : nameLength > 8 ? '10px' : '11px',
+              yOffset: -12,
+              yOffsetHover: -14,
+              borderHeight: 3
+            };
+          }
+        };
+
+        // Add elevated card labels for counties - ONLY FOR COUNTIES WITH DATA
+        const labelGroups = svg.selectAll("g.county-label-card")
+          .data(stateCounties.filter(d => {
+            const countyName = d.properties.name;
+            return stateCountyData[countyName]; // Only include if county has data
+          }))
+          .enter()
+          .append("g")
+          .attr("class", "county-label-card")
+          .attr("transform", d => {
+            const centroid = path.centroid(d);
+            return `translate(${centroid[0]}, ${centroid[1]})`;
+          })
+          .style("cursor", "pointer")
+          .attr("filter", "url(#county-drop-shadow)")
+          .on("mouseenter", function(event, d) {
+            const countyName = d.properties.name;
+            const params = getResponsiveParams(countyName);
+            
+            d3.select(this)
+              .attr("filter", "url(#county-drop-shadow-hover)")
+              .select("rect.card-bg")
+              .transition()
+              .duration(150)
+              .attr("y", params.yOffsetHover);
+          })
+          .on("mouseleave", function(event, d) {
+            const countyName = d.properties.name;
+            const params = getResponsiveParams(countyName);
+            
+            d3.select(this)
+              .attr("filter", "url(#county-drop-shadow)")
+              .select("rect.card-bg")
+              .transition()
+              .duration(150)
+              .attr("y", params.yOffset);
+          })
+          .on("click", function(event, d) {
+            const countyName = d.properties.name;
+            const data = stateCountyData[countyName];
+            if (onCountyClick && data) {
+              const countyId = `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
+              onCountyClick(countyId, countyName, data);
+            }
+          });
+
+        // Card background rectangle - WHITE with high opacity
+        labelGroups.append("rect")
+          .attr("class", "card-bg")
+          .attr("x", d => {
+            const countyName = d.properties.name;
+            const textLength = countyName.length;
+            // Estimate width based on name length and font size
+            const baseWidth = isMobile ? 5 : isTablet ? 5.5 : 6;
+            return -(textLength * baseWidth) / 2;
+          })
+          .attr("y", d => {
+            const countyName = d.properties.name;
+            const params = getResponsiveParams(countyName);
+            return params.yOffset;
+          })
+          .attr("width", d => {
+            const countyName = d.properties.name;
+            const textLength = countyName.length;
+            const baseWidth = isMobile ? 5 : isTablet ? 5.5 : 6;
+            return textLength * baseWidth + (isMobile ? 10 : isTablet ? 12 : 16);
+          })
+          .attr("height", isMobile ? 18 : isTablet ? 20 : 22)
+          .attr("rx", 6)
+          .attr("ry", 6)
+          .attr("fill", "#ffffff")
+          .attr("fill-opacity", 0.95);
+
+        // Blue bottom border accent
+        labelGroups.append("rect")
+          .attr("class", "card-border")
+          .attr("x", d => {
+            const countyName = d.properties.name;
+            const textLength = countyName.length;
+            const baseWidth = isMobile ? 5 : isTablet ? 5.5 : 6;
+            return -(textLength * baseWidth) / 2;
+          })
+          .attr("y", d => {
+            const countyName = d.properties.name;
+            const params = getResponsiveParams(countyName);
+            const cardHeight = isMobile ? 18 : isTablet ? 20 : 22;
+            return params.yOffset + cardHeight - params.borderHeight;
+          })
+          .attr("width", d => {
+            const countyName = d.properties.name;
+            const textLength = countyName.length;
+            const baseWidth = isMobile ? 5 : isTablet ? 5.5 : 6;
+            return textLength * baseWidth + (isMobile ? 10 : isTablet ? 12 : 16);
+          })
+          .attr("height", d => {
+            const countyName = d.properties.name;
+            const params = getResponsiveParams(countyName);
+            return params.borderHeight;
+          })
+          .attr("rx", 0)
+          .attr("ry", 0)
+          .attr("fill", "#02ADEE")
+          .attr("opacity", 1);
+
+        // County name text
+        labelGroups.append("text")
+          .attr("class", "card-text")
+          .attr("x", 0)
+          .attr("y", 0)
+          .attr("text-anchor", "middle")
+          .attr("dominant-baseline", "middle")
+          .attr("font-family", "'Lato', sans-serif")
+          .attr("font-size", d => {
+            const countyName = d.properties.name;
+            const params = getResponsiveParams(countyName);
+            return params.fontSize;
+          })
+          .attr("font-weight", "600")
+          .attr("fill", "#5c5d5f")
+          .attr("pointer-events", "none")
+          .style("user-select", "none")
+          .text(d => d.properties.name);
+
         setError(null);
       })
       .catch(err => {

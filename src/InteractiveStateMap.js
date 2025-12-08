@@ -285,26 +285,54 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
           .style("cursor", "pointer")
           .attr("filter", "url(#county-drop-shadow)")
           .on("mouseenter", function(event, d) {
-            const countyName = d.properties.name;
-            const params = getResponsiveParams(countyName);
+            const centroid = path.centroid(d);
             
             d3.select(this)
               .attr("filter", "url(#county-drop-shadow-hover)")
+              .transition()
+              .duration(150)
+              .attr("transform", `translate(${centroid[0]}, ${centroid[1]}) scale(1.08)`);
+            
+            d3.select(this)
               .select("rect.card-bg")
               .transition()
               .duration(150)
-              .attr("y", params.yOffsetHover);
+              .attr("fill-opacity", 1);
+            
+            d3.select(this)
+              .select("rect.card-border")
+              .transition()
+              .duration(150)
+              .attr("height", d => {
+                const countyName = d.properties.name;
+                const params = getResponsiveParams(countyName);
+                return params.borderHeight * 2;
+              });
           })
           .on("mouseleave", function(event, d) {
-            const countyName = d.properties.name;
-            const params = getResponsiveParams(countyName);
+            const centroid = path.centroid(d);
             
             d3.select(this)
               .attr("filter", "url(#county-drop-shadow)")
+              .transition()
+              .duration(150)
+              .attr("transform", `translate(${centroid[0]}, ${centroid[1]}) scale(1)`);
+            
+            d3.select(this)
               .select("rect.card-bg")
               .transition()
               .duration(150)
-              .attr("y", params.yOffset);
+              .attr("fill-opacity", 0.95);
+            
+            d3.select(this)
+              .select("rect.card-border")
+              .transition()
+              .duration(150)
+              .attr("height", d => {
+                const countyName = d.properties.name;
+                const params = getResponsiveParams(countyName);
+                return params.borderHeight;
+              });
           })
           .on("click", function(event, d) {
             const countyName = d.properties.name;

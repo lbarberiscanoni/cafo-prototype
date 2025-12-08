@@ -221,30 +221,58 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
         .style("cursor", "pointer")
         .attr("filter", "url(#drop-shadow)")
         .on("mouseenter", function(event, d) {
-          const stateName = d.properties.name;
-          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
-          const isSmall = smallStates.includes(stateName);
-          const params = getResponsiveParams(isSmall);
+          const centroid = path.centroid(d);
           
           d3.select(this)
             .attr("filter", "url(#drop-shadow-hover)")
+            .transition()
+            .duration(150)
+            .attr("transform", `translate(${centroid[0]}, ${centroid[1]}) scale(1.08)`);
+          
+          d3.select(this)
             .select("rect.card-bg")
             .transition()
             .duration(150)
-            .attr("y", params.yOffsetHover);
+            .attr("fill-opacity", 1);
+          
+          d3.select(this)
+            .select("rect.card-border")
+            .transition()
+            .duration(150)
+            .attr("height", d => {
+              const stateName = d.properties.name;
+              const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
+              const isSmall = smallStates.includes(stateName);
+              const params = getResponsiveParams(isSmall);
+              return params.borderHeight * 2;
+            });
         })
         .on("mouseleave", function(event, d) {
-          const stateName = d.properties.name;
-          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
-          const isSmall = smallStates.includes(stateName);
-          const params = getResponsiveParams(isSmall);
+          const centroid = path.centroid(d);
           
           d3.select(this)
             .attr("filter", "url(#drop-shadow)")
+            .transition()
+            .duration(150)
+            .attr("transform", `translate(${centroid[0]}, ${centroid[1]}) scale(1)`);
+          
+          d3.select(this)
             .select("rect.card-bg")
             .transition()
             .duration(150)
-            .attr("y", params.yOffset);
+            .attr("fill-opacity", 0.95);
+          
+          d3.select(this)
+            .select("rect.card-border")
+            .transition()
+            .duration(150)
+            .attr("height", d => {
+              const stateName = d.properties.name;
+              const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
+              const isSmall = smallStates.includes(stateName);
+              const params = getResponsiveParams(isSmall);
+              return params.borderHeight;
+            });
         })
         .on("click", function(event, d) {
           const stateName = d.properties.name;

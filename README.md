@@ -1,5 +1,4 @@
 - [ ] Use the Real Data from the Google Sheets
 - [ ] Add connection lines and organization dots to the national view
-- [ ] Remove the historical data button on the national view
 - [ ] Revamp the state view to match the national metrics view layout but at state level
 - [ ] Implement URL navigation system for proper page routing

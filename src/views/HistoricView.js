@@ -467,17 +467,17 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
           <h1 className="text-2xl md:text-4xl font-nexa text-mte-black text-center">
             {name}
           </h1>
-          <p className="text-sm md:text-base text-mte-charcoal mt-2 font-lato">
-            {regionLevel === "county" && regionId && countyData[regionId] && (
-              <>Population: {countyData[regionId].population.toLocaleString()}</>
-            )}
-          </p>
+          {regionLevel === "county" && regionId && countyData[regionId] && (
+            <p className="text-sm md:text-base text-mte-charcoal mt-1 font-lato">
+              Population: {countyData[regionId].population.toLocaleString()}
+            </p>
+          )}
         </div>
       </div>
 
       {/* Metrics Grid - Fully Responsive */}
       <div className="max-w-7xl mx-auto px-4 py-4 md:py-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 flex-grow">
-        {/* Foster & Kinship */}
+        {/* Foster & Kinship - PURPLE */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
             <img src={FosterKinshipIcon} alt="Kinship" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
@@ -522,15 +522,19 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                   const heightPx = (heightPercent / 100) * maxBarHeight;
                   
                   return (
-                    <div key={idx} className="flex flex-col items-center flex-1">
+                    <div key={idx} className="flex flex-col items-center flex-1 group relative">
                       <div
-                        className="bg-mte-green w-full rounded transition-all hover:opacity-80"
+                        className="bg-mte-purple w-full rounded transition-all hover:opacity-80 relative"
                         style={{ 
                           height: `${Math.max(heightPx, 20)}px`,
                           maxWidth: '50px',
                           maxHeight: `${maxBarHeight}px`
                         }}
-                      ></div>
+                      >
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <span className="text-xs font-bold text-white bg-mte-black bg-opacity-75 px-2 py-1 rounded">{value}</span>
+                        </div>
+                      </div>
                       <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
                     </div>
                   );
@@ -540,7 +544,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
           </div>
         </div>
 
-        {/* Adoptive */}
+        {/* Adoptive - GREEN */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
             <img src={AdoptiveFamilyIcon} alt="Adoptive" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
@@ -585,15 +589,19 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                   const heightPx = (heightPercent / 100) * maxBarHeight;
                   
                   return (
-                    <div key={idx} className="flex flex-col items-center flex-1">
+                    <div key={idx} className="flex flex-col items-center flex-1 group relative">
                       <div
-                        className="bg-mte-yellow w-full rounded transition-all hover:opacity-80"
+                        className="bg-mte-green w-full rounded transition-all hover:opacity-80 relative"
                         style={{ 
                           height: `${Math.max(heightPx, 20)}px`,
                           maxWidth: '50px',
                           maxHeight: `${maxBarHeight}px`
                         }}
-                      ></div>
+                      >
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <span className="text-xs font-bold text-white bg-mte-black bg-opacity-75 px-2 py-1 rounded">{value}</span>
+                        </div>
+                      </div>
                       <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
                     </div>
                   );
@@ -603,7 +611,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
           </div>
         </div>
 
-        {/* Biological */}
+        {/* Biological - ORANGE */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
             <img src={BiologicalFamilyIcon} alt="Biological" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
@@ -649,15 +657,19 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                   const heightPx = (heightPercent / 100) * maxBarHeight;
                   
                   return (
-                    <div key={idx} className="flex flex-col items-center flex-1">
+                    <div key={idx} className="flex flex-col items-center flex-1 group relative">
                       <div
-                        className="bg-mte-orange w-full rounded transition-all hover:opacity-80"
+                        className="bg-mte-orange w-full rounded transition-all hover:opacity-80 relative"
                         style={{ 
                           height: `${Math.max(heightPx, 20)}px`,
                           maxWidth: '50px',
                           maxHeight: `${maxBarHeight}px`
                         }}
-                      ></div>
+                      >
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <span className="text-xs font-bold text-white bg-mte-black bg-opacity-75 px-2 py-1 rounded">{value}</span>
+                        </div>
+                      </div>
                       <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
                     </div>
                   );
@@ -667,7 +679,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
           </div>
         </div>
 
-        {/* Wraparound */}
+        {/* Wraparound - YELLOW */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
             <img src={WrapAroundIcon} alt="Wraparound" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
@@ -714,15 +726,19 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                   const heightPx = (heightPercent / 100) * maxBarHeight;
                   
                   return (
-                    <div key={idx} className="flex flex-col items-center flex-1">
+                    <div key={idx} className="flex flex-col items-center flex-1 group relative">
                       <div
-                        className="bg-mte-purple w-full rounded transition-all hover:opacity-80"
+                        className="bg-mte-yellow w-full rounded transition-all hover:opacity-80 relative"
                         style={{ 
                           height: `${Math.max(heightPx, 20)}px`,
                           maxWidth: '50px',
                           maxHeight: `${maxBarHeight}px`
                         }}
-                      ></div>
+                      >
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <span className="text-xs font-bold text-white bg-mte-black bg-opacity-75 px-2 py-1 rounded">{value}</span>
+                        </div>
+                      </div>
                       <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
                     </div>
                   );

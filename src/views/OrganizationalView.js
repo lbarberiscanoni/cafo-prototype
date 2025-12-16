@@ -19,9 +19,27 @@ import WrapAroundIcon from "../assets/WrapAround_icon.png";
 const CATEGORY_COLORS = {
   "Bridge Ministry": { bg: "bg-mte-yellow-20", text: "text-mte-black", border: "border-mte-yellow", dot: "#e7d151" },
   "Service Organization": { bg: "bg-mte-green-20", text: "text-mte-black", border: "border-mte-green", dot: "#4aa456" },
-  "Church Ministry": { bg: "bg-mte-blue-20", text: "text-mte-black", border: "border-mte-blue", dot: "#00ADEE" },
+  "Church Ministry": { bg: "bg-mte-charcoal-20", text: "text-mte-black", border: "border-mte-charcoal", dot: "#5c5d5f" },
   "Government": { bg: "bg-mte-orange-20", text: "text-mte-black", border: "border-mte-orange", dot: "#dc6a42" },
   "Placement Agency": { bg: "bg-mte-purple-20", text: "text-mte-black", border: "border-mte-purple", dot: "#882781" },
+};
+
+// Local network definitions
+const LOCAL_NETWORKS = {
+  network1: {
+    name: "Local Network 1",
+    organizations: ["Bridge Ministry", "Hope Family Services", "Grace Church Foster Ministry"],
+    color: "#882781",
+    center: [0.002, -0.005],
+    radius: 800
+  },
+  network2: {
+    name: "Local Network 2",
+    organizations: ["Community Support Network", "Children First Placement", "Family Connect Services"],
+    color: "#dc6a42",
+    center: [-0.003, -0.001],
+    radius: 600
+  }
 };
 
 // Function to generate mock organizations dynamically based on county location
@@ -242,11 +260,13 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   const [selectedImpactAreas, setSelectedImpactAreas] = useState(["Foster and Kinship Families", "Adoptive", "Biological", "Wraparound"]);
   const [showConnectionLines, setShowConnectionLines] = useState(true);
   const [showLocalNetworks, setShowLocalNetworks] = useState(true);
+  const [selectedNetwork, setSelectedNetwork] = useState(null); // null = show all, 'network1' or 'network2' = show only that network
   const [mapKey, setMapKey] = useState(0); // Force map remount when region changes
 
   // Update map when region changes
   React.useEffect(() => {
     setMapKey(prev => prev + 1);
+    setSelectedNetwork(null); // Reset network selection when region changes
   }, [regionLevel, regionId]);
 
   // Get display name based on region level - wrapped in useCallback
@@ -308,6 +328,11 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
   const handleLocalNetworksToggle = () => {
     setShowLocalNetworks(prev => !prev);
+  };
+
+  const handleNetworkClick = (networkId) => {
+    // Toggle network selection: if already selected, deselect; otherwise select it
+    setSelectedNetwork(prev => prev === networkId ? null : networkId);
   };
 
   // Handler for when a state marker is clicked - STAY IN ORGANIZATIONAL VIEW
@@ -416,9 +441,18 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     return generateCountyOrgs(mapConfig.center, countyName, stateCode);
   }, [regionLevel, regionId, mapConfig.center, getDisplayName]);
 
+  // Filter organizations based on selected categories, impact areas, AND selected network
   const filteredOrgs = countyOrgs.filter(org => {
     const categoryMatch = selectedCategories.includes(org.category);
     const impactAreaMatch = org.focus.some(focus => selectedImpactAreas.includes(focus));
+    
+    // If a network is selected, only show organizations in that network
+    if (selectedNetwork) {
+      const networkOrgs = LOCAL_NETWORKS[selectedNetwork].organizations;
+      const networkMatch = networkOrgs.includes(org.name);
+      return categoryMatch && impactAreaMatch && networkMatch;
+    }
+    
     return categoryMatch && impactAreaMatch;
   });
 
@@ -699,7 +733,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                   }}
                 >
                   <Tooltip>
-                    <div className="font-lato">
+                    <div className="font-lato text-sm">
                       <strong>{stateName}</strong><br/>
                       {data.orgCount} Organizations
                     </div>
@@ -720,7 +754,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     }}
                   >
                     <Tooltip>
-                      <div className="font-lato">
+                      <div className="font-lato text-sm">
                         <strong>{countyName} County</strong><br/>
                         {data.orgCount} Organizations
                       </div>
@@ -732,50 +766,41 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               {/* County Level: Organization Markers with Connection Lines */}
               {showCountyMap && (
                 <>
-                  {/* Local Network Circles */}
+                  {/* Local Network Circles - Now clickable */}
                   {showLocalNetworks && (
                     <>
-                      {/* Network 1: Bridge Ministry cluster */}
-                      <Circle
-                        center={[mapConfig.center[0] + 0.002, mapConfig.center[1] - 0.005]}
-                        radius={800}
-                        pathOptions={{
-                          color: "#882781",
-                          weight: 4,
-                          opacity: 0.8,
-                          fillColor: "#882781",
-                          fillOpacity: 0.15,
-                          dashArray: "10, 10"
-                        }}
-                      >
-                        <Tooltip>
-                          <div className="font-lato">
-                            <strong>Local Network 1</strong><br/>
-                            Bridge Ministry, Hope Family Services, Grace Church
-                          </div>
-                        </Tooltip>
-                      </Circle>
-                      
-                      {/* Network 2: Community Support cluster */}
-                      <Circle
-                        center={[mapConfig.center[0] - 0.003, mapConfig.center[1] - 0.001]}
-                        radius={600}
-                        pathOptions={{
-                          color: "#dc6a42",
-                          weight: 4,
-                          opacity: 0.8,
-                          fillColor: "#dc6a42",
-                          fillOpacity: 0.15,
-                          dashArray: "10, 10"
-                        }}
-                      >
-                        <Tooltip>
-                          <div className="font-lato">
-                            <strong>Local Network 2</strong><br/>
-                            Community Support Network, Children First, Family Connect
-                          </div>
-                        </Tooltip>
-                      </Circle>
+                      {Object.entries(LOCAL_NETWORKS).map(([networkId, network]) => {
+                        const isSelected = selectedNetwork === networkId;
+                        return (
+                          <Circle
+                            key={networkId}
+                            center={[mapConfig.center[0] + network.center[0], mapConfig.center[1] + network.center[1]]}
+                            radius={network.radius}
+                            pathOptions={{
+                              color: network.color,
+                              weight: isSelected ? 6 : 4,
+                              opacity: isSelected ? 1 : 0.8,
+                              fillColor: network.color,
+                              fillOpacity: isSelected ? 0.25 : 0.15,
+                              dashArray: "10, 10"
+                            }}
+                            eventHandlers={{
+                              click: () => handleNetworkClick(networkId)
+                            }}
+                          >
+                            <Tooltip>
+                              <div className="font-lato text-sm">
+                                <strong>{network.name}</strong><br/>
+                                {network.organizations.map((org, idx) => (
+                                  <div key={idx}>{org}</div>
+                                ))}
+                                <br/>
+                                <span>Click to {isSelected ? 'show all' : 'filter'} organizations</span>
+                              </div>
+                            </Tooltip>
+                          </Circle>
+                        );
+                      })}
                     </>
                   )}
                   
@@ -791,7 +816,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       }}
                     >
                       <Tooltip>
-                        <div className="font-lato">
+                        <div className="font-lato text-sm">
                           <strong>Connection:</strong><br/>
                           {connection.fromName} ↔ {connection.toName}
                         </div>
@@ -803,16 +828,9 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                   {filteredOrgs.map((org) => (
                     <Marker key={org.name} position={org.coords} icon={createDotIcon(org.category)}>
                       <Tooltip>
-                        <div className="font-lato">
+                        <div className="font-lato text-sm">
                           <strong>{org.name}</strong><br/>
-                          <span className="text-sm">{org.category}</span><br/>
-                          <span className="text-sm">{org.focus.join(", ")}</span>
-                          {org.connections && org.connections.length > 0 && (
-                            <>
-                              <br/><span className="text-sm font-semibold">Connected to:</span><br/>
-                              <span className="text-sm">{org.connections.join(", ")}</span>
-                            </>
-                          )}
+                          {org.category}
                         </div>
                       </Tooltip>
                     </Marker>
@@ -832,6 +850,11 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                 {showLocalNetworks && (
                   <span className="px-2 py-1 bg-mte-green-20 text-mte-charcoal rounded">
                     2 Local Networks Visible
+                  </span>
+                )}
+                {selectedNetwork && (
+                  <span className="px-2 py-1 bg-mte-purple-20 text-mte-charcoal rounded font-semibold">
+                    Filtered: {LOCAL_NETWORKS[selectedNetwork].name}
                   </span>
                 )}
                 {filteredOrgs.length !== countyOrgs.length && (
@@ -866,7 +889,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         </div>
                         <p className="text-base text-mte-charcoal mb-2 font-lato">{org.description}</p>
                         <div className="text-sm text-mte-charcoal mb-2 font-lato">
-                          <strong>Focus Areas:</strong> {org.focus.join(", ")}
+                          <strong>Impact Areas:</strong> {org.focus.join(", ")}
                         </div>
                         <div className="text-sm text-mte-charcoal font-lato">Location: {org.location}</div>
                         <div className="text-sm text-mte-charcoal font-lato">Phone: {org.phone}</div>

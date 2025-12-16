@@ -123,155 +123,59 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
           }
         });
 
-      // Define shadow filters for elevated cards - IMPROVED VERSION
-      const defs = svg.append("defs");
-      
-      // Drop shadow filter
-      const dropShadow = defs.append("filter")
-        .attr("id", "drop-shadow")
-        .attr("height", "130%");
-      
-      dropShadow.append("feGaussianBlur")
-        .attr("in", "SourceAlpha")
-        .attr("stdDeviation", 3);
-      
-      dropShadow.append("feOffset")
-        .attr("dx", 0)
-        .attr("dy", 2)
-        .attr("result", "offsetblur");
-      
-      dropShadow.append("feComponentTransfer")
-        .append("feFuncA")
-        .attr("type", "linear")
-        .attr("slope", 0.2);
-      
-      const feMerge = dropShadow.append("feMerge");
-      feMerge.append("feMergeNode");
-      feMerge.append("feMergeNode").attr("in", "SourceGraphic");
-
-      // Hover drop shadow filter (stronger)
-      const dropShadowHover = defs.append("filter")
-        .attr("id", "drop-shadow-hover")
-        .attr("height", "150%");
-      
-      dropShadowHover.append("feGaussianBlur")
-        .attr("in", "SourceAlpha")
-        .attr("stdDeviation", 5);
-      
-      dropShadowHover.append("feOffset")
-        .attr("dx", 0)
-        .attr("dy", 4)
-        .attr("result", "offsetblur");
-      
-      dropShadowHover.append("feComponentTransfer")
-        .append("feFuncA")
-        .attr("type", "linear")
-        .attr("slope", 0.3);
-      
-      const feMergeHover = dropShadowHover.append("feMerge");
-      feMergeHover.append("feMergeNode");
-      feMergeHover.append("feMergeNode").attr("in", "SourceGraphic");
-
       // Responsive sizing based on screen width
       const isMobile = window.innerWidth < 768;
       const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
       
-      // Define responsive parameters
-      const getResponsiveParams = (isSmallState) => {
+      // Define responsive font sizes
+      const getFontSize = (isSmallState) => {
         if (isMobile) {
-          return {
-            width: isSmallState ? 20 : 24,
-            height: 18,
-            fontSize: isSmallState ? '8px' : '9px',
-            yOffset: -9,
-            yOffsetHover: -11,
-            borderHeight: 2
-          };
+          return isSmallState ? '9px' : '10px';
         } else if (isTablet) {
-          return {
-            width: isSmallState ? 24 : 28,
-            height: 20,
-            fontSize: isSmallState ? '9px' : '10px',
-            yOffset: -10,
-            yOffsetHover: -12,
-            borderHeight: 2.5
-          };
+          return isSmallState ? '11px' : '12px';
         } else {
-          return {
-            width: isSmallState ? 26 : 30,
-            height: 22,
-            fontSize: isSmallState ? '10px' : '11px',
-            yOffset: -11,
-            yOffsetHover: -13,
-            borderHeight: 3
-          };
+          return isSmallState ? '13px' : '14px';
         }
       };
 
-      // Add elevated card labels - REVISED FOR BETTER VISIBILITY
-      const labelGroups = svg.selectAll("g.state-label-card")
+      // Add embedded text labels - NO CARDS
+      const labelGroups = svg.selectAll("g.state-label-embedded")
         .data(states.features)
         .enter()
         .append("g")
-        .attr("class", "state-label-card")
+        .attr("class", "state-label-embedded")
         .attr("transform", d => {
           const centroid = path.centroid(d);
           return `translate(${centroid[0]}, ${centroid[1]})`;
         })
         .style("cursor", "pointer")
-        .attr("filter", "url(#drop-shadow)")
         .on("mouseenter", function(event, d) {
-          const centroid = path.centroid(d);
-          
+          // Change text color to blue and scale up
           d3.select(this)
-            .attr("filter", "url(#drop-shadow-hover)")
+            .select("text")
             .transition()
             .duration(150)
-            .attr("transform", `translate(${centroid[0]}, ${centroid[1]}) scale(1.08)`);
-          
-          d3.select(this)
-            .select("rect.card-bg")
-            .transition()
-            .duration(150)
-            .attr("fill-opacity", 1);
-          
-          d3.select(this)
-            .select("rect.card-border")
-            .transition()
-            .duration(150)
-            .attr("height", d => {
+            .attr("fill", "#02ADEE")
+            .attr("font-size", d => {
               const stateName = d.properties.name;
               const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
               const isSmall = smallStates.includes(stateName);
-              const params = getResponsiveParams(isSmall);
-              return params.borderHeight * 2;
+              const baseFontSize = parseFloat(getFontSize(isSmall));
+              return `${baseFontSize * 1.1}px`;
             });
         })
         .on("mouseleave", function(event, d) {
-          const centroid = path.centroid(d);
-          
+          // Return to original color and size
           d3.select(this)
-            .attr("filter", "url(#drop-shadow)")
+            .select("text")
             .transition()
             .duration(150)
-            .attr("transform", `translate(${centroid[0]}, ${centroid[1]}) scale(1)`);
-          
-          d3.select(this)
-            .select("rect.card-bg")
-            .transition()
-            .duration(150)
-            .attr("fill-opacity", 0.95);
-          
-          d3.select(this)
-            .select("rect.card-border")
-            .transition()
-            .duration(150)
-            .attr("height", d => {
+            .attr("fill", "#5c5d5f")
+            .attr("font-size", d => {
               const stateName = d.properties.name;
               const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
               const isSmall = smallStates.includes(stateName);
-              const params = getResponsiveParams(isSmall);
-              return params.borderHeight;
+              return getFontSize(isSmall);
             });
         })
         .on("click", function(event, d) {
@@ -282,81 +186,9 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
           }
         });
 
-      // Card background rectangle - WHITE with high opacity
-      labelGroups.append("rect")
-        .attr("class", "card-bg")
-        .attr("x", d => {
-          const stateName = d.properties.name;
-          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
-          const isSmall = smallStates.includes(stateName);
-          const params = getResponsiveParams(isSmall);
-          return -params.width / 2;
-        })
-        .attr("y", d => {
-          const stateName = d.properties.name;
-          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
-          const isSmall = smallStates.includes(stateName);
-          const params = getResponsiveParams(isSmall);
-          return params.yOffset;
-        })
-        .attr("width", d => {
-          const stateName = d.properties.name;
-          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
-          const isSmall = smallStates.includes(stateName);
-          const params = getResponsiveParams(isSmall);
-          return params.width;
-        })
-        .attr("height", d => {
-          const stateName = d.properties.name;
-          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
-          const isSmall = smallStates.includes(stateName);
-          const params = getResponsiveParams(isSmall);
-          return params.height;
-        })
-        .attr("rx", 8)
-        .attr("ry", 8)
-        .attr("fill", "#ffffff")
-        .attr("fill-opacity", 0.95);
-
-      // Blue bottom border accent - THICKER and MORE VISIBLE
-      labelGroups.append("rect")
-        .attr("class", "card-border")
-        .attr("x", d => {
-          const stateName = d.properties.name;
-          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
-          const isSmall = smallStates.includes(stateName);
-          const params = getResponsiveParams(isSmall);
-          return -params.width / 2;
-        })
-        .attr("y", d => {
-          const stateName = d.properties.name;
-          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
-          const isSmall = smallStates.includes(stateName);
-          const params = getResponsiveParams(isSmall);
-          return params.yOffset + params.height - params.borderHeight;
-        })
-        .attr("width", d => {
-          const stateName = d.properties.name;
-          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
-          const isSmall = smallStates.includes(stateName);
-          const params = getResponsiveParams(isSmall);
-          return params.width;
-        })
-        .attr("height", d => {
-          const stateName = d.properties.name;
-          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
-          const isSmall = smallStates.includes(stateName);
-          const params = getResponsiveParams(isSmall);
-          return params.borderHeight;
-        })
-        .attr("rx", 0)
-        .attr("ry", 0)
-        .attr("fill", "#02ADEE")
-        .attr("opacity", 1);
-
-      // State abbreviation text
+      // State abbreviation text - embedded with white shadow
       labelGroups.append("text")
-        .attr("class", "card-text")
+        .attr("class", "embedded-label")
         .attr("x", 0)
         .attr("y", 0)
         .attr("text-anchor", "middle")
@@ -366,11 +198,14 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
           const stateName = d.properties.name;
           const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
           const isSmall = smallStates.includes(stateName);
-          const params = getResponsiveParams(isSmall);
-          return params.fontSize;
+          return getFontSize(isSmall);
         })
-        .attr("font-weight", "600")
+        .attr("font-weight", "700")
         .attr("fill", "#5c5d5f")
+        .attr("stroke", "#ffffff")
+        .attr("stroke-width", "2.5")
+        .attr("stroke-opacity", "0.8")
+        .attr("paint-order", "stroke")
         .attr("pointer-events", "none")
         .style("user-select", "none")
         .text(d => stateNameToAbbreviation[d.properties.name] || "");

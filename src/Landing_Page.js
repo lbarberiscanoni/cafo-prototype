@@ -116,9 +116,6 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
                   What county do you live in?
                 </div>
               </div>
-              <div className="text-xs md:text-sm font-lato text-mte-charcoal text-center">
-                County or county equivalent
-              </div>
             </div>
 
             <CountySelect
@@ -138,7 +135,7 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
                 onClick={() => setShowAdvancedOptions(!showAdvancedOptions)}
                 className="text-base font-lato text-mte-charcoal hover:text-mte-blue underline transition-colors"
               >
-                {showAdvancedOptions ? "Hide" : "Show"} state and national options
+                {showAdvancedOptions ? "Hide" : "View state and national-level data"}
               </button>
             </div>
 
@@ -181,27 +178,15 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
           </div>
         </div>
 
-        {/* CTA - Responsive design */}
+        {/* CTA - Single Button */}
         <div className="pointer-events-none fixed inset-x-0 bottom-4 md:bottom-6 z-10 flex justify-center px-2 md:px-4">
-          <div className="pointer-events-auto flex w-full max-w-2xl flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 rounded-2xl bg-white/90 backdrop-blur p-3 md:p-4 shadow-lg ring-1 ring-black/5">
-            <div className="flex items-center gap-2 md:gap-3 text-mte-charcoal">
-              <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-mte-blue-20 flex-shrink-0">
-                <svg viewBox="0 0 24 24" className="h-5 w-5 md:h-6 md:w-6 text-mte-blue" fill="currentColor" aria-hidden="true">
-                  <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/>
-                </svg>
-              </div>
-              <span className="text-sm md:text-base font-lato">
-                Want to explore multiple counties or states?
-              </span>
-            </div>
-            <button
-              type="button"
-              onClick={() => onSelectRegion?.({ level: 'national', id: 'usa', name: 'United States', view: 'organizational' })}
-              className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm md:text-base font-lato font-semibold text-white bg-mte-blue shadow-mte-card hover:bg-mte-blue-80 focus:outline-none focus:ring-2 focus:ring-mte-blue focus:ring-offset-2 transition-colors whitespace-nowrap"
-            >
-              Explore the map <span aria-hidden="true">→</span>
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={() => onSelectRegion?.({ level: 'national', id: 'usa', name: 'United States', view: 'organizational' })}
+            className="pointer-events-auto inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-base md:text-lg font-lato font-semibold text-white bg-mte-blue shadow-mte-card hover:bg-mte-blue-80 focus:outline-none focus:ring-2 focus:ring-mte-blue focus:ring-offset-2 transition-colors"
+          >
+            Explore the map <span aria-hidden="true">→</span>
+          </button>
         </div>
       </div>
     </div>

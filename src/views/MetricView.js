@@ -11,6 +11,18 @@ import MTELogo from "../assets/MTE_Logo.png";
 import InteractiveUSMap from "../InteractiveUSMap";
 import InteractiveStateMap from "../InteractiveStateMap";
 
+// Hoverable text with tooltip
+const HoverableText = ({ children, tooltip }) => (
+  <div className="relative inline-flex items-center group">
+    <span className="cursor-help underline decoration-dotted underline-offset-2 decoration-mte-blue">
+      {children}
+    </span>
+    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-2 bg-mte-charcoal text-white text-xs rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
+      {tooltip}
+    </div>
+  </div>
+);
+
 const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   // State for selected metric
   const [selectedMetric, setSelectedMetric] = useState("Count of Family Preservation Cases");
@@ -248,11 +260,6 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           </h1>
           {data.subtitle && (
             <p className="text-sm md:text-base text-mte-charcoal text-center mt-1 md:mt-2 px-4 font-lato">{data.subtitle}</p>
-          )}
-          {showPopulation && (
-            <p className="text-sm md:text-base text-mte-charcoal text-center mt-1 md:mt-2 px-4 font-lato">
-              Population: {data.population.toLocaleString()}
-            </p>
           )}
         </div>
       </header>
@@ -535,48 +542,76 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         </>
       )}
 
-      {/* County-specific: Total Churches Card - Redesigned to match other cards */}
+      {/* County-specific: Total Churches + Population Card */}
       {showCountyDetails && (
         <div className="max-w-7xl mx-auto px-4 mt-6">
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center mx-auto" style={{ maxWidth: '800px' }}>
-            <img src={ChurchIcon} alt="Church" className="mx-auto w-20 h-20 mb-3" />
-            <h3 className="text-lg font-lato font-bold mb-6 text-mte-black text-center">Total Churches</h3>
-            
-            <div className="flex justify-center items-baseline gap-3">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{data.totalChurches}</div>
-              <div className="text-base text-mte-charcoal font-lato">in {data.name}</div>
+            <div className="flex justify-center gap-12">
+              {/* Churches */}
+              <div className="flex flex-col items-center">
+                <img src={ChurchIcon} alt="Church" className="w-20 h-20 mb-3" />
+                <div className="flex items-center gap-1">
+                  <div className="text-xl md:text-2xl font-black text-mte-blue">{data.totalChurches}</div>
+                  <div className="text-base text-mte-charcoal font-lato">Churches</div>
+                </div>
+              </div>
+              
+              {/* Population */}
+              <div className="flex flex-col items-center">
+                <svg className="w-20 h-20 text-mte-charcoal mb-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <div className="flex items-center gap-1">
+                  <div className="text-xl md:text-2xl font-black text-mte-blue">{data.population?.toLocaleString()}</div>
+                  <div className="text-base text-mte-charcoal font-lato">Population</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* Cards - County only (for now, can be extended to state) */}
+      {/* Cards - County only */}
       {showCountyDetails && (
         <main className="max-w-7xl mx-auto px-4 py-6 md:py-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* Foster & Kinship */}
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={FosterKinshipIcon} alt="Foster & Kinship" className="mx-auto w-20 h-20 mb-3" />
-            <h3 className="text-lg font-lato font-bold mb-6 text-mte-black">Foster and Kinship Families</h3>
+            <HoverableText tooltip="Families who provide temporary care for children through formal foster care or informal kinship arrangements with relatives.">
+              <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Foster and Kinship Families</h3>
+            </HoverableText>
 
-            <div className="flex justify-center items-baseline gap-3 mb-6">
+            <div className="flex justify-center items-center gap-1 mb-4">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{data.licensedHomesPerChild}</div>
-              <div className="text-base text-mte-charcoal font-lato">Licensed Homes Per Child in Care</div>
+              <HoverableText tooltip="The ratio of available licensed foster homes to children currently in out-of-home care.">
+                <div className="text-base text-mte-charcoal font-lato">Licensed Homes Per Child in Care</div>
+              </HoverableText>
             </div>
 
-            <div className="grid grid-cols-2 gap-y-2 text-base">
-              <div className="text-left text-mte-charcoal font-lato">Children in Care</div>
+            <div className="grid grid-cols-2 gap-y-1 gap-x-2 text-base max-w-sm mx-auto">
+              <HoverableText tooltip="Total number of children in the foster care system.">
+                <div className="text-left text-mte-charcoal font-lato">Children in Care</div>
+              </HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{data.childrenInCare}</div>
 
-              <div className="text-left text-mte-charcoal font-lato">Children in Family</div>
+              <HoverableText tooltip="Children placed with licensed foster families.">
+                <div className="text-left text-mte-charcoal font-lato">Children in Family</div>
+              </HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{data.childrenInFamily}</div>
 
-              <div className="text-left text-mte-charcoal font-lato">Children in Kinship Care</div>
+              <HoverableText tooltip="Children placed with relatives or family friends.">
+                <div className="text-left text-mte-charcoal font-lato">Children in Kinship Care</div>
+              </HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{data.childrenInKinship}</div>
 
-              <div className="text-left text-mte-charcoal font-lato">Children Out-of-County</div>
+              <HoverableText tooltip="Children from this county placed in care outside county boundaries.">
+                <div className="text-left text-mte-charcoal font-lato">Children Out-of-County</div>
+              </HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{data.childrenOutOfCounty}</div>
 
-              <div className="text-left text-mte-charcoal font-lato">Licensed Homes</div>
+              <HoverableText tooltip="Total number of state-licensed foster homes in this county.">
+                <div className="text-left text-mte-charcoal font-lato">Licensed Homes</div>
+              </HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{data.licensedHomes}</div>
             </div>
           </div>
@@ -584,18 +619,26 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           {/* Adoptive Families */}
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={AdoptiveFamilyIcon} alt="Adoptive Families" className="mx-auto w-20 h-20 mb-3" />
-            <h3 className="text-lg font-lato font-bold mb-6 text-mte-black">Adoptive Families</h3>
+            <HoverableText tooltip="Families who have completed or are in the process of legally adopting children from foster care.">
+              <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Adoptive Families</h3>
+            </HoverableText>
 
-            <div className="flex justify-center items-baseline gap-3 mb-6">
+            <div className="flex justify-center items-center gap-1 mb-4">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{data.waitingForAdoption}</div>
-              <div className="text-base text-mte-charcoal font-lato">Children Waiting For Adoption</div>
+              <HoverableText tooltip="Children whose parental rights have been terminated and are legally free for adoption.">
+                <div className="text-base text-mte-charcoal font-lato">Children Waiting For Adoption</div>
+              </HoverableText>
             </div>
 
-            <div className="grid grid-cols-2 gap-y-2 text-base">
-              <div className="text-left text-mte-charcoal font-lato">Children Adopted in 2024</div>
+            <div className="grid grid-cols-2 gap-y-1 gap-x-4 text-base max-w-md mx-auto">
+              <HoverableText tooltip="Number of finalized adoptions in the current year.">
+                <div className="text-left text-mte-charcoal font-lato">Children Adopted in 2024</div>
+              </HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{data.childrenAdopted2024}</div>
 
-              <div className="text-left text-mte-charcoal font-lato">Average Months to Adoption</div>
+              <HoverableText tooltip="Average time from termination of parental rights to finalized adoption.">
+                <div className="text-left text-mte-charcoal font-lato">Average Months to Adoption</div>
+              </HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{data.avgMonthsToAdoption}</div>
             </div>
           </div>
@@ -603,34 +646,48 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           {/* Support for Biological Families */}
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={BiologicalFamilyIcon} alt="Biological Families" className="mx-auto w-20 h-20 mb-3" />
-            <h3 className="text-lg font-lato font-bold mb-6 text-mte-black">Support for Biological Families</h3>
+            <HoverableText tooltip="Services and support provided to birth parents working toward reunification with their children.">
+              <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Support for Biological Families</h3>
+            </HoverableText>
 
-            <div className="flex justify-center items-baseline gap-3 mb-6">
+            <div className="flex justify-center items-center gap-1 mb-4">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{data.familyPreservationCases}</div>
-              <div className="text-base text-mte-charcoal font-lato">Family Preservation Cases</div>
+              <HoverableText tooltip="Active cases providing intensive services to prevent foster care placement.">
+                <div className="text-base text-mte-charcoal font-lato">Family Preservation Cases</div>
+              </HoverableText>
             </div>
 
-            <div className="flex justify-center items-baseline gap-3">
+            <div className="flex justify-center items-center gap-1">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{data.reunificationRate}%</div>
-              <div className="text-base text-mte-charcoal font-lato">Biological Family Reunification Rate</div>
+              <HoverableText tooltip="Percentage of children who successfully return to their birth families.">
+                <div className="text-base text-mte-charcoal font-lato">Biological Family Reunification Rate</div>
+              </HoverableText>
             </div>
           </div>
 
           {/* Wraparound Support */}
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={WrapAroundIcon} alt="Wraparound Support" className="mx-auto w-20 h-20 mb-3" />
-            <h3 className="text-lg font-lato font-bold mb-6 text-mte-black">Wraparound Support</h3>
+            <HoverableText tooltip="Comprehensive community-based support services for all families involved in foster care.">
+              <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Wraparound Support</h3>
+            </HoverableText>
 
-            <div className="flex justify-center items-baseline gap-3 mb-6">
+            <div className="flex justify-center items-center gap-1 mb-4">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{data.supportPercentage}%</div>
-              <div className="text-base text-mte-charcoal font-lato">Churches Providing Support</div>
+              <HoverableText tooltip="Percentage of local churches actively engaged in foster care ministry.">
+                <div className="text-base text-mte-charcoal font-lato">Churches Providing Support</div>
+              </HoverableText>
             </div>
 
-            <div className="grid grid-cols-2 gap-y-2 text-base">
-              <div className="text-left text-mte-charcoal font-lato">Churches Providing Support</div>
+            <div className="grid grid-cols-2 gap-y-1 gap-x-4 text-base max-w-md mx-auto">
+              <HoverableText tooltip="Number of churches with active foster care support programs.">
+                <div className="text-left text-mte-charcoal font-lato">Churches Providing Support</div>
+              </HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{data.churchesProvidingSupport}</div>
 
-              <div className="text-left text-mte-charcoal font-lato">Total Churches</div>
+              <HoverableText tooltip="Total number of churches in this county.">
+                <div className="text-left text-mte-charcoal font-lato">Total Churches</div>
+              </HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{data.totalChurches}</div>
             </div>
           </div>

@@ -14,6 +14,11 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
     { id: "download", label: "Download Data", icon: DownloadIcon },
   ];
 
+  // Hide historic button on national view
+  const visibleNavButtons = currentRegion === "national" 
+    ? navButtons.filter(btn => btn.id !== "historic")
+    : navButtons;
+
   const handleNationalView = () => {
     onSelectRegion({ level: "national", id: "usa", name: "United States" });
     onSwitchView("organizational");
@@ -119,7 +124,7 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
 
       {/* Navigation Buttons - Horizontal scroll on mobile */}
       <div className="flex gap-2 md:gap-3 overflow-x-auto pb-2 md:pb-0">
-        {navButtons.map((btn) => (
+        {visibleNavButtons.map((btn) => (
           <button
             key={btn.id}
             onClick={() => onSwitchView(btn.id)}

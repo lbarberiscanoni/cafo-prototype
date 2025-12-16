@@ -180,30 +180,30 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
       const getResponsiveParams = (isSmallState) => {
         if (isMobile) {
           return {
-            width: isSmallState ? 24 : 28,
-            height: 22,
-            fontSize: isSmallState ? '9px' : '10px',
-            yOffset: -11,
-            yOffsetHover: -13,
-            borderHeight: 2.5
+            width: isSmallState ? 20 : 24,
+            height: 18,
+            fontSize: isSmallState ? '8px' : '9px',
+            yOffset: -9,
+            yOffsetHover: -11,
+            borderHeight: 2
           };
         } else if (isTablet) {
           return {
-            width: isSmallState ? 28 : 32,
-            height: 25,
-            fontSize: isSmallState ? '10px' : '11px',
-            yOffset: -12.5,
-            yOffsetHover: -14.5,
-            borderHeight: 3
+            width: isSmallState ? 24 : 28,
+            height: 20,
+            fontSize: isSmallState ? '9px' : '10px',
+            yOffset: -10,
+            yOffsetHover: -12,
+            borderHeight: 2.5
           };
         } else {
           return {
-            width: isSmallState ? 32 : 36,
-            height: 28,
-            fontSize: isSmallState ? '11px' : '13px',
-            yOffset: -14,
-            yOffsetHover: -16,
-            borderHeight: 4
+            width: isSmallState ? 26 : 30,
+            height: 22,
+            fontSize: isSmallState ? '10px' : '11px',
+            yOffset: -11,
+            yOffsetHover: -13,
+            borderHeight: 3
           };
         }
       };

@@ -150,52 +150,37 @@ const createDotIcon = (category, size = "16px") => {
   });
 };
 
-// Create clickable state text label with elevated card design
+// Create clickable state text label - embedded style for national map
 const createStateTextLabel = (stateCode) => {
   // Responsive scaling based on screen width
   const isMobile = window.innerWidth < 768;
   const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
   
-  let fontSize, padding, minWidth, borderWidth;
+  let fontSize;
   
   if (isMobile) {
-    fontSize = '10px';
-    padding = '4px 6px 6px 6px';
-    minWidth = '28px';
-    borderWidth = '3px';
-  } else if (isTablet) {
     fontSize = '11px';
-    padding = '5px 7px 7px 7px';
-    minWidth = '32px';
-    borderWidth = '3.5px';
-  } else {
+  } else if (isTablet) {
     fontSize = '13px';
-    padding = '6px 10px 10px 10px';
-    minWidth = '36px';
-    borderWidth = '4px';
+  } else {
+    fontSize = '15px';
   }
   
   return new L.DivIcon({
-    className: "state-text-label",
+    className: "state-text-label-embedded",
     html: `<div style="
       font-family: 'Lato', sans-serif;
-      font-weight: 600;
+      font-weight: 700;
       font-size: ${fontSize};
       color: #5c5d5f;
       text-align: center;
       cursor: pointer;
       user-select: none;
-      padding: ${padding};
-      background: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-      min-width: ${minWidth};
-      position: relative;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), -1px -1px 2px rgba(255, 255, 255, 0.8);
       transition: all 0.15s ease;
-      border-bottom: ${borderWidth} solid #02ADEE;
-    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.15)';">${stateCode}</div>`,
-    iconSize: [40, 32],
-    iconAnchor: [20, 16],
+    " onmouseover="this.style.color='#02ADEE'; this.style.transform='scale(1.1)';" onmouseout="this.style.color='#5c5d5f'; this.style.transform='scale(1)';">${stateCode}</div>`,
+    iconSize: [40, 20],
+    iconAnchor: [20, 10],
   });
 };
 
@@ -804,8 +789,8 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     </>
                   )}
                   
-                  {/* Connection Lines - Enhanced for better visibility */}
-                  {connectionLines.map((connection, index) => (
+                  {/* Connection Lines - HIDDEN FOR NOW */}
+                  {/* {connectionLines.map((connection, index) => (
                     <Polyline
                       key={`connection-${index}`}
                       positions={[connection.from, connection.to]}
@@ -822,10 +807,10 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         </div>
                       </Tooltip>
                     </Polyline>
-                  ))}
+                  ))} */}
                   
-                  {/* Organization Markers */}
-                  {filteredOrgs.map((org) => (
+                  {/* Organization Markers - HIDDEN FOR NOW */}
+                  {/* {filteredOrgs.map((org) => (
                     <Marker key={org.name} position={org.coords} icon={createDotIcon(org.category)}>
                       <Tooltip>
                         <div className="font-lato text-sm">
@@ -834,7 +819,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         </div>
                       </Tooltip>
                     </Marker>
-                  ))}
+                  ))} */}
                 </>
               )}
             </MapContainer>
@@ -842,11 +827,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
             {/* Status indicators - County only */}
             {showCountyMap && (
               <div className="mt-3 flex flex-wrap gap-2 text-sm font-lato">
-                {showConnectionLines && connectionLines.length > 0 && (
-                  <span className="px-2 py-1 bg-mte-blue-20 text-mte-charcoal rounded">
-                    {connectionLines.length} Connection Lines Active
-                  </span>
-                )}
                 {showLocalNetworks && (
                   <span className="px-2 py-1 bg-mte-green-20 text-mte-charcoal rounded">
                     2 Local Networks Visible

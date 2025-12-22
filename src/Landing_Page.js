@@ -4,7 +4,7 @@ import * as topojson from "topojson-client";
 import MTELogo from "./assets/MTE_Logo.png";
 import MapPin from "./assets/Map_Pin_icon.png";
 import CountySelect from "./CountySelect";
-import { countyData, stateData } from "./mock-data";
+import { countyData, stateData } from "./real-data.js";
 
 export default function LandingPage({ onSelectRegion, onExploreMap }) {
   const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { countyData, stateData, nationalStats } from "../mock-data";
+import { countyData, stateData, nationalStats } from "../real-data.js";
 
 // Assets
 import ChurchIcon from "../assets/church_icon.png";

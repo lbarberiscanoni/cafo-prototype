@@ -12,7 +12,7 @@ import OrganizationalView from "./views/OrganizationalView";
 import HistoricView from "./views/HistoricView";
 
 // Import data for looking up names
-import { stateData, countyData, stateNameToCode } from "./mock-data";
+import { stateData, countyData, stateNameToCode } from "./real-data.js";
 
 // View component mapping
 const VIEW_COMPONENTS = {

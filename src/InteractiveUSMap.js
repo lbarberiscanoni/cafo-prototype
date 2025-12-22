@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
-import { getStateMapData } from './mock-data';
+import { getStateMapData } from './real-data.js';
 
 // Get state data from mock-data
 const stateData = getStateMapData();

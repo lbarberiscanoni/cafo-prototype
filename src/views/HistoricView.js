@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { countyData } from "../mock-data";
+import { countyData } from "../real-data.js";
 
 // Assets
 import FosterKinshipIcon from "../assets/FosterKinship_icon.png";

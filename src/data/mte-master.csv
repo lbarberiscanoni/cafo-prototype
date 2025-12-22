@@ -1,0 +1,946 @@
+id,name,is_organization,is_network,address,city,state,zip,city_state_zip,latitude,longitude,use_latlong,county_name,county,website,category,activity_recruit_foster_kinship,activity_recruit_adoptive,activity_bio,activity_support,activity_all,official_foster_ministry,contact_name,contact_title,contact_email,member,church_ministry_name,connections_local,connections_state,connections_name,network_member,network_name,on_map
+1,Child Welfare Team Huddle,,1,,,OH,45490,,,,,Montgomery,Montgomery County,,Local Network,,,,,,,,,,,,,,,,,Yes
+2,Every Child Arkansas,,1,,,AR,72002,,,,,Pulaski,Pulaski County,,State/Regional Network,,,,,,,,,,,,,,,,,Yes
+3,Every Child Indiana,,1,,,IN,46077,,,,,Marion,Marion County,,State/Regional Network,,,,,,,,,,,,,,,,,Yes
+4,Every Child Oregon,,1,,,OR,97035,,,,,Multnomah,Multnomah County,,State/Regional Network,,,,,,,,,,,,,,,,,Yes
+5,For Richmond,1,,,,VA,,,,,,,,,Bridge Organization,,,,,,,,,,,,,,,,,No
+7,The Restore Network,1,,,,,,,,,,,,,Bridge Organization,,,,,,,Ashley Alm,,aalm@therestorenetwork.org,,,,,,,,No
+8,Project 1.27,,1,,,CO,,,,,,Denver,"Denver County, CO",,Regional Network,,,,,,,,,,,,,,,,,No
+35,Empty Frames Initiative,1,,"PO Box 576, Knightdale, NC 27545",Knightdale,NC,27545,"Knightdale, NC 27545",35.788031,-78.459605,,Wake,Wake County,fillingemptyframes.org,Service Organization,Yes,,Yes,Yes,,,Miriam Cobb,Founder & Director,miriam@fillingemptyframes.org,Yes,,"Buncombe County DHHS, Henderson County DHHS, Transylvania County DHHS, Polk County DHHS, Avery County DHHS, Watagua County DHHS, Mitchell County DHHS, Yancey County DHHS, Forsyth County DHHS, Gilford County DHHS, Lincoln County DHHS, Black Mountain Home for Children, Thompson Child & Family Focus Services, Henderson County Foster Parent Association, Least of These Carolinas, Arbordale Presbyterian, Banner Elk Christian Fellowship, Boone UMC, Faith Bridge UMC, First Baptist Church on 5th, Green St UMC, Heaton Christian Church, New Day Community Church, Newland Presbyterian, Parkway UCC, Columbus United Methodist, Congregational Church, East Flat Rock Baptist, First Congregational Church Hendersonville, First United Methodist Brevard, First United Methodist Hendersonville, Grace Lutheran Church, Lewisville UMC, Providence Baptist Church, Saluda UMC, Upward Christian Fellowship, Wesley Memorial UMC, Living Word Fellowship Church, Mt. Tabor UMC, WS 7th Day Adventist, Eden UMC, Clemmons UMC","Foster Family Alliance of NC, Duke Endowment",,,,Yes
+71,Crossnore Communities for Children,1,,"100 DAR Drive, Newland, NC 28657",Newland,NC,28657,"Newland, NC 28657",36.02415,-81.929717,,Avery,Avery County,crossnore.org,Placement Agency,Yes,Yes,Yes,Yes,,,Angela Bollo,Fostering Communities Officer,abollo@crossnore.org,No,,"Buncombe County DHHS, Henderson County DHHS, Transylvania County DHHS, Polk County DHHS, Avery County DHHS, Watagua County DHHS, Mitchell County DHHS, Yancey County DHHS, Forsyth County DHHS, Gilford County DHHS, Lincoln County DHHS, Black Mountain Home for Children, Thompson Child & Family Focus Services, Henderson County Foster Parent Association, Least of These Carolinas, Arbordale Presbyterian, Banner Elk Christian Fellowship, Boone UMC, Faith Bridge UMC, First Baptist Church on 5th, Green St UMC, Heaton Christian Church, New Day Community Church, Newland Presbyterian, Parkway UCC, Columbus United Methodist, Congregational Church, East Flat Rock Baptist, First Congregational Church Hendersonville, First United Methodist Brevard, First United Methodist Hendersonville, Grace Lutheran Church, Lewisville UMC, Providence Baptist Church, Saluda UMC, Upward Christian Fellowship, Wesley Memorial UMC, Living Word Fellowship Church, Mt. Tabor UMC, WS 7th Day Adventist, Eden UMC, Clemmons UMC","Foster Family Alliance of NC, Duke Endowment",,,,Yes
+72,Crossnore Communities for Children,1,,"1001 Reynolda Road, Winston-Salem, NC 27104",Winston-Salem,NC,27104,"Winston-Salem, NC 27104",36.11166,-80.263601,,Forsyth,Forsyth County,crossnore.org,Placement Agency,Yes,Yes,Yes,Yes,,,Angela Bollo,Fostering Communities Officer,abollo@crossnore.org,No,,"Project 1.27 works directly with 9 counties and 8 CPAs in the Denver Metro area, Northern Colorado and Mesa County. We work with dozens of churches throughout that geographic area.","Project 1.27 works with CDHS, Raise the Future, various CASA organizations.",Members of the 1.27 National Network and MTE collaborative organizations,,,Yes
+84,Keystone Family Alliance - Erie County,1,,"Erie, PA",Erie,PA,16501,"Erie, PA 16501", , ,,Erie,Erie County,keyfam.org/county/erie,Service Organization,Yes,Yes,,Yes,,,Vince Smith,Executive Director,vince@keyfam.org,Yes,,"International Christian Adoptions, Riverside County DSS, San Bernardino County DSS, Orange County DSS, Care Portal",,CAFO,,,Yes
+85,Keystone Family Alliance - Clarion County,1,,"Clarion, PA",Clarion,PA,16214,"Clarion, PA 16214", , ,,Clarion,Clarion County,keyfam.org/county/clarion,Service Organization,Yes,Yes,,Yes,,,Vince Smith,Executive Director,vince@keyfam.org,Yes,,,,,,,Yes
+86,Keystone Family Alliance - Indiana County,1,,"Smicksburg, PA",Smicksburg,PA,16256,"Smicksburg, PA 16256", , ,,Indiana,Indiana County,keyfam.org/county/indiana,Service Organization,Yes,Yes,,Yes,,,Vince Smith,Executive Director,vince@keyfam.org,Yes,,,,,,,Yes
+87,Keystone Family Alliance - Somerset County,1,,"Somerset, PA",Somerset,PA,15501,"Somerset, PA 15501", , ,,Somerset,Somerset County,keyfam.org/county/somerset,Service Organization,Yes,Yes,,Yes,,,Vince Smith,Executive Director,vince@keyfam.org,Yes,,,,,,,Yes
+88,Keystone Family Alliance - Blair County,1,,"Altoona, PA",Altoona,PA,16601,"Altoona, PA 16601", , ,,Blair,Blair County,keyfam.org/county/blair,Service Organization,Yes,Yes,,Yes,,,Vince Smith,Executive Director,vince@keyfam.org,Yes,,,,,,,Yes
+89,Keystone Family Alliance - Mifflin County,1,,"Lewistown, PA",Lewistown,PA,17044,"Lewistown, PA 17044", , ,,Mifflin,Mifflin County,keyfam.org/county/mifflin,Service Organization,Yes,Yes,,Yes,,,Vince Smith,Executive Director,vince@keyfam.org,Yes,,,,,,,Yes
+90,Keystone Family Alliance - Cumberland County,1,,"Mechanicsburg, PA",Mechanicsburg,PA,17055,"Mechanicsburg, PA 17055", , ,,Cumberland,Cumberland County,keyfam.org/county/cumberland,Service Organization,Yes,Yes,,Yes,,,Vince Smith,Executive Director,vince@keyfam.org,Yes,,,,,,,Yes
+91,Keystone Family Alliance - Lancaster County,1,,"Lancaster, PA",Lancaster,PA,17601,"Lancaster, PA 17601", , ,,Lancaster,Lancaster County,keyfam.org/county/lancaster,Service Organization,Yes,Yes,,Yes,,,Vince Smith,Executive Director,vince@keyfam.org,Yes,,,,,,,Yes
+92,Keystone Family Alliance - Lehigh County,1,,"Allentown, PA",Allentown,PA,18103,"Allentown, PA 18103", , ,,Lehigh,Lehigh County,keyfam.org/county/lehigh,Service Organization,Yes,Yes,,Yes,,,Vince Smith,Executive Director,vince@keyfam.org,Yes,,,,,,,Yes
+93,Keystone Family Alliance - York County,1,,"York, PA",York,PA,17401,"York, PA 17401", , ,,York,York County,keyfam.org,Service Organization,Yes,Yes,,Yes,,,Vince Smith,Executive Director,vince@keyfam.org,Yes,,,,,,,Yes
+94,Keystone Family Alliance - Lebanon County,1,,"Lebanon, PA",Lebanon,PA,17042,"Lebanon, PA 17042", , ,,Lebanon,Lebanon County,keyfam.org,Service Organization,Yes,Yes,,Yes,,,Vince Smith,Executive Director,vince@keyfam.org,Yes,,,,,,,Yes
+101,The CALL,1,,PO Box 25524 Little Rock AR 25524,Little Rock,AR,25524,,,,,,,http://thecallinarkansas.org,Bridge Organization,,,,,,,Michelle Douglas,,mdouglas@thecallinarkansas.org,Yes,,,,,Yes,Every Child Arkansas,No
+104,CarePortal Direct,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+105,The Gathering - A Christian Community,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+124,CarePortal Direct Carolinas,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+125,Children's Coalition of Aransas County,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+127,City Rescue Mission,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+128,Commission 127,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+130,Connect South Central Tennessee,1,,,,,,,,,,,,,,,,,,,,,,,Yes,,,,,,,No
+131,Coyote Hill,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+133,Every Day Jesus,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+135,Josiah White's,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+136,MBCH Children and Family Ministries,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+137,Nehemiah Foundation,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+138,Obria Medical Clinic of Ames,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+139,OMN Father's Heart,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+141,OneFamily,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+142,Our Forever Hope,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+145,Restored Church,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+147,The Hub 585,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+148,"The Nest Lake City, Inc.",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+149,We Are the ECHO,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+150,111Project Florida,1,,,,FL,,,,,,,,,,,,,,,,,,,,,,,,,,No
+151,Agape Pregnancy Resource Center,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+152,Arkansas Dream Center,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+153,Arkansas Family Alliance,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+155,Beautiful Redemption,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+158,Bridge a Life,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+158,Restore Hope,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,Yes,Every Child Arkansas,No
+159,The Riverside Project,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,Yes,,No
+161,California's Kids Belong,1,,,,,,,,,,,,,,,,,,,,Connie Lannom,,Clannom@cakidsbelong.org,,,,,,,,No
+163,Kansas Kids Belong,1,,,,,,,,,,,,,,,,,,,,Lacy Paredes,,lparedes@kskidsbelong.org,,,,,,,,No
+164,Kentucky's Kids Belong,1,,,,,,,,,,,,,,,,,,,,Dayna Gleason,,dgleason@kykidsbelong.org,,,,,,,,No
+165,Louisiana's Kids Belong,1,,,,,,,,,,,,,,,,,,,,Tony Streetman,,tony.streetman@uniteministries-louisiana.org,,,,,,,,No
+166,Oklahoma's Kids Belong,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+167,South Dakota's Kids Belong,1,,,,,,,,,,,,,,,,,,,,Damen Woolsey,,dwoolsey@sdkidsbelong.org,,,,,,,,No
+169,Utah's Kids Belong,1,,,,,,,,,,,,,,,,,,,,Brianna Bray,,bbray@utkidsbelong.org,,,,,,,,No
+170,Virginia's Kids Belong,1,,,,,,,,,,,,,,,,,,,,Janet Kelly,,janet@vakidsbelong.org ,,,,,,,,No
+171,America World Adoption Agency,1,,,,,,,,,,,,,,,,,,,,Anna Graham,,anna@awaa.org,,,,,,,,No
+172,America's Kids Belong,1,,,,,,,,,,,,,,,,,,,,Brian Mavis                    ,,bmavis@amkidsbelong.org,,,,,,,,No
+173,Anglicans for Life,1,,,,,,,,,,,,,,,,,,,,Johnston Moore,,adoption@anglicansforlife.org,,,,,,,,No
+176,"Be the Village, Inc.",1,,,,,,,,,,,,,,,,,,,,Stephanie Roberts,,stephanie@bethevillageky.com,No,,,,,,,No
+178,Bethany Christian Services of Northern New England,1,,,,,,,,,,,,,,,,,,,,Cindy Thomas,,cthomas@bethany.org,,,,,,,,No
+180,"Champion for Children Foundation of Highlands County, Inc.",1,,,,,,,,,,,,,,,,,,,,Carissa Marine,,CarissaJMarine@gmail.com,,,,,,,,No
+184,"Chosen Care, Inc.",1,,,,,,,,,,,,,,,,,,,,Kim Miller,,grant@chosen.care,,,,,,,,No
+185,Christian Homes & Family Services,1,,,,,,,,,,,,,,,,,,,,Anna Thomas,,athomas@christianhomes.com,,,,,,,,No
+186,Circle of Care,1,,,,,,,,,,,,,,,,,,,,Jason Grewe,,jason.grewe@circleofcare.org,,,,,,,,No
+187,Compassion Effect Inc.,1,,,,,,,,,,,,,,,,,,,,Theodore Stackpole,,tstackpole@agfsa.org,,,,,,,,No
+188,Compelled to Care,1,,,,,,,,,,,,,,,,,,,,Ashley Wambach,,ashley.wambach@evergreenpnw.com,,,,,,,,No
+189,ECHO Orphancare Partners,1,,,,,,,,,,,,,,,,,,,,Randall Nichols,,randall@wearetheecho.org,,,,,,,,No
+190,Eckerd Connects,1,,,,,,,,,,,,,,,,,,,,Kyle Dahl,,kyledahl@hotmail.com,,,,,,,,No
+191,Ennis Center for Children,1,,,,,,,,,,,,,,,,,,,,Anita Hyde,,ahyde@fcnp.org,,,,,,,,No
+192,Family Life Missions,1,,,,,,,,,,,,,,,,,,,,Lisa Steele,,lisas@familylifemissions.org,Yes,,,,,,,No
+193,Florida 1.27,1,,,,,,,,,,,,,,,,,,,,Brian Strawser,,brian.strawser@florida127.org,No,,,,,,,No
+195,Foster Guardian and Hillsborough County Family Partnership Alliance,1,,,,,,,,,,,,,,,,,,,,Brandon Mead,,bmead@fosterguardian.org,,,,,,,,No
+196,Foster Progress,1,,,,,,,,,,,,,,,,,,,,Kate Danielson,,kate@foster-progress.org,,,,,,,,No
+197,Foster Source,1,,,,,,,,,,,,,,,,,,,,,,info@fostersource.org,,,,,,,,No
+198,"Fostering Faithful Families
+One Heart Family Ministries",1,,,,,,,,,,,,,,,,,,,,Gerilyn Ahrens,,gerilynahrens@hotmail.com,,,,,,,,No
+199,Fostering Family Ministries,1,,,,,,,,,,,,,,,,,,,,Sherry Bouquet,,info@fosteringfamilyministries.org,,,,,,,,No
+200,Fostering Hope - LA,1,,,,,,,,,,,,,,,,,,,,Debbie Stromwall,,debbie@fosteringhopela.org,,,,,,,,No
+201,Fostering Hope -TX,1,,,,,,,,,,,,,,,,,,,,Julie Kouri,,julie@iamfosteringhope.org ,,,,,,,,No
+203,Fostering Together - Northpoint Community Church,1,,,,,,,,,,,,,,,,,,,,Lesli Reece,,lesli.reece@northpointministries.net,,,,,,,,No
+204,Geary Foster Foundations,1,,,,,,,,,,,,,,,,,,,,Susie Black Holamon,,info@gearyfosterfoundations.com,,,,,,,,No
+205,Project 1.27,1,,"14000 E Jewell Ave, Aurora, CO 80012",Aurora,CO,80012,"Aurora, CO 80012",39.681866,-104.826965,,Arapahoe,Arapahoe County,project127.org,Bridge Ministry,Yes,Yes,,Yes,,,Shelly Radic,President,sradic@project127.org,Yes,,,,,Yes ,Weld County Collaboration,Yes
+208,Embrace Texas,1,,"114 E. Louisiana Street, Suite 202 McKinney TX 75069",McKinney,TX,75069,"McKinney, TX 75069",33.197127,-96.615241,,Collin,Collin County,embracetexas.org,Bridge Ministry,Yes,Yes,,Yes,,,Denise Kendrick,Executive Director,denise@embracetexas.org,No,,"Restore Texas Families, Unite Dallas,  Hope Local, DFPS, Tapestry, CASA of Collin County, Family Restoration at Watermark, Direction 61:3,  Child Protection Roundtable, and many local congregations.","Restore Texas Families, Fostering Hope Austin, South Texas Orphan Care Alliance, Fostering Family (Houston), The Fostering Collective, CASA of Collin County,",Ticket to Dream,,,Yes
+209,Project Belong VA,1,,"1911 N. Van Buren St., McLean, VA 22101",McLean,VA,22101,"McLean, VA 22101",38.884807,-77.159132,,Arlington,Arlington County,projectbelongva.org,Bridge Ministry,Yes,Yes,Yes,Yes,,,Chris Seaton,Director,chris@projectbelongva.org,Yes,,"Arlington, Alexandria, Fairfax, Loudoun, Prince William, Winchester, Clarke, Frederick Counties
+NVFS, Catholic Social Services, UMFS, Impact Living, Individual aged out youth.
+
+We work with 65-70 churches in the northern region of VA.","Virginia Kids Belong, Redeemed Network, Entrusted Network, We are the Echo, 127 Place, Patrick Henry Social Services","CAFO, Promise 686, Project 127",Yes,Fairfax County Collaboration,Yes
+211,1HOPE,1,,"PO Box 1513, Kenosha, WI 53140",Kenosha,WI,53140,"Kenosha, WI 53140",42.622449,-87.830375,,Kenosha,Kenosha County,1hope.community,Bridge Ministry,Yes,,,Yes,,,Susan Wimmer,Foster Family Support Network Director,swimmer@1hope.community,No,,"Kenosha County Division of Children & Family Services (DCFS), Community Impact Programs (CIP), Journey Church, Living Light Christian Church, Daybreak Church, Christ the King Church",State of Wisconsin through Act 260 funding,,,,Yes
+212,Orphan Care Alliance,1,,"115 N. Watterson Trail, Suite 201",Louisville,KY,40243,"Louisville, KY 40243",38.2428,-85.54257,,Jefferson,Jefferson County,orphancarealliance.org/,Bridge Ministry,Yes,Yes,Yes,Yes,,,Bryan Proctor,Director of Ministry Development & Church Engagement,bryan.proctor@orphancarealliance.org,Yes,,"Kentucky (KY) Churches (Serving Churches in 120 Counties - KY)
+Indiana (IN) Churches (Serving Churches in 5 Counties - IN)
+Be the Village
+Justin's Place
+Engage Equine Assisted Services
+Hooves of Hope
+Father Maloney's Boys and Girls Haven
+Home of the Innocents
+Kentucky United Methodist Homes
+NECCO
+Nightlight Christian Adoptions
+Omni Visions
+Ramey Estep Homes
+St. Joseph Children's Home
+Sunrise Children's Services
+The Bair Foundation
+Kulima Care
+All God's Children
+Diocesan Catholic Children's Home
+Hope Hill
+Lexington Leadership Foundation
+Appalachian Children's Home
+Brooklawn
+Buckhorn Children's Services
+Gateway Children's Services
+Maryhurst
+StepStone
+Mountainn Comprehensive Care","Kentucky (KY) DCBS/CPS   (120 Counties - KY)
+Indiana (IN) DCS (5 Counties - IN)
+Kentucky (KY) Family Resource and Youth Services (FRYSC)   (120 Counties - KY)
+PCP's Mentioned in Previous Question Above Qualify as Statewide Organizations","Focus on the Family
+Meet the Need
+Lifesong
+LifeLine Children's Service
+CAFO",,,Yes
+215,Fostering the Family,1,,"215 Green Valley Rd. , Anderson, SC 29621",Anderson,SC,29621,"Anderson, SC 29621",34.54224,-82.594062,,Anderson,Anderson County,fosteringthefamily.org,Bridge Ministry,,,Yes,Yes,,,Kim Trainer,CEO,kim@fosteringthefamily.org,Yes,,"We are in 5 counties in South Carolina. 
+York County- Founded in Truth, Elevation Riverwalk
+Chester County- Harmony Baptist Church
+Richland County- 1st Baptist Columbia, Gracelife church
+Anderson County- NewSpring Church
+Spartanburg County- Church at the Mill","Palmetto Family Council
+Flouring Families
+PS I love you
+Oasis of Hope
+Miracle Hill
+Fostering Great Ideas
+Least of These Carolinas
+Defenders of the Fatherless
+Congregation for Kids
+A Home for Me
+Foster Village Charlotte","Promise 686
+CAFO
+ECFA",,,Yes
+227,First Baptist Church,1,,"539 Jacksonville Rd., Bellefonte, PA 16823",Bellefonte,PA,16823,"Bellefonte, PA 16823",40.92811,-77.752431,,Centre,Centre County,,Church Foster Care Ministry,Yes,Yes,,Yes,,No,,,,,,"Centre County Orphan Care Alliance 
+Children and Youth Services
+Family Intervention Crisis Services",PA Orphan Care Alliance,,,,Yes
+229,Compass,1,,"514 W 11th St Kearney, NE 68845",Kearney,NE,68845,"Kearney, NE 68845",40.68491,-99.088959,,Buffalo,Buffalo County,compassnebraska.org,Service Organization,Yes,,Yes,Yes,,,Savannah Lyon,Director of Engagement and Promotions,savannah@compassnebraska.org,Yes,,"6 counties in Nebraska- CarePortal and multiple churches in those counties,",DHHS- state of Nebraska children and family services,"Cafo, CarePortal",,,Yes
+230,Coalition of Care,1,,"5809 Montgomery Rd., Cincinnati, OH 45059",Cincinnati,OH,45242,"Cincinnati, OH 45242",39.178758,-84.436366,,Hamilton,Hamilton County,coalitionofcare.org,Service Organization,Yes,Yes,Yes,Yes,,,Renae Denbow,Regional manager Ambassador,renae@careportal.org,No,,Too many churches to list.,"Hamilton County JFS, Little Miami schools, Middletown city schools, cincinnati public schools, Beechacres, safe families, New Hope","CarePortal, promise 686, safe families",,,Yes
+236,Fostering Family Ministries,1,,,,,,,,,,,,,,,,,,,,WC Martin,Bishop,rmartin@bcministry.org,,,Global Orphan Project/Care Portal,,,,,No
+237,Get Too Attached,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No
+238,Bennett Chapel,1,,P.O. Box 1147 Center Texas 75935,Center,TX,75935,"Center, TX 75935",31.780781,-94.235334,,Shelby,Shelby County,bcministry.org,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,WC Martin,Bishop,rmartin@bcministry.org,,Saving A Generation Ministry,,,,,,Yes
+243,More Than Enough Ministries,1,,"1889 Summitview Dr, St. Charles MO 63303",St. Charles,MO,63303,"St. Charles, MO 63303",38.758038,-90.519908,,St. Charles,St. Charles County,mo-morethanenough.com,Service Organization,Yes,Yes,Yes,Yes,,,Janiece Wieschhaus,Director,mo_morethanenough@yahoo.com,No,,,,,,,Yes
+245,Every Child,1,,"500 CrossPoint Parkway Getzville, NY 14068",Getzville,NY,14068,"Getzville, NY 14068",43.045536,-78.743658,,Erie,Erie County,every-child.com,Bridge Ministry,Yes,Yes,Yes,Yes,,,Steve Poissant,Executive Director,steve@every-child.com,No,,"Counties involved with Niagara, Erie, Chautauqua, Cattaraugus, Wyoming, Genesse
+
+The Chapel, Watermark, Westfield Baptist, many others",OCFS,,,,Yes
+246,Foster One,1,,"1125 Geranium Ave E, St. Paul, 	MN 	55106",St. Paul,MN,55106,"St. Paul, MN 55106",44.97598,-93.052938,,Ramsey,Ramsey County,fosteroneministries.com,Bridge Ministry,Yes,Yes,Yes,Yes,,,Mike Evans,Founder,Mike.evans@fosteroneministries.com,Yes,,,,,,,Yes
+248,Redeemed Network (Organization Dissolved),1,,7930 Dowd Farm Rd,Spotsylvania,VA,22551,"Spotsylvania, VA 22551",,,,Spotsylvania,Spotsylvania County,redeemednetwork.org,Bridge Ministry,Yes,Yes,Yes,Yes,,,Rachal Pollard,Executive Director,rpollard@redeemednetwoek.org,No,,"Spotswood Baptist Interwoven Ministry,
+New Life in Christ Abundant Ministry, 
+Mercy Hill Community Church Brace Ministry,
+Stafford Crossing Community Church
+Grace Church Fredericksburg
+Calvary Chapel Fredericksburg Lifeline Ministry 
+New City Church
+Redeemer Bible Church
+Transitions4you 
+Beauty for Ashes
+Providence Bible Church",Virginia Kids Belong,"CAFO
+CarePortal",,,No
+252,Restoration225,1,,"PO Box 578 Lakeside, CA 92040",Lakeside,CA,92040,"Lakeside, CA 92040",32.893498,-116.898945,,San Diego,San Diego County,restoration225.com,Service Organization,Yes,,Yes,,,,Emily Tupta,Church Engagement Coordinator,emilytupta@restoration225.org,Yes,,The YMCA kinship navigation program is the main source of linking arms with families.,Health and Human Services,CAFO,,,Yes
+253,ABBA Fund - For the Orphan Network,1,,"1323 E Downington Ave., Salr Lake City, UT. 84105",Salt Lake City,UT,84105,"Salt Lake City, UT 84105",40.73082,-111.852969,,Salt Lake,Salt Lake County,abbafund.org/fortheorphan,Service Organization,Yes,Yes,Yes,Yes,,,Amy King,Director,amy.king@careportal.org,Yes,,,,,,,Yes
+257,Hands of Hope,1,,"14350 Mundy Drive, Suite 800 #119,  Noblesville, IN 46060",Noblesville,IN,46060,"Noblesville, IN 46060",39.996991,-86.002375,,Hamilton,Hamilton County,handsofhopein.org,Bridge Ministry,,,,Yes,,,Amy Jo Fox,Care communities and communications director,amyjo@handsodhopein.org,Yes,,,,,,,Yes
+258,Marshall County Foster Closet,1,,5360 9B RD Bourbon IN 46504,Bourbon,IN,46504,"Bourbon, IN 46504",41.34093,-86.161611,,Marshall,Marshall County,,Service Organization,,,,Yes,,,Melissa Bachtel,Leader,jmbachtel@embarqmail.com,No,,Just trying to get started,,,,,Yes
+262,Grace Church - Eden Prairie,1,,"9301 Eden Prairie Rd, Eden Prairie, 	MN 	55347",Eden Prairie,MN,55347,"Eden Prairie, MN 55347",44.834746,-93.477849,,Hennepin,Hennepin County,grace.church/oneless,Church Foster Care Ministry,Yes,Yes,,Yes,,Yes,Christine Erickson,"Director,  children at risk ministries",christine.erickson@grace.church,,One Less - Children at Risk Ministry,"Area county agencies, private agencies - St David’s,","Bethany Christian Services, Together for Good, plus list of other area orgs.",For the Children,,,Yes
+279,Redeemer Church,1,,"730 Baker Dr., Tomball, TX 77375",Tomball,TX,77375,"Tomball, TX 77375",30.103118,-95.622813,,Harris,Harris County,makingmuchofjesus.org,Church Foster Care Ministry,Yes,,,Yes,,Yes,Christina Googer,Orphan Care Ministry Leader,christina@makingmuchofjesus.org,,Redeemer Orphan Care,"Fostering Family, Moses Closet Tomball, Champion Forest Baptist Church, Arrow Family Ministries",,,,,Yes
+280,Reaching Higher,1,,"1820 N Gem St. Tulare, CA 93274",Tulare,CA,93274,"Tulare, CA 93274",36.230596,-119.338929,,Tulare,Tulare County,reachinghighertc.com,Bridge Ministry,,,Yes,Yes,,,Claire Hall,Child Resource Advocate,claire@reachinghighertc.com,No,,Tulare County Health and Human Services Agency,"Aspiranet, Golden State Family Services","CarePortal, Promise686",,,Yes
+282,Clement Arts,1,,2303 double churches Columbus GA 31909,Columbus,GA,31909,"Columbus, GA 31909",32.556981,-84.957884,,Muscogee,Muscogee County,Clement-arts.org,Bridge Ministry,,,,Yes,,,Christal Gavin,Clement care director,christal@clement-arts.org,No,,"Clement arts, multiple churches I can email you the list next week.",DFCS,"Promise686,",,,Yes
+285,Peoples Church,1,,"220 William H Taft Rd, Cinncinnati, 	OH	 45219",Cinncinnati,OH,45219,"Cinncinnati, OH 45219",39.128441,-84.505266,,Hamilton,Hamilton County,peopleschurch.co,Church Foster Care Ministry,Yes,,,Yes,,Yes,Katie Deyo,Embrace Coordinator,katie@peopleschurch.co,,Embrace Foster Care & Adoption,"CarePortal, Project 686, B2B & safe families, Coalition of Care",Coalition of Care,"CarePortal, Project 686, B2B & safe families, Coalition of Care",,,Yes
+289,The Nehemiah Foundation,1,,"616 N Limestone, Springfield, OH 45503",Springfield,OH,45503,"Springfield, OH 45503",39.931413,-83.806103,1,Clark,Clark County,nehemiahfoundation.org,Service Organization,,,Yes,Yes,,,Tami Carter,Streamline initiave/ CarePortal Director,tami@nehemiahfoundation.org,No,,"CarePortal, Fellowship Christian Church, Springfield City Schools, Maiden Lane Church of God, Champion City Church",CarePortal,"CarePortal, Kids Hope",,,Yes
+290,Presbyterian Children’s Homes and Services,1,,"5920 W. William Cannon, Bldg 3, Suite 100, Austin, TX 78749",Austin,TX,78749,"Austin, TX 78749",30.22917,-97.861863,,Travis,Travis County,pchas.org,Placement Agency,Yes,Yes,Yes,Yes,,,Amanda Moore,Foster Care & Adoption Guide,amanda.moore@pchas.org,No,,"Foster Community, Fostering Hope Austin",Restore Texas Families,,,,Yes
+294,CarePortal of Luzerne County,1,,"Wilkes-Barre, PA 18701",Wilkes-Barre,PA,18701,"Wilkes-Barre, PA 18701",41.243648,-75.885029,,Luzerne,Luzerne County,careportal.org,Service Organization,,,Yes,Yes,,,Mandy Chapman,Regional Manager,mandy.chapman@goproject.org,Yes,,"Fellowship Church, NEBO Baptist Church, Back Mt Harvest Assembly, East End Primitive Methodist, Restored Church, Dallas Baptist, Holy Family Catholic Church, Outlet Community, Systems of Care, Kings College, Free 2 B Mom",,,,,Yes
+297,The Fostering Collective,1,,403 Hwy 110 N Whitehouse TX 75791,Whitehouse,TX,75791,"Whitehouse, TX 75791",32.230932,-95.227692,,Smith,Smith County,"thefosteringcollective.org
+",Service Organization,Yes,Yes,Yes,Yes,,,Christi Sowell,Program Director,christi@thefosteringcollective.org,Yes,,"Bair, Grace Manor, Christian Homes, Buckner, CPS,BCFS, MCH, UpBring, Noble, Lonestar, South Spring, Grace, Green Acres, Pure Religion, CASA, Pleasant Hill",CPS,CAFO,,,Yes
+298,The CALL in Southeast Arkansas,1,,"1231 N Main Monticello, AR 71655",Monticello,AR,71655,"Monticello, AR 71655",33.641563,-91.790584,,Drew,Drew County,thecallinarkansas.org/sea,Bridge Ministry,Yes,Yes,,Yes,,,Deborah West,County Coordinator,dwest@thecallinarkansas.org,Yes,,"Ashley, Bradley, Chicot, Desha, Drew, and Lincoln county DCFS offices
+
+Pauline Baptist 
+Shady Grove Baptist
+new Life AG
+Immanuel BC Monticello
+Immanuel BC Warren
+Saline BC
+First BC Monticello
+First BC crossett
+Lake Village Assembly
+Grace Christian Fellowship
+Southside BC Star City
+GRACE Cowboy Church
+Southside BC warren","Arkansas DCFS, The CALL",CAFO,,,Yes
+309,Nightlight Christian Adoptions,1,,"955 W Wade Hampton Blvd Greer, SC 29650",Greer,SC,29650,"Greer, SC 29650",34.94464,-82.250429,,Greenville,Greenville County,nightlight.org,Placement Agency,Yes,Yes,Yes,,,,Katie England,VP of Domestic Services,katie@nightlight.org,Yes,,"A Home for Me, all churches in the area, Fostering Great Ideas, SC DSS, Foster Parent Association",Above,"CAFO, Focus on the Family, NCFA",,,Yes
+312,Nightlight Christian Adoptions,1,,"7929 E. 50th Suite D7 Tulsa, OK 74145",Tulsa,OK,74145,"Tulsa, OK 74145",36.091686,-95.888218,,Tulsa,Tulsa County,nightlight.org,Placement Agency,Yes,Yes,,,,,Rozdi Collins,Executive Director,rozdi@nightlight.org,Yes,,We are currently working with Victory church in Tulsa in recruiting foster parents,FACO,None at this time,,,Yes
+315,CarePortal Arizona,1,,"2439 E Jacinto Ave, Mesa, AZ 85204",Mesa,AZ,85204,"Mesa, AZ 85204",33.379476,-111.780503,,Maricopa,Maricopa County,careportal.org,Service Organization,,,Yes,,,,Nate Rogers,Regional Manager,nate@careportal.org,Yes,,50+ churches and organizations,Dept of Child Safety,,,,Yes
+317,Bailey Christian Church,1,,"17635 Pearl Street, Bailey MI 49303",Bailey,MI,49303,"Bailey, MI 49303",43.277144,-85.80959,,Muskegon,Muskegon County,,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,Chris Schutter,Ministry leader,mcschutter2@gmail.com,,OVC,"Mosaic/Ridgepoint church of Ottawa's county MI, Community Closet of Fremont, MI",Hopepkgs first night backpacks,"Grant Me Hope, Families Count, Care Portal (may become implementing partner with Mosiac/Ottawa's county)",,,Yes
+318,Nightlight Christian Adoptions,1,,"2340 Prince Avenue, Athens, GA 30606",Athens,GA,30606,"Athens, GA 30606",33.970807,-83.410315,,Clarke,Clarke County,nightlight.org,Placement Agency,Yes,Yes,,,,,Lexie Fowler,Foster care program manager,lexie@nightlight.org,Yes,,"Home in 5
+Road 2 Home",,,,,Yes
+320,Miriam's Heart,1,,"215 West Union Ave, Bound Brook, NJ 08844",Bound Brook,NJ,8844,"Bound Brook, NJ 8844",40.567533,-74.539527,,Somerset,Somerset County,miriamsheart.org,Service Organization,Yes,,,,,,Elizabeth,Occhipinti,jp@miriamsheart.org,Yes,,,,,,,Yes
+322,Least of These Carolinas,1,,4100 East Franklin Blvd Gastonia NC 28056,Gastonia,NC,28056,"Gastonia, NC 28056",35.257304,-81.108864,,Gaston,Gaston County,lotcarolinas.com,Service Organization,Yes,,Yes,Yes,,,Susanna Kavanaugh,Executive Director,susanna@lotcarolinas.com,Yes,,"GAL, County agencies, Congregations For Kids, The Pointe, First ARP, First Baptist Gastonia, First Freewill Baptist, City Church, Tuckaseegee Baptist Church, Moments of Hope, Beds For Kids,Seven Homes For Kids,  and many more","Lifeline, Thompson Family Services",Lifeline,,,Yes
+323,Presbyterian Children’s Homes and Services,1,,"1234 Abrams Road, Dallas, TX 75214",Dallas,TX,75214,"Dallas, TX 75214",32.802997,-96.75447,,Dallas,Dallas County,pchas.org,Placement Agency,Yes,Yes,Yes,Yes,,,Travis Cutbirth,Foster Care & Adoption Guide,travis.cutbirth@pchas.org,No,,"North Texas Regional Placement Collaboration, Tapestry, Our Community Our Kids, Embrace, Hope Local",Restore Texas Families,,,,Yes
+325,Mosaic Foster & Adoptive Ministry,1,,"340 104th Ave, Holland, MI 49323",Holland,MI,49323,"Holland, MI 49323",42.774672,-86.034923,,Ottawa,Ottawa County,,Bridge Ministry,Yes,Yes,Yes,Yes,,,Wendy Cheek,Network Director,mosaicfosteradopt@gmail.com,No,,"Ridge Point Community Church, Moran Park Church, Haven CRC, Cultivate Community Church, Third Coast Church, Central Wesleyan Church, Grace/Family Church, Zeeland Christian School, Engedi Church, Immanuel Church, Chapel Pointe Church, Kentwood Community Church, Calvary Church Grand Rapids, Crossroads Church, Lakeshore Vineyard Church, Hope College, Lakeshore Lifeworks, Hope Pkgs, Michigan Fosters, Journey Home, Restoration Church, Faith Reformed Church,","Faith Coalition, Safe Families, DHHS, Hope Pkgs,",CAFO,,,Yes
+327,CarePortal,1,,"1309 Wyandot Road, Kansas City, MO 65040",Kansas City,MO,65040,"Kansas City, MO 65040",39.098052,-94.586387,,Cole,Cole County,careportal.org,Service Organization,,,Yes,Yes,,,Blake Jacobs,Support Manager,blake.jacobs@careportal.org,Yes,,,,,,,Yes
+328,Teen Reach,1,,"Sherwood, OR 97140",Sherwood,OR,97140,"Sherwood, OR 97140",45.371478,-122.874613,,Washington,Washington County,teenreach.org,Service Organization,,,,Yes,,,Will Prusia,National Director of Adventure Camps,will@teenreach.org,Yes,,We partner with churches in 21 states to provide camps and mentoring programs for teens in foster care.,Various.,For the Children,,,Yes
+331,Heart of the Bride Ministries,1,,"PO Box 786, Niceville, FL 32567",Niceville,FL,32567,"Niceville, FL 32567",30.506696,-86.447541,,Okaloosa,Okaloosa County,heartofthebride.org,Bridge Ministry,,,,Yes,,,Brian Crisman,Executive Director,brian@heartofthebride.org,Yes,,"CarePortal, Families First Network",,,,,Yes
+336,Foster Well,1,,"257 Old Churchmans Rd. New Castle, DE 19720",New Castle,DE,19720,"New Castle, DE 19720",39.681459,-75.628838,,New Castle,New Castle County,fosterwell.org,Bridge Ministry,,,,Yes,,,Christine Robinson,Director,christine@fosterwell.org,No,,"Children’s Choice, Children and Families First,
+Department of Family Services (DFS), A Better Chance for our Children, CityLight Vineyard Church, Ogletown Baptist, Brandywine Valley Baptist, Trinity Community Church, Faith Presbyterian, Mid-Atlantic Orphan Care Coalition","Children’s Choice, Children and Families First,
+Department of Family Services (DFS), A Better Chance for our Children",CarePortal,,,Yes
+337,Fruit Cove Baptist Church,1,,"501 SR 13, St Johns, FL 32259",St. Johns,FL,32259,"St. Johns, FL 32259",30.116625,-81.625244,,St. Johns,St. Johns County,fruitcove.com/fosteringhope,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,Karen Roy,Ministry Leader,fosteringhope@fruitcove.com,,Fostering Hope,"Family Integrity Program, FAPA, Fostering Connections",,CAFO,,,Yes
+340,Covenant of Grace Church,1,,"3400 Copley Rd. Copley, OH 44321",Copley,OH,44321,"Copley, OH 44321",41.09906,-81.63857,,Summit,Summit County,,Church Foster Care Ministry,Yes,,,,,No,,,,,,"The Bair Foundation, Summit County",We are attempting to launch a ministry in our church.,None yet,,,Yes
+351,Empty Frames Initiative,1,,"3700 E HWY 85, Ennis, TX 75119",Ennis,TX,75119,"Ennis, TX 75119",32.315659,-96.491733,,Ellis,Ellis County,fillingemptyframes.org,Service Organization,Yes,,Yes,Yes,,,Miriam Cobb,Founder & Director,miriam@fillingemptyframes.org,Yes,,"In Raleigh, NC: North Ridge C&MA Church (https://northridgecma.org/), Vintage Church (https://vintagenc.com/), SaySo Inc (https://www.saysoinc.org/)
+
+In Ennis, TX: Pursuing partnerships","In Raleigh, NC: SaySo Inc (https://www.saysoinc.org/), North Carolina Coalition Against Human Trafficking (https://www.nccaht.org/)
+
+In Ennis, TX: Pursuing partnerships",CAFO,,,Yes
+366,Crosspoint Church,1,,1134 Old Alvin Rd,Pearland,TX,77581,"Pearland, TX 77581",29.588802,-95.279216,,Brazoria,Brazoria County,facebook.com/groups/278190669475896,Church Foster Care Ministry,,Yes,Yes,Yes,,Yes,Christy Sevier,Ministry Leader,christy@crosspointchurch.tv,,Fostering Hope,Hearts of Hope Region 6B Heart Gallery,"Department of Family & Protective Services - Child Protective Services, CarePortal",,,,Yes
+367,Father's Heart,1,,"8405 Pulsar Place Columbus, 	OH	 43240",Columbus,OH,43240,"Columbus, OH 43240",40.139918,-82.966359,,Delaware,Delaware County,fathersheartohio.com,Bridge Ministry,Yes,Yes,Yes,Yes,,,Paris Yanno,Father's Heart Director,pyanno@ohioministry.net,No,,I am currently working with 65 of our Assembly of God churches across Ohio.,Coalition of Care and Care Portal,Promise 686 and CompaCare,,,Yes
+368,Crosspointe Church of Santa Maria,1,,"1265 W McCoy   Santa Maria, CA 93455",Santa Maria,CA,93455,"Santa Maria, CA 93455",34.917266,-120.45717,,Santa Barbara,Santa Barbara County,,Church Foster Care Ministry,Yes,Yes,,,,No,,,,,,"This has not existed for years in our area, so we are currently spear-heading a revitalization plan in our county.","Pathways Foster Family Agency, CASA",,,,Yes
+369,Focus on the Family,1,,"8605 Explorer Dr, Colorado Springs, 	CO	 80920",Colorado Springs,CO,80920,"Colorado Springs, CO 80920",38.962546,-104.789143,,El Paso,El Paso County,waitnomore.org,Service Organization,Yes,Yes,Yes,Yes,,,Sharen Ford,"Director, Foster Care and Adoption",Sharen.Ford@fotf.org,Yes,,NA,NA,NA,,,Yes
+371,Dwell Orphan Care,1,,604 Market St Williamsport PA 17701,Williamsport,PA,17701,"Williamsport, PA 17701",41.245211,-77.004036,,Lycoming,Lycoming County,dwellorphancare.org,Bridge Ministry,,,Yes,Yes,,,Heidi Mnkandhla,Care Coordinator,heidi@dwellorphancare.org,Yes,,"We are currently working with Children and Youth Services for Lycoming County, Kids Peace, Adelphi, Families United, City Church, City Alliance, First Southern Baptist Church, First United Methodist, Faith United Methodist, St. Joseph the Worker, Trinity United Methodist, and other various churches in our County.","Bethany Services, Families United, Kids Peace","Bethany Services, Xander Bunny Co.",,,Yes
+372,Hope Church,1,,"850 E Cactus Ave Las Vegas, NV 89183",Las Vegas,NV,89183,"Las Vegas, NV 89183",36.00054,-115.144769,,Clark,Clark County,fosteringhopelv.com,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,Carly Souza,Director,carly@thehublv.com,,Fostering Hope,"Partnered with the Department of Family Service (we host them as they teach their licensing classes on our church campus and we provide support and childcare for those classes).
+Partnered with Olive Crest and SAFY to help recruit families.
+Partnered with other churches in the valley through our campaign called Every Church Every Child to support bio, foster, kinship, and adoptive families.
+Carly is on the board for Foster Change, collective of foster support agencies in Las Vegas.",,,Yes,Clark County Collaboration,Yes
+374,HighRidge Church,1,,10100 Rolling Hills Dr,Fort Worth,TX,76126,"Fort Worth, TX 76126",32.674395,-97.499427,,Tarrant,Tarrant County,highridgechurch.com,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,Mark Reidland,Pastor,mark@hopelocal.com,,HighRidge Orphan Care,Hope Local,,"CarePortal, BLoved Ethiopia",,,Yes
+377,Hope Local,1,,"5320 Camp Bowie Blvd. Fort Worth, TX 76108",Fort Worth,TX,76108,"Fort Worth, TX 76108",32.734717,-97.40207,,Tarrant,Tarrant County,hopelocal.com,Bridge Ministry,Yes,Yes,Yes,Yes,,,Chelsea Reidland,Advocacy Director,chelsea@hopelocal.com,No,,"Our Community Our Kids, 2INgage, Unfaulted, HighRidge Church, Grace Baptist Church, Christ Chapel Church, St Paul Luthern Church, Birchman Baptist Church, Stonewater Church, Lakeside Baptist Church, Normandale Baptist Church, Acton Baptist Church, Pathway Church, C3 Denton Church, Park Springs Bible Church","CK, Kid’s 1st, Gladney Center for Adoption, Texas Baptist Home for Children, Buckner, ACH",Care Portal,,,Yes
+380,Foster the City,1,,"1172 Murphy Ave,  CA, 95131",San Jose,CA,95131,"San Jose, CA 95131",37.381513,-121.893356,,Santa Clara,Santa Clara County,fosterthecity.org,Bridge Ministry,Yes,,,Yes,,,Ellie Egles,Director of Care and Support,ellie@fosterthecity.org,Yes,,"We're currently partnered with over 170 churches in the Bay Area, Southern California, and Northern Nevada. 
+
+BAY AREA
+3 Crosses
+7SF
+A Church Family
+Almaden Neighborhood Church
+Ark Ministries
+Awakening Church
+Bay Area Chinese Bible Church
+Bay City Church
+Berean Mission Church
+Bernal Church
+Blue Oaks Church
+Branches SF
+Bridges Community Church
+Calvary Alameda
+Calvary Los Gatos
+Calvary Chapel Fremont
+Canvas SF
+Cedars Church
+Centerville Presbyterian Church
+Central Peninsula Church
+Christ Church East Bay
+Christ Church SF
+Christ Community Church of Milpitas
+Christian Laymen Church
+Church of the Open Door
+Church on the Hill
+Citizens SF
+CityLife Church
+Clayton Community Church
+Clayton Valley Presbyterian Church
+Convergence Church Fremont
+Convergence Church Oakland
+Cornerstone Fellowship
+Contra Costa Gospel Church
+CPC Danville
+Creekside Community Church
+Crossroads Church
+Crossroads Palo Alto
+CrossWinds Church
+Cryy Out Christian Fellowship
+Current SV
+Echo.Church
+Echo Crossroads
+Eden Church
+Emmanuel Temple Apostolic Church
+Epic SF
+Eucharist SF
+Experience Church
+Faith Community Church
+Family Community Church
+Fellowship Church
+FirstSF
+First Baptist Church, Benicia
+First Family Church
+Fremont Community Church
+Garden City Church
+Gateway Bible Church
+Gateway City Church
+Glad Tidings Church
+Gospel Community Church
+Grace Bible Church
+Grace Church Fremont
+Grace Church of the Bay Area
+Grace Church of Marin
+Grace Covenant Church
+Grace South Bay
+Harbor Light
+Highway Community Church
+Hillside Church of Marin
+Hillside Church of the Nazarene
+Hillsong Church- SF
+Hope Church
+House SF
+House of Faith Church
+Indelible Grace Church
+Indonesian Evangelical Church San Jose
+Infusion/Psalm84
+Life Changing Christian Fellowship
+LifeCity Church
+Lineage Church
+Living Hope Community Church
+Living Water Church
+Marin Covenant Church
+Menlo Church, San Mateo
+Mercy Hill Church
+Millbrae Bible Church
+Mission Church
+Morgan Hill Bible Church
+Napa Valley Community Church
+Neighborhood Bible Church
+New Hope Church Community
+New Life Church – Cupertino
+New Life Church – Novato
+New North Church
+Oakland City Church
+Open Door East Bay
+Pathway Community Church
+Peninsula Bible Church
+Peninsula Covenant Church
+Pillar Baptist Church
+Radiance Church
+Reality SF
+Redeemer Anglican Church
+Redeemer Bible Fellowship
+Redemption Church San Francisco
+Redwood Chapel
+Redwoods Presbyterian Church
+Refuge Christian Fellowship
+Regeneration Church
+ReGeneration Church Scotts Valley
+Resonate Church
+Reunion Oakland
+Revive San Francisco
+Rise City Church
+Sacred Church
+Saint Matthew Lutheran Church
+San Francisco Bible Church
+Sanctuary Church
+Sanctuary Ministries
+San Lorenzo Japanese Christian Church
+Santa Cruz Baptist Church
+Santa Rosa Bible Church
+Santa Rosa Christian Church
+Shiloh Neighborhood Church
+Solano Community Church
+SOMA Church Community
+South Bay Christian Church
+South Valley Community Church
+Southridge Church
+SOZO Church
+Spring Hills Community Church
+Tekoa
+The Anchor Church Gilroy
+The Bay Church
+The Father’s House Vacaville
+The Haven SDA
+The Bridge
+The Home Church
+The Movement Church
+The Parish Church
+The Porch SF
+The River
+The Spectrum Church
+Thrive Church
+Trinity Baptist Church
+Twin Lakes Church
+Valley Bible Church
+Valley Community Church
+Venture Church
+Walnut Creek Presbyterian
+Wellspring Church
+West Hills Community Church
+WestGate Church
+
+SOUTHERN CALIFORNIA
+Southlands Brea
+Calvary Chapel Costa Mesa
+Watermark
+Imago Dei
+Canopy
+Mercy Commons
+
+NORTHERN NEVADA
+Living Stones Sparks
+Living Stones Reno
+
+Help One Child 
+Government Agencies","Alliance 
+Olive Crest","Focus on the Family 
+CAFO",,,Yes
+381,FIVE18 Family Services,1,,"1621 Enterprise Drive, Lynchburg, VA  24502",Lynchburg,VA,24502,"Lynchburg, VA 24502",37.358906,-79.240789,,Lynchburg,Lynchburg County,five18.org,Placement Agency,Yes,,Yes,Yes,,,Claudia Fletcher,Chief Program Officer,cfletcher@patrickhenry.org,Yes,,As implementers of CarePortal we work with 77 different churches and that number changes every day.  We also have an initiative called Vision 30 where we currently partner with 49 different agencies.,,,,,Yes
+383,Welcomed,1,,"448 Cleveland Ave, Wild Rose, WI 54984",Wild Rose,WI,54984,"Wild Rose, WI 54984",44.17471,-89.249338,,Waushara,Waushara County,welcomed.org,Bridge Ministry,,,,Yes,,,Bruce Williams,715-281-6697,bruce@welcomed.org,No,,"We work with Human Services agencies and/or CPAs in the following counties in Wisconsin: Door, Fond du Lac, La Crosse, Lincoln, Manitowoc, Marathon, Milwaukee, Marinette, Outagamie, Portage, Sheboygan, Waukesha,
+Waupaca, Waushara, Winnebago, and Wood.
+
+We have trained and/or work with the following Churches in WI: Alto Reformed (Alto), Antigo Community Church (Antigo), Center City Church (Marshfield), Christian Life Church (Plymouth), City Reformed Church (Milwaukee), Community Church (Oshkosh), Cornerstone Community Church (Marshfield), Crossroads Church (Sturgeon Bay), Downtown Missions Church (Merrill), Faith Church (Peshtigo), Faith Fellowship (Marshfield), Grace & Truth (Eldorado), Hope Community Church (West Salem), Immanuel Baptist Church (Wausau), Immanuel Lutheran Church (Waupaca), Lakewood Baptist Church (Pewaukee), Life Bridge Christian Church (Green Bay), North Ridge Church (Marshfield), Our Redeemer Lutheran Church (Wauwatosa),  Spring Creek Church (Pewaukee), The Mill Church (Stratford), Wausau Alliance Church (Wausau), Waushara Community Church (Wautoma),",Wisconsin DCF,"We are an affiliate of Promise 686 in Atlanta, GA.",,,Yes
+385,C.A.R.E. for Hancock,1,,"PO Box 194, Carthage IL 62321",Carthage,IL,62321,"Carthage, IL 62321",40.432148,-91.135365,,Hancock,Hancock County,carehancock.com,Service Organization,,,,Yes,,,Mandy Humphry,Director,info@carehancock.com,No,,"I am a individual member because we are small and do not have a 501(c)3. 
+
+Tri State Family Services, Golden's Point Christian Church, Burnside Christian Church, LaHarpe Christian Church.",indirectly Lifesong,CAFO,,,Yes
+388,Christ Community Church,1,,4078 Milgen Rd. Columbus GA 31907,Columbus,GA,31907,"Columbus, GA 31907",32.511456,-84.92349,,Muscogee,Muscogee County,ccclive.churchcenter.com/groups/outreach-groups/e2f-volunteers,Church Foster Care Ministry,,,,Yes,,Yes,Christal Gavin,Ministry Co-Leader,christal@clement-arts.org,,Empowered to Foster,Clement Arts,,,,,Yes
+392,Presbyterian Children's Homes and Services,1,,"2003 Fannin St., Vernon, TX 76384",Vernon,TX,76384,"Vernon, TX 76384",34.15085,-99.285349,,Wilbarger,Wilbarger County,pchas.org/fosteradopt,Placement Agency,Yes,Yes,Yes,Yes,,,Travis Cutbirth,Foster Care & Adoption Guide,travis.cutbirth@pchas.org,No,,"2INgage, First Baptist Church Vernon","Restore Texas Families, Texas Alliance of Child and Family Services",,,,Yes
+393,Presbyterian Children's Homes and Services,1,,"4007 Call Field Road, Suite C, Wichita Falls, TX 76308",Wichita Falls,TX,76308,"Wichita Falls, TX 76308",33.871685,-98.546638,,Wichita,Wichita County,pchas.org/fosteradopt,Placement Agency,Yes,Yes,Yes,Yes,,,Travis Cutbirth,Foster Care & Adoption Guide,travis.cutbirth@pchas.org,No,,"2INgage, Hope Local, OneLife Community Church","Restore Texas Families, Texas Alliance of Child and Family Services",,,,Yes
+394,Presbyterian Children's Homes and Services,1,,"300 Brookside Road, Waxahachie TX 75167",Waxahachie,TX,75167,"Waxahachie, TX 75167",32.402645,-96.878551,,Ellis,Ellis County,pchas.org/fosteradopt,Placement Agency,Yes,Yes,Yes,Yes,,,Travis Cutbirth,Foster Care & Adoption Guide,travis.cutbirth@pchas.org,No,,"Embrace Texas, Tapestry, Hope Local, Our Community Our Kids, North Texas Regional Placement Collaboration, Watermark","Restore Texas Families, Texas Alliance of Child and Family Services",,,,Yes
+395,Presbyterian Children's Homes and Services,1,,"1234 Abrams Rd., Dallas, TX 75214",Dallas,TX,75214,"Dallas, TX 75214",32.802997,-96.75447,,Dallas,Dallas County,pchas.org/fosteradopt,Placement Agency,Yes,Yes,Yes,Yes,,,Travis Cutbirth,Foster Care & Adoption Guide,travis.cutbirth@pchas.org,No,,"Embrace Texas, Tapestry, Hope Local, Our Community Our Kids, North Texas Regional Placement Collaboration, Watermark","Restore Texas Families, Texas Alliance of Child and Family Services",,,,Yes
+396,Presbyterian Children's Homes and Services & The Foster Care Village,1,,"156 P R 443, Itasca, TX 76055",Itasca,TX,76055,"Itasca, TX 76055",32.176705,-97.20549,,Hill,Hill County,pchas.org/fosteradopt,Placement Agency,Yes,Yes,Yes,Yes,,,Travis Cutbirth,Foster Care & Adoption Guide,travis.cutbirth@pchas.org,No,,"Embrace Texas, Tapestry, Hope Local, Our Community Our Kids, North Texas Regional Placement Collaboration, Watermark","Restore Texas Families, Texas Alliance of Child and Family Services",,,,Yes
+397,Presbyterian Children's Homes and Services,1,,"7880 San Felipe, #111, Houston, TX 77063",Houston,TX,77063,"Houston, TX 77063",29.751511,-95.505813,,Harris,Harris County,pchas.org/fosteradopt,Placement Agency,Yes,Yes,Yes,Yes,,,Amanda Moore,Foster Care & Adoption Guide,amanda.moore@pchas.org,No,,"Fostering Family, Fostering Hope at Crosspoint Church, Coalition of Child Serving Sectors, SafeBabies, Entrusted Houston","Restore Texas Families, Texas Alliance of Child and Family Services",,,,Yes
+398,Presbyterian Children's Homes and Services,1,,"1402 4th St., Graham, TX 76450",Graham,TX,76450,"Graham, TX 76450",33.10669,-98.572311,,Young,Young County,pchas.org/fosteradopt,Placement Agency,Yes,Yes,Yes,Yes,,,Travis Cutbirth,Foster Care & Adoption Guide,travis.cutbirth@pchas.org,No,,"2INgage, Hope Local, HighRidge Church Graham","Restore Texas Families, Texas Alliance of Child and Family Services",,,,Yes
+410,Harvest Family Life Hawaii,1,,1133 Club Drive Wahiawa HI 96786,Wahiawa,HI,96786,"Wahiawa, HI 96786",21.503005,-158.023348,,Honolulu,Honolulu County,hflhi.org,Service Organization,Yes,Yes,Yes,Yes,,,Esther McDaniel,Executive Director,hflmaloha@gmail.com,No,,"FBC Wahiawa, ohana Christian Church, FOSLIC,
+Central Baptist Church, FBC Pearl City, Nanakuli BC, Neighborhood Place of Kona, Family Strengthening Services (Kona), Calvary chapel Pearl Harbor, Calvary chapel Wahiawa, Calvary chapel West Oahu, Kona Pregnancy Center, Malama Pregnancy Center, Aloha Pregnancy Center, A Place for Women, Living Stones Church, Kaunakakai BC, Molokai BC, King’s Chapel, Kailua Assembly of God, Excel Church, Pearson Foundation, Ohana Christian Church, New Hope Wahiawa, New Hope Mililani, One Love, Haleiwa Evangelical Mission, Olivet BC, international community church, C4 Church, Hope Central Mililani, Village of Hope Maui","HI DHS/CWS
+0-3 Court - Family Court - First Circuit
+Catholic Charities Hawaii
+Keiki O Ka Aina
+Family Programs Hawaii
+Partners in Development Foundation 
+Liliuokalani Trust 
+Hawaii Life Alliance 
+Hawaii Family Forum 
+Hale Kipa","Harvest Family Life Ministries TX
+Olive Crest
+CAFO
+GO CarePortal",,,Yes
+413,"Flatirons Community Church, West Campus",1,,"24887 Genesee Trail Rd, Golden, CO 80401",Golden,CO,80401,"Golden, CO 80401",39.707113,-105.281406,,Jefferson,Jefferson County,flatironschurch.com/outreach/detail/rise/,Church Foster Care Ministry,Yes,,,Yes,,Yes,Sarah Grundy,Director of Family Ministry,rise@flatironschurch.com,,Rise,"Colorado Kids Belong, America's Kids Belong, Collaborative Foster Care Program, 
+
+We work with Colorado Kids Belong the state chapter of America's Kids Belong. They were a approached us about starting a foster ministry and have been a resource for us as we started the process. We have a close relationship with the local county foster agency Collaborative Foster Care Program. We are also getting deeper involved in collaborative efforts with other churches in our area that are in a Roundtable meet up hosted by Colorado Kids Belong.","Colorado Kids Belong, America's Kids Belong",,,,Yes
+486,For the Sake of One,1,,"422 Hickory Street, Texarkana, 	AR	 71854",Texarkana,AR,71854,"Texarkana, AR 71854",33.428659,-94.034585,,Miller,Miller County,forthesakeofone.com,Service Organization,Yes,Yes,Yes,Yes,,,Angela Coston,Executive Director,fsotxk@gmail.com,No,,,,,,,Yes
+487,Give Hope Ministries,1,,,,,,,,,,,,,,,,,,,,Melissa Tubergen,,givehoperv@gmail.com,,,,,,,,No
+488,Grace Evangelical Church,1,,,,,,,,,,,,,,,,,,,,Joshua Conley,,joshua.conley@memphistr.org,,,,,,,,No
+489,His Walk Media,1,,,,,,,,,,,,,,,,,,,,Janet Hartery,,pmcclain@optonline.net,,,,,,,,No
+490,Hope Town,1,,,,,,,,,,,,,,,,,,,,Robert Mattox,,robmattox@me.com,,,,,,,,No
+491,James One 27 Initiative,1,,,,,,,,,,,,,,,,,,,,Anna McIldoon,,amcildoon@j127i.org,,,,,,,,No
+492,Johnston County DSS,1,,,,,,,,,,,,,,,,,,,,Myrlande Saint-Jean,,gajim79@yahoo.com,,,,,,,,No
+493,Kings and Queens Local,1,,,,,,,,,,,,,,,,,,,,Alexis Mcquown,,alexismcquown@gmail.com,,,,,,,,No
+494,Legacy 685 - Houston's First Baptist Church,1,,,,,,,,,,,,,,,,,,,,Toni Steere / Jenny Sheets,,jenny.sheets@houstonsfirst.org,,,,,,,,No
+495,Love Recklessly,1,,,,,,,,,,,,,,,,,,,,Aimee Harris,,aimee@loverecklessly.org,,,,,,,,No
+496,Loving Shepherd Ministries,1,,,,,,,,,,,,,,,,,,,,Adam Carroll,,adam@loving-shepherd.org,,,,,,,,No
+497,Marion Polk Yamhill Foster Parent Association,1,,,,,,,,,,,,,,,,,,,,Mandy Straus,,onelessJohn1418@aol.com,,,,,,,,No
+498,Michiana Family Center,1,,,,,,,,,,,,,,,,,,,,Matthew Becker,,mbecker@michianafamilycenter.org,,,,,,,,No
+499,Michigan Fosters,1,,,,,,,,,,,,,,,,,,,,Wendi Kapenga,,wendi@michiganfosters.com,,,,,,,,No
+500,Miracle Hill Ministries,1,,,,,,,,,,,,,,,,,,,,"Brenda Parks
+Beth Plyler",,"BParks@miraclehill.org
+bplyler@firstpresgreenville.org",,,,,,,,No
+502,New Oaks Community,1,,,,,,,,,,,,,,,,,,,,Justin Higham,,jdhigham0211@yahoo.com,,,,,,,,No
+503,Office of Children Services,1,,,,,,,,,,,,,,,,,,,,Jamie Blealey,,lizzie5695@yahoo.com,,,,,,,,No
+504,One Community Church,1,,,,,,,,,,,,,,,,,,,,Stephanie Guignard,,sdeanneg@hotmail.com,,,,,,,,No
+505,One More One Less Project,1,,,,,,,,,,,,,,,,,,,,Chris Gray,,chris.gray@fullcirclegolfsolutions.com,,,,,,,,No
+506,Open Arms International,1,,,,,,,,,,,,,,,,,,,,Stephanie Clinton,,stephanie@openarmsintl.org,,,,,,,,No
+507,Orphan Children Organization,1,,,,,,,,,,,,,,,,,,,,Bhadraiah Kommu,,k.bhadraiah2009@gmail.com,,,,,,,,No
+508,Orphan Voice,1,,,,,,,,,,,,,,,,,,,,Victor Bondarenko,,victor.bondarenko@orphanvoice.org,,,,,,,,No
+509,Orphans and Widows of Omaha,1,,,,,,,,,,,,,,,,,,,,Jane Gommermann,,orphansandwidowsofomaha@gmail.com,,,,,,,,No
+510,Parents Against Loss,1,,,,,,,,,,,,,,,,,,,,Sarah Carter,,parentsagainstloss@gmail.com,,,,,,,,No
+511,Peninsula Covenant Church,1,,,,,,,,,,,,,,,,,,,,"Sharon Seeberger
+Holly Stewart",,"sharons@wearepcc.com
+hollys@wearepcc.com",,,,,,,,No
+512,Rabbit Creek Church,1,,,,,,,,,,,,,,,,,,,,Julius Goslin,,jpgoslin@hotmail.com,,,,,,,,No
+513,Radical Life Core Community - Youth Core Ministries,1,,,,,,,,,,,,,,,,,,,,Lindsay Smith,,radicallifecc@gmail.com,,,,,,,,No
+515,Safe Families,1,,,,,,,,,,,,,,,,,,,,Ryan Keith,,rkeith@westshorefree.org,,,,,,,,No
+516,"Seek and Save, Inc.",1,,,,,,,,,,,,,,,,,,,,Mark Fisher,,mark@seekandsave.org,,,,,,,,No
+517,Step Ahead Ministries,1,,,,,,,,,,,,,,,,,,,,Kimberly Quinley,,quinleyfam@gmail.com,,,,,,,,No
+519,The Attic Foster Network,1,,,,,,,,,,,,,,,,,,,,Matt Waller,,Matt@theatticfn.org,,,,,,,,No
+520,The CALL -  Conway & Faulkner Counties,1,,,,,,,,,,,,,,,,,,,,Louise Witcher,,conwayfaulkner@thecallinarkansas.org,Yes,,,,,,,No
+521,The CALL - Baxter County,1,,,,,,,,,,,,,,,,,,,,Amanda Wooten,,baxtercounty@thecallinarkansas.org,Yes,,,,,,,No
+522,The CALL - Boone & Newton Counties,1,,,,,,,,,,,,,,,,,,,,Jamie Phillips,,boonenewton@thecallinarkansas.org,Yes,,,,,,,No
+523,The CALL - Clark County,1,,,,,,,,,,,,,,,,,,,,not listed,,clarkcounty@thecallinarkansas.org,Yes,,,,,,,No
+524,The CALL - Cleburne County,1,,,,,,,,,,,,,,,,,,,,Amy Pettit,,cleburnecounty@thecallinarkansas.org,Yes,,,,,,,No
+525,The CALL - Cleveland County,1,,,,,,,,,,,,,,,,,,,,Lisa Prescott,,clevelandcounty@thecallinarkansas.org,Yes,,,,,,,No
+526,The CALL - Columbia & Lafayette Counties,1,,,,,,,,,,,,,,,,,,,,Krista Hamlin,,columbialafayette@thecallinarkansas.org,Yes,,,,,,,No
+527,The CALL - Crawford & Sebastian Counties,1,,,,,,,,,,,,,,,,,,,,Emily Treadway,,crawfordsebastian@thecallinarkansas.org,Yes,,,,,,,No
+528,The CALL - Garland & Hot Spring Counties,1,,,,,,,,,,,,,,,,,,,,Tonya Ross,,garlandhotspring@thecallinarkansas.org,Yes,,,,,,,No
+529,The CALL - Hempstead and Nevada,1,,,,,,,,,,,,,,,,,,,,Dixie Coffee,,hempsteadnevada@thecallinarkansas.org,Yes,,,,,,,No
+530,The CALL - Howard County,1,,,,,,,,,,,,,,,,,,,,Jodi King,,howardcounty@thecallinarkansas.org,Yes,,,,,,,No
+531,The CALL - Independence County,1,,,,,,,,,,,,,,,,,,,,Rodney Stroud,,independencecounty@thecallinarkansas.org,Yes,,,,,,,No
+532,"The CALL - Izard, Fulton, & Sharp Counties",1,,,,,,,,,,,,,,,,,,,,not listed,,info@thecallinarkansas.org,Yes,,,,,,,No
+533,The CALL - Jefferson County,1,,,,,,,,,,,,,,,,,,,,Daniel Wakefield,,jeffersoncounty@thecallinarkansas.org,Yes,,,,,,,No
+534,The CALL - Lonoke & Prairie Counties,1,,,,,,,,,,,,,,,,,,,,not listed,,lonokeprairie@thecallinarkansas.org,Yes,,,,,,,No
+535,The CALL - Marion County,1,,,,,,,,,,,,,,,,,,,,Edie Hampton,,marioncounty@thecallinarkansas.org,Yes,,,,,,,No
+536,The CALL - Miller Couny,1,,,,,,,,,,,,,,,,,,,,Laura Smith,,Millercounty@thecallinarkansas.org,Yes,,,,,,,No
+537,The CALL - Northwest Arkansas,1,,,,,,,,,,,,,,,,,,,,Ann Book,,NWA@thecallinarkansas.org,Yes,,,,,,,No
+538,The CALL - Ouachita County,1,,,,,,,,,,,,,,,,,,,,Makenzie Hayes,,mhayes@thecallinarkansas.org,Yes,,,,,,,No
+539,The CALL - Pike & Montgomery Counties,1,,,,,,,,,,,,,,,,,,,,Sherri Smith,,pikemontgomery@thecallinarkansas.org,Yes,,,,,,,No
+540,The CALL - Polk County,1,,,,,,,,,,,,,,,,,,,,not listed,,info@thecallinarkansas.org,Yes,,,,,,,No
+541,The CALL - Pope & Yell Counties,1,,,,,,,,,,,,,,,,,,,,Meg Scott,,popeyell@thecallinarkansas.org,Yes,,,,,,,No
+542,The CALL - Pulaski County,1,,,,,,,,,,,,,,,,,,,,Alicen Bennett,,Pulaski@thecallinarkansas.org,Yes,,,,,,,No
+543,The CALL - River Valley,1,,,,,,,,,,,,,,,,,,,,Meg Scott,,rivervalley@thecallinarkansas.org,Yes,,,,,,,No
+544,The CALL - Saline & Perry Counties,1,,,,,,,,,,,,,,,,,,,,Julia Descarpentrie,,salineperry@thecallinarkansas.org,Yes,,,,,,,No
+545,The CALL - Stone County,1,,,,,,,,,,,,,,,,,,,,Kristy Manzanares,,stonecounty@thecallinarkansas.org,Yes,,,,,,,No
+546,The CALL - Union & Calhoun Counties,1,,,,,,,,,,,,,,,,,,,,Karen Hicks,,khicks@thecallinarkansas.org,Yes,,,,,,,No
+547,The CALL - Van Buren County,1,,,,,,,,,,,,,,,,,,,,James Tucker & Kristen Tucker,,vanburencounty@thecallinarkansas.org,Yes,,,,,,,No
+548,The CALL - White County,1,,,,,,,,,,,,,,,,,,,,Christy Duncan,,whitecounty@thecallinarkansas.org,Yes,,,,,,,No
+549,The Forgotten Initiative,1,,,,,,,,,,,,,,,,,,,,Angie Grant,,agrant@cloverhillag.org,Yes,,,,,,,No
+550,The James Project,1,,,,,,,,,,,,,,,,,,,,"Sarah Homeier
+Olivia Hayse",,"sarah@thejamesproject127.com
+olivia@thejamesproject127.com",,,,,,,,No
+551,The NOMORE Foundation,1,,,,,,,,,,,,,,,,,,,,Jamie Kent,,jaime@fornomore.org,Yes,,,,,,,No
+554,This Colorful LIfe,1,,,,,,,,,,,,,,,,,,,,Brittani Belvedere,,brittbelvedere@gmail.com,,,,,,,,No
+555,Timberline Church,1,,,,,,,,,,,,,,,,,,,,Kari Stewart,,kstewart@timberlinechurch.org,,,,,,,,No
+556,Tioga County CYS,1,,,,,,,,,,,,,,,,,,,,Jessica Birbeck,,stardust628@gmail.com,,,,,,,,No
+557,West Florida Foster Care Services,1,,,,,,,,,,,,,,,,,,,,Janet Rinaldi,,jrinaldi@wffcs.org,,,,,,,,No
+559,Arise for Girls Los Angeles,1,,,,,,,,,,,,,,,,,,,,Monique McClendon,,moniquemcclendon@hotmail.com,,,,,,,,No
+560,Arizona Foster Care Initiatives,1,,,,,,,,,,,,,,,,,,,,Hitomi Mewhinney,,hitomi@fostercareinitiatives.org,,,,,,,,No
+561,Arrow Child and Family Ministries,1,,,,,,,,,,,,,,,,,,,,Kim Eylar-Shanchez,,kim.eylar-sanchez@arrow.org,,,,,,,,No
+563,Clara's Hope,1,,,,,,,,,,,,,,,,,,,,Erin Deale,,erin@clarashope.org,,,,,,,,No
+565,Environment Alternatives,1,,,,,,,,,,,,,,,,,,,,Nathan Renfree,,nrenfree@gmail.com,,,,,,,,No
+566,Finally Home,1,,,,,,,,,,,,,,,,,,,,Mark Orphan,,morphan68@gmail.com,Yes,,,,,,,No
+567,Hope Pkgs & Grafted In Grace Ministry,1,,,,,,,,,,,,,,,,,,,,Lisa Hoeve,,eahoeve@yahoo.com,,,,,,,,No
+568,"Hope Revisited, Inc",1,,,,,,,,,,,,,,,,,,,,Jennifer Nolder,,paystopayitforward@gmail.com,,,,,,,,No
+569,Love Does,1,,,,,,,,,,,,,,,,,,,,Misty Seale,,latechsas11@yahoo.com,,,,,,,,No
+571,Skookum Kids,1,,,,,,,,,,,,,,,,,,,,"Gina Russell
+Nick Faucett",,"ginarussell@skookumkids.org
+nick@skookumkids.org",,,,,,,,No
+572,Texas Boys Ranch,1,,,,,,,,,,,,,,,,,,,,Kaylee Newbold,,knewbold@texasboysranch.org,,,,,,,,No
+573,Trulight 127 Ministries,1,,,,,,,,,,,,,,,,,,,,Sondra Ajasin,,sondra@trulight127.org,,,,,,,,No
+574,U.A. - Little Rock,1,,,,,,,,,,,,,,,,,,,,Gerald Driskill,,gwdriskill@ualr.edu,,,,,,,,No
+575,"WV Foster, Adoptive, & Kinship Parents Network",1,,,,,,,,,,,,,,,,,,,,Marissa Sanders,,sandersmarissawv@gmail.com,,,,,,,,No
+576,Agape of Central Alabama,1,,P.O. Box 230472 Montgomery AL 36123-0472,Montgomery,AL,36123-0472,,,,,,,agapeforchildren.org,Child Placement Agency,Yes,,,Yes,,,Steve Duer,,sduer@agapeforchildren.org,Yes,,,,,,,Yes
+577,Alabama Baptist Children's Homes,1,,2681 Rocky Ridge Lane Birmingham AL 35216,Birmingham,AL,35216,,,,,,,alabamachild.org,Child Placement Agency,,,,,,,Michelle Glassford,,mglassford@alabamachild.org,Yes,,,,,,,No
+578,Lifeline Children's Services,1,,100 Missionary Ridge Birmingham AL 35242,Birmingham,AL,35242,,,,,,,lifelinechild.org,Child Placement Agency,,,,,,,Skip Stallings,,skip.stallings@lifelinechild.org,Yes,,,,,,,No
+579,Third Lens Ministries,1,,"472 N Dean Road, Ste 104 Auburn AL 36830",Auburn,AL,36830,,,,,,,third-lens.org,Service Organization,,,,,,,Brian O'Neil,,brian@third-lens.org,,,,,,,,No
+581,Christian Family Care Agency,1,,2346 N. Central Ave. Phoenix AZ 85004,Phoenix,AZ,85004,,,,,,,cfcare.org,Child Placement Agency,,,,,,,Colleen Holman,,cholman@cfcare.org,,,,,,,,No
+582,Arizona 1.27,1,,1820 w. Elliot Rd Gilbert AZ 85233,Gilbert,AZ,85233,,,,,,,az127.org,Bridge Organization,,,,,,,Lindsey Stamm,,lindsey@az127.org,Yes,,,,,,,No
+583,Arizona Baptist Children's Services,1,,1779 North Alvernon Way Tuscon AZ 85712,Tuscon,AZ,85712,,,,,,,abcs.org,Bridge Organization,,,,,,,Andrea Stuart,,stuart@abcs.org,Yes,,,,,,,No
+584,For The Children,1,,3000 W Macarthur Blvd Ste 412 Santa Ana CA 92704-7920,Santa Ana,CA,92704-7920,,,,,,,forthechildren.org,Service Organization,,,,,,,Kerry Rhodes,,kerryr@forthechildren.org,Yes,,,,,,,No
+585,Family Connections Christian Adoptions,1,,1120 Tully Rd Modesto CA 95350,Modesto,CA,95350,,,,,,,fcadoptions.org,Child Placement Agency,,,,,,,Wayne Mott,,waynemott@fcadoptions.org,Yes,,,,,,,No
+586,International Christian Adoptions,1,,41745 Rider Way Suite #2 Temecula CA 92590,Temecula,CA,92590,,,,,,,4achild.com,Child Placement Agency,,,,,,,Charlotte Paulsen,,charlottep@4achild.org,,,,,,,,No
+587,Nightlight Christian Adoptions,1,,1528 Brookhollow Dr #100 Santa Ana CA 92705,Santa Ana,CA,92705,,,,,,,nightlight.org,Child Placement Agency,,,,,,,Daniel Nehrbass,,daniel@nightlight.org,Yes,,,,,,,No
+588,Olive Crest,1,,"2130 East 4th Street, Suite. 200 Santa Ana CA 92649",Santa Ana,CA,92649,,,,,,,olivecrest.org,Child Placement Agency,,,,,,,Emily Fazio,,emily-fazio@olivecrest.org,Yes,,,,,,,No
+589,Amaris Ministries,1,,571 W. Orange Avenue El Centro CA 92243,El Centro,CA,92243,,,,,,,amarisministries.com,Bridge Organization,,,,,,,Deborah Ospino,,deboraho4amaris@gmail.com,,,,,,,,No
+590,"Pathway Family Services, Inc.",1,,2600 G Street Bakersfield CA 93301,Bakersfield,CA,93301,,,,,,,pfsffa.org,Service Organization,,,,,,,Rick Smith,,rick@pfsffa.org,Yes,,,,,,,No
+592,Teen Leadership Foundation,1,,PO Box 7342 Newport Beach CA 92658,Newport Beach,CA,92658,,,,,,,teenleadershipfoundation.org,Service Organization,,,,,,,Lisa Castetter,,lisa@teenleadershipfoundation.org,,,,,,,,No
+593,ZOE International Ministries,1,,PO Box 221510 Santa Clarita CA 91322,Santa Clarita,CA,91322,"Santa Clarita, CA 91322",34.440891,-118.501748,,Los Angeles,Los Angeles County,gozoe.org,Bridge Ministry,,,,Yes,,,Melanie Bunn,,melanie@gozoe.org,Yes,,,,,,,Yes
+594,Hope's Promise Adoption and Orphan Care,1,,"1585 S. Perry St, Ste E Castle Rock CO 80104",Castle Rock,CO,80104,,,,,,,hopespromise.com,Child Placement Agency,,,,,,,Beth Woods,,beth@hopespromise.com,,,,,,,,No
+597,Patch Our Planet,1,,PO Box 841 Placida FL 33946-0841,Placida,FL,33946-0841,,,,,,,patchourplanet.org/,Service Organization,,,,,,,Steve Gillis,,steve@patchourplanet.org,,,,,,,,No
+598,4KIDS of South Florida,1,,2717 West Cypress Creek Road Fort Lauderdale FL 33309,Fort Lauderdale,FL,33309,,,,,,,www.4kids.us,Child Placement Agency,,,,,,,Tom Lukasik,,toml@4kidsofsfl.org,Yes,,,,,,,No
+599,One More Child,1,,PO Box 8190 Lakeland FL 33802,Lakeland,FL,33802,,,,,,,www.onemorechild.org,Child Placement Agency,,,,,,,Stephen Robert,,stephen.robert@onemorechild.org,,,,,,,,No
+600,Adoption by Shepherd Care,1,,5935 Taft Street Hollywood FL 33021,Hollywood,FL,33021,,,,,,,adoptabsc.org,Child Placement Agency,,,,,,,Joseph Sica,,joe@adoptabsc.org,,,,,,,,No
+601,NOMORE Foundation,1,,19625 Bergenfeld Dr Land O Lakes FL 34638,Land O Lakes,FL,34638,,,,,,,fornomore.org,Service Organization,,,,,,,Tami Kent,,tami@fornormore.org,,,,,,,,No
+602,WinShape Homes DO NOT PUBLISH (don't want to be on published lists),1,,5200 Buffington Rd Atlanta GA 30349-2945,Atlanta,GA,30349-2945,,,,,,,winshape.org,Child Placement Agency,,,,,,,Riley Green,,rgreen@winshape.org,Yes,,,,,,,No
+603,Promise686,1,,19 Holcomb Bridge Road Norcross GA 30071,Norcross,GA,30071,,,,,,,promise686.org,Bridge Organization,,,,,,,Andy Cook,,andy@promise686.org,Yes,,,,,,,No
+604,FaithBridge Foster Care,1,,4400 North Point PkwySuite 210 Alpharetta GA 30022,Alpharetta,GA,30022,,,,,,,faithbridgefostercare.org,Child Placement Agency,,,,,,,Kim DeGreen,,kdegreen@faithbridgefostercare.org,Yes,,,,,,,No
+605,Ignite Hope,1,,2879 Observation Point Marietta GA 30064,Marietta,GA,30064,,,,,,,ignitehope.online,Child Placement Agency,,,,,,,Jacqui Jackson,,Jacqui@ignitehope.online,,,,,,,,No
+606,"Open Door Adoption Agency, Inc.",1,,"P.O. Box 4, 218 East Jackson Street Thomasville GA 31792",Thomasville,GA,31792,,,,,,,opendooradoption.org,Child Placement Agency,,,,,,,Walter Gilbert,,walter@opendooradoption.org,Yes,,,,,,,No
+607,Chosen for Life Ministries,1,,1800 Hog Mountain Rd Bldg 700-101 Watkinsville GA 30677,Watkinsville,GA,30677,,,,,,,chosenforlifemiinstries.org,Service Organization,,,,,,,Anna Bearden,,abearden@chosenforlifeministries.org,,,,,,,,No
+608,Connections Homes,1,,337 W. Pike Street Lawrenceville GA 30046,Lawrenceville,GA,30046,,,,,,,connectionshomes.org,Service Organization,,,,,,,Pam Parish,,pparish@connectionshomes.org,Yes,,,,,,,No
+609,"Global Impact International, Inc. (Resoration Rome)",1,,1400 Crane Street Rome GA 30161,Rome,GA,30161,,,,,,,globalimpactintl.org,,,,,,,,Jeff Mauer,,jeff@restorationrome.org,,,,,,,,No
+610,Hope 1312 Collective,1,,1115 Sycamore Ave Brunswick GA 31520,Brunswick,GA,31520,,,,,,,hope1312co.org,Service Organization,,,,,,,Ally Christianson,,ally@hope1312co.org,,,,,,,,No
+611,Lifesong for Orphans,1,,PO Box 9 Gridley IL 61744-0040,Gridley,IL,61744-0040,,,,,,,lifesong.org/adoption/,Service Organization,,,,,,,Kay Williams,,kay@lifesong.org,,,,,,,,No
+613,Hephzibah62:4,1,,13300 Olio Road Fishers IN 46037,Fishers,IN,46037,,,,,,,hephzibah.org,Child Placement Agency,,,,,,,Jodi Lewis,,jodi.lewis@hephzibah.org,Yes,,,,,,,No
+614,Emberhope Youthville,1,,900 W Broadway St Newton KS 67114-2004,Newton,KS,67114-2004,,,,,,,www.emberhope.org,Service Organization,,,,,,,Tricia Wells,,twells@emberhope.org,,,,,,,,No
+615,Sunrise Children's Services,1,,"300 Hope Street
+PO Box 1429 Mt. Washington KY 40047",Mt. Washington,KY,40047,,,,,,,sunrise.org,Child Placement Agency,,,,,,,Richard Burslem,,rburslem@sunrise.org,,,,,,,,No
+617,Crossroads NOLA,1,,5290 Canal Blvd New Orleans LA 70124,New Orleans,LA,70124,,,,,,,,,,,,,,,Mandi Wallis,,mandi@crossroadsnola.org,,,,,,,,No
+618,Bethany Christian Services,1,,PO Box 294901 Eastern Avenue NE Grand Rapids MI 49503,Grand Rapids,MI,49503,,,,,,,bethany.org,Child Placement Agency,,,,,,,Lisa Willerer,,lwillerer@bethany.org,,,,,,,,No
+619,House of Providence,1,,P.O. Box 18 Oxford MI 48371,Oxford,MI,48371,,,,,,,thehofp.org,,,,,,,,Margaret Dunn,,mdunn@thehofp.org,,,,,,,,No
+620,"Global Orphan Project, Inc. (GO Project)",1,,3161 Wyandotte Street Kansas City MO 64111,Kansas City,MO,64111,,,,,,,goproject.org,Service Organization,,,,,,,Trace Turlby,,trace@goproject.org,,,,,,,,No
+621,Palmer Home for Children,1,,PO Box 746 Columbus MS 39703,Columbus,MS,39703,,,,,,,palmerhome.org,Child Placement Agency,,,,,,,,,,,,,,,,,No
+622,127 Worldwide,1,,PO Box 6127 Raleigh NC 27628,Raleigh,NC,27628,,,,,,,127worldwide.org,Bridge Organization,,,,,,,Sara Beth Fentress,,sarabeth@127worldwide.org,No,,,,,,,No
+623,Christian Adoption Services,1,,7884 Idlewild Rd Indian Trail NC 28079-8675,Indian Trail,NC,28079-8675,,,,,,,christianadopt.org,Service Organization,,,,,,,Mike Briles,,mike@christianadopt.org,,,,,,,,No
+625,Pharaoh's Daughters,1,,5047 Cary Glen Blvd Cary NC 27519,Cary,NC,27519,,,,,,,pharaohsdaughters.com,Service Organization,,,,,,,Jodi Tucker,,jodijacksontucker@gmail.com,,,,,,,,No
+626,Restored Souls Foundation,1,,PO BOX 15946 Wilmington NC 28408,Wilmington,NC,28408,,,,,,,restoredsoulsfoundation.org,Bridge Organization,,,,,,,Melissa Matthews,,matthewsm@restoredsoulsfoundation.org,Yes,,,,,,,No
+629,A Child's Hope International,1,,2430 E. Kemper Rd. Cincinnati OH 45241,Cincinnati,OH,45241,,,,,,,thechildrenarewaiting.org,Bridge Organization,,,,,,,Luke Wrobleski,Love Your Neighbor Director,luke@loveyourneighborcs.com,No,,,,,,,No
+630,111 Project,1,,PO Box 54973 Oklahoma City OK 74012,Oklahoma City,OK,74012,,,,,,,111project.org,Bridge Organization,,,,,,,Chris Campbell,,chris@111project.org,Yes,,,,,,,No
+631,Bair Foundation,1,,241 High Street New Wilmington PA 16142,New Wilmington,PA,16142,,,,,,,bair.org,Child Placement Agency,,,,,,,Dorie Alcaro,,dalcaro@bair.org,Yes,,,,,,,No
+632,Love Cradle International,1,,276 West Cherry Lane Souderton PA 18964,Souderton,PA,18964,,,,,,,lovecradleint.org,Service Organization,,,,,,,Stephen Yagilnicky,,lovecradleint@lovecradleint.org,,,,,,,,No
+633,Salvation Army Children's Services,1,,"2200 Hamilton Street, Suite 200 Allentown PA 18104",Allentown,PA,18104,,,,,,,,Service Organization,,,,,,,Florence Rhue,,florencerhue@use.salvationarmy.org,,,,,,,,No
+634,Fostering Hope New England,1,,383 West Fountain Street #121 Providence RI O2903,Providence,RI,O2903,,,,,,,fosteringhope.org,Bridge Organization,,,,,,,Jonathan Reid,,jonathan@fosteringhope.org,,,,,,,,No
+637,Tennessee Baptist Children's Homes,1,,"1310 Franklin Rd, PO Box 2206 Brentwood TN 37024",Brentwood,TN,37024,,,,,,,tennesseechildren.org,Child Placement Agency,,,,,,,Stephanie Bruce,,sbruce@tennesseechildren.org,Yes,,,,,,,No
+638,AGAPE Nashville,1,,4555 Trousdale Dr Nashville TN 37204,Nashville,TN,37204,,,,,,,agapenashville.org,Service Organization,,,,,,,Chandler Means,,Cmeans@agapenashville.org,,,,,,,,No
+639,Both Hands Foundation,1,,PO Box 2713 Brentwood TN 37024,Brentwood,TN,37024,,,,,,,bothhands.org,Service Organization,,,,,,,Aimee Sipe,,aimee@BothHands.org,,,,,,,,No
+640,Show Hope,1,,PO Box 647 Franklin TN 37064,Franklin,TN,37064,,,,,,,showhope.org,Service Organization,,,,,,,Courtney Greene,,cgreene@showhope.org,Yes,,,,,,,No
+641,Buckner International Children and Family Services,1,,"700 N. Pearl St., Suite 1200 Dallas TX 75201-2874",Dallas,TX,75201-2874,,,,,,,buckner.org/,Service Organization,,,,,,,Jeff Jones,,jjones@buckner.org,Yes,,,,,,,No
+642,ABBA Fund,1,,PO Box 868049 Plano TX 75086-8049,Plano,TX,75086-8049,,,,,,,abbafund.org,Service Organization,,,,,,,Tami Burkett,,tami.burkett@abbafund.org,Yes,,,,,,,No
+643,Backyard Orphans,1,,702 Champlain Ct Midlothian TX 76065-8842,Midlothian,TX,76065-8842,,,,,,,backyardorphans.org,Child Placement Agency,,,,,,,Brett Bouck,,info@backyardorphans.org,Yes,,,,,,,No
+646,Pathways for Little Feet,1,,"9 Greenway Plaza, Suite 3150 Houston TX 77046",Houston,TX,77046,,,,,,,pathwaysforlittlefeet.org,Service Organization,,,,,,,Kate Johnson,,kjohnson@pathwaysforlittlefeet.org,Yes,,,,,,,
+647,Phased In,,,PO Box 3647 Wichita Falls TX 76301,Wichita Falls,TX,76301,,,,,,,phasedin.org,Service Organization,,,,,,,Lolita Baker,,lbaker@phasedin.org,Yes,,,,,,,No
+651,One Hope 27,1,,2461 N. 47th St Milwaukee WI 53210,Milwaukee,WI,53210,,,,,,,onehope27.org,Bridge Organization,,,,,,,Charonne Ganiere,,charonne@onehope27.org,,,,,,,,No
+653,Christian Association of Youth Mentoring,1,,P.O. Box 75635 Wichita KS 67275,Wichita,KS,67275,,,,,,,caym.org/,Service Organization,,,,,,,April Karber,,april@caym.org,,,,,,,,No
+654,Hope Multiplies,,,1764 River Plantation Lane Jacksonville FL 32223,Jacksonville,FL,32223,,,,,,,hopemultiplies.com,Bridge Organization,,,,,,,Cayela Moody,,cayelamoody@gmail.com,,,,,,,,No
+655,Adoptive and Foster Family Coalition,1,,"3114 Mermaid Avenue, Brooklyn, 	NY	 11224",Brooklyn,NY,11224,"Brooklyn, NY 11224",40.574993,-73.997948,,Kings,Kings County,affcny.org,Service Organization,Yes,Yes,Yes,Yes,,,Pat O'Brien,Executive Director,pat@affcny.org,No,,,"We are the Statewide organization in New York that serves all adoptive, foster, and kinship care families.   Our name is the Adoptive and Foster Family Coalition of New York.     Our 24 hour helpline is 1-888-80-HELPLine.","North American Council on Adoptable Children (NACAC)
+
+National Foster Parent Association (NFPA)
+
+Council of State Affiliates for the NFPA.",,,Yes
+656,Release,1,,"3223 N 45th St. Omaha, NE 68104",Omaha,NE,68104,"Omaha, NE 68104",41.28773,-95.979358,1,Douglas,Douglas County,releaseinc.org,Service Organization,,,Yes,Yes,,,Janece Ferris,Director of Foster Care,janece@releaseinc.org,No,,"Lifegate Church Papillion, Converge Church, Emmanuel Fellowship, Thanksgiving Lutheran Church, The Water's Edge Church, Community Bible Church, Stony Brook Church, Good News Church, Journey Church, Tribe Church, Dream City Church, Heritage Church, Bridge Church, Rejoice Lutheran Church. Other organizations: Pirates & Pixies, Schrock Innovations, Scooters Coffee, Live Hydration, Quality Refrigeration Services","DHHS Nebraska, Mentor Nebraska",None,,,Yes
+657,Promise686 Montana,1,,"PO Box 5689, Kalispell, MT, 59903",Kalispell,MT,59903,"Kalispell, MT 59903",48.202765,-114.303919,,Flathead,Flathead County,promise686.org/montana,Bridge Ministry,,,Yes,,,,Aaron Scofield,Montana Director,ascofield@promise686.org,Yes,,"Montana Child and Family Services Division, CSKT-DHRD, Flathead/Lincoln County CASA, Carbon County Health Department, various school districts",,"Promise686, CarePortal",,,Yes
+659,Every Mother's Advocate,1,,"1101 NW 33rd Street, Pompano Beach, 	FL 	33064",Pompano Beach,FL,33064,"Pompano Beach, FL 33064",26.272723,-80.138818,,Broward,Broward County,everymothersadvocate.org,Service Organization,Yes,Yes,,,,Yes,Alessandra Thomas,Director of Operations,alessandra@everymothersadvocate.org,No,,"Calvary Chapel Fort Lauderdale, Calvary Chapel Parkland, Crossway Church, Coral Ridge Presbyterian Church, 4Kids, ChildNet, Hope Women’s Center, Healthy Mothers, Healthy Babies, Maternal Health City House, Homes United, His Caring Place, Rio House,  Women in Distress, Urban League of Broward Co, Henderson Behavioral Health, 5th Street Counseling, Barc, Calvary House for Women, Offerdahl’s Off the Grill, Old Navy, Walmart, Chick-Fil-A",,"Save the Storks, CAFO, CarePortal, Promise686,",,,Yes
+660,Wellspring Community Church,1,,"4466 Bauer Rd.  Hudsonville, MI 49426",Hudsonville,MI,49426,"Hudsonville, MI 49426",42.917352,-85.894065,,Ottawa,Ottawa County,wellspringcc.org,Church Foster Care Ministry,Yes,,,Yes,,,Bob Vanderveen,Director,rjvvbob@gmail.com,,"F.A.S.T. (Foster Care, Adoption Support Team)",Wellspring Lutheran Services,Wellspring Lutheran Services,,,,Yes
+661,Loudon County Baptist Association,1,,"814 Webb Circle,  Lenoir City, TN 37771",Lenoir City,TN,37771,"Lenoir City, TN 37771",35.771753,-84.308428,,Loudon,Loudon County,lcbachurches.com,Bridge Ministry,Yes,,,Yes,,Yes,Philip Holmes,Director of Missions/Associational Mission Strategist,philipgrahamholmes@gmail.com,Yes,,"The Loudon County Baptist Association.  We have 40 Southern Baptist  Churches in our network.  I provide mission opportunities for these churches both locally, across our state, our nation, and our world.  My wife and I were called of our Lord to foster and adopt 6 children, along with our 3 biological children.  
+Our ministry assistant, Teresa Wood, and her husband also fostered and adopted 2 children, along with their bio daughter.
+We have been given the task of creating a culture of care for the children in our county and beyond by our Lord.  We have converted a house as a safe house for children to come until placement is found.  Immanuel House is available for any agency to use, especially our local DCS office.  We have seen over 100 members of our churches certified and trained to sit with the children when they come to Immanuel House.  We have developed a strong relationship with our local and regional DCS staff and seek to encourage their efforts and countless hours with children.  We are also seeking to challenge the churches to step into this mission field that is white unto harvest.",Department of Children Services (DCS) both locally and regionally.,,,,Yes
+662,Calvary Chapel Downey,1,,"12808 Woodruff Avenue. Downey, CA 90242",Downey,CA,90242,"Downey, CA 90242",33.915739,-118.115404,,Los Angeles,Los Angeles County,ccdowney.com,Church Foster Care Ministry,Yes,,,Yes,,Yes,Rich Kellogg,Ministry Leader,kelloggrich@hotmail.com,,Hannah's Helpers,"Department of Children and Family Services, Olive Crest, Camp Alandale, Bridge of Faith, ZOE International, Ninos Con Fe Casa Hogar, Catherine’s Casa Hogar, Juventud Con Vision Casa Hogar",,,,,Yes
+663,Frazer Free Methodist Church,1,,"6000 Atlanta Highway, Montgomery, AL 36117",Montgomery,AL,36117,"Montgomery, AL 36117",32.381427,-86.197119,,Montgomery,Montgomery County,frazer.church,Church Foster Care Ministry,,,Yes,Yes,,Yes,Elizabeth Drollette,Minister of Missions,edrollette@frazer.church,,,,,,,,Yes
+664,Journey Christian Church,1,,"415 Charles Cox Dr., Canton GA 30115",Canton,GA,30115,"Canton, GA 30115",34.175461,-84.411634,,Cherokee,Cherokee County,journeyhere.org,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,Christie McCullough,Ministry Coordinator,cmccullough@journeyhere.org,,Journey Foster/Adopt Ministry,"Sojourn Church,
+Cherokee County DFCS,",LifrLine Children’s services,,,,Yes
+665,Vintage Church,1,,"118 S Person St. Raleigh, NC 27601",Raleigh,NC,27601,"Raleigh, NC 27601",35.778545,-78.63539,,Wake,Wake County,vintagenc.com,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,Lauren Clark,Missions & Ministries Director,lauren.clark@vintagenc.com,,Vintage Church Foster Care & Adoption Ministry,"Wake CO Collaborative, Lifeline Children Services, Village Durham, SAYSO, CarePortal (somewhat- they are currently working to get into Wake CO), OpenTable (soon), Empty Frames Initiative","Lifeline Children Services, Empty Frames Initiative, SAYSO",,,,Yes
+666,Mosaic Church,1,,"14175 W Colonial Dr, Winter Garden, FL 34787",Winter Garden,FL,34787,"Winter Garden, FL 34787",28.552921,-81.594708,,Orange,Orange County,thisismosaic.org,Church Foster Care Ministry,Yes,,,Yes,,Yes,Melanie Stimmell,Adoption & Foster Care Coordinator,melanies@thisismosaic.org,,Mosaic Adoptive & Foster Care,"Mosaic Church, Commission127, Summit Church, Discovery Church, Safe Families, Lifeline Children Services, LoveMadeVisible, Embrace Families, Kids Central",,,,,Yes
+667,Victory Family Church,1,,"4343 N Flood Ave, Norman, OK, 73069",Norman,OK,73069,"Norman, OK 73069",35.271238,-97.47736,,Cleveland,Cleveland County,chosenoutreach.org,Church Foster Care Ministry,Yes,,,Yes,,Yes,Rachel Garrison,Team Lead,Rachel@chosenoutreach.org,,Chosen,"DHS, Angels, Care Portal, other foster care agencies, Infant crisis Center",,,,,Yes
+668,Stonegate Church,1,,"4025 E Main St Midlothian, TX 75165",Midlothian,TX,75165,"Midlothian, TX 75165",32.381572,-96.837696,,Ellis,Ellis County,stonegate.church,Church Foster Care Ministry,,,Yes,Yes,,,Ariel Cephus,Foster + Adopt Director,acephus@stonegate.church,,Foster + Adopt,"Lifeline, Texas Baptist Home, Cherished Impressions, Benevolent House, DFPS, FirstLook","Texas Baptist Home, DFPS, Lifeline",Lifeline,,,Yes
+669,A Home For Me,1,,"3 Hedge Street, Simpsonville, 	SC	 29681",Simpsonville,SC,29681,"Simpsonville, SC 29681",34.739477,-82.254749,,Greenville,Greenville County,ahomeforme.sc,Bridge Ministry,Yes,Yes,Yes,Yes,,Yes,Rhonda Littleton,Esecutive Director,rhonda@ahomeforme.sc,Yes,,"Greenville County Department of Social Services
+
+Dorchester County Department of Social Services
+
+Summerville Baptist Church
+
+Summit Church
+
+Springwell Church
+
+Brookwood Church",South Carolina Department of Social Services,,,,Yes
+670,Summerville Baptist Church,1,,417 Central Ave Summerville SC 29483,Summerville,SC,29483,"Summerville, SC 29483",33.017686,-80.185046,,Dorchester,Dorchester County,summervillebaptist.org,Church Foster Care Ministry,,,,Yes,,,Rhonda Littleton,Children's Minister,rlittleton@summervillebaptist.org,,Chosen - Foster Care and Adoptive Ministry,Dorchester County Department of Social Services,,,,,Yes
+673,The Levi Circle,1,,"909 JOSEPHINE DR, Tunnel Hill, 	GA 	30755",Tunnel Hill,GA,30755,"Tunnel Hill, GA 30755",34.856185,-85.037332,,Whitfield,Whitfield County,thelevicircle.org,Service Organization,,,,Yes,,Yes,Renee Phillips Griffin,CEO,renee.griffin@wcsga.net,No,,Tunnel Hill First Baptist,Whitfield County DFCS,,,,Yes
+674,Ridgedale Baptist,1,,"1831 Hickory Valley Road Chattanooga, TN 37421",Chattanooga,TN,37421,"Chattanooga, TN 37421",35.031364,-85.175443,,Hamilton,Hamilton County,ridgedalebaptist.org/ministries/foster-families-care/,Church Foster Care Ministry,Yes,,Yes,Yes,,,Caroline Pepper,Foster Care Ministry Director,carolinep@ridgedalebaptist.org,,,"Tennessee Kids Belong, Local Hamilton County DCS, Omni Visions, Harmony, Tennessee Baptist Children's Home, Camelot, Chambliss, Isaiah 117 House in Bradley County and Hamilton County, Youth Villages, CAFACA (Chattanooga Area Foster and Adoptive Care Association), Chattanooga Faith Cohort, Orchard Park SDA Church, New City Fellowship, Central Church of Christ, First Presbyterian Chattanooga.",The state-wide Champion Church Cohort in Tennessee through the governor's initiative,CAFO,,,Yes
+675,The Pearl Project,1,,"625 NE 12th Ave, Ocala, 	FL 	34470",Ocala,FL,34470,"Ocala, FL 34470",29.193561,-82.123383,,Marion,Marion County,thepearlproject.org,Service Organization,Yes,,Yes,Yes,,,Joy Zedler,Executive Director,joy@thepearlproject.org,Yes,,"Central Christian Church Ocala, Fl, Meadowbrook Church Ocala, Fl, Church of Hope ocala, Fl, Crosspoint church Niceville, Fl,  Church on BayShore Niceville, Kids Central, Hands of mercy everywhere, Moasaic Church Winter Garden","Department of Children and Families,  Florida Coalition for Children, guardian ad Litem program","Karyn Purvis Institute of Child
+development",Yes,Okaloosa County Collaboration,Yes
+678,JUST ONE,1,,730 Whiteville Road Shallotte NC 28470,Shallotte,NC,28470,"Shallotte, NC 28470",33.983775,-78.417425,,Brunswick,Brunswick County,nbshallotte.com/,Bridge Ministry,,,,Yes,,Yes,Kimberly Reed,"Founder, Ministry Leader",kjoyreed7@gmail.com,No,,"Boys and Girls Home of Lake Waccamaw,
+Brunswick County Department of Social Services,
+WAVES4K.I.D.S.","Guardian ad Litem,
+CarePortal",CarePortal,,,Yes
+679,Spotswood Baptist Church,1,,"4009 Lafayette Blvd. Fredericksburg, VA 22408",Fredericksburg,VA,22408,"Fredericksburg, VA 22408",38.262316,-77.49147,,Spotsylvania,Spotsylvania County,spotswood.org/interwoven,Church Foster Care Ministry,,,,Yes,,Yes,Rachal Pollard,Ministry Leader,interwoven@spotswood.org,,Interwoven,"Project Belong, City of Fredericksburg, Spotsylvania County, Impact for Living, Intercept Health, Choices Women’s Center.",Virginia Kids Belong,CAFO,,,Yes
+680,Westside Family Church,1,,"8500 Woodsonia Drive, Lenexa, 	KS	 66227",Lenexa,KS,66227,"Lenexa, KS 66227",38.972556,-94.85152,,Johnson,Johnson County,westsidefamily.church/network127,Church Foster Care Ministry,Yes,Yes,,Yes,,Yes,Jenn Decker,Ministry Director,jdecker@westsidefamily.church,,Network 1.27,"Colonial Presbyterian
+Heartland Community Church
+Journey Bible church
+Church of the Ressurection
+Joy Meadows","Kansas Post Adoption Resource Center
+KVC
+DCCCA
+TFI
+EmberHope
+Kansas DCF","Lifesong for Orphans
+1millionhome
+CAFO
+CarePortal
+The adoption connection
+Halo Project
+TCU",,,Yes
+681,Calvary Church,1,,"707 E Beltline NE Grand Rapids, MI  49525",Grand Rapids,MI,49525,"Grand Rapids, MI 49525",42.975523,-85.593413,,Kent,Kent County,calvarygr.org,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,,Sheri Schmidt,Director of Orphan Care,sschmidt@calvarygr.org,,Forever Hope,"Kentwood Community Church, Crossroads Bible Church, Ridgepoint Church, Wellspring Church, Cedar Springs Baptist Church, West Cannon Church. Hephzibah 62:4, Mosaic,  CarePortal West Michigan. Orphan Ministry Alliance of West Michigan (the name still exists but we are not meeting regularly under this name)",,,,,Yes
+682,Agape Ranch,1,,"5151 Flynn Pkwy, ste. 106, Corpus Christi, TX 78411",Corpus Christi,TX,78411,"Corpus Christi, TX 78411",27.717416,-97.392008,,Nueces,Nueces County,agaperanch.org,Service Organization,Yes,,,Yes,,Yes,Jorden Tramp,Donor Relations & Event Coordinator,jorden@agaperanch.org,No,,"CarePortal Churches:
+Corpus Christi Christian Fellowship, Fellowship of Oso Creek, New Life at the Cross Church, Saint Andrew Episcopal Church, City Church, Yorktown Baptist Church, Kings Crossing Church Of Christ, River Hills Baptist Church, Kelsey Memorial Methodist Church, Rock City Church, Corpus Christi Seventh-day Adventist Church, New Life Corpus, Gethsemane Lutheran Church, First United Methodist Church - Portland, GracePoint Portland, First Baptist Church - Portland, Cowboy Fellowship San Patricio County, Kleberg County, First United Methodist Church, Kingsville, Church of the Epiphany, Praise Victory Worship Church","Child Placing Agencies: 
+A World for Children, Agape Harbor, Arms Wide Adoption Services, Beacon of Hope, Burke Center for Youth, Circles of Care, Department of Family and Protective Services",,,,Yes
+683,North Coast Church,1,,"1375 S Mission Road, Fallbrook  CA  92028",Fallbrook,CA,92028,"Fallbrook, CA 92028",33.36786,-117.252388,,San Diego,San Diego County,olivecrest.org/host-families/,Church Foster Care Ministry,Yes,,Yes,Yes,,,Tamara Landes,Children's Pastor,tlandes@northcoastchurch.com,,Strong Families,"North Coast Church campuses in Vista, Ramona, San Marcos",,CAFO,,,Yes
+685,Foster the Cause in Northwest Kansas,1,,"812 Washington St., Ellis Ks 67637",Ellis,KS,67637,"Ellis, KS 67637",38.939502,-99.560515,,Ellis,Ellis County,fosterthecause.org,Bridge Ministry,,,Yes,Yes,,,Janeen Cox,Regional coordinator,jcox@fosterthecause.org,,,"Central Kansas Dream Center Great Bend Kansas, Cornerstone Southern Baptist Church Hays Ks, Ellis Baptist Church Ellis Ks, Celebration Community Church Hays Ks,  Encounter Church Great Bend Ks, Faith Community Church Great Bend Ks, Heartland Community Church Great Bend Kansas,",Emberhop Newton Ks,KPICD (?) - I am a TBRI practitioner,,,Yes
+687,Fostering Great Ideas,1,,"321 Pimlico Rd, Greenville, SC 29607",Greenville,SC,29607,"Greenville, SC 29607",34.823254,-82.360449,,Greenville,Greenville County,fgi4kids.org,Service Organization,Yes,Yes,Yes,Yes,,,David White,CEO,connect@fgi4kids.org,No,,"Fellowship Greenville, Grace Church, Downtown Presbyterian Church, First Baptist Greenville, Mt. Sinai Missionary Baptist Church.","SC Department of DSS; Guardian ad Litem, Palmetto Association for Children and Families.",CarePortal.,,,Yes
+688,Southern New Mexico Foster Adoption Ministry,1,,"3422 Montecito Ct, Las Cruces, NM 88011",Las Cruces,NM,88011,"Las Cruces, NM 88011",32.349221,-106.742812,,Dona Ana,Dona Ana County,snmfam.org,Service Organization,Yes,,,Yes,,,Bethany Gallegos,Executive Director,beth@snmfam.org,No,,"Dona Ana County, Otero County
+(Southern New Mexico)","Children, Youth and Families Department (CYFD), Court Appointed Special Advocates (CASA), Families, Youth + Incorporated (FYI+), The Bair Foundation","Quality Parenting Initiative (QPI), Court Appointed Special Advocates (CASA), The Bair Foundation
+Stand Sunday (CAFO)",,,Yes
+689,"Childplace, Inc.",1,,"2420 East 10th Street, Jeffersonville, IN 47130",Jeffersonville,IN,47130,"Jeffersonville, IN 47130",38.312298,-85.717307,,Clark,Clark County,childplace.org,Placement Agency,,,Yes,Yes,,,Jen Fister,Foster Care & Adoption Program Supervisor,jenf@childplace.org,No,,"Childplace contracts with the Indiana Department of Child Services (DCS) to provide recruitment, training, and licensing of foster and adoptive families as well as placement and case management support of children and foster families. Childplace works with local county DCS offices throughout the region. Childplace works with providers throughout the community related to therapeutic needs and provides therapeutic services as well. Childplace partners with Orphan Care Alliance at recruitment events.",Childplace contracts with the Indiana Department of Child Services by providing home study services for families interested in adopting waiting children.,,,,Yes
+692,Justice For Orphans,1,,"38 Fares Rd. Ravena, NY 12143",Ravena,NY,12143,"Ravena, NY 12143",42.472395,-73.855175,,Albany,Albany County,justicefororphansny.org,Service Organization,,Yes,,,,,Sandra Flach,Executive Director,sandraflach@justicefororphansny.org,Yes,,"JFO is an implementor of CarePortal in upstate NY. We currently manage CarePortal in 4 counties (Albany, Greene, Rensselaer and Schenectady). We work with the county child welfare agency in each county. We also work with the Schenectady Family Treatment Court and 2 elementary schools in the city of Schenectady. 
+
+In 2023 we plan to implement CarePortal in 3-5 more counties. Our network currently  includes more than 40 churches throughout the Capital Region. 
+
+JFO also provides support to adoptive, foster & kinship caregivers through our weekly Adoption & Foster Care Journey podcast, our Hope for the FASD Journey support group, and our trauma and FASD training for parents, caregivers & professionals.",CarePortal and NYS Office of Children and Family Services (OCFS),CarePortal and FASD United. JFO is an affiliate organization with FASD United.,,,Yes
+693,Indiana Kids Belong,1,,"Indianapolis, IN",Indianapolis,IN,,"Indianapolis, IN ",39.775092,-86.13216,,Marion,Marion County,americaskidsbelong.org/states/in/,Service Organization,,,Yes,Yes,,,Laura Mobley,State Manager,lmobley@inkidsbelong.org,No,,,"Hands of Hope, DCS",A part of America's Kids Belong,,,Yes
+694,Help One Child,1,,"858 University Ave, Los Altos 	CA 	94024",Los Altos,CA,94024,"Los Altos, CA 94024",37.36642,-122.109604,,Santa Clara,Santa Clara County,helponechild.org,Bridge Ministry,,,Yes,Yes,,Yes,Judy Holmes,Director of Family Connection and Community Development,judy@helponechild.org,No,,"We work with numerous churches and organizations in the San Francisco Bay Area. We have a presence in 6 counties, with organizations and churches in all of them. We actually work with hundreds of churches and multiple organizations.",,,,,Yes
+695,Fellowship Greenville,1,,"3161 South Highway 14, Greenville, 	SC	 29615",Greenville,SC,29615,"Greenville, SC 29615",34.841688,-82.24296,1,Greenville,Greenville County,fellowshipgreenville.org,Church Foster Care Ministry,,,Yes,Yes,,,Rob Marks,Executive Pastor,rmarks@fellowshipgreenville.org,,Known and Loved,"Fostering Great Ideas, Miracle Hill Ministries, Grace Church, Brookwood Church, Summitt Church",,,,,Yes
+696,Love Your Neighbor,1,,"301 Austin Bluffs Pkwy, Colorado Springs, CO 80918",Colorado Springs,CO,80918,"Colorado Springs, CO 80918",38.897213,-104.814436,,El Paso,El Paso County,loveyourneighborcs.com,Service Organization,,,Yes,Yes,,,Patricia Curry,,pcurry@thechildrenarewaiting.org,,,"Pulpit Rock Church, Mountain Springs Church, The Woodshed Lumber Co, Platte Furniture, Davis Whitehall, Fostering Hope, Hope and Home Foster Agency, Ithaka,  PPA High School, Partners in Housing, El Paso County DHS, Lutheran Family Services, Catholic Charities, CASA, Lewis Palmer District 38, District 49, Harrison District 2, Make it A Home, CPCD Headstart, Pikes Peak Kiwanis, ReLoved Creations, The Success Collective, Pulpit Rock Youth – PRiSM, Peak City Church Youth, Graham Oleson Marketing, COSILOVEYOU, Sky Ranch Youth Group, The Village School, TCA Cheer Team, First Presbyterian Small Groups, Colorado Springs Police Department, Colorado Rampage Hockey - 10u AA","Beautiful Redemption, CarePortal, Foster Source, ATS Rocky Mountain, Sky Ranch Youth Group",,,,Yes
+697,Carolina Care Center,1,,"1503 Walnut St. Cary, NC 27511",Cary,NC,27511,"Cary, NC 27511",35.765455,-78.751179,,Wake,Wake County,carolinacarecenter.org,Service Organization,Yes,Yes,,Yes,,,Rob Mattox,Executive Director,rob@carolinacarecenter.org,No,,"We serve Wake County. We are the official Implementing Partner for Care Portal in this county. We just started but we are working with Point Church Cary & Garner, Vintage Church (3 campuses), and Apex Baptist Church. Hands & Hope Pregnancy Center and Your Choice Pregnancy Center are signing on as an agencies. We hope Wake County DHS will sign on in 2023.",,Care Portal- see above,Yes,Wake County Collaboration,Yes
+699,The CALL - Arkansas County,1,,"100 Refuge Road, Ethel, AR  72048",Ethel,AR,72048,"Ethel, AR 72048",34.265928,-91.15817,,Arkansas,Arkansas County,thecallinarkansas.org,Service Organization,Yes,Yes,Yes,Yes,,,Carolyn Knowlton,County Coordinator,arkansascounty@thecallinarkansas.org,Yes,,"DeWitt First Baptist Church, Faith Baptist Church, DeWitt; Stuttgart First Baptist Church, Stuttgart First United Methodist Church, Hebron Baptist Church, DeWitt; DeWitt First United Methodist Church, Park Avenue Baptist Church, Stuttgart; Unity Baptist Church, DeWitt; Southside Baptist Church, Stuttgart; Gillett First Baptist Church.",The CALL,,,,Yes
+700,Zacchaeus Tree Adoption Ministry,1,,"8 Crosswoods Rd, Brandon MS 39042",Brandon,MS,39042,"Brandon, MS 39042",32.287054,-90.024038,,Rankin,Rankin County,,Service Organization,,Yes,,,,,Zacchaeus Tree Adoption Ministry,Chris Gray - President,christopher.gray1@yahoo.com,No,,"I work with all churches of all denominations in Rankin, Hinds, Madison, Copiah, Smith, Scott, and Simpson Counties. I work with families that attend church and who do not attend any type of church. I lead adoption and foster care classes on the 1st and 3rd Wednesday's of each month at Crossgates Baptist Church, 8 Crosswoods Rd, Brandon MS 39042 from 6p-7p that are approved for foster credit hours at each class. Childcare is provided for free each class period.","Lifeline, New Beginnings, Mississippi Department of Child Protection Services",,,,Yes
+701,Choosing Hope Adoptions,1,,"616 N. Limestone St, Springfield, OH 45503",Springfield,OH,45503,"Springfield, OH 45503",39.931413,-83.806103,1,Clark,Clark County,choosinghopeadoptions.org,Placement Agency,,,,Yes,,,Angela Boblitt,Executive Director,angela@choosinghopeadoptions.com,Yes,,,,,,,Yes
+702,Joy Meadows,1,,"PO BOX 182 Basehor, KS 66007",Basehor,KS,66007,"Basehor, KS 66007",39.133448,-94.947234,,Leavenworth,Leavenworth County,joymeadows.org,Service Organization,,,Yes,Yes,,,Anna Unruh,Director of Community Engagement,anna@joymeadows.org,Yes,,"Colonial Presbyterian Church, Westside Family Church, Lenexa Baptist Church, along with about 30 other churches state-wide in Kansas through our Church Network branch of support for Joy Meadows.","We are connected with agencies such as KVC, Cornerstones of Care, DCF KS and MO, and DCCCA.","RE Conference, CAFO, Promise 686",,,Yes
+703,SWVA Crossroads Coalition for Orphan and Foster Care,1,,"518 Blackberry Drive, Wytheville, VA 24382",Wytheville,VA,24382,"Wytheville, VA 24382",36.924307,-81.064923,,Wythe,Wythe County,swvacrossroadscoalition.org,Bridge Ministry,Yes,Yes,,Yes,,,Brandy Page,Executive Director,swvacrossroadscoalition@gmail.com,No,,"Wythe County Schools, Galax City Schools, Grayson County Schools, Wythe County DSS, Grayson County DSS, Bland County DSS, Smyth County DSS, 20+ churches in the counties mentioned, 10 businesses in the counties mentioned.",Patrick Henry Family Services,CarePortal,,,Yes
+704,Child Bridge Kalispell,1,,"32 Village Loop, Kalispell, 	MT 	59901",Kalispell,MT,59901,"Kalispell, MT 59901",48.226017,-114.307065,,Flathead,Flathead County,childbridgemontana.org,Bridge Ministry,Yes,,,,,,Ray Biggerstaff,Regional Director,rbiggerstaff@childbridgemontana.org,Yes,,,,,,,Yes
+705,Child Bridge Missoula,1,,"2829 Great Northern Loop Suite #218, Missoula, MT  59808",Missoula,MT,59808,"Missoula, MT 59808",46.884011,-114.033294,,Missoula,Missoula County,childbridgemontana.org,Bridge Ministry,Yes,Yes,,,,,Jess Pienaar,Family Education Specialist,jpienaar@childbridgemontana.org,Yes,,,,,,,Yes
+706,Child Bridge Butte,1,,"PO Box 4821, Butte, MT 59701",Butte,MT,59701,"Butte, MT 59701",45.997895,-112.598765,,Silver Bow,Silver Bow County,childbridgemontana.org,Bridge Ministry,Yes,Yes,Yes,Yes,,,Jacqueline Bergren,Family Engagement Coordinator,jbergren@childbridgemontana.org,Yes,,,,,,,Yes
+707,Child Bridge Helena,1,,"PO Box 7713, Helena, MT 59604",Helena,MT,59604,"Helena, MT 59604",46.527398,-112.21037,,Lewis And Clark,Lewis And Clark County,childbridgemontana.org,Bridge Ministry,Yes,Yes,,Yes,,,Melissa Puyear,Family Education Specialist,mpuyear@childbridgemontana.org,Yes,,,,,,,Yes
+708,Child Bridge Eastern Montana,1,,PO Box 685 Glendive MT 59330,Glendive,MT,59330,"Glendive, MT 59330",47.180623,-104.774873,,Dawson,Dawson County,childbridgemontana.org,Bridge Ministry,Yes,Yes,Yes,,,Yes,Cindy Larsen,Regional Director,clarsen@childbridgemontana.org,Yes,,,"Child Bridge Kalispell, Child Bridge Helena, Child Bridge Butte, Child Bridge Missoula, Child Bridge Great Falls, Child Bridge Billings, Child Bridge Bozeman",,,,Yes
+709,Kentwood Community Church,1,,"1200 60th SE, Kentwood, MI 49508",Kentwood,MI,49508,"Kentwood, MI 49508",42.853023,-85.633026,,Kent,Kent County,familiesofpromise.org,Church Foster Care Ministry,Yes,,,,,,Jodi Lewis,Coordinator,jnjlewis@gmail.com,,Families of Promise,"Alpha Grand Rapids, Bethany Christian Services, DA Blodgett, Wellspring, Catholic Charities (connected through CarePortal),  Calvary Church, Crossroads Bible Church, Ridge Point Community Church, Friendship Wesleyan Church, The Local Church, and a growing number of others",Michigan Department of Health and Human Services,"CAFO, Hephzibah62:4, CarePortal",,,Yes
+710,Child Bridge Great Falls,1,,"108 29th Ave NE, Great Falls, 	MT 	59401",Great Falls,MT,59401,"Great Falls, MT 59401",47.531931,-111.314129,,Cascade,Cascade County,childbridgemontana.org,Bridge Ministry,Yes,Yes,,,,,Andrew Morrow,Regional Director,amorrow@childbridgemontana.org,Yes,,,"Child Bridge Kalispell
+Child Bridge Missoula
+Child Bridge Butte
+Child Bridge Helena
+Child Bridge Billings
+Child Bridge Miles City",,,,Yes
+711,Child Bridge Billings,1,,"951 Broadwater Sq Billings, MT 59101",Billings,MT,59101,"Billings, MT 59101",45.777769,-108.540691,,Yellowstone,Yellowstone County,childbridgemontana.org,Bridge Ministry,Yes,Yes,Yes,Yes,,,LaTrisha Larson,Family Education Specialist,llarson@childbridgemontana.org,Yes,,,"Child Bridge Kalispell, Child Bridge Missoula, Child Bridge Butte, Child Bridge Helena, Child Bridge Great Falls, Child Bridge Miles City.",,,,Yes
+712,Crossnore Communities for Children,1,,709 5th Ave West Hendersonville NC 28739,Hendersonville,NC,28739,"Hendersonville, NC 28739",35.317021,-82.469154,,Henderson,Henderson County,crossnore.org,Placement Agency,Yes,Yes,Yes,Yes,,,Angela Bollo,Fostering Communities Officer,abollo@crossnore.org,No,,"Buncombe County DHHS, Henderson County DHHS, Transylvania County DHHS, Polk County DHHS, Avery County DHHS, Watagua County DHHS, Mitchell County DHHS, Yancey County DHHS, Forsyth County DHHS, Gilford County DHHS, Lincoln County DHHS, Black Mountain Home for Children, Thompson Child & Family Focus Services, Henderson County Foster Parent Association, Least of These Carolinas, Arbordale Presbyterian, Banner Elk Christian Fellowship, Boone UMC, Faith Bridge UMC, First Baptist Church on 5th, Green St UMC, Heaton Christian Church, New Day Community Church, Newland Presbyterian, Parkway UCC, Columbus United Methodist, Congregational Church, East Flat Rock Baptist, First Congregational Church Hendersonville, First United Methodist Brevard, First United Methodist Hendersonville, Grace Lutheran Church, Lewisville UMC, Providence Baptist Church, Saluda UMC, Upward Christian Fellowship, Wesley Memorial UMC, Living Word Fellowship Church, Mt. Tabor UMC, WS 7th Day Adventist, Eden UMC, Clemmons UMC","Foster Family Alliance of NC, Duke Endowment",,,,Yes
+713,South Texas Alliance for Orphans,1,,"115 Kendall View Boerne, TX 78006",Boerne,TX,78006,"Boerne, TX 78006",29.806783,-98.588209,,Kendall,Kendall County,alliance4orphans.org,Bridge Ministry,,,Yes,Yes,,Yes,Jennifer Smith,Executive Director,jennifer@alliance4orphans.org,No,,"We serve Bexar county (San Antonio) and surrounding counties including Comal (New Braunfels, Bulverde), Kendall (Boerne), Wilson , Medina, Bandera and Guadalupe counties. We work with 78 churches and 25 area non-profits.","We collaborate with Restore Texas Families to build capacity across Texas. Including Fostering Hope Austin, Embrace Texas, One Big Happy Home, Riverside Project, The Attic, Hope Local...",We work with CAFO and Chosen on a national level.,,,Yes
+714,Fairview Presbyterian,1,,"101 Carolina Avenue, North Augusta, SC 29841",North Augusta,SC,29841,"North Augusta, SC 29841",33.521304,-81.828276,,Aiken,Aiken County,fairviewpreschurch.org,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,Scott Bowser,Lead Advocate,sebowser1@aol.com,,Fairview FAM,"Republican Baptist Care Community, Edgefield First Baptist service projects, True North Care Community,  Quest Church Foster Family date night, New Hope worship Center parterre.","SC-Fosyering The Family
+Georgia-Promise 686",,,,Yes
+715,Grace Church - Norton Campus,1,,"3970 Cleveland Massillon Rd. Norton, OH 44203",Norton,OH,44203,"Norton, OH 44203",41.030533,-81.638268,,Summit,Summit County,norton.graceohio.org,Church Foster Care Ministry,,Yes,Yes,Yes,,,Adam Speas,Pastor of Campus Development,aspeas@graceohio.org,,Foster Care and Adoption Group of Grace Church,"We partner with Summit County Children Services, Caring for Kids, and other organizations locally.  We do this by offering a Foster Care Closet for the community.  These organizations make individual families aware of the opportunity for clothing through our church.  We also utilize and connect with them for Foster Care and Adoption Awareness events.",,,,,Yes
+716,Christian Heritage,1,,"14880 OLD CHENEY RD, Walton	, NE	 68461",Walton,NE,68461,"Walton, NE 68461",40.757283,-96.517813,,Lancaster,Lancaster County,chne.org,Placement Agency,Yes,Yes,,Yes,,,Tawnya Hansen,Christian Heritage Foster Care Director,tawnya.hansen@chne.org,Yes,,"Lincoln Berean Church, Lincoln, NE
+Christ Place, Lincoln, NE
+First Evangelical Church, Lincoln, NE
+
+Brookside Church, Omaha, NE
+Lifegate Church, Omaha, NE","Foster Care Closet, Lincoln, NE
+Brave Be Child Advocacy Center, Lincoln, NE
+Project Harmony, Omaha, NE",,,,Yes
+717,Isaiah's Place Inc.,1,,"61 S Stanfield Rd Troy, OH 45373",Troy,OH,45373,"Troy, OH 45373",40.054508,-84.240502,,Miami,Miami County,isaiahsplace.com,Placement Agency,Yes,Yes,Yes,Yes,,,Robby Lybarger,Development Coordinator,robby.lybarger@isaiahsplace.com,No,,"Gospel Community Church (Troy), Troy FUMC, First COC (Troy), Seeds of Hope OH, Troy Christian Church, Faith Alliance Church (New Bremen).",Ohio Children's Alliance,,,,Yes
+718,ICA,1,,"41745 Rider Way #2, Temecula CA 92590",Temecula,CA,92590,"Temecula, CA 92590",33.515906,-117.165256,,Riverside,Riverside County,4achild.org,Placement Agency,Yes,,Yes,Yes,,,Laura Marinucci,Special Home Finding,lmarinucci@4achild.org,Yes,,"Riverside County, San Bernardino County, Sacramento County, Orange County",,CAFO,,,Yes
+719,BCS Together,1,,"3811 Old College Road Bryan, TX 77801",Bryan,TX,77801,"Bryan, TX 77801",30.63262,-96.354137,,Brazos,Brazos County,bcstogether.org,Bridge Ministry,,,,Yes,,Yes,Jenni Olowo,Executive Director,jennio@bcstogether.org,Yes,,"Voices for Children - CASA Of the Brazos Valley, Unlimited Potential, Renaissance Family Services, A&M Church of Christ, Brazos Fellowship, Grace Bible Church, Central Church, Victory Church, Declaration Church, First Baptist Bryan, Holy Cross Lutheran Church, Citizens Church, Living Hope Bryan, Living Hope College Station, Restoration Church, Westminster Presbyterian Church",Department of Child and Family Services,Lifeline Christian Services,,,Yes
+720,McDowell Church,1,,"10700 N 124th Street, Scottsdale, AZ 85259",Scottsdale,AZ,85259,"Scottsdale, AZ 85259",33.583419,-111.814225,,Maricopa,Maricopa County,mcdowell.church/missions/#global,Church Foster Care Ministry,,,,Yes,,Yes,John Keane,M1.27 Leader,jkeaneinaz@gmail.com,,M1.27,"AZ1.27,  Multiple group homes, AFFCF, Teen Reach Adventure Camp",,,,,Yes
+721,Biltmore Church,1,,"35 Clayton Road, Arden, 	NC 	28704",Arden,NC,28704,"Arden, NC 28704",35.488472,-82.567573,,Buncombe,Buncombe County,biltmorechurch.com/missions,Church Foster Care Ministry,,,,Yes,,,Sarah Bowman,Missions Coordinator for Foster Care and Compassion International,sbowman@biltmorechurch.com,Yes,,"Our foster care and adoption ministry is on the newer side and we are still in building phases. We are a multi-site church which spans across 3 different counties. Buncombe county, Henderson county, and Macon County NC. We have some connections with each county DSS but are trying to grow and strengthen those. We work with some child placing agencies, such as, Black Mountain Home for Children, Crossnore Communities for Children, and Baptist Children's Home, Brandi Nichole Family Enrichment Services. We also work closely with Fostering Hopes which is local to Western North Carolina. We hope to start a partnership soon with Alongside Families which focuses more on strengthening and supporting biological families.",We have worked with Foster Family Alliance and Least of These Carolinas to host a large Christmas event for foster and kinship families in December 2022.,Lifeline Children's Services has been a helpful partner for networking and resourcing as we grow this ministry. They will be leading a training this month at one of our campuses for those who want to get involved in wrap around support of the foster families that attend our church.,,,Yes
+722,Haven Hills Foster Care Community,1,,"14065 34th St NW, Bismarck, ND 58503",Bismarck,ND,58503,"Bismarck, ND 58503",46.95923,-100.839409,,Burleigh,Burleigh County,havenhillscommunity.com,Service Organization,Yes,Yes,Yes,Yes,,,Amber Bohl,Chief Operating Officer,havenhillsfostercommunity@gmail.com,No,,"ND Region VII Foster Parent Association, New Song Church, Evangel Church, Burleigh County Human Service Zone, Little Lights Pediatric Therapy",Department of Health and Human Services,"None at this time, but always looking to partner with organizations with a similar mission of providing services related to foster care.",,,Yes
+724,"AGAPE of North Alabama, Inc.",1,,"103 Mountain Brook Blvd., Madison, AL  35758",Madison,AL,35758,"Madison, AL 35758",34.681421,-86.716687,,Madison,Madison County,agapecares.org,Placement Agency,Yes,,Yes,Yes,,,Danny Holmes,Executive Director,danny@agapecares.org,No,,"Madison County (AL) Department of Human Resources, AGAPE of Central Alabama, AGAPE Nashville, Children's Aid Society (B'ham, AL), Childhaven, Beltline Church of Christ, Bethel Church of Christ, Broad Street Church of Christ, Chase Park Church of Christ, Church of Christ on the Highway, Cox Blvd. Church of Christ, Cross Point Church of Christ, Decatur Church of Christ, Grant Church of Christ, Greenbrier Church of Christ, Hartselle Church of Christ, Lincoln Church of Christ, Madison Church of Christ, Mayfair Church of Christ, Maysville Church of Christ, Meridianville Church of Christ, Northwest Church of Christ, Owens Cross Roads Church of Christ, Piedmont Church of Christ, Shiloh Church of Christ, Spring Valley Church of Christ, Tanner Church of Christ, Twickenham Church of Christ, Woodlawn Church of Christ, Summit Crossing Church, Church of the Highlands, The Grove Church, Refuge Church, Bethel Baptist Church, New Life Baptist Church, Kingdom Life Church Fellowship","Alabama State Department of Human Resources, Alabama Association of Child Care Agencies","CAFO, Network 1:27",,,Yes
+725,"Congregations for Kids, Inc.",1,,"5835 Executive Center Drive, Suite 100, Charlotte, NC 28212",Charlotte,NC,28212,"Charlotte, NC 28212",35.199413,-80.741854,,Mecklenburg,Mecklenburg County,cfknc.org,Bridge Ministry,Yes,,,Yes,,,Nicole Taylor,Executive Director,Nicole@CFKnc.org,Yes,,"CFK works primarily in the Greater Charlotte area (including South Carolina) to create champions for children, families and socail workers connected to the foster care system. CFK works with over 30 churches and over 20 different community partners. Additionally, CFK is apart of the Project 127 National Network, serves on the advisory board of the Congresstional Coailition on Adoption Institute and is a member of the National Foster Care Coailition. CFK's Socialight program is also being used in several states throughout othe country.","Foster Village Charlotte, The Children's Alliance, NC Child","CCAI, National Foster Coailition, Project 127",,,Yes
+728,Mission Georgia,1,,"Duluth, GA 30097",Duluth,GA,30097,"Duluth, GA 30097",34.026142,-84.145592,,Gwinnett,Gwinnett County,missiongeorgia.org/fostercare/,Bridge Ministry,Yes,Yes,,Yes,,,Tera Melber,Foster Care Mobilizer and Trauma Educator,fostercare@missiongeorgia.org,No,,"Over 3,400 Southern Baptist Churches throughout Georgia,
+Winshape Homes,
+Families 4 Families,
+Called to Care,
+The Grace and Joy House
+Local DFCS offices","Promise 686
+Care Portal",,,,Yes
+729,The Sanctuary Foster Care Services,1,,1350 E NASA Parkway,Houston,TX,77058,"Houston, TX 77058",29.548047,-95.100674,,Harris,Harris County,sanctuaryfostercare.org,Placement Agency,,,Yes,Yes,,,Megan Lagoy,Program Director,mlagoy@sanctuaryfostercare.org,No,,"Love Fosters Hope
+Champion Kids Camp
+Community Health Network
+Fostering Hope at CrossPoint Church
+Oak Forest Foster Closet
+Clothed By Faith
+Kingdom Care
+Anchor Point Pregnancy Center
+Bridge Over Troubled Water
+The Birthday Joy Program
+Riverside Project
+Operation Achieve Independence
+Carrying Hope
+The Harbor
+Clear Creek Community Church
+Risen Nation
+Heritage Park
+Sagemont
+Evangelical Formosan
+Coastal Community
+Crosspoint Church
+Bay Area Church
+3rd Coast Church
+University Baptist Church
+Mainland Community Church
+Cornerstone
+Citymark
+The Connect Church (Pearland)
+First Baptist Church Friendswood
+Life Point Church
+Lakewood Church
+Santa Fe Baptist Church
+Arcadia First Baptist Church
+The Ark Gulf Coast","Texas Alliance of Child and Family Services 
+Department of Family and Protective Services
+Court Appointed Special Advocates
+Love Has No Limits
+Together We Rise","KidSave
+Bikers Against Child Abuse
+Family Promise
+Care Portal",,,Yes
+730,Resource Center Inc of Ridgeland Mississippi,1,,"238 LAKE HARBOUR DR, Ridgeland, 	MS	 39157",Ridgeland,MS,39157,"Ridgeland, MS 39157",32.41424,-90.131189,,Madison,Madison County,facebook.com/TheResourceCenterRidgeland,Service Organization,Yes,,Yes,Yes,,,Thomas Dent,Board President,resourcecenter@traceridge.org,,,"The Resource Center Inc of Ridgeland is a 501c3 nonprofit organization that exists to illustrate the love of Jesus by providing food, clothing, and beds to Mississippi families both in the foster care system and experiencing a crisis. The Resource Center started in 2018 as a ministry of Trace Ridge Church. In 2022 it became a separate nonprofit. The Resource Center is located on the church profit and many members of the church volunteer at the Resource Center. We accept furniture and clothing requests from the MS Department of Child Protection Services as well as requests directly from foster parents and advocates in the area.",N/A,N/A,,,Yes
+731,Chestnut Mountain Village,1,,"244 PONDEROSA PONDS RD, Morgantown, West Virginia  26508",Morgantown,WV,26508,"Morgantown, WV 26508",39.571263,-79.904735,,Monongalia,Monongalia County,cmvwv.org,Service Organization,Yes,Yes,Yes,Yes,,Yes,Greg Clutter,Director of Foster Care Initiatives,greg@chestnutmountainranch.org,,,"We have worked in a variety of capacities with the following churches (in the cities indicated) across the state. We have also engaged with MANY more. Some of these are doing only small activities while others have a full-blown Family Advocacy Ministry that is supporting foster families, recruiting families, etc.
+
+Bible Center Church, Charleston
+Calvary Baptist Church, Hurricane
+Chestnut Ridge Church, Morgantown
+CMA Church of Morgantown, Morgantown
+Jodie Baptist Church, Swiss
+Kingwood Southern Baptist Church, Kingwood
+Paden City Church of the Nazarene, Paden City
+Trinity Assembly of God (Fairmont), Fairmont
+Red House Bible Church, Red House
+River Cities Community Church, Huntington
+River Ridge Church - Charleston
+River Ridge Church - Teays Valley, Hurricane
+Simpson Creek Baptist Church, Bridgeport
+Southern Baptist Church of Philippi
+StoneBridge Baptist Church - Morgantown
+Vineyard Church of Wheeling
+First Presbyterian, Charleston
+
+We also work with multiple local foster care placing agencies including Bethany, Children's Home Society, Pressley Ridge, and multiple others.  Some regional businesses help support our efforts in a variety of ways..","Mission West Virginia
+Southern Baptist Conference of West Virginia
+West Virginia Foster Care Ombudsman's office
+Aetna Better Health of West Virginia
+
+Less active but engaged with WV Foster, Adoptive, and Kinship Network; Camp Appalachia; Appalachian Impact....and a few others.
+
+Just now becoming (slightly) active with the West Virginia Bureau of Social Services and WV DHHR.","Although not a member - we continue to work with CAFO in a variety of ways, of course.  
+
+Promise 686, All In Fostering Futures, Dr. John DeGarmo (Foster Care Institute), National Foster Care Collaborative (and its members for certain projects). Have also done some small work with Congregations for Kids (Charlotte) and North Point Ministries (Atlanta)",Yes,Monongalia County Collaboration; Putnam County Collaboration,Yes
+732,Emmanuel Faith Community Church,1,,"639 E. 17th Ave, Escondido, 	CA 	92025",Escondido,CA,92025,"Escondido, CA 92025",33.108001,-117.061158,,San Diego,San Diego County,efcc.org/familystrong,Church Foster Care Ministry,Yes,,Yes,Yes,,Yes,Anna Nielsen,Life on Mission Director,anielsen@efcc.org,,Family Strong,"Olive Crest, Restoration 225, San Diego County Child Welfare Services, Faith in Motion Network of faith communities and government agencies",,,,,Yes
+733,Rooftop Church,1,,"9217 Gravois Rd  Affton,  MO 63123",Affton,MO,63123,"Affton, MO 63123",38.55476,-90.316691,,St. Louis,St. Louis County,rooftop.org,Church Foster Care Ministry,,,,Yes,,,Gerilyn Ahrens,Ministry leader,gerilynahrens@hotmail.com,No,Fostering Faithful Families,"Care Portal,
+Good Shepard Family Ministry,  
+One Heart Family Ministry,",None,Care Portal,,,Yes
+735,Flourishing Families of South Carolina,1,,6136 Bush River Rd. Columbia SC 29212,Columbia,SC,29212,"Columbia, SC 29212",34.062205,-81.215344,,Richland,Richland County,flourishingfamiliessc.org,Service Organization,,,,Yes,,,Amie Cooper,Executive Director,amie@flourishingfamiliessc.org,No,,,South Carolina Department of Social Services,"Karyn Purvis Institute of Child Development at Texas Christian University, Focus on the Family",,,Yes
+736,Fostering Connections,1,,"5638 HWY 53, Unit B-194  Harvest AL 35749",Harvest,AL,35749,"Harvest, AL 35749",34.83954,-86.706683,,Madison,Madison County,fostering-connections.org/,Service Organization,Yes,Yes,Yes,Yes,,,Kimberly M Du Vall,"Founder, Executive Director",Kimberly@NorthAlabamaFosterCloset.com,Yes,,"Agape of North Alabama, Grace United Methodist, Rivertree Church, Movement Church, The Brook, and The Grove.  
+
+Grace United Methodist is by far our most engaged church partnership.  The other churches are involved to varying degrees and in various ways.  While we don't have an official partnership with any of these churches/organizations I know I can reach out to any of them when I need something.  There are other churches in the area who do donation drives or donate funds but I didn't list those as we are not actively working together.  These churches and Agape all have a heart for orphan care and are engaged with us and other groups across North Alabama.
+
+I am a foster/adopt mom of 13 years.  I never set out to do what I am doing.  The foster closet evolved out of a TBRI parent led group I started when we moved here 8 years ago. I was simply looking for community and had led a group in Colorado with Project 1:27.  After a few years we registered as a 501c3 because churches and businesses were wanting to give us money to purchase things like beds and mattresses.  We are now more than a clothing closet.  We have connecting events for families and caregiver support gatherings.  Sorry, I realize  you didn't ask for this.  I am excited about what I get to do every day and love to share about it.",None,None,,,Yes
+737,Olive Crest,1,,"2130 East Fourth Street, Ste. 200  Santa Ana  CA 92795",Santa Ana,CA,92795,"Santa Ana, CA 92795",33.747716,-117.835913,,Orange,Orange County,olivecrest.org,Placement Agency,Yes,Yes,Yes,Yes,,,Jennifer Oei,Director of Foster and Adoptions,Jennifer-Oei@olivecrest.org,Yes,,"SOCAL TBRI Collaborative, TBRI Collaborative Steering Committee, Bayside Church Orange County, Berean Community Church, Captivate ChurchChrist Community Church, Crossline Community Church, Crosspointe Church OC, Faith Community Church, Fletcher Hills Presbyterian Church, Friends Church of Orange, Main Place Christian Fellowship, Mesa Church, New Community Church, Parkside Church, Redeemer by the Sea Lutheran Church, Refuge Calvary Chapel Huntington Beach, Seacoast Community Church, Second Baptist Church, Shepherds Grove Church, Skyline Church, St. Andrews Presbyterian, St. Timothy Catholic Church, The Father’s House OC, Village Church Group, Woodbridge Community ChurchZion Church, A Place for Worship, Aldersgate United Methodist Church, Antioch Fullerton, Branches Church, Calvary Chapel Ramona, Calvary Church of Santa Ana, Canyon Hills Friends Church, Coast Hills Church, Cornerstone Bible Church, Diocese of San Diego, Freedomhouse OC Church, Influence Church, Mission Hills Church, Mission Valley Christian Fellowship, Park Hill Church, Resurrection Presbyterian Church of San Diego, Seacoast Grace Church, Shadow Rock Church, The Rock Church, Voyagers Bible Church, Anthem Church, Bridge Community Church, Calvary Chapel Oceanside, Coastline Church, Eastside Christian Church, Ekko Church, Emmanuel Faith Community Church, Flood Church, Friends Church Yorba Linda, Generation Church, Grace Church, Grace Fellowship Church of Costa Mesa, Harbor Point Church, Holy Trinity Catholic Church, Hope for San Diego, Kairos Christian Church, Mariners Church, Newsong Church, North Coast Church, North Coast Fallbrook, North Coast Ramona, Oakhouse Church (Formerly Rock Harbor Mission Viejo), Pillar Church, Ranch Church, Redemption Community Church, Richfield Community Church, Risen Church, Riverview Church, Rock Harbor Costa Mesa, Saddleback Church, San Francisco Solano Catholic Church, Southlands Church, Southlands Church Santa Ana, Sovereign Grace Church of Santa Ana, St. John's Lutheran Church, St. Killian Catholic Church, St. Mark Lutheran Church, Strength ChurchThe Crowded House Inc.The Immaculata, The Shoreline Church, Trinity United Presbyterian Church, Venture Church, Water's Edge","CA Alliance of Children and Family Services, California Association of Adoption Agencies",Hope Connect,,,Yes
+738,Olive Crest,1,,"17800 Woodruff Ave., Bellflower, CA 90706",Bellflower,CA,90706,"Bellflower, CA 90706",33.871319,-118.116449,,Los Angeles,Los Angeles County,olivecrest.org/los-angeles/,Placement Agency,Yes,Yes,,Yes,,,Alison Nistal,Foster and Adoptions Director,alison-nistal@olivecrest.org,No,,"Churches: Renew Church LA, Pacific Crossroads Church, Grace Baptist Church, Fellowship Church, Christian Assembly Church, Restoration LA, Cityline Church, Eastside Christian Church Bellflower, Garden Church, Whittier Area Community Church, Grace Church of Glendora, New Creation LA, Parkcrest Christian Church, Rocky Peak Church, Shepherd Church, Tapestry LA, The Chapel at Pasadena, The Commons LA, Cerritos Baptist Church, Expression 58, CityLight LA, Cornerstone West LA, Epicentre Church, West Cypress Church, City Bible Church, King's Cross, South Hills – Burbank, South Hills – Santa Clarita, South Hills – Manhattan Beach, Valley Vineyard, Bethany Church, Saddleback South Bay, Bethlehem Lutheran Church, First Evangelical Church Glendale, First Presbyterian Church of Monrovia, First Presbyterian Church of Hollywood, Unite Pasadena, Vintage LA Church, Bridges Community Church, Calvary Chapel Santa Fe Springs, Christ Church Los Angeles, Crossroads Community Church, Higher Vision Church, The Ark at Montebello, Reality LA, Story City Church, The Way Church of San Gabriel Valley, Valencia Hills Church, Angelus Temple, Arbor Road Church, Calvary Chapel Downey, American Martyrs Church, Bethel Grace Baptist, Calvary Church of Pacific Palisades, Calvary Community Church, Emmanuel Reformed Church, Church for the Nations, Crescenta Valley Church, First Evangelical Community Church, Fountain of Life Covenant Church, Grace Community Church, Grace Pasadena, Revive Church, Hillsong Los Angeles, Long Beach Christian Fellowship, Bel Air Presbyterian Church, Saddleback LA, Chosen Generation, Bread Church, Community Life Church, Cornerstone Church of Long Beach, Epiphany Fellowship, New Season LA, The Bridge Bible Fellowship, The River Church of the South Bay, Thrive LA, Restored LA Church. Organizations: Cru Inner City, Kingdom Causes Bellflower, Claris Health, LA Archdiocese’s Office of Life Justice and Peace, Seen and Heard.","California Alliance of Child and Family Services, Association of Community Human Service Agencies",,,,Yes
+739,Olive Crest,1,,"555 Technology Ct., Ste. 300, Riverside, CA  92507",Riverside,CA,92507,"Riverside, CA 92507",34.000297,-117.323751,,Riverside,Riverside County,olivecrest.org,Placement Agency,Yes,Yes,Yes,Yes,,,Nicole Perez,Regional Director of Foster and Adoptions,Nicole-Perez@olivecrest.org,No,,"Sandals Church, The Grove Community Church, Southwest Community Church, Calvary Chapel Victorville, Association of Foster Family Agencies, Foster All",California Alliance of Child and Family Services,,,,Yes
+740,Olive Crest,1,,"7220 Trade St., Ste 102, San Diego, 92121",San Diego,CA,92121,"San Diego, CA 92121",32.889173,-117.166766,,San Diego,San Diego County,olivecrest.org,Placement Agency,Yes,Yes,,,,,Missy Bell,Programs Director,Missy-Bell@olivecrest.org,No,,"Anthem Church, Calvary Chapel Oceanside, Calvary Chapel Ramona, Captivate Church, Church at Rancho Bernardo (CRB), Coastline Church, Eastlake Church, Emmanuel Faith Community Church, Faith Community Church, Faith Community Church, Flood, Generation Church, Grace Point Church, Grace Church, Hope for San Diego, The Immaculata, Karios Christian Church, Light Church, Mission Hills Church, North Coast Calvary Chapel, North Coast Vista, North Coast Fallbrook, North Coast Ramona, Park Hill Church, Parkside Church, Pillar Church, Redeemer by the Sea, Lutheran Church, Resurrection Presbyterian, Restoration 225, Riverview Church, The Rock Church, Seacoast Community Church, Solway Church, St. Mark Lutheran Church, The Mission Church, Venture Church, Water's Edge",California Alliance of Child and Family Services,"&Campaign, The Forgotten Initiative",,,Yes
+742,Georgia Kids Belong,1,,"Acworth, GA 30144",Acworth,GA,30144,"Acworth, GA 30144",34.034515,-84.707349,,Cobb,Cobb County,americaskidsbelong.org/ga/,Service Organization,Yes,Yes,,Yes,,,Rebecca Radicchi,State Manager,Rradicchi@gakidsbelong.org,No,,,,,,,Yes
+743,Colorado Kids Belong,1,,"1151 Eagle Dr., #464 Loveland, CO 80537",Loveland,CO,80537,"Loveland, CO 80537",40.380807,-105.099233,,Larimer,Larimer County,americaskidsbelong.org/states/CO/,Service Organization,,Yes,,,,,Tracee Rudd,Executive Director,trudd@cokidsbelong.org,,,,,,Yes,Weld County Collaboration,Yes
+745,Camelot Community Care,1,,"4050 Riomar Dr. Suite 2, Clearwater, 	FL 	33760",Clearwater,FL,33760,"Clearwater, FL 33760",27.90045,-82.715166,,Pinellas,Pinellas County,camelotcommunitycare.org,Placement Agency,Yes,Yes,,Yes,,,Erika Austin,Adoption Recruiter,eaustin@camelotcommunitycare.org,Yes,,,,,,,Yes
+747,Tennessee Kids Belong,1,,"1229 Lakeview Drive, Franklin, TN 37067",Franklin,TN,37067,"Franklin, TN 37067",35.921085,-86.824467,,Williamson,Williamson County,americaskidsbelong.org/states/tn/,Bridge Ministry,,Yes,,Yes,,No,Kristin Allender,Director,kallender@tnkidsbelong.org,Yes,,,,,,,Yes
+749,Little Rock Church,1,,"10701 Baseline Rd, Little Rock, AR 72209",Little Rock,AR,72209,"Little Rock, AR 72209",34.6691,-92.395289,,Pulaski,Pulaski County,,Church Foster Care Ministry,,,Yes,Yes,,,,,,,,,,,,,Yes
+758,Chosen,1,,"144 Clemens Avenue, New Braunfels, TX, 78130",New Braunfels,TX,78130,"New Braunfels, TX 78130",29.698227,-98.128215,,Comal,Comal County,chosen.care,Service Organization,,,Yes,Yes,,,Staci Thomas,Chief Programs Officer,staci@chosen.care,Yes,,"In Raleigh, NC: North Ridge C&MA Church (https://northridgecma.org/), Vintage Church (https://vintagenc.com/), SaySo Inc (https://www.saysoinc.org/)
+
+In Ennis, TX: Pursuing partnerships","In Raleigh, NC: SaySo Inc (https://www.saysoinc.org/), North Carolina Coalition Against Human Trafficking (https://www.nccaht.org/)
+
+In Ennis, TX: Pursuing partnerships",CAFO,,,Yes
+768,ICA - Institute for Children's Aid Counseling Center,1,,"41745 Rider Way #2, Temecula CA 92590",Temecula,CA,92590,"Temecula, CA 92590",33.515906,-117.165256,,Riverside,Riverside County,4achild.org,Service Organization,,,,Yes,,,Jennifer Mitchell,Director of Counseling Center,jmitchell@4achild.org,Yes,,,,,,,Yes
+779,The Alliance: Defending the Cause of Kids & Families,1,,"1380 Lead Hill Blvd. #210, Roseville, CA 95661",Roseville,CA,95661,"Roseville, CA 95661",38.748709,-121.260636,,Placer,Placer County,defendingthecause.org,Bridge Ministry,Yes,Yes,Yes,Yes,,,Tiffany Loeffler,Executive Director,tiffany@defendingthecause.org,No,,"Acres of Hope, Agape Villages Foster Agency, AgingUP, ASPIRE Kids, Bayside Church - Adventure, Bayside Church - Blue Oaks, Bayside Church - Granite Bay, Bayside Church - Galt, Blossom Place, Camp Alta, Child Advocates of Placer County, Children's Hope Foster Family Agency, Compassion Planet, Daughters of Zion Enterpryz, Delta Prevention, Destiny Community Center, Diversif-I Education Group, Dress 2 S.O.A.R., Forging Disciples, FAM - Foster & Adoption Ministry, Sierra College Foster & Kinship Care Education, Fostering Success & Significance, Fremont Presbyterian Church, Golden Sierra Job Training Agency, Growing Hope, Heart Gallery of Sacramento, Heart to Heart, Hearts Landing Ranch, Hills Church, Kelli's Cookies - For Goodness Bakes, Lighthouse Counseling & Family Resource Center, Lighthouse Covenant Church, Wayfinder Family Services, Mercy Multiplied, Midtown Church, Mosaic Christian Church, Oak Hills Church, Our Healing Forest, Paradise Oaks Youth Services, Parent Cooperative Community, Playmakers, Redemption Youth Ranch, Restoration, Rivers Edge Church, Safe Connected Nests, Safe Refuge for Children + Families, Sierra Pregnancy + Health, Southport Church, Stanford Sierra Youth & Families, Swing of Faith
+Taylor Pediatric Physical Therapy, Teams and Dreams Foundation, The Attach Place, The Gathering Inn, The Taylor House, Unity Care, The Rock of Roseville, xHope","3Strands Global Foundation, California Alliance of Caregivers, Institute for Children's Aid, Koinonia Family Services",CAFO,,,Yes
+780,Mid-Atlantic Orphan Care Coalition,1,,"PO Box 1023, Hockessin DE 19707",Hockessin,DE,19707,"Hockessin, DE 19707",39.78384,-75.6816,,New Castle,New Castle County,familyhopecoalition.org,Service Organization,Yes,Yes,Yes,Yes,,,Rebecca Rudy,Executive Director,info@familyhopecoalition.org,No,,"Delaware Services for Children, Youth, and their Families, Foster Well, Children's Choice, Parent Information Center of Delaware, Children and Families First, Bethany Christian Services, A Better Chance for Our Children, Bethanna","Same as above – Delaware is a small state and organizations tend to be state-wide, not county specific.",CAFO,,,Yes
+783,Keystone Family Alliance,1,,"PO Box 255, Millheim, PA 16854",Millheim,PA,16854,"Millheim, PA 16854",40.893455,-77.473298,,Centre,Centre County,keyfam.org,Service Organization,Yes,Yes,,Yes,,,Vince Smith,Executive Director,vince@keyfam.org,Yes,,"We have over 300 churches represented among our 3,200+ contacts across the state in PA. 
+
+16 of these churches & organizations are involved directly with our foster care wrap-around support service: 
+Calvary Church, Calvary Penns Valley, Crossroads Mennonite Church, Faith Church, First Baptist Church of Bellefonte, Grays Woods Church, Hempfield United Methodist Church, Hope Community Church, Kish Valley Grace Brethren Church, Lancaster Evangelical Free Church, Lancaster First Assembly of God, Oakwood Presbyterian Church, Salem Bible Church, Trinity Point Church of God, West Shore Evangelical Free Church, Zion Church of Clarion. 
+
+All those listed above also have members in their congregation that participate in our Gateway program that provides for physical needs of fostering families and foster youth. To add to that list, there are many churches involved in this program as well and are also preparing for Care Community services: 
+Watermarke, Victory Church – Ephrata, Unity Church of Jesus Christ, Trinity Presbyterian Church, The Vine Church, State College Alliance Church,  Saint John Evangelistic Catholic Church, Russian Baptist Church, Reality Church, Penns Valley Community Church, Park Forest Baptist Church, Federated Church of East Springfield, Realife Assembly of God, Kaufman Mennonite Church, Graystone Evangelical Presbyterian Church, Grace Fellowship Church, Good Shepherd Lutheran Church, Church of Christ First, Centre Church, Brookside Wesleyan Church, Friendship Community Church, Somerset Church of the Brethren, Somerset Church of the Nazarene, Faith Baptist Church,","Children & Youth Services (10 counties), The Bair Foundation, Bethany Christian Services, JusticeWorks Youthcare, COBY's, PA KinConnector, PA Child Foster Care, Bethanna, Families United Network,","CAFO, Meet the Need, Promise 686, Hephzibah 62:4",,,Yes
+787,Fostering Hope Austin,1,,"13300 Pond Springs Rd #7114, Austin, TX 78729",Austin,TX,78729,"Austin, TX 78729",30.44816,-97.782878,,Travis,Travis County,iamfosteringhope.org,Service Organization,Yes,Yes,,Yes,,,Margo Stefka,Operations Manager,Margo@iamfosteringhope.org,No,,"Austin Christian Fellowship
+Hill Country Bible Church
+Austin Ridge
+Grace + Peace Austin
+Providence Church
+Vertical Chapel",,,Yes,Travis County Collaboration,Yes
+802,The Resurrection Center Church,1,,"111 West 37th Street, Wilmington, DE, USA",Wilmington,DE,19802,"Wilmington, DE 19802",39.760957,-75.526417,,New Castle,New Castle County,trclive.org,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,Elaine Jones,"Deacon, Founder and Court Appointed Special Advocate (CASA_",tuere099@comcast.net,Yes,The Resurrection Center,,,,,,Yes
+803,4KIDS,1,,"2717 West Cypress Creek Road
+Fort Lauderdale, FL 33309",Fort Lauderdale,FL,33309,"Fort Lauderdale, FL 33309",26.20261,-80.18089,,Broward,Broward County,4kids.us/home,Service Organization,,,,,,,Tom Lukasik,,toml@4kidsofsfl.org,Yes,,,,,,,Yes
+804,4KIDS Miami,1,,"17801 NW 2nd Ave. Suite 202
+Miami Gardens, Florida 33169",Miami Gardens,FL,33169,"Miami Gardens, FL 33169",25.938858,-80.203938,,Miami-Dade,Miami-Dade County,4kids.us/4KIDSMiami,Service Organization,,,,,,,Tom Lukasik,,toml@4kidsofsfl.org,Yes,,,,,,,Yes
+805,4KIDS Palm Beach,1,,"1690 S. Congress Ave., Suite 200
+Delray Beach, FL 33445",Delray Beach,FL,33445,"Delray Beach, FL 33445",26.435156,-80.093196,,Palm Beach,Palm Beach County,4kids.us/4KIDSPalmBeach,Service Organization,,,,,,,Tom Lukasik,,toml@4kidsofsfl.org,Yes,,,,,,,Yes
+806,4KIDS Treasure Coast,1,,"50 NE Dixie Hwy, Unit A4
+Stuart, FL 34994",Stuart,FL,34994,"Stuart, FL 34994",27.219586,-80.250468,,Martin,Martin County,4kids.us/4KIDSTreasureCoast,Service Organization,,,,,,,Tom Lukasik,,toml@4kidsofsfl.org,Yes,,,,,,,Yes
+807,4KIDS Southwest Florida,1,,"4983 Royal Gulf Circle, Fort Myers, FL 33966",Fort Myers,FL,33966,"Fort Myers, FL 33966",26.594089,-81.814359,,Lee,Lee County,4kids.us/4kidsswfl,Service Organization,,,,,,,Tom Lukasik,,toml@4kidsofsfl.org,Yes,,,,,,,Yes
+829,Nebraska 117,1,,"6223 Maple Street #4292, Omaha, Nebraska 68104",Omaha,NE,68104,"Omaha, NE 68104",41.284883,-96.00933,1,Douglas,Douglas County,nebraska117.com,Service Organization,,,,Yes,,,Tim Bowes,Co-Founder,tim@nebraska117.com,Yes,,,,,Yes,Douglas County Collaboration,Yes
+830,Oakland Church,1,,"5100 N Adams Rd. Rochester, MI, 48306",Rochester,MI,48306,"Rochester, MI 48306",42.722893,-83.198672,,Oakland,Oakland County,oaklandchurch.me/,Church Foster Care Ministry,,,,Yes,,Yes,Emily and Ricardo Arredondo,Leader of The Village,emilykate3130@yahoo.com,Yes,The Village,House of Providence,,CarePortal,,,Yes
+831,Hope Bridge,1,,"1010 Sunnyside St. NW Hartville, OH 44632",Hartville,OH,44632,"Hartville, OH 44632",40.965857,-81.349066,,Portage,Portage County,hopebridgeohio.org,Bridge Ministry,Yes,,Yes,Yes,,,Lisa Robertson,Executive Director,lisa@hopebridgeohio.org,Yes,,"Love Our Community, Compassion Foster Closet, Louisville Church of Christ, North Canton Chapel, Evermore Community Church, Bethany Mennonite Church, Redemption Chapel, Maranatha Bible Church, The Church on the Lakes, Zion United Church of Christ of North Canton, MissionView, Marlboro Christian Church, Salem's First Friends, Pure Gift of God, Hope's House Foster Closet, Compassion Delivered",,Promise686,,,Yes
+832,Fostering Family Ministries,1,,"575 US 250 P.O. Box 128, Savannah OH. 44874",Savannah,OH,44874,"Savannah, OH 44874",41.12369,-82.514229,,Ashland,Ashland County,fosteringfamilyministries.org,Bridge Ministry,Yes,,,Yes,,,Sherry Bouquet,Executive Director,sherry@fosteringfamilyministries.org,,,"Ashland Co. Job & Family Services, Ashland Juvenile Court, Richland Co. Children Services, Knox County Children Services, Wayne Co. Children Services, Medina Co. Children Services, Ashland Brethren in Christ,
+Ashland Grace Church, Ashland Dickey Church of the Brethren, Bethel Chapel, Christ Community Evangelical Free, Compassion Church, Cross Connect Church, Grace Medina East Campus, Heritage Baptist Church, Hopewell Church, Park Street Brethren, St. Edwards Catholic Church, Trinity Lutheran Church, Five Stones Church, Calvary Baptist Church, Berean Baptist Church, Crossroads Church, Crossroads-Shelby, Crossroads-Fredrickton, North Bend, Mosaic Church, Journey Church, Westwood Alliance Church, Covenant Church, New Life Community Church, New Life Nazarene Church, Life Point Church, Wooster Grace Church, Connection Church, Mohican Church, First Christian Church,",Governor DeWine's Children's Services Transformation Initiative 2019-2020,"CarePortal, Karen Purvis Institute of Child Development (TBRI Practitioner)",,,Yes
+833,Wildwood Collective (an initiative of Wildwood Hills Ranch),1,,"2552 Union Ln, St. Charles, Iowa 50240",St. Charles,IA,50240,"St. Charles, IA 50240",41.279854,-93.867416,,Warren,Warren County,wildwoodhillsranch.org,Bridge Ministry,Yes,Yes,Yes,Yes,,,Angela (AJ) Doyle,Wildwood Collective Director,adoyle@wildwoodhillsranch.org,No,,,,,Yes,Polk County Collaboration,Yes
+834,"Foster Pantry, Inc",1,,"20 North 4th Street, Suite 5C, Wilmington, NC 28401",Wilmington,NC,28401,"Wilmington, NC 28401",34.236515,-77.944581,,New Hanover,New Hanover County,fosterpantry.org,Service Organization,Yes,,Yes,Yes,,,Stacy Pullen,Executive Director,info@fosterpantry.org,No,,,,,,,Yes
+835,The Local Church of Grand Rapids,1,,"1601 Galbraith Ave SE, Unit 304 Grand Rapids, MI 49546",Grand Rapids,MI,49546,"Grand Rapids, MI 49546",42.934969,-85.53636,,Kent,Kent County,localchurchgr.org,Church Foster Care Ministry,,,,Yes,,Yes,Emily Joldersma,Local Engagement Coordinator,emily@localgr.org,,The Belong Project,,,,,,Yes
+836,Acts 2 Impact,1,,"800 Scribner Ave NW, Grand Rapids, MI 49504",Grand Rapids,MI,49504,"Grand Rapids, MI 49504",42.977406,-85.676649,,Kent,Kent County,acts2impact.org/home,Bridge Ministry,Yes,,Yes,Yes,,,Jamie Bartlett,Adoption & Foster Care Ministry Director,jbartlett@crossroads-bible.org,,,,,,,,Yes
+837,Indiana Mentor,1,,"500 E Springhill Unit F, Terre Haute, IN 47882",Terre Haute,IN,47882,"Terre Haute, IN 47882",39.413093,-87.411029,,Sullivan,,in-mentor.com/therapeutic-foster-care,Placement Agency,Yes,,,,,,Jackie Haddix,Program Director,jacqueline.haddix@sevitahealth.com,,,We are looking to connect with other community resources,Department of Child Services,,,,Yes
+838,Harvestime,1,,"3625 Southwind Drive,  Eau Claire, WIsconsin, 54701",Eau Claire,WI,54701,"Eau Claire, WI 54701",44.788306,-91.450929,,Eau Claire,,HTCFamily.org,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,Tracy Brown,HarvestCare Director,tracy.brown@htcfamily.org,No,HarvestCare,"Eau Claire County Human Services, FamilyWorks, Foundations, Royal Family Kids, King's Closet, Helping Hands, Harvestime Chippewa Falls, Harvestime South",,The Christ Foundation,,,Yes
+839,McLean Bible Church - Prince William Campus,1,,"10002 Battleview Pkwy, Manassas, VA, 20109",Manassas,VA,20109,"Manassas, VA 20109",38.806524,-77.510374,,Prince William,,mcleanbible.org/prince-william/,Church Foster Care Ministry,,,,Yes,,Yes,Hannah Miller,FAM Minister,cgodsworld@gmail.com,,Adoption and Foster Care Ministry,,"Project Belong, Foster The Family",Psalm686,,,Yes
+901,Homes of Hope,1,,"818 17th Ave., Lewiston, ID 83501",Lewiston,ID,83501,"Lewiston, ID 83501",,,,Nez Perce,Nez Perce County,homesofhopeidwa.org,,,,,,,,,,cheryl@homesofhopeidwa.org,,,,,,,,No
+1001,Kosciusko County Collaboration,,1,,,IN,46502,, , ,,Kosciusko,Kosciusko County,,Local Network,,,,,,,Kearstin Criswell,,kearstin@missionpoint.net,,,,,,,,Yes
+1002,Lake County Collaboration,,1,,,IN,46303,, , ,,Lake,Lake County,,Local Network,,,,,,,Corrie Vos,,cvos@wearefaith.org,,,,,,,,Yes
+1003,Kent County Collaboration,,1,,,MI,49510,, , ,,Kent,Kent County,,Local Network,,,,,,,Jamie Bartlett,,jbartlett@crossroads-bible.org,,,,,,,,Yes
+1005,Monongalia County Collaboration,,1,,,WV,26506,, , ,,Monongalia,Monongalia County,,Local Network,,,,,,,Greg Clutter,,greg@chestnutmountainranch.org,,,,,,,,Yes
+1006,Putnam County Collaboration,,1,,,WV,25159,, , ,,Putnam,Putnam County,,Local Network,,,,,,,Kylee Hassan,,khassan@missionwv.org,,,,,,,,Yes
+1007,Upshur County Collaboration,,1,,,WV,26201,, , ,,Upshur,Upshur County,,Local Network,,,,,,,Justin Bowers,,justin@newcommunitywv.com,,,,,,,,Yes
+1008,Fairfax County Collaboration,,1,,,VA,22003,, , ,,Fairfax,Fairfax County,,Local Network,,,,,,,Lauren DeLuca,,Lauren.DeLuca@mcleanbible.org,,,,,,,,Yes
+1009,Leon County Collaboration,,1,,,FL,32303,, , ,,Leon,Leon County,,Local Network,,,,,,,Laure Mulrooney,,lauremul227@gmail.com,,,,,,,,Yes
+1010,Wake County Collaboration,,1,,,NC,27587,, , ,,Wake,Wake County,,Local Network,,,,,,,Keith Fortier,,kfortier@agapeofnc.org,,,,,,,,Yes
+1011,Maury County Collaboration,,1,,,TN,38401,, , ,,Maury,Maury County,,Local Network,,,,,,,Paul	van Woudenberg,,paul@csctennessee.com,,,,,,,,Yes
+1012,Hillsborough County Collaboration,,1,,,FL,33647,, , ,,Hillsborough,Hillsborough County,,Local Network,,,,,,,Jaime Kent,,Jaime@declarenomore.com,,,,,,,,Yes
+1013,Douglas County Collaboration,,1,,,NE,68104,, , ,,Douglas,Douglas County,,Local Network,,,,,,,Tim Bowes,,tim@nebraska117.com,,,,,,,,Yes
+1014,Clark County Collaboration,,1,,,NV,89101,, , ,,Clark,Clark County,,Local Network,,,,,,,Carly Souza,,carly.souza@gmail.com,,,,,,,,Yes
+1015,Randolph County Collaboration,,1,,,MO,65230,, , ,,Randolph,Randolph County,,Local Network,,,,,,,Andie Jamerson,,faithbridgemoberly@gmail.com,,,,,,,,Yes
+1016,Weld County Collaboration,,1,,,CO,80504,, , ,,Weld,Weld County,,Local Network,,,,,,,Liz Brodinski,,elizabeth.brodzinski@gmail.com,,,,,,,,Yes
+1017,Lowndes County Collaboration,,1,,,GA,31602,, , ,,Lowndes,Lowndes County,,Local Network,,,,,,,Denise Buchanan,,,,,,,,,,Yes
+1018,Highlands County Collaboration,,1,,,FL,33825,, , ,,Highlands,Highlands County,,Local Network,,,,,,,Amberlee Rogers,,amberlee@worthyandknownfp.org,,,,,,,,Yes
+1019,York County Collaboration,,1,,,ME,04005,, , ,,York,York County,,Local Network,,,,,,,Marisa Stam,,marisa@worthyandknownfp.org,,,,,,,,Yes
+1020,Polk County Collaboration,,1,,,IA,50023,, , ,,Polk,Polk County,,Local Network,,,,,,,Angela Doyle,,adoyle@wildwoodhillsranch.org,,,,,,,,Yes
+1021,Okaloosa County Collaboration,,1,,,FL,32547,, , ,,Okaloosa,Okaloosa County,,Local Network,,,,,,,Leslie Fuller,,leslie@thepearlproject.org,,,,,,,,Yes
+1022,Travis County Collaboration,,1,,,TX,78760,, , ,,Travis,Travis County,,Local Network,,,,,,,Margo Stefka,,Margo@iamfosteringhope.org,,,,,,,,Yes
+1061,Connect South Central Tennessee,1,,"4006 Kilbrian Ct, Spring Hill, TN 37174",Spring Hill,TN,37174,"Spring Hill, TN 37174",35.764488,-86.904728,1,Maury,Maury County,csctennessee.com,Bridge Ministry,,,Yes,Yes,,,Rebecca van Woudenberg,Executive Director,Rebecca@csctennessee.com,No,,,,,Yes,Maury County Collaboration,Yes
+1081,Tennessee Alliance For Kids,1,,"P.O. Box 40221  Nashville, TN 37204",Nashville,TN,37204,"Nashville, TN 37204",36.165688,-86.778098,,Davidson,Davidson County,tnallianceforkids.org,Service Organization,,,Yes,Yes,,,Fran Maynard,Executive Director,franmaynard@tnallianceforkids.org,No,,,,,,,Yes
+1088,Worthy & Known Family Project,1,,"204 E. Hibiscus Street, Lake Placid, FL 33852",Lake Placid,FL,33852,"Lake Placid, FL 33852",27.296055,-81.363538,1,Highlands,Highlands County,worthyandknownfp.org,Service Organization,,,Yes,,,,Amberlee Rogers,Program Director,agrogers5@me.com,Yes,,,,,Yes,Highlands County Collaboration,Yes
+1299,Fostering Hope Consulting,1,,"112 Milicity Rd Henderson, NV 89012",Henderson,NV,89012,"Henderson, NV 89012",36.027293,-115.020838,,Clark,Clark County,,Service Organization,,,,Yes,,,Carly Souza,Founder,carly.souza@gmail.com,No,,,,,Yes,Clark County Collaboration,Yes
+1327,Fostering Hope,1,,"1200 Briarbrook Dr Suite D (PO Box 243)  Carl Junction, MO 64834",Carl Junction,MO,64834,"Carl Junction, MO 64834",37.144159,-94.537475,,Jasper,Jasper County,fostering-hope.com,Bridge Ministry,,,Yes,Yes,,,Joanna Holden,Program Director,joanna@fostering-hope.com,No,,,,,,,Yes
+1503,Release Inc.,1,,4815 S 107th Ave Omaha NE 68127,Omaha,NE,68127,"Omaha, NE 68127",41.210848,-96.078431,,Douglas,Douglas County,releaseinc.org,Service Organization,Yes,,Yes,Yes,,,Brooke Eggert,Foster Care Recruitment and Support Supervisor,brooke@releaseinc.org,No,,,,,,,Yes
+1504,East Cooper Baptist Church,1,,"361 Egypt Rd, Mt Pleasant, SC 29464",Mount Pleasant,SC,29464,"Mount Pleasant, SC 29464",32.850389,-79.855534,,Charleston,Charleston County,eastcooperbaptist.com,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,Moriah Bruner,Outreach Coordinator,moriahb@eastcooperbaptist.com,,,,,,,,Yes
+1802,Kehila Park,1,,"PO Box 402 Sulphur, Ok 73086",Sulphur,OK,73086,"Sulphur, OK 73086",,,,Garvin,Garvin County,kehilapark@gmail.com,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,Bobby Allison,Pastor,bapastorbob@gmail.com,,Kehila Park Foster Care Community,,,,,,Yes
+1913,ECHO Family Care Partners,1,,"1458 Todds Lane, Hampton VA 23666",Hampton,VA,23666,"Hampton, VA 23666",,,,Hampton City,Hampton City,wearetheecho.org,Bridge Ministry,,,Yes,Yes,,,Randall Nichols,Executive Director of Partnerships,randall@wearetheecho.org,No,,,,,,,Yes
+1919,StoryConnect,1,,"Dayton, Ohio",Dayton,OH,45377,"Dayton, OH 45377",,,,Montgomery,Montgomery County,storyconnect.love/post/childwelfarenetworkdayton,Bridge Ministry,Yes,Yes,Yes,Yes,,,Paul Hemminger,Founder,paul@storyconnect.love,No,,,,,,,Yes
+1930,McLean Bible Church - Montgomery County,1,,"12440 Parklawn Street, Rockville, MD 20852",Rockville,MD,20852,"Rockville, MD 20852",,,,Montgomery,Montgomery County,mcleanbible.org/montgomery-county/,Church Foster Care Ministry,Yes,,,Yes,,Yes,Dede Schumacher,Volunteer,woven@mcleanbible.org,,Woven,,,,,,Yes
+1932,Ohio Kids First,1,,"470 W Broad St. Columbus, OH 43215",Columbus,OH,43215,"Columbus, OH 43215",,,,Franklin,Franklin County,ohiokidsfirst.org,Service Organization,,,Yes,Yes,,,Rachel Selby,Executive Director,rachel@ohiokidsfirst.org,No,,,,,,,Yes
+2035,Raleigh's Place,1,,"346 County Road 1028 Clanton, AL 35046",Clanton,AL,35046,"Clanton, AL 35046",,,,Chilton,Chilton County,raleighsplace.org,Service Organization,,,,Yes,,,,,,Yes,,,,,,,Yes
+2036,Child Bridge,1,,"PO Box 310, Bigfork, Montana 59911",Bigfork,MT,59911,"Bigfork, MT 59911",,,,Flathead,Flathead County,childbridgemontana.org,Service Organization,Yes,Yes,,Yes,,,Eric C. Basye,Executive Director,ebasye@childbridgemontana.org,Yes,,,,,,,Yes
+2100,Dwelling Place Texas,1,,"14125 W Hwy 29 STE B203-113 Liberty Hill, TX. 78642",Liberty Hill,TX,78642,"Liberty Hill, TX 78642",,,,Williamson,Williamson County,dwellingplacetx.org,Bridge Ministry,,,,,,,,,,Yes,,,,,Yes,Travis County Collaboration,Yes
+2101,Radiant Church,1,,"1205 Round Rock Ave STE 109, Round Rock, TX 78681",Round Rock,TX,78681,"Round Rock, TX 78681",,,,Travis,Travis County,radiantaustin.com,Church Foster Care Ministry,,,,,,,,,,,,,,,Yes,Travis County Collaboration,Yes
+2102,Cornerstone Church of Ames,1,,"56829 US Hwy 30, Ames, IA 50010",Ames,IA,50010,"Ames, IA 50010",,,,Story,Story County,cornerstonelife.com,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Polk County Collaboration,Yes
+2103,Four Oaks,1,,"6900 NE 14th St (Ste 25), Ankeny, IA 50023",Ankeny,IA,50023,"Ankeny, IA 50023",,,,Polk,Polk County,Iowafosterandadoption.org,Placement Agency,,,,,,,,,,No,,,,,Yes,Polk County Collaboration,Yes
+2104,Foster SQUAD,1,,,Ankeny,IA,50021,"Ankeny, IA 50021",,,,Polk,Polk County,fostersquad.org,Service Organization,,,,,,,,,,No,,,,,Yes,Polk County Collaboration,Yes
+2105,Crosspoint Church,1,,"214 Partin Dr S, Niceville, FL 32578",Niceville,FL,32578,"Niceville, FL 32578",30.51789,-86.48382,1,Okaloosa,Okaloosa County,crosspoint.church,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Okaloosa County Collaboration,Yes
+2106,Church on Bayshore,1,,"622 Bayshore Dr, Niceville, FL 32578",Niceville,FL,32578,"Niceville, FL 32578",30.51647,-86.48418,1,Okaloosa,Okaloosa County,churchonbayshore.org,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Okaloosa County Collaboration,Yes
+2107,Generations United Church,1,,"108 HWY 85 N. Niceville, FL 32578",Niceville,FL,32578,"Niceville, FL 32578",30.52463,-86.494232,1,Okaloosa,Okaloosa County,genuchurch.com,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Okaloosa County Collaboration,Yes
+2108,Emerald Coast Orphan Care,1,,,,,,,,,,Okaloosa,Okaloosa County,,Service Organization,,,,,,,,,,No,,,,,No,Okaloosa County Collaboration,Yes
+2109,Agape of NC,1,,"P.O. Box 985, Wake Forest, NC 27588-0985",Wake Forest,NC,27588,"Wake Forest, NC 27588-0985",,,,Wake,Wake County,Agapeofnc.org,Placement Agency,,,,,,,,,,Yes,,,,,Yes,Wake County Collaboration,Yes
+2110,Second Home RDU,1,,"112 3rd St #218, Holly Springs, NC 27540",Holly Springs,NC,27540,"Holly Springs, NC 27540",,,,Wake,Wake County,secondhomerdu.com,Service Organization,,,,,,,,,,No,,,,,Yes,Wake County Collaboration,Yes
+2111,Sustaining Hope for High Impact Parents (SHHIP),1,,"PO box 1879, Fuquay-Varina, NC, 27526",Fuquay-Varina,NC,27526,"Fuquay-Varina, NC, 27526",,,,Wake,Wake County,shhip.net,Service Organization,,,,,,,,,,No,,,,,Yes,Wake County Collaboration,Yes
+2112,Summit Church Collaborative,1,,"2335 Presidential Drive, Suite 114, Durham, NC 27703",Durham,NC,27703,"Durham, NC 27703",,,,Wake,Wake County,summitchurch.com/serve/locally/opportunity-detail?OpportunityId=97,Church Foster Care Ministry,,,,,,,,,,Yes,,,,,Yes,Wake County Collaboration,Yes
+2113,Seven Homes,1,,"207 New Edition Ct, Cary, NC 27511",Cary,NC,27511,"Cary, NC 27511",,,,Wake,Wake County,7homes.org,Placement Agency,,,,,,,,,,Yes,,,,,Yes,Wake County Collaboration,Yes
+2114,King's Table Church,1,,"3321 Trillium Whorl Ct, Suite 200, Raleigh, NC 27607",Raleigh,NC,27607,"Raleigh, NC 27607",,,,Wake,Wake County,kingstablenc.com/foster-care-adoption,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Wake County Collaboration,Yes
+2115,Church at Station Hill,1,,"8083 Station Hill Drive, Spring Hill, TN 37174",Spring Hill,TN,37174,"Spring Hill, TN 37174",35.74011,-86.9125,1,Maury,Maury County,stationhillchurch.com,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Maury County Collaboration,Yes
+2116,CarePortal,1,,,,,,,,,,, County,,Service Organization,,,,,,,,,,,,,,,Yes,Maury County Collaboration,Yes
+2117,Apex Community Services,1,,"4805 N. 72nd St., Omaha, Nebraska 68134",Omaha,NE,68134,"Omaha, NE 68134",,,,Douglas,Douglas County,apexfamily.org,Service Organization,,,,,,,,,,No,,,,,Yes,Douglas County Collaboration,Yes
+2118,The Core Omaha,1,,"11615 I St, Omaha, NE",Omaha,NE,68137,"Omaha, NE 68137",,,,Douglas,Douglas County,kingofkings.org/the-core-omaha/,Service Organization,,,,,,,,,,No,,,,,Yes,Douglas County Collaboration,Yes
+2119,Hannah's Closet North,1,,"4079 N Rancho Dr, Las Vegas, NV 89130",Las Vegas,NV,89130,"Las Vegas, NV 89130",,,,Clark,Clark County,,Service Organization,,,,,,,,,,No,,,,,Yes,Clark County Collaboration,Yes
+2120,F to A Bridge,1,,"P.O. Box 564 Pahrump, NV 89041",Pahrump,NV,89041,"Pahrump, NV 89041",,,,Clark,Clark County,ftoabridgeinc.com,Service Organization,,,,,,,,,,No,,,,,Yes,Clark County Collaboration,Yes
+2121,Faith Bridge,1,,"538 W Reed St, Moberly, MO 65270",Moberly,MO,62570,"Moberly, MO 65270",,,,Randolph,Randolph County,faithbridgemoberly.org,Service Organization,,,,,,,,,,No,,,,,Yes,Randolph County Collaboration,Yes
+2122,Redeemer Church,1,,,,,,,,,,Randolph,Randolph County,,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Randolph County Collaboration,Yes
+2123,Rooted242,1,,"422 W Coates St, Moberly, MO 652702",Moberly,MO,652702,"Moberly, MO 652702",,,,Randolph,Randolph County,rooted242moberly.org,Service Organization,,,,,,,,,,No,,,,,Yes,Randolph County Collaboration,Yes
+2124,Northern Colorado Christian Alliance for Orphans,1,,"1455 Rocky Mountain Ave, Loveland, CO 80538",Loveland,CO,80538,"Loveland, CO 80538",,,,Weld,Weld County,nccafo.org,Bridge Ministry,,,,,,,,,,Yes,,,,,Yes,Weld County Collaboration,Yes
+2125,Nightlight Christian Adoptions,1,,"1511 E. 11th Street, #240, Loveland, CO 80537",Loveland,CO,80537,"Loveland, CO 80537",40.40331,-105.05664,1,Weld,Weld County,nightlight.org/foster-care-and-adoption,Placement Agency,,,,,,,,,,Yes,,,,,Yes,Weld County Collaboration,Yes
+2126,Foster Alight,1,,,Loveland,CO,,,,,,, County,fosteralight.com,Service Organization,,,,,,,,,,No,,,,,Yes,Weld County Collaboration,Yes
+2127,Maple Star Colorado,1,,"1728 TOPAZ DR, LOVELAND, COLORADO 80537",Loveland,CO,80537,"Loveland, CO 80537",40.4064,-105.05151,1,Weld,Weld County,maplestar.net,Service Organization,,,,,,,,,,No,,,,,Yes,Weld County Collaboration,Yes
+2128,Timberline Church,1,,"360 Crossroads Blvd., Windsor, CO 80550",Windsor,CO,80550,"Windsor, CO 80550",,,,Weld,Weld County,timberlinewindsor.org,Church Foster Care Ministry,,,,,,,,,,Yes,,,,,Yes,Weld County Collaboration,Yes
+2129,Camp Rock of Georgia,1,,"1736 W Gordon St, Valdosta, GA 31601",Valdosta,GA,31601,"Valdosta, GA 31601",30.84169,-83.30717,1,Lowndes,Lowndes County,camprockga.com,Service Organization,,,,,,,,,,Yes,,,,,Yes,Lowndes County Collaboration,Yes
+2130,The Church at Remerton,1,,"1736 W Gordon St, Valdosta, GA 31601",Valdosta,GA,31601,"Valdosta, GA 31601",30.84169,-83.30719,1,Lowndes,Lowndes County,thechurchatremerton.com,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Lowndes County Collaboration,Yes
+2131,MG Empowerment Center,1,,,Valdosta,GA,31602,"Valdosta, GA, 31602",,,,Lowndes,Lowndes County,mgempowermentcenter.net,Service Organization,,,,,,,,,,No,,,,,Yes,Lowndes County Collaboration,Yes
+2132,Avon Park Lakes Baptist Church,1,,"2600 N Highlands Blvd, Avon Park, FL 33825",Avon Park,FL,33825,"Avon Park, FL 33825",,,,Highlands,Highlands County,aplbc.info,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Highlands County Collaboration,Yes
+2133,South Oak Church,1,,"125 South Oak Ave., Lake Placid, FL 33852",Lake Placid,FL,33852,"Lake Placid, FL 33852",27.29523,-81.36399,1,Highlands,Highlands County,southoak.church,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Highlands County Collaboration,Yes
+2134,Worthy & Known Family Project,1,,,Sanford,ME,04073,"Sanford, Maine, 04073",43.41393,-70.75227,1,York,York County,worthyandknownfp.org,Service Organization,,,Yes,,,,,,,Yes,,,,,Yes,York County Collaboration,Yes
+2135,Curtis Lake Church,1,,"38 Westview Drive, Sanford, Maine 04073",Sanford,ME,04073,"Sanford, Maine, 04073",43.41393,-70.75229,1,York,York County,curtislake.org,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,York County Collaboration,Yes
+2136,NOMORE Foundation,1,,"16703 Early Riser Ave, Ste 231, Land O'Lakes, FL 34638",Land O'Lakes,FL,34638,"Land O'Lakes, FL 34638",,,,Pasco,Pasco County,declarenomore.com,Service Organization,,,,,,,,,,Yes,,,,,Yes,York County Collaboration,Yes
+2137,McLean Bible Church - Tysons Campus,1,,"8925 Leesburg Pike, Vienna, VA 22182",Vienna,VA,22182,"Vienna, VA 22182",,,,Fairfax,Fairfax County,mcleanbible.org,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Fairfax County Collaboration,Yes
+2138,Good Shepherd,1,,"20684 Ashburn Road, Ashburn, VA 20147",Ashburn,VA,20147,"Ashburn, VA 20147",,,,Fairfax,Fairfax County,goodshepherdnova.org,Service Organization,,,,,,,,,,No,,,,,Yes,Fairfax County Collaboration,Yes
+2139,Four Oaks Church - Killearn,1,,"4500 W. Shannon Lakes Drive, Suite 12, Tallahassee, FL 32309",Tallahassee,FL,32309,"Tallahassee, FL 32309",,,,Leon,Leon County,fouroakskillearn.com,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Leon County Collaboration,Yes
+2142,Appalachian Impact,1,,,Buckhannon,WV,26201,"Buckhannon, WV, 26201",38.9942544,-80.2278544,1,Upshur,Upshur County,appalachianimpact.org,Service Organization,,,,,,,,,,No,,,,,Yes,Upshur County Collaboration,Yes
+2143,New Community Church,1,,3496 Old Weston Rd. Buckhannon WV 26201,Buckhannon,WV,26201,"Buckhannon, WV 26201",39.0107647,-80.2989029,1,Upshur,Upshur County,newcommunitywv.com,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Upshur County Collaboration,Yes
+2144,Explore the New Manufacturing,1,,"PO Box 2558, Fairmont, WV 26554",Fairmont,WV,26554,"Fairmont, WV 26554",,,,Upshur,Upshur County,exploremfgwv.com,Service Organization,,,,,,,,,,No,,,,,Yes,Upshur County Collaboration,Yes
+2145,Crossroads Bible Church,1,,"800 Scribner NW, Grand Rapids, MI 49504",Grands Rapids,MI,49504,"Grand Rapids, MI 49504",,,,Kent,Kent County,crossroads-bible.org,Church Foster Care Ministry,,,,,,,,,,Yes,,,,,Yes,Kent County Collaboration,Yes
+2147,Bethany Christian Services,1,,"901 Eastern Ave NE, PO Box 294, Grand Rapids, MI 49501-0294",Grands Rapids,MI,49501-0294,"Grand Rapids, MI 49501-0294",,,,Kent,Kent County,bethany.org,Placement Agency,,,,,,,,,,No,,,,,Yes,Kent County Collaboration,Yes
+2148,CMA Church of Morgantown,1,,"308 Elmhurst St. Morgantown, WV 26505",Morgantown,WV,26505,"Morgantown, WV 26505",,,,Monongalia,Monongalia County,cmachurch.net,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Monongalia County Collaboration,Yes
+2149,Chestnut Ridge Church,1,,"2223 Cheat Road, Morgantown, WV 26508",Morgantown,WV,26508,"Morgantown, WV 26508",,,,Monongalia,Monongalia County,theridge.church,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Monongalia County Collaboration,Yes
+2150,Calvary Baptist Church,1,,"3653 Teays Valley Road, Hurricane, WV 25526",Hurricane,WV,25526,"Hurricane, WV 25526",,,,Putnam,Putnam County,cbcwv.com,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Putnam County Collaboration,Yes
+2151,Mission Point Community Church,1,,"1 Tiger Lane, Warsaw, IN 46580",Warsaw,IN,46580,"Warsaw, IN 46580",41.2235146,-85.8660199,1,Kosciusko,Kosciusko County,missionpoint.net,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Kosciusko County Collaboration,Yes
+2152,Warsaw Community Church,1,,"1855 S. County Farm Road, Warsaw, IN 46580",Warsaw,IN,46580,"Warsaw, IN 46580",41.206629,-85.8532534,1,Kosciusko,Kosciusko County,warsaw.cc,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Kosciusko County Collaboration,Yes
+2153,Community Grace Brethren Church,1,,"909 S. Buffalo St, Warsaw, IN 46580",Warsaw,IN,46580,"Warsaw, IN 46581",41.2272795,-85.8559759,1,Kosciusko,Kosciusko County,communitygrace.org,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Kosciusko County Collaboration,Yes
+2154,Faith Church,1,,"100-81st Ave, Dyer, IN 46311",Dyer,IN,46311,"Dyer, IN 46311",,,,Lake,Lake County,wearefaith.org,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Lake County Collaboration,Yes
+2156,Flourish Church,1,,"3935 Cleveland St, Gary, IN 46408",Gary,IN,46408,"Gary, IN 46408",,,,Lake,Lake County,flourishchurchnwi.org,Church Foster Care Ministry,,,,,,,,,,No,,,,,Yes,Lake County Collaboration,Yes
+2157,Tamarisk Community,1,,"5200 Dillard Dr, Raleigh, NC 27606",Raleigh,NC,27606,"Raleigh, NC 27606",,,,Wake,Wake County,tamarisk.community,Service Organization,,,,,,,,,,No,,,,,Yes,Wake County Collaboration,Yes
+2158,Grace Church,1,,"2801 Pelham Road, Greenville, SC 29615",Greenville,SC,29615,"Greenville, SC 29615",34.863239,-82.278091,1,Greenville,Greenville County,grace.sc,Church Foster Care Ministry,,,Yes,Yes,,Yes,Beth Drake,,bdrake@grace.sc,No,Foster and Adopt,,,,,,Yes
+2685,"Young Masterbuilders In Motion, Inc.",1,,6959 N Ridge Blvd,Chicago,IL,60645,"Chicago, IL 60645",,,,Cook,Cook County,theymim.org,Service Organization,,,,Yes,,,Kim Wright,Founder,founder@theymim.org,No,,,,,,,Yes
+2692,Family Hope Coalition,1,,PO Box 1023,Hockessin,DE,19707,"Hockessin, DE 19707",,,,New Castle,New Castle County,familyhopecoalition.org,Bridge Ministry,Yes,Yes,,Yes,,,Rebecca Rudy,Executive Director,rebecca@familyhopecoalition.org,Yes,,,,,,,Yes
+2700,Bay Area Chinese Bible Church,1,,1801 N Loop Rd,Alameda,CA,94502,"Alameda, CA 94502",,,,Alameda,Alameda County,BACBC.org,Church Foster Care Ministry,Yes,Yes,Yes,Yes,,Yes,Caroline Chen,Foster Care Ministry Advocate,caroline.chen@bacbc.org,,,,,,,,Yes
+1023,Shelby County Collaboration,,1,,,TN,,,,,,Shelby,,,,,,,,,,,,,,,,,,,,
+1024,Allen County Collaboration,,1,,,IN,,,,,,Allen,,,,,,,,,,,,,,,,,,,,

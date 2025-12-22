@@ -4,7 +4,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 // Import data from mock-data
-import { countyData, countyCoordinatesByState, stateCoordinates, stateNameToCode } from "../mock-data";
+import { countyData, countyCoordinatesByState, stateCoordinates, stateNameToCode } from "../real-data.js";
 
 // Assets
 import MTELogo from "../assets/MTE_Logo.png";

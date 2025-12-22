@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
-import { countyData } from './mock-data';
+import { countyData } from './real-data.js';
 
 // Helper function to convert county data to state-based lookup
 const getCountyDataByState = (stateCode) => {

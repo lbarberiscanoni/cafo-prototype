@@ -14,7 +14,7 @@ import InteractiveStateMap from "../InteractiveStateMap";
 // Hoverable text with tooltip
 const HoverableText = ({ children, tooltip }) => (
   <div className="relative inline-flex items-center group">
-    <span className="cursor-help underline decoration-dotted underline-offset-2 decoration-mte-blue">
+    <span className="underline decoration-dotted underline-offset-2 decoration-mte-blue">
       {children}
     </span>
     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-2 bg-mte-charcoal text-white text-xs rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">

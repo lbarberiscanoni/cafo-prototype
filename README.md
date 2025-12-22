@@ -1,7 +1,5 @@
-- [ ] Add connection lines and organization dots to the national view
 - [ ] Revamp the state view to match the national metrics view layout but at state level
 - [ ] Find another icon for the population to be more consistent
-- [ ] Fix the question mark when hovering on the county view
 - [ ] Remove all italics from the interface
 - [ ] Look into using ChatGPT to generate one-liner descriptions for each organization based on their names/websites, probably by writing a script to do it one time
 

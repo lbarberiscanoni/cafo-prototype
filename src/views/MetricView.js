@@ -558,9 +558,34 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               
               {/* Population */}
               <div className="flex flex-col items-center">
-                <svg className="w-20 h-20 text-mte-charcoal mb-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
+                <svg 
+  className="w-20 h-20 text-mte-charcoal mb-3" 
+  fill="none" 
+  stroke="currentColor" 
+  strokeWidth="2" 
+  strokeLinecap="round" 
+  strokeLinejoin="round" 
+  viewBox="0 0 24 24"
+>
+  {/* Left Adult */}
+  <circle cx="6.5" cy="5.5" r="2"/>
+  <path d="M4 16v-5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v5"/>
+  
+  {/* Right Adult */}
+  <circle cx="17.5" cy="5.5" r="2"/>
+  <path d="M15 16v-5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v5"/>
+  
+  {/* Left Child (smaller) */}
+  <circle cx="9.5" cy="11" r="1.5"/>
+  <path d="M8 16v-3c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v3"/>
+  
+  {/* Right Child (smaller) */}
+  <circle cx="14.5" cy="11" r="1.5"/>
+  <path d="M13 16v-3c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v3"/>
+  
+  {/* Base line */}
+  <line x1="3" y1="16" x2="21" y2="16"/>
+</svg>
                 <div className="flex items-center gap-1">
                   <div className="text-xl md:text-2xl font-black text-mte-blue">{data.population?.toLocaleString()}</div>
                   <div className="text-base text-mte-charcoal font-lato">Population</div>

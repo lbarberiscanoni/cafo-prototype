@@ -1,4 +1,3 @@
-- [ ] Use the Real Data from the Google Sheets
 - [ ] Add connection lines and organization dots to the national view
 - [ ] Revamp the state view to match the national metrics view layout but at state level
 - [ ] Find another icon for the population to be more consistent

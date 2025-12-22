@@ -3,6 +3,12 @@
 
 import realDataJson from './data/real-data.json';
 
+console.log('📊 Real Data Loaded:');
+console.log(`   States: ${Object.keys(realDataJson.states).length}`);
+console.log(`   Counties: ${Object.keys(realDataJson.counties).length}`);
+console.log(`   Organizations: ${realDataJson.organizations.length}`);
+console.log(`   National Children in Care: ${realDataJson.national.childrenInCare.toLocaleString()}`);
+
 // ==================== DIRECT EXPORTS FROM JSON ====================
 
 export const nationalStats = realDataJson.national;
@@ -75,11 +81,3 @@ export const getStateMapData = () => {
   
   return mapData;
 };
-
-// ==================== DATA SUMMARY (for debugging) ====================
-
-console.log('📊 Real Data Loaded:');
-console.log(`   States: ${Object.keys(stateData).length}`);
-console.log(`   Counties: ${Object.keys(countyData).length}`);
-console.log(`   Organizations: ${organizations.length}`);
-console.log(`   National Children in Care: ${nationalStats.childrenInCare.toLocaleString()}`);

@@ -24,7 +24,7 @@ async function addCensusData() {
   
   // Load existing data
   console.log('\n📂 Loading real-data.json...');
-  const dataPath = '/mnt/user-data/outputs/real-data.json';
+  const dataPath = './real-data.json';
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
   console.log(`   ✓ Loaded ${Object.keys(data.counties).length} counties`);
   

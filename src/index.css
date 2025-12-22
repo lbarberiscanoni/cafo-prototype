@@ -87,7 +87,7 @@
   }
   
   h3 {
-    @apply font-source-serif italic text-mte-charcoal;
+    @apply font-source-serif text-mte-charcoal;
     font-size: 18px; /* Mobile */
     line-height: 1.3;
     margin-bottom: 12px;
@@ -188,11 +188,8 @@
     @apply font-bold;
   }
   
-  /* Emphasis/Italic text */
-  em,
-  i {
-    @apply italic;
-  }
+  /* REMOVED: em and i tags no longer display as italic */
+  /* Users requested all italics removed from interface */
 }
 
 /* ========================================
@@ -224,7 +221,7 @@
   }
   
   .subhead {
-    @apply font-source-serif italic;
+    @apply font-source-serif;
     font-size: 20px; /* Mobile */
     line-height: 1.3;
     color: theme('colors.mte-charcoal');

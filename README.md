@@ -4,8 +4,6 @@
 - [ ] Add organization descriptions to the national org view by next week.
     - [ ] Look into using ChatGPT to generate one-liner descriptions for each organization based on their names/websites, probably by writing a script to do it one time
 - [ ] Set up connections between organizations at the national level.
-- [ ] Filter out counties with no data from the homepage, but bring back county selection at the org level if there is data (even if no organizations).
-    - [ ] Add a call to action for counties with no data, prompting users to contact local organizations to help populate data.
 - [ ] try to use the Noun Project icon (with screenshot or attribution) and finalize once Leah confirms purchase/attribution.
 - [ ] Display null values as 'NA' or null instead of defaulting to zero.
 - [ ] Revamp the state-level metrics view to match the national metrics view layout (per Figma), but at the state level.

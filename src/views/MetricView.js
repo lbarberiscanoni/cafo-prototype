@@ -368,23 +368,21 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               </div>
             </div>
 
-            {/* Trends - FIXED OVERFLOW ISSUE + DYNAMIC DATA */}
+            {/* Trends */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
-              <div className="flex items-center gap-2 mb-3">
-                <h3 className="text-base font-lato font-bold text-mte-black">Trends</h3>
-              </div>
-              <p className="text-sm text-mte-charcoal mb-2 font-lato">
+              <h3 className="text-base font-lato font-bold text-mte-black mb-1">Trends</h3>
+              <p className="text-sm text-mte-charcoal mb-3 font-lato">
                 See trends for your selected metric over the past five years
               </p>
               <div className="bg-mte-subdued-white p-3 rounded relative overflow-hidden">
-                <div className="text-base font-medium mb-2 font-lato text-mte-black">
+                <div className="text-sm font-medium mb-2 font-lato text-mte-black">
                   {trendData.title}
                 </div>
                 <div className="h-28 bg-white rounded flex items-end justify-between px-3 pb-2 relative overflow-visible">
                   {trendData.values.map((value, index) => {
                     const maxValue = Math.max(...trendData.values);
                     const heightPercent = (value / maxValue) * 100;
-                    const heightPx = Math.round((heightPercent / 100) * 72); // 72px max height
+                    const heightPx = Math.round((heightPercent / 100) * 72);
                     
                     return (
                       <div key={index} className="flex flex-col items-center relative group flex-1 max-w-[60px]">
@@ -404,7 +402,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     );
                   })}
                 </div>
-                <div className="mt-3 text-xs text-mte-charcoal font-lato">
+                <div className="mt-2 text-xs text-mte-charcoal font-lato">
                   Source: {trendData.source}
                 </div>
               </div>

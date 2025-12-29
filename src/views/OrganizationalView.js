@@ -24,6 +24,53 @@ const CATEGORY_COLORS = {
   "Placement Agency": { bg: "bg-mte-purple-20", text: "text-mte-black", border: "border-mte-purple", dot: "#882781" },
 };
 
+// Generate curved arc points between two coordinates
+// This ensures connection lines are visible even when orgs are close together
+// direction: 1 = curve left, -1 = curve right (alternate to avoid overlap)
+const generateArcPoints = (from, to, numPoints = 20, minArcHeight = 2, direction = 1) => {
+  const [lat1, lng1] = from;
+  const [lat2, lng2] = to;
+  
+  // Calculate distance between points
+  const distance = Math.sqrt(Math.pow(lat2 - lat1, 2) + Math.pow(lng2 - lng1, 2));
+  
+  // Arc height scales with distance but has a minimum for visibility
+  // At national zoom, we need a LARGE minimum to see arcs between nearby orgs
+  const arcHeight = Math.max(distance * 0.5, minArcHeight);
+  
+  // Midpoint
+  const midLat = (lat1 + lat2) / 2;
+  const midLng = (lng1 + lng2) / 2;
+  
+  // Perpendicular direction for the arc bulge
+  const dx = lat2 - lat1;
+  const dy = lng2 - lng1;
+  const len = Math.sqrt(dx * dx + dy * dy) || 1;
+  
+  // Control point offset (perpendicular to the line) - direction determines which side
+  const perpLat = -dy / len * arcHeight * direction;
+  const perpLng = dx / len * arcHeight * direction;
+  
+  // Control point for quadratic bezier
+  const ctrlLat = midLat + perpLat;
+  const ctrlLng = midLng + perpLng;
+  
+  // Generate points along quadratic bezier curve
+  const points = [];
+  for (let i = 0; i <= numPoints; i++) {
+    const t = i / numPoints;
+    const invT = 1 - t;
+    
+    // Quadratic bezier: B(t) = (1-t)²P0 + 2(1-t)tP1 + t²P2
+    const lat = invT * invT * lat1 + 2 * invT * t * ctrlLat + t * t * lat2;
+    const lng = invT * invT * lng1 + 2 * invT * t * ctrlLng + t * t * lng2;
+    
+    points.push([lat, lng]);
+  }
+  
+  return points;
+};
+
 // Create custom dot icons based on category
 const createDotIcon = (category, size = "16px") => {
   const color = CATEGORY_COLORS[category]?.dot || "#00ADEE";
@@ -341,11 +388,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   // Filter organizations based on selected categories and impact areas
   const filteredOrgs = currentOrgs.filter(org => {
     const categoryMatch = selectedCategories.includes(org.category);
-    const impactAreaMatch = org.areas && org.areas.some(area => selectedImpactAreas.includes(area));
+    const impactAreaMatch = !org.areas || org.areas.length === 0 || org.areas.some(area => selectedImpactAreas.includes(area));
     return categoryMatch && impactAreaMatch;
   });
 
   // Generate connection lines between organizations in the same network
+  // Uses hub-and-spoke model: first org connects to all others (cleaner than all-pairs)
   const generateConnectionLines = () => {
     const connectionLines = [];
     
@@ -360,19 +408,21 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
       }
     });
     
-    // Create connections within each network
+    // Create hub-and-spoke connections within each network
+    // First org is the hub, connects to all others
     Object.values(networks).forEach(networkOrgs => {
-      for (let i = 0; i < networkOrgs.length; i++) {
-        for (let j = i + 1; j < networkOrgs.length; j++) {
-          connectionLines.push({
-            from: networkOrgs[i].coords,
-            to: networkOrgs[j].coords,
-            fromName: networkOrgs[i].name,
-            toName: networkOrgs[j].name,
-            category: networkOrgs[i].category,
-            network: networkOrgs[i].networkName
-          });
-        }
+      if (networkOrgs.length < 2) return;
+      
+      const hub = networkOrgs[0];
+      for (let i = 1; i < networkOrgs.length; i++) {
+        connectionLines.push({
+          from: hub.coords,
+          to: networkOrgs[i].coords,
+          fromName: hub.name,
+          toName: networkOrgs[i].name,
+          category: hub.category,
+          network: hub.networkName
+        });
       }
     });
     
@@ -621,11 +671,11 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     </Marker>
                   ))}
 
-                  {/* Connection Lines */}
+                  {/* Connection Lines - curved arcs for visibility */}
                   {connectionLines.map((connection, index) => (
                     <Polyline
                       key={`national-connection-${index}`}
-                      positions={[connection.from, connection.to]}
+                      positions={generateArcPoints(connection.from, connection.to, 20, 3, index % 2 === 0 ? 1 : -1)}
                       pathOptions={{
                         color: CATEGORY_COLORS[connection.category]?.dot || "#02ADEE",
                         weight: 3,
@@ -634,7 +684,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     >
                       <Tooltip>
                         <div className="font-lato text-sm">
-                          <strong>Connection:</strong><br/>
+                          <strong>{connection.network}</strong><br/>
                           {connection.fromName} ↔ {connection.toName}
                         </div>
                       </Tooltip>
@@ -704,11 +754,11 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         );
                       })}
 
-                    {/* Connection Lines */}
+                    {/* Connection Lines - curved arcs */}
                     {connectionLines.map((connection, index) => (
                       <Polyline
                         key={`state-connection-${index}`}
-                        positions={[connection.from, connection.to]}
+                        positions={generateArcPoints(connection.from, connection.to, 20, 0.5, index % 2 === 0 ? 1 : -1)}
                         pathOptions={{
                           color: CATEGORY_COLORS[connection.category]?.dot || "#02ADEE",
                           weight: 3,
@@ -717,7 +767,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       >
                         <Tooltip>
                           <div className="font-lato text-sm">
-                            <strong>Connection:</strong><br/>
+                            <strong>{connection.network}</strong><br/>
                             {connection.fromName} ↔ {connection.toName}
                           </div>
                         </Tooltip>
@@ -743,11 +793,11 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               {/* County Level: Organization Markers with Connection Lines */}
               {showCountyMap && (
                 <>
-                  {/* Connection Lines */}
+                  {/* Connection Lines - curved arcs */}
                   {connectionLines.map((connection, index) => (
                     <Polyline
                       key={`county-connection-${index}`}
-                      positions={[connection.from, connection.to]}
+                      positions={generateArcPoints(connection.from, connection.to, 20, 0.05, index % 2 === 0 ? 1 : -1)}
                       pathOptions={{
                         color: CATEGORY_COLORS[connection.category]?.dot || "#02ADEE",
                         weight: 4,
@@ -756,7 +806,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     >
                       <Tooltip>
                         <div className="font-lato text-sm">
-                          <strong>Connection:</strong><br/>
+                          <strong>{connection.network}</strong><br/>
                           {connection.fromName} ↔ {connection.toName}
                         </div>
                       </Tooltip>

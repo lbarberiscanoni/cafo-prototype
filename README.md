@@ -1,4 +1,3 @@
-- [ ] Make organization dots clickable on the national org view so clicking pulls up the appropriate organization in the bottom panel.
 - [ ] Identify which counties have a network for easier testing of network rendering.
 - [ ] Fix issue where some purple (placement agency) organizations remain visible after all organization categories are removed.
 - [ ] Take a look at the county-level rendering of organizations, specifically investigate Weld County, Colorado, for possible bugs.

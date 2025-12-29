@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import { MapContainer, TileLayer, Marker, Tooltip, Polyline } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -177,6 +177,20 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   const [showConnectionLines, setShowConnectionLines] = useState(true);
   const [mapKey, setMapKey] = useState(0); // Force map remount when region changes
   const [selectedEmptyCounty, setSelectedEmptyCounty] = useState(null); // Track counties with no orgs
+  const [selectedOrg, setSelectedOrg] = useState(null); // Track selected organization from map click
+  const cardContainerRef = useRef(null); // Ref for scrolling to org cards
+
+  // Handle clicking on an organization marker
+  const handleOrgMarkerClick = (org) => {
+    setSelectedOrg(org.name);
+    // Scroll to the card after a brief delay to ensure render
+    setTimeout(() => {
+      const cardElement = document.getElementById(`org-card-${org.name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '')}`);
+      if (cardElement) {
+        cardElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }, 100);
+  };
 
   // Update map when region changes
   React.useEffect(() => {
@@ -693,7 +707,14 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
                   {/* Organization Dots */}
                   {filteredOrgs.map((org) => (
-                    <Marker key={org.name} position={org.coords} icon={createDotIcon(org.category, "20px")}>
+                    <Marker 
+                      key={org.name} 
+                      position={org.coords} 
+                      icon={createDotIcon(org.category, "20px")}
+                      eventHandlers={{
+                        click: () => handleOrgMarkerClick(org)
+                      }}
+                    >
                       <Tooltip>
                         <div className="font-lato text-sm">
                           <strong>{org.name}</strong><br/>
@@ -776,7 +797,14 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
                     {/* Organization Dots */}
                     {filteredOrgs.map((org) => (
-                      <Marker key={org.name} position={org.coords} icon={createDotIcon(org.category, "20px")}>
+                      <Marker 
+                        key={org.name} 
+                        position={org.coords} 
+                        icon={createDotIcon(org.category, "20px")}
+                        eventHandlers={{
+                          click: () => handleOrgMarkerClick(org)
+                        }}
+                      >
                         <Tooltip>
                           <div className="font-lato text-sm">
                             <strong>{org.name}</strong><br/>
@@ -815,7 +843,14 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                   
                   {/* Organization Markers */}
                   {filteredOrgs.map((org) => (
-                    <Marker key={org.name} position={org.coords} icon={createDotIcon(org.category)}>
+                    <Marker 
+                      key={org.name} 
+                      position={org.coords} 
+                      icon={createDotIcon(org.category)}
+                      eventHandlers={{
+                        click: () => handleOrgMarkerClick(org)
+                      }}
+                    >
                       <Tooltip>
                         <div className="font-lato text-sm">
                           <strong>{org.name}</strong><br/>
@@ -913,15 +948,23 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               <h3 className="text-h4 font-bold uppercase mb-4 text-mte-black font-lato">
                 Organizations ({fmt(filteredOrgs.length)})
               </h3>
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto" ref={cardContainerRef}>
                 <div className="flex gap-4 pb-4" style={{ minWidth: "max-content" }}>
                   {filteredOrgs.map((org) => {
                     const colors = CATEGORY_COLORS[org.category];
+                    const isSelected = selectedOrg === org.name;
+                    const cardId = `org-card-${org.name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '')}`;
                     return (
                       <div
                         key={org.name}
-                        className={`bg-white p-4 rounded-lg shadow-mte-card border-l-4 ${colors?.border || 'border-mte-blue'} flex-shrink-0`}
+                        id={cardId}
+                        className={`p-4 rounded-lg shadow-mte-card border-l-4 ${colors?.border || 'border-mte-blue'} flex-shrink-0 transition-all duration-300 ${
+                          isSelected 
+                            ? 'bg-mte-blue-20 ring-2 ring-mte-blue scale-105' 
+                            : 'bg-white hover:shadow-lg'
+                        }`}
                         style={{ minWidth: "300px", maxWidth: "300px" }}
+                        onClick={() => setSelectedOrg(isSelected ? null : org.name)}
                       >
                         <div className="flex items-start gap-2 mb-2">
                           <div className={`w-3 h-3 rounded-full flex-shrink-0 ${colors?.bg || 'bg-mte-blue-20'} ${colors?.border || 'border-mte-blue'} border mt-1`}></div>

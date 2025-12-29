@@ -129,6 +129,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   const [selectedImpactAreas, setSelectedImpactAreas] = useState(["Foster and Kinship Families", "Adoptive", "Biological", "Wraparound"]);
   const [showConnectionLines, setShowConnectionLines] = useState(true);
   const [mapKey, setMapKey] = useState(0); // Force map remount when region changes
+  const [selectedEmptyCounty, setSelectedEmptyCounty] = useState(null); // Track counties with no orgs
 
   // Update map when region changes
   React.useEffect(() => {
@@ -668,26 +669,40 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                 
                 return (
                   <>
-                    {/* County Labels - only show if county has organizations */}
+                    {/* County Labels - show ALL counties regardless of org presence */}
                     {Object.entries(countyCoords)
-                      .filter(([countyName]) => countiesWithOrgs.has(countyName.toLowerCase()))
-                      .map(([countyName, data]) => (
-                        <Marker 
-                          key={countyName}
-                          position={data.coords}
-                          icon={createCountyTextLabel(countyName)}
-                          eventHandlers={{
-                            click: () => handleCountyMarkerClick(countyName)
-                          }}
-                        >
-                          <Tooltip>
-                            <div className="font-lato text-sm">
-                              <strong>{countyName} County</strong><br/>
-                              {data.orgCount} Organizations
-                            </div>
-                          </Tooltip>
-                        </Marker>
-                      ))}
+                      .map(([countyName, data]) => {
+                        const hasOrgs = countiesWithOrgs.has(countyName.toLowerCase());
+                        
+                        return (
+                          <Marker 
+                            key={countyName}
+                            position={data.coords}
+                            icon={createCountyTextLabel(countyName)}
+                            eventHandlers={{
+                              click: () => {
+                                if (hasOrgs) {
+                                  // County has orgs - navigate normally
+                                  handleCountyMarkerClick(countyName);
+                                } else {
+                                  // County has no orgs - show CTA
+                                  setSelectedEmptyCounty({
+                                    name: countyName,
+                                    state: getDisplayName()
+                                  });
+                                }
+                              }
+                            }}
+                          >
+                            <Tooltip>
+                              <div className="font-lato text-sm">
+                                <strong>{countyName} County</strong><br/>
+                                {hasOrgs ? `${data.orgCount} Organizations` : 'No organizations mapped'}
+                              </div>
+                            </Tooltip>
+                          </Marker>
+                        );
+                      })}
 
                     {/* Connection Lines */}
                     {connectionLines.map((connection, index) => (
@@ -797,8 +812,53 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
             </div>
           </div>
 
+          {/* CTA for counties with no organizations - State Level Only */}
+          {showStateMap && selectedEmptyCounty && (
+            <div className="bg-mte-blue-20 border-2 border-mte-blue rounded-lg shadow-mte-card p-6">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <svg className="w-12 h-12 text-mte-blue" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-lato font-bold text-mte-black mb-2">
+                    No Organizations Mapped in {selectedEmptyCounty.name} County
+                  </h3>
+                  <p className="text-base text-mte-charcoal mb-4 font-lato">
+                    We don't have any organizations mapped for {selectedEmptyCounty.name} County, {selectedEmptyCounty.state} yet. 
+                    You can help us build a more complete picture of foster care support in your area!
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    <button 
+                      onClick={() => setSelectedEmptyCounty(null)}
+                      className="px-4 py-2 bg-mte-blue text-white rounded-lg font-lato font-medium hover:bg-mte-blue-80 transition-colors"
+                    >
+                      Back to Map
+                    </button>
+                    <a 
+                      href={`mailto:data@morethanenough.org?subject=${encodeURIComponent(`Add Organization Data for ${selectedEmptyCounty.name} County, ${selectedEmptyCounty.state}`)}&body=${encodeURIComponent(`I would like to help add organization data for ${selectedEmptyCounty.name} County, ${selectedEmptyCounty.state}.\n\nPlease let me know what information you need and how I can assist.`)}`}
+                      className="px-4 py-2 bg-white border-2 border-mte-blue text-mte-blue rounded-lg font-lato font-medium hover:bg-mte-blue-20 transition-colors"
+                    >
+                      Contact Us to Add Data
+                    </a>
+                  </div>
+                </div>
+                <button 
+                  onClick={() => setSelectedEmptyCounty(null)}
+                  className="flex-shrink-0 text-mte-charcoal hover:text-mte-black transition-colors"
+                  aria-label="Close"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          )}
+
           {/* Organization Cards - National, State, and County Level */}
-          {(showNationalMap || showStateMap || showCountyMap) && (
+          {(showNationalMap || showStateMap || showCountyMap) && !selectedEmptyCounty && (
             <div className="bg-white rounded-lg shadow-mte-card p-4">
               <h3 className="text-h4 font-bold uppercase mb-4 text-mte-black font-lato">
                 Organizations ({filteredOrgs.length})

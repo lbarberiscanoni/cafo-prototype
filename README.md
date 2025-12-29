@@ -1,4 +1,3 @@
-- [ ] Identify which counties have a network for easier testing of network rendering.
 - [ ] Fix issue where some purple (placement agency) organizations remain visible after all organization categories are removed.
 - [ ] Take a look at the county-level rendering of organizations, specifically investigate Weld County, Colorado, for possible bugs.
 
@@ -15,3 +14,26 @@
 - [ ] Set up a periodic (e.g., daily) function to download updated data from Google Sheets and rerun the data pipeline.
 
 [Here are the CAFO Data Sources](https://docs.google.com/document/d/13Bq8yKjXXIynwdoOgY4efEtfI7M72JxQsLBlxl6WTWc/edit?tab=t.0)
+
+Here are the counties/states with active network connections:
+
+**Networks with Connection Lines (2+ orgs):**
+
+| Network | State | County | # Orgs | URL to Test |
+|---------|-------|--------|--------|-------------|
+| Weld County Collaboration | CO | Weld/Larimer/Arapahoe | 4 | `#/state/colorado/organizational` |
+| Okaloosa County Collaboration | FL | Okaloosa | 3 | `#/state/florida/organizational` |
+| Kosciusko County Collaboration | IN | Kosciusko | 3 | `#/state/indiana/organizational` |
+| Maury County Collaboration | TN | Maury | 2 | `#/state/tennessee/organizational` |
+| Highlands County Collaboration | FL | Highlands | 2 | `#/state/florida/organizational` |
+| Lowndes County Collaboration | GA | Lowndes | 2 | `#/state/georgia/organizational` |
+| York County Collaboration | ME | York | 2 | `#/state/maine/organizational` |
+| Upshur County Collaboration | WV | Upshur | 2 | `#/state/west-virginia/organizational` |
+
+**Best for testing:**
+- **Colorado** - Weld County Collaboration has 4 orgs spread across 3 counties (most complex)
+- **Florida** - Has 2 networks (Okaloosa + Highlands)
+- **Indiana** - Kosciusko has 3 orgs all in Warsaw
+
+**Networks with only 1 org (no lines yet):**
+- Wake County (NC), Douglas County (NE), Polk County (IA), Clark County (NV)

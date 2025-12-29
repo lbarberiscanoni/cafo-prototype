@@ -3,11 +3,33 @@
 
 import realDataJson from './data/real-data.json';
 
+// ==================== FORMATTING UTILITIES ====================
+// Use these to safely display values that may be null
+
+/** Format number with locale string, returns fallback for null */
+export const fmt = (val, fallback = 'N/A') => 
+  val !== null && val !== undefined ? val.toLocaleString() : fallback;
+
+/** Format percentage */
+export const fmtPct = (val, fallback = 'N/A') => 
+  val !== null && val !== undefined ? `${val}%` : fallback;
+
+/** Format large numbers with K/M suffix */
+export const fmtCompact = (val, fallback = 'N/A') => {
+  if (val === null || val === undefined) return fallback;
+  if (val >= 1000000) return `${(val / 1000000).toFixed(1)}M`;
+  if (val >= 1000) return `${Math.round(val / 1000)}K`;
+  return val.toLocaleString();
+};
+
+/** Check if value exists (not null/undefined) */
+export const hasValue = (val) => val !== null && val !== undefined;
+
 console.log('📊 Real Data Loaded:');
 console.log(`   States: ${Object.keys(realDataJson.states).length}`);
 console.log(`   Counties: ${Object.keys(realDataJson.counties).length}`);
 console.log(`   Organizations: ${realDataJson.organizations.length}`);
-console.log(`   National Children in Care: ${realDataJson.national.childrenInCare.toLocaleString()}`);
+console.log(`   National Children in Care: ${fmt(realDataJson.national.childrenInCare)}`);
 
 // ==================== DIRECT EXPORTS FROM JSON ====================
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
-import { countyData } from './real-data.js';
+import { countyData, fmt } from './real-data.js';
 
 // Helper function to convert county data to state-based lookup
 const getCountyDataByState = (stateCode) => {
@@ -10,7 +10,7 @@ const getCountyDataByState = (stateCode) => {
   // Iterate through all counties and filter by state code
   Object.entries(countyData).forEach(([countyId, data]) => {
     // County IDs are formatted as "countyname-statecode" (e.g., "butler-al")
-    const countyStateCode = countyId.split('-')[1]?.toUpperCase();
+    const countyStateCode = countyId.split('-').pop()?.toUpperCase();
     
     if (countyStateCode === stateCode) {
       // Extract county name from the full name (e.g., "Butler County, Alabama" -> "Butler")
@@ -27,7 +27,7 @@ const getCountyDataByState = (stateCode) => {
 
 // Color scale - updated to match MTE brand colors
 const getCountyColor = (value) => {
-  if (!value) return '#f1f1f1'; // MTE Light Grey for no data
+  if (value === null || value === undefined || !value) return '#f1f1f1'; // MTE Light Grey for no data
   if (value < 50) return '#dcfce7';
   if (value < 100) return '#bbf7d0';
   if (value < 200) return '#86efac';
@@ -162,9 +162,9 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
             setMousePosition({ x, y });
             setHoveredCounty({
               name: countyName,
-              value: data?.value || 0,
+              value: data?.value,
               fips: d.id,
-              hasData: !!data
+              hasData: !!data && data.value !== null && data.value !== undefined
             });
           })
           .on("mouseleave", function() {
@@ -520,7 +520,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
         >
           <div className="font-semibold">{hoveredCounty.name} County</div>
           {hoveredCounty.hasData ? (
-            <div>{hoveredCounty.value.toLocaleString()} {selectedMetric}</div>
+            <div>{fmt(hoveredCounty.value)} {selectedMetric}</div>
           ) : (
             <div className="text-mte-subdued-white">No data available</div>
           )}

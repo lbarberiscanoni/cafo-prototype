@@ -1,10 +1,11 @@
 /**
  * MTE Foster Care Data - Complete Parser (Network-Restricted Version)
  * Merges all CSV files without external API calls
- * Uses fallback strategies for missing data
+ * Uses null for missing data instead of defaulting to zero
  */
 
 const fs = require('fs');
+const path = require('path');
 
 // ============================================
 // STATE CENTROIDS (Hardcoded - all 50 states + DC)
@@ -64,7 +65,6 @@ const STATE_CENTROIDS = {
 };
 
 // 2020 CENSUS POPULATION DATA - Top 100 counties (embedded for immediate use)
-// You can expand this list or provide a complete county population CSV
 const COUNTY_POPULATIONS = {
   // California
   '06037': 10014009, // Los Angeles County
@@ -89,8 +89,6 @@ const COUNTY_POPULATIONS = {
   '36047': 1427056,  // Kings County (Brooklyn)
   '36061': 1694263,  // New York County (Manhattan)
   '36081': 2358582,  // Queens County
-  
-  // Add more as needed...
 };
 
 // State name to code mapping
@@ -112,11 +110,20 @@ const STATE_NAME_TO_CODE = {
 // HELPER FUNCTIONS
 // ============================================
 
+/**
+ * Clean numeric value - returns null for missing/invalid data
+ * This preserves data integrity by distinguishing between "0" and "no data"
+ */
 function cleanNumber(value) {
-  if (!value || value === 'NULL' || value === '') return 0;
+  if (value === null || value === undefined) return null;
+  if (value === '' || value === 'NULL' || value === 'NA' || value === 'N/A') return null;
   if (typeof value === 'number') return value;
-  const cleaned = value.replace(/,/g, '').replace(/%/g, '');
-  return parseFloat(cleaned) || 0;
+  
+  const cleaned = String(value).replace(/,/g, '').replace(/%/g, '').trim();
+  if (cleaned === '') return null;
+  
+  const parsed = parseFloat(cleaned);
+  return isNaN(parsed) ? null : parsed;
 }
 
 function cleanString(value) {
@@ -182,14 +189,31 @@ function estimateCountyCoords(stateName, countyIndex, totalCounties) {
   const stateCoords = STATE_CENTROIDS[stateName];
   if (!stateCoords) return null;
   
-  // Create a slight offset pattern for counties within a state
   const angle = (countyIndex / totalCounties) * 2 * Math.PI;
-  const radius = 0.5; // degrees
+  const radius = 0.5;
   
   return [
     stateCoords[0] + (Math.sin(angle) * radius),
     stateCoords[1] + (Math.cos(angle) * radius)
   ];
+}
+
+/**
+ * Safe division that returns null if divisor is null/zero
+ */
+function safeDivide(numerator, denominator, decimals = 2) {
+  if (numerator === null || denominator === null || denominator === 0) return null;
+  return parseFloat((numerator / denominator).toFixed(decimals));
+}
+
+/**
+ * Safe addition that handles null values
+ * Returns sum of non-null values, or null if all values are null
+ */
+function safeSum(...values) {
+  const validValues = values.filter(v => v !== null && v !== undefined);
+  if (validValues.length === 0) return null;
+  return validValues.reduce((sum, v) => sum + v, 0);
 }
 
 // ============================================
@@ -199,13 +223,13 @@ function estimateCountyCoords(stateName, countyIndex, totalCounties) {
 function parseAllData() {
   const result = {
     national: {
-      childrenInCare: 0,
-      childrenInFamilyFoster: 0,
-      childrenInKinship: 0,
-      childrenWaitingAdoption: 0,
-      childrenAdopted2023: 0,
-      totalChurches: 0,
-      churchesWithMinistry: 0
+      childrenInCare: null,
+      childrenInFamilyFoster: null,
+      childrenInKinship: null,
+      childrenWaitingAdoption: null,
+      childrenAdopted2023: null,
+      totalChurches: null,
+      churchesWithMinistry: null
     },
     states: {},
     counties: {},
@@ -218,11 +242,12 @@ function parseAllData() {
   // STEP 1: Parse 2025-metrics-state.csv
   // ============================================
   console.log('\n📊 STEP 1: Parsing 2025-metrics-state.csv...');
-  const metricsPath = '/mnt/user-data/uploads/2025-metrics-state.csv';
+  const scriptDir = __dirname;
+  const metricsPath = path.join(scriptDir, '2025-metrics-state.csv');
   const metricsContent = fs.readFileSync(metricsPath, 'utf8');
   const metricsRows = parseCSV(metricsContent);
   
-  const stateCounties = {}; // Track counties per state for coordinate estimation
+  const stateCounties = {};
   
   metricsRows.forEach(row => {
     const isState = row['is_state'] === '1';
@@ -261,22 +286,21 @@ function parseAllData() {
         name: formatCountyName(countyName, stateName),
         state: stateName,
         fipsCode: fipsCode,
-        population: COUNTY_POPULATIONS[fipsCode] || 0,
+        population: COUNTY_POPULATIONS[fipsCode] || null,
         totalChurches: totalChurches,
         childrenInCare: childrenInCare,
         childrenInFamily: cleanNumber(row['number of children in foster care']),
         childrenInKinship: cleanNumber(row['number of children in kinship care']),
         childrenOutOfCounty: cleanNumber(row['number of children placed out-of-county']),
         licensedHomes: licensedHomes,
-        licensedHomesPerChild: childrenInCare > 0 ? 
-          parseFloat((licensedHomes / childrenInCare).toFixed(2)) : 0,
+        licensedHomesPerChild: safeDivide(licensedHomes, childrenInCare),
         waitingForAdoption: cleanNumber(row['number of children waiting for adoption']),
-        childrenAdopted2024: 0,
-        avgMonthsToAdoption: 0,
+        childrenAdopted2024: null,
+        avgMonthsToAdoption: null,
         familyPreservationCases: cleanNumber(row['number of family preservation cases']),
         reunificationRate: cleanNumber(row['biological family reunification rate']),
-        churchesProvidingSupport: Math.round(totalChurches * 0.68),
-        supportPercentage: 68
+        churchesProvidingSupport: totalChurches !== null ? Math.round(totalChurches * 0.68) : null,
+        supportPercentage: totalChurches !== null ? 68 : null
       };
       
       if (!stateCounties[stateName]) stateCounties[stateName] = [];
@@ -291,11 +315,11 @@ function parseAllData() {
   // STEP 2: Merge national-data.csv (2023 adoption data)
   // ============================================
   console.log('\n📊 STEP 2: Merging national-data.csv (2023 adoption data)...');
-  const nationalPath = '/mnt/user-data/uploads/national-data.csv';
+  const nationalPath = path.join(scriptDir, 'national-data.csv');
   const nationalContent = fs.readFileSync(nationalPath, 'utf8');
   const nationalRows = parseCSV(nationalContent);
   
-  let totalAdopted = 0;
+  let totalAdopted = null;
   nationalRows.forEach(row => {
     const stateCode = cleanString(row['State']);
     const childrenAdopted = cleanNumber(row['Children Adopted']);
@@ -303,13 +327,15 @@ function parseAllData() {
     
     if (!stateCode) return;
     
-    totalAdopted += childrenAdopted;
+    if (childrenAdopted !== null) {
+      totalAdopted = (totalAdopted || 0) + childrenAdopted;
+    }
     
     for (let [key, state] of Object.entries(result.states)) {
       const expectedCode = STATE_NAME_TO_CODE[state.name];
       if (expectedCode === stateCode) {
         state.childrenAdopted2023 = childrenAdopted;
-        if (reunificationRate > 0) {
+        if (reunificationRate !== null) {
           state.reunificationRate = reunificationRate;
         }
         break;
@@ -319,13 +345,13 @@ function parseAllData() {
   
   result.national.childrenAdopted2023 = totalAdopted;
   console.log(`   ✓ Added adoption data for states`);
-  console.log(`   ✓ Total children adopted 2023: ${totalAdopted.toLocaleString()}`);
+  console.log(`   ✓ Total children adopted 2023: ${totalAdopted !== null ? totalAdopted.toLocaleString() : 'N/A'}`);
   
   // ============================================
   // STEP 3: Parse mte-master.csv (ALL Organizations)
   // ============================================
   console.log('\n🏢 STEP 3: Parsing mte-master.csv (ALL 945 Organizations)...');
-  const orgPath = '/mnt/user-data/uploads/mte-master.csv';
+  const orgPath = path.join(scriptDir, 'mte-master.csv');
   const orgContent = fs.readFileSync(orgPath, 'utf8');
   const orgRows = parseCSV(orgContent);
   
@@ -354,14 +380,13 @@ function parseAllData() {
       contactName: cleanString(row['contact_name']),
       contactTitle: cleanString(row['contact_title']),
       contactEmail: cleanString(row['contact_email']),
-      coords: (lat && lng) ? [lat, lng] : null,
+      coords: (lat !== null && lng !== null) ? [lat, lng] : null,
       networkMember: cleanString(row['network_member']) === 'Yes',
       networkName: cleanString(row['network_name']),
       officialFosterMinistry: cleanString(row['official_foster_ministry']) === 'Yes',
       onMap: cleanString(row['on_map']) === 'Yes'
     };
     
-    // Determine activity areas
     if (row['activity_recruit_foster_kinship'] === 'Yes') {
       org.areas.push('Foster and Kinship Families');
     }
@@ -429,18 +454,26 @@ function parseAllData() {
   // ============================================
   console.log('\n🧮 STEP 6: Calculating national totals...');
   
-  Object.values(result.states).forEach(state => {
-    result.national.childrenInCare += state.totalChildren;
-    result.national.childrenWaitingAdoption += state.waitingForAdoption;
-  });
+  // Sum state-level data (using safeSum to handle nulls)
+  const stateChildrenInCare = Object.values(result.states).map(s => s.totalChildren);
+  const stateWaitingForAdoption = Object.values(result.states).map(s => s.waitingForAdoption);
   
-  Object.values(result.counties).forEach(county => {
-    result.national.childrenInFamilyFoster += county.childrenInFamily;
-    result.national.childrenInKinship += county.childrenInKinship;
-    result.national.totalChurches += county.totalChurches;
-  });
+  result.national.childrenInCare = safeSum(...stateChildrenInCare);
+  result.national.childrenWaitingAdoption = safeSum(...stateWaitingForAdoption);
   
-  result.national.churchesWithMinistry = Math.round(result.national.totalChurches * 0.08);
+  // Sum county-level data
+  const countyChildrenInFamily = Object.values(result.counties).map(c => c.childrenInFamily);
+  const countyChildrenInKinship = Object.values(result.counties).map(c => c.childrenInKinship);
+  const countyTotalChurches = Object.values(result.counties).map(c => c.totalChurches);
+  
+  result.national.childrenInFamilyFoster = safeSum(...countyChildrenInFamily);
+  result.national.childrenInKinship = safeSum(...countyChildrenInKinship);
+  result.national.totalChurches = safeSum(...countyTotalChurches);
+  
+  // Estimate churches with ministry (8% of total)
+  result.national.churchesWithMinistry = result.national.totalChurches !== null 
+    ? Math.round(result.national.totalChurches * 0.08) 
+    : null;
   
   console.log(`   ✓ National totals calculated`);
   
@@ -449,11 +482,24 @@ function parseAllData() {
   // ============================================
   console.log('\n📋 STEP 7: Data quality check...');
   
-  const countiesWithPopulation = Object.values(result.counties).filter(c => c.population > 0).length;
+  const countiesWithPopulation = Object.values(result.counties).filter(c => c.population !== null).length;
   const populationCoverage = ((countiesWithPopulation / Object.keys(result.counties).length) * 100).toFixed(1);
+  
+  // Count null values for key metrics
+  const nullCounts = {
+    childrenInCare: Object.values(result.counties).filter(c => c.childrenInCare === null).length,
+    licensedHomes: Object.values(result.counties).filter(c => c.licensedHomes === null).length,
+    totalChurches: Object.values(result.counties).filter(c => c.totalChurches === null).length,
+    waitingForAdoption: Object.values(result.counties).filter(c => c.waitingForAdoption === null).length
+  };
   
   console.log(`   ✓ Counties with population data: ${countiesWithPopulation} (${populationCoverage}%)`);
   console.log(`   ⚠️  Counties missing population: ${Object.keys(result.counties).length - countiesWithPopulation}`);
+  console.log('\n   NULL VALUE SUMMARY (counties):');
+  console.log(`      childrenInCare: ${nullCounts.childrenInCare} null`);
+  console.log(`      licensedHomes: ${nullCounts.licensedHomes} null`);
+  console.log(`      totalChurches: ${nullCounts.totalChurches} null`);
+  console.log(`      waitingForAdoption: ${nullCounts.waitingForAdoption} null`);
   console.log(`   ℹ️  To add Census population data, run: node add-census-data.js`);
   
   return result;
@@ -471,12 +517,13 @@ try {
   console.log('  ✓ national-data.csv (2023 adoption data)');
   console.log('  ✓ mte-master.csv (ALL 945 organizations)');
   console.log('  ✓ Hardcoded state centroids (50 states + DC)');
+  console.log('\n⚠️  Missing values are stored as null (not 0)');
   
   const data = parseAllData();
   
   // Write output
   console.log('\n💾 Writing output file...');
-  const outputPath = '/mnt/user-data/outputs/real-data.json';
+  const outputPath = path.join(__dirname, 'real-data.json');
   fs.writeFileSync(outputPath, JSON.stringify(data, null, 2), 'utf8');
   console.log(`   ✓ Saved to: ${outputPath}`);
   
@@ -485,17 +532,20 @@ try {
   const sizeMB = (stats.size / (1024 * 1024)).toFixed(2);
   console.log(`   ✓ File size: ${sizeMB} MB`);
   
+  // Helper to format potentially null values
+  const fmt = (val) => val !== null ? val.toLocaleString() : 'N/A';
+  
   // Summary
   console.log('\n📊 FINAL DATA SUMMARY:');
   console.log('═'.repeat(60));
   console.log('\nNATIONAL:');
-  console.log(`  Children in Care: ${data.national.childrenInCare.toLocaleString()}`);
-  console.log(`  Children in Family Foster: ${data.national.childrenInFamilyFoster.toLocaleString()}`);
-  console.log(`  Children in Kinship: ${data.national.childrenInKinship.toLocaleString()}`);
-  console.log(`  Waiting for Adoption: ${data.national.childrenWaitingAdoption.toLocaleString()}`);
-  console.log(`  Children Adopted 2023: ${data.national.childrenAdopted2023.toLocaleString()}`);
-  console.log(`  Total Churches: ${data.national.totalChurches.toLocaleString()}`);
-  console.log(`  Churches with Ministry (est): ${data.national.churchesWithMinistry.toLocaleString()}`);
+  console.log(`  Children in Care: ${fmt(data.national.childrenInCare)}`);
+  console.log(`  Children in Family Foster: ${fmt(data.national.childrenInFamilyFoster)}`);
+  console.log(`  Children in Kinship: ${fmt(data.national.childrenInKinship)}`);
+  console.log(`  Waiting for Adoption: ${fmt(data.national.childrenWaitingAdoption)}`);
+  console.log(`  Children Adopted 2023: ${fmt(data.national.childrenAdopted2023)}`);
+  console.log(`  Total Churches: ${fmt(data.national.totalChurches)}`);
+  console.log(`  Churches with Ministry (est): ${fmt(data.national.churchesWithMinistry)}`);
   
   console.log('\nGEOGRAPHIC DATA:');
   console.log(`  States: ${Object.keys(data.states).length}`);
@@ -521,9 +571,10 @@ try {
   console.log('\n✅ PARSING COMPLETE!');
   console.log('═'.repeat(60));
   console.log('\n📝 NEXT STEPS:');
-  console.log('  1. Review real-data.json');
-  console.log('  2. Optional: Run add-census-data.js to add precise coordinates & population');
-  console.log('  3. Update your app to import from real-data.json instead of mock-data.js');
+  console.log('  1. Review real-data.json (null values = missing data)');
+  console.log('  2. Update frontend to display null as "N/A" or "—"');
+  console.log('  3. Optional: Run add-census-data.js to add precise coordinates & population');
+  console.log('  4. Update your app to import from real-data.json instead of mock-data.js');
   
 } catch (error) {
   console.error('\n❌ FATAL ERROR:', error.message);

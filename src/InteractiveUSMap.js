@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
-import { getStateMapData } from './real-data.js';
+import { getStateMapData, fmt } from './real-data.js';
 
 // Get state data from mock-data
 const stateData = getStateMapData();
 
 // Color scale
 const getStateColor = (value) => {
-  if (!value) return '#f1f1f1'; // MTE Light Grey
+  if (value === null || value === undefined || !value) return '#f1f1f1'; // MTE Light Grey
   if (value < 200) return '#dcfce7';
   if (value < 500) return '#bbf7d0';
   if (value < 1000) return '#86efac';
@@ -279,7 +279,7 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
           }}
         >
           <div className="font-semibold">{hoveredState.name}</div>
-          <div>{hoveredState.value.toLocaleString()} {selectedMetric}</div>
+          <div>{fmt(hoveredState.value)} {selectedMetric}</div>
         </div>
       )}
     </div>

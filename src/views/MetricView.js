@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { countyData, stateData, nationalStats } from "../real-data.js";
+import { countyData, stateData, nationalStats, fmt, fmtPct, fmtCompact } from "../real-data.js";
 
 // Assets
 import ChurchIcon from "../assets/church_icon.png";
@@ -248,7 +248,13 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   const showCountyDetails = regionLevel === "county";
   const showStateDetails = regionLevel === "state";
   const showStateContext = regionLevel === "county";
-  const showPopulation = regionLevel === "county";
+
+  // Get state data for statewide summary (county view)
+  const getStateDataForCounty = () => {
+    if (!data.state) return null;
+    const stateKey = data.state.toLowerCase().replace(/\s+/g, '-');
+    return stateData[stateKey];
+  };
 
   return (
     <div className="min-h-screen">
@@ -425,10 +431,10 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <img src={BiologicalFamilyIcon} alt="Family" className="w-10 h-10 mx-auto mb-3" />
                 <div className="relative group">
                   <div className="text-2xl md:text-2xl md:text-3xl font-black text-mte-blue cursor-pointer hover:text-mte-blue-80 transition-colors">
-                    {data.childrenInCare.toLocaleString()}
+                    {fmt(data.childrenInCare)}
                   </div>
                   <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-3 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
-                    <div className="font-semibold">{data.childrenInCare.toLocaleString()} Children</div>
+                    <div className="font-semibold">{fmt(data.childrenInCare)} Children</div>
                     <div>in Out-of-Home Care on</div>
                     <div>September 30, 2023</div>
                     <div className="text-mte-subdued-white mt-1">Source: AFCARS FY 2023</div>
@@ -436,10 +442,10 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 </div>
                 <div className="text-base text-mte-charcoal mb-3 font-lato">Children in Out-of-Home Care</div>
                 <div className="text-base text-mte-charcoal relative group cursor-pointer hover:text-mte-blue transition-colors font-lato">
-                  {data.childrenInFamilyFoster.toLocaleString()} Children in Family-Like Foster Care
+                  {fmt(data.childrenInFamilyFoster)} Children in Family-Like Foster Care
                 </div>
                 <div className="text-base text-mte-charcoal relative group cursor-pointer hover:text-mte-blue transition-colors font-lato">
-                  {data.childrenInKinship.toLocaleString()} Children in Kinship Care
+                  {fmt(data.childrenInKinship)} Children in Kinship Care
                 </div>
               </div>
               
@@ -447,12 +453,12 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-10 h-10 mx-auto mb-3" />
                 <div className="relative group">
                   <div className="text-2xl md:text-3xl font-black text-mte-blue cursor-pointer hover:text-mte-blue-80 transition-colors">
-                    {data.waitingForAdoption.toLocaleString()}
+                    {fmt(data.waitingForAdoption)}
                   </div>
                 </div>
                 <div className="text-base text-mte-charcoal mb-3 font-lato">Children Waiting For Adoption</div>
                 <div className="text-base text-mte-charcoal relative group cursor-pointer hover:text-mte-blue transition-colors font-lato">
-                  {data.childrenAdopted.toLocaleString()} Children Adopted FY 2023
+                  {fmt(data.childrenAdopted)} Children Adopted FY 2023
                 </div>
               </div>
               
@@ -460,12 +466,12 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <img src={ChurchIcon} alt="Churches" className="w-10 h-10 mx-auto mb-3" />
                 <div className="relative group">
                   <div className="text-2xl md:text-3xl font-black text-mte-blue cursor-pointer hover:text-mte-blue-80 transition-colors">
-                    {(data.totalChurches / 1000).toFixed(0)}K
+                    {fmtCompact(data.totalChurches)}
                   </div>
                 </div>
                 <div className="text-base text-mte-charcoal mb-3 font-lato">Churches</div>
                 <div className="text-base text-mte-charcoal relative group cursor-pointer hover:text-mte-blue transition-colors font-lato">
-                  {(data.churchesWithMinistry / 1000).toFixed(0)}K Churches with a Foster Care Ministry
+                  {fmtCompact(data.churchesWithMinistry)} Churches with a Foster Care Ministry
                 </div>
               </div>
             </div>
@@ -495,7 +501,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
               <img src={BiologicalFamilyIcon} alt="Children" className="w-16 h-16 mx-auto mb-4" />
               <div className="text-2xl md:text-3xl font-black text-mte-blue mb-2">
-                {data.totalChildren?.toLocaleString() || 'N/A'}
+                {fmt(data.totalChildren)}
               </div>
               <div className="text-base text-mte-charcoal font-lato">Children in Care</div>
             </div>
@@ -504,7 +510,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
               <img src={FosterKinshipIcon} alt="Homes" className="w-16 h-16 mx-auto mb-4" />
               <div className="text-xl md:text-2xl font-black text-mte-blue mb-2">
-                {data.licensedHomes?.toLocaleString() || 'N/A'}
+                {fmt(data.licensedHomes)}
               </div>
               <div className="text-base text-mte-charcoal font-lato">Licensed Homes</div>
             </div>
@@ -513,7 +519,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
               <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-16 h-16 mx-auto mb-4" />
               <div className="text-xl md:text-2xl font-black text-mte-blue mb-2">
-                {data.waitingForAdoption?.toLocaleString() || 'N/A'}
+                {fmt(data.waitingForAdoption)}
               </div>
               <div className="text-base text-mte-charcoal font-lato">Children Waiting For Adoption</div>
             </div>
@@ -522,7 +528,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
               <img src={BiologicalFamilyIcon} alt="Reunification" className="w-16 h-16 mx-auto mb-4" />
               <div className="text-xl md:text-2xl font-black text-mte-blue mb-2">
-                {data.reunificationRate}%
+                {fmtPct(data.reunificationRate)}
               </div>
               <div className="text-base text-mte-charcoal font-lato">Reunification Rate</div>
             </div>
@@ -531,7 +537,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
               <img src={WrapAroundIcon} alt="Preservation" className="w-16 h-16 mx-auto mb-4" />
               <div className="text-xl md:text-2xl font-black text-mte-blue mb-2">
-                {data.familyPreservationCases?.toLocaleString() || 'N/A'}
+                {fmt(data.familyPreservationCases)}
               </div>
               <div className="text-base text-mte-charcoal font-lato">Family Preservation Cases</div>
             </div>
@@ -549,7 +555,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <div className="flex flex-col items-center">
                 <img src={ChurchIcon} alt="Church" className="w-20 h-20 mb-3" />
                 <div className="flex items-center gap-1">
-                  <div className="text-xl md:text-2xl font-black text-mte-blue">{data.totalChurches}</div>
+                  <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.totalChurches)}</div>
                   <div className="text-base text-mte-charcoal font-lato">Churches</div>
                 </div>
               </div>
@@ -585,7 +591,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   <line x1="3" y1="16" x2="21" y2="16"/>
 </svg>
                 <div className="flex items-center gap-1">
-                  <div className="text-xl md:text-2xl font-black text-mte-blue">{data.population?.toLocaleString()}</div>
+                  <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.population)}</div>
                   <div className="text-base text-mte-charcoal font-lato">Population</div>
                 </div>
               </div>
@@ -605,7 +611,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </HoverableText>
 
             <div className="flex justify-center items-center gap-1 mb-4">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{data.licensedHomesPerChild}</div>
+              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.licensedHomesPerChild)}</div>
               <HoverableText tooltip="The ratio of available licensed foster homes to children currently in out-of-home care.">
                 <div className="text-base text-mte-charcoal font-lato">Licensed Homes Per Child in Care</div>
               </HoverableText>
@@ -615,27 +621,27 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <HoverableText tooltip="Total number of children in the foster care system.">
                 <div className="text-left text-mte-charcoal font-lato">Children in Care</div>
               </HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{data.childrenInCare}</div>
+              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInCare)}</div>
 
               <HoverableText tooltip="Children placed with licensed foster families.">
                 <div className="text-left text-mte-charcoal font-lato">Children in Family</div>
               </HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{data.childrenInFamily}</div>
+              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInFamily)}</div>
 
               <HoverableText tooltip="Children placed with relatives or family friends.">
                 <div className="text-left text-mte-charcoal font-lato">Children in Kinship Care</div>
               </HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{data.childrenInKinship}</div>
+              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInKinship)}</div>
 
               <HoverableText tooltip="Children from this county placed in care outside county boundaries.">
                 <div className="text-left text-mte-charcoal font-lato">Children Out-of-County</div>
               </HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{data.childrenOutOfCounty}</div>
+              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenOutOfCounty)}</div>
 
               <HoverableText tooltip="Total number of state-licensed foster homes in this county.">
                 <div className="text-left text-mte-charcoal font-lato">Licensed Homes</div>
               </HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{data.licensedHomes}</div>
+              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.licensedHomes)}</div>
             </div>
           </div>
 
@@ -647,7 +653,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </HoverableText>
 
             <div className="flex justify-center items-center gap-1 mb-4">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{data.waitingForAdoption}</div>
+              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</div>
               <HoverableText tooltip="Children whose parental rights have been terminated and are legally free for adoption.">
                 <div className="text-base text-mte-charcoal font-lato">Children Waiting For Adoption</div>
               </HoverableText>
@@ -657,12 +663,12 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <HoverableText tooltip="Number of finalized adoptions in the current year.">
                 <div className="text-left text-mte-charcoal font-lato">Children Adopted in 2024</div>
               </HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{data.childrenAdopted2024}</div>
+              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenAdopted2024)}</div>
 
               <HoverableText tooltip="Average time from termination of parental rights to finalized adoption.">
                 <div className="text-left text-mte-charcoal font-lato">Average Months to Adoption</div>
               </HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{data.avgMonthsToAdoption}</div>
+              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.avgMonthsToAdoption)}</div>
             </div>
           </div>
 
@@ -674,14 +680,14 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </HoverableText>
 
             <div className="flex justify-center items-center gap-1 mb-4">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{data.familyPreservationCases}</div>
+              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.familyPreservationCases)}</div>
               <HoverableText tooltip="Active cases providing intensive services to prevent foster care placement.">
                 <div className="text-base text-mte-charcoal font-lato">Family Preservation Cases</div>
               </HoverableText>
             </div>
 
             <div className="flex justify-center items-center gap-1">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{data.reunificationRate}%</div>
+              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(data.reunificationRate)}</div>
               <HoverableText tooltip="Percentage of children who successfully return to their birth families.">
                 <div className="text-base text-mte-charcoal font-lato">Biological Family Reunification Rate</div>
               </HoverableText>
@@ -696,7 +702,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </HoverableText>
 
             <div className="flex justify-center items-center gap-1 mb-4">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{data.supportPercentage}%</div>
+              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(data.supportPercentage)}</div>
               <HoverableText tooltip="Percentage of local churches actively engaged in foster care ministry.">
                 <div className="text-base text-mte-charcoal font-lato">Churches Providing Support</div>
               </HoverableText>
@@ -706,52 +712,57 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <HoverableText tooltip="Number of churches with active foster care support programs.">
                 <div className="text-left text-mte-charcoal font-lato">Churches Providing Support</div>
               </HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{data.churchesProvidingSupport}</div>
+              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.churchesProvidingSupport)}</div>
 
               <HoverableText tooltip="Total number of churches in this county.">
                 <div className="text-left text-mte-charcoal font-lato">Total Churches</div>
               </HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{data.totalChurches}</div>
+              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.totalChurches)}</div>
             </div>
           </div>
         </main>
       )}
 
       {/* Statewide summary - County only */}
-      {showStateContext && (
-        <section className="max-w-7xl mx-auto px-4">
-          <div className="bg-white rounded-2xl shadow-mte-card px-6 py-6 text-center">
-            <h3 className="text-2xl font-nexa text-mte-black mb-4">
-              Statewide Data Summary for {data.state}
-            </h3>
+      {showStateContext && (() => {
+        const stateInfo = getStateDataForCounty();
+        if (!stateInfo) return null;
+        
+        return (
+          <section className="max-w-7xl mx-auto px-4">
+            <div className="bg-white rounded-2xl shadow-mte-card px-6 py-6 text-center">
+              <h3 className="text-2xl font-nexa text-mte-black mb-4">
+                Statewide Data Summary for {data.state}
+              </h3>
 
-            <div className="flex flex-wrap justify-around gap-6 md:gap-10 text-center">
-              <div>
-                <p className="text-xl md:text-2xl font-black text-mte-blue">
-                  {stateData.alabama.totalChildren.toLocaleString()}
-                </p>
-                <p className="text-base text-mte-charcoal font-lato">Children in Care</p>
-              </div>
-              <div>
-                <p className="text-xl md:text-2xl font-black text-mte-blue">{stateData.alabama.licensedHomes}</p>
-                <p className="text-base text-mte-charcoal font-lato">Licensed Homes</p>
-              </div>
-              <div>
-                <p className="text-xl md:text-2xl font-black text-mte-blue">{stateData.alabama.waitingForAdoption}</p>
-                <p className="text-base text-mte-charcoal font-lato">Children Waiting For Adoption</p>
-              </div>
-              <div>
-                <p className="text-xl md:text-2xl font-black text-mte-blue">{stateData.alabama.reunificationRate}%</p>
-                <p className="text-base text-mte-charcoal font-lato">Biological Family Reunification Rate</p>
-              </div>
-              <div>
-                <p className="text-xl md:text-2xl font-black text-mte-blue">{stateData.alabama.familyPreservationCases}</p>
-                <p className="text-base text-mte-charcoal font-lato">Family Preservation Cases</p>
+              <div className="flex flex-wrap justify-around gap-6 md:gap-10 text-center">
+                <div>
+                  <p className="text-xl md:text-2xl font-black text-mte-blue">
+                    {fmt(stateInfo.totalChildren)}
+                  </p>
+                  <p className="text-base text-mte-charcoal font-lato">Children in Care</p>
+                </div>
+                <div>
+                  <p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.licensedHomes)}</p>
+                  <p className="text-base text-mte-charcoal font-lato">Licensed Homes</p>
+                </div>
+                <div>
+                  <p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.waitingForAdoption)}</p>
+                  <p className="text-base text-mte-charcoal font-lato">Children Waiting For Adoption</p>
+                </div>
+                <div>
+                  <p className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(stateInfo.reunificationRate)}</p>
+                  <p className="text-base text-mte-charcoal font-lato">Biological Family Reunification Rate</p>
+                </div>
+                <div>
+                  <p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.familyPreservationCases)}</p>
+                  <p className="text-base text-mte-charcoal font-lato">Family Preservation Cases</p>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        );
+      })()}
 
       {/* Footer */}
       <footer className="py-6 pr-6 flex justify-end">

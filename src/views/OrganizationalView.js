@@ -4,7 +4,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 // Import data from real-data
-import { countyData, countyCoordinatesByState, stateCoordinates, stateNameToCode, organizations } from "../real-data.js";
+import { countyData, countyCoordinatesByState, stateCoordinates, stateNameToCode, organizations, fmt } from "../real-data.js";
 
 // Assets
 import MTELogo from "../assets/MTE_Logo.png";
@@ -615,7 +615,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       <Tooltip>
                         <div className="font-lato text-sm">
                           <strong>{stateName}</strong><br/>
-                          {data.orgCount} Organizations
+                          {fmt(data.orgCount)} Organizations
                         </div>
                       </Tooltip>
                     </Marker>
@@ -697,7 +697,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                             <Tooltip>
                               <div className="font-lato text-sm">
                                 <strong>{countyName} County</strong><br/>
-                                {hasOrgs ? `${data.orgCount} Organizations` : 'No organizations mapped'}
+                                {hasOrgs ? `${fmt(data.orgCount)} Organizations` : 'No organizations mapped'}
                               </div>
                             </Tooltip>
                           </Marker>
@@ -783,11 +783,11 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               {showNationalMap && filteredOrgs.length > 0 && (
                 <>
                   <span className="px-2 py-1 bg-mte-blue-20 text-mte-charcoal rounded">
-                    {filteredOrgs.length} National Organizations
+                    {fmt(filteredOrgs.length)} National Organizations
                   </span>
                   {showConnectionLines && connectionLines.length > 0 && (
                     <span className="px-2 py-1 bg-mte-green-20 text-mte-charcoal rounded">
-                      {connectionLines.length} Connections
+                      {fmt(connectionLines.length)} Connections
                     </span>
                   )}
                 </>
@@ -795,18 +795,18 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               {showStateMap && filteredOrgs.length > 0 && (
                 <>
                   <span className="px-2 py-1 bg-mte-blue-20 text-mte-charcoal rounded">
-                    {filteredOrgs.length} Organizations
+                    {fmt(filteredOrgs.length)} Organizations
                   </span>
                   {showConnectionLines && connectionLines.length > 0 && (
                     <span className="px-2 py-1 bg-mte-green-20 text-mte-charcoal rounded">
-                      {connectionLines.length} Connections
+                      {fmt(connectionLines.length)} Connections
                     </span>
                   )}
                 </>
               )}
               {showCountyMap && filteredOrgs.length !== currentOrgs.length && (
                 <span className="px-2 py-1 bg-mte-yellow-20 text-mte-charcoal rounded">
-                  {filteredOrgs.length} of {currentOrgs.length} organizations shown
+                  {fmt(filteredOrgs.length)} of {fmt(currentOrgs.length)} organizations shown
                 </span>
               )}
             </div>
@@ -861,7 +861,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
           {(showNationalMap || showStateMap || showCountyMap) && !selectedEmptyCounty && (
             <div className="bg-white rounded-lg shadow-mte-card p-4">
               <h3 className="text-h4 font-bold uppercase mb-4 text-mte-black font-lato">
-                Organizations ({filteredOrgs.length})
+                Organizations ({fmt(filteredOrgs.length)})
               </h3>
               <div className="overflow-x-auto">
                 <div className="flex gap-4 pb-4" style={{ minWidth: "max-content" }}>
@@ -870,19 +870,19 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     return (
                       <div
                         key={org.name}
-                        className={`bg-white p-4 rounded-lg shadow-mte-card border-l-4 ${colors.border} flex-shrink-0`}
+                        className={`bg-white p-4 rounded-lg shadow-mte-card border-l-4 ${colors?.border || 'border-mte-blue'} flex-shrink-0`}
                         style={{ minWidth: "300px", maxWidth: "300px" }}
                       >
                         <div className="flex items-start gap-2 mb-2">
-                          <div className={`w-3 h-3 rounded-full flex-shrink-0 ${colors.bg} ${colors.border} border mt-1`}></div>
-                          <h4 className={`font-semibold ${colors.text} font-lato leading-tight`}>{org.name}</h4>
+                          <div className={`w-3 h-3 rounded-full flex-shrink-0 ${colors?.bg || 'bg-mte-blue-20'} ${colors?.border || 'border-mte-blue'} border mt-1`}></div>
+                          <h4 className={`font-semibold ${colors?.text || 'text-mte-black'} font-lato leading-tight`}>{org.name}</h4>
                         </div>
-                        <div className={`text-sm px-2 py-1 rounded ${colors.bg} ${colors.text} inline-block mb-2 font-lato`}>
+                        <div className={`text-sm px-2 py-1 rounded ${colors?.bg || 'bg-mte-blue-20'} ${colors?.text || 'text-mte-black'} inline-block mb-2 font-lato`}>
                           {org.category}
                         </div>
                         <p className="text-base text-mte-charcoal mb-2 font-lato">{org.description}</p>
                         <div className="text-sm text-mte-charcoal mb-2 font-lato">
-                          <strong>Impact Areas:</strong> {org.areas.join(", ")}
+                          <strong>Impact Areas:</strong> {org.areas?.join(", ") || 'N/A'}
                         </div>
                         {showNationalMap && (
                           <div className="text-sm text-mte-charcoal font-lato">

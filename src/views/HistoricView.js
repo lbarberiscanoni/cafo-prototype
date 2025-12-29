@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { countyData } from "../real-data.js";
+import { countyData, stateData, fmt, hasValue } from "../real-data.js";
 
 // Assets
 import FosterKinshipIcon from "../assets/FosterKinship_icon.png";
@@ -12,6 +12,11 @@ const years = [2020, 2021, 2022, 2023, 2024];
 
 // Function to generate historical data based on current value
 const generateHistoricalData = (currentValue, years = 5) => {
+  // Return array of nulls if no current value
+  if (!hasValue(currentValue)) {
+    return Array(years).fill(null);
+  }
+  
   const data = [];
   const variance = 0.15; // 15% variance year over year
   
@@ -39,10 +44,23 @@ const getCategoryMetrics = (regionKey, regionId) => {
       avgMonthsAdoption: county.avgMonthsToAdoption,
       familyPreservation: county.familyPreservationCases,
       reunificationRate: county.reunificationRate,
-      supportServices: Math.round(county.familyPreservationCases * 1.5)
+      supportServices: hasValue(county.familyPreservationCases) ? Math.round(county.familyPreservationCases * 1.5) : null
+    };
+  } else if (regionKey === 'state' && regionId && stateData[regionId]) {
+    const state = stateData[regionId];
+    baseData = {
+      childrenInCare: state.totalChildren,
+      licensedHomes: state.licensedHomes,
+      kinshipPlacements: null, // Not available at state level
+      waitingAdoption: state.waitingForAdoption,
+      finalizedAdoptions: state.childrenAdopted2023,
+      avgMonthsAdoption: null,
+      familyPreservation: state.familyPreservationCases,
+      reunificationRate: state.reunificationRate,
+      supportServices: hasValue(state.familyPreservationCases) ? Math.round(state.familyPreservationCases * 1.5) : null
     };
   } else {
-    // Default/placeholder data for national/state
+    // Default/placeholder data for national or missing data
     baseData = {
       childrenInCare: 100,
       licensedHomes: 120,
@@ -112,17 +130,17 @@ const getCategoryMetrics = (regionKey, regionId) => {
       { 
         id: 'wraparound_cases', 
         label: 'Wraparound Support Cases', 
-        data: generateHistoricalData(Math.round(baseData.childrenInCare * 0.15))
+        data: generateHistoricalData(hasValue(baseData.childrenInCare) ? Math.round(baseData.childrenInCare * 0.15) : null)
       },
       { 
         id: 'community_support', 
         label: 'Community Support Programs', 
-        data: generateHistoricalData(Math.round(baseData.childrenInCare * 0.12))
+        data: generateHistoricalData(hasValue(baseData.childrenInCare) ? Math.round(baseData.childrenInCare * 0.12) : null)
       },
       { 
         id: 'respite_services', 
         label: 'Respite Services Hours', 
-        data: generateHistoricalData(Math.round(baseData.childrenInCare * 0.20))
+        data: generateHistoricalData(hasValue(baseData.childrenInCare) ? Math.round(baseData.childrenInCare * 0.20) : null)
       }
     ]
   };
@@ -211,7 +229,9 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       case "national":
         return "United States of America";
       case "state":
-        return "Alabama"; // Would come from regionId lookup
+        // Look up state name from stateData
+        const state = stateData[regionId];
+        return state?.name || "Unknown State";
       case "county":
         // Extract county name from regionId or use default
         if (regionId) {
@@ -400,6 +420,90 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     return metric ? metric.data : [];
   };
 
+  // Get population for county view
+  const getPopulation = () => {
+    if (regionLevel === 'county' && regionId && countyData[regionId]) {
+      return countyData[regionId].population;
+    }
+    return null;
+  };
+
+  // Render a bar chart with null handling
+  const renderBarChart = (category, color) => {
+    const data = getMetricData(category);
+    const validData = data.filter(v => hasValue(v));
+    
+    // If all data is null, show a message
+    if (validData.length === 0) {
+      return (
+        <div className="h-48 md:h-64 flex items-center justify-center text-mte-charcoal font-lato">
+          <span>No historical data available</span>
+        </div>
+      );
+    }
+    
+    const maxValue = Math.max(...validData, 1);
+    const containerHeight = 192; // h-48 = 192px (12rem)
+    const maxBarHeight = containerHeight * 0.75; // Use 75% of container height
+    
+    return (
+      <div className="relative h-48 md:h-64 flex">
+        {/* Y-axis */}
+        <div className="flex flex-col justify-between pr-2 text-xs text-mte-charcoal font-lato">
+          <span>{Math.round(maxValue)}</span>
+          <span>{Math.round(maxValue * 0.66)}</span>
+          <span>{Math.round(maxValue * 0.33)}</span>
+          <span>0</span>
+        </div>
+        {/* Y-axis line */}
+        <div className="w-px bg-mte-light-grey"></div>
+        {/* Chart area */}
+        <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey overflow-hidden">
+          {data.map((value, idx) => {
+            // Handle null values
+            if (!hasValue(value)) {
+              return (
+                <div key={idx} className="flex flex-col items-center flex-1 group relative">
+                  <div
+                    className="bg-mte-light-grey w-full rounded relative flex items-center justify-center"
+                    style={{ 
+                      height: '20px',
+                      maxWidth: '50px'
+                    }}
+                  >
+                    <span className="text-xs text-mte-charcoal">N/A</span>
+                  </div>
+                  <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
+                </div>
+              );
+            }
+            
+            const heightPercent = (value / maxValue) * 100;
+            const heightPx = (heightPercent / 100) * maxBarHeight;
+            
+            return (
+              <div key={idx} className="flex flex-col items-center flex-1 group relative">
+                <div
+                  className={`${color} w-full rounded transition-all hover:opacity-80 relative`}
+                  style={{ 
+                    height: `${Math.max(heightPx, 20)}px`,
+                    maxWidth: '50px',
+                    maxHeight: `${maxBarHeight}px`
+                  }}
+                >
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-xs font-bold text-white bg-mte-black bg-opacity-75 px-2 py-1 rounded">{fmt(value)}</span>
+                  </div>
+                </div>
+                <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Context Navigation Bar - Specific to Historic View */}
@@ -467,9 +571,9 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
           <h1 className="text-2xl md:text-4xl font-nexa text-mte-black text-center">
             {name}
           </h1>
-          {regionLevel === "county" && regionId && countyData[regionId] && (
+          {regionLevel === "county" && (
             <p className="text-sm md:text-base text-mte-charcoal mt-1 font-lato">
-              Population: {countyData[regionId].population.toLocaleString()}
+              Population: {fmt(getPopulation())}
             </p>
           )}
         </div>
@@ -498,50 +602,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
             </select>
           </div>
 
-          {/* Responsive bar chart container with y-axis */}
-          <div className="relative h-48 md:h-64 flex">
-            {/* Y-axis */}
-            <div className="flex flex-col justify-between pr-2 text-xs text-mte-charcoal font-lato">
-              <span>150</span>
-              <span>100</span>
-              <span>50</span>
-              <span>0</span>
-            </div>
-            {/* Y-axis line */}
-            <div className="w-px bg-mte-light-grey"></div>
-            {/* Chart area */}
-            <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey overflow-hidden">
-              {(() => {
-                const data = getMetricData('kinship');
-                const maxValue = Math.max(...data, 1);
-                const containerHeight = 192; // h-48 = 192px (12rem)
-                const maxBarHeight = containerHeight * 0.75; // Use 75% of container height
-                
-                return data.map((value, idx) => {
-                  const heightPercent = (value / maxValue) * 100;
-                  const heightPx = (heightPercent / 100) * maxBarHeight;
-                  
-                  return (
-                    <div key={idx} className="flex flex-col items-center flex-1 group relative">
-                      <div
-                        className="bg-mte-purple w-full rounded transition-all hover:opacity-80 relative"
-                        style={{ 
-                          height: `${Math.max(heightPx, 20)}px`,
-                          maxWidth: '50px',
-                          maxHeight: `${maxBarHeight}px`
-                        }}
-                      >
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                          <span className="text-xs font-bold text-white bg-mte-black bg-opacity-75 px-2 py-1 rounded">{value}</span>
-                        </div>
-                      </div>
-                      <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
-                    </div>
-                  );
-                });
-              })()}
-            </div>
-          </div>
+          {renderBarChart('kinship', 'bg-mte-purple')}
         </div>
 
         {/* Adoptive - GREEN */}
@@ -565,50 +626,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
             </select>
           </div>
 
-          {/* Responsive bar chart container with y-axis */}
-          <div className="relative h-48 md:h-64 flex">
-            {/* Y-axis */}
-            <div className="flex flex-col justify-between pr-2 text-xs text-mte-charcoal font-lato">
-              <span>60</span>
-              <span>40</span>
-              <span>20</span>
-              <span>0</span>
-            </div>
-            {/* Y-axis line */}
-            <div className="w-px bg-mte-light-grey"></div>
-            {/* Chart area */}
-            <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey overflow-hidden">
-              {(() => {
-                const data = getMetricData('adoption');
-                const maxValue = Math.max(...data, 1);
-                const containerHeight = 192; // h-48 = 192px
-                const maxBarHeight = containerHeight * 0.75; // Use 75% of container height
-                
-                return data.map((value, idx) => {
-                  const heightPercent = (value / maxValue) * 100;
-                  const heightPx = (heightPercent / 100) * maxBarHeight;
-                  
-                  return (
-                    <div key={idx} className="flex flex-col items-center flex-1 group relative">
-                      <div
-                        className="bg-mte-green w-full rounded transition-all hover:opacity-80 relative"
-                        style={{ 
-                          height: `${Math.max(heightPx, 20)}px`,
-                          maxWidth: '50px',
-                          maxHeight: `${maxBarHeight}px`
-                        }}
-                      >
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                          <span className="text-xs font-bold text-white bg-mte-black bg-opacity-75 px-2 py-1 rounded">{value}</span>
-                        </div>
-                      </div>
-                      <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
-                    </div>
-                  );
-                });
-              })()}
-            </div>
-          </div>
+          {renderBarChart('adoption', 'bg-mte-green')}
         </div>
 
         {/* Biological - ORANGE */}
@@ -632,51 +650,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
             </select>
           </div>
 
-          {/* Responsive bar chart container with y-axis */}
-          <div className="relative h-48 md:h-64 flex">
-            {/* Y-axis */}
-            <div className="flex flex-col justify-between pr-2 text-xs text-mte-charcoal font-lato">
-              <span>200</span>
-              <span>150</span>
-              <span>100</span>
-              <span>50</span>
-              <span>0</span>
-            </div>
-            {/* Y-axis line */}
-            <div className="w-px bg-mte-light-grey"></div>
-            {/* Chart area */}
-            <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey overflow-hidden">
-              {(() => {
-                const data = getMetricData('biological');
-                const maxValue = Math.max(...data, 1);
-                const containerHeight = 192; // h-48 = 192px
-                const maxBarHeight = containerHeight * 0.75; // Use 75% of container height
-                
-                return data.map((value, idx) => {
-                  const heightPercent = (value / maxValue) * 100;
-                  const heightPx = (heightPercent / 100) * maxBarHeight;
-                  
-                  return (
-                    <div key={idx} className="flex flex-col items-center flex-1 group relative">
-                      <div
-                        className="bg-mte-orange w-full rounded transition-all hover:opacity-80 relative"
-                        style={{ 
-                          height: `${Math.max(heightPx, 20)}px`,
-                          maxWidth: '50px',
-                          maxHeight: `${maxBarHeight}px`
-                        }}
-                      >
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                          <span className="text-xs font-bold text-white bg-mte-black bg-opacity-75 px-2 py-1 rounded">{value}</span>
-                        </div>
-                      </div>
-                      <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
-                    </div>
-                  );
-                });
-              })()}
-            </div>
-          </div>
+          {renderBarChart('biological', 'bg-mte-orange')}
         </div>
 
         {/* Wraparound - YELLOW */}
@@ -700,52 +674,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
             </select>
           </div>
 
-          {/* Responsive bar chart container with y-axis */}
-          <div className="relative h-48 md:h-64 flex">
-            {/* Y-axis */}
-            <div className="flex flex-col justify-between pr-2 text-xs text-mte-charcoal font-lato">
-              <span>50</span>
-              <span>40</span>
-              <span>30</span>
-              <span>20</span>
-              <span>10</span>
-              <span>0</span>
-            </div>
-            {/* Y-axis line */}
-            <div className="w-px bg-mte-light-grey"></div>
-            {/* Chart area */}
-            <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey overflow-hidden">
-              {(() => {
-                const data = getMetricData('wraparound');
-                const maxValue = Math.max(...data, 1);
-                const containerHeight = 192; // h-48 = 192px
-                const maxBarHeight = containerHeight * 0.75; // Use 75% of container height
-                
-                return data.map((value, idx) => {
-                  const heightPercent = (value / maxValue) * 100;
-                  const heightPx = (heightPercent / 100) * maxBarHeight;
-                  
-                  return (
-                    <div key={idx} className="flex flex-col items-center flex-1 group relative">
-                      <div
-                        className="bg-mte-yellow w-full rounded transition-all hover:opacity-80 relative"
-                        style={{ 
-                          height: `${Math.max(heightPx, 20)}px`,
-                          maxWidth: '50px',
-                          maxHeight: `${maxBarHeight}px`
-                        }}
-                      >
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                          <span className="text-xs font-bold text-white bg-mte-black bg-opacity-75 px-2 py-1 rounded">{value}</span>
-                        </div>
-                      </div>
-                      <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
-                    </div>
-                  );
-                });
-              })()}
-            </div>
-          </div>
+          {renderBarChart('wraparound', 'bg-mte-yellow')}
         </div>
       </div>
 

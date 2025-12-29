@@ -311,30 +311,45 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
           const stateCode = parts[parts.length - 1]; // Last part is state code
           const countyName = parts.slice(0, -1).join('-'); // Everything before last part is county name
           
-          // Find the state by code
-          const stateName = Object.keys(stateNameToCode).find(
+          // First, check if we have orgs with coords - prefer centering on those
+          const countyNameForFilter = countyName.replace(/-/g, ' ');
+          const orgsInCounty = organizations.filter(org => 
+            org.county && 
+            org.county.toLowerCase().replace(/\s+county.*$/, '').trim() === countyNameForFilter &&
+            org.state?.toLowerCase() === stateCode.toLowerCase() &&
+            org.coords
+          );
+          
+          if (orgsInCounty.length > 0) {
+            // Calculate centroid of all org coords - this is where the action is
+            const avgLat = orgsInCounty.reduce((sum, org) => sum + org.coords[0], 0) / orgsInCounty.length;
+            const avgLng = orgsInCounty.reduce((sum, org) => sum + org.coords[1], 0) / orgsInCounty.length;
+            return { center: [avgLat, avgLng], zoom: 12 };
+          }
+          
+          // Fallback to county centroid if no orgs with coords
+          const foundStateName = Object.keys(stateNameToCode).find(
             name => stateNameToCode[name]?.toLowerCase() === stateCode.toLowerCase()
           );
           
-          if (stateName) {
-            const stateId = stateName.toLowerCase().replace(/\s+/g, '-');
+          if (foundStateName) {
+            const stateId = foundStateName.toLowerCase().replace(/\s+/g, '-');
             const countyCoords = countyCoordinatesByState[stateId];
             
-            if (countyCoords) {
-              // Find the county in this state's data
+            if (countyCoords && Object.keys(countyCoords).length > 0) {
               const county = Object.keys(countyCoords).find(
                 name => name.toLowerCase().replace(/\s+/g, '-') === countyName
               );
               
               if (county && countyCoords[county]) {
-                return { center: countyCoords[county].coords, zoom: 13 }; // Increased from 11 to 13 for closer view
+                return { center: countyCoords[county].coords, zoom: 10 };
               }
             }
           }
         }
         
-        // Fallback to Nassau County if lookup fails
-        return { center: [40.73, -73.935], zoom: 13 }; // Increased from 11 to 13 for closer view
+        // Final fallback
+        return { center: [39.8283, -98.5795], zoom: 8 };
       default:
         return { center: [39.8283, -98.5795], zoom: 4 };
     }

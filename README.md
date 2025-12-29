@@ -1,5 +1,4 @@
 - [ ] Fix issue where some purple (placement agency) organizations remain visible after all organization categories are removed.
-- [ ] Take a look at the county-level rendering of organizations, specifically investigate Weld County, Colorado, for possible bugs.
 
 
 

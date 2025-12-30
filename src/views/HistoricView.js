@@ -8,20 +8,6 @@ import BiologicalFamilyIcon from "../assets/BiologicalFamily_icon.png";
 import WrapAroundIcon from "../assets/WrapAround_icon.png";
 import MTELogo from "../assets/MTE_Logo.png";
 
-// Check if historical data is available for a region
-const hasHistoricalDataForRegion = (regionLevel, regionId) => {
-  if (!historicalData?.years?.length) return false;
-  
-  if (regionLevel === 'national') {
-    // Check if we have aggregated national data or can compute from states
-    return Object.keys(historicalData.states || {}).length > 0;
-  }
-  if (regionLevel === 'state') {
-    return historicalData.states?.[regionId]?.metrics !== undefined;
-  }
-  return false;
-};
-
 // Get years array from historical data
 const getYearsForRegion = (regionLevel, regionId) => {
   if (!historicalData?.years?.length) return [];

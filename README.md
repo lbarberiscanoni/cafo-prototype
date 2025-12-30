@@ -1,9 +1,5 @@
 - [ ] Fix issue where some purple (placement agency) organizations remain visible after all organization categories are removed.
 
-
-
-- [ ] Revamp the state-level metrics view to match the national metrics view layout (per Figma), but at the state level.
-    - [ ] For national and state-level metrics views, update cards to put icons on the side and have the big number as a title, matching Figma.
 - [ ] Update the historic view to use real data instead of test data and make the x-axis dynamic.
 
 - [ ] try to use the Noun Project icon (with screenshot or attribution) and finalize once Leah confirms purchase/attribution.

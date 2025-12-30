@@ -427,51 +427,70 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
 
             {/* Bottom Stats - National */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card text-center">
-                <img src={BiologicalFamilyIcon} alt="Family" className="w-10 h-10 mx-auto mb-3" />
-                <div className="relative group">
-                  <div className="text-2xl md:text-2xl md:text-3xl font-black text-mte-blue cursor-pointer hover:text-mte-blue-80 transition-colors">
-                    {fmt(data.childrenInCare)}
+              {/* Foster and Kinship Data */}
+              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+                <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Foster and Kinship Data in the U.S.</h4>
+                <div className="flex items-start gap-4">
+                  <img src={FosterKinshipIcon} alt="Family" className="w-16 h-16 flex-shrink-0" />
+                  <div className="space-y-2">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-xl font-black text-mte-blue">{fmt(data.childrenInCare)}</span>
+                      <span className="text-sm text-mte-charcoal font-lato">Children</span>
+                    </div>
+                    <div className="text-sm text-mte-charcoal font-lato">in Out-of-Home Care</div>
+                    
+                    <div className="flex items-baseline gap-2 pt-2">
+                      <span className="text-xl font-black text-mte-blue">{fmt(data.childrenInFamilyFoster)}</span>
+                      <span className="text-sm text-mte-charcoal font-lato">Children</span>
+                    </div>
+                    <div className="text-sm text-mte-charcoal font-lato">in Family-Like Foster Care</div>
+                    
+                    <div className="flex items-baseline gap-2 pt-2">
+                      <span className="text-xl font-black text-mte-blue">{fmt(data.childrenInKinship)}</span>
+                      <span className="text-sm text-mte-charcoal font-lato">Children</span>
+                    </div>
+                    <div className="text-sm text-mte-charcoal font-lato">in Kinship Care</div>
                   </div>
-                  <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-3 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
-                    <div className="font-semibold">{fmt(data.childrenInCare)} Children</div>
-                    <div>in Out-of-Home Care on</div>
-                    <div>September 30, 2023</div>
-                    <div className="text-mte-subdued-white mt-1">Source: AFCARS FY 2023</div>
-                  </div>
-                </div>
-                <div className="text-base text-mte-charcoal mb-3 font-lato">Children in Out-of-Home Care</div>
-                <div className="text-base text-mte-charcoal relative group cursor-pointer hover:text-mte-blue transition-colors font-lato">
-                  {fmt(data.childrenInFamilyFoster)} Children in Family-Like Foster Care
-                </div>
-                <div className="text-base text-mte-charcoal relative group cursor-pointer hover:text-mte-blue transition-colors font-lato">
-                  {fmt(data.childrenInKinship)} Children in Kinship Care
                 </div>
               </div>
               
-              <div className="bg-white p-6 rounded-lg shadow-mte-card text-center">
-                <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-10 h-10 mx-auto mb-3" />
-                <div className="relative group">
-                  <div className="text-2xl md:text-3xl font-black text-mte-blue cursor-pointer hover:text-mte-blue-80 transition-colors">
-                    {fmt(data.waitingForAdoption)}
+              {/* Adoption Data */}
+              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+                <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Adoption Data in the U.S.</h4>
+                <div className="flex items-start gap-4">
+                  <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-16 h-16 flex-shrink-0" />
+                  <div className="space-y-2">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</span>
+                      <span className="text-sm text-mte-charcoal font-lato">Children</span>
+                    </div>
+                    <div className="text-sm text-mte-charcoal font-lato">Waiting For Adoption</div>
+                    
+                    <div className="flex items-baseline gap-2 pt-2">
+                      <span className="text-xl font-black text-mte-blue">{fmt(data.childrenAdopted)}</span>
+                      <span className="text-sm text-mte-charcoal font-lato">Children</span>
+                    </div>
+                    <div className="text-sm text-mte-charcoal font-lato">Adopted FY 2023</div>
                   </div>
-                </div>
-                <div className="text-base text-mte-charcoal mb-3 font-lato">Children Waiting For Adoption</div>
-                <div className="text-base text-mte-charcoal relative group cursor-pointer hover:text-mte-blue transition-colors font-lato">
-                  {fmt(data.childrenAdopted)} Children Adopted FY 2023
                 </div>
               </div>
               
-              <div className="bg-white p-6 rounded-lg shadow-mte-card text-center">
-                <img src={ChurchIcon} alt="Churches" className="w-10 h-10 mx-auto mb-3" />
-                <div className="relative group">
-                  <div className="text-2xl md:text-3xl font-black text-mte-blue cursor-pointer hover:text-mte-blue-80 transition-colors">
-                    {fmtCompact(data.totalChurches)}
+              {/* Church Data */}
+              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+                <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Church Data in the U.S.</h4>
+                <div className="flex items-start gap-4">
+                  <img src={ChurchIcon} alt="Churches" className="w-16 h-16 flex-shrink-0" />
+                  <div className="space-y-2">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-xl font-black text-mte-blue">{fmtCompact(data.totalChurches)}</span>
+                    </div>
+                    <div className="text-sm text-mte-charcoal font-lato">Churches</div>
+                    
+                    <div className="flex items-baseline gap-2 pt-2">
+                      <span className="text-xl font-black text-mte-blue">{fmtCompact(data.churchesWithMinistry)}</span>
+                    </div>
+                    <div className="text-sm text-mte-charcoal font-lato">Churches with a Known Foster Care Ministry</div>
                   </div>
-                </div>
-                <div className="text-base text-mte-charcoal mb-3 font-lato">Churches</div>
-                <div className="text-base text-mte-charcoal relative group cursor-pointer hover:text-mte-blue transition-colors font-lato">
-                  {fmtCompact(data.churchesWithMinistry)} Churches with a Foster Care Ministry
                 </div>
               </div>
             </div>
@@ -481,69 +500,154 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
 
       {/* State Stats Section */}
       {showStateDetails && (
-        <>
-          {/* State Map */}
-          <div className="max-w-7xl mx-auto px-4 py-4 md:py-6">
-            <div className="bg-white rounded-lg shadow-mte-card p-4">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col lg:flex-row gap-4 md:gap-6">
+          {/* Sidebar - State level */}
+          <div className="w-full lg:w-1/4 space-y-3 md:space-y-4">
+            {/* Metrics Dropdown */}
+            <div className="bg-white p-4 rounded-lg shadow-mte-card">
+              <h3 className="text-base font-lato font-bold mb-1 text-mte-black">Metrics</h3>
+              <p className="text-sm text-mte-charcoal mb-2 font-lato">
+                Filter by metric type to see what is happening in {data.name}
+              </p>
+              <div className="relative">
+                <select 
+                  className="w-full border-2 border-mte-light-grey rounded-lg p-3 text-base font-lato text-mte-charcoal cursor-pointer appearance-none bg-white hover:border-mte-blue focus:border-mte-blue focus:ring-2 focus:ring-mte-blue-20 focus:outline-none transition-colors"
+                  value={selectedMetric}
+                  onChange={(e) => setSelectedMetric(e.target.value)}
+                >
+                  <option value="Ratio of Licensed Homes to Children in Care">
+                    Ratio of Licensed Homes to Children in Care
+                  </option>
+                  <option value="Count of Children Waiting For Adoption">
+                    Count of Children Waiting For Adoption
+                  </option>
+                  <option value="Count of Family Preservation Cases">
+                    Count of Family Preservation Cases
+                  </option>
+                  <option value="Biological Family Reunification Rate">
+                    Biological Family Reunification Rate
+                  </option>
+                </select>
+                {/* Custom dropdown arrow */}
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                  <svg className="w-5 h-5 text-mte-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Trends */}
+            <div className="bg-white p-4 rounded-lg shadow-mte-card">
+              <h3 className="text-base font-lato font-bold text-mte-black mb-1">Trends</h3>
+              <p className="text-sm text-mte-charcoal mb-3 font-lato">
+                See trends for your selected metric in {data.name}
+              </p>
+              <div className="bg-mte-subdued-white p-3 rounded relative overflow-hidden">
+                <div className="text-sm font-medium mb-2 font-lato text-mte-black">
+                  {trendData.title.replace('U.S.', data.name)}
+                </div>
+                <div className="h-28 bg-white rounded flex items-end justify-between px-3 pb-2 relative overflow-visible">
+                  {trendData.values.map((value, index) => {
+                    const maxValue = Math.max(...trendData.values);
+                    const heightPercent = (value / maxValue) * 100;
+                    const heightPx = Math.round((heightPercent / 100) * 72);
+                    
+                    return (
+                      <div key={index} className="flex flex-col items-center relative group flex-1 max-w-[60px]">
+                        <div 
+                          className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" 
+                          style={{ height: `${heightPx}px`, maxHeight: "72px" }}
+                        >
+                          <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
+                            <div className="font-semibold">{trendData.labels[index]}</div>
+                            <div>{selectedMetric} on</div>
+                            <div>December 31, {trendData.years[index]}</div>
+                            <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
+                          </div>
+                        </div>
+                        <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">{trendData.years[index]}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="mt-2 text-xs text-mte-charcoal font-lato">
+                  Source: {trendData.source}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Area - State */}
+          <div className="w-full lg:w-3/4">
+            {/* State Map */}
+            <div className="bg-white rounded-lg shadow-mte-card p-4 mb-6">
               <InteractiveStateMap
                 stateCode={stateNameToCode[data.name] || 'AL'}
                 stateName={data.name}
-                selectedMetric="Children in Care"
+                selectedMetric={selectedMetric}
                 onCountyClick={handleCountyClick}
               />
             </div>
-          </div>
 
-          {/* State Stats Cards */}
-          <div className="max-w-7xl mx-auto px-4 py-4 md:py-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Children in Care */}
-            <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
-              <img src={BiologicalFamilyIcon} alt="Children" className="w-16 h-16 mx-auto mb-4" />
-              <div className="text-2xl md:text-3xl font-black text-mte-blue mb-2">
-                {fmt(data.totalChildren)}
+            {/* State Stats Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Foster and Kinship Data */}
+              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+                <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Foster and Kinship Data</h4>
+                <div className="flex items-start gap-4">
+                  <img src={FosterKinshipIcon} alt="Children" className="w-16 h-16 flex-shrink-0" />
+                  <div className="space-y-2">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-xl font-black text-mte-blue">{fmt(data.totalChildren)}</span>
+                      <span className="text-sm text-mte-charcoal font-lato">Children</span>
+                    </div>
+                    <div className="text-sm text-mte-charcoal font-lato">in Care</div>
+                    
+                    <div className="flex items-baseline gap-2 pt-2">
+                      <span className="text-xl font-black text-mte-blue">{fmt(data.licensedHomes)}</span>
+                    </div>
+                    <div className="text-sm text-mte-charcoal font-lato">Licensed Homes</div>
+                  </div>
+                </div>
               </div>
-              <div className="text-base text-mte-charcoal font-lato">Children in Care</div>
-            </div>
 
-            {/* Licensed Homes */}
-            <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
-              <img src={FosterKinshipIcon} alt="Homes" className="w-16 h-16 mx-auto mb-4" />
-              <div className="text-xl md:text-2xl font-black text-mte-blue mb-2">
-                {fmt(data.licensedHomes)}
+              {/* Adoption Data */}
+              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+                <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Adoption Data</h4>
+                <div className="flex items-start gap-4">
+                  <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-16 h-16 flex-shrink-0" />
+                  <div className="space-y-2">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</span>
+                      <span className="text-sm text-mte-charcoal font-lato">Children</span>
+                    </div>
+                    <div className="text-sm text-mte-charcoal font-lato">Waiting for Adoption</div>
+                  </div>
+                </div>
               </div>
-              <div className="text-base text-mte-charcoal font-lato">Licensed Homes</div>
-            </div>
 
-            {/* Waiting for Adoption */}
-            <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
-              <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-16 h-16 mx-auto mb-4" />
-              <div className="text-xl md:text-2xl font-black text-mte-blue mb-2">
-                {fmt(data.waitingForAdoption)}
+              {/* Biological Family Data */}
+              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+                <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Biological Family Data</h4>
+                <div className="flex items-start gap-4">
+                  <img src={BiologicalFamilyIcon} alt="Reunification" className="w-16 h-16 flex-shrink-0" />
+                  <div className="space-y-2">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-xl font-black text-mte-blue">{fmtPct(data.reunificationRate)}</span>
+                    </div>
+                    <div className="text-sm text-mte-charcoal font-lato">Reunification Rate</div>
+                    
+                    <div className="flex items-baseline gap-2 pt-2">
+                      <span className="text-xl font-black text-mte-blue">{fmt(data.familyPreservationCases)}</span>
+                    </div>
+                    <div className="text-sm text-mte-charcoal font-lato">Family Preservation Cases</div>
+                  </div>
+                </div>
               </div>
-              <div className="text-base text-mte-charcoal font-lato">Children Waiting For Adoption</div>
-            </div>
-
-            {/* Reunification Rate */}
-            <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
-              <img src={BiologicalFamilyIcon} alt="Reunification" className="w-16 h-16 mx-auto mb-4" />
-              <div className="text-xl md:text-2xl font-black text-mte-blue mb-2">
-                {fmtPct(data.reunificationRate)}
-              </div>
-              <div className="text-base text-mte-charcoal font-lato">Reunification Rate</div>
-            </div>
-
-            {/* Family Preservation */}
-            <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
-              <img src={WrapAroundIcon} alt="Preservation" className="w-16 h-16 mx-auto mb-4" />
-              <div className="text-xl md:text-2xl font-black text-mte-blue mb-2">
-                {fmt(data.familyPreservationCases)}
-              </div>
-              <div className="text-base text-mte-charcoal font-lato">Family Preservation Cases</div>
             </div>
           </div>
         </div>
-        </>
       )}
 
       {/* County-specific: Total Churches + Population Card */}

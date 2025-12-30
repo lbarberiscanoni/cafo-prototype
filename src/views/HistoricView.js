@@ -9,9 +9,39 @@ import WrapAroundIcon from "../assets/WrapAround_icon.png";
 import MTELogo from "../assets/MTE_Logo.png";
 
 // Get years array from historical data
+// parse-data.js format: { "2021": {...}, "2022": {...}, "2023": {...} }
 const getYearsForRegion = (regionLevel, regionId) => {
-  if (!historicalData?.years?.length) return [];
-  return historicalData.years;
+  if (!historicalData) return [];
+  // Extract years from object keys and sort them
+  const years = Object.keys(historicalData)
+    .map(y => parseInt(y))
+    .filter(y => !isNaN(y))
+    .sort((a, b) => a - b);
+  return years;
+};
+
+// Helper to get metric value for a state across all years
+// Transforms from year-keyed to array format
+const getMetricArray = (stateKey, metricName, years) => {
+  return years.map(year => {
+    const yearData = historicalData[year]?.states?.[stateKey];
+    if (!yearData) return null;
+    
+    // Map metric names to the actual field names in parse-data.js output
+    const fieldMap = {
+      'childrenInCare': 'totalChildren',
+      'childrenInFoster': 'childrenInFosterCare',
+      'childrenInKinship': 'childrenInKinship',
+      'licensedHomes': 'licensedHomes',
+      'waitingAdoption': 'waitingForAdoption',
+      'childrenAdopted': 'childrenAdopted',
+      'reunificationRate': 'reunificationRate',
+      'familyPreservation': 'familyPreservationCases'
+    };
+    
+    const fieldName = fieldMap[metricName] || metricName;
+    return yearData[fieldName] ?? null;
+  });
 };
 
 // Get category metrics from historical data
@@ -26,86 +56,16 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
     };
   }
   
-  // For state level, use the state's historical data
-  if (regionLevel === 'state' && historicalData.states?.[regionId]?.metrics) {
-    const metrics = historicalData.states[regionId].metrics;
-    return {
-      kinship: [
-        metrics.childrenInCare?.some(v => v !== null) && { 
-          id: 'children_in_care', 
-          label: 'Children in Care', 
-          data: metrics.childrenInCare
-        },
-        metrics.childrenInFoster?.some(v => v !== null) && { 
-          id: 'children_in_foster', 
-          label: 'Children in Foster Care', 
-          data: metrics.childrenInFoster
-        },
-        metrics.childrenInKinship?.some(v => v !== null) && { 
-          id: 'children_in_kinship', 
-          label: 'Children in Kinship Care', 
-          data: metrics.childrenInKinship
-        },
-        metrics.licensedHomes?.some(v => v !== null) && { 
-          id: 'licensed_homes', 
-          label: 'Licensed Homes', 
-          data: metrics.licensedHomes
-        }
-      ].filter(Boolean),
-      adoption: [
-        metrics.waitingAdoption?.some(v => v !== null) && { 
-          id: 'waiting_adoption', 
-          label: 'Waiting for Adoption', 
-          data: metrics.waitingAdoption
-        }
-      ].filter(Boolean),
-      biological: [
-        metrics.reunificationRate?.some(v => v !== null) && { 
-          id: 'reunification_rate', 
-          label: 'Reunification Rate (%)', 
-          data: metrics.reunificationRate
-        },
-        metrics.familyPreservation?.some(v => v !== null) && { 
-          id: 'family_preservation', 
-          label: 'Family Preservation Cases', 
-          data: metrics.familyPreservation
-        }
-      ].filter(Boolean),
-      wraparound: [],
-      source: `MTE Data ${years[0]}-${years[years.length - 1]}`
-    };
-  }
-  
-  // For national level, aggregate from all states
-  if (regionLevel === 'national' && historicalData.states) {
-    const states = Object.values(historicalData.states);
-    const numYears = years.length;
-    
-    // Aggregate metrics across all states for each year
-    const aggregate = (metricKey) => {
-      const totals = Array(numYears).fill(0);
-      const hasCounts = Array(numYears).fill(0);
-      
-      states.forEach(state => {
-        const values = state.metrics?.[metricKey];
-        if (values) {
-          values.forEach((val, idx) => {
-            if (val !== null) {
-              totals[idx] += val;
-              hasCounts[idx]++;
-            }
-          });
-        }
-      });
-      
-      // Only return values where we have at least some data
-      return totals.map((total, idx) => hasCounts[idx] > 0 ? total : null);
-    };
-    
-    const childrenInCare = aggregate('childrenInCare');
-    const licensedHomes = aggregate('licensedHomes');
-    const waitingAdoption = aggregate('waitingAdoption');
-    const familyPreservation = aggregate('familyPreservation');
+  // For state level, extract data from year-keyed structure
+  if (regionLevel === 'state') {
+    const childrenInCare = getMetricArray(regionId, 'childrenInCare', years);
+    const childrenInFoster = getMetricArray(regionId, 'childrenInFoster', years);
+    const childrenInKinship = getMetricArray(regionId, 'childrenInKinship', years);
+    const licensedHomes = getMetricArray(regionId, 'licensedHomes', years);
+    const waitingAdoption = getMetricArray(regionId, 'waitingAdoption', years);
+    const childrenAdopted = getMetricArray(regionId, 'childrenAdopted', years);
+    const reunificationRate = getMetricArray(regionId, 'reunificationRate', years);
+    const familyPreservation = getMetricArray(regionId, 'familyPreservation', years);
     
     return {
       kinship: [
@@ -113,6 +73,16 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
           id: 'children_in_care', 
           label: 'Children in Care', 
           data: childrenInCare
+        },
+        childrenInFoster.some(v => v !== null) && { 
+          id: 'children_in_foster', 
+          label: 'Children in Foster Care', 
+          data: childrenInFoster
+        },
+        childrenInKinship.some(v => v !== null) && { 
+          id: 'children_in_kinship', 
+          label: 'Children in Kinship Care', 
+          data: childrenInKinship
         },
         licensedHomes.some(v => v !== null) && { 
           id: 'licensed_homes', 
@@ -125,9 +95,19 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
           id: 'waiting_adoption', 
           label: 'Waiting for Adoption', 
           data: waitingAdoption
+        },
+        childrenAdopted.some(v => v !== null) && { 
+          id: 'children_adopted', 
+          label: 'Children Adopted', 
+          data: childrenAdopted
         }
       ].filter(Boolean),
       biological: [
+        reunificationRate.some(v => v !== null) && { 
+          id: 'reunification_rate', 
+          label: 'Reunification Rate (%)', 
+          data: reunificationRate
+        },
         familyPreservation.some(v => v !== null) && { 
           id: 'family_preservation', 
           label: 'Family Preservation Cases', 
@@ -135,7 +115,51 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
         }
       ].filter(Boolean),
       wraparound: [],
-      source: `MTE Data ${years[0]}-${years[years.length - 1]} (${states.length} states)`
+      source: `AFCARS ${years[0]}-${years[years.length - 1]}`
+    };
+  }
+  
+  // For national level, aggregate from historicalData[year].national
+  if (regionLevel === 'national') {
+    const childrenInCare = years.map(year => historicalData[year]?.national?.childrenInCare ?? null);
+    const childrenInFoster = years.map(year => historicalData[year]?.national?.childrenInFamilyFoster ?? null);
+    const childrenInKinship = years.map(year => historicalData[year]?.national?.childrenInKinship ?? null);
+    const waitingAdoption = years.map(year => historicalData[year]?.national?.childrenWaitingAdoption ?? null);
+    const childrenAdopted = years.map(year => historicalData[year]?.national?.childrenAdopted ?? null);
+    
+    return {
+      kinship: [
+        childrenInCare.some(v => v !== null) && { 
+          id: 'children_in_care', 
+          label: 'Children in Care', 
+          data: childrenInCare
+        },
+        childrenInFoster.some(v => v !== null) && { 
+          id: 'children_in_foster', 
+          label: 'Children in Foster Care', 
+          data: childrenInFoster
+        },
+        childrenInKinship.some(v => v !== null) && { 
+          id: 'children_in_kinship', 
+          label: 'Children in Kinship Care', 
+          data: childrenInKinship
+        }
+      ].filter(Boolean),
+      adoption: [
+        waitingAdoption.some(v => v !== null) && { 
+          id: 'waiting_adoption', 
+          label: 'Waiting for Adoption', 
+          data: waitingAdoption
+        },
+        childrenAdopted.some(v => v !== null) && { 
+          id: 'children_adopted', 
+          label: 'Children Adopted', 
+          data: childrenAdopted
+        }
+      ].filter(Boolean),
+      biological: [],
+      wraparound: [],
+      source: `AFCARS ${years[0]}-${years[years.length - 1]}`
     };
   }
   
@@ -149,8 +173,8 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
 };
 
 // Calculate trends from historical data
-const calculateTrends = (regionLevel, regionId) => {
-  if (!historicalData?.years?.length) return null;
+const calculateTrends = (regionLevel, regionId, years) => {
+  if (!historicalData || years.length < 2) return null;
   
   const calcChange = (arr) => {
     if (!arr || arr.length < 2) return null;
@@ -161,41 +185,35 @@ const calculateTrends = (regionLevel, regionId) => {
   };
   
   // For state level
-  if (regionLevel === 'state' && historicalData.states?.[regionId]?.metrics) {
-    const m = historicalData.states[regionId].metrics;
+  if (regionLevel === 'state') {
+    const childrenInCare = getMetricArray(regionId, 'childrenInCare', years);
+    const licensedHomes = getMetricArray(regionId, 'licensedHomes', years);
+    const waitingAdoption = getMetricArray(regionId, 'waitingAdoption', years);
+    const reunificationRate = getMetricArray(regionId, 'reunificationRate', years);
+    const familyPreservation = getMetricArray(regionId, 'familyPreservation', years);
+    
     return {
-      childrenInCare: calcChange(m.childrenInCare),
-      licensedHomes: calcChange(m.licensedHomes),
-      waitingForAdoption: calcChange(m.waitingAdoption),
-      reunificationRate: calcChange(m.reunificationRate),
-      familyPreservationCases: calcChange(m.familyPreservation)
+      childrenInCare: calcChange(childrenInCare),
+      licensedHomes: calcChange(licensedHomes),
+      waitingForAdoption: calcChange(waitingAdoption),
+      reunificationRate: calcChange(reunificationRate),
+      familyPreservationCases: calcChange(familyPreservation)
     };
   }
   
-  // For national level, aggregate from states
-  if (regionLevel === 'national' && historicalData.states) {
-    const states = Object.values(historicalData.states);
-    const numYears = historicalData.years.length;
-    
-    const aggregate = (metricKey) => {
-      const totals = Array(numYears).fill(0);
-      states.forEach(state => {
-        const values = state.metrics?.[metricKey];
-        if (values) {
-          values.forEach((val, idx) => {
-            if (val !== null) totals[idx] += val;
-          });
-        }
-      });
-      return totals;
-    };
+  // For national level
+  if (regionLevel === 'national') {
+    const childrenInCare = years.map(year => historicalData[year]?.national?.childrenInCare ?? null);
+    const childrenInKinship = years.map(year => historicalData[year]?.national?.childrenInKinship ?? null);
+    const waitingAdoption = years.map(year => historicalData[year]?.national?.childrenWaitingAdoption ?? null);
+    const childrenAdopted = years.map(year => historicalData[year]?.national?.childrenAdopted ?? null);
     
     return {
-      childrenInCare: calcChange(aggregate('childrenInCare')),
-      licensedHomes: calcChange(aggregate('licensedHomes')),
-      waitingForAdoption: calcChange(aggregate('waitingAdoption')),
+      childrenInCare: calcChange(childrenInCare),
+      licensedHomes: null, // Not available at national level in AFCARS
+      waitingForAdoption: calcChange(waitingAdoption),
       reunificationRate: null, // Can't aggregate percentages
-      familyPreservationCases: calcChange(aggregate('familyPreservation'))
+      familyPreservationCases: null
     };
   }
   
@@ -221,8 +239,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
 
   // Calculate trends from real data
   const trends = useMemo(() => {
-    return calculateTrends(regionLevel, regionId);
-  }, [regionLevel, regionId]);
+    return calculateTrends(regionLevel, regionId, years);
+  }, [regionLevel, regionId, years]);
 
   // Get current state code from regionId
   const getCurrentStateCode = () => {
@@ -250,426 +268,274 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
           name: countyName
         };
       })
-      .sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
-
-    // If no counties found, return a fallback based on state code
-    if (countiesInState.length === 0) {
-      const fallbackCounties = {
-        'al': [{ id: 'butler-al', name: 'Butler County' }],
-        'ny': [{ id: 'nassau-ny', name: 'Nassau County' }]
-      };
-      return fallbackCounties[stateCode] || fallbackCounties['al'];
-    }
-
+      .sort((a, b) => a.name.localeCompare(b.name));
+    
     return countiesInState;
   };
 
-  // Get data based on region level
+  // Get all states sorted alphabetically
+  const getAllStates = () => {
+    return Object.entries(stateData)
+      .map(([stateId, data]) => ({
+        id: stateId,
+        name: data.name
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  };
+
+  // Get display name based on region
   const getDisplayName = () => {
-    switch (regionLevel) {
-      case "national":
-        return "United States of America";
-      case "state":
-        // Look up state name from stateData
-        const state = stateData[regionId];
-        return state?.name || "Unknown State";
-      case "county":
-        // Extract county name from regionId or use default
-        if (regionId) {
-          // regionId format: "butler-al", "nassau-ny", "ada-id"
-          const parts = regionId.split('-');
-          const countyName = parts.slice(0, -1).map(word => 
-            word.charAt(0).toUpperCase() + word.slice(1)
-          ).join(' ');
-          const stateCode = parts[parts.length - 1].toUpperCase();
-          
-          // Map state codes to full names - ALL 50 STATES
-          const stateNames = {
-            'AL': 'Alabama',
-            'AK': 'Alaska',
-            'AZ': 'Arizona',
-            'AR': 'Arkansas',
-            'CA': 'California',
-            'CO': 'Colorado',
-            'CT': 'Connecticut',
-            'DE': 'Delaware',
-            'FL': 'Florida',
-            'GA': 'Georgia',
-            'HI': 'Hawaii',
-            'ID': 'Idaho',
-            'IL': 'Illinois',
-            'IN': 'Indiana',
-            'IA': 'Iowa',
-            'KS': 'Kansas',
-            'KY': 'Kentucky',
-            'LA': 'Louisiana',
-            'ME': 'Maine',
-            'MD': 'Maryland',
-            'MA': 'Massachusetts',
-            'MI': 'Michigan',
-            'MN': 'Minnesota',
-            'MS': 'Mississippi',
-            'MO': 'Missouri',
-            'MT': 'Montana',
-            'NE': 'Nebraska',
-            'NV': 'Nevada',
-            'NH': 'New Hampshire',
-            'NJ': 'New Jersey',
-            'NM': 'New Mexico',
-            'NY': 'New York',
-            'NC': 'North Carolina',
-            'ND': 'North Dakota',
-            'OH': 'Ohio',
-            'OK': 'Oklahoma',
-            'OR': 'Oregon',
-            'PA': 'Pennsylvania',
-            'RI': 'Rhode Island',
-            'SC': 'South Carolina',
-            'SD': 'South Dakota',
-            'TN': 'Tennessee',
-            'TX': 'Texas',
-            'UT': 'Utah',
-            'VT': 'Vermont',
-            'VA': 'Virginia',
-            'WA': 'Washington',
-            'WV': 'West Virginia',
-            'WI': 'Wisconsin',
-            'WY': 'Wyoming'
-          };
-          
-          return `${countyName} County, ${stateNames[stateCode] || stateCode}`;
-        }
-        return "Butler County, Alabama"; // Default fallback
-      default:
-        return "";
+    if (regionLevel === 'national') return 'United States';
+    if (regionLevel === 'state' && stateData[regionId]) {
+      return stateData[regionId].name;
     }
-  };
-
-  const handleCountyChange = (e) => {
-    const countyId = e.target.value;
-    
-    // Extract county name and state code from countyId
-    const parts = countyId.split('-');
-    const countyName = parts.slice(0, -1).map(word => 
-      word.charAt(0).toUpperCase() + word.slice(1)
-    ).join(' ');
-    const stateCode = parts[parts.length - 1].toUpperCase();
-    
-    // Map state codes to full names - ALL 50 STATES
-    const stateNames = {
-      'AL': 'Alabama',
-      'AK': 'Alaska',
-      'AZ': 'Arizona',
-      'AR': 'Arkansas',
-      'CA': 'California',
-      'CO': 'Colorado',
-      'CT': 'Connecticut',
-      'DE': 'Delaware',
-      'FL': 'Florida',
-      'GA': 'Georgia',
-      'HI': 'Hawaii',
-      'ID': 'Idaho',
-      'IL': 'Illinois',
-      'IN': 'Indiana',
-      'IA': 'Iowa',
-      'KS': 'Kansas',
-      'KY': 'Kentucky',
-      'LA': 'Louisiana',
-      'ME': 'Maine',
-      'MD': 'Maryland',
-      'MA': 'Massachusetts',
-      'MI': 'Michigan',
-      'MN': 'Minnesota',
-      'MS': 'Mississippi',
-      'MO': 'Missouri',
-      'MT': 'Montana',
-      'NE': 'Nebraska',
-      'NV': 'Nevada',
-      'NH': 'New Hampshire',
-      'NJ': 'New Jersey',
-      'NM': 'New Mexico',
-      'NY': 'New York',
-      'NC': 'North Carolina',
-      'ND': 'North Dakota',
-      'OH': 'Ohio',
-      'OK': 'Oklahoma',
-      'OR': 'Oregon',
-      'PA': 'Pennsylvania',
-      'RI': 'Rhode Island',
-      'SC': 'South Carolina',
-      'SD': 'South Dakota',
-      'TN': 'Tennessee',
-      'TX': 'Texas',
-      'UT': 'Utah',
-      'VT': 'Vermont',
-      'VA': 'Virginia',
-      'WA': 'Washington',
-      'WV': 'West Virginia',
-      'WI': 'Wisconsin',
-      'WY': 'Wyoming'
-    };
-    
-    const fullName = `${countyName} County, ${stateNames[stateCode] || stateCode}`;
-    
-    // Call parent's onSelectRegion to update the app state
-    if (onSelectRegion) {
-      onSelectRegion({
-        level: 'county',
-        id: countyId,
-        name: fullName,
-        code: stateCode
-      });
+    if (regionLevel === 'county' && countyData[regionId]) {
+      return countyData[regionId].name;
     }
+    return regionId || 'Unknown Region';
   };
 
-  const name = getDisplayName();
-
-  // Download data as CSV
-  const handleDownloadData = () => {
-    // Build CSV content
-    const rows = [];
+  // Helper function to render bar chart for each metric
+  const renderBarChart = (category, bgColor) => {
+    let metrics, selectedMetric;
     
-    // Header row with years
-    rows.push(['Metric', 'Category', ...years.map(y => y.toString())].join(','));
-    
-    // Add all metrics from each category
-    const categories = [
-      { name: 'Foster & Kinship', metrics: categoryMetrics.kinship },
-      { name: 'Adoption', metrics: categoryMetrics.adoption },
-      { name: 'Biological Family', metrics: categoryMetrics.biological },
-      { name: 'Wraparound', metrics: categoryMetrics.wraparound }
-    ];
-    
-    categories.forEach(cat => {
-      cat.metrics.forEach(metric => {
-        const values = metric.data.map(v => v !== null ? v : 'N/A');
-        rows.push([`"${metric.label}"`, `"${cat.name}"`, ...values].join(','));
-      });
-    });
-    
-    // Create and download the file
-    const csvContent = rows.join('\n');
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.setAttribute('href', url);
-    
-    // Generate filename based on region
-    const regionName = name.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
-    link.setAttribute('download', `mte_historical_data_${regionName}.csv`);
-    
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-  };
-
-  // Get selected metric data for each category
-  const getMetricData = (category) => {
-    let metricId;
     switch(category) {
       case 'kinship':
-        metricId = selectedKinshipMetric;
+        metrics = categoryMetrics.kinship;
+        selectedMetric = selectedKinshipMetric;
         break;
       case 'adoption':
-        metricId = selectedAdoptionMetric;
+        metrics = categoryMetrics.adoption;
+        selectedMetric = selectedAdoptionMetric;
         break;
       case 'biological':
-        metricId = selectedBiologicalMetric;
+        metrics = categoryMetrics.biological;
+        selectedMetric = selectedBiologicalMetric;
         break;
       case 'wraparound':
-        metricId = selectedWraparoundMetric;
+        metrics = categoryMetrics.wraparound;
+        selectedMetric = selectedWraparoundMetric;
         break;
       default:
-        metricId = null;
+        return null;
     }
-    const metric = categoryMetrics[category].find(m => m.id === metricId);
-    return metric ? metric.data : [];
-  };
-
-  // Get population for county view
-  const getPopulation = () => {
-    if (regionLevel === 'county' && regionId && countyData[regionId]) {
-      return countyData[regionId].population;
-    }
-    return null;
-  };
-
-  // Render a bar chart with null handling
-  const renderBarChart = (category, color) => {
-    const data = getMetricData(category);
-    const validData = data.filter(v => hasValue(v));
     
-    // If all data is null, show a message
-    if (validData.length === 0) {
+    const currentMetric = metrics.find(m => m.id === selectedMetric) || metrics[0];
+    
+    if (!currentMetric?.data) {
       return (
-        <div className="h-48 md:h-64 flex items-center justify-center text-mte-charcoal font-lato">
+        <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
           <span>No historical data available</span>
         </div>
       );
     }
     
-    const maxValue = Math.max(...validData, 1);
-    const containerHeight = 192; // h-48 = 192px (12rem)
-    const maxBarHeight = containerHeight * 0.75; // Use 75% of container height
+    const data = currentMetric.data;
+    const validData = data.filter(v => v !== null);
+    
+    if (validData.length === 0) {
+      return (
+        <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
+          <span>No historical data available</span>
+        </div>
+      );
+    }
+    
+    const maxValue = Math.max(...validData);
+    const chartHeight = 140;
+    
+    // Generate nice Y-axis ticks
+    const generateTicks = (max) => {
+      if (max <= 0) return [0];
+      // Round up to a nice number
+      const magnitude = Math.pow(10, Math.floor(Math.log10(max)));
+      const normalized = max / magnitude;
+      let niceMax;
+      if (normalized <= 1) niceMax = magnitude;
+      else if (normalized <= 2) niceMax = 2 * magnitude;
+      else if (normalized <= 5) niceMax = 5 * magnitude;
+      else niceMax = 10 * magnitude;
+      
+      // Create 4 ticks (0, 1/3, 2/3, max)
+      return [0, Math.round(niceMax / 3), Math.round(2 * niceMax / 3), niceMax];
+    };
+    
+    const ticks = generateTicks(maxValue);
+    const yMax = ticks[ticks.length - 1];
     
     return (
-      <div className="relative h-48 md:h-64 flex">
+      <div className="mt-4 flex">
         {/* Y-axis */}
-        <div className="flex flex-col justify-between pr-2 text-xs text-mte-charcoal font-lato">
-          <span>{Math.round(maxValue)}</span>
-          <span>{Math.round(maxValue * 0.66)}</span>
-          <span>{Math.round(maxValue * 0.33)}</span>
-          <span>0</span>
+        <div className="flex flex-col justify-between pr-2 text-right" style={{ height: `${chartHeight}px` }}>
+          {[...ticks].reverse().map((tick, i) => (
+            <span key={i} className="text-xs text-mte-charcoal font-lato leading-none">
+              {tick >= 1000 ? `${(tick / 1000).toFixed(0)}K` : tick}
+            </span>
+          ))}
         </div>
-        {/* Y-axis line */}
-        <div className="w-px bg-mte-light-grey"></div>
+        
         {/* Chart area */}
-        <div className="flex-1 flex items-end justify-between gap-2 md:gap-3 px-2 border-b border-mte-light-grey overflow-hidden">
-          {data.map((value, idx) => {
-            // Handle null values
-            if (!hasValue(value)) {
+        <div className="flex-1">
+          {/* Bars container with grid lines */}
+          <div className="relative border-l border-b border-mte-charcoal/30" style={{ height: `${chartHeight}px` }}>
+            {/* Horizontal grid lines */}
+            {ticks.slice(1).map((tick, i) => (
+              <div 
+                key={i}
+                className="absolute w-full border-t border-mte-charcoal/10"
+                style={{ bottom: `${(tick / yMax) * 100}%` }}
+              />
+            ))}
+            
+            {/* Bars */}
+            <div className="absolute inset-0 flex items-end justify-around gap-2 px-2">
+              {years.map((year, index) => {
+                const value = data[index];
+                const isNull = value === null;
+                const barHeight = isNull ? 8 : Math.max(8, (value / yMax) * chartHeight);
+                
+                return (
+                  <div 
+                    key={year} 
+                    className={`flex-1 max-w-[60px] ${isNull ? 'bg-mte-light-grey' : bgColor} rounded-t transition-all duration-300`}
+                    style={{ height: `${barHeight}px` }}
+                    title={isNull ? 'N/A' : fmt(value)}
+                  />
+                );
+              })}
+            </div>
+          </div>
+          
+          {/* X-axis labels */}
+          <div className="flex justify-around gap-2 px-2 mt-2">
+            {years.map((year, index) => {
+              const value = data[index];
+              const isNull = value === null;
+              
               return (
-                <div key={idx} className="flex flex-col items-center flex-1 group relative">
-                  <div
-                    className="bg-mte-light-grey w-full rounded relative flex items-center justify-center"
-                    style={{ 
-                      height: '20px',
-                      maxWidth: '50px'
-                    }}
-                  >
-                    <span className="text-xs text-mte-charcoal">N/A</span>
+                <div key={year} className="flex-1 max-w-[60px] text-center">
+                  <div className="text-xs font-semibold text-mte-charcoal font-lato">{year}</div>
+                  <div className="text-xs text-mte-charcoal font-lato">
+                    {isNull ? 'N/A' : fmt(value)}
                   </div>
-                  <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
                 </div>
               );
-            }
-            
-            const heightPercent = (value / maxValue) * 100;
-            const heightPx = (heightPercent / 100) * maxBarHeight;
-            
-            return (
-              <div key={idx} className="flex flex-col items-center flex-1 group relative">
-                <div
-                  className={`${color} w-full rounded transition-all hover:opacity-80 relative`}
-                  style={{ 
-                    height: `${Math.max(heightPx, 20)}px`,
-                    maxWidth: '50px',
-                    maxHeight: `${maxBarHeight}px`
-                  }}
-                >
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="text-xs font-bold text-white bg-mte-black bg-opacity-75 px-2 py-1 rounded">{fmt(value)}</span>
-                  </div>
-                </div>
-                <span className="text-xs md:text-sm mt-2 font-lato text-mte-charcoal whitespace-nowrap">{years[idx]}</span>
-              </div>
-            );
-          })}
+            })}
+          </div>
         </div>
       </div>
     );
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Context Navigation Bar - Specific to Historic View */}
-      <div className="py-3 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 md:gap-4">
-          <div className="flex flex-wrap gap-3 md:gap-4">
-            <button 
-              onClick={() => onSelectRegion && onSelectRegion({ level: regionLevel, id: regionId, name: getDisplayName(), view: 'metric' })}
-              className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-              </svg>
-              {regionLevel === 'county' ? 'Return to County Metrics' : 
-               regionLevel === 'state' ? 'Return to State Metrics' : 
-               'Return to National Metrics'}
-            </button>
-            <button 
-              onClick={() => onSelectRegion && onSelectRegion({ level: regionLevel, id: regionId, name: getDisplayName(), view: 'organizational' })}
-              className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clipRule="evenodd"/>
-              </svg>
-              Explore the Map
-            </button>
-            <button 
-              onClick={handleDownloadData}
-              className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd"/>
-              </svg>
-              Download Data
-            </button>
-          </div>
-          
-          {/* County Selector - Moved to navigation bar (County view only) */}
-          {regionLevel === "county" && (
-            <div className="flex items-center gap-3 bg-white rounded-lg border border-mte-light-grey shadow-mte-card px-4 py-2">
-              <svg className="w-5 h-5 text-mte-charcoal" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
+    <div className="min-h-screen">
+      {/* Header */}
+      <header className="relative">
+        <div className="max-w-7xl mx-auto px-4 pt-4 md:pt-8 pb-2 flex flex-col items-center">
+          <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4">
+            {getDisplayName()}
+          </h1>
+          <p className="text-sm md:text-base text-mte-charcoal text-center mt-1 md:mt-2 px-4 font-lato">
+            Historical trends and data analysis
+          </p>
+        </div>
+      </header>
+
+      {/* Region Navigation - Only show at state level */}
+      {regionLevel === 'state' && (
+        <div className="bg-mte-blue-20 py-3 mb-4 md:mb-6">
+          <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4">
+            {/* State Dropdown */}
+            <div className="flex items-center gap-2">
+              <label className="text-sm font-lato text-mte-charcoal">State:</label>
               <select 
-                className="appearance-none bg-transparent border-none outline-none font-lato text-mte-black font-semibold text-sm md:text-base pr-6 cursor-pointer focus:ring-0"
-                value={regionId || "butler-al"}
-                onChange={handleCountyChange}
+                className="bg-white border border-mte-light-grey rounded px-3 py-1 text-sm font-lato text-mte-charcoal"
+                value={regionId || ''}
+                onChange={(e) => {
+                  const stateId = e.target.value;
+                  const stateName = stateData[stateId]?.name || stateId;
+                  onSelectRegion({ level: 'state', id: stateId, name: stateName });
+                }}
               >
-                {getCountiesForCurrentState().map(county => (
-                  <option key={county.id} value={county.id}>
-                    {county.name}
-                  </option>
+                {getAllStates().map(state => (
+                  <option key={state.id} value={state.id}>{state.name}</option>
                 ))}
               </select>
-              <svg className="w-4 h-4 text-mte-charcoal -ml-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"/>
-              </svg>
             </div>
-          )}
-        </div>
-      </div>
 
-      {/* Header */}
-      <div className="relative">
-        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col items-center">
-          <h1 className="text-2xl md:text-4xl font-nexa text-mte-black text-center">
-            {name}
-          </h1>
-          {regionLevel === "county" && (
-            <p className="text-sm md:text-base text-mte-charcoal mt-1 font-lato">
-              Population: {fmt(getPopulation())}
-            </p>
-          )}
-        </div>
-      </div>
-
-      {/* Metrics Grid - Fully Responsive */}
-      {years.length === 0 ? (
-        /* No Historical Data Available */
-        <div className="max-w-3xl mx-auto px-4 py-8 md:py-16 flex-grow">
-          <div className="bg-white rounded-lg shadow-mte-card p-8 text-center">
-            <h3 className="text-2xl md:text-3xl font-nexa text-mte-black mb-4">
-              Historical Data Coming Soon
-            </h3>
-            <p className="text-mte-charcoal font-lato mb-6">
-              Year-over-year trend data is not yet available for this region. 
-              Check back soon as we continue to add historical AFCARS data.
-            </p>
-            <button 
-              onClick={() => onSelectRegion && onSelectRegion({ level: regionLevel, id: regionId, name: name, view: 'metric' })}
-              className="px-6 py-3 bg-mte-blue text-white rounded-lg font-lato hover:bg-mte-blue-80 transition-colors"
-            >
-              View Current Metrics
-            </button>
+            {/* County Dropdown */}
+            <div className="flex items-center gap-2">
+              <label className="text-sm font-lato text-mte-charcoal">County:</label>
+              <select 
+                className="bg-white border border-mte-light-grey rounded px-3 py-1 text-sm font-lato text-mte-charcoal"
+                value=""
+                onChange={(e) => {
+                  const countyId = e.target.value;
+                  if (countyId && countyData[countyId]) {
+                    onSelectRegion({ 
+                      level: 'county', 
+                      id: countyId, 
+                      name: countyData[countyId].name 
+                    });
+                  }
+                }}
+              >
+                <option value="">Select a county</option>
+                {getCountiesForCurrentState().map(county => (
+                  <option key={county.id} value={county.id}>{county.name}</option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
-      ) : (
-        /* Historical Data Charts */
-        <div className="max-w-7xl mx-auto px-4 py-4 md:py-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 flex-grow">
+      )}
+
+      {/* Region Navigation - National level */}
+      {regionLevel === 'national' && (
+        <div className="bg-mte-blue-20 py-3 mb-4 md:mb-6">
+          <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-4">
+            {/* State Dropdown */}
+            <div className="flex items-center gap-2">
+              <label className="text-sm font-lato text-mte-charcoal">Jump to State:</label>
+              <select 
+                className="bg-white border border-mte-light-grey rounded px-3 py-1 text-sm font-lato text-mte-charcoal"
+                value=""
+                onChange={(e) => {
+                  const stateId = e.target.value;
+                  if (stateId && stateData[stateId]) {
+                    onSelectRegion({ 
+                      level: 'state', 
+                      id: stateId, 
+                      name: stateData[stateId].name 
+                    });
+                  }
+                }}
+              >
+                <option value="">Select a state</option>
+                {getAllStates().map(state => (
+                  <option key={state.id} value={state.id}>{state.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* No Data Message - Only show if we have no years */}
+      {years.length === 0 && (
+        <div className="max-w-5xl mx-auto px-4 mb-6 md:mb-8">
+          <div className="bg-mte-blue-20 rounded-lg p-6 md:p-8 text-center">
+            <h3 className="text-xl md:text-2xl font-nexa text-mte-black mb-3">Historical Data Coming Soon</h3>
+            <p className="text-sm md:text-base text-mte-charcoal font-lato">
+              Year-over-year trend data is not yet available for this region. Check back soon as we continue to add historical AFCARS data.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Metric Cards - Only show if we have data */}
+      {years.length > 0 && (
+        <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
           {/* Foster & Kinship - PURPLE */}
           <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
             <div className="flex items-center gap-3 mb-3 md:mb-4">

@@ -3,6 +3,7 @@ import { countyData, stateData, nationalStats, fmt, fmtPct, fmtCompact } from ".
 
 // Assets
 import ChurchIcon from "../assets/church_icon.png";
+import PeopleIcon from "../assets/people.svg";
 import FosterKinshipIcon from "../assets/FosterKinship_icon.png";
 import AdoptiveFamilyIcon from "../assets/Adoptive_family_icon.png";
 import BiologicalFamilyIcon from "../assets/BiologicalFamily_icon.png";
@@ -666,34 +667,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               
               {/* Population */}
               <div className="flex flex-col items-center">
-                <svg 
-  className="w-20 h-20 text-mte-charcoal mb-3" 
-  fill="none" 
-  stroke="currentColor" 
-  strokeWidth="2" 
-  strokeLinecap="round" 
-  strokeLinejoin="round" 
-  viewBox="0 0 24 24"
->
-  {/* Left Adult */}
-  <circle cx="6.5" cy="5.5" r="2"/>
-  <path d="M4 16v-5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v5"/>
-  
-  {/* Right Adult */}
-  <circle cx="17.5" cy="5.5" r="2"/>
-  <path d="M15 16v-5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v5"/>
-  
-  {/* Left Child (smaller) */}
-  <circle cx="9.5" cy="11" r="1.5"/>
-  <path d="M8 16v-3c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v3"/>
-  
-  {/* Right Child (smaller) */}
-  <circle cx="14.5" cy="11" r="1.5"/>
-  <path d="M13 16v-3c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v3"/>
-  
-  {/* Base line */}
-  <line x1="3" y1="16" x2="21" y2="16"/>
-</svg>
+                <img src={PeopleIcon} alt="Population" className="w-20 h-20 mb-3" />
                 <div className="flex items-center gap-1">
                   <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.population)}</div>
                   <div className="text-base text-mte-charcoal font-lato">Population</div>

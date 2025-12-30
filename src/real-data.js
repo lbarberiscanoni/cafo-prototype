@@ -103,3 +103,9 @@ export const getStateMapData = () => {
   
   return mapData;
 };
+
+// ==================== HISTORICAL DATA ====================
+// Historical data is imported from real-data.json
+// Structure: { years: [2024, 2025], states: { "alabama": { name, metrics: {...} }, ... } }
+
+export const historicalData = realDataJson.historical || null;

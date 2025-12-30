@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { countyData, stateData, fmt, hasValue } from "../real-data.js";
+import { countyData, stateData, historicalData, fmt, hasValue } from "../real-data.js";
 
 // Assets
 import FosterKinshipIcon from "../assets/FosterKinship_icon.png";
@@ -8,179 +8,234 @@ import BiologicalFamilyIcon from "../assets/BiologicalFamily_icon.png";
 import WrapAroundIcon from "../assets/WrapAround_icon.png";
 import MTELogo from "../assets/MTE_Logo.png";
 
-const years = [2020, 2021, 2022, 2023, 2024];
-
-// Function to generate historical data based on current value
-const generateHistoricalData = (currentValue, years = 5) => {
-  // Return array of nulls if no current value
-  if (!hasValue(currentValue)) {
-    return Array(years).fill(null);
+// Check if historical data is available for a region
+const hasHistoricalDataForRegion = (regionLevel, regionId) => {
+  if (!historicalData?.years?.length) return false;
+  
+  if (regionLevel === 'national') {
+    // Check if we have aggregated national data or can compute from states
+    return Object.keys(historicalData.states || {}).length > 0;
   }
-  
-  const data = [];
-  const variance = 0.15; // 15% variance year over year
-  
-  for (let i = years - 1; i >= 0; i--) {
-    const yearFactor = 1 + (i * variance * (Math.random() - 0.5));
-    data.push(Math.round(currentValue * yearFactor));
+  if (regionLevel === 'state') {
+    return historicalData.states?.[regionId]?.metrics !== undefined;
   }
-  
-  return data;
+  return false;
 };
 
-// Available metrics for each category - will be populated with actual data
-const getCategoryMetrics = (regionKey, regionId) => {
-  // Get actual county data if available
-  let baseData = {};
-  
-  if (regionKey === 'county' && regionId && countyData[regionId]) {
-    const county = countyData[regionId];
-    baseData = {
-      childrenInCare: county.childrenInCare,
-      licensedHomes: county.licensedHomes,
-      kinshipPlacements: county.childrenInKinship,
-      waitingAdoption: county.waitingForAdoption,
-      finalizedAdoptions: county.childrenAdopted2024,
-      avgMonthsAdoption: county.avgMonthsToAdoption,
-      familyPreservation: county.familyPreservationCases,
-      reunificationRate: county.reunificationRate,
-      supportServices: hasValue(county.familyPreservationCases) ? Math.round(county.familyPreservationCases * 1.5) : null
-    };
-  } else if (regionKey === 'state' && regionId && stateData[regionId]) {
-    const state = stateData[regionId];
-    baseData = {
-      childrenInCare: state.totalChildren,
-      licensedHomes: state.licensedHomes,
-      kinshipPlacements: null, // Not available at state level
-      waitingAdoption: state.waitingForAdoption,
-      finalizedAdoptions: state.childrenAdopted2023,
-      avgMonthsAdoption: null,
-      familyPreservation: state.familyPreservationCases,
-      reunificationRate: state.reunificationRate,
-      supportServices: hasValue(state.familyPreservationCases) ? Math.round(state.familyPreservationCases * 1.5) : null
-    };
-  } else {
-    // Default/placeholder data for national or missing data
-    baseData = {
-      childrenInCare: 100,
-      licensedHomes: 120,
-      kinshipPlacements: 95,
-      waitingAdoption: 50,
-      finalizedAdoptions: 52,
-      avgMonthsAdoption: 14,
-      familyPreservation: 105,
-      reunificationRate: 78,
-      supportServices: 180
+// Get years array from historical data
+const getYearsForRegion = (regionLevel, regionId) => {
+  if (!historicalData?.years?.length) return [];
+  return historicalData.years;
+};
+
+// Get category metrics from historical data
+const getCategoryMetrics = (regionLevel, regionId, years) => {
+  if (!historicalData || years.length === 0) {
+    return {
+      kinship: [],
+      adoption: [],
+      biological: [],
+      wraparound: [],
+      source: null
     };
   }
-
+  
+  // For state level, use the state's historical data
+  if (regionLevel === 'state' && historicalData.states?.[regionId]?.metrics) {
+    const metrics = historicalData.states[regionId].metrics;
+    return {
+      kinship: [
+        metrics.childrenInCare?.some(v => v !== null) && { 
+          id: 'children_in_care', 
+          label: 'Children in Care', 
+          data: metrics.childrenInCare
+        },
+        metrics.childrenInFoster?.some(v => v !== null) && { 
+          id: 'children_in_foster', 
+          label: 'Children in Foster Care', 
+          data: metrics.childrenInFoster
+        },
+        metrics.childrenInKinship?.some(v => v !== null) && { 
+          id: 'children_in_kinship', 
+          label: 'Children in Kinship Care', 
+          data: metrics.childrenInKinship
+        },
+        metrics.licensedHomes?.some(v => v !== null) && { 
+          id: 'licensed_homes', 
+          label: 'Licensed Homes', 
+          data: metrics.licensedHomes
+        }
+      ].filter(Boolean),
+      adoption: [
+        metrics.waitingAdoption?.some(v => v !== null) && { 
+          id: 'waiting_adoption', 
+          label: 'Waiting for Adoption', 
+          data: metrics.waitingAdoption
+        }
+      ].filter(Boolean),
+      biological: [
+        metrics.reunificationRate?.some(v => v !== null) && { 
+          id: 'reunification_rate', 
+          label: 'Reunification Rate (%)', 
+          data: metrics.reunificationRate
+        },
+        metrics.familyPreservation?.some(v => v !== null) && { 
+          id: 'family_preservation', 
+          label: 'Family Preservation Cases', 
+          data: metrics.familyPreservation
+        }
+      ].filter(Boolean),
+      wraparound: [],
+      source: `MTE Data ${years[0]}-${years[years.length - 1]}`
+    };
+  }
+  
+  // For national level, aggregate from all states
+  if (regionLevel === 'national' && historicalData.states) {
+    const states = Object.values(historicalData.states);
+    const numYears = years.length;
+    
+    // Aggregate metrics across all states for each year
+    const aggregate = (metricKey) => {
+      const totals = Array(numYears).fill(0);
+      const hasCounts = Array(numYears).fill(0);
+      
+      states.forEach(state => {
+        const values = state.metrics?.[metricKey];
+        if (values) {
+          values.forEach((val, idx) => {
+            if (val !== null) {
+              totals[idx] += val;
+              hasCounts[idx]++;
+            }
+          });
+        }
+      });
+      
+      // Only return values where we have at least some data
+      return totals.map((total, idx) => hasCounts[idx] > 0 ? total : null);
+    };
+    
+    const childrenInCare = aggregate('childrenInCare');
+    const licensedHomes = aggregate('licensedHomes');
+    const waitingAdoption = aggregate('waitingAdoption');
+    const familyPreservation = aggregate('familyPreservation');
+    
+    return {
+      kinship: [
+        childrenInCare.some(v => v !== null) && { 
+          id: 'children_in_care', 
+          label: 'Children in Care', 
+          data: childrenInCare
+        },
+        licensedHomes.some(v => v !== null) && { 
+          id: 'licensed_homes', 
+          label: 'Licensed Homes', 
+          data: licensedHomes
+        }
+      ].filter(Boolean),
+      adoption: [
+        waitingAdoption.some(v => v !== null) && { 
+          id: 'waiting_adoption', 
+          label: 'Waiting for Adoption', 
+          data: waitingAdoption
+        }
+      ].filter(Boolean),
+      biological: [
+        familyPreservation.some(v => v !== null) && { 
+          id: 'family_preservation', 
+          label: 'Family Preservation Cases', 
+          data: familyPreservation
+        }
+      ].filter(Boolean),
+      wraparound: [],
+      source: `MTE Data ${years[0]}-${years[years.length - 1]} (${states.length} states)`
+    };
+  }
+  
   return {
-    kinship: [
-      { 
-        id: 'children_in_care', 
-        label: 'Children in Care', 
-        data: generateHistoricalData(baseData.childrenInCare)
-      },
-      { 
-        id: 'licensed_homes', 
-        label: 'Licensed Homes', 
-        data: generateHistoricalData(baseData.licensedHomes)
-      },
-      { 
-        id: 'kinship_placements', 
-        label: 'Kinship Placements', 
-        data: generateHistoricalData(baseData.kinshipPlacements)
-      }
-    ],
-    adoption: [
-      { 
-        id: 'waiting_adoption', 
-        label: 'Children Waiting for Adoption', 
-        data: generateHistoricalData(baseData.waitingAdoption)
-      },
-      { 
-        id: 'finalized_adoptions', 
-        label: 'Finalized Adoptions', 
-        data: generateHistoricalData(baseData.finalizedAdoptions)
-      },
-      { 
-        id: 'avg_months_adoption', 
-        label: 'Avg Months to Adoption', 
-        data: generateHistoricalData(baseData.avgMonthsAdoption)
-      }
-    ],
-    biological: [
-      { 
-        id: 'family_preservation', 
-        label: 'Family Preservation Cases', 
-        data: generateHistoricalData(baseData.familyPreservation)
-      },
-      { 
-        id: 'reunification_rate', 
-        label: 'Reunification Rate (%)', 
-        data: generateHistoricalData(baseData.reunificationRate)
-      },
-      { 
-        id: 'support_services', 
-        label: 'Support Services Provided', 
-        data: generateHistoricalData(baseData.supportServices)
-      }
-    ],
-    wraparound: [
-      { 
-        id: 'wraparound_cases', 
-        label: 'Wraparound Support Cases', 
-        data: generateHistoricalData(hasValue(baseData.childrenInCare) ? Math.round(baseData.childrenInCare * 0.15) : null)
-      },
-      { 
-        id: 'community_support', 
-        label: 'Community Support Programs', 
-        data: generateHistoricalData(hasValue(baseData.childrenInCare) ? Math.round(baseData.childrenInCare * 0.12) : null)
-      },
-      { 
-        id: 'respite_services', 
-        label: 'Respite Services Hours', 
-        data: generateHistoricalData(hasValue(baseData.childrenInCare) ? Math.round(baseData.childrenInCare * 0.20) : null)
-      }
-    ]
+    kinship: [],
+    adoption: [],
+    biological: [],
+    wraparound: [],
+    source: null
   };
 };
 
-const mockTrendsData = {
-  national: {
-    childrenInCare: -8,
-    licensedHomes: 12,
-    waitingForAdoption: -15,
-    reunificationRate: 8,
-    familyPreservationCases: -25
-  },
-  state: {
-    childrenInCare: -15,
-    licensedHomes: 10,
-    waitingForAdoption: -12,
-    reunificationRate: 6,
-    familyPreservationCases: -20
-  },
-  county: {
-    childrenInCare: -30,
-    licensedHomes: 5,
-    waitingForAdoption: -10,
-    reunificationRate: 10,
-    familyPreservationCases: -5
+// Calculate trends from historical data
+const calculateTrends = (regionLevel, regionId) => {
+  if (!historicalData?.years?.length) return null;
+  
+  const calcChange = (arr) => {
+    if (!arr || arr.length < 2) return null;
+    const first = arr[0];
+    const last = arr[arr.length - 1];
+    if (!hasValue(first) || !hasValue(last) || first === 0) return null;
+    return Math.round(((last - first) / first) * 100);
+  };
+  
+  // For state level
+  if (regionLevel === 'state' && historicalData.states?.[regionId]?.metrics) {
+    const m = historicalData.states[regionId].metrics;
+    return {
+      childrenInCare: calcChange(m.childrenInCare),
+      licensedHomes: calcChange(m.licensedHomes),
+      waitingForAdoption: calcChange(m.waitingAdoption),
+      reunificationRate: calcChange(m.reunificationRate),
+      familyPreservationCases: calcChange(m.familyPreservation)
+    };
   }
+  
+  // For national level, aggregate from states
+  if (regionLevel === 'national' && historicalData.states) {
+    const states = Object.values(historicalData.states);
+    const numYears = historicalData.years.length;
+    
+    const aggregate = (metricKey) => {
+      const totals = Array(numYears).fill(0);
+      states.forEach(state => {
+        const values = state.metrics?.[metricKey];
+        if (values) {
+          values.forEach((val, idx) => {
+            if (val !== null) totals[idx] += val;
+          });
+        }
+      });
+      return totals;
+    };
+    
+    return {
+      childrenInCare: calcChange(aggregate('childrenInCare')),
+      licensedHomes: calcChange(aggregate('licensedHomes')),
+      waitingForAdoption: calcChange(aggregate('waitingAdoption')),
+      reunificationRate: null, // Can't aggregate percentages
+      familyPreservationCases: calcChange(aggregate('familyPreservation'))
+    };
+  }
+  
+  return null;
 };
 
 export default function HistoricView({ regionLevel, regionId, onSelectRegion }) {
   // State for selected metrics in each category - each card tracks independently
   const [selectedKinshipMetric, setSelectedKinshipMetric] = useState('children_in_care');
   const [selectedAdoptionMetric, setSelectedAdoptionMetric] = useState('waiting_adoption');
-  const [selectedBiologicalMetric, setSelectedBiologicalMetric] = useState('family_preservation');
-  const [selectedWraparoundMetric, setSelectedWraparoundMetric] = useState('wraparound_cases');
+  const [selectedBiologicalMetric, setSelectedBiologicalMetric] = useState('reunification_rate');
+  const [selectedWraparoundMetric, setSelectedWraparoundMetric] = useState(regionLevel === 'national' ? 'churches_ministry' : 'wraparound_cases');
+
+  // Get dynamic years based on region
+  const years = useMemo(() => {
+    return getYearsForRegion(regionLevel, regionId);
+  }, [regionLevel, regionId]);
 
   // Get dynamic category metrics based on current region
-  // Use useMemo to prevent regenerating random data on every state change
   const categoryMetrics = useMemo(() => {
-    return getCategoryMetrics(regionLevel, regionId);
+    return getCategoryMetrics(regionLevel, regionId, years);
+  }, [regionLevel, regionId, years]);
+
+  // Calculate trends from real data
+  const trends = useMemo(() => {
+    return calculateTrends(regionLevel, regionId);
   }, [regionLevel, regionId]);
 
   // Get current state code from regionId
@@ -381,21 +436,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     }
   };
 
-  const getTrends = () => {
-    switch (regionLevel) {
-      case "national":
-        return mockTrendsData.national;
-      case "state":
-        return mockTrendsData.state;
-      case "county":
-        return mockTrendsData.county;
-      default:
-        return mockTrendsData.county;
-    }
-  };
-
   const name = getDisplayName();
-  const trends = getTrends();
 
   // Get selected metric data for each category
   const getMetricData = (category) => {
@@ -580,142 +621,197 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       </div>
 
       {/* Metrics Grid - Fully Responsive */}
-      <div className="max-w-7xl mx-auto px-4 py-4 md:py-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 flex-grow">
-        {/* Foster & Kinship - PURPLE */}
-        <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
-          <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <img src={FosterKinshipIcon} alt="Kinship" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
-            <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Foster and Kinship Families</h3>
-          </div>
-          
-          {/* Metric Dropdown */}
-          <div className="mb-4">
-            <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
-            <select 
-              value={selectedKinshipMetric}
-              onChange={(e) => setSelectedKinshipMetric(e.target.value)}
-              className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+      {years.length === 0 ? (
+        /* No Historical Data Available */
+        <div className="max-w-3xl mx-auto px-4 py-8 md:py-16 flex-grow">
+          <div className="bg-white rounded-lg shadow-mte-card p-8 text-center">
+            <h3 className="text-2xl md:text-3xl font-nexa text-mte-black mb-4">
+              Historical Data Coming Soon
+            </h3>
+            <p className="text-mte-charcoal font-lato mb-6">
+              Year-over-year trend data is not yet available for this region. 
+              Check back soon as we continue to add historical AFCARS data.
+            </p>
+            <button 
+              onClick={() => onSelectRegion && onSelectRegion({ level: regionLevel, id: regionId, name: name, view: 'metric' })}
+              className="px-6 py-3 bg-mte-blue text-white rounded-lg font-lato hover:bg-mte-blue-80 transition-colors"
             >
-              {categoryMetrics.kinship.map(metric => (
-                <option key={metric.id} value={metric.id}>{metric.label}</option>
-              ))}
-            </select>
-          </div>
-
-          {renderBarChart('kinship', 'bg-mte-purple')}
-        </div>
-
-        {/* Adoptive - GREEN */}
-        <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
-          <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <img src={AdoptiveFamilyIcon} alt="Adoptive" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
-            <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Adoptive Families</h3>
-          </div>
-          
-          {/* Metric Dropdown */}
-          <div className="mb-4">
-            <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
-            <select 
-              value={selectedAdoptionMetric}
-              onChange={(e) => setSelectedAdoptionMetric(e.target.value)}
-              className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
-            >
-              {categoryMetrics.adoption.map(metric => (
-                <option key={metric.id} value={metric.id}>{metric.label}</option>
-              ))}
-            </select>
-          </div>
-
-          {renderBarChart('adoption', 'bg-mte-green')}
-        </div>
-
-        {/* Biological - ORANGE */}
-        <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
-          <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <img src={BiologicalFamilyIcon} alt="Biological" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
-            <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Support for Biological Families</h3>
-          </div>
-          
-          {/* Metric Dropdown */}
-          <div className="mb-4">
-            <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
-            <select 
-              value={selectedBiologicalMetric}
-              onChange={(e) => setSelectedBiologicalMetric(e.target.value)}
-              className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
-            >
-              {categoryMetrics.biological.map(metric => (
-                <option key={metric.id} value={metric.id}>{metric.label}</option>
-              ))}
-            </select>
-          </div>
-
-          {renderBarChart('biological', 'bg-mte-orange')}
-        </div>
-
-        {/* Wraparound - YELLOW */}
-        <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
-          <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <img src={WrapAroundIcon} alt="Wraparound" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
-            <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Wraparound Support</h3>
-          </div>
-          
-          {/* Metric Dropdown */}
-          <div className="mb-4">
-            <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
-            <select 
-              value={selectedWraparoundMetric}
-              onChange={(e) => setSelectedWraparoundMetric(e.target.value)}
-              className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
-            >
-              {categoryMetrics.wraparound.map(metric => (
-                <option key={metric.id} value={metric.id}>{metric.label}</option>
-              ))}
-            </select>
-          </div>
-
-          {renderBarChart('wraparound', 'bg-mte-yellow')}
-        </div>
-      </div>
-
-      {/* Historical Change - Responsive Grid - Changed title to Nexa Rust font */}
-      <div className="bg-white max-w-5xl mx-auto rounded-lg shadow-mte-card p-4 md:p-6 mb-6 md:mb-8 mx-4">
-        <h3 className="text-2xl md:text-3xl font-nexa mb-3 md:mb-4 text-mte-black text-center">
-          Historical Change (2020 to 2024)
-        </h3>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 text-sm md:text-base font-lato">
-          <div className="text-center">
-            <div className={`font-bold text-lg md:text-xl ${trends.childrenInCare < 0 ? 'text-mte-green' : 'text-mte-orange'}`}>
-              {trends.childrenInCare > 0 ? '+' : ''}{trends.childrenInCare}%
-            </div>
-            <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Children in Care</div>
-          </div>
-          <div className="text-center">
-            <div className={`font-bold text-lg md:text-xl ${trends.licensedHomes > 0 ? 'text-mte-green' : 'text-mte-orange'}`}>
-              {trends.licensedHomes > 0 ? '+' : ''}{trends.licensedHomes}%
-            </div>
-            <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Licensed Homes</div>
-          </div>
-          <div className="text-center">
-            <div className={`font-bold text-lg md:text-xl ${trends.waitingForAdoption < 0 ? 'text-mte-green' : 'text-mte-orange'}`}>
-              {trends.waitingForAdoption > 0 ? '+' : ''}{trends.waitingForAdoption}%
-            </div>
-            <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Waiting for Adoption</div>
-          </div>
-          <div className="text-center">
-            <div className={`font-bold text-lg md:text-xl ${trends.reunificationRate > 0 ? 'text-mte-green' : 'text-mte-orange'}`}>
-              {trends.reunificationRate > 0 ? '+' : ''}{trends.reunificationRate}%
-            </div>
-            <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Reunification Rate</div>
-          </div>
-          <div className="text-center col-span-2 md:col-span-1">
-            <div className={`font-bold text-lg md:text-xl ${trends.familyPreservationCases < 0 ? 'text-mte-orange' : 'text-mte-green'}`}>
-              {trends.familyPreservationCases > 0 ? '+' : ''}{trends.familyPreservationCases}%
-            </div>
-            <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Family Preservation</div>
+              View Current Metrics
+            </button>
           </div>
         </div>
-      </div>
+      ) : (
+        /* Historical Data Charts */
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 flex-grow">
+          {/* Foster & Kinship - PURPLE */}
+          <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+            <div className="flex items-center gap-3 mb-3 md:mb-4">
+              <img src={FosterKinshipIcon} alt="Kinship" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
+              <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Foster and Kinship Families</h3>
+            </div>
+            
+            {categoryMetrics.kinship.length > 0 ? (
+              <>
+                {/* Metric Dropdown */}
+                <div className="mb-4">
+                  <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
+                  <select 
+                    value={selectedKinshipMetric}
+                    onChange={(e) => setSelectedKinshipMetric(e.target.value)}
+                    className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+                  >
+                    {categoryMetrics.kinship.map(metric => (
+                      <option key={metric.id} value={metric.id}>{metric.label}</option>
+                    ))}
+                  </select>
+                </div>
+                {renderBarChart('kinship', 'bg-mte-purple')}
+              </>
+            ) : (
+              <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
+                <span>No data available</span>
+              </div>
+            )}
+          </div>
+
+          {/* Adoptive - GREEN */}
+          <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+            <div className="flex items-center gap-3 mb-3 md:mb-4">
+              <img src={AdoptiveFamilyIcon} alt="Adoptive" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
+              <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Adoptive Families</h3>
+            </div>
+            
+            {categoryMetrics.adoption.length > 0 ? (
+              <>
+                {/* Metric Dropdown */}
+                <div className="mb-4">
+                  <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
+                  <select 
+                    value={selectedAdoptionMetric}
+                    onChange={(e) => setSelectedAdoptionMetric(e.target.value)}
+                    className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+                  >
+                    {categoryMetrics.adoption.map(metric => (
+                      <option key={metric.id} value={metric.id}>{metric.label}</option>
+                    ))}
+                  </select>
+                </div>
+                {renderBarChart('adoption', 'bg-mte-green')}
+              </>
+            ) : (
+              <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
+                <span>No data available</span>
+              </div>
+            )}
+          </div>
+
+          {/* Biological - ORANGE */}
+          <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+            <div className="flex items-center gap-3 mb-3 md:mb-4">
+              <img src={BiologicalFamilyIcon} alt="Biological" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
+              <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Support for Biological Families</h3>
+            </div>
+            
+            {categoryMetrics.biological.length > 0 ? (
+              <>
+                {/* Metric Dropdown */}
+                <div className="mb-4">
+                  <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
+                  <select 
+                    value={selectedBiologicalMetric}
+                    onChange={(e) => setSelectedBiologicalMetric(e.target.value)}
+                    className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+                  >
+                    {categoryMetrics.biological.map(metric => (
+                      <option key={metric.id} value={metric.id}>{metric.label}</option>
+                    ))}
+                  </select>
+                </div>
+                {renderBarChart('biological', 'bg-mte-orange')}
+              </>
+            ) : (
+              <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
+                <span>No data available</span>
+              </div>
+            )}
+          </div>
+
+          {/* Wraparound - YELLOW */}
+          <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+            <div className="flex items-center gap-3 mb-3 md:mb-4">
+              <img src={WrapAroundIcon} alt="Wraparound" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
+              <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Wraparound Support</h3>
+            </div>
+            
+            {categoryMetrics.wraparound.length > 0 ? (
+              <>
+                {/* Metric Dropdown */}
+                <div className="mb-4">
+                  <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
+                  <select 
+                    value={selectedWraparoundMetric}
+                    onChange={(e) => setSelectedWraparoundMetric(e.target.value)}
+                    className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+                  >
+                    {categoryMetrics.wraparound.map(metric => (
+                      <option key={metric.id} value={metric.id}>{metric.label}</option>
+                    ))}
+                  </select>
+                </div>
+                {renderBarChart('wraparound', 'bg-mte-yellow')}
+              </>
+            ) : (
+              <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
+                <span>No data available</span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Historical Change - Only show if we have data */}
+      {years.length > 0 && trends && (
+        <div className="bg-white max-w-5xl mx-auto rounded-lg shadow-mte-card p-4 md:p-6 mb-6 md:mb-8 mx-4">
+          <h3 className="text-2xl md:text-3xl font-nexa mb-3 md:mb-4 text-mte-black text-center">
+            Historical Change ({years[0]} to {years[years.length - 1]})
+          </h3>
+          <p className="text-xs text-mte-charcoal text-center mb-3">
+            Source: {categoryMetrics.source || 'AFCARS'}
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 text-sm md:text-base font-lato">
+            <div className="text-center">
+              <div className={`font-bold text-lg md:text-xl ${hasValue(trends.childrenInCare) ? (trends.childrenInCare < 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
+                {hasValue(trends.childrenInCare) ? `${trends.childrenInCare > 0 ? '+' : ''}${trends.childrenInCare}%` : 'N/A'}
+              </div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Children in Care</div>
+            </div>
+            <div className="text-center">
+              <div className={`font-bold text-lg md:text-xl ${hasValue(trends.licensedHomes) ? (trends.licensedHomes > 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
+                {hasValue(trends.licensedHomes) ? `${trends.licensedHomes > 0 ? '+' : ''}${trends.licensedHomes}%` : 'N/A'}
+              </div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Licensed Homes</div>
+            </div>
+            <div className="text-center">
+              <div className={`font-bold text-lg md:text-xl ${hasValue(trends.waitingForAdoption) ? (trends.waitingForAdoption < 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
+                {hasValue(trends.waitingForAdoption) ? `${trends.waitingForAdoption > 0 ? '+' : ''}${trends.waitingForAdoption}%` : 'N/A'}
+              </div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Waiting for Adoption</div>
+            </div>
+            <div className="text-center">
+              <div className={`font-bold text-lg md:text-xl ${hasValue(trends.reunificationRate) ? (trends.reunificationRate > 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
+                {hasValue(trends.reunificationRate) ? `${trends.reunificationRate > 0 ? '+' : ''}${trends.reunificationRate}%` : 'N/A'}
+              </div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Reunification Rate</div>
+            </div>
+            <div className="text-center col-span-2 md:col-span-1">
+              <div className={`font-bold text-lg md:text-xl ${hasValue(trends.familyPreservationCases) ? (trends.familyPreservationCases > 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
+                {hasValue(trends.familyPreservationCases) ? `${trends.familyPreservationCases > 0 ? '+' : ''}${trends.familyPreservationCases}%` : 'N/A'}
+              </div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Family Preservation</div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Footer */}
       <div className="py-4 text-right pr-6">

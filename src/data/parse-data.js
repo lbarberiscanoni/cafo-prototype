@@ -311,8 +311,8 @@ function parseAllData() {
         contactEmail: cleanString(row['contact_email']),
         coords: (lat !== null && lng !== null) ? [lat, lng] : null,
         // FIX: Infer networkMember from networkName presence
-        networkName: cleanString(row['network_name']),
-        networkMember: cleanString(row['network_name']) !== '' || cleanString(row['network_member']) === 'Yes',
+        networkMember: networkName !== '' || cleanString(row['network_member']) === 'Yes',
+        networkName: networkName,
         officialFosterMinistry: cleanString(row['official_foster_ministry']) === 'Yes',
         onMap: cleanString(row['on_map']).toLowerCase().includes('yes')
       };
@@ -372,7 +372,116 @@ function parseAllData() {
     ? Math.round(result.national.totalChurches * 0.08) : null;
   console.log(`   ✓ National totals calculated`);
 
+  // STEP 7: Build historical data from yearly CSV files
+  console.log('\n📈 STEP 7: Building historical data...');
+  result.historical = buildHistoricalData(scriptDir);
+  if (result.historical) {
+    const statesWithData = Object.keys(result.historical.states).length;
+    const statesWithBothYears = Object.values(result.historical.states).filter(s => 
+      s.metrics.childrenInCare[0] !== null && s.metrics.childrenInCare[1] !== null
+    ).length;
+    console.log(`   ✓ Years: ${result.historical.years.join(', ')}`);
+    console.log(`   ✓ States with data: ${statesWithData}`);
+    console.log(`   ✓ States with both years: ${statesWithBothYears}`);
+  } else {
+    console.log(`   ⚠️  No historical data files found`);
+  }
+
   return result;
+}
+
+// ============================================
+// HISTORICAL DATA BUILDER
+// ============================================
+
+function buildHistoricalData(scriptDir) {
+  const yearFiles = [
+    { year: 2024, file: '2024-metrics-state.csv' },
+    { year: 2025, file: '2025-metrics-state.csv' }
+  ];
+  
+  // Check which files exist
+  const availableYears = yearFiles.filter(yf => 
+    fs.existsSync(path.join(scriptDir, yf.file))
+  );
+  
+  if (availableYears.length < 1) {
+    return null;
+  }
+  
+  const years = availableYears.map(yf => yf.year);
+  const stateDataByYear = {};
+  
+  // Parse each year's data
+  availableYears.forEach(({ year, file }) => {
+    const filePath = path.join(scriptDir, file);
+    const content = fs.readFileSync(filePath, 'utf8');
+    const rows = parseCSV(content);
+    
+    stateDataByYear[year] = {};
+    
+    rows.forEach(row => {
+      if (row['is_state'] !== '1') return;
+      
+      const stateName = cleanString(row['state_name_full']);
+      if (!stateName) return;
+      
+      const stateKey = stateToKey(stateName);
+      stateDataByYear[year][stateKey] = {
+        name: stateName,
+        childrenInCare: cleanNumber(row['number of children in care']),
+        childrenInFoster: cleanNumber(row['number of children in foster care']),
+        childrenInKinship: cleanNumber(row['number of children in kinship care']),
+        licensedHomes: cleanNumber(row['number of foster and kinship homes']),
+        waitingAdoption: cleanNumber(row['number of children waiting for adoption']),
+        reunificationRate: cleanNumber(row['biological family reunification rate']),
+        familyPreservation: cleanNumber(row['number of family preservation cases'])
+      };
+    });
+  });
+  
+  // Combine into historical structure
+  const allStateKeys = new Set();
+  Object.values(stateDataByYear).forEach(yearData => {
+    Object.keys(yearData).forEach(key => allStateKeys.add(key));
+  });
+  
+  const historical = {
+    years: years,
+    states: {}
+  };
+  
+  allStateKeys.forEach(stateKey => {
+    // Get data for each year (null if not available)
+    const yearlyData = years.map(year => stateDataByYear[year]?.[stateKey] || null);
+    
+    // Check if there's any data for this state
+    const hasAnyData = yearlyData.some(d => d && (
+      d.childrenInCare !== null || 
+      d.licensedHomes !== null ||
+      d.waitingAdoption !== null
+    ));
+    
+    if (!hasAnyData) return;
+    
+    // Build metrics arrays for each year
+    const stateName = yearlyData.find(d => d)?.name || stateKey;
+    
+    historical.states[stateKey] = {
+      name: stateName,
+      metrics: {
+        childrenInCare: yearlyData.map(d => d?.childrenInCare ?? null),
+        childrenInFoster: yearlyData.map(d => d?.childrenInFoster ?? null),
+        childrenInKinship: yearlyData.map(d => d?.childrenInKinship ?? null),
+        licensedHomes: yearlyData.map(d => d?.licensedHomes ?? null),
+        waitingAdoption: yearlyData.map(d => d?.waitingAdoption ?? null),
+        reunificationRate: yearlyData.map(d => d?.reunificationRate ?? null),
+        familyPreservation: yearlyData.map(d => d?.familyPreservation ?? null)
+      }
+    };
+  });
+  
+  return historical;
 }
 
 // ============================================

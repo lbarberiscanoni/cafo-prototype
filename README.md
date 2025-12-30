@@ -1,7 +1,5 @@
 - [ ] Fix issue where some purple (placement agency) organizations remain visible after all organization categories are removed.
 
-- [ ] Update the historic view to use real data instead of test data and make the x-axis dynamic.
-
 - [ ] try to use the Noun Project icon (with screenshot or attribution) and finalize once Leah confirms purchase/attribution.
     - [this one requires attribution](https://thenounproject.com/icon/people-7979311/)
 - [ ] Add organization descriptions to the national org view by next week.

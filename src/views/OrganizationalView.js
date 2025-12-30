@@ -15,13 +15,36 @@ import AdoptiveFamilyIcon from "../assets/Adoptive_family_icon.png";
 import BiologicalFamilyIcon from "../assets/BiologicalFamily_icon.png";
 import WrapAroundIcon from "../assets/WrapAround_icon.png";
 
-// Organization category color mapping
+// Organization category color mapping - matches actual categories in data
 const CATEGORY_COLORS = {
   "Bridge Ministry": { bg: "bg-mte-yellow-20", text: "text-mte-black", border: "border-mte-yellow", dot: "#e7d151" },
+  "Bridge Organization": { bg: "bg-mte-yellow-20", text: "text-mte-black", border: "border-mte-yellow", dot: "#e7d151" },
   "Service Organization": { bg: "bg-mte-green-20", text: "text-mte-black", border: "border-mte-green", dot: "#4aa456" },
-  "Church Ministry": { bg: "bg-mte-charcoal-20", text: "text-mte-black", border: "border-mte-charcoal", dot: "#5c5d5f" },
-  "Government": { bg: "bg-mte-orange-20", text: "text-mte-black", border: "border-mte-orange", dot: "#dc6a42" },
+  "Church Foster Care Ministry": { bg: "bg-mte-charcoal-20", text: "text-mte-black", border: "border-mte-charcoal", dot: "#5c5d5f" },
   "Placement Agency": { bg: "bg-mte-purple-20", text: "text-mte-black", border: "border-mte-purple", dot: "#882781" },
+  "Child Placement Agency": { bg: "bg-mte-purple-20", text: "text-mte-black", border: "border-mte-purple", dot: "#882781" },
+  "Local Network": { bg: "bg-mte-orange-20", text: "text-mte-black", border: "border-mte-orange", dot: "#dc6a42" },
+  "State/Regional Network": { bg: "bg-mte-orange-20", text: "text-mte-black", border: "border-mte-orange", dot: "#dc6a42" },
+  "Regional Network": { bg: "bg-mte-orange-20", text: "text-mte-black", border: "border-mte-orange", dot: "#dc6a42" },
+  "Other": { bg: "bg-mte-blue-20", text: "text-mte-black", border: "border-mte-blue", dot: "#02ADEE" },
+};
+
+// Filter groups that combine similar categories for the UI
+const FILTER_GROUPS = {
+  "Bridge": ["Bridge Ministry", "Bridge Organization"],
+  "Service Organization": ["Service Organization"],
+  "Church Ministry": ["Church Foster Care Ministry"],
+  "Placement Agency": ["Placement Agency", "Child Placement Agency"],
+  "Network": ["Local Network", "State/Regional Network", "Regional Network"],
+  "Other": ["Other"],
+};
+
+// Get filter group for a category
+const getCategoryFilterGroup = (category) => {
+  for (const [group, categories] of Object.entries(FILTER_GROUPS)) {
+    if (categories.includes(category)) return group;
+  }
+  return "Other"; // Default unmapped categories to Other
 };
 
 // Generate curved arc points between two coordinates
@@ -172,7 +195,7 @@ const createCountyTextLabel = (countyName) => {
 };
 
 export default function OrganizationalView({ regionLevel, regionId, onSelectRegion, selectedRegion }) {
-  const [selectedCategories, setSelectedCategories] = useState(Object.keys(CATEGORY_COLORS));
+  const [selectedCategories, setSelectedCategories] = useState(Object.keys(FILTER_GROUPS));
   const [selectedImpactAreas, setSelectedImpactAreas] = useState(["Foster and Kinship Families", "Adoptive", "Biological", "Wraparound"]);
   const [showConnectionLines, setShowConnectionLines] = useState(true);
   const [mapKey, setMapKey] = useState(0); // Force map remount when region changes
@@ -240,6 +263,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         ? prev.filter(c => c !== category)
         : [...prev, category]
     );
+    setMapKey(k => k + 1); // Force map remount to clear stale markers
   };
 
   const handleImpactAreaToggle = (impactArea) => {
@@ -248,6 +272,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         ? prev.filter(area => area !== impactArea)
         : [...prev, impactArea]
     );
+    setMapKey(k => k + 1); // Force map remount to clear stale markers
   };
 
   const handleConnectionLinesToggle = () => {
@@ -415,11 +440,23 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                      nationalOrgs;
 
   // Filter organizations based on selected categories and impact areas
-  const filteredOrgs = currentOrgs.filter(org => {
-    const categoryMatch = selectedCategories.includes(org.category);
-    const impactAreaMatch = !org.areas || org.areas.length === 0 || org.areas.some(area => selectedImpactAreas.includes(area));
-    return categoryMatch && impactAreaMatch;
-  });
+  // Filter organizations based on selected categories and impact areas
+  const filteredOrgs = React.useMemo(() => {
+    return currentOrgs.filter(org => {
+      const filterGroup = getCategoryFilterGroup(org.category);
+      const categoryMatch = selectedCategories.includes(filterGroup);
+      
+      // Impact area matching: if no impact areas selected, nothing matches
+      // If org has no areas defined, it matches any selected impact area
+      const impactAreaMatch = selectedImpactAreas.length > 0 && (
+        !org.areas || 
+        org.areas.length === 0 || 
+        org.areas.some(area => selectedImpactAreas.includes(area))
+      );
+      
+      return categoryMatch && impactAreaMatch;
+    });
+  }, [currentOrgs, selectedCategories, selectedImpactAreas]);
 
   // Generate connection lines between organizations in the same network
   // Uses hub-and-spoke model: first org connects to all others (cleaner than all-pairs)
@@ -557,19 +594,23 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               <h3 className="text-base font-bold mb-1 text-mte-black font-lato">Organization Categories</h3>
               <p className="text-sm text-mte-charcoal mb-3 font-lato">Check categories to explore who is working in your community</p>
               <div className="space-y-2 text-base font-lato">
-                {Object.entries(CATEGORY_COLORS).map(([category, colors]) => (
-                  <label key={category} className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={selectedCategories.includes(category)}
-                      onChange={() => handleCategoryToggle(category)}
-                    />
-                    <div
-                      className={`w-3 h-3 rounded-full ${colors.bg} ${colors.border} border`}
-                    ></div>
-                    <span className="text-mte-charcoal">{category}</span>
-                  </label>
-                ))}
+                {Object.entries(FILTER_GROUPS).map(([groupName, categories]) => {
+                  // Get color from first category in the group
+                  const colors = CATEGORY_COLORS[categories[0]] || CATEGORY_COLORS["Other"];
+                  return (
+                    <label key={groupName} className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={selectedCategories.includes(groupName)}
+                        onChange={() => handleCategoryToggle(groupName)}
+                      />
+                      <div
+                        className={`w-3 h-3 rounded-full ${colors.bg} ${colors.border} border`}
+                      ></div>
+                      <span className="text-mte-charcoal">{groupName}</span>
+                    </label>
+                  );
+                })}
               </div>
             </div>
 
@@ -667,7 +708,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
           {/* Leaflet Map for All Levels */}
           <div className="bg-white rounded-lg shadow-mte-card p-4">
             <MapContainer
-              key={mapKey}
+              key={`${mapKey}-${selectedCategories.join(',')}-${selectedImpactAreas.join(',')}`}
               center={mapConfig.center}
               zoom={mapConfig.zoom}
               style={{ height: "500px", width: "100%", borderRadius: "8px" }}
@@ -720,8 +761,8 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     </Polyline>
                   ))}
 
-                  {/* Organization Dots */}
-                  {filteredOrgs.map((org) => (
+                  {/* Organization Dots - only render if we have filtered orgs */}
+                  {filteredOrgs.length > 0 && filteredOrgs.map((org, idx) => (
                     <Marker 
                       key={org.name} 
                       position={org.coords} 
@@ -810,8 +851,8 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       </Polyline>
                     ))}
 
-                    {/* Organization Dots */}
-                    {filteredOrgs.map((org) => (
+                    {/* Organization Dots - only render if we have filtered orgs */}
+                    {filteredOrgs.length > 0 && filteredOrgs.map((org) => (
                       <Marker 
                         key={org.name} 
                         position={org.coords} 
@@ -856,8 +897,8 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     </Polyline>
                   ))}
                   
-                  {/* Organization Markers */}
-                  {filteredOrgs.map((org) => (
+                  {/* Organization Markers - only render if we have filtered orgs */}
+                  {filteredOrgs.length > 0 && filteredOrgs.map((org) => (
                     <Marker 
                       key={org.name} 
                       position={org.coords} 
@@ -959,13 +1000,17 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
           {/* Organization Cards - National, State, and County Level */}
           {(showNationalMap || showStateMap || showCountyMap) && !selectedEmptyCounty && (
-            <div className="bg-white rounded-lg shadow-mte-card p-4">
+            <div 
+              key={`cards-${selectedCategories.join(',')}-${selectedImpactAreas.join(',')}`}
+              className="bg-white rounded-lg shadow-mte-card p-4"
+            >
               <h3 className="text-h4 font-bold uppercase mb-4 text-mte-black font-lato">
                 Organizations ({fmt(filteredOrgs.length)})
               </h3>
-              <div className="overflow-x-auto" ref={cardContainerRef}>
-                <div className="flex gap-4 pb-4" style={{ minWidth: "max-content" }}>
-                  {filteredOrgs.map((org) => {
+              {filteredOrgs.length > 0 ? (
+                <div className="overflow-x-auto" ref={cardContainerRef}>
+                  <div className="flex gap-4 pb-4" style={{ minWidth: "max-content" }}>
+                    {filteredOrgs.map((org) => {
                     const colors = CATEGORY_COLORS[org.category];
                     const isSelected = selectedOrg === org.name;
                     const cardId = `org-card-${org.name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '')}`;
@@ -1017,6 +1062,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                   })}
                 </div>
               </div>
+              ) : (
+                <div className="text-center py-8 text-mte-charcoal font-lato">
+                  <p className="text-lg mb-2">No organizations match the selected filters</p>
+                  <p className="text-sm">Try selecting different categories or impact areas above</p>
+                </div>
+              )}
             </div>
           )}
         </div>

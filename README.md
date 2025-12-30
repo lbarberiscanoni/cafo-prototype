@@ -1,5 +1,3 @@
-- [ ] Fix issue where some purple (placement agency) organizations remain visible after all organization categories are removed.
-
 - [ ] Add organization descriptions to the national org view by next week.
     - [ ] Look into using ChatGPT to generate one-liner descriptions for each organization based on their names/websites, probably by writing a script to do it one time
 - [ ] Set up a periodic (e.g., daily) function to download updated data from Google Sheets and rerun the data pipeline.

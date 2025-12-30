@@ -424,6 +424,46 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
 
   const name = getDisplayName();
 
+  // Download data as CSV
+  const handleDownloadData = () => {
+    // Build CSV content
+    const rows = [];
+    
+    // Header row with years
+    rows.push(['Metric', 'Category', ...years.map(y => y.toString())].join(','));
+    
+    // Add all metrics from each category
+    const categories = [
+      { name: 'Foster & Kinship', metrics: categoryMetrics.kinship },
+      { name: 'Adoption', metrics: categoryMetrics.adoption },
+      { name: 'Biological Family', metrics: categoryMetrics.biological },
+      { name: 'Wraparound', metrics: categoryMetrics.wraparound }
+    ];
+    
+    categories.forEach(cat => {
+      cat.metrics.forEach(metric => {
+        const values = metric.data.map(v => v !== null ? v : 'N/A');
+        rows.push([`"${metric.label}"`, `"${cat.name}"`, ...values].join(','));
+      });
+    });
+    
+    // Create and download the file
+    const csvContent = rows.join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    
+    // Generate filename based on region
+    const regionName = name.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+    link.setAttribute('download', `mte_historical_data_${regionName}.csv`);
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   // Get selected metric data for each category
   const getMetricData = (category) => {
     let metricId;
@@ -558,6 +598,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
               Explore the Map
             </button>
             <button 
+              onClick={handleDownloadData}
               className="flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">

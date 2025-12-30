@@ -1,4 +1,5 @@
 import React from "react";
+import { nationalStats, stateData, countyData } from "./real-data.js";
 
 // Assets
 import ChartsIcon from "./assets/Charts.png";
@@ -18,6 +19,78 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
   const visibleNavButtons = currentRegion === "national" 
     ? navButtons.filter(btn => btn.id !== "historic")
     : navButtons;
+
+  // Download data as CSV based on current region
+  const handleDownloadData = () => {
+    const rows = [];
+    let regionName = "data";
+    
+    if (currentRegion === 'national') {
+      regionName = "united_states";
+      rows.push(['Metric', 'Value'].join(','));
+      rows.push(['"Children in Care"', nationalStats.childrenInCare ?? 'N/A'].join(','));
+      rows.push(['"Children in Family Foster Care"', nationalStats.childrenInFamilyFoster ?? 'N/A'].join(','));
+      rows.push(['"Children in Kinship Care"', nationalStats.childrenInKinship ?? 'N/A'].join(','));
+      rows.push(['"Children Waiting for Adoption"', nationalStats.childrenWaitingAdoption ?? 'N/A'].join(','));
+      rows.push(['"Children Adopted (2023)"', nationalStats.childrenAdopted2023 ?? 'N/A'].join(','));
+      rows.push(['"Total Churches"', nationalStats.totalChurches ?? 'N/A'].join(','));
+      rows.push(['"Churches with Foster Ministry"', nationalStats.churchesWithMinistry ?? 'N/A'].join(','));
+    } else if (currentRegion === 'state') {
+      const stateId = selectedRegion?.id;
+      const state = stateData[stateId];
+      regionName = (state?.name || stateId || 'state').replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+      
+      if (state) {
+        rows.push(['Metric', 'Value'].join(','));
+        rows.push(['"State"', `"${state.name}"`].join(','));
+        rows.push(['"Total Children in Care"', state.totalChildren ?? 'N/A'].join(','));
+        rows.push(['"Licensed Homes"', state.licensedHomes ?? 'N/A'].join(','));
+        rows.push(['"Children Waiting for Adoption"', state.waitingForAdoption ?? 'N/A'].join(','));
+        rows.push(['"Reunification Rate (%)"', state.reunificationRate ?? 'N/A'].join(','));
+        rows.push(['"Family Preservation Cases"', state.familyPreservationCases ?? 'N/A'].join(','));
+      } else {
+        rows.push(['Error', 'State data not found'].join(','));
+      }
+    } else if (currentRegion === 'county') {
+      const countyId = selectedRegion?.id;
+      const county = countyData[countyId];
+      regionName = (county?.name || countyId || 'county').replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+      
+      if (county) {
+        rows.push(['Metric', 'Value'].join(','));
+        rows.push(['"County"', `"${county.name}"`].join(','));
+        rows.push(['"Population"', county.population ?? 'N/A'].join(','));
+        rows.push(['"Total Churches"', county.totalChurches ?? 'N/A'].join(','));
+        rows.push(['"Children in Care"', county.childrenInCare ?? 'N/A'].join(','));
+        rows.push(['"Children in Family Foster"', county.childrenInFamily ?? 'N/A'].join(','));
+        rows.push(['"Children in Kinship"', county.childrenInKinship ?? 'N/A'].join(','));
+        rows.push(['"Children Out of County"', county.childrenOutOfCounty ?? 'N/A'].join(','));
+        rows.push(['"Licensed Homes"', county.licensedHomes ?? 'N/A'].join(','));
+        rows.push(['"Licensed Homes per Child"', county.licensedHomesPerChild ?? 'N/A'].join(','));
+        rows.push(['"Children Waiting for Adoption"', county.waitingForAdoption ?? 'N/A'].join(','));
+        rows.push(['"Children Adopted (2024)"', county.childrenAdopted2024 ?? 'N/A'].join(','));
+        rows.push(['"Avg Months to Adoption"', county.avgMonthsToAdoption ?? 'N/A'].join(','));
+        rows.push(['"Family Preservation Cases"', county.familyPreservationCases ?? 'N/A'].join(','));
+        rows.push(['"Reunification Rate (%)"', county.reunificationRate ?? 'N/A'].join(','));
+        rows.push(['"Churches Providing Support"', county.churchesProvidingSupport ?? 'N/A'].join(','));
+      } else {
+        rows.push(['Error', 'County data not found'].join(','));
+      }
+    }
+    
+    // Create and download the file
+    const csvContent = rows.join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', `mte_data_${regionName}.csv`);
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
 
   const handleNationalView = () => {
     onSelectRegion({ level: "national", id: "usa", name: "United States" });
@@ -104,6 +177,14 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
     onSwitchView("organizational");
   };
 
+  const handleNavClick = (btnId) => {
+    if (btnId === "download") {
+      handleDownloadData();
+    } else {
+      onSwitchView(btnId);
+    }
+  };
+
   return (
     <div className="py-2 md:py-3 px-2 md:px-4 flex flex-col md:flex-row justify-between items-stretch md:items-center gap-3 md:gap-0 relative">
       {/* Map View Buttons */}
@@ -127,7 +208,7 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
         {visibleNavButtons.map((btn) => (
           <button
             key={btn.id}
-            onClick={() => onSwitchView(btn.id)}
+            onClick={() => handleNavClick(btn.id)}
             className={`flex items-center gap-2 px-3 md:px-4 py-2 rounded-lg text-sm md:text-base font-lato font-medium shadow-mte-card transition-colors whitespace-nowrap
               ${
                 currentView === btn.id

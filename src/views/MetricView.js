@@ -149,6 +149,59 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
 
   const data = getData();
 
+  // Download data as CSV
+  const handleDownloadData = () => {
+    const rows = [];
+    
+    if (regionLevel === 'national') {
+      rows.push(['Metric', 'Value'].join(','));
+      rows.push(['"Children in Care"', data.childrenInCare ?? 'N/A'].join(','));
+      rows.push(['"Children in Family Foster Care"', data.childrenInFamilyFoster ?? 'N/A'].join(','));
+      rows.push(['"Children in Kinship Care"', data.childrenInKinship ?? 'N/A'].join(','));
+      rows.push(['"Children Waiting for Adoption"', data.waitingForAdoption ?? 'N/A'].join(','));
+      rows.push(['"Children Adopted (2023)"', data.childrenAdopted ?? 'N/A'].join(','));
+      rows.push(['"Total Churches"', data.totalChurches ?? 'N/A'].join(','));
+      rows.push(['"Churches with Foster Ministry"', data.churchesWithMinistry ?? 'N/A'].join(','));
+    } else if (regionLevel === 'state') {
+      rows.push(['Metric', 'Value'].join(','));
+      rows.push(['"Total Children in Care"', data.totalChildren ?? 'N/A'].join(','));
+      rows.push(['"Licensed Homes"', data.licensedHomes ?? 'N/A'].join(','));
+      rows.push(['"Children Waiting for Adoption"', data.waitingForAdoption ?? 'N/A'].join(','));
+      rows.push(['"Reunification Rate (%)"', data.reunificationRate ?? 'N/A'].join(','));
+      rows.push(['"Family Preservation Cases"', data.familyPreservationCases ?? 'N/A'].join(','));
+    } else if (regionLevel === 'county') {
+      rows.push(['Metric', 'Value'].join(','));
+      rows.push(['"Population"', data.population ?? 'N/A'].join(','));
+      rows.push(['"Total Churches"', data.totalChurches ?? 'N/A'].join(','));
+      rows.push(['"Children in Care"', data.childrenInCare ?? 'N/A'].join(','));
+      rows.push(['"Children in Family Foster"', data.childrenInFamily ?? 'N/A'].join(','));
+      rows.push(['"Children in Kinship"', data.childrenInKinship ?? 'N/A'].join(','));
+      rows.push(['"Children Out of County"', data.childrenOutOfCounty ?? 'N/A'].join(','));
+      rows.push(['"Licensed Homes"', data.licensedHomes ?? 'N/A'].join(','));
+      rows.push(['"Licensed Homes per Child"', data.licensedHomesPerChild ?? 'N/A'].join(','));
+      rows.push(['"Children Waiting for Adoption"', data.waitingForAdoption ?? 'N/A'].join(','));
+      rows.push(['"Children Adopted (2024)"', data.childrenAdopted2024 ?? 'N/A'].join(','));
+      rows.push(['"Avg Months to Adoption"', data.avgMonthsToAdoption ?? 'N/A'].join(','));
+      rows.push(['"Family Preservation Cases"', data.familyPreservationCases ?? 'N/A'].join(','));
+      rows.push(['"Reunification Rate (%)"', data.reunificationRate ?? 'N/A'].join(','));
+      rows.push(['"Churches Providing Support"', data.churchesProvidingSupport ?? 'N/A'].join(','));
+    }
+    
+    const csvContent = rows.join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    
+    const regionName = data.name.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+    link.setAttribute('download', `mte_metrics_${regionName}.csv`);
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   // Get trend data based on selected metric
   const getTrendData = () => {
     switch (selectedMetric) {
@@ -268,6 +321,16 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           {data.subtitle && (
             <p className="text-sm md:text-base text-mte-charcoal text-center mt-1 md:mt-2 px-4 font-lato">{data.subtitle}</p>
           )}
+          {/* Download Button */}
+          <button 
+            onClick={handleDownloadData}
+            className="mt-3 flex items-center gap-2 px-4 py-2 bg-white border border-mte-light-grey rounded-lg text-sm md:text-base font-lato text-mte-black hover:bg-mte-blue-20 transition-colors"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd"/>
+            </svg>
+            Download Data
+          </button>
         </div>
       </header>
 

@@ -670,8 +670,8 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               </div>
             </div>
 
-            {/* Relationships - County AND National */}
-            {(showCountyMap || showNationalMap) && (
+            {/* Relationships - Now shown for County, State, AND National */}
+            {(showCountyMap || showStateMap || showNationalMap) && (
               <div className="bg-white p-4 rounded-lg shadow-mte-card">
                 <h3 className="text-base font-bold mb-1 text-mte-black font-lato">Relationships</h3>
                 <p className="text-sm text-mte-charcoal mb-3 font-lato">Display collaborations to see how organizations work together</p>
@@ -698,6 +698,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     </div>
                   </label>
                 </div>
+                {/* Show network count when connection lines are enabled */}
+                {showConnectionLines && connectionLines.length > 0 && (
+                  <div className="mt-3 text-sm text-mte-charcoal font-lato">
+                    <span className="font-semibold">{connectionLines.length}</span> network connection{connectionLines.length !== 1 ? 's' : ''} displayed
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -1033,6 +1039,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         <div className={`text-sm px-2 py-1 rounded ${colors?.bg || 'bg-mte-blue-20'} ${colors?.text || 'text-mte-black'} inline-block mb-2 font-lato`}>
                           {org.category}
                         </div>
+                        {/* Show network badge if org is part of a network */}
+                        {org.networkName && org.networkMember && (
+                          <div className="text-sm px-2 py-1 rounded bg-mte-green-20 text-mte-black inline-block mb-2 ml-1 font-lato">
+                            🔗 {org.networkName}
+                          </div>
+                        )}
                         <p className="text-base text-mte-charcoal mb-2 font-lato">{org.description}</p>
                         <div className="text-sm text-mte-charcoal mb-2 font-lato">
                           <strong>Impact Areas:</strong> {org.areas?.join(", ") || 'N/A'}

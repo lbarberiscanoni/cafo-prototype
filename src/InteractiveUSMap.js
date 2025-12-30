@@ -33,6 +33,7 @@ const stateNameToAbbreviation = {
 
 const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStateClick }) => {
   const mapRef = useRef();
+  const containerRef = useRef();
   const [hoveredState, setHoveredState] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -40,14 +41,19 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
     const svg = d3.select(mapRef.current);
     svg.selectAll("*").remove(); // Clear previous render
 
-    const width = 800;
-    const height = 500;
+    // Responsive dimensions - wider aspect ratio to fit full US
+    const width = 975;
+    const height = 610;
     
-    svg.attr("width", width).attr("height", height);
+    svg
+      .attr("viewBox", `0 0 ${width} ${height}`)
+      .attr("preserveAspectRatio", "xMidYMid meet")
+      .style("width", "100%")
+      .style("height", "auto");
 
-    // US AlbersUSA projection
+    // US AlbersUSA projection - adjusted scale and translate for full visibility
     const projection = d3.geoAlbersUsa()
-      .scale(1000)
+      .scale(1250)
       .translate([width / 2, height / 2]);
 
     const path = d3.geoPath().projection(projection);
@@ -130,11 +136,11 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
       // Define responsive font sizes
       const getFontSize = (isSmallState) => {
         if (isMobile) {
-          return isSmallState ? '9px' : '10px';
+          return isSmallState ? '8px' : '9px';
         } else if (isTablet) {
-          return isSmallState ? '11px' : '12px';
+          return isSmallState ? '10px' : '11px';
         } else {
-          return isSmallState ? '13px' : '14px';
+          return isSmallState ? '11px' : '12px';
         }
       };
 
@@ -217,7 +223,7 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
   }, [selectedMetric, onStateClick]);
 
   return (
-    <div className="relative">
+    <div className="relative" ref={containerRef}>
       {/* Instructions */}
       <div className="absolute top-4 left-4 bg-white bg-opacity-90 p-3 rounded shadow-lg text-sm z-10">
         <div className="flex items-center gap-2 mb-1">
@@ -264,9 +270,9 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
         </div>
       </div>
 
-      {/* D3 SVG Map */}
+      {/* D3 SVG Map - using viewBox for responsiveness */}
       <div className="w-full overflow-hidden">
-        <svg ref={mapRef} className="w-full h-auto"></svg>
+        <svg ref={mapRef}></svg>
       </div>
 
       {/* Hover Tooltip */}

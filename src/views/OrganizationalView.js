@@ -197,7 +197,7 @@ const createCountyTextLabel = (countyName) => {
 export default function OrganizationalView({ regionLevel, regionId, onSelectRegion, selectedRegion }) {
   const [selectedCategories, setSelectedCategories] = useState(Object.keys(FILTER_GROUPS));
   const [selectedImpactAreas, setSelectedImpactAreas] = useState(["Foster and Kinship Families", "Adoptive", "Biological", "Wraparound"]);
-  const [showConnectionLines, setShowConnectionLines] = useState(true);
+  const [showConnectionLines, setShowConnectionLines] = useState(false);
   const [mapKey, setMapKey] = useState(0); // Force map remount when region changes
   const [selectedEmptyCounty, setSelectedEmptyCounty] = useState(null); // Track counties with no orgs
   const [selectedOrg, setSelectedOrg] = useState(null); // Track selected organization from map click

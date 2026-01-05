@@ -249,19 +249,26 @@ function parseAllData() {
   }
 
   // ============================================
-  // STEP 2: Parse 2025-metrics-state.csv for supplemental data
+  // STEP 2: Parse metrics CSV files (2024 and 2025) for supplemental state data and counties
   // ============================================
-  console.log('\n📊 STEP 2: Parsing 2025-metrics-state.csv (supplemental)...');
-  const metricsPath = path.join(scriptDir, '2025-metrics-state.csv');
+  console.log('\n📊 STEP 2: Parsing metrics CSV files (counties + supplemental state data)...');
   
-  if (fs.existsSync(metricsPath)) {
-    const metricsContent = fs.readFileSync(metricsPath, 'utf8');
-    const metricsRows = parseCSV(metricsContent);
+  // Helper to parse a metrics file and return county data
+  const parseMetricsFile = (filename, year) => {
+    const filePath = path.join(scriptDir, filename);
+    const countyData = {};
     
+    if (!fs.existsSync(filePath)) {
+      console.log(`   ⚠️  ${filename} not found`);
+      return { countyData, stateSupplementCount: 0, countyCount: 0 };
+    }
+    
+    const content = fs.readFileSync(filePath, 'utf8');
+    const rows = parseCSV(content);
     let stateSupplementCount = 0;
     let countyCount = 0;
     
-    metricsRows.forEach(row => {
+    rows.forEach(row => {
       const isState = row['is_state'] === '1';
       const isCounty = row['is_county'] === '1';
       
@@ -273,20 +280,14 @@ function parseAllData() {
         
         // Add supplemental fields to existing state data (if exists from AFCARS)
         if (result.states[stateKey]) {
-          result.states[stateKey].licensedHomes = cleanNumber(row['number of foster and kinship homes']);
-          result.states[stateKey].familyPreservationCases = cleanNumber(row['number of family preservation cases']);
+          // Only update if we don't have this data yet (prefer 2025 over 2024)
+          if (!result.states[stateKey].licensedHomes) {
+            result.states[stateKey].licensedHomes = cleanNumber(row['number of foster and kinship homes']);
+          }
+          if (!result.states[stateKey].familyPreservationCases) {
+            result.states[stateKey].familyPreservationCases = cleanNumber(row['number of family preservation cases']);
+          }
           stateSupplementCount++;
-        } else {
-          // State not in AFCARS - create from metrics file
-          result.states[stateKey] = {
-            name: stateName,
-            code: STATE_NAME_TO_CODE[stateName],
-            totalChildren: cleanNumber(row['number of children in care']),
-            licensedHomes: cleanNumber(row['number of foster and kinship homes']),
-            waitingForAdoption: cleanNumber(row['number of children waiting for adoption']),
-            reunificationRate: cleanNumber(row['biological family reunification rate']),
-            familyPreservationCases: cleanNumber(row['number of family preservation cases'])
-          };
         }
       }
       else if (isCounty) {
@@ -301,11 +302,11 @@ function parseAllData() {
         const childrenInCare = cleanNumber(row['number of children in care']);
         const licensedHomes = cleanNumber(row['number of foster and kinship homes']);
         
-        result.counties[countyKey] = {
+        countyData[countyKey] = {
           name: `${countyName} County, ${stateName}`,
           state: stateName,
+          stateCode: stateCode,
           fipsCode: fipsCode,
-          population: null,
           totalChurches: cleanNumber(row['number of churches']),
           childrenInCare: childrenInCare,
           childrenInFamily: cleanNumber(row['number of children in foster care']),
@@ -316,28 +317,53 @@ function parseAllData() {
             ? Math.round((licensedHomes / childrenInCare) * 100) / 100 
             : null,
           waitingForAdoption: cleanNumber(row['number of children waiting for adoption']),
-          childrenAdopted2024: cleanNumber(row['number of children adopted']),
+          childrenAdopted: cleanNumber(row['number of children adopted']),
           avgMonthsToAdoption: cleanNumber(row['average months to adoption']),
           familyPreservationCases: cleanNumber(row['number of family preservation cases']),
-          reunificationRate: cleanNumber(row['biological family reunification rate']),
-          churchesProvidingSupport: null,
-          supportPercentage: null
+          reunificationRate: cleanNumber(row['biological family reunification rate'])
         };
         countyCount++;
       }
     });
     
-    console.log(`   ✓ Supplemented ${stateSupplementCount} states with licensed homes/preservation data`);
-    console.log(`   ✓ Loaded ${countyCount} counties`);
-    
-    // Calculate national church totals from counties
-    const totalChurches = safeSum(Object.values(result.counties).map(c => c.totalChurches));
-    if (totalChurches) {
-      result.national.totalChurches = totalChurches;
-      result.national.churchesWithMinistry = Math.round(totalChurches * 0.08);
-    }
-  } else {
-    console.log(`   ⚠️  2025-metrics-state.csv not found`);
+    console.log(`   ✓ ${filename}: ${countyCount} counties, ${stateSupplementCount} state supplements`);
+    return { countyData, stateSupplementCount, countyCount };
+  };
+  
+  // Parse 2025 first (current/primary data)
+  const metrics2025 = parseMetricsFile('2025-metrics-state.csv', 2025);
+  
+  // Parse 2024 (historical)
+  const metrics2024 = parseMetricsFile('2024-metrics-state.csv', 2024);
+  
+  // Use 2025 as the current county data
+  result.counties = metrics2025.countyData;
+  
+  // If no 2025 data, fall back to 2024
+  if (Object.keys(result.counties).length === 0) {
+    result.counties = metrics2024.countyData;
+  }
+  
+  // Store county historical data
+  // Structure: historicalData[year].counties[countyKey] = { metrics }
+  if (Object.keys(metrics2024.countyData).length > 0) {
+    result.historicalData['2024'] = result.historicalData['2024'] || { national: {}, states: {}, counties: {} };
+    result.historicalData['2024'].counties = metrics2024.countyData;
+  }
+  
+  if (Object.keys(metrics2025.countyData).length > 0) {
+    result.historicalData['2025'] = result.historicalData['2025'] || { national: {}, states: {}, counties: {} };
+    result.historicalData['2025'].counties = metrics2025.countyData;
+  }
+  
+  console.log(`   ✓ Total counties loaded: ${Object.keys(result.counties).length}`);
+  console.log(`   ✓ County historical years: ${[metrics2024.countyCount > 0 ? '2024' : null, metrics2025.countyCount > 0 ? '2025' : null].filter(Boolean).join(', ') || 'none'}`);
+  
+  // Calculate national church totals from counties
+  const totalChurches = safeSum(Object.values(result.counties).map(c => c.totalChurches));
+  if (totalChurches) {
+    result.national.totalChurches = totalChurches;
+    result.national.churchesWithMinistry = Math.round(totalChurches * 0.08);
   }
 
   // ============================================

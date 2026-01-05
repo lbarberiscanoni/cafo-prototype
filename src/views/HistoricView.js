@@ -8,14 +8,25 @@ import BiologicalFamilyIcon from "../assets/BiologicalFamily_icon.png";
 import WrapAroundIcon from "../assets/WrapAround_icon.png";
 import MTELogo from "../assets/MTE_Logo.png";
 
-// Get years array from historical data
+// Get years array from historical data based on region level
 // parse-data.js format: { "2021": {...}, "2022": {...}, "2023": {...} }
+// AFCARS has 2021-2023 for states/national
+// Metrics files have 2024-2025 for counties
 const getYearsForRegion = (regionLevel, regionId) => {
   if (!historicalData) return [];
-  // Extract years from object keys and sort them
+  
+  // For county level, only 2024-2025 have data
+  if (regionLevel === 'county') {
+    const countyYears = [];
+    if (historicalData['2024']?.counties?.[regionId]) countyYears.push(2024);
+    if (historicalData['2025']?.counties?.[regionId]) countyYears.push(2025);
+    return countyYears;
+  }
+  
+  // For state/national, use AFCARS years (2021-2023)
   const years = Object.keys(historicalData)
     .map(y => parseInt(y))
-    .filter(y => !isNaN(y))
+    .filter(y => !isNaN(y) && y >= 2021 && y <= 2023) // Only AFCARS years for state/national
     .sort((a, b) => a - b);
   return years;
 };
@@ -37,6 +48,31 @@ const getMetricArray = (stateKey, metricName, years) => {
       'childrenAdopted': 'childrenAdopted',
       'reunificationRate': 'reunificationRate',
       'familyPreservation': 'familyPreservationCases'
+    };
+    
+    const fieldName = fieldMap[metricName] || metricName;
+    return yearData[fieldName] ?? null;
+  });
+};
+
+// Helper to get metric value for a county across years
+const getCountyMetricArray = (countyKey, metricName, years) => {
+  return years.map(year => {
+    const yearData = historicalData[year]?.counties?.[countyKey];
+    if (!yearData) return null;
+    
+    // Map metric names to actual field names in county data
+    const fieldMap = {
+      'childrenInCare': 'childrenInCare',
+      'childrenInFoster': 'childrenInFamily',
+      'childrenInKinship': 'childrenInKinship',
+      'licensedHomes': 'licensedHomes',
+      'waitingAdoption': 'waitingForAdoption',
+      'childrenAdopted': 'childrenAdopted',
+      'reunificationRate': 'reunificationRate',
+      'familyPreservation': 'familyPreservationCases',
+      'totalChurches': 'totalChurches',
+      'childrenOutOfCounty': 'childrenOutOfCounty'
     };
     
     const fieldName = fieldMap[metricName] || metricName;
@@ -163,6 +199,75 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
     };
   }
   
+  // For county level, use metrics CSV data (2024-2025)
+  if (regionLevel === 'county') {
+    const childrenInCare = getCountyMetricArray(regionId, 'childrenInCare', years);
+    const childrenInFoster = getCountyMetricArray(regionId, 'childrenInFoster', years);
+    const childrenInKinship = getCountyMetricArray(regionId, 'childrenInKinship', years);
+    const licensedHomes = getCountyMetricArray(regionId, 'licensedHomes', years);
+    const waitingAdoption = getCountyMetricArray(regionId, 'waitingAdoption', years);
+    const childrenAdopted = getCountyMetricArray(regionId, 'childrenAdopted', years);
+    const reunificationRate = getCountyMetricArray(regionId, 'reunificationRate', years);
+    const familyPreservation = getCountyMetricArray(regionId, 'familyPreservation', years);
+    const childrenOutOfCounty = getCountyMetricArray(regionId, 'childrenOutOfCounty', years);
+    
+    return {
+      kinship: [
+        childrenInCare.some(v => v !== null) && { 
+          id: 'children_in_care', 
+          label: 'Children in Care', 
+          data: childrenInCare
+        },
+        childrenInFoster.some(v => v !== null) && { 
+          id: 'children_in_foster', 
+          label: 'Children in Foster Care', 
+          data: childrenInFoster
+        },
+        childrenInKinship.some(v => v !== null) && { 
+          id: 'children_in_kinship', 
+          label: 'Children in Kinship Care', 
+          data: childrenInKinship
+        },
+        licensedHomes.some(v => v !== null) && { 
+          id: 'licensed_homes', 
+          label: 'Licensed Homes', 
+          data: licensedHomes
+        },
+        childrenOutOfCounty.some(v => v !== null) && { 
+          id: 'children_out_of_county', 
+          label: 'Children Placed Out-of-County', 
+          data: childrenOutOfCounty
+        }
+      ].filter(Boolean),
+      adoption: [
+        waitingAdoption.some(v => v !== null) && { 
+          id: 'waiting_adoption', 
+          label: 'Waiting for Adoption', 
+          data: waitingAdoption
+        },
+        childrenAdopted.some(v => v !== null) && { 
+          id: 'children_adopted', 
+          label: 'Children Adopted', 
+          data: childrenAdopted
+        }
+      ].filter(Boolean),
+      biological: [
+        reunificationRate.some(v => v !== null) && { 
+          id: 'reunification_rate', 
+          label: 'Reunification Rate (%)', 
+          data: reunificationRate
+        },
+        familyPreservation.some(v => v !== null) && { 
+          id: 'family_preservation', 
+          label: 'Family Preservation Cases', 
+          data: familyPreservation
+        }
+      ].filter(Boolean),
+      wraparound: [],
+      source: `MTE Metrics ${years[0]}-${years[years.length - 1]}`
+    };
+  }
+  
   return {
     kinship: [],
     adoption: [],
@@ -217,6 +322,23 @@ const calculateTrends = (regionLevel, regionId, years) => {
     };
   }
   
+  // For county level
+  if (regionLevel === 'county') {
+    const childrenInCare = getCountyMetricArray(regionId, 'childrenInCare', years);
+    const licensedHomes = getCountyMetricArray(regionId, 'licensedHomes', years);
+    const waitingAdoption = getCountyMetricArray(regionId, 'waitingAdoption', years);
+    const reunificationRate = getCountyMetricArray(regionId, 'reunificationRate', years);
+    const familyPreservation = getCountyMetricArray(regionId, 'familyPreservation', years);
+    
+    return {
+      childrenInCare: calcChange(childrenInCare),
+      licensedHomes: calcChange(licensedHomes),
+      waitingForAdoption: calcChange(waitingAdoption),
+      reunificationRate: calcChange(reunificationRate),
+      familyPreservationCases: calcChange(familyPreservation)
+    };
+  }
+  
   return null;
 };
 
@@ -242,18 +364,29 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     return calculateTrends(regionLevel, regionId, years);
   }, [regionLevel, regionId, years]);
 
-  // Get current state code from regionId
+  // Get current state code from regionId (works for both state and county level)
   const getCurrentStateCode = () => {
-    if (!regionId) return 'AL';
-    const parts = regionId.split('-');
-    return parts[parts.length - 1].toUpperCase();
+    if (!regionId) return 'al';
+    
+    // At county level, regionId is like "los-angeles-ca" - get last part
+    if (regionLevel === 'county') {
+      const parts = regionId.split('-');
+      return parts[parts.length - 1].toLowerCase();
+    }
+    
+    // At state level, regionId is like "california" - get state code from stateData
+    if (regionLevel === 'state' && stateData[regionId]) {
+      return stateData[regionId].code?.toLowerCase() || regionId.slice(0, 2);
+    }
+    
+    return 'al'; // Default fallback
   };
 
   // Get counties for the current state from countyData
   const getCountiesForCurrentState = () => {
-    const stateCode = getCurrentStateCode().toLowerCase();
+    const stateCode = getCurrentStateCode(); // Already lowercase
     
-    // Filter counties from mock-data that match the current state
+    // Filter counties that match the current state
     const countiesInState = Object.entries(countyData)
       .filter(([countyId, data]) => {
         // County IDs are formatted as "countyname-statecode"
@@ -521,13 +654,65 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         </div>
       )}
 
+      {/* Region Navigation - County level */}
+      {regionLevel === 'county' && (
+        <div className="bg-mte-blue-20 py-3 mb-4 md:mb-6">
+          <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4">
+            {/* Back to State button */}
+            <button
+              onClick={() => {
+                const countyInfo = countyData[regionId];
+                if (countyInfo) {
+                  // Find the state key from county's state name
+                  const stateEntry = Object.entries(stateData).find(([key, data]) => 
+                    data.name === countyInfo.state
+                  );
+                  if (stateEntry) {
+                    onSelectRegion({ level: 'state', id: stateEntry[0], name: stateEntry[1].name });
+                  }
+                }
+              }}
+              className="text-sm font-lato text-mte-blue hover:underline"
+            >
+              ← Back to State
+            </button>
+
+            {/* County Dropdown */}
+            <div className="flex items-center gap-2">
+              <label className="text-sm font-lato text-mte-charcoal">County:</label>
+              <select 
+                className="bg-white border border-mte-light-grey rounded px-3 py-1 text-sm font-lato text-mte-charcoal"
+                value={regionId || ''}
+                onChange={(e) => {
+                  const countyId = e.target.value;
+                  if (countyId && countyData[countyId]) {
+                    onSelectRegion({ 
+                      level: 'county', 
+                      id: countyId, 
+                      name: countyData[countyId].name 
+                    });
+                  }
+                }}
+              >
+                {getCountiesForCurrentState().map(county => (
+                  <option key={county.id} value={county.id}>{county.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* No Data Message - Only show if we have no years */}
       {years.length === 0 && (
         <div className="max-w-5xl mx-auto px-4 mb-6 md:mb-8">
           <div className="bg-mte-blue-20 rounded-lg p-6 md:p-8 text-center">
             <h3 className="text-xl md:text-2xl font-nexa text-mte-black mb-3">Historical Data Coming Soon</h3>
             <p className="text-sm md:text-base text-mte-charcoal font-lato">
-              Year-over-year trend data is not yet available for this region. Check back soon as we continue to add historical AFCARS data.
+              {regionLevel === 'county' 
+                ? 'Year-over-year trend data for this county is not yet available. County historical data requires both 2024 and 2025 metrics files.'
+                : 'Year-over-year trend data is not yet available for this region. Check back soon as we continue to add historical data.'
+              }
             </p>
           </div>
         </div>

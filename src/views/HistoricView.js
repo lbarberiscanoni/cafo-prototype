@@ -808,9 +808,6 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
           <h3 className="text-2xl md:text-3xl font-nexa mb-3 md:mb-4 text-mte-black text-center">
             Historical Change ({years[0]} to {years[years.length - 1]})
           </h3>
-          <p className="text-xs text-mte-charcoal text-center mb-3">
-            Source: {categoryMetrics.source || 'AFCARS'}
-          </p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 text-sm md:text-base font-lato">
             <div className="text-center">
               <div className={`font-bold text-lg md:text-xl ${hasValue(trends.childrenInCare) ? (trends.childrenInCare < 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>

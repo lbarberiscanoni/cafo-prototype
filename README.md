@@ -1,6 +1,4 @@
 - [ ] Historic View
-    - [ ] Fix historical data display issue for counties (currently not showing data when it should)
-    - [ ] Fix the issue where Lane County (and potentially other counties) historical view doesn't show data
     - [ ] Consider implementing option to download all county data at the state level in one file
 - [ ] data points are not pulling correctly for the heat map… Because the ratio is not a ratio and biological reunification rate is a number and not % [https://cafo-prototype.vercel.app/#/state/alabama/metric](https://cafo-prototype.vercel.app/#/state/alabama/metric). 
 - [ ] Fourth Card

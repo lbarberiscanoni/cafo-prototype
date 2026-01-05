@@ -222,12 +222,9 @@ function App() {
   // Get the view component
   const ViewComponent = VIEW_COMPONENTS[view];
 
-  // Historic view has its own navigation, so don't show TopNav
-  const showTopNav = view !== 'historic';
-
   return (
     <div className="App min-h-screen">
-      {showTopNav && (
+      {(
         <TopNav
           currentRegion={region}
           currentView={view}

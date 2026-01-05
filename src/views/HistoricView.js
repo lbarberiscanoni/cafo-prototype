@@ -476,85 +476,40 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     
     const maxValue = Math.max(...validData);
     const chartHeight = 140;
-    
-    // Generate nice Y-axis ticks
-    const generateTicks = (max) => {
-      if (max <= 0) return [0];
-      // Round up to a nice number
-      const magnitude = Math.pow(10, Math.floor(Math.log10(max)));
-      const normalized = max / magnitude;
-      let niceMax;
-      if (normalized <= 1) niceMax = magnitude;
-      else if (normalized <= 2) niceMax = 2 * magnitude;
-      else if (normalized <= 5) niceMax = 5 * magnitude;
-      else niceMax = 10 * magnitude;
-      
-      // Create 4 ticks (0, 1/3, 2/3, max)
-      return [0, Math.round(niceMax / 3), Math.round(2 * niceMax / 3), niceMax];
-    };
-    
-    const ticks = generateTicks(maxValue);
-    const yMax = ticks[ticks.length - 1];
+    const yMax = maxValue > 0 ? maxValue : 1;
     
     return (
-      <div className="mt-4 flex">
-        {/* Y-axis */}
-        <div className="flex flex-col justify-between pr-2 text-right" style={{ height: `${chartHeight}px` }}>
-          {[...ticks].reverse().map((tick, i) => (
-            <span key={i} className="text-xs text-mte-charcoal font-lato leading-none">
-              {tick >= 1000 ? `${(tick / 1000).toFixed(0)}K` : tick}
-            </span>
-          ))}
+      <div className="mt-4">
+        {/* Bars container */}
+        <div className="flex items-end justify-around gap-4 px-4" style={{ height: `${chartHeight}px` }}>
+          {years.map((year, index) => {
+            const value = data[index];
+            const isNull = value === null;
+            const barHeight = isNull ? 24 : Math.max(24, (value / yMax) * chartHeight);
+            
+            return (
+              <div key={year} className="flex-1 max-w-[80px] flex flex-col items-center">
+                {/* Bar with value inside */}
+                <div 
+                  className={`w-full ${isNull ? 'bg-mte-light-grey' : bgColor} rounded-t flex items-center justify-center transition-all duration-300`}
+                  style={{ height: `${barHeight}px` }}
+                >
+                  <span className="text-white text-sm font-bold font-lato drop-shadow-sm">
+                    {isNull ? 'N/A' : fmt(value)}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
         </div>
         
-        {/* Chart area */}
-        <div className="flex-1">
-          {/* Bars container with grid lines */}
-          <div className="relative border-l border-b border-mte-charcoal/30" style={{ height: `${chartHeight}px` }}>
-            {/* Horizontal grid lines */}
-            {ticks.slice(1).map((tick, i) => (
-              <div 
-                key={i}
-                className="absolute w-full border-t border-mte-charcoal/10"
-                style={{ bottom: `${(tick / yMax) * 100}%` }}
-              />
-            ))}
-            
-            {/* Bars */}
-            <div className="absolute inset-0 flex items-end justify-around gap-2 px-2">
-              {years.map((year, index) => {
-                const value = data[index];
-                const isNull = value === null;
-                const barHeight = isNull ? 8 : Math.max(8, (value / yMax) * chartHeight);
-                
-                return (
-                  <div 
-                    key={year} 
-                    className={`flex-1 max-w-[60px] ${isNull ? 'bg-mte-light-grey' : bgColor} rounded-t transition-all duration-300`}
-                    style={{ height: `${barHeight}px` }}
-                    title={isNull ? 'N/A' : fmt(value)}
-                  />
-                );
-              })}
+        {/* Year labels */}
+        <div className="flex justify-around gap-4 px-4 mt-2">
+          {years.map((year) => (
+            <div key={year} className="flex-1 max-w-[80px] text-center">
+              <div className="text-sm font-semibold text-mte-charcoal font-lato">{year}</div>
             </div>
-          </div>
-          
-          {/* X-axis labels */}
-          <div className="flex justify-around gap-2 px-2 mt-2">
-            {years.map((year, index) => {
-              const value = data[index];
-              const isNull = value === null;
-              
-              return (
-                <div key={year} className="flex-1 max-w-[60px] text-center">
-                  <div className="text-xs font-semibold text-mte-charcoal font-lato">{year}</div>
-                  <div className="text-xs text-mte-charcoal font-lato">
-                    {isNull ? 'N/A' : fmt(value)}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          ))}
         </div>
       </div>
     );

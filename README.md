@@ -1,10 +1,10 @@
 - [ ] Historic View
-    - [ ] Add TopNav 
     - [ ] Adjust the spacing between "State" and "Understand foster care trends" text
     - [ ] Fix historical data display issue for counties (currently not showing data when it should)
     - [ ] Fix the issue where Lane County (and potentially other counties) historical view doesn't show data
     - [ ] Consider implementing option to download all county data at the state level in one file
     - [ ] Remove "Source: AFCARS 2021-2023" from Historical Change
+- [ ] data points are not pulling correctly for the heat map… Because the ratio is not a ratio and biological reunification rate is a number and not % [https://cafo-prototype.vercel.app/#/state/alabama/metric](https://cafo-prototype.vercel.app/#/state/alabama/metric). 
 - [ ] Fourth Card
 - [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
 - [ ] Make connection lines default to "off" on national view

@@ -1,5 +1,4 @@
 - [ ] Historic View
-    - [ ] Adjust the spacing between "State" and "Understand foster care trends" text
     - [ ] Fix historical data display issue for counties (currently not showing data when it should)
     - [ ] Fix the issue where Lane County (and potentially other counties) historical view doesn't show data
     - [ ] Consider implementing option to download all county data at the state level in one file

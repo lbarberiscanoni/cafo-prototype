@@ -1,10 +1,26 @@
-- [ ] Historic View
-    - [ ] Consider implementing option to download all county data at the state level in one file
+- [ ] Impact Areas at the National View seems broken
+    - [ ] Map (activity_recruit_foster_kinship	activity_recruit_adoptive	activity_bio	activity_support) from MTE Master Data to the right impact areas 
+- [ ] Add a Return Home Button at the Top
+- [ ] Nav from National to State should stick with the Org or Metrics view preference as opposed to defaulting to Org View 
+- [ ] Make counties clickable on State Org view 
+- [ ] Bring back Networks under Relationships after Connections Lines
+- [ ] Check on Weld County because it has 5 organizations part of a network in MTE Master Data but we only display 2
+- [ ] Remove blue bar under "historical trends" in Historic View
 - [ ] data points are not pulling correctly for the heat map… Because the ratio is not a ratio and biological reunification rate is a number and not % [https://cafo-prototype.vercel.app/#/state/alabama/metric](https://cafo-prototype.vercel.app/#/state/alabama/metric). 
-- [ ] Fourth Card
-- [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
+    - Under the National Metrics View, the heatmap should not be a percentage but a ratio for that particular Metric
+    - [ ] remove any metric that we don't have data avaiable for 
+    - [ ] Make the gradient more "responsive" to the shape of the data so that the heatmap is more informative by highlighting the differences
 - [ ] Add organization descriptions to the national org view by next week.
     - [ ] Look into using ChatGPT to generate one-liner descriptions for each organization based on their names/websites, probably by writing a script to do it one time
+- [ ] Review the data pipeline
+    - [ ] MTE Metrics State Database = each state page (Alabama, not AL Data), ignore All Data Connect + Metrics Check
+    - [ ] Use all of Sources and Definitions
+    - [ ] MTE Master Data = Master + Network Members + Connections
+    - [ ] AFCARS = everything
+- [ ] Historic View
+    - [ ] Consider implementing option to download all county data at the state level in one file
+- [ ] Fourth Card
+- [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
 - [ ] Set up a periodic (e.g., daily) function to download updated data from Google Sheets and rerun the data pipeline.
 
 [Here are the CAFO Data Sources](https://docs.google.com/document/d/13Bq8yKjXXIynwdoOgY4efEtfI7M72JxQsLBlxl6WTWc/edit?tab=t.0)

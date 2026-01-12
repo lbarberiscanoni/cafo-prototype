@@ -1,4 +1,3 @@
-- [ ] Bring back Networks under Relationships after Connections Lines
 - [ ] Check on Weld County because it has 5 organizations part of a network in MTE Master Data but we only display 2
 - [ ] Remove blue bar under "historical trends" in Historic View
 - [ ] data points are not pulling correctly for the heat map… Because the ratio is not a ratio and biological reunification rate is a number and not % [https://cafo-prototype.vercel.app/#/state/alabama/metric](https://cafo-prototype.vercel.app/#/state/alabama/metric). 

@@ -531,7 +531,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
 
       {/* Region Navigation - Only show at state level */}
       {regionLevel === 'state' && (
-        <div className="bg-mte-blue-20 py-3 mb-4 md:mb-6">
+        <div className="py-3 mb-4 md:mb-6">
           <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4">
             {/* State Dropdown */}
             <div className="flex items-center gap-2">
@@ -580,7 +580,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
 
       {/* Region Navigation - National level */}
       {regionLevel === 'national' && (
-        <div className="bg-mte-blue-20 py-3 mb-4 md:mb-6">
+        <div className="py-3 mb-4 md:mb-6">
           <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-4">
             {/* State Dropdown */}
             <div className="flex items-center gap-2">
@@ -611,7 +611,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
 
       {/* Region Navigation - County level */}
       {regionLevel === 'county' && (
-        <div className="bg-mte-blue-20 py-3 mb-4 md:mb-6">
+        <div className="py-3 mb-4 md:mb-6">
           <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4">
             {/* Back to State button */}
             <button

@@ -1,5 +1,3 @@
-- [ ] Impact Areas at the National View seems broken
-    - [ ] Map (activity_recruit_foster_kinship	activity_recruit_adoptive	activity_bio	activity_support) from MTE Master Data to the right impact areas 
 - [ ] Add a Return Home Button at the Top
 - [ ] Nav from National to State should stick with the Org or Metrics view preference as opposed to defaulting to Org View 
 - [ ] Make counties clickable on State Org view 

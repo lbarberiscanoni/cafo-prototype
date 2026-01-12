@@ -78,6 +78,13 @@ function cleanNumber(str) {
   return isNaN(num) ? null : num;
 }
 
+// Check if a value represents "yes" / "true" / "1"
+function isYes(val) {
+  if (!val) return false;
+  const v = val.toLowerCase().trim();
+  return v === 'yes' || v === 'true' || v === '1';
+}
+
 function stateToKey(stateName) {
   return stateName.toLowerCase().replace(/\s+/g, '-');
 }
@@ -391,6 +398,10 @@ function parseAllData() {
     console.log(`   📋 on_map values found: ${onMapValues.join(', ') || '(empty)'}`);
     console.log(`   📋 use_latlong values found: ${useLatLongValues.join(', ') || '(empty)'}`);
     
+    // Debug: Check activity column values
+    const activityFosterValues = [...new Set(masterRows.map(r => r['activity_recruit_foster_kinship']).filter(v => v))].slice(0, 5);
+    console.log(`   📋 activity_recruit_foster_kinship values: ${activityFosterValues.join(', ') || '(empty)'}`);
+    
     // Count rows with non-empty names
     const rowsWithNames = masterRows.filter(r => r['name'] && r['name'].trim()).length;
     console.log(`   📋 Rows with non-empty name: ${rowsWithNames}`);
@@ -400,8 +411,8 @@ function parseAllData() {
       if (!name) return;
       
       // Skip if it's marked as a network, not an organization
-      const isOrg = row['is_organization']?.toLowerCase() === 'true' || row['is_organization'] === '1';
-      const isNetwork = row['is_network']?.toLowerCase() === 'true' || row['is_network'] === '1';
+      const isOrg = isYes(row['is_organization']);
+      const isNetwork = isYes(row['is_network']);
       // If is_organization column exists and is false, skip
       if (row['is_organization'] !== undefined && !isOrg && !isNetwork) return;
       
@@ -416,6 +427,22 @@ function parseAllData() {
       const hasCoords = lat && lng;
       const onMap = onMapRaw === 'yes' || onMapRaw === 'true' || onMapRaw === '1' || useLatLong || hasCoords;
       
+      // Parse impact areas from activity columns
+      // Values can be: "Yes", "true", "1", or empty/No
+      const areas = [];
+      if (isYes(row['activity_recruit_foster_kinship'])) {
+        areas.push('Foster and Kinship Families');
+      }
+      if (isYes(row['activity_recruit_adoptive'])) {
+        areas.push('Adoptive');
+      }
+      if (isYes(row['activity_bio'])) {
+        areas.push('Biological');
+      }
+      if (isYes(row['activity_support'])) {
+        areas.push('Wraparound');
+      }
+      
       const org = {
         name: name,
         category: cleanString(row['category']) || 'Other',
@@ -425,26 +452,10 @@ function parseAllData() {
         description: cleanString(row['description']) || '',
         onMap: onMap,
         coords: (lat && lng) ? [lat, lng] : null,
-        areas: [],
-        networkMember: row['network_member']?.toLowerCase() === 'true' || row['network_member'] === '1',
+        areas: areas,
+        networkMember: isYes(row['network_member']),
         networkName: cleanString(row['network_name']) || null
       };
-      
-      // Parse impact areas from activity columns
-      const areas = [];
-      if (row['activity_recruit_foster_kinship']?.toLowerCase() === 'true' || row['activity_recruit_foster_kinship'] === '1') {
-        areas.push('Foster and Kinship Families');
-      }
-      if (row['activity_recruit_adoptive']?.toLowerCase() === 'true' || row['activity_recruit_adoptive'] === '1') {
-        areas.push('Adoptive');
-      }
-      if (row['activity_bio']?.toLowerCase() === 'true' || row['activity_bio'] === '1') {
-        areas.push('Biological');
-      }
-      if (row['activity_support']?.toLowerCase() === 'true' || row['activity_support'] === '1') {
-        areas.push('Wraparound');
-      }
-      org.areas = areas;
       
       result.organizations.push(org);
     });
@@ -453,12 +464,18 @@ function parseAllData() {
     const withCoords = result.organizations.filter(o => o.coords).length;
     const withOnMap = result.organizations.filter(o => o.onMap).length;
     const withBoth = result.organizations.filter(o => o.onMap && o.coords).length;
+    const withAreas = result.organizations.filter(o => o.areas && o.areas.length > 0).length;
     console.log(`   ✓ ${withCoords} with coordinates`);
     console.log(`   ✓ ${withOnMap} with onMap=true`);
     console.log(`   ✓ ${withBoth} with both (will show on map)`);
+    console.log(`   ✓ ${withAreas} with impact areas`);
     
-    // Debug: show sample org
+    // Debug: show sample org with areas
     if (result.organizations.length > 0) {
+      const sampleWithAreas = result.organizations.find(o => o.areas && o.areas.length > 0);
+      if (sampleWithAreas) {
+        console.log(`   📋 Sample org with areas: "${sampleWithAreas.name}" -> [${sampleWithAreas.areas.join(', ')}]`);
+      }
       const sample = result.organizations.find(o => o.coords) || result.organizations[0];
       console.log(`   📋 Sample org: state="${sample.state}", onMap=${sample.onMap === true}, coords=${sample.coords ? 'yes' : 'no'}`);
     }

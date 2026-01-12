@@ -279,7 +279,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     setShowConnectionLines(prev => !prev);
   };
 
-  // Handler for when a state marker is clicked - STAY IN ORGANIZATIONAL VIEW
+  // Handler for when a state marker is clicked - preserve current view
   const handleStateMarkerClick = (stateName) => {
     console.log('State marker clicked:', stateName);
     const stateId = stateName.toLowerCase().replace(/\s+/g, '-');
@@ -290,13 +290,13 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         level: 'state', 
         id: stateId,
         name: stateName,
-        code: stateCode,
-        view: 'organizational' // Tell parent to stay in organizational view
+        code: stateCode
+        // No view specified - preserves current view
       });
     }
   };
 
-  // Handler for when a county marker is clicked - STAY IN ORGANIZATIONAL VIEW
+  // Handler for when a county marker is clicked - preserve current view
   const handleCountyMarkerClick = (countyName) => {
     console.log('County marker clicked:', countyName);
     const displayName = getDisplayName();
@@ -307,8 +307,8 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
       onSelectRegion({ 
         level: 'county', 
         id: countyId,
-        name: `${countyName} County, ${displayName}`,
-        view: 'organizational' // Tell parent to stay in organizational view
+        name: `${countyName} County, ${displayName}`
+        // No view specified - preserves current view
       });
     }
   };

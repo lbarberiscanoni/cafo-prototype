@@ -6,7 +6,6 @@ import ChartsIcon from "./assets/Charts.png";
 import ChurchIcon from "./assets/church_icon.png";
 import HistoryIcon from "./assets/HistoryArrow.png";
 import DownloadIcon from "./assets/download_icon.png";
-import MTELogo from "./assets/MTE_Logo.png";
 
 export default function TopNav({ currentView, currentRegion, selectedRegion, onSelectRegion, onSwitchView }) {
   const navButtons = [
@@ -194,9 +193,8 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
       <div className="flex gap-2 overflow-x-auto">
         <button
           onClick={handleReturnHome}
-          className="px-3 py-2 bg-mte-blue text-white border border-mte-blue rounded shadow-mte-card hover:bg-mte-blue-80 text-sm md:text-base font-lato transition-colors whitespace-nowrap flex items-center gap-2"
+          className="px-3 py-2 bg-white text-white border border-mte-blue rounded shadow-mte-card hover:bg-mte-blue-80 text-sm md:text-base font-lato transition-colors whitespace-nowrap flex items-center gap-2"
         >
-          <img src={MTELogo} alt="Home" className="w-4 h-4 md:w-5 md:h-5" style={{ filter: 'brightness(0) invert(1)' }} />
           <span className="hidden sm:inline">Home</span>
         </button>
         <button

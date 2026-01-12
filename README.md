@@ -1,8 +1,4 @@
 - [ ] Check on Weld County because it has 5 organizations part of a network in MTE Master Data but we only display 2
-- [ ] data points are not pulling correctly for the heat map… Because the ratio is not a ratio and biological reunification rate is a number and not % [https://cafo-prototype.vercel.app/#/state/alabama/metric](https://cafo-prototype.vercel.app/#/state/alabama/metric). 
-    - Under the National Metrics View, the heatmap should not be a percentage but a ratio for that particular Metric
-    - [ ] remove any metric that we don't have data avaiable for 
-    - [ ] Make the gradient more "responsive" to the shape of the data so that the heatmap is more informative by highlighting the differences
 - [ ] Add organization descriptions to the national org view by next week.
     - [ ] Look into using ChatGPT to generate one-liner descriptions for each organization based on their names/websites, probably by writing a script to do it one time
 - [ ] Review the data pipeline

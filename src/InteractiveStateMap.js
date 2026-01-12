@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
 import { countyData, fmt } from './real-data.js';
@@ -7,17 +7,15 @@ import { countyData, fmt } from './real-data.js';
 const getCountyDataByState = (stateCode) => {
   const stateCounties = {};
   
-  // Iterate through all counties and filter by state code
   Object.entries(countyData).forEach(([countyId, data]) => {
-    // County IDs are formatted as "countyname-statecode" (e.g., "butler-al")
     const countyStateCode = countyId.split('-').pop()?.toUpperCase();
     
     if (countyStateCode === stateCode) {
-      // Extract county name from the full name (e.g., "Butler County, Alabama" -> "Butler")
       const countyName = data.name.split(' County')[0];
       stateCounties[countyName] = {
         value: data.childrenInCare,
-        fips: countyId
+        fips: countyId,
+        ...data
       };
     }
   });
@@ -25,69 +23,18 @@ const getCountyDataByState = (stateCode) => {
   return stateCounties;
 };
 
-// Color scale - updated to match MTE brand colors
-const getCountyColor = (value) => {
-  if (value === null || value === undefined || !value) return '#f1f1f1'; // MTE Light Grey for no data
-  if (value < 50) return '#dcfce7';
-  if (value < 100) return '#bbf7d0';
-  if (value < 200) return '#86efac';
-  if (value < 500) return '#4ade80';
-  if (value < 1000) return '#22c55e';
-  return '#16a34a';
-};
-
 // State FIPS codes
 const stateFips = {
-  'AL': '01',
-  'AK': '02',
-  'AZ': '04',
-  'AR': '05',
-  'CA': '06',
-  'CO': '08',
-  'CT': '09',
-  'DE': '10',
-  'FL': '12',
-  'GA': '13',
-  'HI': '15',
-  'ID': '16',
-  'IL': '17',
-  'IN': '18',
-  'IA': '19',
-  'KS': '20',
-  'KY': '21',
-  'LA': '22',
-  'ME': '23',
-  'MD': '24',
-  'MA': '25',
-  'MI': '26',
-  'MN': '27',
-  'MS': '28',
-  'MO': '29',
-  'MT': '30',
-  'NE': '31',
-  'NV': '32',
-  'NH': '33',
-  'NJ': '34',
-  'NM': '35',
-  'NY': '36',
-  'NC': '37',
-  'ND': '38',
-  'OH': '39',
-  'OK': '40',
-  'OR': '41',
-  'PA': '42',
-  'RI': '44',
-  'SC': '45',
-  'SD': '46',
-  'TN': '47',
-  'TX': '48',
-  'UT': '49',
-  'VT': '50',
-  'VA': '51',
-  'WA': '53',
-  'WV': '54',
-  'WI': '55',
-  'WY': '56'
+  'AL': '01', 'AK': '02', 'AZ': '04', 'AR': '05', 'CA': '06',
+  'CO': '08', 'CT': '09', 'DE': '10', 'FL': '12', 'GA': '13',
+  'HI': '15', 'ID': '16', 'IL': '17', 'IN': '18', 'IA': '19',
+  'KS': '20', 'KY': '21', 'LA': '22', 'ME': '23', 'MD': '24',
+  'MA': '25', 'MI': '26', 'MN': '27', 'MS': '28', 'MO': '29',
+  'MT': '30', 'NE': '31', 'NV': '32', 'NH': '33', 'NJ': '34',
+  'NM': '35', 'NY': '36', 'NC': '37', 'ND': '38', 'OH': '39',
+  'OK': '40', 'OR': '41', 'PA': '42', 'RI': '44', 'SC': '45',
+  'SD': '46', 'TN': '47', 'TX': '48', 'UT': '49', 'VT': '50',
+  'VA': '51', 'WA': '53', 'WV': '54', 'WI': '55', 'WY': '56'
 };
 
 const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children in Care", onCountyClick }) => {
@@ -96,13 +43,51 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [error, setError] = useState(null);
 
+  // Get county data for this state
+  const stateCountyData = useMemo(() => getCountyDataByState(stateCode), [stateCode]);
+
+  // Calculate dynamic color scale based on actual data distribution (quantiles)
+  const { colorScale, legendBreaks, hasData } = useMemo(() => {
+    const values = Object.values(stateCountyData)
+      .map(d => d?.value)
+      .filter(v => v !== null && v !== undefined && !isNaN(v) && v > 0);
+    
+    if (values.length === 0) {
+      return { colorScale: () => '#f1f1f1', legendBreaks: [], hasData: false };
+    }
+
+    const sortedValues = [...values].sort((a, b) => a - b);
+    const getQuantile = (p) => sortedValues[Math.floor(p * (sortedValues.length - 1))];
+    
+    const breaks = [
+      Math.round(getQuantile(0)),
+      Math.round(getQuantile(0.2)),
+      Math.round(getQuantile(0.4)),
+      Math.round(getQuantile(0.6)),
+      Math.round(getQuantile(0.8)),
+      Math.round(getQuantile(1))
+    ];
+
+    const uniqueBreaks = [...new Set(breaks)].sort((a, b) => a - b);
+    const colors = ['#dcfce7', '#bbf7d0', '#86efac', '#4ade80', '#22c55e', '#16a34a'];
+    
+    const scale = (value) => {
+      if (value === null || value === undefined || isNaN(value) || value === 0) return '#f1f1f1';
+      for (let i = uniqueBreaks.length - 1; i >= 0; i--) {
+        if (value >= uniqueBreaks[i]) return colors[Math.min(i, colors.length - 1)];
+      }
+      return colors[0];
+    };
+
+    return { colorScale: scale, legendBreaks: uniqueBreaks, hasData: true };
+  }, [stateCountyData]);
+
   useEffect(() => {
     const svg = d3.select(mapRef.current);
     svg.selectAll("*").remove();
 
     const width = 1000;
     const height = 700;
-    
     svg.attr("width", width).attr("height", height);
 
     const fips = stateFips[stateCode];
@@ -111,14 +96,8 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
       return;
     }
 
-    // Get county data for this state from the imported data
-    const stateCountyData = getCountyDataByState(stateCode);
-    console.log(`County data for ${stateCode}:`, stateCountyData);
-
-    // Load US counties TopoJSON
     d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json")
       .then(us => {
-        // Filter counties for this state
         const stateCounties = topojson.feature(us, us.objects.counties).features
           .filter(d => d.id.toString().startsWith(fips));
 
@@ -127,16 +106,11 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
           return;
         }
 
-        // Create projection centered on state
         const projection = d3.geoMercator()
-          .fitSize([width, height], {
-            type: "FeatureCollection",
-            features: stateCounties
-          });
+          .fitSize([width, height], { type: "FeatureCollection", features: stateCounties });
 
         const path = d3.geoPath().projection(projection);
 
-        // Draw counties
         svg.selectAll("path")
           .data(stateCounties)
           .enter()
@@ -145,7 +119,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
           .attr("fill", d => {
             const countyName = d.properties.name;
             const data = stateCountyData[countyName];
-            return getCountyColor(data?.value);
+            return colorScale(data?.value);
           })
           .attr("stroke", "#ffffff")
           .attr("stroke-width", 0.5)
@@ -154,10 +128,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
             const countyName = d.properties.name;
             const data = stateCountyData[countyName];
             
-            d3.select(this)
-              .attr("stroke", "#00ADEE")
-              .attr("stroke-width", 2);
-              
+            d3.select(this).attr("stroke", "#00ADEE").attr("stroke-width", 2);
             const [x, y] = d3.pointer(event, svg.node());
             setMousePosition({ x, y });
             setHoveredCounty({
@@ -168,171 +139,62 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
             });
           })
           .on("mouseleave", function() {
-            d3.select(this)
-              .attr("stroke", "#ffffff")
-              .attr("stroke-width", 0.5);
+            d3.select(this).attr("stroke", "#ffffff").attr("stroke-width", 0.5);
             setHoveredCounty(null);
           })
           .on("click", function(event, d) {
             const countyName = d.properties.name;
             const data = stateCountyData[countyName];
             if (onCountyClick && data) {
-              // Create county ID in the format expected by the app
               const countyId = `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
               onCountyClick(countyId, countyName, data);
             }
           });
 
-        // Add drop shadow filters for elevated cards
+        // Drop shadow filter
         const defs = svg.append("defs");
-        
         const dropShadow = defs.append("filter")
           .attr("id", "county-drop-shadow")
-          .attr("x", "-50%")
-          .attr("y", "-50%")
-          .attr("width", "200%")
-          .attr("height", "200%");
+          .attr("x", "-50%").attr("y", "-50%")
+          .attr("width", "200%").attr("height", "200%");
         
-        dropShadow.append("feGaussianBlur")
-          .attr("in", "SourceAlpha")
-          .attr("stdDeviation", 3);
-        
-        dropShadow.append("feOffset")
-          .attr("dx", 0)
-          .attr("dy", 2)
-          .attr("result", "offsetblur");
-        
-        dropShadow.append("feComponentTransfer")
-          .append("feFuncA")
-          .attr("type", "linear")
-          .attr("slope", 0.15);
-        
+        dropShadow.append("feGaussianBlur").attr("in", "SourceAlpha").attr("stdDeviation", 3);
+        dropShadow.append("feOffset").attr("dx", 0).attr("dy", 2).attr("result", "offsetblur");
+        dropShadow.append("feComponentTransfer").append("feFuncA").attr("type", "linear").attr("slope", 0.15);
         const feMerge = dropShadow.append("feMerge");
         feMerge.append("feMergeNode");
         feMerge.append("feMergeNode").attr("in", "SourceGraphic");
 
-        // Hover shadow
-        const dropShadowHover = defs.append("filter")
-          .attr("id", "county-drop-shadow-hover")
-          .attr("x", "-50%")
-          .attr("y", "-50%")
-          .attr("width", "200%")
-          .attr("height", "200%");
-        
-        dropShadowHover.append("feGaussianBlur")
-          .attr("in", "SourceAlpha")
-          .attr("stdDeviation", 5);
-        
-        dropShadowHover.append("feOffset")
-          .attr("dx", 0)
-          .attr("dy", 4)
-          .attr("result", "offsetblur");
-        
-        dropShadowHover.append("feComponentTransfer")
-          .append("feFuncA")
-          .attr("type", "linear")
-          .attr("slope", 0.2);
-        
-        const feMergeHover = dropShadowHover.append("feMerge");
-        feMergeHover.append("feMergeNode");
-        feMergeHover.append("feMergeNode").attr("in", "SourceGraphic");
-
-        // Responsive sizing based on screen width
+        // Responsive sizing
         const isMobile = window.innerWidth < 768;
         const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-        
-        // Define responsive parameters for county labels
+
         const getResponsiveParams = (countyName) => {
-          const nameLength = countyName.length;
-          
-          if (isMobile) {
-            return {
-              fontSize: nameLength > 12 ? '7px' : nameLength > 8 ? '8px' : '9px',
-              yOffset: -11,
-              yOffsetHover: -13,
-              borderHeight: 2
-            };
-          } else if (isTablet) {
-            return {
-              fontSize: nameLength > 12 ? '8px' : nameLength > 8 ? '9px' : '10px',
-              yOffset: -12,
-              yOffsetHover: -14,
-              borderHeight: 2.5
-            };
-          } else {
-            return {
-              fontSize: nameLength > 12 ? '9px' : nameLength > 8 ? '10px' : '11px',
-              yOffset: -12,
-              yOffsetHover: -14,
-              borderHeight: 3
-            };
-          }
+          const textLength = countyName.length;
+          if (isMobile) return { fontSize: textLength > 12 ? '8px' : '9px', yOffset: -12, borderHeight: 2 };
+          if (isTablet) return { fontSize: textLength > 12 ? '9px' : '10px', yOffset: -14, borderHeight: 2 };
+          return { fontSize: textLength > 12 ? '10px' : '11px', yOffset: -16, borderHeight: 3 };
         };
 
-        // Add elevated card labels for counties - ONLY FOR COUNTIES WITH DATA
-        const labelGroups = svg.selectAll("g.county-label-card")
-          .data(stateCounties.filter(d => {
-            const countyName = d.properties.name;
-            return stateCountyData[countyName]; // Only include if county has data
-          }))
+        // County labels
+        const labelGroups = svg.selectAll("g.county-label")
+          .data(stateCounties.filter(d => stateCountyData[d.properties.name]?.value))
           .enter()
           .append("g")
-          .attr("class", "county-label-card")
-          .attr("transform", d => {
-            const centroid = path.centroid(d);
-            return `translate(${centroid[0]}, ${centroid[1]})`;
-          })
-          .style("cursor", "pointer")
+          .attr("class", "county-label")
+          .attr("transform", d => `translate(${path.centroid(d)[0]}, ${path.centroid(d)[1]})`)
           .attr("filter", "url(#county-drop-shadow)")
+          .style("cursor", "pointer")
           .on("mouseenter", function(event, d) {
-            const centroid = path.centroid(d);
-            
-            d3.select(this)
-              .attr("filter", "url(#county-drop-shadow-hover)")
-              .transition()
-              .duration(150)
-              .attr("transform", `translate(${centroid[0]}, ${centroid[1]}) scale(1.08)`);
-            
-            d3.select(this)
-              .select("rect.card-bg")
-              .transition()
-              .duration(150)
-              .attr("fill-opacity", 1);
-            
-            d3.select(this)
-              .select("rect.card-border")
-              .transition()
-              .duration(150)
-              .attr("height", d => {
-                const countyName = d.properties.name;
-                const params = getResponsiveParams(countyName);
-                return params.borderHeight * 2;
-              });
+            d3.select(this).transition().duration(150)
+              .attr("transform", `translate(${path.centroid(d)[0]}, ${path.centroid(d)[1]}) scale(1.05)`);
+            d3.select(this).select("rect.card-bg").transition().duration(150).attr("fill-opacity", 1);
           })
           .on("mouseleave", function(event, d) {
             const centroid = path.centroid(d);
-            
-            d3.select(this)
-              .attr("filter", "url(#county-drop-shadow)")
-              .transition()
-              .duration(150)
+            d3.select(this).transition().duration(150)
               .attr("transform", `translate(${centroid[0]}, ${centroid[1]}) scale(1)`);
-            
-            d3.select(this)
-              .select("rect.card-bg")
-              .transition()
-              .duration(150)
-              .attr("fill-opacity", 0.95);
-            
-            d3.select(this)
-              .select("rect.card-border")
-              .transition()
-              .duration(150)
-              .attr("height", d => {
-                const countyName = d.properties.name;
-                const params = getResponsiveParams(countyName);
-                return params.borderHeight;
-              });
+            d3.select(this).select("rect.card-bg").transition().duration(150).attr("fill-opacity", 0.95);
           })
           .on("click", function(event, d) {
             const countyName = d.properties.name;
@@ -343,88 +205,60 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
             }
           });
 
-        // Card background rectangle - WHITE with high opacity
+        // Card background
         labelGroups.append("rect")
           .attr("class", "card-bg")
           .attr("x", d => {
-            const countyName = d.properties.name;
-            const textLength = countyName.length;
+            const textLength = d.properties.name.length;
             const baseWidth = isMobile ? 5 : isTablet ? 5.5 : 6;
-            const totalWidth = textLength * baseWidth + (isMobile ? 10 : isTablet ? 12 : 16);
-            return -totalWidth / 2;
+            return -(textLength * baseWidth + (isMobile ? 10 : isTablet ? 12 : 16)) / 2;
           })
-          .attr("y", d => {
-            const countyName = d.properties.name;
-            const params = getResponsiveParams(countyName);
-            return params.yOffset;
-          })
+          .attr("y", d => getResponsiveParams(d.properties.name).yOffset)
           .attr("width", d => {
-            const countyName = d.properties.name;
-            const textLength = countyName.length;
+            const textLength = d.properties.name.length;
             const baseWidth = isMobile ? 5 : isTablet ? 5.5 : 6;
             return textLength * baseWidth + (isMobile ? 10 : isTablet ? 12 : 16);
           })
           .attr("height", isMobile ? 18 : isTablet ? 20 : 22)
-          .attr("rx", 6)
-          .attr("ry", 6)
-          .attr("fill", "#ffffff")
-          .attr("fill-opacity", 0.95);
+          .attr("rx", 6).attr("ry", 6)
+          .attr("fill", "#ffffff").attr("fill-opacity", 0.95);
 
-        // Blue bottom border accent
+        // Blue bottom border
         labelGroups.append("rect")
           .attr("class", "card-border")
           .attr("x", d => {
-            const countyName = d.properties.name;
-            const textLength = countyName.length;
+            const textLength = d.properties.name.length;
             const baseWidth = isMobile ? 5 : isTablet ? 5.5 : 6;
-            const totalWidth = textLength * baseWidth + (isMobile ? 10 : isTablet ? 12 : 16);
-            return -totalWidth / 2;
+            return -(textLength * baseWidth + (isMobile ? 10 : isTablet ? 12 : 16)) / 2;
           })
           .attr("y", d => {
-            const countyName = d.properties.name;
-            const params = getResponsiveParams(countyName);
+            const params = getResponsiveParams(d.properties.name);
             const cardHeight = isMobile ? 18 : isTablet ? 20 : 22;
             return params.yOffset + cardHeight - params.borderHeight;
           })
           .attr("width", d => {
-            const countyName = d.properties.name;
-            const textLength = countyName.length;
+            const textLength = d.properties.name.length;
             const baseWidth = isMobile ? 5 : isTablet ? 5.5 : 6;
             return textLength * baseWidth + (isMobile ? 10 : isTablet ? 12 : 16);
           })
-          .attr("height", d => {
-            const countyName = d.properties.name;
-            const params = getResponsiveParams(countyName);
-            return params.borderHeight;
-          })
-          .attr("rx", 0)
-          .attr("ry", 0)
-          .attr("fill", "#02ADEE")
-          .attr("opacity", 1);
+          .attr("height", d => getResponsiveParams(d.properties.name).borderHeight)
+          .attr("fill", "#02ADEE");
 
         // County name text
         labelGroups.append("text")
-          .attr("class", "card-text")
           .attr("x", 0)
           .attr("y", d => {
-            const countyName = d.properties.name;
-            const params = getResponsiveParams(countyName);
+            const params = getResponsiveParams(d.properties.name);
             const cardHeight = isMobile ? 18 : isTablet ? 20 : 22;
-            // Center text vertically, accounting for border at bottom
             return params.yOffset + ((cardHeight - params.borderHeight) / 2);
           })
           .attr("text-anchor", "middle")
           .attr("dominant-baseline", "middle")
           .attr("font-family", "'Lato', sans-serif")
-          .attr("font-size", d => {
-            const countyName = d.properties.name;
-            const params = getResponsiveParams(countyName);
-            return params.fontSize;
-          })
+          .attr("font-size", d => getResponsiveParams(d.properties.name).fontSize)
           .attr("font-weight", "600")
           .attr("fill", "#5c5d5f")
           .attr("pointer-events", "none")
-          .style("user-select", "none")
           .text(d => d.properties.name);
 
         setError(null);
@@ -434,7 +268,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
         setError(`Error loading map: ${err.message}`);
       });
 
-  }, [stateCode, stateName, selectedMetric, onCountyClick]);
+  }, [stateCode, stateName, selectedMetric, onCountyClick, colorScale, stateCountyData]);
 
   if (error) {
     return (
@@ -466,37 +300,47 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
         </div>
       </div>
 
-      {/* Map Legend */}
+      {/* Map Legend - Dynamic based on actual data quantiles */}
       <div className="absolute bottom-4 right-4 bg-white p-3 rounded shadow-lg z-10">
         <div className="text-sm font-semibold mb-2 font-lato text-mte-black">
           {selectedMetric}
         </div>
         <div className="text-xs text-mte-charcoal mb-2 font-lato">{stateName} Counties</div>
         <div className="space-y-1 text-xs font-lato">
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#16a34a'}}></div>
-            <span className="text-mte-charcoal">1000+</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#22c55e'}}></div>
-            <span className="text-mte-charcoal">500-1000</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#4ade80'}}></div>
-            <span className="text-mte-charcoal">200-500</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#86efac'}}></div>
-            <span className="text-mte-charcoal">100-200</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#bbf7d0'}}></div>
-            <span className="text-mte-charcoal">50-100</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#dcfce7'}}></div>
-            <span className="text-mte-charcoal">&lt;50</span>
-          </div>
+          {hasData && legendBreaks.length > 1 ? (
+            <>
+              {legendBreaks.length >= 5 && (
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-3" style={{backgroundColor: '#16a34a'}}></div>
+                  <span className="text-mte-charcoal">{fmt(legendBreaks[4])}+</span>
+                </div>
+              )}
+              {legendBreaks.length >= 4 && (
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-3" style={{backgroundColor: '#22c55e'}}></div>
+                  <span className="text-mte-charcoal">{fmt(legendBreaks[3])} – {fmt(legendBreaks[Math.min(4, legendBreaks.length - 1)])}</span>
+                </div>
+              )}
+              {legendBreaks.length >= 3 && (
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-3" style={{backgroundColor: '#4ade80'}}></div>
+                  <span className="text-mte-charcoal">{fmt(legendBreaks[2])} – {fmt(legendBreaks[Math.min(3, legendBreaks.length - 1)])}</span>
+                </div>
+              )}
+              {legendBreaks.length >= 2 && (
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-3" style={{backgroundColor: '#86efac'}}></div>
+                  <span className="text-mte-charcoal">{fmt(legendBreaks[1])} – {fmt(legendBreaks[Math.min(2, legendBreaks.length - 1)])}</span>
+                </div>
+              )}
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-3" style={{backgroundColor: '#bbf7d0'}}></div>
+                <span className="text-mte-charcoal">&lt; {fmt(legendBreaks[1])}</span>
+              </div>
+            </>
+          ) : (
+            <div className="text-mte-charcoal">Limited data</div>
+          )}
           <div className="flex items-center gap-2">
             <div className="w-4 h-3" style={{backgroundColor: '#f1f1f1'}}></div>
             <span className="text-mte-charcoal">No Data</span>
@@ -513,10 +357,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
       {hoveredCounty && (
         <div 
           className="absolute z-20 bg-mte-charcoal text-white p-3 rounded shadow-lg pointer-events-none transform -translate-x-1/2 -translate-y-full font-lato"
-          style={{
-            left: mousePosition.x,
-            top: mousePosition.y - 10
-          }}
+          style={{ left: mousePosition.x, top: mousePosition.y - 10 }}
         >
           <div className="font-semibold">{hoveredCounty.name} County</div>
           {hoveredCounty.hasData ? (

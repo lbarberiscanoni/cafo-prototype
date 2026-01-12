@@ -1,21 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
-import { getStateMapData, fmt } from './real-data.js';
-
-// Get state data from mock-data
-const stateData = getStateMapData();
-
-// Color scale
-const getStateColor = (value) => {
-  if (value === null || value === undefined || !value) return '#f1f1f1'; // MTE Light Grey
-  if (value < 200) return '#dcfce7';
-  if (value < 500) return '#bbf7d0';
-  if (value < 1000) return '#86efac';
-  if (value < 1500) return '#4ade80';
-  if (value < 2000) return '#22c55e';
-  return '#16a34a';
-};
+import { stateData, fmt, fmtPct, stateNameToCode } from './real-data.js';
 
 // State name to abbreviation mapping
 const stateNameToAbbreviation = {
@@ -31,17 +17,179 @@ const stateNameToAbbreviation = {
   'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY'
 };
 
-const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStateClick }) => {
+// State name to key mapping (for looking up in stateData)
+const stateNameToKey = {
+  'Alabama': 'alabama', 'Alaska': 'alaska', 'Arizona': 'arizona', 'Arkansas': 'arkansas',
+  'California': 'california', 'Colorado': 'colorado', 'Connecticut': 'connecticut',
+  'Delaware': 'delaware', 'Florida': 'florida', 'Georgia': 'georgia', 'Hawaii': 'hawaii',
+  'Idaho': 'idaho', 'Illinois': 'illinois', 'Indiana': 'indiana', 'Iowa': 'iowa',
+  'Kansas': 'kansas', 'Kentucky': 'kentucky', 'Louisiana': 'louisiana', 'Maine': 'maine',
+  'Maryland': 'maryland', 'Massachusetts': 'massachusetts', 'Michigan': 'michigan',
+  'Minnesota': 'minnesota', 'Mississippi': 'mississippi', 'Missouri': 'missouri',
+  'Montana': 'montana', 'Nebraska': 'nebraska', 'Nevada': 'nevada', 'New Hampshire': 'new-hampshire',
+  'New Jersey': 'new-jersey', 'New Mexico': 'new-mexico', 'New York': 'new-york',
+  'North Carolina': 'north-carolina', 'North Dakota': 'north-dakota', 'Ohio': 'ohio',
+  'Oklahoma': 'oklahoma', 'Oregon': 'oregon', 'Pennsylvania': 'pennsylvania',
+  'Rhode Island': 'rhode-island', 'South Carolina': 'south-carolina', 'South Dakota': 'south-dakota',
+  'Tennessee': 'tennessee', 'Texas': 'texas', 'Utah': 'utah', 'Vermont': 'vermont',
+  'Virginia': 'virginia', 'Washington': 'washington', 'West Virginia': 'west-virginia',
+  'Wisconsin': 'wisconsin', 'Wyoming': 'wyoming'
+};
+
+// Metric configuration: maps metric names to data fields and formatting
+// Field names match real-data.js: totalChildren, licensedHomes, waitingForAdoption, reunificationRate, familyPreservationCases
+const METRIC_CONFIG = {
+  "Ratio of Licensed Homes to Children in Care": {
+    isRatio: true,
+    isPercent: false,
+    format: (v) => v !== null && v !== undefined ? v.toFixed(2) : 'N/A',
+    legendFormat: (v) => v !== null && v !== undefined ? v.toFixed(2) : 'N/A',
+    getFromState: (state) => {
+      if (!state) return null;
+      // Calculate from licensedHomes / totalChildren
+      if (state.licensedHomes != null && state.totalChildren != null && state.totalChildren > 0) {
+        return state.licensedHomes / state.totalChildren;
+      }
+      return null;
+    }
+  },
+  "Count of Children Waiting For Adoption": {
+    isRatio: false,
+    isPercent: false,
+    format: fmt,
+    legendFormat: fmt,
+    getFromState: (state) => state?.waitingForAdoption ?? null
+  },
+  "Count of Family Preservation Cases": {
+    isRatio: false,
+    isPercent: false,
+    format: fmt,
+    legendFormat: fmt,
+    getFromState: (state) => state?.familyPreservationCases ?? null
+  },
+  "Biological Family Reunification Rate": {
+    isRatio: false,
+    isPercent: true,
+    // reunificationRate is stored as a number like 47 (meaning 47%)
+    format: (v) => v !== null && v !== undefined ? `${v}%` : 'N/A',
+    legendFormat: (v) => v !== null && v !== undefined ? `${v}%` : 'N/A',
+    getFromState: (state) => state?.reunificationRate ?? null
+  }
+};
+
+// Get available metrics (ones that have data for at least some states)
+const getAvailableMetrics = () => {
+  const available = [];
+  
+  for (const [metricName, config] of Object.entries(METRIC_CONFIG)) {
+    // Check if at least one state has data for this metric
+    const hasData = Object.values(stateData).some(state => {
+      const value = config.getFromState(state);
+      return value !== null && value !== undefined && !isNaN(value);
+    });
+    
+    if (hasData) {
+      available.push(metricName);
+    }
+  }
+  
+  return available;
+};
+
+const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adoption", onStateClick }) => {
   const mapRef = useRef();
   const containerRef = useRef();
   const [hoveredState, setHoveredState] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
+  // Get metric configuration, fallback to a default if metric not found
+  const metricConfig = METRIC_CONFIG[selectedMetric] || METRIC_CONFIG["Count of Children Waiting For Adoption"];
+
+  // Build map data based on selected metric
+  const mapData = useMemo(() => {
+    const data = {};
+    
+    Object.entries(stateNameToKey).forEach(([fullName, key]) => {
+      const state = stateData[key];
+      if (state) {
+        const value = metricConfig.getFromState(state);
+        data[fullName] = {
+          value: value,
+          code: stateNameToAbbreviation[fullName],
+          name: fullName,
+          ...state // Include all state data for click handler
+        };
+      }
+    });
+    
+    return data;
+  }, [selectedMetric, metricConfig]);
+
+  // Calculate dynamic color scale based on actual data distribution (quantiles)
+  const { colorScale, legendBreaks, hasData } = useMemo(() => {
+    const values = Object.values(mapData)
+      .map(d => d?.value)
+      .filter(v => v !== null && v !== undefined && !isNaN(v));
+    
+    if (values.length === 0) {
+      return {
+        colorScale: () => '#f1f1f1',
+        legendBreaks: [],
+        hasData: false
+      };
+    }
+
+    // Sort values for quantile calculation
+    const sortedValues = [...values].sort((a, b) => a - b);
+    const getQuantile = (p) => sortedValues[Math.floor(p * (sortedValues.length - 1))];
+    
+    // For ratios, keep decimal precision; for counts/percents, round
+    const roundValue = (v) => {
+      if (metricConfig.isRatio) {
+        return Math.round(v * 100) / 100; // 2 decimal places for ratios
+      }
+      return Math.round(v);
+    };
+    
+    // Create quantile breaks (0%, 20%, 40%, 60%, 80%, 100%)
+    const breaks = [
+      roundValue(getQuantile(0)),
+      roundValue(getQuantile(0.2)),
+      roundValue(getQuantile(0.4)),
+      roundValue(getQuantile(0.6)),
+      roundValue(getQuantile(0.8)),
+      roundValue(getQuantile(1))
+    ];
+
+    // Remove duplicate breaks (can happen with small datasets or clustered data)
+    const uniqueBreaks = [...new Set(breaks)].sort((a, b) => a - b);
+    
+    // Green color palette (light to dark)
+    const colors = ['#dcfce7', '#bbf7d0', '#86efac', '#4ade80', '#22c55e', '#16a34a'];
+    
+    const scale = (value) => {
+      if (value === null || value === undefined || isNaN(value)) return '#f1f1f1';
+      
+      // Find which bucket this value falls into
+      for (let i = uniqueBreaks.length - 1; i >= 0; i--) {
+        if (value >= uniqueBreaks[i]) {
+          return colors[Math.min(i, colors.length - 1)];
+        }
+      }
+      return colors[0];
+    };
+
+    return {
+      colorScale: scale,
+      legendBreaks: uniqueBreaks,
+      hasData: true
+    };
+  }, [mapData, metricConfig]);
+
   useEffect(() => {
     const svg = d3.select(mapRef.current);
-    svg.selectAll("*").remove(); // Clear previous render
+    svg.selectAll("*").remove();
 
-    // Responsive dimensions - wider aspect ratio to fit full US
     const width = 975;
     const height = 610;
     
@@ -51,14 +199,12 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
       .style("width", "100%")
       .style("height", "auto");
 
-    // US AlbersUSA projection - adjusted scale and translate for full visibility
     const projection = d3.geoAlbersUsa()
       .scale(1250)
       .translate([width / 2, height / 2]);
 
     const path = d3.geoPath().projection(projection);
 
-    // Load both world data (for Canada/Mexico) and US states data
     Promise.all([
       d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
       d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json")
@@ -68,20 +214,17 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
 
       // Draw Canada and Mexico first (background layer)
       svg.selectAll("path.neighbor-country")
-        .data(countries.features.filter(d => {
-          // Filter for Canada (124) and Mexico (484)
-          return d.id === "124" || d.id === "484";
-        }))
+        .data(countries.features.filter(d => d.id === "124" || d.id === "484"))
         .enter()
         .append("path")
         .attr("class", "neighbor-country")
         .attr("d", path)
-        .attr("fill", "#f5f5f5") // Very light gray
-        .attr("stroke", "#d4d4d4") // Light gray border
+        .attr("fill", "#f5f5f5")
+        .attr("stroke", "#d4d4d4")
         .attr("stroke-width", 1)
-        .style("pointer-events", "none"); // Not clickable
+        .style("pointer-events", "none");
 
-      // Draw US state paths on top
+      // Draw US state paths
       svg.selectAll("path.us-state")
         .data(states.features)
         .enter()
@@ -90,29 +233,27 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
         .attr("d", path)
         .attr("fill", d => {
           const stateName = d.properties.name;
-          const data = stateData[stateName];
-          return getStateColor(data?.value);
+          const data = mapData[stateName];
+          return colorScale(data?.value);
         })
         .attr("stroke", "#ffffff")
         .attr("stroke-width", 0.5)
         .style("cursor", "pointer")
         .on("mouseenter", function(event, d) {
           const stateName = d.properties.name;
-          const data = stateData[stateName];
+          const data = mapData[stateName];
           
-          if (data) {
-            d3.select(this)
-              .attr("stroke", "#00ADEE") // MTE Blue
-              .attr("stroke-width", 2);
-              
-            const [x, y] = d3.pointer(event, svg.node());
-            setMousePosition({ x, y });
-            setHoveredState({
-              name: stateName.toUpperCase(),
-              value: data.value,
-              code: data.code
-            });
-          }
+          d3.select(this)
+            .attr("stroke", "#00ADEE")
+            .attr("stroke-width", 2);
+            
+          const [x, y] = d3.pointer(event, svg.node());
+          setMousePosition({ x, y });
+          setHoveredState({
+            name: stateName.toUpperCase(),
+            value: data?.value,
+            code: data?.code
+          });
         })
         .on("mouseleave", function() {
           d3.select(this)
@@ -122,29 +263,23 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
         })
         .on("click", function(event, d) {
           const stateName = d.properties.name;
-          const data = stateData[stateName];
+          const data = mapData[stateName];
           if (data && onStateClick) {
-            // Pass state code, name, and data to parent
             onStateClick(data.code, stateName, data);
           }
         });
 
-      // Responsive sizing based on screen width
+      // Responsive sizing
       const isMobile = window.innerWidth < 768;
       const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
       
-      // Define responsive font sizes
       const getFontSize = (isSmallState) => {
-        if (isMobile) {
-          return isSmallState ? '8px' : '9px';
-        } else if (isTablet) {
-          return isSmallState ? '10px' : '11px';
-        } else {
-          return isSmallState ? '11px' : '12px';
-        }
+        if (isMobile) return isSmallState ? '8px' : '9px';
+        if (isTablet) return isSmallState ? '10px' : '11px';
+        return isSmallState ? '11px' : '12px';
       };
 
-      // Add embedded text labels - NO CARDS
+      // Add embedded text labels
       const labelGroups = svg.selectAll("g.state-label-embedded")
         .data(states.features)
         .enter()
@@ -156,7 +291,6 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
         })
         .style("cursor", "pointer")
         .on("mouseenter", function(event, d) {
-          // Change text color to blue and scale up
           d3.select(this)
             .select("text")
             .transition()
@@ -171,7 +305,6 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
             });
         })
         .on("mouseleave", function(event, d) {
-          // Return to original color and size
           d3.select(this)
             .select("text")
             .transition()
@@ -186,13 +319,13 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
         })
         .on("click", function(event, d) {
           const stateName = d.properties.name;
-          const data = stateData[stateName];
+          const data = mapData[stateName];
           if (data && onStateClick) {
             onStateClick(data.code, stateName, data);
           }
         });
 
-      // State abbreviation text - embedded with white shadow
+      // State abbreviation text
       labelGroups.append("text")
         .attr("class", "embedded-label")
         .attr("x", 0)
@@ -220,7 +353,19 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
       console.error("Error loading map data:", error);
     });
 
-  }, [selectedMetric, onStateClick]);
+  }, [selectedMetric, onStateClick, colorScale, mapData]);
+
+  // Format value for display in tooltip
+  const formatDisplayValue = (value) => {
+    if (value === null || value === undefined) return 'N/A';
+    return metricConfig.format(value);
+  };
+
+  // Format legend value
+  const formatLegendValue = (value) => {
+    if (value === null || value === undefined) return 'N/A';
+    return metricConfig.legendFormat(value);
+  };
 
   return (
     <div className="relative" ref={containerRef}>
@@ -240,37 +385,54 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
         </div>
       </div>
 
-      {/* Map Legend */}
+      {/* Map Legend - Dynamic based on actual data quantiles */}
       <div className="absolute bottom-4 right-4 bg-white p-3 rounded shadow-lg z-10">
         <div className="text-sm font-semibold mb-2 font-lato text-mte-black">
           {selectedMetric}
         </div>
-        <div className="text-xs text-mte-charcoal mb-2 font-lato">(per 1000 children in care)</div>
         <div className="space-y-1 text-xs font-lato">
+          {hasData && legendBreaks.length > 1 ? (
+            <>
+              {legendBreaks.length >= 5 && (
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-3" style={{backgroundColor: '#16a34a'}}></div>
+                  <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[4])}+</span>
+                </div>
+              )}
+              {legendBreaks.length >= 4 && (
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-3" style={{backgroundColor: '#22c55e'}}></div>
+                  <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[3])} – {formatLegendValue(legendBreaks[Math.min(4, legendBreaks.length - 1)])}</span>
+                </div>
+              )}
+              {legendBreaks.length >= 3 && (
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-3" style={{backgroundColor: '#4ade80'}}></div>
+                  <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[2])} – {formatLegendValue(legendBreaks[Math.min(3, legendBreaks.length - 1)])}</span>
+                </div>
+              )}
+              {legendBreaks.length >= 2 && (
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-3" style={{backgroundColor: '#86efac'}}></div>
+                  <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[1])} – {formatLegendValue(legendBreaks[Math.min(2, legendBreaks.length - 1)])}</span>
+                </div>
+              )}
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-3" style={{backgroundColor: '#bbf7d0'}}></div>
+                <span className="text-mte-charcoal">&lt; {formatLegendValue(legendBreaks[1])}</span>
+              </div>
+            </>
+          ) : (
+            <div className="text-mte-charcoal">No data available</div>
+          )}
           <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#16a34a'}}></div>
-            <span className="text-mte-charcoal">20-25%</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#22c55e'}}></div>
-            <span className="text-mte-charcoal">15-20%</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#4ade80'}}></div>
-            <span className="text-mte-charcoal">10-15%</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#86efac'}}></div>
-            <span className="text-mte-charcoal">5-10%</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#bbf7d0'}}></div>
-            <span className="text-mte-charcoal">&lt;5%</span>
+            <div className="w-4 h-3" style={{backgroundColor: '#f1f1f1'}}></div>
+            <span className="text-mte-charcoal">No Data</span>
           </div>
         </div>
       </div>
 
-      {/* D3 SVG Map - using viewBox for responsiveness */}
+      {/* D3 SVG Map */}
       <div className="w-full overflow-hidden">
         <svg ref={mapRef}></svg>
       </div>
@@ -285,11 +447,13 @@ const InteractiveUSMap = ({ selectedMetric = "Family Preservation Cases", onStat
           }}
         >
           <div className="font-semibold">{hoveredState.name}</div>
-          <div>{fmt(hoveredState.value)} {selectedMetric}</div>
+          <div>{formatDisplayValue(hoveredState.value)}</div>
         </div>
       )}
     </div>
   );
 };
 
+// Export the available metrics helper for use in MetricView
+export { getAvailableMetrics, METRIC_CONFIG };
 export default InteractiveUSMap;

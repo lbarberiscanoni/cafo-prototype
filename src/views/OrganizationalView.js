@@ -423,6 +423,37 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     );
   }, [regionLevel, getDisplayName]);
 
+  // Derive county coordinates from organizations (for state view)
+  const derivedCountyCoords = React.useMemo(() => {
+    if (regionLevel !== 'state') return {};
+    
+    // Group orgs by county
+    const countyGroups = {};
+    stateOrgs.forEach(org => {
+      if (org.county && org.coords) {
+        const countyName = org.county.replace(/\s+County.*$/i, '').trim();
+        if (!countyGroups[countyName]) {
+          countyGroups[countyName] = { coords: [], orgCount: 0 };
+        }
+        countyGroups[countyName].coords.push(org.coords);
+        countyGroups[countyName].orgCount++;
+      }
+    });
+    
+    // Calculate centroid for each county
+    const result = {};
+    Object.entries(countyGroups).forEach(([countyName, data]) => {
+      const avgLat = data.coords.reduce((sum, c) => sum + c[0], 0) / data.coords.length;
+      const avgLng = data.coords.reduce((sum, c) => sum + c[1], 0) / data.coords.length;
+      result[countyName] = {
+        coords: [avgLat, avgLng],
+        orgCount: data.orgCount
+      };
+    });
+    
+    return result;
+  }, [regionLevel, stateOrgs]);
+
   // Get national organizations
   const nationalOrgs = React.useMemo(() => {
     if (regionLevel !== 'national') return [];
@@ -791,51 +822,29 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
               {/* State Level: County Text Labels + Organization Dots + Connection Lines */}
               {showStateMap && (() => {
-                const countyCoords = countyCoordinatesByState[regionId] || {};
-                
-                // Get list of counties that have organizations
-                const countiesWithOrgs = new Set(
-                  stateOrgs
-                    .filter(org => org.county)
-                    .map(org => org.county.toLowerCase().replace(/\s+county.*$/, '').trim())
-                );
+                // Use derived county coordinates from orgs (more reliable than countyCoordinatesByState)
+                const countyCoords = derivedCountyCoords;
                 
                 return (
                   <>
-                    {/* County Labels - show ALL counties regardless of org presence */}
-                    {Object.entries(countyCoords)
-                      .map(([countyName, data]) => {
-                        const hasOrgs = countiesWithOrgs.has(countyName.toLowerCase());
-                        
-                        return (
-                          <Marker 
-                            key={countyName}
-                            position={data.coords}
-                            icon={createCountyTextLabel(countyName)}
-                            eventHandlers={{
-                              click: () => {
-                                if (hasOrgs) {
-                                  // County has orgs - navigate normally
-                                  handleCountyMarkerClick(countyName);
-                                } else {
-                                  // County has no orgs - show CTA
-                                  setSelectedEmptyCounty({
-                                    name: countyName,
-                                    state: getDisplayName()
-                                  });
-                                }
-                              }
-                            }}
-                          >
-                            <Tooltip>
-                              <div className="font-lato text-sm">
-                                <strong>{countyName} County</strong><br/>
-                                {hasOrgs ? `${fmt(data.orgCount)} Organizations` : 'No organizations mapped'}
-                              </div>
-                            </Tooltip>
-                          </Marker>
-                        );
-                      })}
+                    {/* County Labels - derived from org locations, all clickable */}
+                    {Object.entries(countyCoords).map(([countyName, data]) => (
+                      <Marker 
+                        key={countyName}
+                        position={data.coords}
+                        icon={createCountyTextLabel(countyName)}
+                        eventHandlers={{
+                          click: () => handleCountyMarkerClick(countyName)
+                        }}
+                      >
+                        <Tooltip>
+                          <div className="font-lato text-sm">
+                            <strong>{countyName} County</strong><br/>
+                            {fmt(data.orgCount)} Organizations
+                          </div>
+                        </Tooltip>
+                      </Marker>
+                    ))}
 
                     {/* Connection Lines - curved arcs */}
                     {connectionLines.map((connection, index) => (

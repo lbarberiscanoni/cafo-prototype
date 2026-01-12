@@ -1,4 +1,3 @@
-- [ ] Nav from National to State should stick with the Org or Metrics view preference as opposed to defaulting to Org View 
 - [ ] Make counties clickable on State Org view 
 - [ ] Bring back Networks under Relationships after Connections Lines
 - [ ] Check on Weld County because it has 5 organizations part of a network in MTE Master Data but we only display 2

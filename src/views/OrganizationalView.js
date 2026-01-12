@@ -1118,7 +1118,9 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
       {/* Footer */}
       <div className="py-4 text-right pr-6 border-t border-mte-light-grey mt-auto">
-        <img src={MTELogo} alt="More Than Enough" className="h-8 inline-block" />
+        <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer" className="self-center">
+          <img src={MTELogo} alt="More Than Enough" className="h-8 inline-block" /> 
+        </a>
       </div>
     </div>
   );

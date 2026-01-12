@@ -508,7 +508,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
       })()}
 
       <footer className="py-6 pr-6 flex justify-end">
-        <img src={MTELogo} alt="More Than Enough Logo" className="h-8" />
+        <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer" className="self-center">
+          <img src={MTELogo} alt="More Than Enough Logo" className="h-8" /> 
+        </a>
       </footer>
     </div>
   );

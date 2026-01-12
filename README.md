@@ -1,13 +1,11 @@
-- [ ] Optimize SEO so that “foster care data for Jefferson county” shows up the app 
-    - [ ] Programmatic html site generation for SEO 
 - [ ] Review the data pipeline
     - [ ] MTE Metrics State Database = each state page (Alabama, not AL Data), ignore All Data Connect + Metrics Check
     - [ ] Use all of Sources and Definitions
     - [ ] MTE Master Data = Master + Network Members + Connections
     - [ ] AFCARS = everything
 - [ ] Check on Weld County because it has 5 organizations part of a network in MTE Master Data but we only display 2
-- [ ] Add organization descriptions to the national org view by next week.
-    - [ ] Look into using ChatGPT to generate one-liner descriptions for each organization based on their names/websites, probably by writing a script to do it one time
+- [ ] Optimize SEO so that “foster care data for Jefferson county” shows up the app 
+    - [ ] Programmatic html site generation for SEO 
 - [ ] Historic View
     - [ ] Consider implementing option to download all county data at the state level in one file
 - [ ] Fourth Card

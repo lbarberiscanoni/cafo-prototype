@@ -535,6 +535,16 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   const showCountyMap = regionLevel === "county";
   const showSidebar = true;
 
+  // Helper to format website URL for display and linking
+  const getWebsiteUrl = (website) => {
+    if (!website) return null;
+    // Add https:// if no protocol specified
+    if (!website.startsWith('http://') && !website.startsWith('https://')) {
+      return `https://${website}`;
+    }
+    return website;
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
@@ -1051,6 +1061,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     const colors = CATEGORY_COLORS[org.category];
                     const isSelected = selectedOrg === org.name;
                     const cardId = `org-card-${org.name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '')}`;
+                    const websiteUrl = getWebsiteUrl(org.website);
                     return (
                       <div
                         key={org.name}
@@ -1076,7 +1087,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                             🔗 {org.networkName}
                           </div>
                         )}
-                        <p className="text-base text-mte-charcoal mb-2 font-lato">{org.description}</p>
+                        <p className="text-base text-mte-charcoal mb-2 font-lato">{org.description || org.generatedDescription || ''}</p>
                         <div className="text-sm text-mte-charcoal mb-2 font-lato">
                           <strong>Impact Areas:</strong> {org.areas?.join(", ") || 'N/A'}
                         </div>
@@ -1097,9 +1108,24 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                             {org.email && <div className="text-sm text-mte-charcoal font-lato">Email: {org.email}</div>}
                           </>
                         )}
-                        <button className="mt-3 px-3 py-1 text-base bg-mte-blue text-white rounded hover:bg-mte-blue-80 w-full font-lato font-medium transition-colors">
-                          View Full Profile
-                        </button>
+                        {websiteUrl ? (
+                          <a
+                            href={websiteUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="mt-3 px-3 py-1 text-base bg-mte-blue text-white rounded hover:bg-mte-blue-80 w-full font-lato font-medium transition-colors inline-block text-center"
+                          >
+                            View Full Profile
+                          </a>
+                        ) : (
+                          <button 
+                            disabled
+                            className="mt-3 px-3 py-1 text-base bg-mte-light-grey text-mte-charcoal rounded w-full font-lato font-medium cursor-not-allowed"
+                          >
+                            No Website Available
+                          </button>
+                        )}
                       </div>
                     );
                   })}

@@ -450,6 +450,7 @@ function parseAllData() {
         city: cleanString(row['city']),
         county: cleanString(row['county_name']) || cleanString(row['county']),
         description: cleanString(row['description']) || '',
+        website: cleanString(row['website']) || null,
         onMap: onMap,
         coords: (lat && lng) ? [lat, lng] : null,
         areas: areas,
@@ -465,10 +466,12 @@ function parseAllData() {
     const withOnMap = result.organizations.filter(o => o.onMap).length;
     const withBoth = result.organizations.filter(o => o.onMap && o.coords).length;
     const withAreas = result.organizations.filter(o => o.areas && o.areas.length > 0).length;
+    const withWebsite = result.organizations.filter(o => o.website).length;
     console.log(`   ✓ ${withCoords} with coordinates`);
     console.log(`   ✓ ${withOnMap} with onMap=true`);
     console.log(`   ✓ ${withBoth} with both (will show on map)`);
     console.log(`   ✓ ${withAreas} with impact areas`);
+    console.log(`   ✓ ${withWebsite} with website`);
     
     // Debug: show sample org with areas
     if (result.organizations.length > 0) {

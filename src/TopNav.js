@@ -92,6 +92,10 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
     URL.revokeObjectURL(url);
   };
 
+  const handleReturnHome = () => {
+    onSelectRegion({ level: "landing", id: null, name: null });
+  };
+
   const handleNationalView = () => {
     onSelectRegion({ level: "national", id: "usa", name: "United States" });
     onSwitchView("organizational");
@@ -187,8 +191,14 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
 
   return (
     <div className="py-2 md:py-3 px-2 md:px-4 flex flex-col md:flex-row justify-between items-stretch md:items-center gap-3 md:gap-0 relative">
-      {/* Map View Buttons */}
+      {/* Left side: Return Home + Map View Buttons */}
       <div className="flex gap-2 overflow-x-auto">
+        <button
+          onClick={handleReturnHome}
+          className="px-3 py-2 bg-mte-blue text-white border border-mte-blue rounded shadow-mte-card hover:bg-mte-blue-80 text-sm md:text-base font-lato transition-colors whitespace-nowrap flex items-center gap-2"
+        >
+          <span className="hidden sm:inline">Home</span>
+        </button>
         <button
           onClick={handleNationalView}
           className="px-3 py-2 bg-white border border-mte-light-grey rounded shadow-mte-card hover:bg-mte-blue-20 text-sm md:text-base font-lato text-mte-charcoal transition-colors whitespace-nowrap"

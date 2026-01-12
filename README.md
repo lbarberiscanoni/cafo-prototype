@@ -1,4 +1,3 @@
-- [ ] Add a Return Home Button at the Top
 - [ ] Nav from National to State should stick with the Org or Metrics view preference as opposed to defaulting to Org View 
 - [ ] Make counties clickable on State Org view 
 - [ ] Bring back Networks under Relationships after Connections Lines

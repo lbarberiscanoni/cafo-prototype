@@ -195,7 +195,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <h3 className="text-base font-lato font-bold mb-1 text-mte-black">Metrics</h3>
               <p className="text-sm text-mte-charcoal mb-2 font-lato">Filter by metric type to see what is happening across the country</p>
               <div className="relative">
-                <select className="w-full border-2 border-mte-light-grey rounded-lg p-3 text-base font-lato text-mte-charcoal cursor-pointer appearance-none bg-white hover:border-mte-blue focus:border-mte-blue focus:ring-2 focus:ring-mte-blue-20 focus:outline-none transition-colors" value={selectedMetric} onChange={(e) => setSelectedMetric(e.target.value)}>
+                <select className="w-full border-2 border-mte-light-grey rounded-lg p-3 pr-10 text-sm font-lato text-mte-charcoal cursor-pointer appearance-none bg-white hover:border-mte-blue focus:border-mte-blue focus:ring-2 focus:ring-mte-blue-20 focus:outline-none transition-colors" value={selectedMetric} onChange={(e) => setSelectedMetric(e.target.value)}>
                   {availableMetrics.map(metric => (
                     <option key={metric} value={metric}>{metric}</option>
                   ))}
@@ -295,7 +295,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <h3 className="text-base font-lato font-bold mb-1 text-mte-black">Metrics</h3>
               <p className="text-sm text-mte-charcoal mb-2 font-lato">Filter by metric type to see what is happening in {data.name}</p>
               <div className="relative">
-                <select className="w-full border-2 border-mte-light-grey rounded-lg p-3 text-base font-lato text-mte-charcoal cursor-pointer appearance-none bg-white hover:border-mte-blue focus:border-mte-blue focus:ring-2 focus:ring-mte-blue-20 focus:outline-none transition-colors" value={selectedMetric} onChange={(e) => setSelectedMetric(e.target.value)}>
+                <select className="w-full border-2 border-mte-light-grey rounded-lg p-3 pr-10 text-sm font-lato text-mte-charcoal cursor-pointer appearance-none bg-white hover:border-mte-blue focus:border-mte-blue focus:ring-2 focus:ring-mte-blue-20 focus:outline-none transition-colors" value={selectedMetric} onChange={(e) => setSelectedMetric(e.target.value)}>
                   {availableMetrics.map(metric => (
                     <option key={metric} value={metric}>{metric}</option>
                   ))}

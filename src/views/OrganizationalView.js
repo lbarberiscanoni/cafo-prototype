@@ -15,6 +15,40 @@ import AdoptiveFamilyIcon from "../assets/Adoptive_family_icon.png";
 import BiologicalFamilyIcon from "../assets/BiologicalFamily_icon.png";
 import WrapAroundIcon from "../assets/WrapAround_icon.png";
 
+// Helper function to filter out invalid/error descriptions
+const getValidDescription = (org) => {
+  const desc = org.description || org.generatedDescription || '';
+  
+  // Filter out common error messages or AI failure indicators
+  const invalidPhrases = [
+    'could not',
+    'couldn\'t',
+    'unable to',
+    'failed to',
+    'error',
+    'no description',
+    'description not found',
+    'ai could not',
+    'ai couldn\'t',
+    'not available',
+    'n/a'
+  ];
+  
+  const lowerDesc = desc.toLowerCase();
+  
+  // If description contains any invalid phrase, return empty string
+  if (invalidPhrases.some(phrase => lowerDesc.includes(phrase))) {
+    return '';
+  }
+  
+  // If description is too short (likely placeholder), return empty
+  if (desc.trim().length < 10) {
+    return '';
+  }
+  
+  return desc;
+};
+
 // Organization category color mapping - matches actual categories in data
 const CATEGORY_COLORS = {
   "Bridge Ministry": { bg: "bg-mte-yellow-20", text: "text-mte-black", border: "border-mte-yellow", dot: "#e7d151" },
@@ -1062,6 +1096,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     const isSelected = selectedOrg === org.name;
                     const cardId = `org-card-${org.name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '')}`;
                     const websiteUrl = getWebsiteUrl(org.website);
+                    const validDescription = getValidDescription(org);
                     return (
                       <div
                         key={org.name}
@@ -1087,7 +1122,9 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                             🔗 {org.networkName}
                           </div>
                         )}
-                        <p className="text-base text-mte-charcoal mb-2 font-lato">{org.description || org.generatedDescription || ''}</p>
+                        {validDescription && (
+                          <p className="text-base text-mte-charcoal mb-2 font-lato">{validDescription}</p>
+                        )}
                         <div className="text-sm text-mte-charcoal mb-2 font-lato">
                           <strong>Impact Areas:</strong> {org.areas?.join(", ") || 'N/A'}
                         </div>

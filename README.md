@@ -1,4 +1,3 @@
-- [ ] Can we make it so an org that has multipel locations appears only once and update the lcoation field to be locations with mutiple locations 
 - [ ] reunication rate (%) shoudl be a percentage instead of decimal
 - [ ] Review the data pipeline
     - [ ] MTE Metrics State Database = each state page (Alabama, not AL Data), ignore All Data Connect + Metrics Check

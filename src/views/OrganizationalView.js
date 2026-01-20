@@ -23,15 +23,32 @@ const getValidDescription = (org) => {
   const invalidPhrases = [
     'could not',
     'couldn\'t',
+    'cannot',
+    'can\'t',
     'unable to',
     'failed to',
+    'don\'t see',
+    'don\'t have',
+    'doesn\'t contain',
+    'doesn\'t include',
+    'i cannot',
+    'i could not',
+    'i don\'t',
     'error',
     'no description',
     'description not found',
     'ai could not',
     'ai couldn\'t',
+    'ai cannot',
     'not available',
-    'n/a'
+    'n/a',
+    'based on the limited information',
+    'looking at the website content',
+    'without specific details',
+    'would need to include',
+    'appears incomplete',
+    'no clear indication',
+    'no specific information'
   ];
   
   const lowerDesc = desc.toLowerCase();
@@ -47,6 +64,59 @@ const getValidDescription = (org) => {
   }
   
   return desc;
+};
+
+// Helper function to consolidate organizations with multiple locations
+const consolidateOrganizations = (orgs) => {
+  // Group organizations by name
+  const orgsByName = {};
+  
+  orgs.forEach(org => {
+    if (!orgsByName[org.name]) {
+      orgsByName[org.name] = [];
+    }
+    orgsByName[org.name].push(org);
+  });
+  
+  // Consolidate each group
+  const consolidated = Object.values(orgsByName).map(locations => {
+    if (locations.length === 1) {
+      // Single location - return as-is
+      return locations[0];
+    }
+    
+    // Multiple locations - consolidate
+    const primary = locations[0]; // Use first as base
+    
+    // Collect all unique locations
+    const uniqueLocations = [...new Set(
+      locations
+        .map(loc => loc.location || loc.city)
+        .filter(Boolean)
+    )];
+    
+    // Format location field
+    let locationText;
+    if (uniqueLocations.length === 0) {
+      locationText = 'Multiple Locations';
+    } else if (uniqueLocations.length <= 3) {
+      // List them if 3 or fewer
+      locationText = uniqueLocations.join('; ');
+    } else {
+      // Just indicate count if more than 3
+      locationText = `Multiple Locations (${locations.length})`;
+    }
+    
+    return {
+      ...primary,
+      location: locationText,
+      locations: locations, // Store all locations for reference
+      isConsolidated: true,
+      locationCount: locations.length
+    };
+  });
+  
+  return consolidated;
 };
 
 // Organization category color mapping - matches actual categories in data
@@ -71,6 +141,18 @@ const FILTER_GROUPS = {
   "Placement Agency": ["Placement Agency", "Child Placement Agency"],
   "Network": ["Local Network", "State/Regional Network", "Regional Network"],
   "Other": ["Other"],
+};
+
+// Display names for categories (shorter/cleaner versions)
+const CATEGORY_DISPLAY_NAMES = {
+  "Church Foster Care Ministry": "Church Ministry",
+  "Child Placement Agency": "Placement Agency",
+  "State/Regional Network": "Regional Network",
+};
+
+// Get display name for a category
+const getCategoryDisplayName = (category) => {
+  return CATEGORY_DISPLAY_NAMES[category] || category;
 };
 
 // Get filter group for a category
@@ -506,7 +588,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                      nationalOrgs;
 
   // Filter organizations based on selected categories and impact areas
-  // Filter organizations based on selected categories and impact areas
   const filteredOrgs = React.useMemo(() => {
     return currentOrgs.filter(org => {
       const filterGroup = getCategoryFilterGroup(org.category);
@@ -523,6 +604,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
       return categoryMatch && impactAreaMatch;
     });
   }, [currentOrgs, selectedCategories, selectedImpactAreas]);
+
+  // Consolidate organizations with multiple locations for card display
+  // Keep original filteredOrgs for map markers (shows all physical locations)
+  const consolidatedOrgs = React.useMemo(() => {
+    return consolidateOrganizations(filteredOrgs);
+  }, [filteredOrgs]);
 
   // Generate connection lines between organizations in the same network
   // Uses hub-and-spoke model: first org connects to all others (cleaner than all-pairs)
@@ -1002,11 +1089,16 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
             
             {/* Status indicators */}
             <div className="mt-3 flex flex-wrap gap-2 text-sm font-lato">
-              {showNationalMap && filteredOrgs.length > 0 && (
+              {showNationalMap && consolidatedOrgs.length > 0 && (
                 <>
                   <span className="px-2 py-1 bg-mte-blue-20 text-mte-charcoal rounded">
-                    {fmt(filteredOrgs.length)} National Organizations
+                    {fmt(consolidatedOrgs.length)} National Organizations
                   </span>
+                  {filteredOrgs.length !== consolidatedOrgs.length && (
+                    <span className="px-2 py-1 bg-mte-purple-20 text-mte-charcoal rounded">
+                      {fmt(filteredOrgs.length)} Total Locations
+                    </span>
+                  )}
                   {showConnectionLines && connectionLines.length > 0 && (
                     <span className="px-2 py-1 bg-mte-green-20 text-mte-charcoal rounded">
                       {fmt(connectionLines.length)} Connections
@@ -1014,11 +1106,16 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                   )}
                 </>
               )}
-              {showStateMap && filteredOrgs.length > 0 && (
+              {showStateMap && consolidatedOrgs.length > 0 && (
                 <>
                   <span className="px-2 py-1 bg-mte-blue-20 text-mte-charcoal rounded">
-                    {fmt(filteredOrgs.length)} Organizations
+                    {fmt(consolidatedOrgs.length)} Organizations
                   </span>
+                  {filteredOrgs.length !== consolidatedOrgs.length && (
+                    <span className="px-2 py-1 bg-mte-purple-20 text-mte-charcoal rounded">
+                      {fmt(filteredOrgs.length)} Total Locations
+                    </span>
+                  )}
                   {showConnectionLines && connectionLines.length > 0 && (
                     <span className="px-2 py-1 bg-mte-green-20 text-mte-charcoal rounded">
                       {fmt(connectionLines.length)} Connections
@@ -1028,7 +1125,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               )}
               {showCountyMap && filteredOrgs.length !== currentOrgs.length && (
                 <span className="px-2 py-1 bg-mte-yellow-20 text-mte-charcoal rounded">
-                  {fmt(filteredOrgs.length)} of {fmt(currentOrgs.length)} organizations shown
+                  {fmt(consolidatedOrgs.length)} of {fmt(currentOrgs.length)} organizations shown
                 </span>
               )}
             </div>
@@ -1086,12 +1183,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               className="bg-white rounded-lg shadow-mte-card p-4"
             >
               <h3 className="text-h4 font-bold uppercase mb-4 text-mte-black font-lato">
-                Organizations ({fmt(filteredOrgs.length)})
+                Organizations ({fmt(consolidatedOrgs.length)})
               </h3>
-              {filteredOrgs.length > 0 ? (
+              {consolidatedOrgs.length > 0 ? (
                 <div className="overflow-x-auto" ref={cardContainerRef}>
                   <div className="flex gap-4 pb-4" style={{ minWidth: "max-content" }}>
-                    {filteredOrgs.map((org) => {
+                    {consolidatedOrgs.map((org) => {
                     const colors = CATEGORY_COLORS[org.category];
                     const isSelected = selectedOrg === org.name;
                     const cardId = `org-card-${org.name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '')}`;
@@ -1101,29 +1198,35 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       <div
                         key={org.name}
                         id={cardId}
-                        className={`p-4 rounded-lg shadow-mte-card border-l-4 ${colors?.border || 'border-mte-blue'} flex-shrink-0 transition-all duration-300 ${
+                        className={`p-4 rounded-lg shadow-mte-card border-l-4 ${colors?.border || 'border-mte-blue'} flex-shrink-0 transition-all duration-300 flex flex-col ${
                           isSelected 
                             ? 'bg-mte-blue-20 ring-2 ring-mte-blue scale-105' 
                             : 'bg-white hover:shadow-lg'
                         }`}
-                        style={{ minWidth: "300px", maxWidth: "300px" }}
+                        style={{ minWidth: "300px", maxWidth: "300px", minHeight: "220px" }}
                         onClick={() => setSelectedOrg(isSelected ? null : org.name)}
                       >
-                        <div className="flex items-start gap-2 mb-2">
+                        <div className="flex items-start gap-2">
                           <div className={`w-3 h-3 rounded-full flex-shrink-0 ${colors?.bg || 'bg-mte-blue-20'} ${colors?.border || 'border-mte-blue'} border mt-1`}></div>
                           <h4 className={`font-semibold ${colors?.text || 'text-mte-black'} font-lato leading-tight`}>{org.name}</h4>
                         </div>
-                        <div className={`text-sm px-2 py-1 rounded ${colors?.bg || 'bg-mte-blue-20'} ${colors?.text || 'text-mte-black'} inline-block mb-2 font-lato`}>
-                          {org.category}
+                        <div className="flex items-center gap-1 mb-2 overflow-x-auto">
+                          <span className={`text-sm px-2 py-1 rounded whitespace-nowrap border ${colors?.bg || 'bg-mte-blue-20'} ${colors?.border || 'border-mte-blue'} ${colors?.text || 'text-mte-black'} font-lato`}>
+                            {getCategoryDisplayName(org.category)}
+                          </span>
+                          {org.networkName && org.networkMember && (
+                            <span className="text-sm px-2 py-1 rounded whitespace-nowrap border bg-mte-green-20 border-mte-green text-mte-black font-lato">
+                              🔗 {org.networkName}
+                            </span>
+                          )}
+                          {org.isConsolidated && org.locationCount > 1 && (
+                            <span className="text-sm px-2 py-1 rounded whitespace-nowrap border bg-mte-purple-20 border-mte-purple text-mte-black font-lato">
+                              📍 {org.locationCount} Locations
+                            </span>
+                          )}
                         </div>
-                        {/* Show network badge if org is part of a network */}
-                        {org.networkName && org.networkMember && (
-                          <div className="text-sm px-2 py-1 rounded bg-mte-green-20 text-mte-black inline-block mb-2 ml-1 font-lato">
-                            🔗 {org.networkName}
-                          </div>
-                        )}
                         {validDescription && (
-                          <p className="text-base text-mte-charcoal mb-2 font-lato">{validDescription}</p>
+                          <p className="text-base text-mte-charcoal mb-2 font-lato line-clamp-3">{validDescription}</p>
                         )}
                         <div className="text-sm text-mte-charcoal mb-2 font-lato">
                           <strong>Impact Areas:</strong> {org.areas?.join(", ") || 'N/A'}
@@ -1140,7 +1243,9 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         )}
                         {showCountyMap && org.location && (
                           <>
-                            <div className="text-sm text-mte-charcoal font-lato">Location: {org.location}</div>
+                            <div className="text-sm text-mte-charcoal font-lato">
+                              <strong>Location{org.isConsolidated && org.locationCount > 1 ? 's' : ''}:</strong> {org.location}
+                            </div>
                             {org.phone && <div className="text-sm text-mte-charcoal font-lato">Phone: {org.phone}</div>}
                             {org.email && <div className="text-sm text-mte-charcoal font-lato">Email: {org.email}</div>}
                           </>
@@ -1151,14 +1256,14 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="mt-3 px-3 py-1 text-base bg-mte-blue text-white rounded hover:bg-mte-blue-80 w-full font-lato font-medium transition-colors inline-block text-center"
+                            className="mt-auto px-3 py-2 text-base bg-mte-blue text-white rounded hover:bg-mte-blue-80 w-full font-lato font-medium transition-colors inline-block text-center"
                           >
                             View Full Profile
                           </a>
                         ) : (
                           <button 
                             disabled
-                            className="mt-3 px-3 py-1 text-base bg-mte-light-grey text-mte-charcoal rounded w-full font-lato font-medium cursor-not-allowed"
+                            className="mt-auto px-3 py-2 text-base bg-mte-light-grey text-mte-charcoal rounded w-full font-lato font-medium cursor-not-allowed"
                           >
                             No Website Available
                           </button>

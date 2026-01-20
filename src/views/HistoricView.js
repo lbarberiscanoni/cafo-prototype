@@ -311,9 +311,7 @@ const calculateTrends = (regionLevel, regionId, years) => {
   // For national level
   if (regionLevel === 'national') {
     const childrenInCare = years.map(year => historicalData[year]?.national?.childrenInCare ?? null);
-    const childrenInKinship = years.map(year => historicalData[year]?.national?.childrenInKinship ?? null);
     const waitingAdoption = years.map(year => historicalData[year]?.national?.childrenWaitingAdoption ?? null);
-    const childrenAdopted = years.map(year => historicalData[year]?.national?.childrenAdopted ?? null);
     
     return {
       childrenInCare: calcChange(childrenInCare),

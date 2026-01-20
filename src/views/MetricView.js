@@ -1,519 +1,867 @@
-import React, { useState } from "react";
-import { countyData, stateData, nationalStats, fmt, fmtPct, fmtCompact } from "../real-data.js";
+import React, { useState, useMemo } from "react";
+import { countyData, stateData, historicalData, fmt, hasValue } from "../real-data.js";
 
 // Assets
-import ChurchIcon from "../assets/church_icon.png";
-import PeopleIcon from "../assets/people.svg";
 import FosterKinshipIcon from "../assets/FosterKinship_icon.png";
 import AdoptiveFamilyIcon from "../assets/Adoptive_family_icon.png";
 import BiologicalFamilyIcon from "../assets/BiologicalFamily_icon.png";
 import WrapAroundIcon from "../assets/WrapAround_icon.png";
 import MTELogo from "../assets/MTE_Logo.png";
-import InteractiveUSMap, { getAvailableMetrics } from "../InteractiveUSMap";
-import InteractiveStateMap from "../InteractiveStateMap";
 
-// Hoverable text with tooltip
-const HoverableText = ({ children, tooltip }) => (
-  <div className="relative inline-flex items-center group">
-    <span className="underline decoration-dotted underline-offset-2 decoration-mte-blue">
-      {children}
-    </span>
-    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-2 bg-mte-charcoal text-white text-xs rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-      {tooltip}
-    </div>
-  </div>
-);
-
-const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
-  // Get available metrics (only those with data)
-  const availableMetrics = getAvailableMetrics();
+// Get years array from historical data based on region level
+// parse-data.js format: { "2021": {...}, "2022": {...}, "2023": {...} }
+// AFCARS has 2021-2023 for states/national
+// Metrics files have 2024-2025 for counties
+const getYearsForRegion = (regionLevel, regionId) => {
+  if (!historicalData) return [];
   
-  // State for selected metric - default to first available or fallback
-  const [selectedMetric, setSelectedMetric] = useState(
-    availableMetrics.length > 0 ? availableMetrics[0] : "Count of Children Waiting For Adoption"
-  );
+  // For county level, only 2024-2025 have data
+  if (regionLevel === 'county') {
+    const countyYears = [];
+    if (historicalData['2024']?.counties?.[regionId]) countyYears.push(2024);
+    if (historicalData['2025']?.counties?.[regionId]) countyYears.push(2025);
+    return countyYears;
+  }
+  
+  // For state/national, use AFCARS years (2021-2023)
+  const years = Object.keys(historicalData)
+    .map(y => parseInt(y))
+    .filter(y => !isNaN(y) && y >= 2021 && y <= 2023) // Only AFCARS years for state/national
+    .sort((a, b) => a - b);
+  return years;
+};
 
-  // Convert state names to codes
-  const stateNameToCode = {
-    'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR', 'California': 'CA',
-    'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE', 'Florida': 'FL', 'Georgia': 'GA',
-    'Hawaii': 'HI', 'Idaho': 'ID', 'Illinois': 'IL', 'Indiana': 'IN', 'Iowa': 'IA',
-    'Kansas': 'KS', 'Kentucky': 'KY', 'Louisiana': 'LA', 'Maine': 'ME', 'Maryland': 'MD',
-    'Massachusetts': 'MA', 'Michigan': 'MI', 'Minnesota': 'MN', 'Mississippi': 'MS', 'Missouri': 'MO',
-    'Montana': 'MT', 'Nebraska': 'NE', 'Nevada': 'NV', 'New Hampshire': 'NH', 'New Jersey': 'NJ',
-    'New Mexico': 'NM', 'New York': 'NY', 'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH',
-    'Oklahoma': 'OK', 'Oregon': 'OR', 'Pennsylvania': 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC',
-    'South Dakota': 'SD', 'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT', 'Vermont': 'VT',
-    'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY'
-  };
+// Helper to get metric value for a state across all years
+// Transforms from year-keyed to array format
+const getMetricArray = (stateKey, metricName, years) => {
+  return years.map(year => {
+    const yearData = historicalData[year]?.states?.[stateKey];
+    if (!yearData) return null;
+    
+    // Map metric names to the actual field names in parse-data.js output
+    const fieldMap = {
+      'childrenInCare': 'totalChildren',
+      'childrenInFoster': 'childrenInFosterCare',
+      'childrenInKinship': 'childrenInKinship',
+      'licensedHomes': 'licensedHomes',
+      'waitingAdoption': 'waitingForAdoption',
+      'childrenAdopted': 'childrenAdopted',
+      'reunificationRate': 'reunificationRate',
+      'familyPreservation': 'familyPreservationCases'
+    };
+    
+    const fieldName = fieldMap[metricName] || metricName;
+    return yearData[fieldName] ?? null;
+  });
+};
 
-  // Get data based on region level
-  const getData = () => {
-    switch (regionLevel) {
-      case "national":
-        return {
-          name: "United States of America",
-          subtitle: "Understand foster care trends across the country",
-          totalChurches: nationalStats.totalChurches,
-          childrenInCare: nationalStats.childrenInCare,
-          childrenInFamilyFoster: nationalStats.childrenInFamilyFoster,
-          childrenInKinship: nationalStats.childrenInKinship,
-          waitingForAdoption: nationalStats.childrenWaitingAdoption,
-          childrenAdopted: nationalStats.childrenAdopted2023,
-          churchesWithMinistry: nationalStats.churchesWithMinistry,
-        };
-      case "state":
-        let state = stateData[regionId];
-        if (!state) {
-          console.warn('State not found for regionId:', regionId);
-          state = Object.values(stateData)[0];
+// Helper to get metric value for a county across years
+const getCountyMetricArray = (countyKey, metricName, years) => {
+  return years.map(year => {
+    const yearData = historicalData[year]?.counties?.[countyKey];
+    if (!yearData) return null;
+    
+    // Map metric names to actual field names in county data
+    const fieldMap = {
+      'childrenInCare': 'childrenInCare',
+      'childrenInFoster': 'childrenInFamily',
+      'childrenInKinship': 'childrenInKinship',
+      'licensedHomes': 'licensedHomes',
+      'waitingAdoption': 'waitingForAdoption',
+      'childrenAdopted': 'childrenAdopted',
+      'reunificationRate': 'reunificationRate',
+      'familyPreservation': 'familyPreservationCases',
+      'totalChurches': 'totalChurches',
+      'childrenOutOfCounty': 'childrenOutOfCounty'
+    };
+    
+    const fieldName = fieldMap[metricName] || metricName;
+    return yearData[fieldName] ?? null;
+  });
+};
+
+// Get category metrics from historical data
+const getCategoryMetrics = (regionLevel, regionId, years) => {
+  if (!historicalData || years.length === 0) {
+    return {
+      kinship: [],
+      adoption: [],
+      biological: [],
+      wraparound: [],
+      source: null
+    };
+  }
+  
+  // For state level, extract data from year-keyed structure
+  if (regionLevel === 'state') {
+    const childrenInCare = getMetricArray(regionId, 'childrenInCare', years);
+    const childrenInFoster = getMetricArray(regionId, 'childrenInFoster', years);
+    const childrenInKinship = getMetricArray(regionId, 'childrenInKinship', years);
+    const licensedHomes = getMetricArray(regionId, 'licensedHomes', years);
+    const waitingAdoption = getMetricArray(regionId, 'waitingAdoption', years);
+    const childrenAdopted = getMetricArray(regionId, 'childrenAdopted', years);
+    const reunificationRate = getMetricArray(regionId, 'reunificationRate', years);
+    const familyPreservation = getMetricArray(regionId, 'familyPreservation', years);
+    
+    return {
+      kinship: [
+        childrenInCare.some(v => v !== null) && { 
+          id: 'children_in_care', 
+          label: 'Children in Care', 
+          data: childrenInCare
+        },
+        childrenInFoster.some(v => v !== null) && { 
+          id: 'children_in_foster', 
+          label: 'Children in Foster Care', 
+          data: childrenInFoster
+        },
+        childrenInKinship.some(v => v !== null) && { 
+          id: 'children_in_kinship', 
+          label: 'Children in Kinship Care', 
+          data: childrenInKinship
+        },
+        licensedHomes.some(v => v !== null) && { 
+          id: 'licensed_homes', 
+          label: 'Licensed Homes', 
+          data: licensedHomes
         }
+      ].filter(Boolean),
+      adoption: [
+        waitingAdoption.some(v => v !== null) && { 
+          id: 'waiting_adoption', 
+          label: 'Waiting for Adoption', 
+          data: waitingAdoption
+        },
+        childrenAdopted.some(v => v !== null) && { 
+          id: 'children_adopted', 
+          label: 'Children Adopted', 
+          data: childrenAdopted
+        }
+      ].filter(Boolean),
+      biological: [
+        reunificationRate.some(v => v !== null) && { 
+          id: 'reunification_rate', 
+          label: 'Reunification Rate (%)', 
+          data: reunificationRate,
+          isPercentage: true
+        },
+        familyPreservation.some(v => v !== null) && { 
+          id: 'family_preservation', 
+          label: 'Family Preservation Cases', 
+          data: familyPreservation
+        }
+      ].filter(Boolean),
+      wraparound: [],
+      source: `AFCARS ${years[0]}-${years[years.length - 1]}`
+    };
+  }
+  
+  // For national level, aggregate from historicalData[year].national
+  if (regionLevel === 'national') {
+    const childrenInCare = years.map(year => historicalData[year]?.national?.childrenInCare ?? null);
+    const childrenInFoster = years.map(year => historicalData[year]?.national?.childrenInFamilyFoster ?? null);
+    const childrenInKinship = years.map(year => historicalData[year]?.national?.childrenInKinship ?? null);
+    const waitingAdoption = years.map(year => historicalData[year]?.national?.childrenWaitingAdoption ?? null);
+    const childrenAdopted = years.map(year => historicalData[year]?.national?.childrenAdopted ?? null);
+    
+    return {
+      kinship: [
+        childrenInCare.some(v => v !== null) && { 
+          id: 'children_in_care', 
+          label: 'Children in Care', 
+          data: childrenInCare
+        },
+        childrenInFoster.some(v => v !== null) && { 
+          id: 'children_in_foster', 
+          label: 'Children in Foster Care', 
+          data: childrenInFoster
+        },
+        childrenInKinship.some(v => v !== null) && { 
+          id: 'children_in_kinship', 
+          label: 'Children in Kinship Care', 
+          data: childrenInKinship
+        }
+      ].filter(Boolean),
+      adoption: [
+        waitingAdoption.some(v => v !== null) && { 
+          id: 'waiting_adoption', 
+          label: 'Waiting for Adoption', 
+          data: waitingAdoption
+        },
+        childrenAdopted.some(v => v !== null) && { 
+          id: 'children_adopted', 
+          label: 'Children Adopted', 
+          data: childrenAdopted
+        }
+      ].filter(Boolean),
+      biological: [],
+      wraparound: [],
+      source: `AFCARS ${years[0]}-${years[years.length - 1]}`
+    };
+  }
+  
+  // For county level, use metrics CSV data (2024-2025)
+  if (regionLevel === 'county') {
+    const childrenInCare = getCountyMetricArray(regionId, 'childrenInCare', years);
+    const childrenInFoster = getCountyMetricArray(regionId, 'childrenInFoster', years);
+    const childrenInKinship = getCountyMetricArray(regionId, 'childrenInKinship', years);
+    const licensedHomes = getCountyMetricArray(regionId, 'licensedHomes', years);
+    const waitingAdoption = getCountyMetricArray(regionId, 'waitingAdoption', years);
+    const childrenAdopted = getCountyMetricArray(regionId, 'childrenAdopted', years);
+    const reunificationRate = getCountyMetricArray(regionId, 'reunificationRate', years);
+    const familyPreservation = getCountyMetricArray(regionId, 'familyPreservation', years);
+    const childrenOutOfCounty = getCountyMetricArray(regionId, 'childrenOutOfCounty', years);
+    
+    return {
+      kinship: [
+        childrenInCare.some(v => v !== null) && { 
+          id: 'children_in_care', 
+          label: 'Children in Care', 
+          data: childrenInCare
+        },
+        childrenInFoster.some(v => v !== null) && { 
+          id: 'children_in_foster', 
+          label: 'Children in Foster Care', 
+          data: childrenInFoster
+        },
+        childrenInKinship.some(v => v !== null) && { 
+          id: 'children_in_kinship', 
+          label: 'Children in Kinship Care', 
+          data: childrenInKinship
+        },
+        licensedHomes.some(v => v !== null) && { 
+          id: 'licensed_homes', 
+          label: 'Licensed Homes', 
+          data: licensedHomes
+        },
+        childrenOutOfCounty.some(v => v !== null) && { 
+          id: 'children_out_of_county', 
+          label: 'Children Placed Out-of-County', 
+          data: childrenOutOfCounty
+        }
+      ].filter(Boolean),
+      adoption: [
+        waitingAdoption.some(v => v !== null) && { 
+          id: 'waiting_adoption', 
+          label: 'Waiting for Adoption', 
+          data: waitingAdoption
+        },
+        childrenAdopted.some(v => v !== null) && { 
+          id: 'children_adopted', 
+          label: 'Children Adopted', 
+          data: childrenAdopted
+        }
+      ].filter(Boolean),
+      biological: [
+        reunificationRate.some(v => v !== null) && { 
+          id: 'reunification_rate', 
+          label: 'Reunification Rate (%)', 
+          data: reunificationRate,
+          isPercentage: true
+        },
+        familyPreservation.some(v => v !== null) && { 
+          id: 'family_preservation', 
+          label: 'Family Preservation Cases', 
+          data: familyPreservation
+        }
+      ].filter(Boolean),
+      wraparound: [],
+      source: `MTE Metrics ${years[0]}-${years[years.length - 1]}`
+    };
+  }
+  
+  return {
+    kinship: [],
+    adoption: [],
+    biological: [],
+    wraparound: [],
+    source: null
+  };
+};
+
+// Calculate trends from historical data
+const calculateTrends = (regionLevel, regionId, years) => {
+  if (!historicalData || years.length < 2) return null;
+  
+  const calcChange = (arr) => {
+    if (!arr || arr.length < 2) return null;
+    const first = arr[0];
+    const last = arr[arr.length - 1];
+    if (!hasValue(first) || !hasValue(last) || first === 0) return null;
+    return Math.round(((last - first) / first) * 100);
+  };
+  
+  // For state level
+  if (regionLevel === 'state') {
+    const childrenInCare = getMetricArray(regionId, 'childrenInCare', years);
+    const licensedHomes = getMetricArray(regionId, 'licensedHomes', years);
+    const waitingAdoption = getMetricArray(regionId, 'waitingAdoption', years);
+    const reunificationRate = getMetricArray(regionId, 'reunificationRate', years);
+    const familyPreservation = getMetricArray(regionId, 'familyPreservation', years);
+    
+    return {
+      childrenInCare: calcChange(childrenInCare),
+      licensedHomes: calcChange(licensedHomes),
+      waitingForAdoption: calcChange(waitingAdoption),
+      reunificationRate: calcChange(reunificationRate),
+      familyPreservationCases: calcChange(familyPreservation)
+    };
+  }
+  
+  // For national level
+  if (regionLevel === 'national') {
+    const childrenInCare = years.map(year => historicalData[year]?.national?.childrenInCare ?? null);
+    const waitingAdoption = years.map(year => historicalData[year]?.national?.childrenWaitingAdoption ?? null);
+    
+    return {
+      childrenInCare: calcChange(childrenInCare),
+      licensedHomes: null, // Not available at national level in AFCARS
+      waitingForAdoption: calcChange(waitingAdoption),
+      reunificationRate: null, // Can't aggregate percentages
+      familyPreservationCases: null
+    };
+  }
+  
+  // For county level
+  if (regionLevel === 'county') {
+    const childrenInCare = getCountyMetricArray(regionId, 'childrenInCare', years);
+    const licensedHomes = getCountyMetricArray(regionId, 'licensedHomes', years);
+    const waitingAdoption = getCountyMetricArray(regionId, 'waitingAdoption', years);
+    const reunificationRate = getCountyMetricArray(regionId, 'reunificationRate', years);
+    const familyPreservation = getCountyMetricArray(regionId, 'familyPreservation', years);
+    
+    return {
+      childrenInCare: calcChange(childrenInCare),
+      licensedHomes: calcChange(licensedHomes),
+      waitingForAdoption: calcChange(waitingAdoption),
+      reunificationRate: calcChange(reunificationRate),
+      familyPreservationCases: calcChange(familyPreservation)
+    };
+  }
+  
+  return null;
+};
+
+export default function HistoricView({ regionLevel, regionId, onSelectRegion }) {
+  // State for selected metrics in each category - each card tracks independently
+  const [selectedKinshipMetric, setSelectedKinshipMetric] = useState('children_in_care');
+  const [selectedAdoptionMetric, setSelectedAdoptionMetric] = useState('waiting_adoption');
+  const [selectedBiologicalMetric, setSelectedBiologicalMetric] = useState('reunification_rate');
+  const [selectedWraparoundMetric, setSelectedWraparoundMetric] = useState(regionLevel === 'national' ? 'churches_ministry' : 'wraparound_cases');
+
+  // Get dynamic years based on region
+  const years = useMemo(() => {
+    return getYearsForRegion(regionLevel, regionId);
+  }, [regionLevel, regionId]);
+
+  // Get dynamic category metrics based on current region
+  const categoryMetrics = useMemo(() => {
+    return getCategoryMetrics(regionLevel, regionId, years);
+  }, [regionLevel, regionId, years]);
+
+  // Calculate trends from real data
+  const trends = useMemo(() => {
+    return calculateTrends(regionLevel, regionId, years);
+  }, [regionLevel, regionId, years]);
+
+  // Get current state code from regionId (works for both state and county level)
+  const getCurrentStateCode = () => {
+    if (!regionId) return 'al';
+    
+    // At county level, regionId is like "los-angeles-ca" - get last part
+    if (regionLevel === 'county') {
+      const parts = regionId.split('-');
+      return parts[parts.length - 1].toLowerCase();
+    }
+    
+    // At state level, regionId is like "california" - get state code from stateData
+    if (regionLevel === 'state' && stateData[regionId]) {
+      return stateData[regionId].code?.toLowerCase() || regionId.slice(0, 2);
+    }
+    
+    return 'al'; // Default fallback
+  };
+
+  // Get counties for the current state from countyData
+  const getCountiesForCurrentState = () => {
+    const stateCode = getCurrentStateCode(); // Already lowercase
+    
+    // Filter counties that match the current state
+    const countiesInState = Object.entries(countyData)
+      .filter(([countyId, data]) => {
+        // County IDs are formatted as "countyname-statecode"
+        const countyStateCode = countyId.split('-').pop();
+        return countyStateCode === stateCode;
+      })
+      .map(([countyId, data]) => {
+        // Extract just the county name without state suffix
+        const countyName = data.name.split(',')[0].trim();
         return {
-          name: state.name,
-          subtitle: "Explore foster care data in this state",
-          totalChildren: state.totalChildren,
-          licensedHomes: state.licensedHomes,
-          waitingForAdoption: state.waitingForAdoption,
-          reunificationRate: state.reunificationRate,
-          familyPreservationCases: state.familyPreservationCases,
+          id: countyId,
+          name: countyName
         };
-      case "county":
-        const county = countyData[regionId] || countyData['butler-al'];
-        return {
-          name: county.name,
-          subtitle: "",
-          population: county.population,
-          totalChurches: county.totalChurches,
-          childrenInCare: county.childrenInCare,
-          childrenInFamily: county.childrenInFamily,
-          childrenInKinship: county.childrenInKinship,
-          childrenOutOfCounty: county.childrenOutOfCounty,
-          licensedHomes: county.licensedHomes,
-          licensedHomesPerChild: county.licensedHomesPerChild,
-          waitingForAdoption: county.waitingForAdoption,
-          childrenAdopted2024: county.childrenAdopted2024,
-          avgMonthsToAdoption: county.avgMonthsToAdoption,
-          familyPreservationCases: county.familyPreservationCases,
-          reunificationRate: county.reunificationRate,
-          churchesProvidingSupport: county.churchesProvidingSupport,
-          supportPercentage: county.supportPercentage,
-          state: county.state,
-        };
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+    
+    return countiesInState;
+  };
+
+  // Get all states sorted alphabetically
+  const getAllStates = () => {
+    return Object.entries(stateData)
+      .map(([stateId, data]) => ({
+        id: stateId,
+        name: data.name
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  };
+
+  // Get display name based on region
+  const getDisplayName = () => {
+    if (regionLevel === 'national') return 'United States';
+    if (regionLevel === 'state' && stateData[regionId]) {
+      return stateData[regionId].name;
+    }
+    if (regionLevel === 'county' && countyData[regionId]) {
+      return countyData[regionId].name;
+    }
+    return regionId || 'Unknown Region';
+  };
+
+  // Helper function to render bar chart for each metric
+  const renderBarChart = (category, bgColor) => {
+    let metrics, selectedMetric;
+    
+    switch(category) {
+      case 'kinship':
+        metrics = categoryMetrics.kinship;
+        selectedMetric = selectedKinshipMetric;
+        break;
+      case 'adoption':
+        metrics = categoryMetrics.adoption;
+        selectedMetric = selectedAdoptionMetric;
+        break;
+      case 'biological':
+        metrics = categoryMetrics.biological;
+        selectedMetric = selectedBiologicalMetric;
+        break;
+      case 'wraparound':
+        metrics = categoryMetrics.wraparound;
+        selectedMetric = selectedWraparoundMetric;
+        break;
       default:
-        return {};
+        return null;
     }
-  };
-
-  const data = getData();
-
-  // Get trend data based on selected metric
-  const getTrendData = () => {
-    switch (selectedMetric) {
-      case "Count of Family Preservation Cases":
-        return { title: "Number of Family Preservation Cases in the U.S. (by 1000s)", values: [140, 105, 110], years: [2022, 2023, 2024], labels: ["140,000 Cases", "105,000 Cases", "110,000 Cases"], source: "AFCARS 2022–2024" };
-      case "Count of Children Waiting For Adoption":
-        return { title: "Children Waiting For Adoption in the U.S. (by 1000s)", values: [52, 50, 48], years: [2022, 2023, 2024], labels: ["52,000 Children", "50,000 Children", "48,000 Children"], source: "AFCARS 2022–2024" };
-      case "Ratio of Licensed Homes to Children in Care":
-        return { title: "Licensed Foster Homes per Child in Care (U.S.)", values: [0.68, 0.72, 0.75], years: [2022, 2023, 2024], labels: ["0.68 Homes per Child", "0.72 Homes per Child", "0.75 Homes per Child"], source: "AFCARS 2022–2024" };
-      case "Biological Family Reunification Rate":
-        return { title: "Biological Family Reunification Rate (% of exits)", values: [72, 74, 76], years: [2022, 2023, 2024], labels: ["72% Reunified", "74% Reunified", "76% Reunified"], source: "AFCARS 2022–2024" };
-      default:
-        return { title: "Data Trend", values: [100, 100, 100], years: [2022, 2023, 2024], labels: ["N/A", "N/A", "N/A"], source: "AFCARS" };
+    
+    const currentMetric = metrics.find(m => m.id === selectedMetric) || metrics[0];
+    
+    if (!currentMetric?.data) {
+      return (
+        <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
+          <span>No historical data available</span>
+        </div>
+      );
     }
-  };
-
-  const trendData = getTrendData();
-
-  const handleStateClick = (stateCode, stateName, clickedStateData) => {
-    const stateId = stateName.toLowerCase().replace(/\s+/g, '-');
-    if (onSelectRegion) {
-      onSelectRegion({ level: 'state', id: stateId, name: stateName, code: stateCode });
+    
+    const data = currentMetric.data;
+    const isPercentage = currentMetric.isPercentage;
+    const validData = data.filter(v => v !== null);
+    
+    if (validData.length === 0) {
+      return (
+        <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
+          <span>No historical data available</span>
+        </div>
+      );
     }
-  };
-
-  const handleCountyClick = (fips, countyName, clickedCountyData) => {
-    const stateCode = stateNameToCode[data.name];
-    const countyId = `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode?.toLowerCase()}`;
-    if (onSelectRegion) {
-      onSelectRegion({ level: 'county', id: countyId, name: `${countyName} County, ${data.name}`, fips: fips });
-    }
-  };
-
-  const showMap = regionLevel === "national";
-  const showCountyDetails = regionLevel === "county";
-  const showStateDetails = regionLevel === "state";
-  const showStateContext = regionLevel === "county";
-
-  const getStateDataForCounty = () => {
-    if (!data.state) return null;
-    const stateKey = data.state.toLowerCase().replace(/\s+/g, '-');
-    return stateData[stateKey];
+    
+    // For percentage metrics, convert to display values (0.2 -> 20)
+    const displayData = isPercentage ? data.map(v => v !== null ? v * 100 : null) : data;
+    const validDisplayData = displayData.filter(v => v !== null);
+    const maxValue = Math.max(...validDisplayData);
+    const chartHeight = 140;
+    const yMax = maxValue > 0 ? maxValue : 1;
+    
+    // Format value for display
+    const formatValue = (value) => {
+      if (value === null) return 'N/A';
+      if (isPercentage) {
+        return `${Math.round(value)}%`;
+      }
+      return fmt(value);
+    };
+    
+    return (
+      <div className="mt-4">
+        {/* Bars container */}
+        <div className="flex items-end justify-around gap-4 px-4" style={{ height: `${chartHeight}px` }}>
+          {years.map((year, index) => {
+            const value = displayData[index];
+            const isNull = value === null;
+            const barHeight = isNull ? 24 : Math.max(24, (value / yMax) * chartHeight);
+            
+            return (
+              <div key={year} className="flex-1 max-w-[80px] flex flex-col items-center">
+                {/* Bar with value inside */}
+                <div 
+                  className={`w-full ${isNull ? 'bg-mte-light-grey' : bgColor} rounded-t flex items-center justify-center transition-all duration-300`}
+                  style={{ height: `${barHeight}px` }}
+                >
+                  <span className="text-white text-sm font-bold font-lato drop-shadow-sm">
+                    {formatValue(value)}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        
+        {/* Year labels */}
+        <div className="flex justify-around gap-4 px-4 mt-2">
+          {years.map((year) => (
+            <div key={year} className="flex-1 max-w-[80px] text-center">
+              <div className="text-sm font-semibold text-mte-charcoal font-lato">{year}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   };
 
   return (
     <div className="min-h-screen">
+      {/* Header */}
       <header className="relative">
-        <div className="max-w-7xl mx-auto px-4 pt-4 md:pt-6 pb-2 flex flex-col items-center gap-0">
-          <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4 leading-tight mb-0">{data.name}</h1>
-          {data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mt-1">{data.subtitle}</p>}
+        <div className="max-w-7xl mx-auto px-4 pt-2 md:pt-3 pb-1 flex flex-col items-center">
+          <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4 leading-none">
+            {getDisplayName()}
+          </h1>
+          <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato -mt-5 md:-mt-6">
+            Historical trends and data analysis
+          </p>
         </div>
       </header>
 
-      {/* National Map Section */}
-      {showMap && (
-        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col lg:flex-row gap-4 md:gap-6">
-          <div className="w-full lg:w-1/4 space-y-3 md:space-y-4">
-            {/* Jump selectors */}
-            <div className="bg-white p-4 rounded-lg shadow-mte-card space-y-3">
-              <select className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal" value="" onChange={(e) => {
-                if (e.target.value && onSelectRegion) {
+      {/* Region Navigation - Only show at state level */}
+      {regionLevel === 'state' && (
+        <div className="py-3 mb-4 md:mb-6">
+          <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4">
+            {/* State Dropdown */}
+            <div className="flex items-center gap-2">
+              <label className="text-sm font-lato text-mte-charcoal">State:</label>
+              <select 
+                className="bg-white border border-mte-light-grey rounded px-3 py-1 text-sm font-lato text-mte-charcoal"
+                value={regionId || ''}
+                onChange={(e) => {
                   const stateId = e.target.value;
-                  const stateName = Object.keys(stateNameToCode).find(name => name.toLowerCase().replace(/\s+/g, '-') === stateId);
-                  onSelectRegion({ level: 'state', id: stateId, name: stateName, code: stateNameToCode[stateName] });
-                }
-              }}>
-                <option value="">Jump to a State</option>
-                {Object.keys(stateNameToCode).sort().map(stateName => (
-                  <option key={stateName} value={stateName.toLowerCase().replace(/\s+/g, '-')}>{stateName}</option>
-                ))}
-              </select>
-              <select className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal" value="" onChange={(e) => {
-                if (e.target.value && onSelectRegion) {
-                  const county = countyData[e.target.value];
-                  if (county) onSelectRegion({ level: 'county', id: e.target.value, name: county.name, fips: county.fips });
-                }
-              }}>
-                <option value="">Jump to a County</option>
-                {Object.keys(countyData).sort((a, b) => countyData[a].name.localeCompare(countyData[b].name)).map(countyId => (
-                  <option key={countyId} value={countyId}>{countyData[countyId].name}</option>
+                  const stateName = stateData[stateId]?.name || stateId;
+                  onSelectRegion({ level: 'state', id: stateId, name: stateName });
+                }}
+              >
+                {getAllStates().map(state => (
+                  <option key={state.id} value={state.id}>{state.name}</option>
                 ))}
               </select>
             </div>
 
-            {/* Metrics - Dynamic dropdown */}
-            <div className="bg-white p-4 rounded-lg shadow-mte-card">
-              <h3 className="text-base font-lato font-bold mb-1 text-mte-black">Metrics</h3>
-              <p className="text-sm text-mte-charcoal mb-2 font-lato">Filter by metric type to see what is happening across the country</p>
-              <div className="relative">
-                <select className="w-full border-2 border-mte-light-grey rounded-lg p-3 pr-10 text-sm font-lato text-mte-charcoal cursor-pointer appearance-none bg-white hover:border-mte-blue focus:border-mte-blue focus:ring-2 focus:ring-mte-blue-20 focus:outline-none transition-colors" value={selectedMetric} onChange={(e) => setSelectedMetric(e.target.value)}>
-                  {availableMetrics.map(metric => (
-                    <option key={metric} value={metric}>{metric}</option>
-                  ))}
-                </select>
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                  <svg className="w-5 h-5 text-mte-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            {/* Trends */}
-            <div className="bg-white p-4 rounded-lg shadow-mte-card">
-              <h3 className="text-base font-lato font-bold text-mte-black mb-1">Trends</h3>
-              <p className="text-sm text-mte-charcoal mb-3 font-lato">See trends for your selected metric over the past five years</p>
-              <div className="bg-mte-subdued-white p-3 rounded relative overflow-hidden">
-                <div className="text-sm font-medium mb-2 font-lato text-mte-black">{trendData.title}</div>
-                <div className="h-28 bg-white rounded flex items-end justify-between px-3 pb-2 relative overflow-visible">
-                  {trendData.values.map((value, index) => {
-                    const maxValue = Math.max(...trendData.values);
-                    const heightPx = Math.round((value / maxValue) * 72);
-                    return (
-                      <div key={index} className="flex flex-col items-center relative group flex-1 max-w-[60px]">
-                        <div className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: `${heightPx}px`, maxHeight: "72px" }}>
-                          <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
-                            <div className="font-semibold">{trendData.labels[index]}</div>
-                            <div>{selectedMetric} on</div>
-                            <div>December 31, {trendData.years[index]}</div>
-                            <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
-                          </div>
-                        </div>
-                        <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">{trendData.years[index]}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="mt-2 text-xs text-mte-charcoal font-lato">Source: {trendData.source}</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full lg:w-3/4">
-            <div className="bg-white rounded-lg shadow-mte-card p-4 mb-6">
-              <InteractiveUSMap selectedMetric={selectedMetric} onStateClick={handleStateClick} />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
-                <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Foster and Kinship Data in the U.S.</h4>
-                <div className="flex items-start gap-4">
-                  <img src={FosterKinshipIcon} alt="Family" className="w-16 h-16 flex-shrink-0" />
-                  <div className="space-y-2">
-                    <div><span className="text-xl font-black text-mte-blue">{fmt(data.childrenInCare)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">in Out-of-Home Care</div>
-                    <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.childrenInFamilyFoster)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">in Family-Like Foster Care</div>
-                    <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.childrenInKinship)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">in Kinship Care</div>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
-                <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Adoption Data in the U.S.</h4>
-                <div className="flex items-start gap-4">
-                  <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-16 h-16 flex-shrink-0" />
-                  <div className="space-y-2">
-                    <div><span className="text-xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Waiting For Adoption</div>
-                    <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.childrenAdopted)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Adopted FY 2023</div>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
-                <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Church Data in the U.S.</h4>
-                <div className="flex items-start gap-4">
-                  <img src={ChurchIcon} alt="Churches" className="w-16 h-16 flex-shrink-0" />
-                  <div className="space-y-2">
-                    <div><span className="text-xl font-black text-mte-blue">{fmtCompact(data.totalChurches)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Churches</div>
-                    <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmtCompact(data.churchesWithMinistry)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Churches with a Known Foster Care Ministry</div>
-                  </div>
-                </div>
-              </div>
+            {/* County Dropdown */}
+            <div className="flex items-center gap-2">
+              <label className="text-sm font-lato text-mte-charcoal">County:</label>
+              <select 
+                className="bg-white border border-mte-light-grey rounded px-3 py-1 text-sm font-lato text-mte-charcoal"
+                value=""
+                onChange={(e) => {
+                  const countyId = e.target.value;
+                  if (countyId && countyData[countyId]) {
+                    onSelectRegion({ 
+                      level: 'county', 
+                      id: countyId, 
+                      name: countyData[countyId].name 
+                    });
+                  }
+                }}
+              >
+                <option value="">Select a county</option>
+                {getCountiesForCurrentState().map(county => (
+                  <option key={county.id} value={county.id}>{county.name}</option>
+                ))}
+              </select>
             </div>
           </div>
         </div>
       )}
 
-      {/* State Stats Section */}
-      {showStateDetails && (
-        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col lg:flex-row gap-4 md:gap-6">
-          <div className="w-full lg:w-1/4 space-y-3 md:space-y-4">
-            <div className="bg-white p-4 rounded-lg shadow-mte-card">
-              <h3 className="text-base font-lato font-bold mb-1 text-mte-black">Metrics</h3>
-              <p className="text-sm text-mte-charcoal mb-2 font-lato">Filter by metric type to see what is happening in {data.name}</p>
-              <div className="relative">
-                <select className="w-full border-2 border-mte-light-grey rounded-lg p-3 pr-10 text-sm font-lato text-mte-charcoal cursor-pointer appearance-none bg-white hover:border-mte-blue focus:border-mte-blue focus:ring-2 focus:ring-mte-blue-20 focus:outline-none transition-colors" value={selectedMetric} onChange={(e) => setSelectedMetric(e.target.value)}>
-                  {availableMetrics.map(metric => (
-                    <option key={metric} value={metric}>{metric}</option>
-                  ))}
-                </select>
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                  <svg className="w-5 h-5 text-mte-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-mte-card">
-              <h3 className="text-base font-lato font-bold text-mte-black mb-1">Trends</h3>
-              <p className="text-sm text-mte-charcoal mb-3 font-lato">See trends for your selected metric in {data.name}</p>
-              <div className="bg-mte-subdued-white p-3 rounded relative overflow-hidden">
-                <div className="text-sm font-medium mb-2 font-lato text-mte-black">{trendData.title.replace('U.S.', data.name)}</div>
-                <div className="h-28 bg-white rounded flex items-end justify-between px-3 pb-2 relative overflow-visible">
-                  {trendData.values.map((value, index) => {
-                    const maxValue = Math.max(...trendData.values);
-                    const heightPx = Math.round((value / maxValue) * 72);
-                    return (
-                      <div key={index} className="flex flex-col items-center relative group flex-1 max-w-[60px]">
-                        <div className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: `${heightPx}px`, maxHeight: "72px" }}>
-                          <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
-                            <div className="font-semibold">{trendData.labels[index]}</div>
-                            <div>{selectedMetric} on</div>
-                            <div>December 31, {trendData.years[index]}</div>
-                            <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
-                          </div>
-                        </div>
-                        <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">{trendData.years[index]}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="mt-2 text-xs text-mte-charcoal font-lato">Source: {trendData.source}</div>
-              </div>
-            </div>
-          </div>
-          <div className="w-full lg:w-3/4">
-            <div className="bg-white rounded-lg shadow-mte-card p-4 mb-6">
-              <InteractiveStateMap stateCode={stateNameToCode[data.name] || 'AL'} stateName={data.name} selectedMetric={selectedMetric} onCountyClick={handleCountyClick} />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
-                <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Foster and Kinship Data</h4>
-                <div className="flex items-start gap-4">
-                  <img src={FosterKinshipIcon} alt="Children" className="w-16 h-16 flex-shrink-0" />
-                  <div className="space-y-2">
-                    <div><span className="text-xl font-black text-mte-blue">{fmt(data.totalChildren)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">in Care</div>
-                    <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.licensedHomes)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Licensed Homes</div>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
-                <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Adoption Data</h4>
-                <div className="flex items-start gap-4">
-                  <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-16 h-16 flex-shrink-0" />
-                  <div className="space-y-2">
-                    <div><span className="text-xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Waiting for Adoption</div>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
-                <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Biological Family Data</h4>
-                <div className="flex items-start gap-4">
-                  <img src={BiologicalFamilyIcon} alt="Reunification" className="w-16 h-16 flex-shrink-0" />
-                  <div className="space-y-2">
-                    <div><span className="text-xl font-black text-mte-blue">{fmtPct(data.reunificationRate)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Reunification Rate</div>
-                    <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.familyPreservationCases)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Family Preservation Cases</div>
-                  </div>
-                </div>
-              </div>
+      {/* Region Navigation - National level */}
+      {regionLevel === 'national' && (
+        <div className="py-3 mb-4 md:mb-6">
+          <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-4">
+            {/* State Dropdown */}
+            <div className="flex items-center gap-2">
+              <label className="text-sm font-lato text-mte-charcoal">Jump to State:</label>
+              <select 
+                className="bg-white border border-mte-light-grey rounded px-3 py-1 text-sm font-lato text-mte-charcoal"
+                value=""
+                onChange={(e) => {
+                  const stateId = e.target.value;
+                  if (stateId && stateData[stateId]) {
+                    onSelectRegion({ 
+                      level: 'state', 
+                      id: stateId, 
+                      name: stateData[stateId].name 
+                    });
+                  }
+                }}
+              >
+                <option value="">Select a state</option>
+                {getAllStates().map(state => (
+                  <option key={state.id} value={state.id}>{state.name}</option>
+                ))}
+              </select>
             </div>
           </div>
         </div>
       )}
 
-      {/* County-specific: Total Churches + Population Card */}
-      {showCountyDetails && (
-        <div className="max-w-7xl mx-auto px-4 mt-6">
-          <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center mx-auto" style={{ maxWidth: '800px' }}>
-            <div className="flex justify-center gap-12">
-              <div className="flex flex-col items-center">
-                <img src={ChurchIcon} alt="Church" className="w-20 h-20 mb-3" />
-                <div className="flex items-center gap-1">
-                  <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.totalChurches)}</div>
-                  <div className="text-base text-mte-charcoal font-lato">Churches</div>
-                </div>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src={PeopleIcon} alt="Population" className="w-20 h-20 mb-3" />
-                <div className="flex items-center gap-1">
-                  <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.population)}</div>
-                  <div className="text-base text-mte-charcoal font-lato">Population</div>
-                </div>
-              </div>
+      {/* Region Navigation - County level */}
+      {regionLevel === 'county' && (
+        <div className="py-3 mb-4 md:mb-6">
+          <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4">
+            {/* Back to State button */}
+            <button
+              onClick={() => {
+                const countyInfo = countyData[regionId];
+                if (countyInfo) {
+                  // Find the state key from county's state name
+                  const stateEntry = Object.entries(stateData).find(([key, data]) => 
+                    data.name === countyInfo.state
+                  );
+                  if (stateEntry) {
+                    onSelectRegion({ level: 'state', id: stateEntry[0], name: stateEntry[1].name });
+                  }
+                }
+              }}
+              className="text-sm font-lato text-mte-blue hover:underline"
+            >
+              ← Back to State
+            </button>
+
+            {/* County Dropdown */}
+            <div className="flex items-center gap-2">
+              <label className="text-sm font-lato text-mte-charcoal">County:</label>
+              <select 
+                className="bg-white border border-mte-light-grey rounded px-3 py-1 text-sm font-lato text-mte-charcoal"
+                value={regionId || ''}
+                onChange={(e) => {
+                  const countyId = e.target.value;
+                  if (countyId && countyData[countyId]) {
+                    onSelectRegion({ 
+                      level: 'county', 
+                      id: countyId, 
+                      name: countyData[countyId].name 
+                    });
+                  }
+                }}
+              >
+                {getCountiesForCurrentState().map(county => (
+                  <option key={county.id} value={county.id}>{county.name}</option>
+                ))}
+              </select>
             </div>
           </div>
         </div>
       )}
 
-      {/* Cards - County only */}
-      {showCountyDetails && (
-        <main className="max-w-7xl mx-auto px-4 py-6 md:py-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
-            <img src={FosterKinshipIcon} alt="Foster & Kinship" className="mx-auto w-20 h-20 mb-3" />
-            <HoverableText tooltip="Families who provide temporary care for children through formal foster care or informal kinship arrangements with relatives.">
-              <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Foster and Kinship Families</h3>
-            </HoverableText>
-            <div className="flex justify-center items-center gap-1 mb-4">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.licensedHomesPerChild)}</div>
-              <HoverableText tooltip="The ratio of available licensed foster homes to children currently in out-of-home care.">
-                <div className="text-base text-mte-charcoal font-lato">Licensed Homes Per Child in Care</div>
-              </HoverableText>
-            </div>
-            <div className="grid grid-cols-2 gap-y-1 gap-x-2 text-base max-w-sm mx-auto">
-              <HoverableText tooltip="Total number of children in the foster care system."><div className="text-left text-mte-charcoal font-lato">Children in Care</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInCare)}</div>
-              <HoverableText tooltip="Children placed with licensed foster families."><div className="text-left text-mte-charcoal font-lato">Children in Family</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInFamily)}</div>
-              <HoverableText tooltip="Children placed with relatives or family friends."><div className="text-left text-mte-charcoal font-lato">Children in Kinship Care</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInKinship)}</div>
-              <HoverableText tooltip="Children from this county placed in care outside county boundaries."><div className="text-left text-mte-charcoal font-lato">Children Out-of-County</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenOutOfCounty)}</div>
-              <HoverableText tooltip="Total number of state-licensed foster homes in this county."><div className="text-left text-mte-charcoal font-lato">Licensed Homes</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.licensedHomes)}</div>
-            </div>
+      {/* No Data Message - Only show if we have no years */}
+      {years.length === 0 && (
+        <div className="max-w-5xl mx-auto px-4 mb-6 md:mb-8">
+          <div className="bg-mte-blue-20 rounded-lg p-6 md:p-8 text-center">
+            <h3 className="text-xl md:text-2xl font-nexa text-mte-black mb-3">Historical Data Coming Soon</h3>
+            <p className="text-sm md:text-base text-mte-charcoal font-lato">
+              {regionLevel === 'county' 
+                ? 'Year-over-year trend data for this county is not yet available. County historical data requires both 2024 and 2025 metrics files.'
+                : 'Year-over-year trend data is not yet available for this region. Check back soon as we continue to add historical data.'
+              }
+            </p>
           </div>
-          <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
-            <img src={AdoptiveFamilyIcon} alt="Adoptive Families" className="mx-auto w-20 h-20 mb-3" />
-            <HoverableText tooltip="Families who have completed or are in the process of legally adopting children from foster care.">
-              <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Adoptive Families</h3>
-            </HoverableText>
-            <div className="flex justify-center items-center gap-1 mb-4">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</div>
-              <HoverableText tooltip="Children whose parental rights have been terminated and are legally free for adoption.">
-                <div className="text-base text-mte-charcoal font-lato">Children Waiting For Adoption</div>
-              </HoverableText>
-            </div>
-            <div className="grid grid-cols-2 gap-y-1 gap-x-4 text-base max-w-md mx-auto">
-              <HoverableText tooltip="Number of finalized adoptions in the current year."><div className="text-left text-mte-charcoal font-lato">Children Adopted in 2024</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenAdopted2024)}</div>
-              <HoverableText tooltip="Average time from termination of parental rights to finalized adoption."><div className="text-left text-mte-charcoal font-lato">Average Months to Adoption</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.avgMonthsToAdoption)}</div>
-            </div>
-          </div>
-          <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
-            <img src={BiologicalFamilyIcon} alt="Biological Families" className="mx-auto w-20 h-20 mb-3" />
-            <HoverableText tooltip="Services and support provided to birth parents working toward reunification with their children.">
-              <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Support for Biological Families</h3>
-            </HoverableText>
-            <div className="flex justify-center items-center gap-1 mb-4">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.familyPreservationCases)}</div>
-              <HoverableText tooltip="Active cases providing intensive services to prevent foster care placement.">
-                <div className="text-base text-mte-charcoal font-lato">Family Preservation Cases</div>
-              </HoverableText>
-            </div>
-            <div className="flex justify-center items-center gap-1">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(data.reunificationRate)}</div>
-              <HoverableText tooltip="Percentage of children who successfully return to their birth families.">
-                <div className="text-base text-mte-charcoal font-lato">Biological Family Reunification Rate</div>
-              </HoverableText>
-            </div>
-          </div>
-          <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
-            <img src={WrapAroundIcon} alt="Wraparound Support" className="mx-auto w-20 h-20 mb-3" />
-            <HoverableText tooltip="Comprehensive community-based support services for all families involved in foster care.">
-              <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Wraparound Support</h3>
-            </HoverableText>
-            <div className="flex justify-center items-center gap-1 mb-4">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(data.supportPercentage)}</div>
-              <HoverableText tooltip="Percentage of local churches actively engaged in foster care ministry.">
-                <div className="text-base text-mte-charcoal font-lato">Churches Providing Support</div>
-              </HoverableText>
-            </div>
-            <div className="grid grid-cols-2 gap-y-1 gap-x-4 text-base max-w-md mx-auto">
-              <HoverableText tooltip="Number of churches with active foster care support programs."><div className="text-left text-mte-charcoal font-lato">Churches Providing Support</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.churchesProvidingSupport)}</div>
-              <HoverableText tooltip="Total number of churches in this county."><div className="text-left text-mte-charcoal font-lato">Total Churches</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.totalChurches)}</div>
-            </div>
-          </div>
-        </main>
+        </div>
       )}
 
-      {/* Statewide summary - County only */}
-      {showStateContext && (() => {
-        const stateInfo = getStateDataForCounty();
-        if (!stateInfo) return null;
-        return (
-          <section className="max-w-7xl mx-auto px-4">
-            <div className="bg-white rounded-2xl shadow-mte-card px-6 py-6 text-center">
-              <h3 className="text-2xl font-nexa text-mte-black mb-4">Statewide Data Summary for {data.state}</h3>
-              <div className="flex flex-wrap justify-around gap-6 md:gap-10 text-center">
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.totalChildren)}</p><p className="text-base text-mte-charcoal font-lato">Children in Care</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.licensedHomes)}</p><p className="text-base text-mte-charcoal font-lato">Licensed Homes</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.waitingForAdoption)}</p><p className="text-base text-mte-charcoal font-lato">Children Waiting For Adoption</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(stateInfo.reunificationRate)}</p><p className="text-base text-mte-charcoal font-lato">Biological Family Reunification Rate</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.familyPreservationCases)}</p><p className="text-base text-mte-charcoal font-lato">Family Preservation Cases</p></div>
-              </div>
+      {/* Metric Cards - Only show if we have data */}
+      {years.length > 0 && (
+        <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+          {/* Foster & Kinship - PURPLE */}
+          <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+            <div className="flex items-center gap-3 mb-3 md:mb-4">
+              <img src={FosterKinshipIcon} alt="Kinship" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
+              <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Foster and Kinship Families</h3>
             </div>
-          </section>
-        );
-      })()}
+            
+            {categoryMetrics.kinship.length > 0 ? (
+              <>
+                {/* Metric Dropdown */}
+                <div className="mb-4">
+                  <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
+                  <select 
+                    value={selectedKinshipMetric}
+                    onChange={(e) => setSelectedKinshipMetric(e.target.value)}
+                    className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+                  >
+                    {categoryMetrics.kinship.map(metric => (
+                      <option key={metric.id} value={metric.id}>{metric.label}</option>
+                    ))}
+                  </select>
+                </div>
+                {renderBarChart('kinship', 'bg-mte-purple')}
+              </>
+            ) : (
+              <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
+                <span>No data available</span>
+              </div>
+            )}
+          </div>
 
-      <footer className="py-6 pr-6 flex justify-end">
+          {/* Adoptive - GREEN */}
+          <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+            <div className="flex items-center gap-3 mb-3 md:mb-4">
+              <img src={AdoptiveFamilyIcon} alt="Adoptive" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
+              <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Adoptive Families</h3>
+            </div>
+            
+            {categoryMetrics.adoption.length > 0 ? (
+              <>
+                {/* Metric Dropdown */}
+                <div className="mb-4">
+                  <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
+                  <select 
+                    value={selectedAdoptionMetric}
+                    onChange={(e) => setSelectedAdoptionMetric(e.target.value)}
+                    className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+                  >
+                    {categoryMetrics.adoption.map(metric => (
+                      <option key={metric.id} value={metric.id}>{metric.label}</option>
+                    ))}
+                  </select>
+                </div>
+                {renderBarChart('adoption', 'bg-mte-green')}
+              </>
+            ) : (
+              <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
+                <span>No data available</span>
+              </div>
+            )}
+          </div>
+
+          {/* Biological - ORANGE */}
+          <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+            <div className="flex items-center gap-3 mb-3 md:mb-4">
+              <img src={BiologicalFamilyIcon} alt="Biological" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
+              <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Support for Biological Families</h3>
+            </div>
+            
+            {categoryMetrics.biological.length > 0 ? (
+              <>
+                {/* Metric Dropdown */}
+                <div className="mb-4">
+                  <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
+                  <select 
+                    value={selectedBiologicalMetric}
+                    onChange={(e) => setSelectedBiologicalMetric(e.target.value)}
+                    className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+                  >
+                    {categoryMetrics.biological.map(metric => (
+                      <option key={metric.id} value={metric.id}>{metric.label}</option>
+                    ))}
+                  </select>
+                </div>
+                {renderBarChart('biological', 'bg-mte-orange')}
+              </>
+            ) : (
+              <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
+                <span>No data available</span>
+              </div>
+            )}
+          </div>
+
+          {/* Wraparound - YELLOW */}
+          <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+            <div className="flex items-center gap-3 mb-3 md:mb-4">
+              <img src={WrapAroundIcon} alt="Wraparound" className="w-16 h-16 md:w-20 md:h-20 mb-2" />
+              <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato text-center mb-3 md:mb-4">Wraparound Support</h3>
+            </div>
+            
+            {categoryMetrics.wraparound.length > 0 ? (
+              <>
+                {/* Metric Dropdown */}
+                <div className="mb-4">
+                  <label className="block text-sm font-lato text-mte-charcoal mb-2">Select a Metric</label>
+                  <select 
+                    value={selectedWraparoundMetric}
+                    onChange={(e) => setSelectedWraparoundMetric(e.target.value)}
+                    className="w-full bg-mte-blue-20 border border-mte-light-grey rounded-lg px-3 py-2 text-sm font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue"
+                  >
+                    {categoryMetrics.wraparound.map(metric => (
+                      <option key={metric.id} value={metric.id}>{metric.label}</option>
+                    ))}
+                  </select>
+                </div>
+                {renderBarChart('wraparound', 'bg-mte-yellow')}
+              </>
+            ) : (
+              <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
+                <span>No data available</span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Historical Change - Only show if we have data */}
+      {years.length > 0 && trends && (
+        <div className="bg-white max-w-5xl mx-auto rounded-lg shadow-mte-card p-4 md:p-6 mb-6 md:mb-8 mx-4">
+          <h3 className="text-2xl md:text-3xl font-nexa mb-3 md:mb-4 text-mte-black text-center">
+            Historical Change ({years[0]} to {years[years.length - 1]})
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 text-sm md:text-base font-lato">
+            <div className="text-center">
+              <div className={`font-bold text-lg md:text-xl ${hasValue(trends.childrenInCare) ? (trends.childrenInCare < 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
+                {hasValue(trends.childrenInCare) ? `${trends.childrenInCare > 0 ? '+' : ''}${trends.childrenInCare}%` : 'N/A'}
+              </div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Children in Care</div>
+            </div>
+            <div className="text-center">
+              <div className={`font-bold text-lg md:text-xl ${hasValue(trends.licensedHomes) ? (trends.licensedHomes > 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
+                {hasValue(trends.licensedHomes) ? `${trends.licensedHomes > 0 ? '+' : ''}${trends.licensedHomes}%` : 'N/A'}
+              </div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Licensed Homes</div>
+            </div>
+            <div className="text-center">
+              <div className={`font-bold text-lg md:text-xl ${hasValue(trends.waitingForAdoption) ? (trends.waitingForAdoption < 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
+                {hasValue(trends.waitingForAdoption) ? `${trends.waitingForAdoption > 0 ? '+' : ''}${trends.waitingForAdoption}%` : 'N/A'}
+              </div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Waiting for Adoption</div>
+            </div>
+            <div className="text-center">
+              <div className={`font-bold text-lg md:text-xl ${hasValue(trends.reunificationRate) ? (trends.reunificationRate > 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
+                {hasValue(trends.reunificationRate) ? `${trends.reunificationRate > 0 ? '+' : ''}${trends.reunificationRate}%` : 'N/A'}
+              </div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Reunification Rate</div>
+            </div>
+            <div className="text-center col-span-2 md:col-span-1">
+              <div className={`font-bold text-lg md:text-xl ${hasValue(trends.familyPreservationCases) ? (trends.familyPreservationCases > 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
+                {hasValue(trends.familyPreservationCases) ? `${trends.familyPreservationCases > 0 ? '+' : ''}${trends.familyPreservationCases}%` : 'N/A'}
+              </div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Family Preservation</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Footer */}
+      <div className="py-4 text-right pr-6">
         <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer" className="self-center">
-          <img src={MTELogo} alt="More Than Enough Logo" className="h-8" /> 
+          <img src={MTELogo} alt="More Than Enough" className="h-6 md:h-8 inline-block" />  
         </a>
-      </footer>
+      </div>
     </div>
   );
-};
-
-export default MetricView;
+}

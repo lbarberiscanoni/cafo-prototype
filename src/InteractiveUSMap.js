@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
-import { stateData, fmt, fmtPct, stateNameToCode } from './real-data.js';
+import { stateData, fmt } from './real-data.js';
 
 // State name to abbreviation mapping
 const stateNameToAbbreviation = {
@@ -123,7 +123,7 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
     });
     
     return data;
-  }, [selectedMetric, metricConfig]);
+  }, [metricConfig]);
 
   // Calculate dynamic color scale based on actual data distribution (quantiles)
   const { colorScale, legendBreaks, hasData } = useMemo(() => {

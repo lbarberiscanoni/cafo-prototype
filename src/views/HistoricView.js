@@ -142,7 +142,8 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
         reunificationRate.some(v => v !== null) && { 
           id: 'reunification_rate', 
           label: 'Reunification Rate (%)', 
-          data: reunificationRate
+          data: reunificationRate,
+          isPercentage: true
         },
         familyPreservation.some(v => v !== null) && { 
           id: 'family_preservation', 
@@ -255,7 +256,8 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
         reunificationRate.some(v => v !== null) && { 
           id: 'reunification_rate', 
           label: 'Reunification Rate (%)', 
-          data: reunificationRate
+          data: reunificationRate,
+          isPercentage: true
         },
         familyPreservation.some(v => v !== null) && { 
           id: 'family_preservation', 
@@ -464,6 +466,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     }
     
     const data = currentMetric.data;
+    const isPercentage = currentMetric.isPercentage;
     const validData = data.filter(v => v !== null);
     
     if (validData.length === 0) {
@@ -474,16 +477,28 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       );
     }
     
-    const maxValue = Math.max(...validData);
+    // For percentage metrics, convert to display values (0.2 -> 20)
+    const displayData = isPercentage ? data.map(v => v !== null ? v * 100 : null) : data;
+    const validDisplayData = displayData.filter(v => v !== null);
+    const maxValue = Math.max(...validDisplayData);
     const chartHeight = 140;
     const yMax = maxValue > 0 ? maxValue : 1;
+    
+    // Format value for display
+    const formatValue = (value) => {
+      if (value === null) return 'N/A';
+      if (isPercentage) {
+        return `${Math.round(value)}%`;
+      }
+      return fmt(value);
+    };
     
     return (
       <div className="mt-4">
         {/* Bars container */}
         <div className="flex items-end justify-around gap-4 px-4" style={{ height: `${chartHeight}px` }}>
           {years.map((year, index) => {
-            const value = data[index];
+            const value = displayData[index];
             const isNull = value === null;
             const barHeight = isNull ? 24 : Math.max(24, (value / yMax) * chartHeight);
             
@@ -495,7 +510,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                   style={{ height: `${barHeight}px` }}
                 >
                   <span className="text-white text-sm font-bold font-lato drop-shadow-sm">
-                    {isNull ? 'N/A' : fmt(value)}
+                    {formatValue(value)}
                   </span>
                 </div>
               </div>

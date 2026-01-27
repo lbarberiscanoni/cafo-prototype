@@ -4,13 +4,41 @@
     - [ ] MTE Master Data = Master + Network Members + Connections
     - [ ] AFCARS = everything
 - [ ] Check on Weld County because it has 5 organizations part of a network in MTE Master Data but we only display 2
+- [ ] Set up a periodic (e.g., daily) function to download updated data from Google Sheets and rerun the data pipeline.
+
 - [ ] Optimize SEO so that “foster care data for Jefferson county” shows up the app 
     - [ ] Programmatic html site generation for SEO 
 - [ ] Historic View
     - [ ] Consider implementing option to download all county data at the state level in one file
-- [ ] Fourth Card
+        - actually consider making the download it whatever is looking at
+
+- [ ] Add full Impact Area in Impact Areas "Foster & Kinship...." 
+- [ ] Shrink the text in the selector under "Metrics" view so that it doesn't get cutoff from the arrow
+- [ ] For the Maps, make it a consistent water-grey and land-white or vice versa
+- [ ] Double check Count of Family Preservation cases at the national level because the data is missing right now
 - [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
-- [ ] Set up a periodic (e.g., daily) function to download updated data from Google Sheets and rerun the data pipeline.
+
+- [ ] To metrics page, add county population 
+- [ ] Add sources and date from here. Please make sure the source in the hover-over goes with each state and the source and date of data collection are added.
+- [ ] Change historic data years to End of Year 2023 and End of Year 2024 instead of 2024 and 2025
+- [ ] On metrics card, “Children in Family” should read “Children in Family-Like Foster Care” and “Children Placed Out-of-County” instead of “Children Out-of-County” and change “Licensed Foster Homes” instead of “Licensed Homes”
+- [ ] On metrics card, provide an option to navigate to another state and county
+Requested edit for CTA re: CTA button placement and footer text for the embed view, see this [loom](https://www.loom.com/share/e73eeb6ad5d84baf9e770f3ee9dd3bc8) and the proposed copy below.
+    - Button text: Your Next Steps [Will go to exit CTA page] • Footer sentence for embed card: "This snapshot is powered by More Than Enough, CAFO's US Foster Care Initiative. Visit the full dashboard [hyper link to dashboard] for more data — including data for other counties and states." 
+- [ ] Let’s add these family preservation cases to national data -> Last column (https://docs.google.com/spreadsheets/d/1yFrhrOmVBSIzqFyuNBCtwfZD7WcXMihf-vYxZbDOdww/edit?usp=sharing
+- [ ] Organizations still missing like Foster the City? Still issues on Firefox
+- [ ] On the national map, let’s make the “Jump to County” field typable
+- [ ] There’s still an issue for anything not mapped to counties (e.g. regions and districts). Here are customizations
+    - `Alabama: Date should be displayed for 2022, also in historic data
+    Alaska: District
+    Connecticut: Region
+    DC: Let's create a county page for DC, with the metrics card
+    New Hampshire: District
+    South Dakota: District Office
+    Vermont: District Office
+    Washington: Region
+    Wisconsin: Date should be displayed for 2022, also in historic data`
+
 
 [Here are the CAFO Data Sources](https://docs.google.com/document/d/13Bq8yKjXXIynwdoOgY4efEtfI7M72JxQsLBlxl6WTWc/edit?tab=t.0)
 

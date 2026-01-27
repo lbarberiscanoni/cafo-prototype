@@ -15,7 +15,6 @@
 - [ ] Add full Impact Area in Impact Areas "Foster & Kinship...." 
 - [ ] Shrink the text in the selector under "Metrics" view so that it doesn't get cutoff from the arrow
 - [ ] For the Maps, make it a consistent water-grey and land-white or vice versa
-- [ ] Double check Count of Family Preservation cases at the national level because the data is missing right now
 - [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
 
 - [ ] To metrics page, add county population 
@@ -26,7 +25,6 @@
 Requested edit for CTA re: CTA button placement and footer text for the embed view, see this [loom](https://www.loom.com/share/e73eeb6ad5d84baf9e770f3ee9dd3bc8) and the proposed copy below.
     - Button text: Your Next Steps [Will go to exit CTA page] • Footer sentence for embed card: "This snapshot is powered by More Than Enough, CAFO's US Foster Care Initiative. Visit the full dashboard [hyper link to dashboard] for more data — including data for other counties and states." 
 - [ ] Let’s add these family preservation cases to national data -> Last column (https://docs.google.com/spreadsheets/d/1yFrhrOmVBSIzqFyuNBCtwfZD7WcXMihf-vYxZbDOdww/edit?usp=sharing
-- [ ] Organizations still missing like Foster the City? Still issues on Firefox
 - [ ] On the national map, let’s make the “Jump to County” field typable
 - [ ] There’s still an issue for anything not mapped to counties (e.g. regions and districts). Here are customizations
     - `Alabama: Date should be displayed for 2022, also in historic data

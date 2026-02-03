@@ -16,11 +16,11 @@
 - [ ] Shrink the text in the selector under "Metrics" view so that it doesn't get cutoff from the arrow
 - [ ] For the Maps, make it a consistent water-grey and land-white or vice versa
 - [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
-
-- [ ] To metrics page, add county population 
-- [ ] Add sources and date from here. Please make sure the source in the hover-over goes with each state and the source and date of data collection are added.
-- [ ] Change historic data years to End of Year 2023 and End of Year 2024 instead of 2024 and 2025
 - [ ] On metrics card, “Children in Family” should read “Children in Family-Like Foster Care” and “Children Placed Out-of-County” instead of “Children Out-of-County” and change “Licensed Foster Homes” instead of “Licensed Homes”
+- [ ] Change historic data years to End of Year 2023 and End of Year 2024 instead of 2024 and 2025
+
+- [ ] To metrics page, add county population (file this under the data pipeline)
+- [ ] Add sources and date from here. Please make sure the source in the hover-over goes with each state and the source and date of data collection are added. (in the data and sources doc there is a specific definition for each metric under the county)
 - [ ] On metrics card, provide an option to navigate to another state and county
 Requested edit for CTA re: CTA button placement and footer text for the embed view, see this [loom](https://www.loom.com/share/e73eeb6ad5d84baf9e770f3ee9dd3bc8) and the proposed copy below.
     - Button text: Your Next Steps [Will go to exit CTA page] • Footer sentence for embed card: "This snapshot is powered by More Than Enough, CAFO's US Foster Care Initiative. Visit the full dashboard [hyper link to dashboard] for more data — including data for other counties and states." 

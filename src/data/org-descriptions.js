@@ -6,29 +6,38 @@
  * Crawls organization websites and generates one-liner descriptions using Claude API.
  * 
  * Usage:
- *   node org-descriptions.js
+ *   node org-descriptions.js [real-data.json]
  * 
- * Reads from real-data.json and updates it in place.
- * Requires ANTHROPIC_API_KEY in .env file.
+ * Reads from real-data.json and updates organizations in place.
+ * Requires ANTHROPIC_API_KEY environment variable.
+ * 
+ * Set via: export ANTHROPIC_API_KEY=sk-ant-...
+ * Or create .env file with: ANTHROPIC_API_KEY=sk-ant-...
  */
-
-require('dotenv').config({ path: require('path').join(__dirname, '../../.env') });
 
 const fs = require('fs');
 const path = require('path');
 
-// Default file path - update real-data.json in place
-const DATA_FILE = path.join(__dirname, 'real-data.json');
+// Try to load dotenv if available (check grandparent directory for .env)
+try {
+  require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+} catch (e) {
+  // dotenv not installed, that's fine - will use environment variable directly
+}
+
+// Default file path
+const DEFAULT_DATA_FILE = './real-data.json';
 
 // Configuration
 const CONFIG = {
   fetchTimeout: 10000,        // 10 second timeout per website
   maxContentLength: 50000,    // Max characters to send to Claude
   delayBetweenApiCalls: 500,  // Rate limiting for Anthropic API
+  saveEvery: 10,              // Save progress every N orgs
 };
 
 // ============================================
-// Website Fetching (using native fetch)
+// Website Fetching
 // ============================================
 
 async function fetchUrl(url, timeout = CONFIG.fetchTimeout) {
@@ -63,7 +72,7 @@ async function fetchUrl(url, timeout = CONFIG.fetchTimeout) {
 }
 
 // ============================================
-// HTML Parsing (simple text extraction)
+// HTML Parsing
 // ============================================
 
 function extractTextFromHtml(html) {
@@ -96,7 +105,7 @@ function extractTextFromHtml(html) {
   // Remove all HTML tags
   text = text.replace(/<[^>]+>/g, ' ');
   
-  // Clean up whitespace
+  // Clean up whitespace and entities
   text = text
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
@@ -159,7 +168,12 @@ async function callAnthropic(prompt, apiKey) {
 // ============================================
 
 async function generateDescription(org, apiKey) {
-  const { name, website, category, state, city } = org;
+  // Extract fields from org structure
+  const name = org.name;
+  const website = org.website;
+  const category = org.category;
+  const state = org.address?.state;
+  const city = org.address?.city;
   
   if (!website) {
     return { success: false, error: 'No website URL' };
@@ -242,47 +256,54 @@ function delay(ms) {
 // Main Processing
 // ============================================
 
-async function processOrganizations(inputPath, outputPath, apiKey) {
+async function processOrganizations(dataPath, apiKey) {
+  console.log('🏢 ORGANIZATION DESCRIPTION GENERATOR');
+  console.log('═'.repeat(60));
+  console.log(`Data file: ${dataPath}`);
+  console.log('');
+  
   // Read input
-  console.log(`Reading ${inputPath}...`);
-  const rawData = fs.readFileSync(inputPath, 'utf8');
-  const data = JSON.parse(rawData);
+  console.log('📖 Loading data...');
+  const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
   
-  // Handle nested or flat structure
-  let organizations;
-  let isNested = false;
-  
-  if (Array.isArray(data)) {
-    organizations = data;
-  } else if (data.organizations && Array.isArray(data.organizations)) {
-    organizations = data.organizations;
-    isNested = true;
-  } else {
-    throw new Error('Input must be an array or object with "organizations" array');
+  // Get organizations array
+  const organizations = data.organizations;
+  if (!organizations || !Array.isArray(organizations)) {
+    console.error('❌ Error: No organizations array found in data');
+    process.exit(1);
   }
   
-  console.log(`Found ${organizations.length} organizations`);
+  console.log(`   Found ${organizations.length} organizations`);
   
   // Filter to orgs with websites but no description
   const toProcess = organizations.filter(org => 
-    org.website && (!org.description || org.description.trim() === '')
+    org.website && 
+    (!org.generatedDescription || org.generatedDescription.trim() === '')
   );
   
-  console.log(`${toProcess.length} organizations need descriptions`);
+  console.log(`   ${toProcess.length} organizations need descriptions`);
+  
+  if (toProcess.length === 0) {
+    console.log('\n✅ All organizations already have descriptions!');
+    return;
+  }
   
   // Process each organization
   let processed = 0;
   let succeeded = 0;
   let failed = 0;
   
+  console.log('\n🔄 Generating descriptions...\n');
+  
   for (const org of toProcess) {
     processed++;
-    console.log(`[${processed}/${toProcess.length}] Processing: ${org.name}`);
+    console.log(`[${processed}/${toProcess.length}] ${org.name}`);
     
     const result = await generateDescription(org, apiKey);
     
     if (result.success) {
       org.generatedDescription = result.description;
+      delete org.descriptionError;
       succeeded++;
       console.log(`  ✓ ${result.description}`);
     } else {
@@ -292,64 +313,68 @@ async function processOrganizations(inputPath, outputPath, apiKey) {
       console.log(`  ✗ ${result.error}`);
     }
     
+    console.log('');
+    
     // Save progress periodically
-    if (processed % 10 === 0) {
-      const outputData = isNested ? { ...data, organizations } : organizations;
-      fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2));
-      console.log(`  [Saved progress to ${outputPath}]`);
+    if (processed % CONFIG.saveEvery === 0) {
+      fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
+      console.log(`  [Saved progress - ${processed}/${toProcess.length}]\n`);
     }
   }
   
-  // Final save
-  const outputData = isNested ? { ...data, organizations } : organizations;
-  fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2));
+  // Update metadata
+  data.metadata.enrichment = data.metadata.enrichment || {};
+  data.metadata.enrichment.descriptions = {
+    generated: new Date().toISOString(),
+    processed: processed,
+    succeeded: succeeded,
+    failed: failed
+  };
   
-  console.log('\n=== Summary ===');
-  console.log(`Total organizations: ${organizations.length}`);
-  console.log(`Processed: ${processed}`);
-  console.log(`Succeeded: ${succeeded}`);
-  console.log(`Failed: ${failed}`);
-  console.log(`Output written to: ${outputPath}`);
+  // Final save
+  fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
+  
+  const stats = fs.statSync(dataPath);
+  const sizeMB = (stats.size / (1024 * 1024)).toFixed(2);
+  
+  console.log('═'.repeat(60));
+  console.log('📊 SUMMARY:');
+  console.log(`   Total organizations: ${organizations.length}`);
+  console.log(`   Processed: ${processed}`);
+  console.log(`   Succeeded: ${succeeded}`);
+  console.log(`   Failed: ${failed}`);
+  console.log(`   File size: ${sizeMB} MB`);
+  console.log(`\n✅ Descriptions saved to ${dataPath}`);
 }
 
 // ============================================
 // CLI Entry Point
 // ============================================
 
-// Catch unhandled errors
-process.on('uncaughtException', (err) => {
-  console.error('Uncaught Exception:', err.message);
-  console.error(err.stack);
-  process.exit(1);
-});
-
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('Unhandled Rejection at:', promise);
-  console.error('Reason:', reason);
-  process.exit(1);
-});
-
 async function main() {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    console.error('Error: ANTHROPIC_API_KEY not found in environment.');
-    console.error('Make sure you have a .env file with ANTHROPIC_API_KEY=sk-ant-...');
+    console.error('❌ Error: ANTHROPIC_API_KEY not found in environment.');
+    console.error('');
+    console.error('Set it with:');
+    console.error('  export ANTHROPIC_API_KEY=sk-ant-...');
+    console.error('');
+    console.error('Or create a .env file with:');
+    console.error('  ANTHROPIC_API_KEY=sk-ant-...');
     process.exit(1);
   }
   
-  // Use DATA_FILE constant (real-data.json in same directory)
-  const filePath = DATA_FILE;
+  const dataPath = process.argv[2] || DEFAULT_DATA_FILE;
   
-  if (!fs.existsSync(filePath)) {
-    console.error(`Error: File not found: ${filePath}`);
+  if (!fs.existsSync(dataPath)) {
+    console.error(`❌ Error: File not found: ${dataPath}`);
     process.exit(1);
   }
   
   try {
-    // Read and update in place
-    await processOrganizations(filePath, filePath, apiKey);
+    await processOrganizations(dataPath, apiKey);
   } catch (err) {
-    console.error('Error:', err.message);
+    console.error('❌ Error:', err.message);
     process.exit(1);
   }
 }

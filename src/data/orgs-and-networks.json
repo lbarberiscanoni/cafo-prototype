@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "source": "MTE_Master_Data.xlsx",
+    "generated": "2026-02-05T22:35:30.352Z",
+    "organizationCount": 0,
+    "networkCount": 0,
+    "stats": {
+      "withCoordinates": 0,
+      "withWebsite": 0,
+      "withActivities": 0,
+      "withNetworkMemberships": 0,
+      "withCountiesServed": 0
+    },
+    "categories": {},
+    "networkMemberships": {
+      "total": 0,
+      "skipped": 0,
+      "skippedOrgs": []
+    }
+  },
+  "organizations": [],
+  "networks": []
+}

@@ -1,0 +1,784 @@
+{
+  "metadata": {
+    "source": "Sources_and_Definitions.xlsx",
+    "generated": "2026-02-05T22:34:02.496Z",
+    "stateCount": 51,
+    "statesWithUrl": 49,
+    "dataYearDistribution": {
+      "2022": 2,
+      "2023": 2,
+      "2024": 31,
+      "2025": 14,
+      "unknown": 2
+    },
+    "definitionCoverage": {
+      "childrenInCare": 46,
+      "childrenInFosterCare": 39,
+      "childrenInKinshipCare": 45,
+      "fosterKinshipHomes": 31,
+      "childrenWaitingForAdoption": 31,
+      "reunificationRate": 35,
+      "familyPreservationCases": 18,
+      "churches": 0,
+      "childrenAdopted": 33
+    },
+    "issues": []
+  },
+  "data": [
+    {
+      "state": "Alabama",
+      "dataDate": "2022-02-27",
+      "dataYear": 2022,
+      "sourceAgency": "Alabama Department of Human Resources",
+      "sourceUrl": "https://dhr.alabama.gov",
+      "definitions": {}
+    },
+    {
+      "state": "Alaska",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Dept. of Health and Social Services, Office of Children's Services",
+      "sourceUrl": "https://dhss.alaska.gov/ocs",
+      "definitions": {
+        "childrenInCare": "The count of children in all out-of-home placement types",
+        "childrenInFosterCare": "N/A",
+        "childrenInKinshipCare": "The count of children in relative placements",
+        "childrenPlacedOutOfCounty": "N/A",
+        "fosterKinshipHomes": "Number of licensed foster and kinship homes",
+        "childrenWaitingForAdoption": "N/A",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "familyPreservationCases": "N/A",
+        "childrenAdopted": "The number of children adopted in CY 2024"
+      }
+    },
+    {
+      "state": "Arizona",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Arizona Department of Child Safety",
+      "sourceUrl": "https://dcs.az.gov",
+      "definitions": {
+        "childrenInCare": "The count of children in all out-of-home placement types",
+        "childrenInFosterCare": "The count of children in family-like foster care",
+        "childrenInKinshipCare": "The count of children in licensed kinship beds",
+        "fosterKinshipHomes": "Number of licensed foster and kinship homes",
+        "childrenWaitingForAdoption": "The number of children waiting for adoption"
+      }
+    },
+    {
+      "state": "Arkansas",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Arkansas Department of Human Services, Division of Children and Family Services",
+      "sourceUrl": "https://humanservices.arkansas.gov/dcfs",
+      "definitions": {
+        "childrenInCare": "Children in Foster Care are defined as any child who has been removed from his or her home and resides in foster care at end of month.",
+        "childrenInFosterCare": "N/A",
+        "childrenInKinshipCare": "Children Placed with Relatives are defined as those who are placed in a relative or fictive kin foster care\nplacement. Children on a trial home visit, those on runaway, or those who otherwise do not have a\nplacement documented as of the end of the month are excluded from consideration.",
+        "childrenPlacedOutOfCounty": "Children Placed Out-of-County are defined as those who are placed in a foster care placement that is not located in the same county from which they were removed.",
+        "fosterKinshipHomes": "Foster Family Homes are defined as any resource home identified as a foster family home, relative foster family home, fictive kin foster family home, private agency foster family home, and/or specialized private agency foster family home. Each home has a number of approved slots or “beds” that are available for children in foster care.",
+        "childrenWaitingForAdoption": "Children Available for Adoption are defined as those in foster care who (1) have a termination of\nparental rights on both parents, (2) have a permanency goal of adoption, and (3) are not placed with\nrelatives, fictive kin, or a pre-adoptive family.",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "familyPreservationCases": "In-Home Protective Services Cases includes any case identified as a \"protective services\" case in which none of the children associated with the case are in foster care as of the end of the month. Cases in which at least one child is removed from the home are excluded from consideration."
+      }
+    },
+    {
+      "state": "California",
+      "dataDate": "2025-01-01",
+      "dataYear": 2025,
+      "sourceAgency": "California Child Welfare Indicators Project",
+      "sourceUrl": "https://ccwip.berkeley.edu",
+      "definitions": {
+        "childrenInCare": "“Number of children in foster care: All children who have an open placement episode in the CWS/CMS system (excluding children who have an agency type of 'Mental Health' (6133), 'Private Adoption' (36), or 'KinGAP' (6134)) on a user-specified count day (e.g., January 1, April 1, July 1, October 1) and year. On the user-specified count day, children are assigned to the county in which they have an open case or referral (for cases under the supervision of Child Welfare, Probation, or Other) or state ID  county code (for cases under the supervision of Probation and Other)”;  Age 0-21 years old. [Definition in quotes provided by source]. As of 1/1/2025.",
+        "childrenInFosterCare": "Children in foster care as of 1/1/2025",
+        "childrenInKinshipCare": "Children in relative or kinship placements as of 1/1/2025",
+        "childrenPlacedOutOfCounty": "Children placed out-of-county on 7/31/2024",
+        "childrenWaitingForAdoption": "Numbers of Children Waiting for Adoption Whose Parental Rights Have Been Terminated: This is an estimated count of all children in care on the last day of the FFY whose parental rights have been terminated and who are waiting for adoption. An individual child who has these characteristics on the last day of the year is counted only once for that year. As of 9/30/2024.",
+        "reunificationRate": "Number of exits to reunification / number of total exits from July 2023-July 2024.",
+        "familyPreservationCases": "Number of total family maintenance (including post-placement and no placement).",
+        "childrenAdopted": "Number of adoptions from July 2023-June 2024."
+      }
+    },
+    {
+      "state": "Colorado",
+      "dataDate": "2025-05-30",
+      "dataYear": 2025,
+      "sourceAgency": "Colorado - Office of Children, Youth, and Families",
+      "sourceUrl": "https://cdhs.colorado.gov/ocyf",
+      "definitions": {
+        "childrenInCare": "Data for children with an open out-of-home placement.",
+        "childrenInFosterCare": "Includes foster homes, treatment and therapeutic foster homes, and kinship homes (certified and non-certified)",
+        "childrenInKinshipCare": "Data for children with an open kinship care placement.",
+        "childrenPlacedOutOfCounty": "Data are for out-of-county placements open.",
+        "childrenWaitingForAdoption": "Clients are legally free, in active removals, and have a primary or alternate permanency goal of adoption.",
+        "reunificationRate": "Data are for children who discharged from out of home placements in calendar year 2024. The reunification rate includes those who reunified with parent(s)/primary caregivers and those who exited placement to living with relatives\nData pulled from ROM Discharge Reason report on 05/23/2025",
+        "familyPreservationCases": "This is calculated as the number of distinct cases from June 2024 - May 2025 where the permanency goal is not adoption, emanicipation, or long term foster care"
+      }
+    },
+    {
+      "state": "Connecticut",
+      "dataDate": "2025-05-07",
+      "dataYear": 2025,
+      "sourceAgency": "Connecticut Department of Children and Families",
+      "sourceUrl": "https://portal.ct.gov/dcf",
+      "definitions": {}
+    },
+    {
+      "state": "Delaware",
+      "dataDate": "2024-07-31",
+      "dataYear": 2024,
+      "sourceAgency": "KIDS Count in Delaware",
+      "sourceUrl": "https://www.dekidscount.org",
+      "definitions": {
+        "childrenInCare": "Point-in-time count of foster children.",
+        "fosterKinshipHomes": "Point-in-time count of foster homes."
+      }
+    },
+    {
+      "state": "District of Columbia",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "DC Child & Family Services",
+      "sourceUrl": "https://cfsa.dc.gov",
+      "definitions": {
+        "childrenInCare": "Includes all children in out-of-home care.",
+        "childrenInFosterCare": "Family based foster care: children are placed in licensed foster homes, including traditional foster homes and pre-adoptive foster homes",
+        "childrenInKinshipCare": "Children are placed with their kin, who have become licensed foster parents to care for them. Kin includes biological relatives and fictive kin (individuals that are unrelated by either birth or marriage, but have an emotionally significant relationship that existed prior to the child’s entry into care)",
+        "childrenPlacedOutOfCounty": "Indicates children who are wards of the District of Columbia who are placed in licensed foster homes in jurisdictions beyond DC and Maryland for the purposes of achieving permanency through guardianship or adoption. The licensed parents they are placed with may or may not be kin. DC’s Family Court continues to maintain jurisdiction over these cases, however the licensing of the foster parents and ongoing monitoring of the case occurs through a local entity, as provided for by the Interstate Compact for the Placement of Children (ICPC). The D.C. social worker and the ICPC social worker maintain regular communication.",
+        "fosterKinshipHomes": "The Imprint asks each state to identify the total number of licensed foster homes, regardless of non-relative or relative status, as of March 31, or the nearest date for which data was available. We also ask each state to provide the number of non-relative foster homes.",
+        "childrenWaitingForAdoption": "Number of Children Waiting for Adoption Whose Parental Rights Have Been Terminated: This is an estimated count of all children in care on the last day of the FFY whose parental rights have been terminated and who are waiting for adoption. An individual child who has these characteristics on the last day of the year is counted only once for that year.",
+        "reunificationRate": "Number of exits to reunification in FY 2024 / number of total exits in FY 2024. An exit occurs when Family Court issues a court order reunifying the child with their biological parent, finalizing a guardianship or adoption, or closing the child welfare case due to the child turning 21 years old. A child who has run away from their foster care placement has not exited from foster care.",
+        "familyPreservationCases": "Total number of families served in their homes: Number of families by CFSA in their home.",
+        "childrenAdopted": "Number of adoptions finalized in FY 2024."
+      }
+    },
+    {
+      "state": "Florida",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Florida Department of Children and Families",
+      "sourceUrl": "https://www.myflfamilies.com",
+      "definitions": {
+        "childrenInCare": "Out-of-Home Care: Substitute care provided for children placed away from their parents or guardians regardless of placement type or custodian, including those in licensed foster care, kinship (relative or non relative) care, or any other placement where the State agency has placement and care responsibility. This status is defined by the entry of a removal episode in FSFN. * Excludes young adults in care and is for children under age 18.",
+        "childrenInFosterCare": "Number of children in licensed foster care.",
+        "childrenInKinshipCare": "Number of children in approved relative or non-relative care.",
+        "fosterKinshipHomes": "Number of licensed foster and kinship homes",
+        "childrenWaitingForAdoption": "Number of Children Waiting for Adoption Whose Parental Rights Have Been Terminated: This is an estimated count of all children in care on the last day of the FFY whose parental rights have been terminated and who are waiting for adoption. An individual child who has these characteristics on the last day of the year is counted only once for that year.",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "familyPreservationCases": "Children receiving in-home services.",
+        "childrenAdopted": "The number of children adopted in CY 2024"
+      }
+    },
+    {
+      "state": "Georgia",
+      "dataDate": "2025-01-02",
+      "dataYear": 2025,
+      "sourceAgency": "Georgia Department of Human Services, Division of Family and Children Services",
+      "sourceUrl": "https://dfcs.georgia.gov",
+      "definitions": {
+        "childrenInCare": "Number of children in foster care: Total number of children in foster care on the last day of the quarter. Children assessed to be unsafe in their home are taken into state custody, also known as foster care.",
+        "childrenInFosterCare": "Number of children placed in family setting in foster care.",
+        "childrenInKinshipCare": "Number of children in relative or fictive kin care.",
+        "childrenPlacedOutOfCounty": "Number of children placed out of county of origin.",
+        "fosterKinshipHomes": "The number of open and approved foster family homes, relative foster family homes, fictive kin foster family homes, private agency foster family homes, specialized private agency foster family homes, and kinship family homes.",
+        "childrenWaitingForAdoption": "Number of children available for adoption: Children who are not able to  reunite with their families who may be adopted by another family. Includes children with a potential adoptive resource identified and not yet identified.",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in FY 2024",
+        "familyPreservationCases": "Family preservation cases open",
+        "childrenAdopted": "Number of adoptions finalized in FY 2024."
+      }
+    },
+    {
+      "state": "Hawaii",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "State of Hawai‘i Department of Human Services",
+      "sourceUrl": "https://humanservices.hawaii.gov",
+      "definitions": {
+        "childrenInCare": "Number of children in foster care.",
+        "childrenInFosterCare": "Children placed with a non-\nrelative resource caregiver",
+        "childrenInKinshipCare": "Children placed with a relative resource caregiver.",
+        "childrenWaitingForAdoption": "Number of children waiting for adoption with termination of parental rights.",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in SFY 2024",
+        "childrenAdopted": "Number of adoptions finalized in SFY 2024.",
+        "monthsToAdoption": "Average Number of Months from Award of PC to Adoption"
+      }
+    },
+    {
+      "state": "Idaho",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Idaho Department of Health and Welfare",
+      "sourceUrl": "https://healthandwelfare.idaho.gov/services-programs/children-families-older-adults/child-and-family-services-and-foster-care-7",
+      "definitions": {
+        "childrenInCare": "Number of foster children",
+        "childrenInFosterCare": "Number of children placed with a foster family",
+        "childrenInKinshipCare": "Number of children placed with a relative or fictive kin",
+        "fosterKinshipHomes": "Number of licensed foster providers",
+        "childrenWaitingForAdoption": "Number of children with parental rights terminated"
+      }
+    },
+    {
+      "state": "Illinois",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Illinois Department of Children and Family Services",
+      "sourceUrl": "https://dcfs.illinois.gov",
+      "definitions": {
+        "childrenInCare": "Number of Children in Foster Care: “Children Placed in Foster Care, Relative Care, Group Homes, or Institutions By Placement County”",
+        "childrenInKinshipCare": "Number of children placed in relative care.",
+        "fosterKinshipHomes": "Total Licensed Foster Homes: The number of facilities (foster homes only included in this count) that have a current license. In most cases, licenses are valid for a four-year period, after which a renewal of the license is required",
+        "childrenWaitingForAdoption": "Number of children waiting for adoption with termination of parental rights.",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "childrenAdopted": "The ratio of exits to reunification to total exits from foster care in CY 2024"
+      }
+    },
+    {
+      "state": "Indiana",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Indiana Department of Child Services",
+      "sourceUrl": "https://www.in.gov/dcs",
+      "definitions": {
+        "childrenInCare": "Number of children in care",
+        "childrenInFosterCare": "Number of children in non-relative foster care",
+        "childrenInKinshipCare": "Number of children in relative foster care",
+        "fosterKinshipHomes": "Number of licensed foster homes.",
+        "childrenWaitingForAdoption": "Number of children waiting for adoption over the last calendar year",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "familyPreservationCases": "Number of total open family preservation cases",
+        "childrenAdopted": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "monthsToAdoption": "Mean time elapsed between termination of parental rights and adoption (days)"
+      }
+    },
+    {
+      "state": "Iowa",
+      "dataDate": "2025-04-10",
+      "dataYear": 2025,
+      "sourceAgency": "Iowa Department of Health and Human Services",
+      "sourceUrl": "https://hhs.iowa.gov",
+      "definitions": {
+        "childrenInFosterCare": "Number of children in family-like foster care licensed.",
+        "childrenInKinshipCare": "Number of children in relative or fictive kin care (unlicensed).",
+        "childrenPlacedOutOfCounty": "Number of children placed out of county (financial county is different than resident county).",
+        "fosterKinshipHomes": "Number of licensed foster homes.",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "childrenAdopted": "The number of children adopted in CY 2024",
+        "monthsToAdoption": "Mean time elapsed between termination of parental rights and adoption."
+      }
+    },
+    {
+      "state": "Kansas",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Kansas Department for Children and Families",
+      "sourceUrl": "https://www.dcf.ks.gov",
+      "definitions": {
+        "childrenInCare": "Number of children in out-of-home care.",
+        "childrenInFosterCare": "Number of children in family foster care",
+        "childrenInKinshipCare": "Number of children in relative care",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "childrenAdopted": "Number of children adopted in SFY 2025"
+      }
+    },
+    {
+      "state": "Kentucky",
+      "dataDate": "2024-12-29",
+      "dataYear": 2024,
+      "sourceAgency": "Kentucky Cabinet for Health and Family Services",
+      "sourceUrl": "https://chfs.ky.gov",
+      "definitions": {
+        "childrenInCare": "Total # of Children in OOHC With Active Placements",
+        "childrenInKinshipCare": "# of Children Placed in Relative or Fictive Fin Placement (non-foster home)",
+        "childrenWaitingForAdoption": "(Point-in-Time 12/12/2024): Number of children who have a goal of adoption and who had a date of Mother TPR Judgement & Date of Father TPR Judgement",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "childrenAdopted": "The number of children who exited to adoption in CY 2024"
+      }
+    },
+    {
+      "state": "Louisiana",
+      "dataDate": "2025-04-22",
+      "dataYear": 2025,
+      "sourceAgency": "Louisiana Department of Children and Family Services",
+      "sourceUrl": "https://www.dcfs.louisiana.gov",
+      "definitions": {
+        "childrenInCare": "Total number of children in care",
+        "childrenInFosterCare": "Number of children in foster care",
+        "childrenInKinshipCare": "Number of children in kinship care",
+        "fosterKinshipHomes": "Number of certified providers",
+        "childrenWaitingForAdoption": "Number of children free for adoption with termination of parental rights",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "childrenAdopted": "The number of children adopted in CY 2024"
+      }
+    },
+    {
+      "state": "Maine",
+      "dataDate": "2025-01-01",
+      "dataYear": 2025,
+      "sourceAgency": "Office of Child and Family Services",
+      "sourceUrl": "https://www.maine.gov/dhhs/ocfs",
+      "definitions": {
+        "childrenInCare": "Number of children in state custody",
+        "childrenInKinshipCare": "PAYMENT DATA"
+      }
+    },
+    {
+      "state": "Maryland",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Maryland Department of Health and Human Services",
+      "sourceUrl": "https://dhs.maryland.gov",
+      "definitions": {
+        "childrenInCare": "Number of children in out-of-home care",
+        "childrenInFosterCare": "Number of children in non-kinship care",
+        "childrenInKinshipCare": "Number of in-home cases",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in SFY 2024",
+        "childrenAdopted": "Number of adoptions finalized in SFY 2024."
+      }
+    },
+    {
+      "state": "Massachusetts",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Massachusetts Department of Children and Families",
+      "sourceUrl": "https://www.mass.gov/orgs/dcf",
+      "definitions": {
+        "childrenInCare": "Number of children in all placement types",
+        "childrenInFosterCare": "Number of children in family-like foster care",
+        "childrenInKinshipCare": "Number of children in kinship care",
+        "childrenPlacedOutOfCounty": "Number of children placed out-of-county",
+        "fosterKinshipHomes": "Number of foster and kinship homes",
+        "childrenWaitingForAdoption": "Number of children waiting for adoption with termination of parental rights",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "childrenAdopted": "The number of children adopted in CY 2024",
+        "monthsToAdoption": "Mean time elapsed between termination of parental rights and adoption."
+      }
+    },
+    {
+      "state": "Michigan",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Michigan Department of Health and Human Services",
+      "sourceUrl": "https://www.michigan.gov/mdhhs",
+      "definitions": {
+        "childrenInCare": "Number of children in out-of-home care",
+        "childrenInFosterCare": "Children residing in non-relative licensed care",
+        "childrenInKinshipCare": "Children residing in kinship care (both licensed and non-licensed)",
+        "childrenPlacedOutOfCounty": "Children placed outside of their removal county",
+        "fosterKinshipHomes": "Number of licensed foster homes",
+        "childrenWaitingForAdoption": "Children with a goal of adoption are those who are legally free to be adopted and have \"Adoption\" recorded as their permanency goal",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "childrenAdopted": "The number of children adopted in CY 2024"
+      }
+    },
+    {
+      "state": "Minnesota",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Minnesota Department of Children, Youth, and Families",
+      "sourceUrl": "https://dcyf.mn.gov",
+      "definitions": {
+        "childrenInCare": "Number of children in all placement types",
+        "childrenInFosterCare": "Number of children in non-relative family foster placement",
+        "childrenInKinshipCare": "Number of children in relative family foster placement",
+        "fosterKinshipHomes": "Number of active foster care licenses"
+      }
+    },
+    {
+      "state": "Mississippi",
+      "dataDate": "2025-04-23",
+      "dataYear": 2025,
+      "sourceAgency": "Mississippi Department of Child Protective Services",
+      "sourceUrl": "https://www.mdcps.ms.gov",
+      "definitions": {
+        "childrenInCare": "Number of children in custody",
+        "familyPreservationCases": "Number of in-home cases"
+      }
+    },
+    {
+      "state": "Missouri",
+      "dataDate": "2024-01-01",
+      "dataYear": 2024,
+      "sourceAgency": "Missouri Dept. of Social Services Children's Division",
+      "sourceUrl": "https://dss.mo.gov/cd",
+      "definitions": {
+        "childrenInCare": "Number of children in custody in all placement types",
+        "childrenInFosterCare": "Number of children in foster care placements",
+        "childrenInKinshipCare": "Number of children in relative placements",
+        "childrenWaitingForAdoption": "Number of children waiting for adoption in custody with termination of parental rights",
+        "reunificationRate": "The ratio of exits to relative home to total exits from foster care",
+        "familyPreservationCases": "Number of famillies receiving in-home services",
+        "childrenAdopted": "The number of children adopted in CY 2024"
+      }
+    },
+    {
+      "state": "Montana",
+      "dataDate": null,
+      "dataYear": null,
+      "sourceAgency": "NOT AVAILABLE",
+      "sourceUrl": null,
+      "definitions": {}
+    },
+    {
+      "state": "Nebraska",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Nebraska Foster Care Review Office and Department of Health and Human Services",
+      "sourceUrl": "https://dhhs.ne.gov",
+      "definitions": {
+        "childrenInCare": "The count of children in all out-of-home placement types.",
+        "childrenInFosterCare": "The count of children in non-relative care.",
+        "childrenInKinshipCare": "The count of children in relative or fictive kin care.",
+        "childrenPlacedOutOfCounty": "The count of children placed outside their county of origin.",
+        "fosterKinshipHomes": "The number of open and approved foster family homes, relative foster family homes, fictive kin foster family homes, private agency foster family homes, specialized private agency foster family homes, and kinship family homes.",
+        "childrenWaitingForAdoption": "Numbers of Children Waiting for Adoption Whose Parental Rights Have Been Terminated: This is an estimated count of all children in care on the last day of the FFY whose parental rights have been terminated and who are waiting for adoption. An individual child who has these characteristics on the last day of the year is counted only once for that year.",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "childrenAdopted": "The number of children adopted in CY 2024"
+      }
+    },
+    {
+      "state": "Nevada",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Nevada Department of Child and Family Services",
+      "sourceUrl": "https://dcfs.nv.gov",
+      "definitions": {
+        "childrenInCare": "The count of children in all out-of-home placement types.",
+        "childrenInFosterCare": "The count of children in family foster care.",
+        "childrenInKinshipCare": "The count of children in relative care."
+      }
+    },
+    {
+      "state": "New Hampshire",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "New Hampshire Department of Health and Human Services",
+      "sourceUrl": "https://www.dhhs.nh.gov",
+      "definitions": {
+        "childrenInCare": "The count of children in all out-of-home placement types by district office (excluding juvenile justice)",
+        "childrenInFosterCare": "The count of children in out-of-home placement who are in a non-kinship family-like foster home by district office",
+        "childrenInKinshipCare": "The count of children in out-of-home placement who are in a kinship setting with relatives or approved family-like individuals by\ndistrict office",
+        "fosterKinshipHomes": "The number of open and approved foster family homes, relative foster family homes, fictive kin foster family homes, private agency\nfoster family homes, specialized private agency foster family homes, kinship family homes by district office",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "familyPreservationCases": "The number of open cases with a family in which none of the children in the home are removed",
+        "childrenAdopted": "The number of children adopted in CY 2024"
+      }
+    },
+    {
+      "state": "New Jersey",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "New Jersey Child Welfare Data Hub",
+      "sourceUrl": "https://njchildwelfaredatahub.org",
+      "definitions": {
+        "childrenInCare": "The count of children in all out-of-home placement types",
+        "childrenInFosterCare": "The count of children in a resource family (non-kinship)",
+        "childrenInKinshipCare": "The count of children in a resource family (kinship)",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "childrenAdopted": "The number of children adopted in CY 2024"
+      }
+    },
+    {
+      "state": "New Mexico",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "New Mexico Children, Youth, and Families Department",
+      "sourceUrl": "https://cyfd.nm.gov",
+      "definitions": {
+        "childrenInCare": "The count of children in all out-of-home placement types",
+        "childrenInKinshipCare": "The count of children placed with relatives",
+        "fosterKinshipHomes": "The total number of foster care providers",
+        "childrenWaitingForAdoption": "The number of children with termination of parental rights and not yet in pre-adoptive placement",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "childrenAdopted": "The number of finalized adoptions in CY 2024"
+      }
+    },
+    {
+      "state": "New York",
+      "dataDate": "2025-04-16",
+      "dataYear": 2025,
+      "sourceAgency": "NY Office of Children and Family Services",
+      "sourceUrl": "https://ocfs.ny.gov/main/",
+      "definitions": {
+        "childrenInCare": "The count of all children in care",
+        "childrenInFosterCare": "The count of all children in non-kinship foster homes",
+        "childrenInKinshipCare": "The count of children in kinship homes",
+        "childrenPlacedOutOfCounty": "The count of children placed out-of-county as of 12/31/2024",
+        "fosterKinshipHomes": "The number of unique foster homes, including certified relative, approved relative, and and licensed foster homes",
+        "childrenWaitingForAdoption": "The number of children freed and waiting for adoption, as of 12/31/2024",
+        "reunificationRate": "The percent of children discharged to \"home\" in 2024",
+        "childrenAdopted": "The number of adoptions in CY 2024"
+      }
+    },
+    {
+      "state": "North Carolina",
+      "dataDate": "2025-01-01",
+      "dataYear": 2025,
+      "sourceAgency": "North Carolina Department of Health and Human Services",
+      "sourceUrl": "https://www.ncdhhs.gov",
+      "definitions": {
+        "childrenInCare": "The count of all children in custody",
+        "childrenInFosterCare": "The count of children in foster homes (non-kinship)",
+        "childrenInKinshipCare": "The count of children in relative placements",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "childrenAdopted": "The number of finalized adoptions in CY 2024"
+      }
+    },
+    {
+      "state": "North Dakota",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "North Dakota Department of Health and Human Services - Children and Family Services Section",
+      "sourceUrl": "https://www.hhs.nd.gov/cfs",
+      "definitions": {
+        "childrenInCare": "The count of all children in custody",
+        "childrenInFosterCare": "The count of children in family foster care",
+        "childrenInKinshipCare": "The count of children in kinship care",
+        "childrenPlacedOutOfCounty": "The count of children placed outside their county of origin.",
+        "fosterKinshipHomes": "Number of foster homes, as of May 15, 2025",
+        "childrenWaitingForAdoption": "The number of children waiting for adoption with termination of parental rights"
+      }
+    },
+    {
+      "state": "Ohio",
+      "dataDate": "2025-01-01",
+      "dataYear": 2025,
+      "sourceAgency": "Ohio Department of Job and Family Services",
+      "sourceUrl": "https://jfs.ohio.gov",
+      "definitions": {
+        "childrenInCare": "The count of all children in custody",
+        "childrenInFosterCare": "The count of all children in family foster care",
+        "childrenInKinshipCare": "The count of all children in kinship care (relative and non-relative)",
+        "childrenWaitingForAdoption": "The number of children available for adoption",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "childrenAdopted": "The number of finalized adoptions in CY 2024"
+      }
+    },
+    {
+      "state": "Oklahoma",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Oklahoma Department of Human Services",
+      "sourceUrl": "https://oklahoma.gov/okdhs",
+      "definitions": {
+        "childrenInCare": "The count of children in out-of-home care",
+        "childrenInFosterCare": "The count of children in family-like foster care",
+        "childrenInKinshipCare": "The count of children in kinship care",
+        "childrenPlacedOutOfCounty": "The count of children placed outside their county of origin",
+        "fosterKinshipHomes": "The total number of approved foster and kinship homes",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in SFY 2024",
+        "familyPreservationCases": "The number of family-centered services prevention cases",
+        "childrenAdopted": "The number of finalized adoptions in SFY 2024"
+      }
+    },
+    {
+      "state": "Oregon",
+      "dataDate": "2023-09-30",
+      "dataYear": 2023,
+      "sourceAgency": "Oregon Department of Human Services Child Welfare",
+      "sourceUrl": "https://www.oregon.gov/odhs/child-welfare",
+      "definitions": {
+        "childrenInCare": "The count of children in out-of-home care, all placement types",
+        "childrenInFosterCare": "The count of children in a foster family home (non-kinship)",
+        "childrenInKinshipCare": "The count of children in kinship or relative care (excluding masked values)",
+        "fosterKinshipHomes": "The number of certified foster homes on 9/30/2023, including licensed and relative care",
+        "familyPreservationCases": "The number of children served in-home on 9/30/2023"
+      }
+    },
+    {
+      "state": "Pennsylvania",
+      "dataDate": "2022-09-30",
+      "dataYear": 2022,
+      "sourceAgency": "Kids Count Data Center",
+      "sourceUrl": "https://datacenter.aecf.org",
+      "definitions": {
+        "childrenInCare": "The count of children in all placement types (excluding small counts)",
+        "childrenInFosterCare": "The count of children in foster family home (non-relative)",
+        "childrenInKinshipCare": "The count of children in foster family home (relative)",
+        "childrenWaitingForAdoption": "The number of children with a placement goal of adoption",
+        "reunificationRate": "The % of discharges to reunification between October 2021-September 2022",
+        "childrenAdopted": "The number of adoptions between October 2021-September 2022"
+      }
+    },
+    {
+      "state": "Rhode Island",
+      "dataDate": "2025-04-01",
+      "dataYear": 2025,
+      "sourceAgency": "Rhode Island Department of Children, Youth and Families (“DCYF”)",
+      "sourceUrl": "https://dcyf.ri.gov",
+      "definitions": {
+        "childrenInCare": "The count of children in out-of-home care on 4/15/2025",
+        "childrenInFosterCare": "The count of children in non-kinship foster care",
+        "childrenInKinshipCare": "The count of children in kinship foster care",
+        "childrenPlacedOutOfCounty": "The count of children placed out of state",
+        "fosterKinshipHomes": "The total number of approved foster and kinship homes on 3/1/2025",
+        "childrenWaitingForAdoption": "The number of children waiting for adoption on 1/1/2025, with termination of parental rights",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in FY 2024",
+        "familyPreservationCases": "The number of in-home cases receiving support services",
+        "childrenAdopted": "The number of finalized adoptions in FY 2024"
+      }
+    },
+    {
+      "state": "South Carolina",
+      "dataDate": "2025-05-26",
+      "dataYear": 2025,
+      "sourceAgency": "South Carolina Department of Social Services",
+      "sourceUrl": "https://dss.sc.gov",
+      "definitions": {
+        "childrenInCare": "Number of children in out-of-home placement at point of data collection; Includes foster home, kinship home, congregate care, and other forms of placement",
+        "childrenInFosterCare": "The count of children in family-like (non-kinship) care",
+        "childrenInKinshipCare": "The count of children in kinship care",
+        "childrenPlacedOutOfCounty": "Count of Foster Care Children & Youth who are placed outside of their county of origin, not including children in kinship care. Also excludes children served by Adoptions.",
+        "fosterKinshipHomes": "The total number of foster homes",
+        "childrenWaitingForAdoption": "Number of children awaiting adoption at the point of data collection; Includes children with a case plan goal of adoption and no adoptive family identified as well as children who have been legally freed with no adoptive family identified.  [Definition not provided by source; Definition created by MTE team to summarize data measure]",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care from April 2024-April 2025",
+        "familyPreservationCases": "The number of cases opened previous week with at least one child <18 yrs",
+        "childrenAdopted": "The number of adoptions between 7/1/2024 and 6/30/2025"
+      }
+    },
+    {
+      "state": "South Dakota",
+      "dataDate": "2024-06-30",
+      "dataYear": 2024,
+      "sourceAgency": "South Dakota Department of Social Services",
+      "sourceUrl": "https://dss.sd.gov/childprotection/d",
+      "definitions": {
+        "childrenInCare": "Number of Children in Foster Care by Office",
+        "childrenInKinshipCare": "Number of Children in Kinship Care by Office",
+        "fosterKinshipHomes": "Number of Licensed Foster Homes by Office",
+        "childrenWaitingForAdoption": "Number of Children Waiting for Adoption with Termination of Parental Rights",
+        "reunificationRate": "Percent of Exits to Reunification by Office SFY2024 (07/01/2023-06/30/2024)",
+        "familyPreservationCases": "Number of Family Preservation (In-Home) Cases by Office",
+        "childrenAdopted": "Number of Adoptions by Office SFY2024 (07/01/2023-06/30/2024)",
+        "monthsToAdoption": "Mean (Average) Time (Months) Elapsed Between Termination of Parental Rights and Adoption by Office SFY2024 (07/01/2023 -06/30/2024)"
+      }
+    },
+    {
+      "state": "Tennessee",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Tennessee Department of Children's Services",
+      "sourceUrl": "https://www.tn.gov/dcs",
+      "definitions": {
+        "childrenInCare": "Number of Children Out of Home (excluding Juvenile Justice)",
+        "childrenInFosterCare": "Number of Children in Foster Care",
+        "childrenInKinshipCare": "Number of Children in Kinship Care",
+        "fosterKinshipHomes": "Number of Children in Licensed Foster Homes",
+        "childrenWaitingForAdoption": "Number of Children Waiting For Adoption with Termination of Parental Rights"
+      }
+    },
+    {
+      "state": "Texas",
+      "dataDate": "2024-08-31",
+      "dataYear": 2024,
+      "sourceAgency": "Texas Dept. of Family and Protective Services",
+      "sourceUrl": "https://www.dfps.texas.gov",
+      "definitions": {
+        "childrenInCare": "The count of children in out-of-home care, all placement types on 8/31/2024",
+        "childrenInFosterCare": "The count of children in non-relative foster care on 8/31/2024",
+        "childrenInKinshipCare": "The count of children in kinship care (relative or non-relative), on 8/31/2024",
+        "childrenPlacedOutOfCounty": "The count of children placed out of county, as of 8/31/2024",
+        "fosterKinshipHomes": "The count of all homes verified by CPAs, as of 8/31/2024",
+        "childrenWaitingForAdoption": "The count of children with parental rights terminated, of 8/31/2024",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
+        "familyPreservationCases": "The count of children served in FBSS Family Preservation Services, as of 12/31/2024",
+        "childrenAdopted": "The number of finalized adoptions in CY 2024"
+      }
+    },
+    {
+      "state": "Utah",
+      "dataDate": "NOT AVAILABLE",
+      "dataYear": null,
+      "sourceAgency": null,
+      "sourceUrl": null,
+      "definitions": {}
+    },
+    {
+      "state": "Vermont",
+      "dataDate": "2024-09-30",
+      "dataYear": 2024,
+      "sourceAgency": "Vermont Department for Children and FAmilies",
+      "sourceUrl": "https://dcf.vermont.gov",
+      "definitions": {
+        "childrenInCare": "Number of children in out-of-home care",
+        "childrenInFosterCare": "Number of children in family-like foster care",
+        "childrenInKinshipCare": "Number of children in relative/kinship placement",
+        "fosterKinshipHomes": "Number of active foster homes",
+        "childrenWaitingForAdoption": "Number of children freed for adoption",
+        "reunificationRate": "Percent of exits to reunification in CY 2024",
+        "familyPreservationCases": "Number of family support cases, by family",
+        "childrenAdopted": "Number of exits to adoption in CY 2024"
+      }
+    },
+    {
+      "state": "Virginia",
+      "dataDate": "2025-01-01",
+      "dataYear": 2025,
+      "sourceAgency": "Virginia Department of Social Services",
+      "sourceUrl": "https://www.dss.virginia.gov",
+      "definitions": {
+        "childrenInCare": "The number of children in care",
+        "childrenInFosterCare": "The number of children with current placement of a non-relative foster family",
+        "childrenInKinshipCare": "The number of children with a current placement of relative foster family",
+        "childrenWaitingForAdoption": "The number of children with a placement goal of adoption",
+        "reunificationRate": "The percent of exits to reunification in FY 2024",
+        "childrenAdopted": "The number of adoptions in FY 2024",
+        "monthsToAdoption": "The average months to adoption in 2024"
+      }
+    },
+    {
+      "state": "Washington",
+      "dataDate": "2024-06-30",
+      "dataYear": 2024,
+      "sourceAgency": "Washington State Department of Youth, Children, and Families",
+      "sourceUrl": "https://www.dcyf.wa.gov",
+      "definitions": {
+        "childrenInCare": "The number of children residing in out-of-home care",
+        "childrenInKinshipCare": "The number of children placed with relative or kin",
+        "fosterKinshipHomes": "The total number of licensed foster homes",
+        "reunificationRate": "The ratio of exits to reunification to total exits from foster care from June 2023-2024",
+        "childrenAdopted": "The number of finalized adoptions between June 2023-June 2024"
+      }
+    },
+    {
+      "state": "West Virginia",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "West Virginia Department of Health and Human Resources",
+      "sourceUrl": "https://dhhr.wv.gov",
+      "definitions": {
+        "childrenInCare": "The number of children in state custody",
+        "childrenInFosterCare": "The number of children in certi",
+        "childrenInKinshipCare": "The number of children in kinship placements (certified and pending)",
+        "fosterKinshipHomes": "The total number of CPA and kinship homes"
+      }
+    },
+    {
+      "state": "Wisconsin",
+      "dataDate": "2023-12-31",
+      "dataYear": 2023,
+      "sourceAgency": "Wisconsin Department of Children and Families",
+      "sourceUrl": "https://dcf.wisconsin.gov",
+      "definitions": {
+        "childrenInCare": "The count of children in out-of-home care",
+        "childrenInFosterCare": "The count of children in non-relative foster care",
+        "childrenInKinshipCare": "The count of children in relative foster care/kinship"
+      }
+    },
+    {
+      "state": "Wyoming",
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
+      "sourceAgency": "Wyoming Department of Family Services",
+      "sourceUrl": "https://dfs.wyo.gov",
+      "definitions": {
+        "childrenInCare": "The count of all children in care",
+        "childrenInFosterCare": "The count of children in foster care (including relative)",
+        "childrenInKinshipCare": "The count of children in relative care",
+        "fosterKinshipHomes": "The total number of relative/kin and non-relative homes",
+        "childrenWaitingForAdoption": "The count of children free for adoption with parental rights terminated",
+        "reunificationRate": "Of all discharges, the % of children who were reunified with caregivers in 2024",
+        "childrenAdopted": "The number of children adopted in 2024"
+      }
+    }
+  ]
+}

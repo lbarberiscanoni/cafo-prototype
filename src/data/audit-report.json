@@ -1,0 +1,236 @@
+{
+  "timestamp": "2026-02-05T22:44:43.574Z",
+  "dataDir": ".",
+  "checks": [
+    {
+      "category": "afcars",
+      "name": "file_exists",
+      "passed": true,
+      "expected": "file exists",
+      "actual": "file exists",
+      "message": null
+    },
+    {
+      "category": "afcars",
+      "name": "record_count",
+      "passed": true,
+      "expected": 156,
+      "actual": 156,
+      "message": null
+    },
+    {
+      "category": "afcars",
+      "name": "state_count",
+      "passed": true,
+      "expected": 52,
+      "actual": 52,
+      "message": null
+    },
+    {
+      "category": "afcars",
+      "name": "year_count",
+      "passed": true,
+      "expected": 3,
+      "actual": 3,
+      "message": null
+    },
+    {
+      "category": "afcars",
+      "name": "children_in_care_2023",
+      "passed": true,
+      "expected": 358080,
+      "actual": 358080,
+      "message": null
+    },
+    {
+      "category": "afcars",
+      "name": "children_adopted_2023",
+      "passed": true,
+      "expected": 55480,
+      "actual": 55480,
+      "message": null
+    },
+    {
+      "category": "afcars",
+      "name": "ca_children_in_care_2023",
+      "passed": true,
+      "expected": 44468,
+      "actual": 44468,
+      "message": null
+    },
+    {
+      "category": "afcars",
+      "name": "null_preservation",
+      "passed": true,
+      "expected": "nulls preserved",
+      "actual": "45 null values",
+      "message": null
+    },
+    {
+      "category": "sources",
+      "name": "file_exists",
+      "passed": true,
+      "expected": "file exists",
+      "actual": "file exists",
+      "message": null
+    },
+    {
+      "category": "sources",
+      "name": "state_count",
+      "passed": true,
+      "expected": ">= 51",
+      "actual": 51,
+      "message": null
+    },
+    {
+      "category": "sources",
+      "name": "states_with_dates",
+      "passed": true,
+      "warning": true,
+      "message": "1 states missing dates",
+      "actual": "50/51"
+    },
+    {
+      "category": "sources",
+      "name": "states_with_urls",
+      "passed": true,
+      "expected": ">90% have URLs",
+      "actual": "49/51",
+      "message": null
+    },
+    {
+      "category": "metrics",
+      "name": "file_exists",
+      "passed": true,
+      "expected": "file exists",
+      "actual": "file exists",
+      "message": null
+    },
+    {
+      "category": "metrics",
+      "name": "has_records",
+      "passed": true,
+      "expected": "> 0 records",
+      "actual": 5982,
+      "message": null
+    },
+    {
+      "category": "metrics",
+      "name": "tx_county_count_2025",
+      "passed": true,
+      "expected": 254,
+      "actual": 254,
+      "message": null
+    },
+    {
+      "category": "metrics",
+      "name": "ga_county_count_2025",
+      "passed": true,
+      "expected": 159,
+      "actual": 159,
+      "message": null
+    },
+    {
+      "category": "metrics",
+      "name": "ky_county_count_2025",
+      "passed": true,
+      "expected": 120,
+      "actual": 120,
+      "message": null
+    },
+    {
+      "category": "metrics",
+      "name": "geography_types",
+      "passed": true,
+      "expected": "valid geo types",
+      "actual": "county, region, district, city, districtOffice",
+      "message": null
+    },
+    {
+      "category": "metrics",
+      "name": "null_preservation",
+      "passed": true,
+      "expected": "nulls preserved",
+      "actual": "822 null childrenInCare values",
+      "message": null
+    },
+    {
+      "category": "metrics",
+      "name": "both_years_present",
+      "passed": true,
+      "expected": "2024 and 2025",
+      "actual": "2024, 2025",
+      "message": null
+    },
+    {
+      "category": "orgs",
+      "name": "file_exists",
+      "passed": true,
+      "expected": "file exists",
+      "actual": "file exists",
+      "message": null
+    },
+    {
+      "category": "orgs",
+      "name": "organization_count",
+      "passed": true,
+      "expected": ">= 400",
+      "actual": 490,
+      "message": null
+    },
+    {
+      "category": "orgs",
+      "name": "with_coordinates",
+      "passed": true,
+      "expected": ">= 150",
+      "actual": 194,
+      "message": null
+    },
+    {
+      "category": "orgs",
+      "name": "valid_coordinates",
+      "passed": true,
+      "expected": "0 invalid",
+      "actual": 0,
+      "message": null
+    },
+    {
+      "category": "orgs",
+      "name": "all_have_names",
+      "passed": true,
+      "expected": 490,
+      "actual": 490,
+      "message": null
+    },
+    {
+      "category": "orgs",
+      "name": "has_networks",
+      "passed": true,
+      "expected": "> 0",
+      "actual": 20,
+      "message": null
+    },
+    {
+      "category": "orgs",
+      "name": "orgs_with_memberships",
+      "passed": true,
+      "expected": "> 0",
+      "actual": 58,
+      "message": null
+    },
+    {
+      "category": "orgs",
+      "name": "orgs_with_counties",
+      "passed": true,
+      "expected": "> 0",
+      "actual": 194,
+      "message": null
+    }
+  ],
+  "summary": {
+    "total": 28,
+    "passed": 28,
+    "failed": 0,
+    "warnings": 1
+  }
+}

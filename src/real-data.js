@@ -9,9 +9,16 @@ import realDataJson from './data/real-data.json';
 export const fmt = (val, fallback = 'N/A') => 
   val !== null && val !== undefined ? val.toLocaleString() : fallback;
 
-/** Format percentage */
-export const fmtPct = (val, fallback = 'N/A') => 
-  val !== null && val !== undefined ? `${(val * 100).toFixed(1)}%` : fallback;
+/** Format percentage - handles both decimal (0.45) and whole number (45) formats */
+export const fmtPct = (val, fallback = 'N/A') => {
+  if (val === null || val === undefined) return fallback;
+  // If value is less than 1, treat as decimal (0.45 = 45%)
+  // If value is >= 1, treat as already a percentage (45 = 45%)
+  if (val < 1) {
+    return `${(val * 100).toFixed(1)}%`;
+  }
+  return `${val.toFixed(1)}%`;
+};
 
 /** Format large numbers with K/M suffix */
 export const fmtCompact = (val, fallback = 'N/A') => {
@@ -35,113 +42,169 @@ export const stateNameToCode = {
   'Mississippi': 'MS', 'Missouri': 'MO', 'Montana': 'MT', 'Nebraska': 'NE', 'Nevada': 'NV',
   'New Hampshire': 'NH', 'New Jersey': 'NJ', 'New Mexico': 'NM', 'New York': 'NY',
   'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH', 'Oklahoma': 'OK', 'Oregon': 'OR',
-  'Pennsylvania': 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC', 'South Dakota': 'SD',
-  'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT', 'Vermont': 'VT', 'Virginia': 'VA',
-  'Washington': 'WA', 'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY'
+  'Pennsylvania': 'PA', 'Puerto Rico': 'PR', 'Rhode Island': 'RI', 'South Carolina': 'SC', 
+  'South Dakota': 'SD', 'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT', 'Vermont': 'VT', 
+  'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY'
 };
 
 export const stateCodeToName = Object.fromEntries(
   Object.entries(stateNameToCode).map(([name, code]) => [code, name])
 );
 
+// ==================== ACTIVITY TO IMPACT AREA MAPPING ====================
+// Maps organization activities to MTE impact areas
+const activityToImpactArea = {
+  'recruit_foster_kinship': 'Foster and Kinship Families',
+  'recruit_adoptive': 'Adoptive',
+  'bio_family': 'Biological',
+  'support': 'Wraparound'
+};
+
+const mapActivitiesToAreas = (activities) => {
+  if (!activities || activities.length === 0) return [];
+  return [...new Set(activities.map(a => activityToImpactArea[a]).filter(Boolean))];
+};
+
 // ==================== NATIONAL STATS ====================
 // Use most recent year (2023) as default
 
 const latestYear = Math.max(...Object.keys(realDataJson.national).map(Number));
-export const nationalStats = realDataJson.national[latestYear];
+const latestNational = realDataJson.national[latestYear];
+
+export const nationalStats = {
+  childrenInCare: latestNational.childrenInCare,
+  childrenInFamilyFoster: latestNational.childrenInFosterCare,
+  childrenInKinship: latestNational.childrenInKinshipCare,
+  childrenWaitingAdoption: latestNational.childrenWaitingForAdoption,
+  childrenAdopted2023: latestNational.childrenAdopted,
+  familyPreservationCases: latestNational.familyPreservationCases,
+  // Note: totalChurches and churchesWithMinistry not available at national level
+  totalChurches: null,
+  churchesWithMinistry: null
+};
+
 export const nationalByYear = realDataJson.national;
 
 // ==================== STATE DATA ====================
-// Transform from { AL: { ... } } to format expected by components
+// Transform from { AL: { ... } } to { alabama: { ... } } format expected by components
 
-export const stateData = Object.fromEntries(
-  Object.entries(realDataJson.states).map(([abbrev, state]) => {
-    // Get latest AFCARS year data
-    const afcarsYears = Object.keys(state.afcars || {}).map(Number).sort((a, b) => b - a);
-    const latestAfcars = afcarsYears[0] ? state.afcars[afcarsYears[0]] : {};
-    
-    // Get latest county data year
-    const countyYears = [...new Set(state.counties.map(c => c.year))].sort((a, b) => b - a);
-    const latestCountyYear = countyYears[0] || null;
-    
-    // Create state key (lowercase with dashes)
-    const stateKey = state.name.toLowerCase().replace(/\s+/g, '-');
-    
-    return [stateKey, {
-      id: stateKey,
-      abbreviation: abbrev,
-      name: state.name,
-      // AFCARS data (state-level)
-      totalChildren: latestAfcars.childrenInCare || null,
-      childrenInCare: latestAfcars.childrenInCare || null,
-      childrenInFosterCare: latestAfcars.childrenInFosterCare || null,
-      childrenInKinshipCare: latestAfcars.childrenInKinshipCare || null,
-      childrenWaitingForAdoption: latestAfcars.childrenWaitingForAdoption || null,
-      childrenAdopted: latestAfcars.childrenAdopted || null,
-      reunificationRate: latestAfcars.reunificationRate || null,
-      familyPreservationCases: latestAfcars.familyPreservationCases || null,
-      // Source info
-      dataDate: state.source?.dataDate || null,
-      dataYear: state.source?.dataYear || null,
-      sourceAgency: state.source?.sourceAgency || null,
-      sourceUrl: state.source?.sourceUrl || null,
-      definitions: state.source?.definitions || {},
-      // AFCARS by year
-      afcars: state.afcars || {},
-      // County data
-      countyCount: state.counties.filter(c => c.year === latestCountyYear).length,
-      latestCountyYear: latestCountyYear
-    }];
-  })
-);
+export const stateData = {};
+export const stateDataByCode = {};
 
-// Also export keyed by abbreviation for easy lookup
-export const stateDataByCode = Object.fromEntries(
-  Object.entries(realDataJson.states).map(([abbrev, state]) => [abbrev, {
+Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
+  // Skip Puerto Rico for now (not in main views)
+  if (abbrev === 'PR') return;
+  
+  // Get latest AFCARS year data
+  const afcarsYears = Object.keys(state.afcars || {}).map(Number).sort((a, b) => b - a);
+  const latestAfcarsYear = afcarsYears[0];
+  const latestAfcars = latestAfcarsYear ? state.afcars[latestAfcarsYear] : {};
+  
+  // Get latest county data year
+  const countyYears = [...new Set((state.counties || []).map(c => c.year))].sort((a, b) => b - a);
+  const latestCountyYear = countyYears[0] || null;
+  
+  // Aggregate county data for state-level metrics not in AFCARS
+  const latestCounties = (state.counties || []).filter(c => c.year === latestCountyYear);
+  const totalFosterKinshipHomes = latestCounties.reduce((sum, c) => sum + (c.fosterKinshipHomes || 0), 0);
+  const totalChurches = latestCounties.reduce((sum, c) => sum + (c.churches || 0), 0);
+  
+  // Create state key (lowercase with dashes)
+  const stateKey = state.name.toLowerCase().replace(/\s+/g, '-');
+  
+  const stateRecord = {
+    id: stateKey,
+    abbreviation: abbrev,
+    name: state.name,
+    // AFCARS data (state-level)
+    totalChildren: latestAfcars.childrenInCare || null,
+    childrenInCare: latestAfcars.childrenInCare || null,
+    childrenInFosterCare: latestAfcars.childrenInFosterCare || null,
+    childrenInKinshipCare: latestAfcars.childrenInKinshipCare || null,
+    waitingForAdoption: latestAfcars.childrenWaitingForAdoption || null,
+    childrenAdopted: latestAfcars.childrenAdopted || null,
+    reunificationRate: latestAfcars.reunificationRate || null,
+    familyPreservationCases: latestAfcars.familyPreservationCases || null,
+    // Aggregated from county data
+    licensedHomes: totalFosterKinshipHomes > 0 ? totalFosterKinshipHomes : null,
+    totalChurches: totalChurches > 0 ? totalChurches : null,
+    // Source info
+    dataDate: state.source?.dataDate || null,
+    dataYear: state.source?.dataYear || null,
+    sourceAgency: state.source?.sourceAgency || null,
+    sourceUrl: state.source?.sourceUrl || null,
+    definitions: state.source?.definitions || {},
+    // AFCARS by year
+    afcars: state.afcars || {},
+    // County data
+    countyCount: latestCounties.length,
+    latestCountyYear: latestCountyYear
+  };
+  
+  stateData[stateKey] = stateRecord;
+  stateDataByCode[abbrev] = {
     ...state,
-    id: state.name.toLowerCase().replace(/\s+/g, '-')
-  }])
-);
+    id: stateKey
+  };
+});
 
 // ==================== COUNTY DATA ====================
-// Flatten counties into { "county-name_state-abbrev_year": { ... } } structure
+// Flatten counties into { "county-name-statecode": { ... } } structure
 
 export const countyData = {};
 export const countyCoordinatesByState = {};
 
 Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
+  if (abbrev === 'PR') return;
+  
   const stateKey = state.name.toLowerCase().replace(/\s+/g, '-');
   
   if (!countyCoordinatesByState[stateKey]) {
     countyCoordinatesByState[stateKey] = {};
   }
   
-  state.counties.forEach(county => {
-    // Create county key
+  (state.counties || []).forEach(county => {
+    // Create county key: "county-name-statecode" (e.g., "autauga-al")
     const countyName = county.name.toLowerCase().replace(/\s+/g, '-');
-    const countyKey = `${countyName}_${abbrev.toLowerCase()}_${county.year}`;
+    const countyKey = `${countyName}-${abbrev.toLowerCase()}`;
+    
+    // Calculate licensedHomesPerChild
+    const licensedHomesPerChild = (county.fosterKinshipHomes && county.childrenInCare && county.childrenInCare > 0)
+      ? (county.fosterKinshipHomes / county.childrenInCare).toFixed(2)
+      : null;
     
     countyData[countyKey] = {
       id: countyKey,
-      name: county.name,
+      name: `${county.name}, ${state.name}`,
       state: state.name,
       stateAbbrev: abbrev,
       geographyType: county.geographyType || 'county',
       year: county.year,
       population: county.population,
+      // Map to expected field names
       childrenInCare: county.childrenInCare,
+      childrenInFamily: county.childrenInFosterCare, // Alias for components
       childrenInFosterCare: county.childrenInFosterCare,
+      childrenInKinship: county.childrenInKinshipCare,
       childrenInKinshipCare: county.childrenInKinshipCare,
+      childrenOutOfCounty: county.childrenPlacedOutOfCounty,
       childrenPlacedOutOfCounty: county.childrenPlacedOutOfCounty,
+      licensedHomes: county.fosterKinshipHomes,
       fosterKinshipHomes: county.fosterKinshipHomes,
-      fosterHomes: county.fosterHomes,
-      kinshipHomes: county.kinshipHomes,
+      licensedHomesPerChild: licensedHomesPerChild,
+      waitingForAdoption: county.childrenWaitingForAdoption,
       childrenWaitingForAdoption: county.childrenWaitingForAdoption,
+      childrenAdopted: county.childrenAdopted,
+      childrenAdopted2024: county.childrenAdopted, // Alias for year-specific display
       reunificationRate: county.reunificationRate,
       familyPreservationCases: county.familyPreservationCases,
+      totalChurches: county.churches,
       churches: county.churches,
-      childrenAdopted: county.childrenAdopted,
-      coordinates: county.coordinates || null
+      coordinates: county.coordinates || null,
+      // Fields not in new data - set to null
+      avgMonthsToAdoption: null,
+      churchesProvidingSupport: null,
+      supportPercentage: null
     };
     
     // Add to coordinates by state (for maps)
@@ -166,7 +229,7 @@ export const getCountiesForState = (stateNameOrAbbrev, year = null) => {
   const state = realDataJson.states[abbrev];
   if (!state) return [];
   
-  let counties = state.counties;
+  let counties = state.counties || [];
   
   // Filter by year if specified
   if (year) {
@@ -184,58 +247,176 @@ export const getCountiesForState = (stateNameOrAbbrev, year = null) => {
 
 // ==================== ORGANIZATIONS ====================
 
-export const organizations = realDataJson.organizations.map(org => ({
-  ...org,
-  // Ensure consistent field names
-  description: org.generatedDescription || org.description || null,
-  lat: org.coordinates?.lat || null,
-  lng: org.coordinates?.lng || null,
-  state: org.address?.state || null,
-  city: org.address?.city || null,
-  county: org.address?.county || null
-}));
+export const organizations = (realDataJson.organizations || [])
+  .filter(org => org.isOrganization) // Exclude network-only entries
+  .map(org => {
+    // Get first network membership if any
+    const firstMembership = org.networkMemberships?.[0];
+    
+    return {
+      ...org,
+      // Ensure consistent field names expected by components
+      description: org.generatedDescription || null,
+      // Convert coordinates object to array format
+      coords: org.coordinates ? [org.coordinates.lat, org.coordinates.lng] : null,
+      lat: org.coordinates?.lat || null,
+      lng: org.coordinates?.lng || null,
+      // Flatten address fields
+      state: org.address?.state || null,
+      city: org.address?.city || null,
+      county: org.address?.county || null,
+      // Map activities to impact areas
+      areas: mapActivitiesToAreas(org.activities),
+      // Network membership - derive from array
+      networkName: firstMembership?.network || null,
+      networkMember: firstMembership ? true : false,
+      // Location display string
+      location: org.address?.city 
+        ? `${org.address.city}, ${org.address.state}`
+        : org.address?.state || null
+    };
+  });
 
-export const networks = realDataJson.networks || [];
+export const networks = (realDataJson.networks || []).map(net => ({
+  name: net.name,
+  memberCount: net.memberCount,
+  members: net.members
+}));
 
 // ==================== STATE COORDINATES (for US map) ====================
 
 export const stateCoordinates = {
-  'AL': [32.806671, -86.791130], 'AK': [61.370716, -152.404419], 'AZ': [33.729759, -111.431221],
-  'AR': [34.969704, -92.373123], 'CA': [36.116203, -119.681564], 'CO': [39.059811, -105.311104],
-  'CT': [41.597782, -72.755371], 'DE': [39.318523, -75.507141], 'DC': [38.897438, -77.026817],
-  'FL': [27.766279, -81.686783], 'GA': [33.040619, -83.643074], 'HI': [21.094318, -157.498337],
-  'ID': [44.240459, -114.478828], 'IL': [40.349457, -88.986137], 'IN': [39.849426, -86.258278],
-  'IA': [42.011539, -93.210526], 'KS': [38.526600, -96.726486], 'KY': [37.668140, -84.670067],
-  'LA': [31.169546, -91.867805], 'ME': [44.693947, -69.381927], 'MD': [39.063946, -76.802101],
-  'MA': [42.230171, -71.530106], 'MI': [43.326618, -84.536095], 'MN': [45.694454, -93.900192],
-  'MS': [32.741646, -89.678696], 'MO': [38.456085, -92.288368], 'MT': [46.921925, -110.454353],
-  'NE': [41.125370, -98.268082], 'NV': [38.313515, -117.055374], 'NH': [43.452492, -71.563896],
-  'NJ': [40.298904, -74.521011], 'NM': [34.840515, -106.248482], 'NY': [42.165726, -74.948051],
-  'NC': [35.630066, -79.806419], 'ND': [47.528912, -99.784012], 'OH': [40.388783, -82.764915],
-  'OK': [35.565342, -96.928917], 'OR': [44.572021, -122.070938], 'PA': [40.590752, -77.209755],
-  'RI': [41.680893, -71.511780], 'SC': [33.856892, -80.945007], 'SD': [44.299782, -99.438828],
-  'TN': [35.747845, -86.692345], 'TX': [31.054487, -97.563461], 'UT': [40.150032, -111.862434],
-  'VT': [44.045876, -72.710686], 'VA': [37.769337, -78.169968], 'WA': [47.400902, -121.490494],
-  'WV': [38.491226, -80.954453], 'WI': [44.268543, -89.616508], 'WY': [42.755966, -107.302490]
+  'Alabama': { coords: [32.806671, -86.791130], orgCount: 0 },
+  'Alaska': { coords: [61.370716, -152.404419], orgCount: 0 },
+  'Arizona': { coords: [33.729759, -111.431221], orgCount: 0 },
+  'Arkansas': { coords: [34.969704, -92.373123], orgCount: 0 },
+  'California': { coords: [36.116203, -119.681564], orgCount: 0 },
+  'Colorado': { coords: [39.059811, -105.311104], orgCount: 0 },
+  'Connecticut': { coords: [41.597782, -72.755371], orgCount: 0 },
+  'Delaware': { coords: [39.318523, -75.507141], orgCount: 0 },
+  'District of Columbia': { coords: [38.897438, -77.026817], orgCount: 0 },
+  'Florida': { coords: [27.766279, -81.686783], orgCount: 0 },
+  'Georgia': { coords: [33.040619, -83.643074], orgCount: 0 },
+  'Hawaii': { coords: [21.094318, -157.498337], orgCount: 0 },
+  'Idaho': { coords: [44.240459, -114.478828], orgCount: 0 },
+  'Illinois': { coords: [40.349457, -88.986137], orgCount: 0 },
+  'Indiana': { coords: [39.849426, -86.258278], orgCount: 0 },
+  'Iowa': { coords: [42.011539, -93.210526], orgCount: 0 },
+  'Kansas': { coords: [38.526600, -96.726486], orgCount: 0 },
+  'Kentucky': { coords: [37.668140, -84.670067], orgCount: 0 },
+  'Louisiana': { coords: [31.169546, -91.867805], orgCount: 0 },
+  'Maine': { coords: [44.693947, -69.381927], orgCount: 0 },
+  'Maryland': { coords: [39.063946, -76.802101], orgCount: 0 },
+  'Massachusetts': { coords: [42.230171, -71.530106], orgCount: 0 },
+  'Michigan': { coords: [43.326618, -84.536095], orgCount: 0 },
+  'Minnesota': { coords: [45.694454, -93.900192], orgCount: 0 },
+  'Mississippi': { coords: [32.741646, -89.678696], orgCount: 0 },
+  'Missouri': { coords: [38.456085, -92.288368], orgCount: 0 },
+  'Montana': { coords: [46.921925, -110.454353], orgCount: 0 },
+  'Nebraska': { coords: [41.125370, -98.268082], orgCount: 0 },
+  'Nevada': { coords: [38.313515, -117.055374], orgCount: 0 },
+  'New Hampshire': { coords: [43.452492, -71.563896], orgCount: 0 },
+  'New Jersey': { coords: [40.298904, -74.521011], orgCount: 0 },
+  'New Mexico': { coords: [34.840515, -106.248482], orgCount: 0 },
+  'New York': { coords: [42.165726, -74.948051], orgCount: 0 },
+  'North Carolina': { coords: [35.630066, -79.806419], orgCount: 0 },
+  'North Dakota': { coords: [47.528912, -99.784012], orgCount: 0 },
+  'Ohio': { coords: [40.388783, -82.764915], orgCount: 0 },
+  'Oklahoma': { coords: [35.565342, -96.928917], orgCount: 0 },
+  'Oregon': { coords: [44.572021, -122.070938], orgCount: 0 },
+  'Pennsylvania': { coords: [40.590752, -77.209755], orgCount: 0 },
+  'Rhode Island': { coords: [41.680893, -71.511780], orgCount: 0 },
+  'South Carolina': { coords: [33.856892, -80.945007], orgCount: 0 },
+  'South Dakota': { coords: [44.299782, -99.438828], orgCount: 0 },
+  'Tennessee': { coords: [35.747845, -86.692345], orgCount: 0 },
+  'Texas': { coords: [31.054487, -97.563461], orgCount: 0 },
+  'Utah': { coords: [40.150032, -111.862434], orgCount: 0 },
+  'Vermont': { coords: [44.045876, -72.710686], orgCount: 0 },
+  'Virginia': { coords: [37.769337, -78.169968], orgCount: 0 },
+  'Washington': { coords: [47.400902, -121.490494], orgCount: 0 },
+  'West Virginia': { coords: [38.491226, -80.954453], orgCount: 0 },
+  'Wisconsin': { coords: [44.268543, -89.616508], orgCount: 0 },
+  'Wyoming': { coords: [42.755966, -107.302490], orgCount: 0 }
 };
+
+// Calculate org counts per state
+organizations.forEach(org => {
+  if (org.state && stateCodeToName[org.state]) {
+    const stateName = stateCodeToName[org.state];
+    if (stateCoordinates[stateName]) {
+      stateCoordinates[stateName].orgCount++;
+    }
+  }
+});
 
 // ==================== HISTORICAL DATA ====================
-// Build from AFCARS multi-year data
+// Build from AFCARS multi-year data + county metrics
 
-export const historicalData = {
-  years: Object.keys(realDataJson.national).map(Number).sort(),
-  national: realDataJson.national,
-  states: Object.fromEntries(
-    Object.entries(realDataJson.states).map(([abbrev, state]) => [
-      state.name.toLowerCase().replace(/\s+/g, '-'),
-      {
-        name: state.name,
-        abbreviation: abbrev,
-        afcars: state.afcars
-      }
-    ])
-  )
-};
+export const historicalData = {};
+
+// Add national data by year
+Object.entries(realDataJson.national).forEach(([year, data]) => {
+  if (!historicalData[year]) {
+    historicalData[year] = { national: {}, states: {}, counties: {} };
+  }
+  historicalData[year].national = {
+    childrenInCare: data.childrenInCare,
+    childrenInFamilyFoster: data.childrenInFosterCare,
+    childrenInKinship: data.childrenInKinshipCare,
+    childrenWaitingAdoption: data.childrenWaitingForAdoption,
+    childrenAdopted: data.childrenAdopted,
+    familyPreservationCases: data.familyPreservationCases
+  };
+});
+
+// Add state data by year (from AFCARS)
+Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
+  if (abbrev === 'PR') return;
+  
+  const stateKey = state.name.toLowerCase().replace(/\s+/g, '-');
+  
+  Object.entries(state.afcars || {}).forEach(([year, data]) => {
+    if (!historicalData[year]) {
+      historicalData[year] = { national: {}, states: {}, counties: {} };
+    }
+    historicalData[year].states[stateKey] = {
+      name: state.name,
+      totalChildren: data.childrenInCare,
+      childrenInFosterCare: data.childrenInFosterCare,
+      childrenInKinship: data.childrenInKinshipCare,
+      licensedHomes: null, // Not in AFCARS
+      waitingForAdoption: data.childrenWaitingForAdoption,
+      childrenAdopted: data.childrenAdopted,
+      reunificationRate: data.reunificationRate,
+      familyPreservationCases: data.familyPreservationCases
+    };
+  });
+  
+  // Add county data by year (from metrics)
+  (state.counties || []).forEach(county => {
+    const countyName = county.name.toLowerCase().replace(/\s+/g, '-');
+    const countyKey = `${countyName}-${abbrev.toLowerCase()}`;
+    const year = String(county.year);
+    
+    if (!historicalData[year]) {
+      historicalData[year] = { national: {}, states: {}, counties: {} };
+    }
+    
+    historicalData[year].counties[countyKey] = {
+      name: county.name,
+      childrenInCare: county.childrenInCare,
+      childrenInFamily: county.childrenInFosterCare,
+      childrenInKinship: county.childrenInKinshipCare,
+      licensedHomes: county.fosterKinshipHomes,
+      waitingForAdoption: county.childrenWaitingForAdoption,
+      childrenAdopted: county.childrenAdopted,
+      reunificationRate: county.reunificationRate,
+      familyPreservationCases: county.familyPreservationCases,
+      totalChurches: county.churches,
+      childrenOutOfCounty: county.childrenPlacedOutOfCounty
+    };
+  });
+});
 
 // ==================== MAP HELPERS ====================
 
@@ -254,18 +435,15 @@ export const getStateMapData = () => {
 
 // ==================== LOGGING ====================
 
-const totalCounties = Object.values(realDataJson.states).reduce(
-  (sum, state) => sum + state.counties.length, 0
-);
-const withCoords = Object.values(realDataJson.states).reduce(
-  (sum, state) => sum + state.counties.filter(c => c.coordinates).length, 0
-);
+const totalCounties = Object.keys(countyData).length;
+const withCoords = Object.values(countyData).filter(c => c.coordinates).length;
+const orgsWithCoords = organizations.filter(o => o.coords).length;
 const withDescriptions = organizations.filter(o => o.description).length;
 
 console.log('📊 Real Data Loaded:');
-console.log(`   States: ${Object.keys(realDataJson.states).length}`);
+console.log(`   States: ${Object.keys(stateData).length}`);
 console.log(`   County records: ${totalCounties}`);
 console.log(`   Counties with coordinates: ${withCoords}`);
-console.log(`   Organizations: ${organizations.length} (${withDescriptions} with descriptions)`);
+console.log(`   Organizations: ${organizations.length} (${orgsWithCoords} with coords, ${withDescriptions} with descriptions)`);
 console.log(`   Networks: ${networks.length}`);
 console.log(`   National Children in Care (${latestYear}): ${fmt(nationalStats.childrenInCare)}`);

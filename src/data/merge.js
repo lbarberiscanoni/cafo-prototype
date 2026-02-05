@@ -3,22 +3,17 @@
 /**
  * merge.js
  * 
- * Merges all parsed JSON files into a single real-data.json for the app.
+ * FINAL STEP: Merges all parsed and enriched JSON files into real-data.json
  * 
- * Combines:
+ * Reads:
  * - afcars.json: State/national metrics (ADR-006)
  * - sources.json: Dates and definitions per state (ADR-004)
  * - metrics.json: County-level metrics (ADR-005, ADR-006)
  * - orgs-and-networks.json: Organizations and networks (ADR-001, ADR-008)
+ * - org-descriptions.json: Generated org descriptions (optional)
+ * - county-coordinates.json: County GPS coordinates (optional)
  * 
- * Output structure:
- * {
- *   metadata: { ... },
- *   national: { ... },
- *   states: { [stateAbbrev]: { info, afcars, counties } },
- *   organizations: [ ... ],
- *   networks: [ ... ]
- * }
+ * Output: real-data.json
  * 
  * Usage: node merge.js [data_dir] [output_file]
  */
@@ -52,14 +47,37 @@ const STATE_ABBREVS = Object.fromEntries(
   Object.entries(STATE_NAMES).map(([abbr, name]) => [name, abbr])
 );
 
-// Load JSON file
+// Load JSON file (required)
 function loadJSON(dataDir, filename) {
   const filepath = path.join(dataDir, filename);
   if (!fs.existsSync(filepath)) {
-    console.error(`❌ Error: ${filename} not found`);
+    console.error(`❌ Error: ${filename} not found (required)`);
     process.exit(1);
   }
   return JSON.parse(fs.readFileSync(filepath, 'utf8'));
+}
+
+// Load JSON file (optional)
+function loadJSONOptional(dataDir, filename) {
+  const filepath = path.join(dataDir, filename);
+  if (!fs.existsSync(filepath)) {
+    return null;
+  }
+  return JSON.parse(fs.readFileSync(filepath, 'utf8'));
+}
+
+// Normalize county name for coordinate lookup
+function normalizeCountyName(name) {
+  return name
+    .toLowerCase()
+    .replace(/\s+county$/i, '')
+    .replace(/\s+parish$/i, '')
+    .replace(/\s+borough$/i, '')
+    .replace(/\s+census area$/i, '')
+    .replace(/\s+municipality$/i, '')
+    .replace(/['']/g, "'")
+    .replace(/[-.]/g, ' ')
+    .trim();
 }
 
 // Calculate national totals from AFCARS
@@ -97,7 +115,7 @@ function calculateNationalTotals(afcarsData) {
 }
 
 // Build state data structure
-function buildStates(afcarsData, sourcesData, metricsData) {
+function buildStates(afcarsData, sourcesData, metricsData, coordsData) {
   const states = {};
   
   // Initialize states from AFCARS
@@ -127,21 +145,17 @@ function buildStates(afcarsData, sourcesData, metricsData) {
   
   // Add source info from Sources & Definitions
   for (const source of sourcesData) {
-    // Find state by name
     const abbrev = STATE_ABBREVS[source.state];
-    if (!abbrev || !states[abbrev]) {
-      // State might not be in AFCARS, create it
-      if (abbrev) {
-        states[abbrev] = {
-          abbreviation: abbrev,
-          name: source.state,
-          source: null,
-          afcars: {},
-          counties: {}
-        };
-      } else {
-        continue;
-      }
+    if (!abbrev) continue;
+    
+    if (!states[abbrev]) {
+      states[abbrev] = {
+        abbreviation: abbrev,
+        name: source.state,
+        source: null,
+        afcars: {},
+        counties: {}
+      };
     }
     
     states[abbrev].source = {
@@ -167,7 +181,7 @@ function buildStates(afcarsData, sourcesData, metricsData) {
     }
     
     const geoKey = `${record.geography}_${record.year}`;
-    states[abbrev].counties[geoKey] = {
+    const county = {
       name: record.geography,
       geographyType: record.geographyType,
       year: record.year,
@@ -185,6 +199,31 @@ function buildStates(afcarsData, sourcesData, metricsData) {
       churches: record.churches,
       childrenAdopted: record.childrenAdopted
     };
+    
+    // Add coordinates if available
+    if (coordsData) {
+      const geoType = record.geographyType || 'county';
+      
+      if (geoType === 'county') {
+        // Look up in counties
+        const key = `${abbrev}_${normalizeCountyName(record.geography)}`;
+        const coords = coordsData.coordinates?.counties?.[key];
+        if (coords) {
+          county.coordinates = { lat: coords.lat, lng: coords.lng };
+          if (!county.population && coords.population) {
+            county.population = coords.population;
+          }
+        }
+      } else {
+        // Look up in non-county regions
+        const nonCountyCoords = coordsData.coordinates?.nonCounty?.[abbrev]?.[record.geography];
+        if (nonCountyCoords) {
+          county.coordinates = nonCountyCoords;
+        }
+      }
+    }
+    
+    states[abbrev].counties[geoKey] = county;
   }
   
   // Convert counties object to array for each state
@@ -196,6 +235,24 @@ function buildStates(afcarsData, sourcesData, metricsData) {
   return states;
 }
 
+// Merge descriptions into organizations
+function mergeDescriptions(organizations, descriptionsData) {
+  if (!descriptionsData || !descriptionsData.descriptions) {
+    return 0;
+  }
+  
+  let merged = 0;
+  for (const org of organizations) {
+    const desc = descriptionsData.descriptions[org.name];
+    if (desc && desc.description) {
+      org.generatedDescription = desc.description;
+      merged++;
+    }
+  }
+  
+  return merged;
+}
+
 function merge(dataDir, outputPath) {
   console.log('🔄 MTE Data Merge');
   console.log('═'.repeat(50));
@@ -203,8 +260,8 @@ function merge(dataDir, outputPath) {
   console.log(`Output: ${outputPath}`);
   console.log('');
   
-  // Load all input files
-  console.log('📖 Loading input files...');
+  // Load required input files
+  console.log('📖 Loading required files...');
   const afcars = loadJSON(dataDir, 'afcars.json');
   const sources = loadJSON(dataDir, 'sources.json');
   const metrics = loadJSON(dataDir, 'metrics.json');
@@ -215,6 +272,25 @@ function merge(dataDir, outputPath) {
   console.log(`   ✓ metrics.json: ${metrics.data.length} records`);
   console.log(`   ✓ orgs-and-networks.json: ${orgs.organizations.length} orgs, ${orgs.networks.length} networks`);
   
+  // Load optional enrichment files
+  console.log('');
+  console.log('📖 Loading enrichment files (optional)...');
+  
+  const descriptions = loadJSONOptional(dataDir, 'org-descriptions.json');
+  if (descriptions) {
+    const withDesc = Object.values(descriptions.descriptions || {}).filter(d => d.description).length;
+    console.log(`   ✓ org-descriptions.json: ${withDesc} descriptions`);
+  } else {
+    console.log(`   ⚠️  org-descriptions.json: not found (skipping)`);
+  }
+  
+  const coords = loadJSONOptional(dataDir, 'county-coordinates.json');
+  if (coords) {
+    console.log(`   ✓ county-coordinates.json: ${coords.metadata?.countyCount || 0} counties`);
+  } else {
+    console.log(`   ⚠️  county-coordinates.json: not found (skipping)`);
+  }
+  
   // Build merged structure
   console.log('');
   console.log('🔄 Merging data...');
@@ -223,12 +299,29 @@ function merge(dataDir, outputPath) {
   const national = calculateNationalTotals(afcars.data);
   console.log(`   ✓ National totals: ${Object.keys(national).length} years`);
   
-  // Build state data
-  const states = buildStates(afcars.data, sources.data, metrics.data);
+  // Build state data (includes coordinates if available)
+  const states = buildStates(afcars.data, sources.data, metrics.data, coords);
   const stateCount = Object.keys(states).length;
   const totalCounties = Object.values(states).reduce((sum, s) => sum + s.counties.length, 0);
   console.log(`   ✓ States: ${stateCount}`);
   console.log(`   ✓ Total county records: ${totalCounties}`);
+  
+  // Count coordinates added
+  let withCoords = 0;
+  for (const state of Object.values(states)) {
+    for (const county of state.counties) {
+      if (county.coordinates) withCoords++;
+    }
+  }
+  if (coords) {
+    console.log(`   ✓ Counties with coordinates: ${withCoords}`);
+  }
+  
+  // Merge descriptions into organizations
+  const descMerged = mergeDescriptions(orgs.organizations, descriptions);
+  if (descriptions) {
+    console.log(`   ✓ Organizations with descriptions: ${descMerged}`);
+  }
   
   // Build output
   const output = {
@@ -240,10 +333,22 @@ function merge(dataDir, outputPath) {
         metrics: metrics.metadata,
         organizations: orgs.metadata
       },
+      enrichment: {
+        descriptions: descriptions ? {
+          source: 'org-descriptions.json',
+          merged: descMerged
+        } : null,
+        coordinates: coords ? {
+          source: 'county-coordinates.json',
+          merged: withCoords
+        } : null
+      },
       counts: {
         states: stateCount,
         countyRecords: totalCounties,
+        countiesWithCoordinates: withCoords,
         organizations: orgs.organizations.length,
+        organizationsWithDescriptions: descMerged,
         networks: orgs.networks.length
       }
     },
@@ -270,6 +375,8 @@ function merge(dataDir, outputPath) {
     console.log(`   AFCARS 2023 children in care: ${tx.afcars[2023]?.childrenInCare?.toLocaleString() || 'N/A'}`);
     console.log(`   County records: ${tx.counties.length}`);
     console.log(`   Source date: ${tx.source?.dataDate || 'N/A'}`);
+    const txWithCoords = tx.counties.filter(c => c.coordinates).length;
+    console.log(`   Counties with coordinates: ${txWithCoords}`);
   }
   
   // Write output

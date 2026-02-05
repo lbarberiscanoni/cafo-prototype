@@ -1,28 +1,23 @@
 #!/usr/bin/env node
 
 /**
- * MERGE SIMPLEMAPS COORDINATES & POPULATION
+ * County Coordinates Enrichment
  * 
- * Adds county coordinates and population from SimpleMaps CSV to real-data.json
+ * Extracts county coordinates from SimpleMaps CSV into county-coordinates.json
+ * This is merged into real-data.json by merge.js
  * 
  * SETUP:
  * 1. Download free SimpleMaps CSV from: https://simplemaps.com/data/us-counties
  * 2. Extract the ZIP and place "uscounties.csv" in the same folder
- * 3. Run: node merge-simplemaps.js [real-data.json] [uscounties.csv]
- * 
- * The SimpleMaps Basic (free) database includes:
- * - All 3,234 US counties
- * - Latitude and longitude
- * - Population data
- * - FIPS codes
+ * 3. Run: node enrich-coordinates.js [uscounties.csv] [output.json]
  */
 
 const fs = require('fs');
 const path = require('path');
 
 // Default paths
-const DEFAULT_DATA_FILE = './real-data.json';
-const DEFAULT_CSV_FILE = './uscounties.csv';
+const DEFAULT_CSV = './uscounties.csv';
+const DEFAULT_OUTPUT = './county-coordinates.json';
 
 // State name to abbreviation
 const STATE_ABBREVS = {
@@ -125,19 +120,14 @@ function normalizeCountyName(name) {
     .trim();
 }
 
-function mergeSimpleMaps(dataPath, csvPath) {
-  console.log('📍 SIMPLEMAPS COORDINATES MERGER');
+function enrichCoordinates(csvPath, outputPath) {
+  console.log('📍 COUNTY COORDINATES ENRICHMENT');
   console.log('═'.repeat(60));
-  console.log(`Data file: ${dataPath}`);
   console.log(`CSV file: ${csvPath}`);
+  console.log(`Output:   ${outputPath}`);
   console.log('');
   
-  // Check files exist
-  if (!fs.existsSync(dataPath)) {
-    console.error(`❌ Error: ${dataPath} not found`);
-    process.exit(1);
-  }
-  
+  // Check CSV exists
   if (!fs.existsSync(csvPath)) {
     console.error(`❌ Error: ${csvPath} not found`);
     console.log('\n📥 DOWNLOAD INSTRUCTIONS:');
@@ -149,26 +139,18 @@ function mergeSimpleMaps(dataPath, csvPath) {
     process.exit(1);
   }
   
-  // Load real-data.json
-  console.log('📖 Loading real-data.json...');
-  const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-  
-  // Count total counties
-  let totalCounties = 0;
-  for (const state of Object.values(data.states)) {
-    totalCounties += state.counties?.length || 0;
-  }
-  console.log(`   Found ${totalCounties} county records across ${Object.keys(data.states).length} states`);
-  
   // Load SimpleMaps CSV
-  console.log('\n📖 Loading SimpleMaps CSV...');
+  console.log('📖 Loading SimpleMaps CSV...');
   const csvText = fs.readFileSync(csvPath, 'utf8');
   const simpleMapCounties = parseCSV(csvText);
-  console.log(`   Found ${simpleMapCounties.length} counties in SimpleMaps`);
+  console.log(`   Found ${simpleMapCounties.length} counties`);
   
-  // Build lookup: state_abbrev + normalized_county_name -> { lat, lng, population }
+  // Build coordinate lookup: state_normalized-county-name -> { lat, lng, population }
   console.log('\n🔄 Building coordinate lookup...');
-  const coordsLookup = {};
+  const coordinates = {
+    counties: {},
+    nonCounty: NON_COUNTY_COORDINATES
+  };
   
   for (const county of simpleMapCounties) {
     const stateName = county.state_name || county.state;
@@ -183,98 +165,52 @@ function mergeSimpleMaps(dataPath, csvPath) {
     
     if (isNaN(lat) || isNaN(lng)) continue;
     
+    // Key format: STATE_normalizedcountyname
     const key = `${stateAbbrev}_${normalizeCountyName(countyName)}`;
-    coordsLookup[key] = {
+    coordinates.counties[key] = {
       lat,
       lng,
       population: isNaN(population) ? null : population
     };
   }
   
-  console.log(`   Created lookup with ${Object.keys(coordsLookup).length} entries`);
+  console.log(`   Created ${Object.keys(coordinates.counties).length} county entries`);
   
-  // Update coordinates in real-data.json
-  console.log('\n📌 Updating county coordinates...');
-  let updated = 0;
-  let notFound = 0;
-  let nonCountyUpdated = 0;
-  const notFoundList = [];
-  
-  for (const [stateAbbrev, state] of Object.entries(data.states)) {
-    if (!state.counties) continue;
-    
-    for (const county of state.counties) {
-      const geoType = county.geographyType || 'county';
-      
-      // Handle non-county geographies (regions, districts, etc.)
-      if (geoType !== 'county') {
-        const nonCountyCoords = NON_COUNTY_COORDINATES[stateAbbrev];
-        if (nonCountyCoords && nonCountyCoords[county.name]) {
-          county.coordinates = nonCountyCoords[county.name];
-          nonCountyUpdated++;
-        }
-        continue;
-      }
-      
-      // Look up coordinates
-      const key = `${stateAbbrev}_${normalizeCountyName(county.name)}`;
-      const coords = coordsLookup[key];
-      
-      if (coords) {
-        county.coordinates = { lat: coords.lat, lng: coords.lng };
-        // Only update population if we don't already have it
-        if (!county.population && coords.population) {
-          county.population = coords.population;
-        }
-        updated++;
-      } else {
-        notFound++;
-        notFoundList.push(`${county.name}, ${stateAbbrev}`);
-      }
-    }
+  // Count non-county regions
+  let nonCountyCount = 0;
+  for (const state of Object.values(NON_COUNTY_COORDINATES)) {
+    nonCountyCount += Object.keys(state).length;
   }
+  console.log(`   Added ${nonCountyCount} non-county region entries`);
   
-  console.log(`   ✓ Counties updated: ${updated}`);
-  console.log(`   ✓ Non-county regions updated: ${nonCountyUpdated}`);
-  
-  if (notFound > 0) {
-    console.log(`   ⚠️  Not found: ${notFound}`);
-    if (notFoundList.length <= 10) {
-      notFoundList.forEach(name => console.log(`      - ${name}`));
-    } else {
-      notFoundList.slice(0, 5).forEach(name => console.log(`      - ${name}`));
-      console.log(`      ... and ${notFoundList.length - 5} more`);
-    }
-  }
-  
-  // Update metadata
-  data.metadata.enrichment = data.metadata.enrichment || {};
-  data.metadata.enrichment.simplemaps = {
-    merged: new Date().toISOString(),
-    countiesUpdated: updated,
-    nonCountyRegionsUpdated: nonCountyUpdated,
-    notFound: notFound
+  // Build output
+  const output = {
+    metadata: {
+      source: path.basename(csvPath),
+      generated: new Date().toISOString(),
+      countyCount: Object.keys(coordinates.counties).length,
+      nonCountyRegionCount: nonCountyCount
+    },
+    coordinates: coordinates
   };
   
-  // Save updated data
-  console.log('\n💾 Saving updated data...');
-  fs.writeFileSync(dataPath, JSON.stringify(data, null, 2), 'utf8');
+  // Save output
+  console.log('\n💾 Saving coordinates...');
+  fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
   
-  const stats = fs.statSync(dataPath);
-  const sizeMB = (stats.size / (1024 * 1024)).toFixed(2);
-  console.log(`   ✓ Saved: ${dataPath} (${sizeMB} MB)`);
+  const stats = fs.statSync(outputPath);
+  const sizeKB = (stats.size / 1024).toFixed(1);
+  console.log(`   ✓ Saved: ${outputPath} (${sizeKB} KB)`);
   
-  const coverage = (((updated + nonCountyUpdated) / totalCounties) * 100).toFixed(1);
   console.log('\n📊 SUMMARY:');
   console.log('═'.repeat(60));
-  console.log(`Total county records: ${totalCounties}`);
-  console.log(`Coordinates added: ${updated + nonCountyUpdated} (${coverage}%)`);
-  console.log(`Not found: ${notFound}`);
-  console.log('\n✅ SUCCESS! Counties now have GPS coordinates.');
+  console.log(`County coordinates: ${Object.keys(coordinates.counties).length}`);
+  console.log(`Non-county regions: ${nonCountyCount}`);
+  console.log('\n✅ Coordinates ready for merge!');
 }
 
 // Main
-const dataPath = process.argv[2] || DEFAULT_DATA_FILE;
-const csvPath = process.argv[3] || DEFAULT_CSV_FILE;
+const csvPath = process.argv[2] || DEFAULT_CSV;
+const outputPath = process.argv[3] || DEFAULT_OUTPUT;
 
-mergeSimpleMaps(dataPath, csvPath);
+enrichCoordinates(csvPath, outputPath);

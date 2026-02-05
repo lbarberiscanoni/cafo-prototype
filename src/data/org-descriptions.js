@@ -4,15 +4,12 @@
  * Organization Description Generator
  * 
  * Crawls organization websites and generates one-liner descriptions using Claude API.
+ * Outputs org-descriptions.json which is merged into real-data.json by merge.js
  * 
  * Usage:
- *   node org-descriptions.js [real-data.json]
+ *   node org-descriptions.js [orgs-and-networks.json] [output.json]
  * 
- * Reads from real-data.json and updates organizations in place.
  * Requires ANTHROPIC_API_KEY environment variable.
- * 
- * Set via: export ANTHROPIC_API_KEY=sk-ant-...
- * Or create .env file with: ANTHROPIC_API_KEY=sk-ant-...
  */
 
 const fs = require('fs');
@@ -25,8 +22,9 @@ try {
   // dotenv not installed, that's fine - will use environment variable directly
 }
 
-// Default file path
-const DEFAULT_DATA_FILE = './real-data.json';
+// Default paths
+const DEFAULT_INPUT = './orgs-and-networks.json';
+const DEFAULT_OUTPUT = './org-descriptions.json';
 
 // Configuration
 const CONFIG = {
@@ -168,7 +166,6 @@ async function callAnthropic(prompt, apiKey) {
 // ============================================
 
 async function generateDescription(org, apiKey) {
-  // Extract fields from org structure
   const name = org.name;
   const website = org.website;
   const category = org.category;
@@ -195,7 +192,6 @@ async function generateDescription(org, apiKey) {
     siteContent = extractTextFromHtml(html);
   } catch (err) {
     console.log(`  → Fetch failed: ${err.message}, trying www...`);
-    // Try with www. prefix if failed
     if (!url.includes('www.')) {
       try {
         const wwwUrl = url.replace('https://', 'https://www.').replace('http://', 'http://www.');
@@ -211,7 +207,6 @@ async function generateDescription(org, apiKey) {
   
   console.log(`  → Calling Anthropic API...`);
   
-  // Build prompt
   const prompt = `You are writing one-liner descriptions for foster care and child welfare organizations for a directory.
 
 Organization: ${name}
@@ -239,7 +234,6 @@ One-liner description:`;
 }
 
 function cleanDescription(desc) {
-  // Remove quotes if wrapped
   let cleaned = desc.trim();
   if ((cleaned.startsWith('"') && cleaned.endsWith('"')) ||
       (cleaned.startsWith("'") && cleaned.endsWith("'"))) {
@@ -256,29 +250,37 @@ function delay(ms) {
 // Main Processing
 // ============================================
 
-async function processOrganizations(dataPath, apiKey) {
+async function processOrganizations(inputPath, outputPath, apiKey) {
   console.log('🏢 ORGANIZATION DESCRIPTION GENERATOR');
   console.log('═'.repeat(60));
-  console.log(`Data file: ${dataPath}`);
+  console.log(`Input:  ${inputPath}`);
+  console.log(`Output: ${outputPath}`);
   console.log('');
   
-  // Read input
-  console.log('📖 Loading data...');
-  const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+  // Load input (orgs-and-networks.json)
+  console.log('📖 Loading organizations...');
+  const orgsData = JSON.parse(fs.readFileSync(inputPath, 'utf8'));
+  const organizations = orgsData.organizations || orgsData;
   
-  // Get organizations array
-  const organizations = data.organizations;
-  if (!organizations || !Array.isArray(organizations)) {
-    console.error('❌ Error: No organizations array found in data');
+  if (!Array.isArray(organizations)) {
+    console.error('❌ Error: No organizations array found');
     process.exit(1);
   }
   
   console.log(`   Found ${organizations.length} organizations`);
   
-  // Filter to orgs with websites but no description
+  // Load existing descriptions if output file exists (for resume)
+  let descriptions = {};
+  if (fs.existsSync(outputPath)) {
+    console.log('   Loading existing descriptions for resume...');
+    const existing = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+    descriptions = existing.descriptions || {};
+    console.log(`   Found ${Object.keys(descriptions).length} existing descriptions`);
+  }
+  
+  // Filter to orgs with websites that don't have descriptions yet
   const toProcess = organizations.filter(org => 
-    org.website && 
-    (!org.generatedDescription || org.generatedDescription.trim() === '')
+    org.website && !descriptions[org.name]
   );
   
   console.log(`   ${toProcess.length} organizations need descriptions`);
@@ -302,13 +304,18 @@ async function processOrganizations(dataPath, apiKey) {
     const result = await generateDescription(org, apiKey);
     
     if (result.success) {
-      org.generatedDescription = result.description;
-      delete org.descriptionError;
+      descriptions[org.name] = {
+        description: result.description,
+        generatedAt: new Date().toISOString()
+      };
       succeeded++;
       console.log(`  ✓ ${result.description}`);
     } else {
-      org.generatedDescription = null;
-      org.descriptionError = result.error;
+      descriptions[org.name] = {
+        description: null,
+        error: result.error,
+        generatedAt: new Date().toISOString()
+      };
       failed++;
       console.log(`  ✗ ${result.error}`);
     }
@@ -317,34 +324,36 @@ async function processOrganizations(dataPath, apiKey) {
     
     // Save progress periodically
     if (processed % CONFIG.saveEvery === 0) {
-      fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
+      saveOutput(outputPath, descriptions, succeeded, failed);
       console.log(`  [Saved progress - ${processed}/${toProcess.length}]\n`);
     }
   }
   
-  // Update metadata
-  data.metadata.enrichment = data.metadata.enrichment || {};
-  data.metadata.enrichment.descriptions = {
-    generated: new Date().toISOString(),
-    processed: processed,
-    succeeded: succeeded,
-    failed: failed
-  };
-  
   // Final save
-  fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
-  
-  const stats = fs.statSync(dataPath);
-  const sizeMB = (stats.size / (1024 * 1024)).toFixed(2);
+  saveOutput(outputPath, descriptions, succeeded, failed);
   
   console.log('═'.repeat(60));
   console.log('📊 SUMMARY:');
   console.log(`   Total organizations: ${organizations.length}`);
-  console.log(`   Processed: ${processed}`);
+  console.log(`   Processed this run: ${processed}`);
   console.log(`   Succeeded: ${succeeded}`);
   console.log(`   Failed: ${failed}`);
-  console.log(`   File size: ${sizeMB} MB`);
-  console.log(`\n✅ Descriptions saved to ${dataPath}`);
+  console.log(`   Total with descriptions: ${Object.values(descriptions).filter(d => d.description).length}`);
+  console.log(`\n✅ Descriptions saved to ${outputPath}`);
+}
+
+function saveOutput(outputPath, descriptions, succeeded, failed) {
+  const output = {
+    metadata: {
+      generated: new Date().toISOString(),
+      totalDescriptions: Object.keys(descriptions).length,
+      withDescription: Object.values(descriptions).filter(d => d.description).length,
+      withErrors: Object.values(descriptions).filter(d => d.error).length
+    },
+    descriptions: descriptions
+  };
+  
+  fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
 }
 
 // ============================================
@@ -364,15 +373,16 @@ async function main() {
     process.exit(1);
   }
   
-  const dataPath = process.argv[2] || DEFAULT_DATA_FILE;
+  const inputPath = process.argv[2] || DEFAULT_INPUT;
+  const outputPath = process.argv[3] || DEFAULT_OUTPUT;
   
-  if (!fs.existsSync(dataPath)) {
-    console.error(`❌ Error: File not found: ${dataPath}`);
+  if (!fs.existsSync(inputPath)) {
+    console.error(`❌ Error: File not found: ${inputPath}`);
     process.exit(1);
   }
   
   try {
-    await processOrganizations(dataPath, apiKey);
+    await processOrganizations(inputPath, outputPath, apiKey);
   } catch (err) {
     console.error('❌ Error:', err.message);
     process.exit(1);

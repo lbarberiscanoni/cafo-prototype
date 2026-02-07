@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { countyData, stateData, nationalStats, fmt, fmtPct, fmtCompact } from "../real-data.js";
 
 // Assets
@@ -32,6 +32,43 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   const [selectedMetric, setSelectedMetric] = useState(
     availableMetrics.length > 0 ? availableMetrics[0] : "Count of Children Waiting For Adoption"
   );
+
+  // State for county search
+  const [countySearchQuery, setCountySearchQuery] = useState("");
+  const [isCountyDropdownOpen, setIsCountyDropdownOpen] = useState(false);
+  const countySearchRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (countySearchRef.current && !countySearchRef.current.contains(event.target)) {
+        setIsCountyDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Filter counties based on search query (search county name only, not state)
+  const filteredCounties = Object.keys(countyData)
+    .filter(countyId => {
+      if (!countySearchQuery.trim()) return true;
+      // Get just the county name (before the comma)
+      const countyName = countyData[countyId].name.split(',')[0].trim();
+      return countyName.toLowerCase().includes(countySearchQuery.toLowerCase());
+    })
+    .sort((a, b) => {
+      // Prioritize matches that start with the search term
+      const aName = countyData[a].name.split(',')[0].trim().toLowerCase();
+      const bName = countyData[b].name.split(',')[0].trim().toLowerCase();
+      const query = countySearchQuery.toLowerCase();
+      const aStarts = aName.startsWith(query);
+      const bStarts = bName.startsWith(query);
+      if (aStarts && !bStarts) return -1;
+      if (!aStarts && bStarts) return 1;
+      return countyData[a].name.localeCompare(countyData[b].name);
+    })
+    .slice(0, 50); // Limit to 50 results for performance
 
   // Convert state names to codes
   const stateNameToCode = {
@@ -177,17 +214,48 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                   <option key={stateName} value={stateName.toLowerCase().replace(/\s+/g, '-')}>{stateName}</option>
                 ))}
               </select>
-              <select className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal" value="" onChange={(e) => {
-                if (e.target.value && onSelectRegion) {
-                  const county = countyData[e.target.value];
-                  if (county) onSelectRegion({ level: 'county', id: e.target.value, name: county.name, fips: county.fips });
-                }
-              }}>
-                <option value="">Jump to a County</option>
-                {Object.keys(countyData).sort((a, b) => countyData[a].name.localeCompare(countyData[b].name)).map(countyId => (
-                  <option key={countyId} value={countyId}>{countyData[countyId].name}</option>
-                ))}
-              </select>
+              <div className="relative" ref={countySearchRef}>
+                <input
+                  type="text"
+                  placeholder="Type to search counties..."
+                  value={countySearchQuery}
+                  onChange={(e) => {
+                    setCountySearchQuery(e.target.value);
+                    setIsCountyDropdownOpen(true);
+                  }}
+                  onFocus={() => setIsCountyDropdownOpen(true)}
+                  className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue focus:border-mte-blue"
+                />
+                {isCountyDropdownOpen && (
+                  <div className="absolute z-20 w-full mt-1 bg-white border border-mte-light-grey rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                    {filteredCounties.length > 0 ? (
+                      filteredCounties.map(countyId => (
+                        <div
+                          key={countyId}
+                          className="px-3 py-2 text-sm font-lato text-mte-charcoal hover:bg-mte-blue-20 cursor-pointer"
+                          onClick={() => {
+                            const county = countyData[countyId];
+                            if (county && onSelectRegion) {
+                              onSelectRegion({ level: 'county', id: countyId, name: county.name, fips: county.fips });
+                            }
+                            setCountySearchQuery("");
+                            setIsCountyDropdownOpen(false);
+                          }}
+                        >
+                          {countyData[countyId].name}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="px-3 py-2 text-sm font-lato text-mte-charcoal">No counties found</div>
+                    )}
+                    {filteredCounties.length === 50 && countySearchQuery.trim() && (
+                      <div className="px-3 py-2 text-xs font-lato text-mte-charcoal border-t border-mte-light-grey">
+                        Showing first 50 results. Type more to narrow search.
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Metrics - Dynamic dropdown */}

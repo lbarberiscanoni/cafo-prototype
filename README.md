@@ -9,7 +9,6 @@
 
 - [ ] For the Maps, make it a consistent water-grey and land-white or vice versa
 - [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
-- [ ] Change historic data years to End of Year 2023 and End of Year 2024 instead of 2024 and 2025
 
 - [ ] To metrics page, add county population (file this under the data pipeline)
 - [ ] Add sources and date from here. Please make sure the source in the hover-over goes with each state and the source and date of data collection are added. (in the data and sources doc there is a specific definition for each metric under the county)

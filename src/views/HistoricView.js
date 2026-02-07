@@ -152,7 +152,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
         }
       ].filter(Boolean),
       wraparound: [],
-      source: `AFCARS ${years[0]}-${years[years.length - 1]}`
+      source: `AFCARS End of Year ${years[0] - 1} - End of Year ${years[years.length - 1] - 1}`
     };
   }
   
@@ -196,7 +196,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
       ].filter(Boolean),
       biological: [],
       wraparound: [],
-      source: `AFCARS ${years[0]}-${years[years.length - 1]}`
+      source: `AFCARS End of Year ${years[0] - 1} - End of Year ${years[years.length - 1] - 1}`
     };
   }
   
@@ -266,7 +266,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
         }
       ].filter(Boolean),
       wraparound: [],
-      source: `MTE Metrics ${years[0]}-${years[years.length - 1]}`
+      source: `MTE Metrics End of Year ${years[0] - 1} - End of Year ${years[years.length - 1] - 1}`
     };
   }
   
@@ -520,7 +520,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         <div className="flex justify-around gap-4 px-4 mt-2">
           {years.map((year) => (
             <div key={year} className="flex-1 max-w-[80px] text-center">
-              <div className="text-sm font-semibold text-mte-charcoal font-lato">{year}</div>
+              <div className="text-xs font-semibold text-mte-charcoal font-lato">End of Year {year - 1}</div>
             </div>
           ))}
         </div>
@@ -819,7 +819,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       {years.length > 0 && trends && (
         <div className="bg-white max-w-5xl mx-auto rounded-lg shadow-mte-card p-4 md:p-6 mb-6 md:mb-8 mx-4">
           <h3 className="text-2xl md:text-3xl font-nexa mb-3 md:mb-4 text-mte-black text-center">
-            Historical Change ({years[0]} to {years[years.length - 1]})
+            Historical Change (End of Year {years[0] - 1} to End of Year {years[years.length - 1] - 1})
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 text-sm md:text-base font-lato">
             <div className="text-center">

@@ -133,7 +133,7 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
     
     if (values.length === 0) {
       return {
-        colorScale: () => '#f1f1f1',
+        colorScale: () => '#ffffff',
         legendBreaks: [],
         hasData: false
       };
@@ -168,7 +168,7 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
     const colors = ['#dcfce7', '#bbf7d0', '#86efac', '#4ade80', '#22c55e', '#16a34a'];
     
     const scale = (value) => {
-      if (value === null || value === undefined || isNaN(value)) return '#f1f1f1';
+      if (value === null || value === undefined || isNaN(value)) return '#ffffff';
       
       // Find which bucket this value falls into
       for (let i = uniqueBreaks.length - 1; i >= 0; i--) {
@@ -197,7 +197,8 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
       .attr("viewBox", `0 0 ${width} ${height}`)
       .attr("preserveAspectRatio", "xMidYMid meet")
       .style("width", "100%")
-      .style("height", "auto");
+      .style("height", "auto")
+      .style("background-color", "#d4dadc");
 
     const projection = d3.geoAlbersUsa()
       .scale(1250)
@@ -219,7 +220,7 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
         .append("path")
         .attr("class", "neighbor-country")
         .attr("d", path)
-        .attr("fill", "#f5f5f5")
+        .attr("fill", "#ffffff")
         .attr("stroke", "#d4d4d4")
         .attr("stroke-width", 1)
         .style("pointer-events", "none");
@@ -236,7 +237,7 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
           const data = mapData[stateName];
           return colorScale(data?.value);
         })
-        .attr("stroke", "#ffffff")
+        .attr("stroke", "#ccc")
         .attr("stroke-width", 0.5)
         .style("cursor", "pointer")
         .on("mouseenter", function(event, d) {
@@ -257,7 +258,7 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
         })
         .on("mouseleave", function() {
           d3.select(this)
-            .attr("stroke", "#ffffff")
+            .attr("stroke", "#ccc")
             .attr("stroke-width", 0.5);
           setHoveredState(null);
         })
@@ -341,7 +342,7 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
         })
         .attr("font-weight", "700")
         .attr("fill", "#5c5d5f")
-        .attr("stroke", "#ffffff")
+        .attr("stroke", "#ccc")
         .attr("stroke-width", "2.5")
         .attr("stroke-opacity", "0.8")
         .attr("paint-order", "stroke")
@@ -426,7 +427,7 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
             <div className="text-mte-charcoal">No data available</div>
           )}
           <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#f1f1f1'}}></div>
+            <div className="w-4 h-3" style={{backgroundColor: '#ffffff'}}></div>
             <span className="text-mte-charcoal">No Data</span>
           </div>
         </div>

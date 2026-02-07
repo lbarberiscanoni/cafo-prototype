@@ -7,11 +7,9 @@
         - actually consider making the download it whatever is looking at
 
 
-- [ ] For the Maps, make it a consistent water-grey and land-white or vice versa
 - [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
 
 - [ ] Add sources and date from here. Please make sure the source in the hover-over goes with each state and the source and date of data collection are added. (in the data and sources doc there is a specific definition for each metric under the county)
-- [ ] Let’s add these family preservation cases to national data -> Last column (https://docs.google.com/spreadsheets/d/1yFrhrOmVBSIzqFyuNBCtwfZD7WcXMihf-vYxZbDOdww/edit?usp=sharing
 
 - [ ] There’s still an issue for anything not mapped to counties (e.g. regions and districts). Here are customizations
     - `Alabama: Date should be displayed for 2022, also in historic data

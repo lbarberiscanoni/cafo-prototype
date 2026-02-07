@@ -53,7 +53,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
       .filter(v => v !== null && v !== undefined && !isNaN(v) && v > 0);
     
     if (values.length === 0) {
-      return { colorScale: () => '#f1f1f1', legendBreaks: [], hasData: false };
+      return { colorScale: () => '#f2efe9', legendBreaks: [], hasData: false };
     }
 
     const sortedValues = [...values].sort((a, b) => a - b);
@@ -72,7 +72,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
     const colors = ['#dcfce7', '#bbf7d0', '#86efac', '#4ade80', '#22c55e', '#16a34a'];
     
     const scale = (value) => {
-      if (value === null || value === undefined || isNaN(value) || value === 0) return '#f1f1f1';
+      if (value === null || value === undefined || isNaN(value) || value === 0) return '#f2efe9';
       for (let i = uniqueBreaks.length - 1; i >= 0; i--) {
         if (value >= uniqueBreaks[i]) return colors[Math.min(i, colors.length - 1)];
       }
@@ -88,7 +88,8 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
 
     const width = 1000;
     const height = 700;
-    svg.attr("width", width).attr("height", height);
+    svg.attr("width", width).attr("height", height)
+      .style("background-color", "#d4dadc");
 
     const fips = stateFips[stateCode];
     if (!fips) {
@@ -121,7 +122,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
             const data = stateCountyData[countyName];
             return colorScale(data?.value);
           })
-          .attr("stroke", "#ffffff")
+          .attr("stroke", "#ccc")
           .attr("stroke-width", 0.5)
           .style("cursor", "pointer")
           .on("mouseenter", function(event, d) {
@@ -139,7 +140,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
             });
           })
           .on("mouseleave", function() {
-            d3.select(this).attr("stroke", "#ffffff").attr("stroke-width", 0.5);
+            d3.select(this).attr("stroke", "#ccc").attr("stroke-width", 0.5);
             setHoveredCounty(null);
           })
           .on("click", function(event, d) {
@@ -342,7 +343,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
             <div className="text-mte-charcoal">Limited data</div>
           )}
           <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#f1f1f1'}}></div>
+            <div className="w-4 h-3" style={{backgroundColor: '#f2efe9'}}></div>
             <span className="text-mte-charcoal">No Data</span>
           </div>
         </div>

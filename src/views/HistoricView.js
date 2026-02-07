@@ -343,6 +343,12 @@ const calculateTrends = (regionLevel, regionId, years) => {
 };
 
 export default function HistoricView({ regionLevel, regionId, onSelectRegion }) {
+  // Detect embed mode from URL parameter
+  const isEmbed = useMemo(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('embed') === 'true';
+  }, []);
+
   // State for selected metrics in each category - each card tracks independently
   const [selectedKinshipMetric, setSelectedKinshipMetric] = useState('children_in_care');
   const [selectedAdoptionMetric, setSelectedAdoptionMetric] = useState('waiting_adoption');
@@ -542,8 +548,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         </div>
       </header>
 
-      {/* Region Navigation - Only show at state level */}
-      {regionLevel === 'state' && (
+      {/* Region Navigation - Only show at state level (hidden in embed mode) */}
+      {!isEmbed && regionLevel === 'state' && (
         <div className="py-3 mb-4 md:mb-6">
           <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4">
             {/* State Dropdown */}
@@ -591,8 +597,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         </div>
       )}
 
-      {/* Region Navigation - National level */}
-      {regionLevel === 'national' && (
+      {/* Region Navigation - National level (hidden in embed mode) */}
+      {!isEmbed && regionLevel === 'national' && (
         <div className="py-3 mb-4 md:mb-6">
           <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-4">
             {/* State Dropdown */}
@@ -622,8 +628,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         </div>
       )}
 
-      {/* Region Navigation - County level */}
-      {regionLevel === 'county' && (
+      {/* Region Navigation - County level (hidden in embed mode) */}
+      {!isEmbed && regionLevel === 'county' && (
         <div className="py-3 mb-4 md:mb-6">
           <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4">
             {/* Back to State button */}
@@ -857,8 +863,22 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       )}
 
       {/* Footer */}
-      <div className="py-4 text-right pr-6">
-        <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer" className="self-center">
+      <div className={`py-4 px-6 ${isEmbed ? 'flex flex-col md:flex-row items-start md:items-center justify-between gap-3' : 'text-right'}`}>
+        {isEmbed && (
+          <p className="text-sm font-lato text-mte-charcoal">
+            This snapshot is powered by More Than Enough, CAFO's US Foster Care Initiative.{' '}
+            <a 
+              href="https://cafo-prototype.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-mte-blue hover:underline"
+            >
+              Visit the full dashboard
+            </a>{' '}
+            for more data — including data for other counties and states.
+          </p>
+        )}
+        <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer" className={isEmbed ? '' : 'self-center'}>
           <img src={MTELogo} alt="More Than Enough" className="h-6 md:h-8 inline-block" />  
         </a>
       </div>

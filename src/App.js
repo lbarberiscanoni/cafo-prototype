@@ -119,6 +119,9 @@ function App() {
   const [view, setView] = useState("metric");
   const [selectedRegion, setSelectedRegion] = useState(null);
 
+  // Detect embed mode from URL parameter
+  const isEmbed = new URLSearchParams(window.location.search).get('embed') === 'true';
+
   // ============================================
   // STEP 2: URL READING - Read hash on initial load
   // ============================================
@@ -209,8 +212,8 @@ function App() {
     setView(newView);
   };
 
-  // Landing page
-  if (region === "landing") {
+  // Landing page (not shown in embed mode)
+  if (region === "landing" && !isEmbed) {
     return (
       <LandingPage
         onSelectRegion={handleSelectRegion}
@@ -219,12 +222,28 @@ function App() {
     );
   }
 
+  // In embed mode with no region, default to national historic view
+  if (region === "landing" && isEmbed) {
+    return (
+      <div className="App min-h-screen">
+        <div className="w-full">
+          <HistoricView
+            regionLevel="national"
+            regionId="usa"
+            selectedRegion={{ level: 'national', id: 'usa', name: 'United States' }}
+            onSelectRegion={handleSelectRegion}
+          />
+        </div>
+      </div>
+    );
+  }
+
   // Get the view component
   const ViewComponent = VIEW_COMPONENTS[view];
 
   return (
     <div className="App min-h-screen">
-      {(
+      {!isEmbed && (
         <TopNav
           currentRegion={region}
           currentView={view}

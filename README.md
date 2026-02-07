@@ -11,9 +11,6 @@
 - [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
 
 - [ ] Add sources and date from here. Please make sure the source in the hover-over goes with each state and the source and date of data collection are added. (in the data and sources doc there is a specific definition for each metric under the county)
-- [ ] On metrics card, provide an option to navigate to another state and county
-Requested edit for CTA re: CTA button placement and footer text for the embed view, see this [loom](https://www.loom.com/share/e73eeb6ad5d84baf9e770f3ee9dd3bc8) and the proposed copy below.
-    - Button text: Your Next Steps [Will go to exit CTA page] • Footer sentence for embed card: "This snapshot is powered by More Than Enough, CAFO's US Foster Care Initiative. Visit the full dashboard [hyper link to dashboard] for more data — including data for other counties and states." 
 - [ ] Let’s add these family preservation cases to national data -> Last column (https://docs.google.com/spreadsheets/d/1yFrhrOmVBSIzqFyuNBCtwfZD7WcXMihf-vYxZbDOdww/edit?usp=sharing
 
 - [ ] There’s still an issue for anything not mapped to counties (e.g. regions and districts). Here are customizations

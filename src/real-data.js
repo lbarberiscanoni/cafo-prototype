@@ -176,6 +176,7 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
     countyData[countyKey] = {
       id: countyKey,
       name: `${county.name}, ${state.name}`,
+      countyName: county.name,
       state: state.name,
       stateAbbrev: abbrev,
       geographyType: county.geographyType || 'county',

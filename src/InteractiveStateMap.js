@@ -11,7 +11,7 @@ const getCountyDataByState = (stateCode) => {
     const countyStateCode = countyId.split('-').pop()?.toUpperCase();
     
     if (countyStateCode === stateCode) {
-      const countyName = data.name.split(' County')[0];
+      const countyName = data.countyName;
       stateCounties[countyName] = {
         value: data.childrenInCare,
         fips: countyId,

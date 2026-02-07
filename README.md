@@ -1,9 +1,3 @@
-- [ ] Review the data pipeline
-    - [ ] MTE Metrics State Database = each state page (Alabama, not AL Data), ignore All Data Connect + Metrics Check
-    - [ ] Use all of Sources and Definitions
-    - [ ] MTE Master Data = Master + Network Members + Connections
-    - [ ] AFCARS = everything
-- [ ] Check on Weld County because it has 5 organizations part of a network in MTE Master Data but we only display 2
 - [ ] Set up a periodic (e.g., daily) function to download updated data from Google Sheets and rerun the data pipeline.
 
 - [ ] Optimize SEO so that “foster care data for Jefferson county” shows up the app 

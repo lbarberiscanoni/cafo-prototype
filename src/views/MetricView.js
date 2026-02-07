@@ -348,7 +348,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div><span className="text-xl font-black text-mte-blue">{fmt(data.totalChildren)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
                     <div className="text-sm text-mte-charcoal font-lato">in Care</div>
                     <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.licensedHomes)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Licensed Homes</div>
+                    <div className="text-sm text-mte-charcoal font-lato">Licensed Foster Homes</div>
                   </div>
                 </div>
               </div>
@@ -414,19 +414,19 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             <div className="flex justify-center items-center gap-1 mb-4">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.licensedHomesPerChild)}</div>
               <HoverableText tooltip="The ratio of available licensed foster homes to children currently in out-of-home care.">
-                <div className="text-base text-mte-charcoal font-lato">Licensed Homes Per Child in Care</div>
+                <div className="text-base text-mte-charcoal font-lato">Licensed Foster Homes Per Child in Care</div>
               </HoverableText>
             </div>
             <div className="grid grid-cols-2 gap-y-1 gap-x-2 text-base max-w-sm mx-auto">
               <HoverableText tooltip="Total number of children in the foster care system."><div className="text-left text-mte-charcoal font-lato">Children in Care</div></HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInCare)}</div>
-              <HoverableText tooltip="Children placed with licensed foster families."><div className="text-left text-mte-charcoal font-lato">Children in Family</div></HoverableText>
+              <HoverableText tooltip="Children placed with licensed foster families."><div className="text-left text-mte-charcoal font-lato">Children in Family-Like Foster Care</div></HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInFamily)}</div>
               <HoverableText tooltip="Children placed with relatives or family friends."><div className="text-left text-mte-charcoal font-lato">Children in Kinship Care</div></HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInKinship)}</div>
-              <HoverableText tooltip="Children from this county placed in care outside county boundaries."><div className="text-left text-mte-charcoal font-lato">Children Out-of-County</div></HoverableText>
+              <HoverableText tooltip="Children from this county placed in care outside county boundaries."><div className="text-left text-mte-charcoal font-lato">Children Placed Out-of-County</div></HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenOutOfCounty)}</div>
-              <HoverableText tooltip="Total number of state-licensed foster homes in this county."><div className="text-left text-mte-charcoal font-lato">Licensed Homes</div></HoverableText>
+              <HoverableText tooltip="Total number of state-licensed foster homes in this county."><div className="text-left text-mte-charcoal font-lato">Licensed Foster Homes</div></HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.licensedHomes)}</div>
             </div>
           </div>
@@ -497,7 +497,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <h3 className="text-2xl font-nexa text-mte-black mb-4">Statewide Data Summary for {data.state}</h3>
               <div className="flex flex-wrap justify-around gap-6 md:gap-10 text-center">
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.totalChildren)}</p><p className="text-base text-mte-charcoal font-lato">Children in Care</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.licensedHomes)}</p><p className="text-base text-mte-charcoal font-lato">Licensed Homes</p></div>
+                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.licensedHomes)}</p><p className="text-base text-mte-charcoal font-lato">Licensed Foster Homes</p></div>
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.waitingForAdoption)}</p><p className="text-base text-mte-charcoal font-lato">Children Waiting For Adoption</p></div>
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(stateInfo.reunificationRate)}</p><p className="text-base text-mte-charcoal font-lato">Biological Family Reunification Rate</p></div>
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.familyPreservationCases)}</p><p className="text-base text-mte-charcoal font-lato">Family Preservation Cases</p></div>

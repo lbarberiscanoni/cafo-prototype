@@ -9,7 +9,6 @@
 
 - [ ] For the Maps, make it a consistent water-grey and land-white or vice versa
 - [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
-- [ ] On metrics card, “Children in Family” should read “Children in Family-Like Foster Care” and “Children Placed Out-of-County” instead of “Children Out-of-County” and change “Licensed Foster Homes” instead of “Licensed Homes”
 - [ ] Change historic data years to End of Year 2023 and End of Year 2024 instead of 2024 and 2025
 
 - [ ] To metrics page, add county population (file this under the data pipeline)

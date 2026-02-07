@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated": "2026-02-05T23:47:36.756Z",
+    "generated": "2026-02-07T04:43:05.744Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
@@ -138,13 +138,13 @@
       },
       "coordinates": {
         "source": "county-coordinates.json",
-        "merged": 5824
+        "merged": 5935
       }
     },
     "counts": {
       "states": 52,
       "countyRecords": 5982,
-      "countiesWithCoordinates": 5824,
+      "countiesWithCoordinates": 5935,
       "organizations": 490,
       "organizationsWithDescriptions": 287,
       "networks": 20
@@ -11324,7 +11324,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 518
+          "churches": 518,
+          "coordinates": {
+            "lat": 41.22,
+            "lng": -73.32
+          }
         },
         {
           "name": "Hartford",
@@ -11339,7 +11343,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 466
+          "churches": 466,
+          "coordinates": {
+            "lat": 41.76,
+            "lng": -72.69
+          }
         },
         {
           "name": "Litchfield",
@@ -11354,7 +11362,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 149
+          "churches": 149,
+          "coordinates": {
+            "lat": 41.75,
+            "lng": -73.19
+          }
         },
         {
           "name": "Middlesex",
@@ -11369,7 +11381,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 98
+          "churches": 98,
+          "coordinates": {
+            "lat": 41.44,
+            "lng": -72.52
+          }
         },
         {
           "name": "New Haven",
@@ -11384,7 +11400,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 473
+          "churches": 473,
+          "coordinates": {
+            "lat": 41.35,
+            "lng": -72.9
+          }
         },
         {
           "name": "New London",
@@ -11399,7 +11419,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 188
+          "churches": 188,
+          "coordinates": {
+            "lat": 41.52,
+            "lng": -72.1
+          }
         },
         {
           "name": "Tolland",
@@ -11414,7 +11438,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 81
+          "churches": 81,
+          "coordinates": {
+            "lat": 41.87,
+            "lng": -72.33
+          }
         },
         {
           "name": "Windham",
@@ -11429,7 +11457,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 96
+          "churches": 96,
+          "coordinates": {
+            "lat": 41.83,
+            "lng": -72
+          }
         },
         {
           "name": "R1",
@@ -70811,7 +70843,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 56
+          "churches": 56,
+          "coordinates": {
+            "lat": 43.52,
+            "lng": -71.42
+          }
         },
         {
           "name": "Carroll",
@@ -70826,7 +70862,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 46
+          "churches": 46,
+          "coordinates": {
+            "lat": 43.87,
+            "lng": -71.2
+          }
         },
         {
           "name": "Cheshire",
@@ -70841,7 +70881,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 63
+          "churches": 63,
+          "coordinates": {
+            "lat": 42.92,
+            "lng": -72.25
+          }
         },
         {
           "name": "Coos",
@@ -70856,7 +70900,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 39
+          "churches": 39,
+          "coordinates": {
+            "lat": 44.69,
+            "lng": -71.31
+          }
         },
         {
           "name": "Grafton",
@@ -70871,7 +70919,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 87
+          "churches": 87,
+          "coordinates": {
+            "lat": 43.94,
+            "lng": -71.82
+          }
         },
         {
           "name": "Hillsborough",
@@ -70886,7 +70938,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 181
+          "churches": 181,
+          "coordinates": {
+            "lat": 42.91,
+            "lng": -71.72
+          }
         },
         {
           "name": "Merrimack",
@@ -70901,7 +70957,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 95
+          "churches": 95,
+          "coordinates": {
+            "lat": 43.3,
+            "lng": -71.68
+          }
         },
         {
           "name": "Rockingham",
@@ -70916,7 +70976,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 141
+          "churches": 141,
+          "coordinates": {
+            "lat": 42.99,
+            "lng": -71.09
+          }
         },
         {
           "name": "Strafford",
@@ -70931,7 +70995,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 70
+          "churches": 70,
+          "coordinates": {
+            "lat": 43.29,
+            "lng": -71.03
+          }
         },
         {
           "name": "Sullivan",
@@ -70946,7 +71014,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 40
+          "churches": 40,
+          "coordinates": {
+            "lat": 43.36,
+            "lng": -72.22
+          }
         },
         {
           "name": "Berlin",
@@ -70961,7 +71033,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": 15,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.47,
+            "lng": -71.19
+          }
         },
         {
           "name": "Claremont",
@@ -70976,7 +71052,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": 16,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.38,
+            "lng": -72.35
+          }
         },
         {
           "name": "Concord",
@@ -70991,7 +71071,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": 28,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.21,
+            "lng": -71.54
+          }
         },
         {
           "name": "Conway",
@@ -71006,7 +71090,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": 6,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.98,
+            "lng": -71.13
+          }
         },
         {
           "name": "Keene",
@@ -71021,7 +71109,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": 35,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 42.93,
+            "lng": -72.28
+          }
         },
         {
           "name": "Laconia",
@@ -71036,7 +71128,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": 15,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.53,
+            "lng": -71.47
+          }
         },
         {
           "name": "Littleton",
@@ -71051,7 +71147,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": 11,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.31,
+            "lng": -71.77
+          }
         },
         {
           "name": "Manchester",
@@ -71066,7 +71166,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": 44,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 42.99,
+            "lng": -71.45
+          }
         },
         {
           "name": "Seacoast",
@@ -71081,7 +71185,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": 35,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.07,
+            "lng": -70.76
+          }
         },
         {
           "name": "Southern",
@@ -71096,7 +71204,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": 59,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 42.87,
+            "lng": -71.38
+          }
         },
         {
           "name": "Southern Telework",
@@ -71111,7 +71223,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": 4,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 42.87,
+            "lng": -71.38
+          }
         }
       ]
     },
@@ -88890,7 +89006,11 @@
           "childrenWaitingForAdoption": 0,
           "reunificationRate": null,
           "familyPreservationCases": 0,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.43,
+            "lng": -103.48
+          }
         },
         {
           "name": "Rapid City",
@@ -88905,7 +89025,11 @@
           "childrenWaitingForAdoption": 28,
           "reunificationRate": null,
           "familyPreservationCases": 10,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.08,
+            "lng": -103.23
+          }
         },
         {
           "name": "Deadwood*",
@@ -88920,7 +89044,11 @@
           "childrenWaitingForAdoption": 0,
           "reunificationRate": null,
           "familyPreservationCases": 1,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.38,
+            "lng": -103.73
+          }
         },
         {
           "name": "Eagle Butte",
@@ -88935,7 +89063,11 @@
           "childrenWaitingForAdoption": 11,
           "reunificationRate": null,
           "familyPreservationCases": 3,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 45,
+            "lng": -101.23
+          }
         },
         {
           "name": "Pierre",
@@ -88950,7 +89082,11 @@
           "childrenWaitingForAdoption": 7,
           "reunificationRate": null,
           "familyPreservationCases": 3,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.37,
+            "lng": -100.35
+          }
         },
         {
           "name": "Mobridge",
@@ -88965,7 +89101,11 @@
           "childrenWaitingForAdoption": 0,
           "reunificationRate": null,
           "familyPreservationCases": 2,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 45.54,
+            "lng": -100.43
+          }
         },
         {
           "name": "Sturgis",
@@ -88980,7 +89120,11 @@
           "childrenWaitingForAdoption": 3,
           "reunificationRate": null,
           "familyPreservationCases": 0,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.41,
+            "lng": -103.51
+          }
         },
         {
           "name": "Chamberlain",
@@ -88995,7 +89139,11 @@
           "childrenWaitingForAdoption": 19,
           "reunificationRate": null,
           "familyPreservationCases": 6,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.81,
+            "lng": -99.33
+          }
         },
         {
           "name": "Mission",
@@ -89010,7 +89158,11 @@
           "childrenWaitingForAdoption": 0,
           "reunificationRate": null,
           "familyPreservationCases": 0,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.31,
+            "lng": -100.66
+          }
         },
         {
           "name": "Winner",
@@ -89025,7 +89177,11 @@
           "childrenWaitingForAdoption": 0,
           "reunificationRate": null,
           "familyPreservationCases": 0,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.38,
+            "lng": -99.86
+          }
         },
         {
           "name": "Aberdeen",
@@ -89040,7 +89196,11 @@
           "childrenWaitingForAdoption": 0,
           "reunificationRate": null,
           "familyPreservationCases": 4,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 45.46,
+            "lng": -98.49
+          }
         },
         {
           "name": "Watertown",
@@ -89055,7 +89215,11 @@
           "childrenWaitingForAdoption": 1,
           "reunificationRate": null,
           "familyPreservationCases": 11,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.9,
+            "lng": -97.12
+          }
         },
         {
           "name": "Lake Andes",
@@ -89070,7 +89234,11 @@
           "childrenWaitingForAdoption": 0,
           "reunificationRate": null,
           "familyPreservationCases": 0,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.16,
+            "lng": -98.54
+          }
         },
         {
           "name": "Brookings",
@@ -89085,7 +89253,11 @@
           "childrenWaitingForAdoption": 4,
           "reunificationRate": null,
           "familyPreservationCases": 4,
-          "churches": 40
+          "churches": 40,
+          "coordinates": {
+            "lat": 44.31,
+            "lng": -96.8
+          }
         },
         {
           "name": "Huron",
@@ -89100,7 +89272,11 @@
           "childrenWaitingForAdoption": 0,
           "reunificationRate": null,
           "familyPreservationCases": 5,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.36,
+            "lng": -98.21
+          }
         },
         {
           "name": "Mitchell",
@@ -89115,7 +89291,11 @@
           "childrenWaitingForAdoption": 5,
           "reunificationRate": null,
           "familyPreservationCases": 1,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.71,
+            "lng": -98.03
+          }
         },
         {
           "name": "Sioux Falls",
@@ -89130,7 +89310,11 @@
           "childrenWaitingForAdoption": 15,
           "reunificationRate": null,
           "familyPreservationCases": 7,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.55,
+            "lng": -96.73
+          }
         },
         {
           "name": "Yankton",
@@ -89145,7 +89329,11 @@
           "childrenWaitingForAdoption": 4,
           "reunificationRate": null,
           "familyPreservationCases": 2,
-          "churches": 27
+          "churches": 27,
+          "coordinates": {
+            "lat": 42.87,
+            "lng": -97.4
+          }
         },
         {
           "name": "Vermillion",
@@ -89160,7 +89348,11 @@
           "childrenWaitingForAdoption": 1,
           "reunificationRate": null,
           "familyPreservationCases": 1,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 42.78,
+            "lng": -96.93
+          }
         }
       ]
     },
@@ -108805,7 +108997,11 @@
           "reunificationRate": 0.507,
           "familyPreservationCases": 22,
           "churches": null,
-          "childrenAdopted": 17
+          "childrenAdopted": 17,
+          "coordinates": {
+            "lat": 44.81,
+            "lng": -73.08
+          }
         },
         {
           "name": "Burlington",
@@ -108821,7 +109017,11 @@
           "reunificationRate": 0.55,
           "familyPreservationCases": 53,
           "churches": null,
-          "childrenAdopted": 21
+          "childrenAdopted": 21,
+          "coordinates": {
+            "lat": 44.48,
+            "lng": -73.21
+          }
         },
         {
           "name": "Hartford",
@@ -108837,7 +109037,11 @@
           "reunificationRate": 0.077,
           "familyPreservationCases": 1,
           "churches": null,
-          "childrenAdopted": 6
+          "childrenAdopted": 6,
+          "coordinates": {
+            "lat": 43.66,
+            "lng": -72.34
+          }
         },
         {
           "name": "St. Johnsbury",
@@ -108853,7 +109057,11 @@
           "reunificationRate": 0.537,
           "familyPreservationCases": 0,
           "churches": null,
-          "childrenAdopted": 6
+          "childrenAdopted": 6,
+          "coordinates": {
+            "lat": 44.42,
+            "lng": -72.02
+          }
         },
         {
           "name": "Brattleboro",
@@ -108869,7 +109077,11 @@
           "reunificationRate": 0.357,
           "familyPreservationCases": 11,
           "churches": null,
-          "childrenAdopted": 27
+          "childrenAdopted": 27,
+          "coordinates": {
+            "lat": 42.85,
+            "lng": -72.56
+          }
         },
         {
           "name": "Barre",
@@ -108885,7 +109097,11 @@
           "reunificationRate": 0.448,
           "familyPreservationCases": 5,
           "churches": null,
-          "childrenAdopted": 18
+          "childrenAdopted": 18,
+          "coordinates": {
+            "lat": 44.2,
+            "lng": -72.5
+          }
         },
         {
           "name": "Newport",
@@ -108901,7 +109117,11 @@
           "reunificationRate": 0.383,
           "familyPreservationCases": 5,
           "churches": null,
-          "childrenAdopted": 15
+          "childrenAdopted": 15,
+          "coordinates": {
+            "lat": 44.94,
+            "lng": -72.21
+          }
         },
         {
           "name": "Rutland",
@@ -108917,7 +109137,11 @@
           "reunificationRate": 0.525,
           "familyPreservationCases": 8,
           "churches": 57,
-          "childrenAdopted": 20
+          "childrenAdopted": 20,
+          "coordinates": {
+            "lat": 43.61,
+            "lng": -72.97
+          }
         },
         {
           "name": "Springfield",
@@ -108933,7 +109157,11 @@
           "reunificationRate": 0.586,
           "familyPreservationCases": 9,
           "churches": null,
-          "childrenAdopted": 6
+          "childrenAdopted": 6,
+          "coordinates": {
+            "lat": 43.3,
+            "lng": -72.48
+          }
         },
         {
           "name": "Bennington",
@@ -108949,7 +109177,11 @@
           "reunificationRate": 0.404,
           "familyPreservationCases": 24,
           "churches": 36,
-          "childrenAdopted": 20
+          "childrenAdopted": 20,
+          "coordinates": {
+            "lat": 42.88,
+            "lng": -73.2
+          }
         },
         {
           "name": "Morrisville",
@@ -108965,7 +109197,11 @@
           "reunificationRate": 0.421,
           "familyPreservationCases": 10,
           "churches": null,
-          "childrenAdopted": 6
+          "childrenAdopted": 6,
+          "coordinates": {
+            "lat": 44.56,
+            "lng": -72.6
+          }
         },
         {
           "name": "Middlebury",
@@ -108981,7 +109217,11 @@
           "reunificationRate": 0.548,
           "familyPreservationCases": 11,
           "churches": null,
-          "childrenAdopted": 4
+          "childrenAdopted": 4,
+          "coordinates": {
+            "lat": 44.02,
+            "lng": -73.17
+          }
         },
         {
           "name": "St. Albans",
@@ -108996,7 +109236,11 @@
           "childrenWaitingForAdoption": 26,
           "reunificationRate": 0.505,
           "familyPreservationCases": 87,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.81,
+            "lng": -73.08
+          }
         },
         {
           "name": "Burlington",
@@ -109011,7 +109255,11 @@
           "childrenWaitingForAdoption": 24,
           "reunificationRate": 0.387,
           "familyPreservationCases": 136,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.48,
+            "lng": -73.21
+          }
         },
         {
           "name": "Hartford",
@@ -109026,7 +109274,11 @@
           "childrenWaitingForAdoption": 14,
           "reunificationRate": 0.438,
           "familyPreservationCases": 42,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.66,
+            "lng": -72.34
+          }
         },
         {
           "name": "St. Johnsbury",
@@ -109041,7 +109293,11 @@
           "childrenWaitingForAdoption": 10,
           "reunificationRate": 0.306,
           "familyPreservationCases": 73,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.42,
+            "lng": -72.02
+          }
         },
         {
           "name": "Brattleboro",
@@ -109056,7 +109312,11 @@
           "childrenWaitingForAdoption": 18,
           "reunificationRate": 0.527,
           "familyPreservationCases": 56,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 42.85,
+            "lng": -72.56
+          }
         },
         {
           "name": "Barre",
@@ -109071,7 +109331,11 @@
           "childrenWaitingForAdoption": 14,
           "reunificationRate": 0.365,
           "familyPreservationCases": 80,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.2,
+            "lng": -72.5
+          }
         },
         {
           "name": "Newport",
@@ -109086,7 +109350,11 @@
           "childrenWaitingForAdoption": 18,
           "reunificationRate": 0.417,
           "familyPreservationCases": 58,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.94,
+            "lng": -72.21
+          }
         },
         {
           "name": "Rutland",
@@ -109101,7 +109369,11 @@
           "childrenWaitingForAdoption": 27,
           "reunificationRate": 0.448,
           "familyPreservationCases": 82,
-          "churches": 57
+          "churches": 57,
+          "coordinates": {
+            "lat": 43.61,
+            "lng": -72.97
+          }
         },
         {
           "name": "Springfield",
@@ -109116,7 +109388,11 @@
           "childrenWaitingForAdoption": 11,
           "reunificationRate": 0.258,
           "familyPreservationCases": 42,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 43.3,
+            "lng": -72.48
+          }
         },
         {
           "name": "Bennington",
@@ -109131,7 +109407,11 @@
           "childrenWaitingForAdoption": 22,
           "reunificationRate": 0.311,
           "familyPreservationCases": 64,
-          "churches": 36
+          "churches": 36,
+          "coordinates": {
+            "lat": 42.88,
+            "lng": -73.2
+          }
         },
         {
           "name": "Morrisville",
@@ -109146,7 +109426,11 @@
           "childrenWaitingForAdoption": 12,
           "reunificationRate": 0.462,
           "familyPreservationCases": 42,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.56,
+            "lng": -72.6
+          }
         },
         {
           "name": "Middlebury",
@@ -109161,7 +109445,11 @@
           "childrenWaitingForAdoption": 19,
           "reunificationRate": 0.258,
           "familyPreservationCases": 49,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 44.02,
+            "lng": -73.17
+          }
         }
       ]
     },
@@ -109224,7 +109512,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 24
+          "churches": 24,
+          "coordinates": {
+            "lat": 46.98,
+            "lng": -118.56
+          }
         },
         {
           "name": "Asotin",
@@ -109239,7 +109531,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 17
+          "churches": 17,
+          "coordinates": {
+            "lat": 46.19,
+            "lng": -117.21
+          }
         },
         {
           "name": "Benton",
@@ -109254,7 +109550,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 98
+          "churches": 98,
+          "coordinates": {
+            "lat": 46.24,
+            "lng": -119.52
+          }
         },
         {
           "name": "Chelan",
@@ -109269,7 +109569,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 63
+          "churches": 63,
+          "coordinates": {
+            "lat": 47.86,
+            "lng": -120.62
+          }
         },
         {
           "name": "Clallam",
@@ -109284,7 +109588,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 61
+          "churches": 61,
+          "coordinates": {
+            "lat": 48.11,
+            "lng": -123.94
+          }
         },
         {
           "name": "Clark",
@@ -109299,7 +109607,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 181
+          "churches": 181,
+          "coordinates": {
+            "lat": 45.78,
+            "lng": -122.48
+          }
         },
         {
           "name": "Columbia",
@@ -109314,7 +109626,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 8
+          "churches": 8,
+          "coordinates": {
+            "lat": 46.3,
+            "lng": -117.91
+          }
         },
         {
           "name": "Cowlitz",
@@ -109329,7 +109645,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 92
+          "churches": 92,
+          "coordinates": {
+            "lat": 46.19,
+            "lng": -122.68
+          }
         },
         {
           "name": "Douglas",
@@ -109344,7 +109664,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 27
+          "churches": 27,
+          "coordinates": {
+            "lat": 47.74,
+            "lng": -119.69
+          }
         },
         {
           "name": "Ferry",
@@ -109359,7 +109683,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 9
+          "churches": 9,
+          "coordinates": {
+            "lat": 48.47,
+            "lng": -118.52
+          }
         },
         {
           "name": "Franklin",
@@ -109374,7 +109702,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 39
+          "churches": 39,
+          "coordinates": {
+            "lat": 46.54,
+            "lng": -118.89
+          }
         },
         {
           "name": "Garfield",
@@ -109389,7 +109721,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 5
+          "churches": 5,
+          "coordinates": {
+            "lat": 46.43,
+            "lng": -117.54
+          }
         },
         {
           "name": "Grant",
@@ -109404,7 +109740,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 78
+          "churches": 78,
+          "coordinates": {
+            "lat": 47.21,
+            "lng": -119.45
+          }
         },
         {
           "name": "Grays Harbor",
@@ -109419,7 +109759,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 75
+          "churches": 75,
+          "coordinates": {
+            "lat": 47.15,
+            "lng": -123.76
+          }
         },
         {
           "name": "Island",
@@ -109434,7 +109778,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 51
+          "churches": 51,
+          "coordinates": {
+            "lat": 48.16,
+            "lng": -122.68
+          }
         },
         {
           "name": "Jefferson",
@@ -109449,7 +109797,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 24
+          "churches": 24,
+          "coordinates": {
+            "lat": 47.76,
+            "lng": -123.51
+          }
         },
         {
           "name": "King",
@@ -109464,7 +109816,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 828
+          "churches": 828,
+          "coordinates": {
+            "lat": 47.49,
+            "lng": -121.84
+          }
         },
         {
           "name": "Kitsap",
@@ -109479,7 +109835,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 151
+          "churches": 151,
+          "coordinates": {
+            "lat": 47.64,
+            "lng": -122.65
+          }
         },
         {
           "name": "Kittitas",
@@ -109494,7 +109854,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 32
+          "churches": 32,
+          "coordinates": {
+            "lat": 47.12,
+            "lng": -120.68
+          }
         },
         {
           "name": "Klickitat",
@@ -109509,7 +109873,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 28
+          "churches": 28,
+          "coordinates": {
+            "lat": 45.87,
+            "lng": -120.78
+          }
         },
         {
           "name": "Lewis",
@@ -109524,7 +109892,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 77
+          "churches": 77,
+          "coordinates": {
+            "lat": 46.58,
+            "lng": -122.38
+          }
         },
         {
           "name": "Lincoln",
@@ -109539,7 +109911,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 29
+          "churches": 29,
+          "coordinates": {
+            "lat": 47.58,
+            "lng": -118.41
+          }
         },
         {
           "name": "Mason",
@@ -109554,7 +109930,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 42
+          "churches": 42,
+          "coordinates": {
+            "lat": 47.35,
+            "lng": -123.18
+          }
         },
         {
           "name": "Okanogan",
@@ -109569,7 +109949,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 56
+          "churches": 56,
+          "coordinates": {
+            "lat": 48.55,
+            "lng": -119.74
+          }
         },
         {
           "name": "Pacific",
@@ -109584,7 +109968,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 31
+          "churches": 31,
+          "coordinates": {
+            "lat": 46.56,
+            "lng": -123.78
+          }
         },
         {
           "name": "Pend Oreille",
@@ -109599,7 +109987,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 15
+          "churches": 15,
+          "coordinates": {
+            "lat": 48.53,
+            "lng": -117.27
+          }
         },
         {
           "name": "Pierce",
@@ -109614,7 +110006,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 426
+          "churches": 426,
+          "coordinates": {
+            "lat": 47.04,
+            "lng": -122.13
+          }
         },
         {
           "name": "San Juan",
@@ -109629,7 +110025,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 10
+          "churches": 10,
+          "coordinates": {
+            "lat": 48.53,
+            "lng": -123.02
+          }
         },
         {
           "name": "Skagit",
@@ -109644,7 +110044,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 90
+          "churches": 90,
+          "coordinates": {
+            "lat": 48.48,
+            "lng": -121.8
+          }
         },
         {
           "name": "Skamania",
@@ -109659,7 +110063,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 11
+          "churches": 11,
+          "coordinates": {
+            "lat": 46.02,
+            "lng": -121.92
+          }
         },
         {
           "name": "Snohomish",
@@ -109674,7 +110082,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 321
+          "churches": 321,
+          "coordinates": {
+            "lat": 48.04,
+            "lng": -121.76
+          }
         },
         {
           "name": "Spokane",
@@ -109689,7 +110101,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 283
+          "churches": 283,
+          "coordinates": {
+            "lat": 47.62,
+            "lng": -117.4
+          }
         },
         {
           "name": "Stevens",
@@ -109704,7 +110120,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 45
+          "churches": 45,
+          "coordinates": {
+            "lat": 48.4,
+            "lng": -117.86
+          }
         },
         {
           "name": "Thurston",
@@ -109719,7 +110139,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 124
+          "churches": 124,
+          "coordinates": {
+            "lat": 46.93,
+            "lng": -122.78
+          }
         },
         {
           "name": "Wahkiakum",
@@ -109734,7 +110158,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 7
+          "churches": 7,
+          "coordinates": {
+            "lat": 46.29,
+            "lng": -123.42
+          }
         },
         {
           "name": "Walla Walla",
@@ -109749,7 +110177,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 41
+          "churches": 41,
+          "coordinates": {
+            "lat": 46.23,
+            "lng": -118.48
+          }
         },
         {
           "name": "Whatcom",
@@ -109764,7 +110196,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 129
+          "churches": 129,
+          "coordinates": {
+            "lat": 48.85,
+            "lng": -122.08
+          }
         },
         {
           "name": "Whitman",
@@ -109779,7 +110215,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 49
+          "churches": 49,
+          "coordinates": {
+            "lat": 46.9,
+            "lng": -117.52
+          }
         },
         {
           "name": "Yakima",
@@ -109794,7 +110234,11 @@
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 155
+          "churches": 155,
+          "coordinates": {
+            "lat": 46.46,
+            "lng": -120.51
+          }
         },
         {
           "name": "Region 1",

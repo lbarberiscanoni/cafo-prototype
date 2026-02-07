@@ -195,13 +195,13 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <h3 className="text-base font-lato font-bold mb-1 text-mte-black">Metrics</h3>
               <p className="text-sm text-mte-charcoal mb-2 font-lato">Filter by metric type to see what is happening across the country</p>
               <div className="relative">
-                <select className="w-full border-2 border-mte-light-grey rounded-lg p-3 pr-10 text-sm font-lato text-mte-charcoal cursor-pointer appearance-none bg-white hover:border-mte-blue focus:border-mte-blue focus:ring-2 focus:ring-mte-blue-20 focus:outline-none transition-colors" value={selectedMetric} onChange={(e) => setSelectedMetric(e.target.value)}>
+                <select className="w-full border-2 border-mte-light-grey rounded-lg p-2 pr-8 text-xs font-lato text-mte-charcoal cursor-pointer appearance-none bg-white hover:border-mte-blue focus:border-mte-blue focus:ring-2 focus:ring-mte-blue-20 focus:outline-none transition-colors" value={selectedMetric} onChange={(e) => setSelectedMetric(e.target.value)}>
                   {availableMetrics.map(metric => (
                     <option key={metric} value={metric}>{metric}</option>
                   ))}
                 </select>
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                  <svg className="w-5 h-5 text-mte-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                  <svg className="w-4 h-4 text-mte-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
@@ -295,13 +295,13 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <h3 className="text-base font-lato font-bold mb-1 text-mte-black">Metrics</h3>
               <p className="text-sm text-mte-charcoal mb-2 font-lato">Filter by metric type to see what is happening in {data.name}</p>
               <div className="relative">
-                <select className="w-full border-2 border-mte-light-grey rounded-lg p-3 pr-10 text-sm font-lato text-mte-charcoal cursor-pointer appearance-none bg-white hover:border-mte-blue focus:border-mte-blue focus:ring-2 focus:ring-mte-blue-20 focus:outline-none transition-colors" value={selectedMetric} onChange={(e) => setSelectedMetric(e.target.value)}>
+                <select className="w-full border-2 border-mte-light-grey rounded-lg p-2 pr-8 text-xs font-lato text-mte-charcoal cursor-pointer appearance-none bg-white hover:border-mte-blue focus:border-mte-blue focus:ring-2 focus:ring-mte-blue-20 focus:outline-none transition-colors" value={selectedMetric} onChange={(e) => setSelectedMetric(e.target.value)}>
                   {availableMetrics.map(metric => (
                     <option key={metric} value={metric}>{metric}</option>
                   ))}
                 </select>
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                  <svg className="w-5 h-5 text-mte-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                  <svg className="w-4 h-4 text-mte-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>

@@ -6,7 +6,7 @@
     - [ ] Consider implementing option to download all county data at the state level in one file
         - actually consider making the download it whatever is looking at
 
-- [ ] Shrink the text in the selector under "Metrics" view so that it doesn't get cutoff from the arrow
+
 - [ ] For the Maps, make it a consistent water-grey and land-white or vice versa
 - [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
 - [ ] On metrics card, “Children in Family” should read “Children in Family-Like Foster Care” and “Children Placed Out-of-County” instead of “Children Out-of-County” and change “Licensed Foster Homes” instead of “Licensed Homes”

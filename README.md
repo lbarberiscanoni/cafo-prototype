@@ -1,5 +1,3 @@
-- [ ] Set up a periodic (e.g., daily) function to download updated data from Google Sheets and rerun the data pipeline.
-
 - [ ] Optimize SEO so that “foster care data for Jefferson county” shows up the app 
     - [ ] Programmatic html site generation for SEO 
 - [ ] Historic View

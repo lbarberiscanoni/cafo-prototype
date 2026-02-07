@@ -1,0 +1,43 @@
+name: Update MTE Data
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 6 AM UTC daily
+  workflow_dispatch:      # Manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install xlsx
+        run: npm install xlsx
+        working-directory: ./src/data
+      
+      - name: Download sheets
+        run: bash download-sheets.sh
+        working-directory: ./src/data
+      
+      - name: Run pipeline
+        run: |
+          node parse-afcars.js
+          node parse-sources.js
+          node parse-metrics.js
+          node parse-orgs-from-master.js
+          node enrich-coordinates.js
+          node audit.js
+          node merge.js
+        working-directory: ./src/data
+      
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Update data $(date -u +%Y-%m-%d)"
+          git push

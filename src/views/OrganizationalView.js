@@ -792,7 +792,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       className="absolute -top-1 -right-1 w-4 h-4"
                     />
                   </div>
-                  <span className="text-center text-mte-charcoal text-sm">Foster & Kinship</span>
+                  <span className="text-center text-mte-charcoal text-sm">Foster and Kinship Families</span>
                 </label>
                 <label className="flex flex-col items-center cursor-pointer">
                   <div className="relative">
@@ -804,7 +804,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       className="absolute -top-1 -right-1 w-4 h-4"
                     />
                   </div>
-                  <span className="text-center text-mte-charcoal text-sm">Adoptive</span>
+                  <span className="text-center text-mte-charcoal text-sm">Adoptive Families</span>
                 </label>
                 <label className="flex flex-col items-center cursor-pointer">
                   <div className="relative">
@@ -816,7 +816,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       className="absolute -top-1 -right-1 w-4 h-4"
                     />
                   </div>
-                  <span className="text-center text-mte-charcoal text-sm">Biological</span>
+                  <span className="text-center text-mte-charcoal text-sm">Support for Biological Families</span>
                 </label>
                 <label className="flex flex-col items-center cursor-pointer">
                   <div className="relative">
@@ -828,7 +828,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       className="absolute -top-1 -right-1 w-4 h-4"
                     />
                   </div>
-                  <span className="text-center text-mte-charcoal text-sm">Wraparound</span>
+                  <span className="text-center text-mte-charcoal text-sm">Wraparound Support</span>
                 </label>
               </div>
             </div>

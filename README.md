@@ -1,16 +1,17 @@
 - [ ] Optimize SEO so that “foster care data for Jefferson county” shows up the app 
     - [ ] Programmatic html site generation for SEO 
-- [ ] Historic View
-    - [ ] Consider implementing option to download all county data at the state level in one file
-        - actually consider making the download it whatever is looking at
-
+    
+- [ ] Historic View downloads state data, not just one county
+- [ ] at the State-level Metrics view, selecting a filter updates Trends but not the map
+- [ ] Label counties in the county view Ex. Cibola, New Mexico --> Cibola County, New Mexico
+- [ ] Make all the labels in the cards in county view one-line so there is no line break. Ex. Children Placed Out-of-County should all be one line
+- [ ] replace "Children in Family-Like Foster Care" with "Children in Family-based Foster Care"
+- [ ] Remove the underline for the definition display. Explore alternative options
 
 - [ ] Review the mobile responsiveness of the app 
     - [ ] Maps don't show up because the legends overtake the map
     - [ ] The Nav is not optimally reponsive (words > icons)
     - [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
-
-- [ ] Add sources and date from here. Please make sure the source in the hover-over goes with each state and the source and date of data collection are added. (in the data and sources doc there is a specific definition for each metric under the county)
 
 - [ ] There’s still an issue for anything not mapped to counties (e.g. regions and districts). Here are customizations
     - `Alabama: Date should be displayed for 2022, also in historic data

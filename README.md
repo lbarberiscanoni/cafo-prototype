@@ -5,7 +5,10 @@
         - actually consider making the download it whatever is looking at
 
 
-- [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
+- [ ] Review the mobile responsiveness of the app 
+    - [ ] Maps don't show up because the legends overtake the map
+    - [ ] The Nav is not optimally reponsive (words > icons)
+    - [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
 
 - [ ] Add sources and date from here. Please make sure the source in the hover-over goes with each state and the source and date of data collection are added. (in the data and sources doc there is a specific definition for each metric under the county)
 

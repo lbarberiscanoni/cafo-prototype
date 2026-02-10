@@ -3,8 +3,52 @@ import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
 import { countyData, fmt } from './real-data.js';
 
+// Metric configuration: maps metric names to data fields and formatting
+// Field names match real-data.js countyData structure
+const COUNTY_METRIC_CONFIG = {
+  "Ratio of Licensed Homes to Children in Care": {
+    isRatio: true,
+    isPercent: false,
+    getValue: (data) => {
+      // licensedHomesPerChild is pre-calculated in real-data.js
+      const val = data?.licensedHomesPerChild;
+      return (val !== null && val !== undefined) ? parseFloat(val) : null;
+    },
+    format: (v) => v !== null && v !== undefined ? v.toFixed(2) : 'N/A',
+    legendFormat: (v) => v !== null && v !== undefined ? v.toFixed(2) : 'N/A'
+  },
+  "Count of Children Waiting For Adoption": {
+    isRatio: false,
+    isPercent: false,
+    getValue: (data) => data?.waitingForAdoption ?? null,
+    format: fmt,
+    legendFormat: fmt
+  },
+  "Count of Family Preservation Cases": {
+    isRatio: false,
+    isPercent: false,
+    getValue: (data) => data?.familyPreservationCases ?? null,
+    format: fmt,
+    legendFormat: fmt
+  },
+  "Biological Family Reunification Rate": {
+    isRatio: false,
+    isPercent: true,
+    getValue: (data) => data?.reunificationRate ?? null,
+    // reunificationRate is stored as decimal (0.45 = 45%)
+    format: (v) => {
+      if (v === null || v === undefined) return 'N/A';
+      return `${(v * 100).toFixed(1)}%`;
+    },
+    legendFormat: (v) => {
+      if (v === null || v === undefined) return 'N/A';
+      return `${(v * 100).toFixed(1)}%`;
+    }
+  }
+};
+
 // Helper function to convert county data to state-based lookup
-const getCountyDataByState = (stateCode) => {
+const getCountyDataByState = (stateCode, metricConfig) => {
   const stateCounties = {};
   
   Object.entries(countyData).forEach(([countyId, data]) => {
@@ -12,8 +56,9 @@ const getCountyDataByState = (stateCode) => {
     
     if (countyStateCode === stateCode) {
       const countyName = data.countyName;
+      const value = metricConfig.getValue(data);
       stateCounties[countyName] = {
-        value: data.childrenInCare,
+        value: value,
         fips: countyId,
         ...data
       };
@@ -37,14 +82,20 @@ const stateFips = {
   'VA': '51', 'WA': '53', 'WV': '54', 'WI': '55', 'WY': '56'
 };
 
-const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children in Care", onCountyClick }) => {
+const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of Licensed Homes to Children in Care", onCountyClick }) => {
   const mapRef = useRef();
   const [hoveredCounty, setHoveredCounty] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [error, setError] = useState(null);
 
-  // Get county data for this state
-  const stateCountyData = useMemo(() => getCountyDataByState(stateCode), [stateCode]);
+  // Get metric configuration, fallback to ratio if metric not found
+  const metricConfig = COUNTY_METRIC_CONFIG[selectedMetric] || COUNTY_METRIC_CONFIG["Ratio of Licensed Homes to Children in Care"];
+
+  // Get county data for this state based on selected metric
+  const stateCountyData = useMemo(() => 
+    getCountyDataByState(stateCode, metricConfig), 
+    [stateCode, metricConfig]
+  );
 
   // Calculate dynamic color scale based on actual data distribution (quantiles)
   const { colorScale, legendBreaks, hasData } = useMemo(() => {
@@ -59,13 +110,21 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
     const sortedValues = [...values].sort((a, b) => a - b);
     const getQuantile = (p) => sortedValues[Math.floor(p * (sortedValues.length - 1))];
     
+    // For ratios/percents, keep decimal precision; for counts, round
+    const roundValue = (v) => {
+      if (metricConfig.isRatio || metricConfig.isPercent) {
+        return Math.round(v * 100) / 100; // 2 decimal places
+      }
+      return Math.round(v);
+    };
+
     const breaks = [
-      Math.round(getQuantile(0)),
-      Math.round(getQuantile(0.2)),
-      Math.round(getQuantile(0.4)),
-      Math.round(getQuantile(0.6)),
-      Math.round(getQuantile(0.8)),
-      Math.round(getQuantile(1))
+      roundValue(getQuantile(0)),
+      roundValue(getQuantile(0.2)),
+      roundValue(getQuantile(0.4)),
+      roundValue(getQuantile(0.6)),
+      roundValue(getQuantile(0.8)),
+      roundValue(getQuantile(1))
     ];
 
     const uniqueBreaks = [...new Set(breaks)].sort((a, b) => a - b);
@@ -80,7 +139,11 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
     };
 
     return { colorScale: scale, legendBreaks: uniqueBreaks, hasData: true };
-  }, [stateCountyData]);
+  }, [stateCountyData, metricConfig]);
+
+  // Format value for display
+  const formatDisplayValue = (value) => metricConfig.format(value);
+  const formatLegendValue = (value) => metricConfig.legendFormat(value);
 
   useEffect(() => {
     const svg = d3.select(mapRef.current);
@@ -177,18 +240,24 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
           return { fontSize: textLength > 12 ? '10px' : '11px', yOffset: -16, borderHeight: 3 };
         };
 
-        // County labels
+        // County labels - only show for counties with data for the selected metric
         const labelGroups = svg.selectAll("g.county-label")
-          .data(stateCounties.filter(d => stateCountyData[d.properties.name]?.value))
+          .data(stateCounties.filter(d => {
+            const data = stateCountyData[d.properties.name];
+            return data?.value !== null && data?.value !== undefined;
+          }))
           .enter()
           .append("g")
           .attr("class", "county-label")
-          .attr("transform", d => `translate(${path.centroid(d)[0]}, ${path.centroid(d)[1]})`)
-          .attr("filter", "url(#county-drop-shadow)")
+          .attr("transform", d => {
+            const centroid = path.centroid(d);
+            return `translate(${centroid[0]}, ${centroid[1]})`;
+          })
           .style("cursor", "pointer")
           .on("mouseenter", function(event, d) {
+            const centroid = path.centroid(d);
             d3.select(this).transition().duration(150)
-              .attr("transform", `translate(${path.centroid(d)[0]}, ${path.centroid(d)[1]}) scale(1.05)`);
+              .attr("transform", `translate(${centroid[0]}, ${centroid[1]}) scale(1.05)`);
             d3.select(this).select("rect.card-bg").transition().duration(150).attr("fill-opacity", 1);
           })
           .on("mouseleave", function(event, d) {
@@ -313,34 +382,34 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
               {legendBreaks.length >= 5 && (
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-3" style={{backgroundColor: '#16a34a'}}></div>
-                  <span className="text-mte-charcoal">{fmt(legendBreaks[4])}+</span>
+                  <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[4])}+</span>
                 </div>
               )}
               {legendBreaks.length >= 4 && (
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-3" style={{backgroundColor: '#22c55e'}}></div>
-                  <span className="text-mte-charcoal">{fmt(legendBreaks[3])} – {fmt(legendBreaks[Math.min(4, legendBreaks.length - 1)])}</span>
+                  <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[3])} – {formatLegendValue(legendBreaks[Math.min(4, legendBreaks.length - 1)])}</span>
                 </div>
               )}
               {legendBreaks.length >= 3 && (
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-3" style={{backgroundColor: '#4ade80'}}></div>
-                  <span className="text-mte-charcoal">{fmt(legendBreaks[2])} – {fmt(legendBreaks[Math.min(3, legendBreaks.length - 1)])}</span>
+                  <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[2])} – {formatLegendValue(legendBreaks[Math.min(3, legendBreaks.length - 1)])}</span>
                 </div>
               )}
               {legendBreaks.length >= 2 && (
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-3" style={{backgroundColor: '#86efac'}}></div>
-                  <span className="text-mte-charcoal">{fmt(legendBreaks[1])} – {fmt(legendBreaks[Math.min(2, legendBreaks.length - 1)])}</span>
+                  <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[1])} – {formatLegendValue(legendBreaks[Math.min(2, legendBreaks.length - 1)])}</span>
                 </div>
               )}
               <div className="flex items-center gap-2">
                 <div className="w-4 h-3" style={{backgroundColor: '#bbf7d0'}}></div>
-                <span className="text-mte-charcoal">&lt; {fmt(legendBreaks[1])}</span>
+                <span className="text-mte-charcoal">&lt; {formatLegendValue(legendBreaks[1])}</span>
               </div>
             </>
           ) : (
-            <div className="text-mte-charcoal">Limited data</div>
+            <div className="text-mte-charcoal">No data available for this metric</div>
           )}
           <div className="flex items-center gap-2">
             <div className="w-4 h-3" style={{backgroundColor: '#f2efe9'}}></div>
@@ -362,7 +431,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Children 
         >
           <div className="font-semibold">{hoveredCounty.name} County</div>
           {hoveredCounty.hasData ? (
-            <div>{fmt(hoveredCounty.value)} {selectedMetric}</div>
+            <div>{formatDisplayValue(hoveredCounty.value)} {selectedMetric}</div>
           ) : (
             <div className="text-mte-subdued-white">No data available</div>
           )}

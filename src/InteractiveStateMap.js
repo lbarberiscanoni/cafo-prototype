@@ -146,6 +146,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of 
   const formatLegendValue = (value) => metricConfig.legendFormat(value);
 
   useEffect(() => {
+    let cancelled = false;
     const svg = d3.select(mapRef.current);
     svg.selectAll("*").remove();
 
@@ -162,6 +163,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of 
 
     d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json")
       .then(us => {
+        if (cancelled) return;
         const stateCounties = topojson.feature(us, us.objects.counties).features
           .filter(d => d.id.toString().startsWith(fips));
 
@@ -334,10 +336,12 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of 
         setError(null);
       })
       .catch(err => {
+        if (cancelled) return;
         console.error("Error loading county map:", err);
         setError(`Error loading map: ${err.message}`);
       });
 
+    return () => { cancelled = true; };
   }, [stateCode, stateName, selectedMetric, onCountyClick, colorScale, stateCountyData]);
 
   if (error) {

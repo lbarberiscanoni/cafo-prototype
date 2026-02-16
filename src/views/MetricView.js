@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { countyData, stateData, nationalStats, fmt, fmtPct, fmtCompact } from "../real-data.js";
 
 // Assets
@@ -23,6 +23,20 @@ const HoverableText = ({ children, tooltip }) => (
     </div>
   </div>
 );
+
+// Convert state names to codes
+const stateNameToCode = {
+  'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR', 'California': 'CA',
+  'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE', 'Florida': 'FL', 'Georgia': 'GA',
+  'Hawaii': 'HI', 'Idaho': 'ID', 'Illinois': 'IL', 'Indiana': 'IN', 'Iowa': 'IA',
+  'Kansas': 'KS', 'Kentucky': 'KY', 'Louisiana': 'LA', 'Maine': 'ME', 'Maryland': 'MD',
+  'Massachusetts': 'MA', 'Michigan': 'MI', 'Minnesota': 'MN', 'Mississippi': 'MS', 'Missouri': 'MO',
+  'Montana': 'MT', 'Nebraska': 'NE', 'Nevada': 'NV', 'New Hampshire': 'NH', 'New Jersey': 'NJ',
+  'New Mexico': 'NM', 'New York': 'NY', 'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH',
+  'Oklahoma': 'OK', 'Oregon': 'OR', 'Pennsylvania': 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC',
+  'South Dakota': 'SD', 'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT', 'Vermont': 'VT',
+  'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY'
+};
 
 const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   // Get available metrics (only those with data)
@@ -69,20 +83,6 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
       return countyData[a].name.localeCompare(countyData[b].name);
     })
     .slice(0, 50); // Limit to 50 results for performance
-
-  // Convert state names to codes
-  const stateNameToCode = {
-    'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR', 'California': 'CA',
-    'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE', 'Florida': 'FL', 'Georgia': 'GA',
-    'Hawaii': 'HI', 'Idaho': 'ID', 'Illinois': 'IL', 'Indiana': 'IN', 'Iowa': 'IA',
-    'Kansas': 'KS', 'Kentucky': 'KY', 'Louisiana': 'LA', 'Maine': 'ME', 'Maryland': 'MD',
-    'Massachusetts': 'MA', 'Michigan': 'MI', 'Minnesota': 'MN', 'Mississippi': 'MS', 'Missouri': 'MO',
-    'Montana': 'MT', 'Nebraska': 'NE', 'Nevada': 'NV', 'New Hampshire': 'NH', 'New Jersey': 'NJ',
-    'New Mexico': 'NM', 'New York': 'NY', 'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH',
-    'Oklahoma': 'OK', 'Oregon': 'OR', 'Pennsylvania': 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC',
-    'South Dakota': 'SD', 'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT', 'Vermont': 'VT',
-    'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY'
-  };
 
   // Get data based on region level
   const getData = () => {
@@ -168,13 +168,13 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
     }
   };
 
-  const handleCountyClick = (fips, countyName, clickedCountyData) => {
+  const handleCountyClick = useCallback((fips, countyName, clickedCountyData) => {
     const stateCode = stateNameToCode[data.name];
     const countyId = `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode?.toLowerCase()}`;
     if (onSelectRegion) {
       onSelectRegion({ level: 'county', id: countyId, name: `${countyName} County, ${data.name}`, fips: fips });
     }
-  };
+  }, [data.name, onSelectRegion]);
 
   const showMap = regionLevel === "national";
   const showCountyDetails = regionLevel === "county";
@@ -320,7 +320,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div><span className="text-xl font-black text-mte-blue">{fmt(data.childrenInCare)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
                     <div className="text-sm text-mte-charcoal font-lato">in Out-of-Home Care</div>
                     <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.childrenInFamilyFoster)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">in Family-based Foster Care</div>
+                    <div className="text-sm text-mte-charcoal font-lato">in Family-Like Foster Care</div>
                     <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.childrenInKinship)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
                     <div className="text-sm text-mte-charcoal font-lato">in Kinship Care</div>
                   </div>
@@ -488,7 +488,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             <div className="grid grid-cols-2 gap-y-1 gap-x-2 text-base max-w-sm mx-auto">
               <HoverableText tooltip="Total number of children in the foster care system."><div className="text-left text-mte-charcoal font-lato">Children in Care</div></HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInCare)}</div>
-              <HoverableText tooltip="Children placed with licensed foster families."><div className="text-left text-mte-charcoal font-lato">Children in Family-based Foster Care</div></HoverableText>
+              <HoverableText tooltip="Children placed with licensed foster families."><div className="text-left text-mte-charcoal font-lato">Children in Family-Like Foster Care</div></HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInFamily)}</div>
               <HoverableText tooltip="Children placed with relatives or family friends."><div className="text-left text-mte-charcoal font-lato">Children in Kinship Care</div></HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInKinship)}</div>

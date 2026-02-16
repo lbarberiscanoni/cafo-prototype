@@ -2,7 +2,6 @@
     - [ ] Programmatic html site generation for SEO 
 - [ ] Create an embeddable UX for Historic View
 - [ ] Historic View downloads state data, not just one county
-- [ ] at the State-level Metrics view, selecting a filter updates Trends but not the map
 - [ ] Label counties in the county view Ex. Cibola, New Mexico --> Cibola County, New Mexico
 - [ ] Make all the labels in the cards in county view one-line so there is no line break. Ex. Children Placed Out-of-County should all be one line
 - [ ] Remove the underline for the definition display. Explore alternative options

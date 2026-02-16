@@ -5,7 +5,6 @@
 - [ ] at the State-level Metrics view, selecting a filter updates Trends but not the map
 - [ ] Label counties in the county view Ex. Cibola, New Mexico --> Cibola County, New Mexico
 - [ ] Make all the labels in the cards in county view one-line so there is no line break. Ex. Children Placed Out-of-County should all be one line
-- [ ] replace "Children in Family-Like Foster Care" with "Children in Family-based Foster Care"
 - [ ] Remove the underline for the definition display. Explore alternative options
 
 - [ ] Review the mobile responsiveness of the app 

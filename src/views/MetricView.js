@@ -320,7 +320,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div><span className="text-xl font-black text-mte-blue">{fmt(data.childrenInCare)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
                     <div className="text-sm text-mte-charcoal font-lato">in Out-of-Home Care</div>
                     <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.childrenInFamilyFoster)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">in Family-Like Foster Care</div>
+                    <div className="text-sm text-mte-charcoal font-lato">in Family-based Foster Care</div>
                     <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.childrenInKinship)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
                     <div className="text-sm text-mte-charcoal font-lato">in Kinship Care</div>
                   </div>
@@ -488,7 +488,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             <div className="grid grid-cols-2 gap-y-1 gap-x-2 text-base max-w-sm mx-auto">
               <HoverableText tooltip="Total number of children in the foster care system."><div className="text-left text-mte-charcoal font-lato">Children in Care</div></HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInCare)}</div>
-              <HoverableText tooltip="Children placed with licensed foster families."><div className="text-left text-mte-charcoal font-lato">Children in Family-Like Foster Care</div></HoverableText>
+              <HoverableText tooltip="Children placed with licensed foster families."><div className="text-left text-mte-charcoal font-lato">Children in Family-based Foster Care</div></HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInFamily)}</div>
               <HoverableText tooltip="Children placed with relatives or family friends."><div className="text-left text-mte-charcoal font-lato">Children in Kinship Care</div></HoverableText>
               <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInKinship)}</div>

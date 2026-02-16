@@ -353,6 +353,10 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         // For county, extract from full name or use regionId
         // regionId format: "nassau-ny", "butler-al"
         if (selectedRegion?.name) {
+          const parts = selectedRegion.name.split(',');
+          if (parts.length >= 2 && !parts[0].trim().includes('County')) {
+            return `${parts[0].trim()} County,${parts.slice(1).join(',')}`;
+          }
           return selectedRegion.name;
         }
         return "Unknown County";

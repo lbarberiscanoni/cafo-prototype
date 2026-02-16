@@ -116,8 +116,12 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         };
       case "county":
         const county = countyData[regionId] || countyData['butler-al'];
+        const countyParts = county.name.split(',');
+        const formattedCountyName = countyParts.length >= 2 
+          ? `${countyParts[0].trim()} County,${countyParts.slice(1).join(',')}` 
+          : county.name;
         return {
-          name: county.name,
+          name: formattedCountyName,
           subtitle: "",
           population: county.population,
           totalChurches: county.totalChurches,

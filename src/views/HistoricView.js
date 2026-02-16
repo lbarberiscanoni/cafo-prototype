@@ -429,7 +429,10 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       return stateData[regionId].name;
     }
     if (regionLevel === 'county' && countyData[regionId]) {
-      return countyData[regionId].name;
+      const parts = countyData[regionId].name.split(',');
+      return parts.length >= 2 
+        ? `${parts[0].trim()} County,${parts.slice(1).join(',')}` 
+        : countyData[regionId].name;
     }
     return regionId || 'Unknown Region';
   };

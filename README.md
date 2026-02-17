@@ -1,8 +1,6 @@
 - [ ] Optimize SEO so that “foster care data for Jefferson county” shows up the app 
     - [ ] Programmatic html site generation for SEO 
 
-- [ ] Investigate and fix Firefox-specific display issues with the map/legend overlay
-
 - [ ] There’s still an issue for anything not mapped to counties (e.g. regions and districts). Here are customizations
     - `Alabama: Date should be displayed for 2022, also in historic data
     Alaska: District

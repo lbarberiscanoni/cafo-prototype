@@ -36,6 +36,9 @@ jobs:
           node merge.js
         working-directory: ./src/data
       
+      - name: Generate SEO pages
+        run: node generate-seo-pages.js src/data/real-data.json public/data
+      
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"

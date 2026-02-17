@@ -1,6 +1,5 @@
 - [ ] Optimize SEO so that “foster care data for Jefferson county” shows up the app 
     - [ ] Programmatic html site generation for SEO 
-- [ ] Create an embeddable UX for Historic View
 - [ ] Remove the underline for the definition display. Explore alternative options
 
 - [ ] Review the mobile responsiveness of the app 

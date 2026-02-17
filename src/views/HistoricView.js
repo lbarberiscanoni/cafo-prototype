@@ -354,6 +354,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
   const [selectedAdoptionMetric, setSelectedAdoptionMetric] = useState('waiting_adoption');
   const [selectedBiologicalMetric, setSelectedBiologicalMetric] = useState('reunification_rate');
   const [selectedWraparoundMetric, setSelectedWraparoundMetric] = useState(regionLevel === 'national' ? 'churches_ministry' : 'wraparound_cases');
+  const [showEmbedModal, setShowEmbedModal] = useState(false);
+  const [embedCopied, setEmbedCopied] = useState(false);
 
   // Get dynamic years based on region
   const years = useMemo(() => {
@@ -864,6 +866,74 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
           </div>
         </div>
       )}
+
+      {/* Embed Button - hidden in embed mode */}
+      {!isEmbed && (
+        <div className="max-w-5xl mx-auto px-4 mb-6">
+          <button
+            onClick={() => { setShowEmbedModal(true); setEmbedCopied(false); }}
+            className="flex items-center gap-2 mx-auto px-5 py-2.5 bg-white border-2 border-mte-blue rounded-lg text-mte-blue font-lato font-medium hover:bg-mte-blue hover:text-white transition-colors shadow-mte-card"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            Embed This View
+          </button>
+        </div>
+      )}
+
+      {/* Embed Modal */}
+      {showEmbedModal && (() => {
+        const baseUrl = 'https://cafo-prototype.vercel.app';
+        let hash = '';
+        if (regionLevel === 'national') {
+          hash = '#/national/historic';
+        } else if (regionLevel === 'state') {
+          hash = `#/state/${regionId}/historic`;
+        } else if (regionLevel === 'county') {
+          hash = `#/county/${regionId}/historic`;
+        }
+        const embedUrl = `${baseUrl}/?embed=true${hash}`;
+        const iframeCode = `<iframe src="${embedUrl}" width="100%" height="800" frameborder="0" style="border:none;border-radius:12px;" title="More Than Enough - ${getDisplayName()} Historic Data"></iframe>`;
+
+        const handleCopy = () => {
+          navigator.clipboard.writeText(iframeCode).then(() => {
+            setEmbedCopied(true);
+            setTimeout(() => setEmbedCopied(false), 2500);
+          });
+        };
+
+        return (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" onClick={() => setShowEmbedModal(false)}>
+            <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6" onClick={(e) => e.stopPropagation()}>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold font-lato text-mte-black">Embed Historic Data</h3>
+                <button onClick={() => setShowEmbedModal(false)} className="text-mte-charcoal hover:text-mte-black transition-colors">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <p className="text-sm text-mte-charcoal font-lato mb-4">
+                Copy the code below and paste it into your website's HTML to embed the historic data view for <strong>{getDisplayName()}</strong>.
+              </p>
+              <div className="bg-gray-100 rounded-lg p-3 mb-4 relative">
+                <pre className="text-xs text-mte-charcoal font-mono whitespace-pre-wrap break-all leading-relaxed">{iframeCode}</pre>
+              </div>
+              <button
+                onClick={handleCopy}
+                className={`w-full py-2.5 rounded-lg font-lato font-medium transition-colors ${
+                  embedCopied 
+                    ? 'bg-green-500 text-white' 
+                    : 'bg-mte-blue text-white hover:bg-mte-blue-80'
+                }`}
+              >
+                {embedCopied ? '✓ Copied to Clipboard' : 'Copy Embed Code'}
+              </button>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Footer */}
       <div className={`py-4 px-6 ${isEmbed ? 'flex flex-col md:flex-row items-start md:items-center justify-between gap-3' : 'text-right'}`}>

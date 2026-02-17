@@ -54,27 +54,48 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
     } else if (currentRegion === 'county') {
       const countyId = selectedRegion?.id;
       const county = countyData[countyId];
-      regionName = (county?.name || countyId || 'county').replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
       
-      if (county) {
-        rows.push(['Metric', 'Value'].join(','));
-        rows.push(['"County"', `"${county.name}"`].join(','));
-        rows.push(['"Population"', county.population ?? 'N/A'].join(','));
-        rows.push(['"Total Churches"', county.totalChurches ?? 'N/A'].join(','));
-        rows.push(['"Children in Care"', county.childrenInCare ?? 'N/A'].join(','));
-        rows.push(['"Children in Family Foster"', county.childrenInFamily ?? 'N/A'].join(','));
-        rows.push(['"Children in Kinship"', county.childrenInKinship ?? 'N/A'].join(','));
-        rows.push(['"Children Out of County"', county.childrenOutOfCounty ?? 'N/A'].join(','));
-        rows.push(['"Licensed Homes"', county.licensedHomes ?? 'N/A'].join(','));
-        rows.push(['"Licensed Homes per Child"', county.licensedHomesPerChild ?? 'N/A'].join(','));
-        rows.push(['"Children Waiting for Adoption"', county.waitingForAdoption ?? 'N/A'].join(','));
-        rows.push(['"Children Adopted (2024)"', county.childrenAdopted2024 ?? 'N/A'].join(','));
-        rows.push(['"Avg Months to Adoption"', county.avgMonthsToAdoption ?? 'N/A'].join(','));
-        rows.push(['"Family Preservation Cases"', county.familyPreservationCases ?? 'N/A'].join(','));
-        rows.push(['"Reunification Rate (%)"', county.reunificationRate ?? 'N/A'].join(','));
-        rows.push(['"Churches Providing Support"', county.churchesProvidingSupport ?? 'N/A'].join(','));
+      // Extract state code from county ID (format: "countyname-statecode")
+      const parts = countyId?.split('-') || [];
+      const stateCode = parts[parts.length - 1]?.toLowerCase();
+      const stateName = county?.state || stateCode || 'state';
+      regionName = stateName.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase() + '_all_counties';
+      
+      // Get all counties in this state
+      const stateCounties = Object.entries(countyData)
+        .filter(([id]) => id.split('-').pop() === stateCode)
+        .sort(([, a], [, b]) => a.name.localeCompare(b.name));
+      
+      if (stateCounties.length > 0) {
+        rows.push([
+          '"County"', '"Population"', '"Total Churches"', '"Children in Care"',
+          '"Children in Family Foster"', '"Children in Kinship"', '"Children Out of County"',
+          '"Licensed Homes"', '"Licensed Homes per Child"', '"Children Waiting for Adoption"',
+          '"Children Adopted (2024)"', '"Avg Months to Adoption"', '"Family Preservation Cases"',
+          '"Reunification Rate (%)"', '"Churches Providing Support"'
+        ].join(','));
+        
+        stateCounties.forEach(([id, c]) => {
+          rows.push([
+            `"${c.name}"`,
+            c.population ?? 'N/A',
+            c.totalChurches ?? 'N/A',
+            c.childrenInCare ?? 'N/A',
+            c.childrenInFamily ?? 'N/A',
+            c.childrenInKinship ?? 'N/A',
+            c.childrenOutOfCounty ?? 'N/A',
+            c.licensedHomes ?? 'N/A',
+            c.licensedHomesPerChild ?? 'N/A',
+            c.waitingForAdoption ?? 'N/A',
+            c.childrenAdopted2024 ?? 'N/A',
+            c.avgMonthsToAdoption ?? 'N/A',
+            c.familyPreservationCases ?? 'N/A',
+            c.reunificationRate ?? 'N/A',
+            c.churchesProvidingSupport ?? 'N/A'
+          ].join(','));
+        });
       } else {
-        rows.push(['Error', 'County data not found'].join(','));
+        rows.push(['Error', 'No county data found for this state'].join(','));
       }
     }
     

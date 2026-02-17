@@ -58,9 +58,19 @@
   }
 }
 
-/* Smooth transitions for all interactive elements */
-* {
-  transition: all 0.2s ease-in-out;
+/* Smooth transitions - scoped to interactive elements only.
+   IMPORTANT: Do NOT use * { transition: all } — Firefox applies it
+   to SVG paths, causing fills/strokes to animate on initial render
+   and interfering with D3 map rendering. */
+a,
+button,
+.card,
+.btn-primary,
+select,
+input {
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, 
+              border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+              transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 /* Custom scrollbar for better UX */

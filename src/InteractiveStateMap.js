@@ -84,6 +84,7 @@ const stateFips = {
 
 const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of Licensed Homes to Children in Care", onCountyClick }) => {
   const mapRef = useRef();
+  const containerRef = useRef();
   const [hoveredCounty, setHoveredCounty] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [error, setError] = useState(null);
@@ -153,7 +154,11 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of 
 
     const width = 1000;
     const height = 700;
-    svg.attr("width", width).attr("height", height)
+    svg
+      .attr("viewBox", `0 0 ${width} ${height}`)
+      .attr("preserveAspectRatio", "xMidYMid meet")
+      .style("width", "100%")
+      .style("height", "auto")
       .style("background-color", "#d4dadc");
 
     const fips = stateFips[stateCode];
@@ -196,8 +201,11 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of 
             const data = stateCountyData[countyName];
             
             d3.select(this).attr("stroke", "#00ADEE").attr("stroke-width", 2);
-            const [x, y] = d3.pointer(event, svg.node());
-            setMousePosition({ x, y });
+            // Use container-relative coords (CSS pixels) not SVG viewBox coords
+            const rect = containerRef.current?.getBoundingClientRect();
+            if (rect) {
+              setMousePosition({ x: event.clientX - rect.left, y: event.clientY - rect.top });
+            }
             setHoveredCounty({
               name: countyName,
               value: data?.value,
@@ -358,7 +366,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of 
   }
 
   return (
-    <div className="relative">
+    <div className="relative" ref={containerRef}>
       {/* Instructions - HIDDEN on mobile, visible on md+ */}
       <div className="absolute top-4 left-4 bg-white bg-opacity-90 p-3 rounded shadow-lg text-sm z-10 hidden md:block">
         <div className="flex items-center gap-2 mb-1">
@@ -437,8 +445,8 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of 
       </div>
 
       {/* D3 SVG Map */}
-      <div className="w-full overflow-hidden flex justify-center items-center">
-        <svg ref={mapRef} className="w-full h-auto max-w-5xl"></svg>
+      <div className="w-full overflow-hidden flex justify-center items-center max-w-5xl mx-auto">
+        <svg ref={mapRef}></svg>
       </div>
 
       {/* Hover Tooltip */}

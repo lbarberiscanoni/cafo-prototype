@@ -249,8 +249,10 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
             .attr("stroke", "#00ADEE")
             .attr("stroke-width", 2);
             
-          const [x, y] = d3.pointer(event, svg.node());
-          setMousePosition({ x, y });
+          const rect = containerRef.current?.getBoundingClientRect();
+          if (rect) {
+            setMousePosition({ x: event.clientX - rect.left, y: event.clientY - rect.top });
+          }
           setHoveredState({
             name: stateName.toUpperCase(),
             value: data?.value,

@@ -2,7 +2,6 @@
     - [ ] Programmatic html site generation for SEO 
 - [ ] Create an embeddable UX for Historic View
 - [ ] Historic View downloads state data, not just one county
-- [ ] Make all the labels in the cards in county view one-line so there is no line break. Ex. Children Placed Out-of-County should all be one line
 - [ ] Remove the underline for the definition display. Explore alternative options
 
 - [ ] Review the mobile responsiveness of the app 

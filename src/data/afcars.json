@@ -1,7 +1,7 @@
 {
   "metadata": {
     "source": "AFCARS.xlsx",
-    "generated": "2026-02-16T07:12:43.285Z",
+    "generated": "2026-02-17T00:23:00.554Z",
     "years": [
       2021,
       2022,
@@ -18,7 +18,8 @@
       "childrenWaitingForAdoption": 2,
       "childrenAdopted": 0,
       "reunificationRate": 0,
-      "familyPreservationCases": 45
+      "familyPreservationCases": 45,
+      "licensedHomes": 56
     },
     "verification": {
       "year": 2023,
@@ -37,7 +38,8 @@
       "childrenWaitingForAdoption": 266,
       "childrenAdopted": 312,
       "reunificationRate": 0.506,
-      "familyPreservationCases": 12
+      "familyPreservationCases": 12,
+      "licensedHomes": 1030
     },
     {
       "state": "AL",
@@ -48,7 +50,8 @@
       "childrenWaitingForAdoption": 368,
       "childrenAdopted": 1018,
       "reunificationRate": 0.368,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 2474
     },
     {
       "state": "AR",
@@ -59,7 +62,8 @@
       "childrenWaitingForAdoption": 211,
       "childrenAdopted": 1546,
       "reunificationRate": 0.373,
-      "familyPreservationCases": 1370
+      "familyPreservationCases": 1370,
+      "licensedHomes": 1548
     },
     {
       "state": "AZ",
@@ -70,7 +74,8 @@
       "childrenWaitingForAdoption": 1483,
       "childrenAdopted": 2254,
       "reunificationRate": 0.434,
-      "familyPreservationCases": 777
+      "familyPreservationCases": 777,
+      "licensedHomes": 2638
     },
     {
       "state": "CA",
@@ -81,7 +86,8 @@
       "childrenWaitingForAdoption": 7342,
       "childrenAdopted": 5994,
       "reunificationRate": 0.481,
-      "familyPreservationCases": 24337
+      "familyPreservationCases": 24337,
+      "licensedHomes": 34924
     },
     {
       "state": "CO",
@@ -92,7 +98,8 @@
       "childrenWaitingForAdoption": 355,
       "childrenAdopted": 511,
       "reunificationRate": 0.39,
-      "familyPreservationCases": 705
+      "familyPreservationCases": 705,
+      "licensedHomes": 2078
     },
     {
       "state": "CT",
@@ -103,7 +110,8 @@
       "childrenWaitingForAdoption": 15,
       "childrenAdopted": 451,
       "reunificationRate": 0.304,
-      "familyPreservationCases": 163
+      "familyPreservationCases": 163,
+      "licensedHomes": 2363
     },
     {
       "state": "DC",
@@ -114,7 +122,8 @@
       "childrenWaitingForAdoption": 70,
       "childrenAdopted": 80,
       "reunificationRate": 0.347,
-      "familyPreservationCases": 17
+      "familyPreservationCases": 17,
+      "licensedHomes": 386
     },
     {
       "state": "DE",
@@ -125,7 +134,8 @@
       "childrenWaitingForAdoption": 1109,
       "childrenAdopted": 64,
       "reunificationRate": 0.415,
-      "familyPreservationCases": 57
+      "familyPreservationCases": 57,
+      "licensedHomes": 367
     },
     {
       "state": "FL",
@@ -136,7 +146,8 @@
       "childrenWaitingForAdoption": 1054,
       "childrenAdopted": 5325,
       "reunificationRate": 0.403,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 8712
     },
     {
       "state": "GA",
@@ -147,7 +158,8 @@
       "childrenWaitingForAdoption": 180,
       "childrenAdopted": 1265,
       "reunificationRate": 0.403,
-      "familyPreservationCases": 3945
+      "familyPreservationCases": 3945,
+      "licensedHomes": 4559
     },
     {
       "state": "HI",
@@ -158,7 +170,8 @@
       "childrenWaitingForAdoption": 650,
       "childrenAdopted": 212,
       "reunificationRate": 0.537,
-      "familyPreservationCases": 93
+      "familyPreservationCases": 93,
+      "licensedHomes": 781
     },
     {
       "state": "IA",
@@ -169,7 +182,8 @@
       "childrenWaitingForAdoption": 147,
       "childrenAdopted": 969,
       "reunificationRate": 0.496,
-      "familyPreservationCases": 246
+      "familyPreservationCases": 246,
+      "licensedHomes": 2244
     },
     {
       "state": "ID",
@@ -180,7 +194,8 @@
       "childrenWaitingForAdoption": 3055,
       "childrenAdopted": 290,
       "reunificationRate": 0.626,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 1187
     },
     {
       "state": "IL",
@@ -191,7 +206,8 @@
       "childrenWaitingForAdoption": 1097,
       "childrenAdopted": 1991,
       "reunificationRate": 0.517,
-      "familyPreservationCases": 5547
+      "familyPreservationCases": 5547,
+      "licensedHomes": 8188
     },
     {
       "state": "IN",
@@ -202,7 +218,8 @@
       "childrenWaitingForAdoption": 1615,
       "childrenAdopted": 1914,
       "reunificationRate": 0.502,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 4531
     },
     {
       "state": "KS",
@@ -213,7 +230,8 @@
       "childrenWaitingForAdoption": 1600,
       "childrenAdopted": 1142,
       "reunificationRate": 0.497,
-      "familyPreservationCases": 72
+      "familyPreservationCases": 72,
+      "licensedHomes": 2343
     },
     {
       "state": "KY",
@@ -224,7 +242,8 @@
       "childrenWaitingForAdoption": 520,
       "childrenAdopted": 1431,
       "reunificationRate": 0.387,
-      "familyPreservationCases": 4505
+      "familyPreservationCases": 4505,
+      "licensedHomes": 5185
     },
     {
       "state": "LA",
@@ -235,7 +254,8 @@
       "childrenWaitingForAdoption": 1234,
       "childrenAdopted": 619,
       "reunificationRate": 0.479,
-      "familyPreservationCases": 2122
+      "familyPreservationCases": 2122,
+      "licensedHomes": 1659
     },
     {
       "state": "MA",
@@ -246,7 +266,8 @@
       "childrenWaitingForAdoption": 80,
       "childrenAdopted": 847,
       "reunificationRate": 0.567,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 5159
     },
     {
       "state": "MD",
@@ -257,7 +278,8 @@
       "childrenWaitingForAdoption": 140,
       "childrenAdopted": 330,
       "reunificationRate": 0.399,
-      "familyPreservationCases": 348
+      "familyPreservationCases": 348,
+      "licensedHomes": 1462
     },
     {
       "state": "ME",
@@ -268,7 +290,8 @@
       "childrenWaitingForAdoption": 1517,
       "childrenAdopted": 376,
       "reunificationRate": 0.432,
-      "familyPreservationCases": 3098
+      "familyPreservationCases": 3098,
+      "licensedHomes": 1767
     },
     {
       "state": "MI",
@@ -279,7 +302,8 @@
       "childrenWaitingForAdoption": 995,
       "childrenAdopted": 1615,
       "reunificationRate": 0.354,
-      "familyPreservationCases": 1373
+      "familyPreservationCases": 1373,
+      "licensedHomes": 4169
     },
     {
       "state": "MN",
@@ -290,7 +314,8 @@
       "childrenWaitingForAdoption": 374,
       "childrenAdopted": 1358,
       "reunificationRate": 0.493,
-      "familyPreservationCases": 39
+      "familyPreservationCases": 39,
+      "licensedHomes": 3766
     },
     {
       "state": "MO",
@@ -301,7 +326,8 @@
       "childrenWaitingForAdoption": 479,
       "childrenAdopted": 1373,
       "reunificationRate": 0.467,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 4567
     },
     {
       "state": "MS",
@@ -312,7 +338,8 @@
       "childrenWaitingForAdoption": 288,
       "childrenAdopted": 585,
       "reunificationRate": 0.442,
-      "familyPreservationCases": 171
+      "familyPreservationCases": 171,
+      "licensedHomes": 1691
     },
     {
       "state": "MT",
@@ -323,7 +350,8 @@
       "childrenWaitingForAdoption": 1195,
       "childrenAdopted": 298,
       "reunificationRate": 0.543,
-      "familyPreservationCases": 198
+      "familyPreservationCases": 198,
+      "licensedHomes": 1200
     },
     {
       "state": "NC",
@@ -334,7 +362,8 @@
       "childrenWaitingForAdoption": 178,
       "childrenAdopted": 1170,
       "reunificationRate": 0.382,
-      "familyPreservationCases": 275
+      "familyPreservationCases": 275,
+      "licensedHomes": 5616
     },
     {
       "state": "ND",
@@ -345,7 +374,8 @@
       "childrenWaitingForAdoption": 241,
       "childrenAdopted": 171,
       "reunificationRate": 0.502,
-      "familyPreservationCases": 1034
+      "familyPreservationCases": 1034,
+      "licensedHomes": 974
     },
     {
       "state": "NE",
@@ -356,7 +386,8 @@
       "childrenWaitingForAdoption": 69,
       "childrenAdopted": 435,
       "reunificationRate": 0.568,
-      "familyPreservationCases": 114
+      "familyPreservationCases": 114,
+      "licensedHomes": 1502
     },
     {
       "state": "NH",
@@ -367,7 +398,8 @@
       "childrenWaitingForAdoption": 333,
       "childrenAdopted": 208,
       "reunificationRate": 0.56,
-      "familyPreservationCases": 737
+      "familyPreservationCases": 737,
+      "licensedHomes": 599
     },
     {
       "state": "NJ",
@@ -378,7 +410,8 @@
       "childrenWaitingForAdoption": 457,
       "childrenAdopted": 422,
       "reunificationRate": 0.432,
-      "familyPreservationCases": 114
+      "familyPreservationCases": 114,
+      "licensedHomes": 2449
     },
     {
       "state": "NM",
@@ -389,7 +422,8 @@
       "childrenWaitingForAdoption": 549,
       "childrenAdopted": 180,
       "reunificationRate": 0.564,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 1007
     },
     {
       "state": "NV",
@@ -400,7 +434,8 @@
       "childrenWaitingForAdoption": 1170,
       "childrenAdopted": 743,
       "reunificationRate": 0.574,
-      "familyPreservationCases": 240
+      "familyPreservationCases": 240,
+      "licensedHomes": 1099
     },
     {
       "state": "NY",
@@ -411,7 +446,8 @@
       "childrenWaitingForAdoption": 3955,
       "childrenAdopted": 1525,
       "reunificationRate": 0.441,
-      "familyPreservationCases": 109
+      "familyPreservationCases": 109,
+      "licensedHomes": 10490
     },
     {
       "state": "OH",
@@ -422,7 +458,8 @@
       "childrenWaitingForAdoption": 1444,
       "childrenAdopted": 2306,
       "reunificationRate": 0.333,
-      "familyPreservationCases": 77
+      "familyPreservationCases": 77,
+      "licensedHomes": 7349
     },
     {
       "state": "OK",
@@ -433,7 +470,8 @@
       "childrenWaitingForAdoption": 169,
       "childrenAdopted": 1713,
       "reunificationRate": 0.395,
-      "familyPreservationCases": 516
+      "familyPreservationCases": 516,
+      "licensedHomes": 4281
     },
     {
       "state": "OR",
@@ -444,7 +482,8 @@
       "childrenWaitingForAdoption": 627,
       "childrenAdopted": 548,
       "reunificationRate": 0.514,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 2959
     },
     {
       "state": "PA",
@@ -455,7 +494,8 @@
       "childrenWaitingForAdoption": 11,
       "childrenAdopted": 1495,
       "reunificationRate": 0.515,
-      "familyPreservationCases": 47
+      "familyPreservationCases": 47,
+      "licensedHomes": 12616
     },
     {
       "state": "PR",
@@ -466,7 +506,8 @@
       "childrenWaitingForAdoption": 53,
       "childrenAdopted": 48,
       "reunificationRate": 0.542,
-      "familyPreservationCases": 1827
+      "familyPreservationCases": 1827,
+      "licensedHomes": null
     },
     {
       "state": "RI",
@@ -477,7 +518,8 @@
       "childrenWaitingForAdoption": 741,
       "childrenAdopted": 157,
       "reunificationRate": 0.462,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 828
     },
     {
       "state": "SC",
@@ -488,7 +530,8 @@
       "childrenWaitingForAdoption": 438,
       "childrenAdopted": 661,
       "reunificationRate": 0.459,
-      "familyPreservationCases": 544
+      "familyPreservationCases": 544,
+      "licensedHomes": 1040
     },
     {
       "state": "SD",
@@ -499,7 +542,8 @@
       "childrenWaitingForAdoption": 828,
       "childrenAdopted": 250,
       "reunificationRate": 0.419,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 835
     },
     {
       "state": "TN",
@@ -510,7 +554,8 @@
       "childrenWaitingForAdoption": 250,
       "childrenAdopted": 1112,
       "reunificationRate": 0.449,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 4509
     },
     {
       "state": "TX",
@@ -521,7 +566,8 @@
       "childrenWaitingForAdoption": 824,
       "childrenAdopted": 3861,
       "reunificationRate": 0.345,
-      "familyPreservationCases": 14743
+      "familyPreservationCases": 14743,
+      "licensedHomes": null
     },
     {
       "state": "UT",
@@ -532,7 +578,8 @@
       "childrenWaitingForAdoption": 210,
       "childrenAdopted": 397,
       "reunificationRate": 0.455,
-      "familyPreservationCases": 959
+      "familyPreservationCases": 959,
+      "licensedHomes": 1120
     },
     {
       "state": "VA",
@@ -543,7 +590,8 @@
       "childrenWaitingForAdoption": 1033,
       "childrenAdopted": 703,
       "reunificationRate": 0.272,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 4735
     },
     {
       "state": "VT",
@@ -554,7 +602,8 @@
       "childrenWaitingForAdoption": 527,
       "childrenAdopted": 168,
       "reunificationRate": 0.478,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 810
     },
     {
       "state": "WA",
@@ -565,7 +614,8 @@
       "childrenWaitingForAdoption": 982,
       "childrenAdopted": 724,
       "reunificationRate": 0.656,
-      "familyPreservationCases": 382
+      "familyPreservationCases": 382,
+      "licensedHomes": 4341
     },
     {
       "state": "WI",
@@ -576,7 +626,8 @@
       "childrenWaitingForAdoption": 18,
       "childrenAdopted": 758,
       "reunificationRate": 0.493,
-      "familyPreservationCases": 126
+      "familyPreservationCases": 126,
+      "licensedHomes": 2968
     },
     {
       "state": "WV",
@@ -587,7 +638,8 @@
       "childrenWaitingForAdoption": null,
       "childrenAdopted": 1515,
       "reunificationRate": 0.443,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 3148
     },
     {
       "state": "WY",
@@ -598,7 +650,8 @@
       "childrenWaitingForAdoption": null,
       "childrenAdopted": 88,
       "reunificationRate": 0.676,
-      "familyPreservationCases": 469
+      "familyPreservationCases": 469,
+      "licensedHomes": 468
     },
     {
       "state": "AK",
@@ -609,7 +662,8 @@
       "childrenWaitingForAdoption": 333,
       "childrenAdopted": 286,
       "reunificationRate": 0.4948,
-      "familyPreservationCases": 12
+      "familyPreservationCases": 12,
+      "licensedHomes": null
     },
     {
       "state": "AL",
@@ -620,7 +674,8 @@
       "childrenWaitingForAdoption": 520,
       "childrenAdopted": 765,
       "reunificationRate": 0.3789,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "AR",
@@ -631,7 +686,8 @@
       "childrenWaitingForAdoption": 623,
       "childrenAdopted": 840,
       "reunificationRate": 0.4386,
-      "familyPreservationCases": 1256
+      "familyPreservationCases": 1256,
+      "licensedHomes": null
     },
     {
       "state": "AZ",
@@ -642,7 +698,8 @@
       "childrenWaitingForAdoption": 2090,
       "childrenAdopted": 2614,
       "reunificationRate": 0.4774,
-      "familyPreservationCases": 952
+      "familyPreservationCases": 952,
+      "licensedHomes": null
     },
     {
       "state": "CA",
@@ -653,7 +710,8 @@
       "childrenWaitingForAdoption": 8400,
       "childrenAdopted": 5668,
       "reunificationRate": 0.4963,
-      "familyPreservationCases": 26580
+      "familyPreservationCases": 26580,
+      "licensedHomes": null
     },
     {
       "state": "CO",
@@ -664,7 +722,8 @@
       "childrenWaitingForAdoption": 594,
       "childrenAdopted": 583,
       "reunificationRate": 0.3329,
-      "familyPreservationCases": 767
+      "familyPreservationCases": 767,
+      "licensedHomes": null
     },
     {
       "state": "CT",
@@ -675,7 +734,8 @@
       "childrenWaitingForAdoption": 547,
       "childrenAdopted": 485,
       "reunificationRate": 0.3088,
-      "familyPreservationCases": 115
+      "familyPreservationCases": 115,
+      "licensedHomes": null
     },
     {
       "state": "DC",
@@ -686,7 +746,8 @@
       "childrenWaitingForAdoption": 44,
       "childrenAdopted": 96,
       "reunificationRate": 0.3385,
-      "familyPreservationCases": 12
+      "familyPreservationCases": 12,
+      "licensedHomes": null
     },
     {
       "state": "DE",
@@ -697,7 +758,8 @@
       "childrenWaitingForAdoption": 6020,
       "childrenAdopted": 53,
       "reunificationRate": 0.3984,
-      "familyPreservationCases": 52
+      "familyPreservationCases": 52,
+      "licensedHomes": null
     },
     {
       "state": "FL",
@@ -708,7 +770,8 @@
       "childrenWaitingForAdoption": 1812,
       "childrenAdopted": 3858,
       "reunificationRate": 0.425,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "GA",
@@ -719,7 +782,8 @@
       "childrenWaitingForAdoption": 248,
       "childrenAdopted": 1201,
       "reunificationRate": 0.3939,
-      "familyPreservationCases": 3855
+      "familyPreservationCases": 3855,
+      "licensedHomes": null
     },
     {
       "state": "HI",
@@ -730,7 +794,8 @@
       "childrenWaitingForAdoption": 775,
       "childrenAdopted": 158,
       "reunificationRate": 0.531,
-      "familyPreservationCases": 83
+      "familyPreservationCases": 83,
+      "licensedHomes": null
     },
     {
       "state": "IA",
@@ -741,7 +806,8 @@
       "childrenWaitingForAdoption": 171,
       "childrenAdopted": 945,
       "reunificationRate": 0.4587,
-      "familyPreservationCases": 303
+      "familyPreservationCases": 303,
+      "licensedHomes": null
     },
     {
       "state": "ID",
@@ -752,7 +818,8 @@
       "childrenWaitingForAdoption": 2954,
       "childrenAdopted": 276,
       "reunificationRate": 0.572,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "IL",
@@ -763,7 +830,8 @@
       "childrenWaitingForAdoption": 1502,
       "childrenAdopted": 1706,
       "reunificationRate": 0.5119,
-      "familyPreservationCases": 5903
+      "familyPreservationCases": 5903,
+      "licensedHomes": null
     },
     {
       "state": "IN",
@@ -774,7 +842,8 @@
       "childrenWaitingForAdoption": 1740,
       "childrenAdopted": 1884,
       "reunificationRate": 0.5424,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "KS",
@@ -785,7 +854,8 @@
       "childrenWaitingForAdoption": 2394,
       "childrenAdopted": 960,
       "reunificationRate": 0.5158,
-      "familyPreservationCases": 75
+      "familyPreservationCases": 75,
+      "licensedHomes": null
     },
     {
       "state": "KY",
@@ -796,7 +866,8 @@
       "childrenWaitingForAdoption": 501,
       "childrenAdopted": 1341,
       "reunificationRate": 0.3683,
-      "familyPreservationCases": 4380
+      "familyPreservationCases": 4380,
+      "licensedHomes": null
     },
     {
       "state": "LA",
@@ -807,7 +878,8 @@
       "childrenWaitingForAdoption": 1389,
       "childrenAdopted": 700,
       "reunificationRate": 0.3795,
-      "familyPreservationCases": 1816
+      "familyPreservationCases": 1816,
+      "licensedHomes": null
     },
     {
       "state": "MA",
@@ -818,7 +890,8 @@
       "childrenWaitingForAdoption": 74,
       "childrenAdopted": 799,
       "reunificationRate": 0.56,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "MD",
@@ -829,7 +902,8 @@
       "childrenWaitingForAdoption": 112,
       "childrenAdopted": 242,
       "reunificationRate": 0.353,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "ME",
@@ -840,7 +914,8 @@
       "childrenWaitingForAdoption": 3025,
       "childrenAdopted": 361,
       "reunificationRate": 0.4484,
-      "familyPreservationCases": 3097
+      "familyPreservationCases": 3097,
+      "licensedHomes": null
     },
     {
       "state": "MI",
@@ -851,7 +926,8 @@
       "childrenWaitingForAdoption": 1490,
       "childrenAdopted": 1667,
       "reunificationRate": 0.3755,
-      "familyPreservationCases": 1485
+      "familyPreservationCases": 1485,
+      "licensedHomes": null
     },
     {
       "state": "MN",
@@ -862,7 +938,8 @@
       "childrenWaitingForAdoption": 822,
       "childrenAdopted": 1101,
       "reunificationRate": 0.5096,
-      "familyPreservationCases": 99
+      "familyPreservationCases": 99,
+      "licensedHomes": null
     },
     {
       "state": "MO",
@@ -873,7 +950,8 @@
       "childrenWaitingForAdoption": 583,
       "childrenAdopted": 1404,
       "reunificationRate": 0.4483,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "MS",
@@ -884,7 +962,8 @@
       "childrenWaitingForAdoption": 345,
       "childrenAdopted": 588,
       "reunificationRate": 0.4412,
-      "familyPreservationCases": 150
+      "familyPreservationCases": 150,
+      "licensedHomes": null
     },
     {
       "state": "MT",
@@ -895,7 +974,8 @@
       "childrenWaitingForAdoption": 1170,
       "childrenAdopted": 359,
       "reunificationRate": 0.5204,
-      "familyPreservationCases": 189
+      "familyPreservationCases": 189,
+      "licensedHomes": null
     },
     {
       "state": "NC",
@@ -906,7 +986,8 @@
       "childrenWaitingForAdoption": 347,
       "childrenAdopted": 1097,
       "reunificationRate": 0.4028,
-      "familyPreservationCases": 339
+      "familyPreservationCases": 339,
+      "licensedHomes": null
     },
     {
       "state": "ND",
@@ -917,7 +998,8 @@
       "childrenWaitingForAdoption": 500,
       "childrenAdopted": 207,
       "reunificationRate": 0.4881,
-      "familyPreservationCases": 1100
+      "familyPreservationCases": 1100,
+      "licensedHomes": null
     },
     {
       "state": "NE",
@@ -928,7 +1010,8 @@
       "childrenWaitingForAdoption": 64,
       "childrenAdopted": 394,
       "reunificationRate": 0.5907,
-      "familyPreservationCases": 80
+      "familyPreservationCases": 80,
+      "licensedHomes": null
     },
     {
       "state": "NH",
@@ -939,7 +1022,8 @@
       "childrenWaitingForAdoption": 468,
       "childrenAdopted": 213,
       "reunificationRate": 0.5033,
-      "familyPreservationCases": 753
+      "familyPreservationCases": 753,
+      "licensedHomes": null
     },
     {
       "state": "NJ",
@@ -950,7 +1034,8 @@
       "childrenWaitingForAdoption": 474,
       "childrenAdopted": 588,
       "reunificationRate": 0.4051,
-      "familyPreservationCases": 155
+      "familyPreservationCases": 155,
+      "licensedHomes": null
     },
     {
       "state": "NM",
@@ -961,7 +1046,8 @@
       "childrenWaitingForAdoption": 730,
       "childrenAdopted": 228,
       "reunificationRate": 0.5316,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "NV",
@@ -972,7 +1058,8 @@
       "childrenWaitingForAdoption": 1647,
       "childrenAdopted": 737,
       "reunificationRate": 0.5526,
-      "familyPreservationCases": 181
+      "familyPreservationCases": 181,
+      "licensedHomes": null
     },
     {
       "state": "NY",
@@ -983,7 +1070,8 @@
       "childrenWaitingForAdoption": 3496,
       "childrenAdopted": 1248,
       "reunificationRate": 0.3907,
-      "familyPreservationCases": 91
+      "familyPreservationCases": 91,
+      "licensedHomes": null
     },
     {
       "state": "OH",
@@ -994,7 +1082,8 @@
       "childrenWaitingForAdoption": 1683,
       "childrenAdopted": 1508,
       "reunificationRate": 0.3954,
-      "familyPreservationCases": 113
+      "familyPreservationCases": 113,
+      "licensedHomes": null
     },
     {
       "state": "OK",
@@ -1005,7 +1094,8 @@
       "childrenWaitingForAdoption": 717,
       "childrenAdopted": 1547,
       "reunificationRate": 0.4113,
-      "familyPreservationCases": 475
+      "familyPreservationCases": 475,
+      "licensedHomes": null
     },
     {
       "state": "OR",
@@ -1016,7 +1106,8 @@
       "childrenWaitingForAdoption": 1856,
       "childrenAdopted": 569,
       "reunificationRate": 0.4849,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "PA",
@@ -1027,7 +1118,8 @@
       "childrenWaitingForAdoption": 44,
       "childrenAdopted": 2172,
       "reunificationRate": 0.4191,
-      "familyPreservationCases": 41
+      "familyPreservationCases": 41,
+      "licensedHomes": null
     },
     {
       "state": "PR",
@@ -1038,7 +1130,8 @@
       "childrenWaitingForAdoption": 97,
       "childrenAdopted": 63,
       "reunificationRate": 0.4901,
-      "familyPreservationCases": 1724
+      "familyPreservationCases": 1724,
+      "licensedHomes": null
     },
     {
       "state": "RI",
@@ -1049,7 +1142,8 @@
       "childrenWaitingForAdoption": 757,
       "childrenAdopted": 238,
       "reunificationRate": 0.4316,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "SC",
@@ -1060,7 +1154,8 @@
       "childrenWaitingForAdoption": 440,
       "childrenAdopted": 508,
       "reunificationRate": 0.4867,
-      "familyPreservationCases": 540
+      "familyPreservationCases": 540,
+      "licensedHomes": null
     },
     {
       "state": "SD",
@@ -1071,7 +1166,8 @@
       "childrenWaitingForAdoption": 1216,
       "childrenAdopted": 247,
       "reunificationRate": 0.4808,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "TN",
@@ -1082,7 +1178,8 @@
       "childrenWaitingForAdoption": 7550,
       "childrenAdopted": 1150,
       "reunificationRate": 0.4308,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "TX",
@@ -1093,7 +1190,8 @@
       "childrenWaitingForAdoption": 272,
       "childrenAdopted": 4436,
       "reunificationRate": 0.4036,
-      "familyPreservationCases": 10598
+      "familyPreservationCases": 10598,
+      "licensedHomes": null
     },
     {
       "state": "UT",
@@ -1104,7 +1202,8 @@
       "childrenWaitingForAdoption": 1361,
       "childrenAdopted": 527,
       "reunificationRate": 0.4044,
-      "familyPreservationCases": 1219
+      "familyPreservationCases": 1219,
+      "licensedHomes": null
     },
     {
       "state": "VA",
@@ -1115,7 +1214,8 @@
       "childrenWaitingForAdoption": 164,
       "childrenAdopted": 774,
       "reunificationRate": 0.267,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "VT",
@@ -1126,7 +1226,8 @@
       "childrenWaitingForAdoption": 1196,
       "childrenAdopted": 167,
       "reunificationRate": 0.4921,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "WA",
@@ -1137,7 +1238,8 @@
       "childrenWaitingForAdoption": 668,
       "childrenAdopted": 875,
       "reunificationRate": 0.6705,
-      "familyPreservationCases": 281
+      "familyPreservationCases": 281,
+      "licensedHomes": null
     },
     {
       "state": "WI",
@@ -1148,7 +1250,8 @@
       "childrenWaitingForAdoption": 1777,
       "childrenAdopted": 669,
       "reunificationRate": 0.5053,
-      "familyPreservationCases": 477
+      "familyPreservationCases": 477,
+      "licensedHomes": null
     },
     {
       "state": "WV",
@@ -1159,7 +1262,8 @@
       "childrenWaitingForAdoption": 11,
       "childrenAdopted": 1782,
       "reunificationRate": 0.4706,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "WY",
@@ -1170,7 +1274,8 @@
       "childrenWaitingForAdoption": 107,
       "childrenAdopted": 108,
       "reunificationRate": 0.6476,
-      "familyPreservationCases": 483
+      "familyPreservationCases": 483,
+      "licensedHomes": null
     },
     {
       "state": "AK",
@@ -1181,7 +1286,8 @@
       "childrenWaitingForAdoption": 334,
       "childrenAdopted": 316,
       "reunificationRate": 0.4947,
-      "familyPreservationCases": 10
+      "familyPreservationCases": 10,
+      "licensedHomes": 1205
     },
     {
       "state": "AL",
@@ -1192,7 +1298,8 @@
       "childrenWaitingForAdoption": 539,
       "childrenAdopted": 784,
       "reunificationRate": 0.3607,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 2039
     },
     {
       "state": "AR",
@@ -1203,7 +1310,8 @@
       "childrenWaitingForAdoption": 699,
       "childrenAdopted": 752,
       "reunificationRate": 0.4278,
-      "familyPreservationCases": 1680
+      "familyPreservationCases": 1680,
+      "licensedHomes": 1509
     },
     {
       "state": "AZ",
@@ -1214,7 +1322,8 @@
       "childrenWaitingForAdoption": 2566,
       "childrenAdopted": 2512,
       "reunificationRate": 0.5114,
-      "familyPreservationCases": 1029
+      "familyPreservationCases": 1029,
+      "licensedHomes": 3509
     },
     {
       "state": "CA",
@@ -1225,7 +1334,8 @@
       "childrenWaitingForAdoption": 7385,
       "childrenAdopted": 5829,
       "reunificationRate": 0.4955,
-      "familyPreservationCases": 15946
+      "familyPreservationCases": 15946,
+      "licensedHomes": 32597
     },
     {
       "state": "CO",
@@ -1236,7 +1346,8 @@
       "childrenWaitingForAdoption": 577,
       "childrenAdopted": 605,
       "reunificationRate": 0.3236,
-      "familyPreservationCases": 885
+      "familyPreservationCases": 885,
+      "licensedHomes": 1586
     },
     {
       "state": "CT",
@@ -1247,7 +1358,8 @@
       "childrenWaitingForAdoption": 514,
       "childrenAdopted": 437,
       "reunificationRate": 0.3606,
-      "familyPreservationCases": 112
+      "familyPreservationCases": 112,
+      "licensedHomes": 2842
     },
     {
       "state": "DC",
@@ -1258,7 +1370,8 @@
       "childrenWaitingForAdoption": 3,
       "childrenAdopted": 108,
       "reunificationRate": 0.3497,
-      "familyPreservationCases": 12
+      "familyPreservationCases": 12,
+      "licensedHomes": 505
     },
     {
       "state": "DE",
@@ -1269,7 +1382,8 @@
       "childrenWaitingForAdoption": 47,
       "childrenAdopted": 86,
       "reunificationRate": 0.2464,
-      "familyPreservationCases": 48
+      "familyPreservationCases": 48,
+      "licensedHomes": 400
     },
     {
       "state": "FL",
@@ -1280,7 +1394,8 @@
       "childrenWaitingForAdoption": 6115,
       "childrenAdopted": 3870,
       "reunificationRate": 0.4417,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 8867
     },
     {
       "state": "GA",
@@ -1291,7 +1406,8 @@
       "childrenWaitingForAdoption": 1709,
       "childrenAdopted": 1261,
       "reunificationRate": 0.3927,
-      "familyPreservationCases": 3495
+      "familyPreservationCases": 3495,
+      "licensedHomes": 4650
     },
     {
       "state": "HI",
@@ -1302,7 +1418,8 @@
       "childrenWaitingForAdoption": 269,
       "childrenAdopted": 257,
       "reunificationRate": 0.4919,
-      "familyPreservationCases": 22
+      "familyPreservationCases": 22,
+      "licensedHomes": 1186
     },
     {
       "state": "IA",
@@ -1313,7 +1430,8 @@
       "childrenWaitingForAdoption": 787,
       "childrenAdopted": 1007,
       "reunificationRate": 0.523,
-      "familyPreservationCases": 341
+      "familyPreservationCases": 341,
+      "licensedHomes": 2223
     },
     {
       "state": "ID",
@@ -1324,7 +1442,8 @@
       "childrenWaitingForAdoption": 162,
       "childrenAdopted": 322,
       "reunificationRate": 0.5473,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 1131
     },
     {
       "state": "IL",
@@ -1335,7 +1454,8 @@
       "childrenWaitingForAdoption": 2455,
       "childrenAdopted": 1597,
       "reunificationRate": 0.5191,
-      "familyPreservationCases": 6736
+      "familyPreservationCases": 6736,
+      "licensedHomes": 9058
     },
     {
       "state": "IN",
@@ -1346,7 +1466,8 @@
       "childrenWaitingForAdoption": 1739,
       "childrenAdopted": 1855,
       "reunificationRate": 0.5844,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 5428
     },
     {
       "state": "KS",
@@ -1357,7 +1478,8 @@
       "childrenWaitingForAdoption": 1781,
       "childrenAdopted": 839,
       "reunificationRate": 0.5277,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 2805
     },
     {
       "state": "KY",
@@ -1368,7 +1490,8 @@
       "childrenWaitingForAdoption": 2481,
       "childrenAdopted": 1198,
       "reunificationRate": 0.3833,
-      "familyPreservationCases": 5947
+      "familyPreservationCases": 5947,
+      "licensedHomes": 5679
     },
     {
       "state": "LA",
@@ -1379,7 +1502,8 @@
       "childrenWaitingForAdoption": 529,
       "childrenAdopted": 612,
       "reunificationRate": 0.3988,
-      "familyPreservationCases": 1734
+      "familyPreservationCases": 1734,
+      "licensedHomes": 1834
     },
     {
       "state": "MA",
@@ -1390,7 +1514,8 @@
       "childrenWaitingForAdoption": 1481,
       "childrenAdopted": 755,
       "reunificationRate": 0.5975,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 5919
     },
     {
       "state": "MD",
@@ -1401,7 +1526,8 @@
       "childrenWaitingForAdoption": 85,
       "childrenAdopted": 215,
       "reunificationRate": 0.398,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 3267
     },
     {
       "state": "ME",
@@ -1412,7 +1538,8 @@
       "childrenWaitingForAdoption": 616,
       "childrenAdopted": 345,
       "reunificationRate": 0.4724,
-      "familyPreservationCases": 3302
+      "familyPreservationCases": 3302,
+      "licensedHomes": 1717
     },
     {
       "state": "MI",
@@ -1423,7 +1550,8 @@
       "childrenWaitingForAdoption": 3115,
       "childrenAdopted": 1687,
       "reunificationRate": 0.4145,
-      "familyPreservationCases": 463
+      "familyPreservationCases": 463,
+      "licensedHomes": 5434
     },
     {
       "state": "MN",
@@ -1434,7 +1562,8 @@
       "childrenWaitingForAdoption": 1741,
       "childrenAdopted": 1005,
       "reunificationRate": 0.5218,
-      "familyPreservationCases": 113
+      "familyPreservationCases": 113,
+      "licensedHomes": 4827
     },
     {
       "state": "MO",
@@ -1445,7 +1574,8 @@
       "childrenWaitingForAdoption": 891,
       "childrenAdopted": 1346,
       "reunificationRate": 0.4527,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 4971
     },
     {
       "state": "MS",
@@ -1456,7 +1586,8 @@
       "childrenWaitingForAdoption": 546,
       "childrenAdopted": 546,
       "reunificationRate": 0.4641,
-      "familyPreservationCases": 172
+      "familyPreservationCases": 172,
+      "licensedHomes": 1870
     },
     {
       "state": "MT",
@@ -1467,7 +1598,8 @@
       "childrenWaitingForAdoption": 491,
       "childrenAdopted": 287,
       "reunificationRate": 0.5795,
-      "familyPreservationCases": 141
+      "familyPreservationCases": 141,
+      "licensedHomes": 1674
     },
     {
       "state": "NC",
@@ -1478,7 +1610,8 @@
       "childrenWaitingForAdoption": 1244,
       "childrenAdopted": 1087,
       "reunificationRate": 0.3817,
-      "familyPreservationCases": 507
+      "familyPreservationCases": 507,
+      "licensedHomes": 7052
     },
     {
       "state": "ND",
@@ -1489,7 +1622,8 @@
       "childrenWaitingForAdoption": 364,
       "childrenAdopted": 202,
       "reunificationRate": 0.5284,
-      "familyPreservationCases": 1034
+      "familyPreservationCases": 1034,
+      "licensedHomes": 953
     },
     {
       "state": "NE",
@@ -1500,7 +1634,8 @@
       "childrenWaitingForAdoption": 535,
       "childrenAdopted": 369,
       "reunificationRate": 0.573,
-      "familyPreservationCases": 36
+      "familyPreservationCases": 36,
+      "licensedHomes": 1502
     },
     {
       "state": "NH",
@@ -1511,7 +1646,8 @@
       "childrenWaitingForAdoption": 59,
       "childrenAdopted": 232,
       "reunificationRate": 0.4422,
-      "familyPreservationCases": 923
+      "familyPreservationCases": 923,
+      "licensedHomes": 708
     },
     {
       "state": "NJ",
@@ -1522,7 +1658,8 @@
       "childrenWaitingForAdoption": 535,
       "childrenAdopted": 641,
       "reunificationRate": 0.4657,
-      "familyPreservationCases": 219
+      "familyPreservationCases": 219,
+      "licensedHomes": 3467
     },
     {
       "state": "NM",
@@ -1533,7 +1670,8 @@
       "childrenWaitingForAdoption": 503,
       "childrenAdopted": 396,
       "reunificationRate": 0.4923,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 1383
     },
     {
       "state": "NV",
@@ -1544,7 +1682,8 @@
       "childrenWaitingForAdoption": 771,
       "childrenAdopted": 718,
       "reunificationRate": 0.5517,
-      "familyPreservationCases": 185
+      "familyPreservationCases": 185,
+      "licensedHomes": 1441
     },
     {
       "state": "NY",
@@ -1555,7 +1694,8 @@
       "childrenWaitingForAdoption": 1581,
       "childrenAdopted": 1098,
       "reunificationRate": 0.3991,
-      "familyPreservationCases": 113
+      "familyPreservationCases": 113,
+      "licensedHomes": 11197
     },
     {
       "state": "OH",
@@ -1566,7 +1706,8 @@
       "childrenWaitingForAdoption": 3445,
       "childrenAdopted": 1593,
       "reunificationRate": 0.4059,
-      "familyPreservationCases": 145
+      "familyPreservationCases": 145,
+      "licensedHomes": 8167
     },
     {
       "state": "OK",
@@ -1577,7 +1718,8 @@
       "childrenWaitingForAdoption": 1602,
       "childrenAdopted": 1381,
       "reunificationRate": 0.4612,
-      "familyPreservationCases": 479
+      "familyPreservationCases": 479,
+      "licensedHomes": 4958
     },
     {
       "state": "OR",
@@ -1588,7 +1730,8 @@
       "childrenWaitingForAdoption": 840,
       "childrenAdopted": 667,
       "reunificationRate": 0.5299,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 3805
     },
     {
       "state": "PA",
@@ -1599,7 +1742,8 @@
       "childrenWaitingForAdoption": 1844,
       "childrenAdopted": 2181,
       "reunificationRate": 0.4364,
-      "familyPreservationCases": 57
+      "familyPreservationCases": 57,
+      "licensedHomes": 12970
     },
     {
       "state": "PR",
@@ -1610,7 +1754,8 @@
       "childrenWaitingForAdoption": 54,
       "childrenAdopted": 69,
       "reunificationRate": 0.6052,
-      "familyPreservationCases": 2094
+      "familyPreservationCases": 2094,
+      "licensedHomes": null
     },
     {
       "state": "RI",
@@ -1621,7 +1766,8 @@
       "childrenWaitingForAdoption": 95,
       "childrenAdopted": 224,
       "reunificationRate": 0.5359,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 1292
     },
     {
       "state": "SC",
@@ -1632,7 +1778,8 @@
       "childrenWaitingForAdoption": 749,
       "childrenAdopted": 451,
       "reunificationRate": 0.4998,
-      "familyPreservationCases": 780
+      "familyPreservationCases": 780,
+      "licensedHomes": 3040
     },
     {
       "state": "SD",
@@ -1643,7 +1790,8 @@
       "childrenWaitingForAdoption": 442,
       "childrenAdopted": 220,
       "reunificationRate": 0.4724,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 828
     },
     {
       "state": "TN",
@@ -1654,7 +1802,8 @@
       "childrenWaitingForAdoption": 1157,
       "childrenAdopted": 1222,
       "reunificationRate": 0.4479,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 5175
     },
     {
       "state": "TX",
@@ -1665,7 +1814,8 @@
       "childrenWaitingForAdoption": 7858,
       "childrenAdopted": 4631,
       "reunificationRate": 0.3979,
-      "familyPreservationCases": 14108
+      "familyPreservationCases": 14108,
+      "licensedHomes": 11583
     },
     {
       "state": "UT",
@@ -1676,7 +1826,8 @@
       "childrenWaitingForAdoption": 323,
       "childrenAdopted": 530,
       "reunificationRate": 0.4119,
-      "familyPreservationCases": 1102
+      "familyPreservationCases": 1102,
+      "licensedHomes": 1476
     },
     {
       "state": "VA",
@@ -1687,7 +1838,8 @@
       "childrenWaitingForAdoption": 1492,
       "childrenAdopted": 859,
       "reunificationRate": 0.2739,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": null
     },
     {
       "state": "VT",
@@ -1698,7 +1850,8 @@
       "childrenWaitingForAdoption": 187,
       "childrenAdopted": 189,
       "reunificationRate": 0.4787,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 1299
     },
     {
       "state": "WA",
@@ -1709,7 +1862,8 @@
       "childrenWaitingForAdoption": 1355,
       "childrenAdopted": 1066,
       "reunificationRate": 0.654,
-      "familyPreservationCases": 229
+      "familyPreservationCases": 229,
+      "licensedHomes": 4831
     },
     {
       "state": "WI",
@@ -1720,7 +1874,8 @@
       "childrenWaitingForAdoption": 595,
       "childrenAdopted": 697,
       "reunificationRate": 0.5153,
-      "familyPreservationCases": 556
+      "familyPreservationCases": 556,
+      "licensedHomes": 2488
     },
     {
       "state": "WV",
@@ -1731,7 +1886,8 @@
       "childrenWaitingForAdoption": 1833,
       "childrenAdopted": 1830,
       "reunificationRate": 0.4423,
-      "familyPreservationCases": null
+      "familyPreservationCases": null,
+      "licensedHomes": 3431
     },
     {
       "state": "WY",
@@ -1742,7 +1898,8 @@
       "childrenWaitingForAdoption": 33,
       "childrenAdopted": 105,
       "reunificationRate": 0.657,
-      "familyPreservationCases": 448
+      "familyPreservationCases": 448,
+      "licensedHomes": 447
     }
   ]
 }

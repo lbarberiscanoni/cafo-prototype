@@ -78,6 +78,7 @@ export const nationalStats = {
   childrenWaitingAdoption: latestNational.childrenWaitingForAdoption,
   childrenAdopted2023: latestNational.childrenAdopted,
   familyPreservationCases: latestNational.familyPreservationCases,
+  licensedHomes: latestNational.licensedHomes,
   // Note: totalChurches and churchesWithMinistry not available at national level
   totalChurches: null,
   churchesWithMinistry: null
@@ -125,8 +126,9 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
     childrenAdopted: latestAfcars.childrenAdopted || null,
     reunificationRate: latestAfcars.reunificationRate || null,
     familyPreservationCases: latestAfcars.familyPreservationCases || null,
+    // Licensed homes: use AFCARS if available, otherwise aggregate from county data
+    licensedHomes: latestAfcars.licensedHomes || (totalFosterKinshipHomes > 0 ? totalFosterKinshipHomes : null),
     // Aggregated from county data
-    licensedHomes: totalFosterKinshipHomes > 0 ? totalFosterKinshipHomes : null,
     totalChurches: totalChurches > 0 ? totalChurches : null,
     // Source info
     dataDate: state.source?.dataDate || null,
@@ -366,7 +368,8 @@ Object.entries(realDataJson.national).forEach(([year, data]) => {
     childrenInKinship: data.childrenInKinshipCare,
     childrenWaitingAdoption: data.childrenWaitingForAdoption,
     childrenAdopted: data.childrenAdopted,
-    familyPreservationCases: data.familyPreservationCases
+    familyPreservationCases: data.familyPreservationCases,
+    licensedHomes: data.licensedHomes
   };
 });
 
@@ -385,7 +388,7 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
       totalChildren: data.childrenInCare,
       childrenInFosterCare: data.childrenInFosterCare,
       childrenInKinship: data.childrenInKinshipCare,
-      licensedHomes: null, // Not in AFCARS
+      licensedHomes: data.licensedHomes,
       waitingForAdoption: data.childrenWaitingForAdoption,
       childrenAdopted: data.childrenAdopted,
       reunificationRate: data.reunificationRate,
@@ -448,3 +451,4 @@ console.log(`   Counties with coordinates: ${withCoords}`);
 console.log(`   Organizations: ${organizations.length} (${orgsWithCoords} with coords, ${withDescriptions} with descriptions)`);
 console.log(`   Networks: ${networks.length}`);
 console.log(`   National Children in Care (${latestYear}): ${fmt(nationalStats.childrenInCare)}`);
+console.log(`   National Licensed Homes (${latestYear}): ${fmt(nationalStats.licensedHomes)}`);

@@ -98,6 +98,7 @@ function calculateNationalTotals(afcarsData) {
         childrenWaitingForAdoption: 0,
         childrenAdopted: 0,
         familyPreservationCases: 0,
+        licensedHomes: 0,
         stateCount: 0
       };
     }
@@ -108,6 +109,7 @@ function calculateNationalTotals(afcarsData) {
     byYear[year].childrenWaitingForAdoption += record.childrenWaitingForAdoption || 0;
     byYear[year].childrenAdopted += record.childrenAdopted || 0;
     byYear[year].familyPreservationCases += record.familyPreservationCases || 0;
+    byYear[year].licensedHomes += record.licensedHomes || 0;
     byYear[year].stateCount++;
   }
   
@@ -139,7 +141,8 @@ function buildStates(afcarsData, sourcesData, metricsData, coordsData) {
       childrenWaitingForAdoption: record.childrenWaitingForAdoption,
       childrenAdopted: record.childrenAdopted,
       reunificationRate: record.reunificationRate,
-      familyPreservationCases: record.familyPreservationCases
+      familyPreservationCases: record.familyPreservationCases,
+      licensedHomes: record.licensedHomes
     };
   }
   
@@ -373,10 +376,20 @@ function merge(dataDir, outputPath) {
     console.log('');
     console.log('✅ Verification (Texas):');
     console.log(`   AFCARS 2023 children in care: ${tx.afcars[2023]?.childrenInCare?.toLocaleString() || 'N/A'}`);
+    console.log(`   AFCARS 2023 licensed homes: ${tx.afcars[2023]?.licensedHomes?.toLocaleString() || 'N/A'}`);
     console.log(`   County records: ${tx.counties.length}`);
     console.log(`   Source date: ${tx.source?.dataDate || 'N/A'}`);
     const txWithCoords = tx.counties.filter(c => c.coordinates).length;
     console.log(`   Counties with coordinates: ${txWithCoords}`);
+  }
+  
+  // National verification
+  const nat2023 = national[2023];
+  if (nat2023) {
+    console.log('');
+    console.log('✅ Verification (National 2023):');
+    console.log(`   Children in care: ${nat2023.childrenInCare?.toLocaleString() || 'N/A'}`);
+    console.log(`   Licensed homes: ${nat2023.licensedHomes?.toLocaleString() || 'N/A'}`);
   }
   
   // Write output

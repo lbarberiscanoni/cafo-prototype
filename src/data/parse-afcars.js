@@ -29,7 +29,8 @@ const COLUMN_MAP = {
   'Children Waiting For Adoption': 'childrenWaitingForAdoption',
   'Number of Adoptions': 'childrenAdopted',
   'Biological Reunification Rate': 'reunificationRate',
-  'Family Preservation Cases': 'familyPreservationCases'
+  'Family Preservation Cases': 'familyPreservationCases',
+  'Number of Licensed Homes': 'licensedHomes',
 };
 
 // Parse a cell value, handling nulls

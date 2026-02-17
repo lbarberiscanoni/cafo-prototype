@@ -15,9 +15,19 @@ import InteractiveStateMap from "../InteractiveStateMap";
 // Hoverable text with tooltip
 const HoverableText = ({ children, tooltip }) => (
   <div className="relative inline-flex items-center group">
-    <span className="underline decoration-dotted underline-offset-2 decoration-mte-blue">
+    <span>
       {children}
     </span>
+    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-2 bg-mte-charcoal text-white text-xs rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
+      {tooltip}
+    </div>
+  </div>
+);
+
+const MetricRow = ({ label, value, tooltip }) => (
+  <div className="relative group flex justify-between items-center px-2 py-1.5 rounded-md transition-colors duration-200 hover:bg-mte-blue-20">
+    <div className="text-left text-mte-charcoal font-lato whitespace-nowrap">{label}</div>
+    <div className="text-right font-semibold text-mte-black font-lato">{value}</div>
     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-2 bg-mte-charcoal text-white text-xs rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
       {tooltip}
     </div>
@@ -489,17 +499,12 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Licensed Foster Homes Per Child in Care</div>
               </HoverableText>
             </div>
-            <div className="grid grid-cols-2 gap-y-1 gap-x-2 text-base max-w-sm mx-auto">
-              <HoverableText tooltip="Total number of children in the foster care system."><div className="text-left text-mte-charcoal font-lato whitespace-nowrap">Children in Care</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInCare)}</div>
-              <HoverableText tooltip="Children placed with licensed foster families."><div className="text-left text-mte-charcoal font-lato whitespace-nowrap">Children in Family-based Foster Care</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInFamily)}</div>
-              <HoverableText tooltip="Children placed with relatives or family friends."><div className="text-left text-mte-charcoal font-lato whitespace-nowrap">Children in Kinship Care</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenInKinship)}</div>
-              <HoverableText tooltip="Children from this county placed in care outside county boundaries."><div className="text-left text-mte-charcoal font-lato whitespace-nowrap">Children Placed Out-of-County</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenOutOfCounty)}</div>
-              <HoverableText tooltip="Total number of state-licensed foster homes in this county."><div className="text-left text-mte-charcoal font-lato whitespace-nowrap">Licensed Foster Homes</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.licensedHomes)}</div>
+            <div className="max-w-sm mx-auto">
+              <MetricRow label="Children in Care" value={fmt(data.childrenInCare)} tooltip="Total number of children in the foster care system." />
+              <MetricRow label="Children in Family-based Foster Care" value={fmt(data.childrenInFamily)} tooltip="Children placed with licensed foster families." />
+              <MetricRow label="Children in Kinship Care" value={fmt(data.childrenInKinship)} tooltip="Children placed with relatives or family friends." />
+              <MetricRow label="Children Placed Out-of-County" value={fmt(data.childrenOutOfCounty)} tooltip="Children from this county placed in care outside county boundaries." />
+              <MetricRow label="Licensed Foster Homes" value={fmt(data.licensedHomes)} tooltip="Total number of state-licensed foster homes in this county." />
             </div>
           </div>
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
@@ -513,11 +518,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Children Waiting For Adoption</div>
               </HoverableText>
             </div>
-            <div className="grid grid-cols-2 gap-y-1 gap-x-4 text-base max-w-md mx-auto">
-              <HoverableText tooltip="Number of finalized adoptions in the current year."><div className="text-left text-mte-charcoal font-lato whitespace-nowrap">Children Adopted in 2024</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.childrenAdopted2024)}</div>
-              <HoverableText tooltip="Average time from termination of parental rights to finalized adoption."><div className="text-left text-mte-charcoal font-lato whitespace-nowrap">Average Months to Adoption</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.avgMonthsToAdoption)}</div>
+            <div className="max-w-md mx-auto">
+              <MetricRow label="Children Adopted in 2024" value={fmt(data.childrenAdopted2024)} tooltip="Number of finalized adoptions in the current year." />
+              <MetricRow label="Average Months to Adoption" value={fmt(data.avgMonthsToAdoption)} tooltip="Average time from termination of parental rights to finalized adoption." />
             </div>
           </div>
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
@@ -549,11 +552,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Churches Providing Support</div>
               </HoverableText>
             </div>
-            <div className="grid grid-cols-2 gap-y-1 gap-x-4 text-base max-w-md mx-auto">
-              <HoverableText tooltip="Number of churches with active foster care support programs."><div className="text-left text-mte-charcoal font-lato whitespace-nowrap">Churches Providing Support</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.churchesProvidingSupport)}</div>
-              <HoverableText tooltip="Total number of churches in this county."><div className="text-left text-mte-charcoal font-lato whitespace-nowrap">Total Churches</div></HoverableText>
-              <div className="text-right font-semibold text-mte-black font-lato">{fmt(data.totalChurches)}</div>
+            <div className="max-w-md mx-auto">
+              <MetricRow label="Churches Providing Support" value={fmt(data.churchesProvidingSupport)} tooltip="Number of churches with active foster care support programs." />
+              <MetricRow label="Total Churches" value={fmt(data.totalChurches)} tooltip="Total number of churches in this county." />
             </div>
           </div>
         </main>

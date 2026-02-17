@@ -1,6 +1,5 @@
 - [ ] Optimize SEO so that “foster care data for Jefferson county” shows up the app 
     - [ ] Programmatic html site generation for SEO 
-- [ ] Remove the underline for the definition display. Explore alternative options
 
 - [ ] Review the mobile responsiveness of the app 
     - [ ] Maps don't show up because the legends overtake the map

@@ -209,46 +209,64 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
   };
 
   return (
-    <div className="py-2 md:py-3 px-2 md:px-4 flex flex-col md:flex-row justify-between items-stretch md:items-center gap-3 md:gap-0 relative">
-      {/* Left side: Return Home + Map View Buttons */}
-      <div className="flex gap-2 overflow-x-auto">
+    <div className="py-2 md:py-3 px-2 md:px-4 flex justify-between items-center gap-2 relative">
+      {/* Left side: Home + Region Buttons */}
+      <div className="flex gap-1 md:gap-2 flex-shrink-0">
+        {/* Home button - icon only on mobile */}
         <button
           onClick={handleReturnHome}
-          className="px-3 py-2 bg-white text-white border border-mte-blue rounded shadow-mte-card hover:bg-mte-blue-80 text-sm md:text-base font-lato transition-colors whitespace-nowrap flex items-center gap-2"
+          className="p-2 md:px-3 md:py-2 bg-white text-mte-charcoal border border-mte-blue rounded shadow-mte-card hover:bg-mte-blue-20 text-sm md:text-base font-lato transition-colors flex items-center gap-1.5"
+          title="Home"
         >
-          <span className="hidden sm:inline">Home</span>
+          <svg className="w-4 h-4 md:w-5 md:h-5 text-mte-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          <span className="hidden md:inline">Home</span>
         </button>
+        {/* National - icon + abbreviated text on mobile */}
         <button
           onClick={handleNationalView}
-          className="px-3 py-2 bg-white border border-mte-light-grey rounded shadow-mte-card hover:bg-mte-blue-20 text-sm md:text-base font-lato text-mte-charcoal transition-colors whitespace-nowrap"
+          className="p-2 md:px-3 md:py-2 bg-white border border-mte-light-grey rounded shadow-mte-card hover:bg-mte-blue-20 text-sm md:text-base font-lato text-mte-charcoal transition-colors flex items-center gap-1.5"
+          title="National Map View"
         >
-          National Map View
+          <svg className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span className="hidden sm:inline">National</span>
+          <span className="hidden md:inline">&nbsp;Map View</span>
         </button>
+        {/* State - icon + abbreviated text on mobile */}
         <button
           onClick={handleStateView}
-          className="px-3 py-2 bg-white border border-mte-light-grey rounded shadow-mte-card hover:bg-mte-blue-20 text-sm md:text-base font-lato text-mte-charcoal transition-colors whitespace-nowrap"
+          className="p-2 md:px-3 md:py-2 bg-white border border-mte-light-grey rounded shadow-mte-card hover:bg-mte-blue-20 text-sm md:text-base font-lato text-mte-charcoal transition-colors flex items-center gap-1.5"
+          title="State Map View"
         >
-          State Map View
+          <svg className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+          </svg>
+          <span className="hidden sm:inline">State</span>
+          <span className="hidden md:inline">&nbsp;Map View</span>
         </button>
       </div>
 
-      {/* Navigation Buttons - Horizontal scroll on mobile */}
-      <div className="flex gap-2 md:gap-3 overflow-x-auto pb-2 md:pb-0">
+      {/* Right side: View Toggle Buttons - icon-only on mobile */}
+      <div className="flex gap-1 md:gap-3">
         {visibleNavButtons.map((btn) => (
           <button
             key={btn.id}
             onClick={() => handleNavClick(btn.id)}
-            className={`flex items-center gap-2 px-3 md:px-4 py-2 rounded-lg text-sm md:text-base font-lato font-medium shadow-mte-card transition-colors whitespace-nowrap
+            className={`flex items-center gap-1.5 p-2 md:px-4 md:py-2 rounded-lg text-sm md:text-base font-lato font-medium shadow-mte-card transition-colors
               ${
                 currentView === btn.id
                   ? "bg-mte-blue text-white hover:bg-mte-blue-80"
                   : "bg-white text-mte-charcoal hover:bg-mte-blue-20"
               }`}
+            title={btn.label}
           >
-            <img src={btn.icon} alt={btn.label} className="w-4 h-4 md:w-5 md:h-5" style={{
+            <img src={btn.icon} alt={btn.label} className="w-5 h-5" style={{
               filter: currentView === btn.id ? 'brightness(0) invert(1)' : 'none'
             }} />
-            <span className="hidden sm:inline">{btn.label}</span>
+            <span className="hidden md:inline">{btn.label}</span>
           </button>
         ))}
       </div>

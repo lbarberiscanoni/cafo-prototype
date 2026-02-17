@@ -101,6 +101,7 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
   const containerRef = useRef();
   const [hoveredState, setHoveredState] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [legendExpanded, setLegendExpanded] = useState(false);
 
   // Get metric configuration, fallback to a default if metric not found
   const metricConfig = METRIC_CONFIG[selectedMetric] || METRIC_CONFIG["Count of Children Waiting For Adoption"];
@@ -370,8 +371,8 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
 
   return (
     <div className="relative" ref={containerRef}>
-      {/* Instructions */}
-      <div className="absolute top-4 left-4 bg-white bg-opacity-90 p-3 rounded shadow-lg text-sm z-10">
+      {/* Instructions - HIDDEN on mobile, visible on md+ */}
+      <div className="absolute top-4 left-4 bg-white bg-opacity-90 p-3 rounded shadow-lg text-sm z-10 hidden md:block">
         <div className="flex items-center gap-2 mb-1">
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
@@ -386,49 +387,62 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
         </div>
       </div>
 
-      {/* Map Legend - Dynamic based on actual data quantiles */}
-      <div className="absolute bottom-4 right-4 bg-white p-3 rounded shadow-lg z-10">
-        <div className="text-sm font-semibold mb-2 font-lato text-mte-black">
-          {selectedMetric}
-        </div>
-        <div className="space-y-1 text-xs font-lato">
-          {hasData && legendBreaks.length > 1 ? (
-            <>
-              {legendBreaks.length >= 5 && (
+      {/* Map Legend - Collapsible on mobile, always open on md+ */}
+      <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 bg-white p-2 md:p-3 rounded shadow-lg z-10 max-w-[160px] md:max-w-none">
+        {/* Legend header - clickable on mobile to expand/collapse */}
+        <button 
+          className="w-full text-left flex items-center justify-between md:cursor-default"
+          onClick={() => setLegendExpanded(prev => !prev)}
+        >
+          <div className="text-xs md:text-sm font-semibold font-lato text-mte-black leading-tight">
+            {selectedMetric}
+          </div>
+          {/* Chevron - only on mobile */}
+          <svg className={`w-4 h-4 ml-1 flex-shrink-0 text-mte-charcoal md:hidden transition-transform ${legendExpanded ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        {/* Legend body - hidden on mobile unless expanded, always visible on md+ */}
+        <div className={`${legendExpanded ? 'block' : 'hidden'} md:block mt-1 md:mt-2`}>
+          <div className="space-y-1 text-xs font-lato">
+            {hasData && legendBreaks.length > 1 ? (
+              <>
+                {legendBreaks.length >= 5 && (
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#16a34a'}}></div>
+                    <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[4])}+</span>
+                  </div>
+                )}
+                {legendBreaks.length >= 4 && (
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#22c55e'}}></div>
+                    <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[3])} – {formatLegendValue(legendBreaks[Math.min(4, legendBreaks.length - 1)])}</span>
+                  </div>
+                )}
+                {legendBreaks.length >= 3 && (
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#4ade80'}}></div>
+                    <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[2])} – {formatLegendValue(legendBreaks[Math.min(3, legendBreaks.length - 1)])}</span>
+                  </div>
+                )}
+                {legendBreaks.length >= 2 && (
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#86efac'}}></div>
+                    <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[1])} – {formatLegendValue(legendBreaks[Math.min(2, legendBreaks.length - 1)])}</span>
+                  </div>
+                )}
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-3" style={{backgroundColor: '#16a34a'}}></div>
-                  <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[4])}+</span>
+                  <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#bbf7d0'}}></div>
+                  <span className="text-mte-charcoal">&lt; {formatLegendValue(legendBreaks[1])}</span>
                 </div>
-              )}
-              {legendBreaks.length >= 4 && (
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-3" style={{backgroundColor: '#22c55e'}}></div>
-                  <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[3])} – {formatLegendValue(legendBreaks[Math.min(4, legendBreaks.length - 1)])}</span>
-                </div>
-              )}
-              {legendBreaks.length >= 3 && (
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-3" style={{backgroundColor: '#4ade80'}}></div>
-                  <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[2])} – {formatLegendValue(legendBreaks[Math.min(3, legendBreaks.length - 1)])}</span>
-                </div>
-              )}
-              {legendBreaks.length >= 2 && (
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-3" style={{backgroundColor: '#86efac'}}></div>
-                  <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[1])} – {formatLegendValue(legendBreaks[Math.min(2, legendBreaks.length - 1)])}</span>
-                </div>
-              )}
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-3" style={{backgroundColor: '#bbf7d0'}}></div>
-                <span className="text-mte-charcoal">&lt; {formatLegendValue(legendBreaks[1])}</span>
-              </div>
-            </>
-          ) : (
-            <div className="text-mte-charcoal">No data available</div>
-          )}
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3" style={{backgroundColor: '#ffffff'}}></div>
-            <span className="text-mte-charcoal">No Data</span>
+              </>
+            ) : (
+              <div className="text-mte-charcoal">No data available</div>
+            )}
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#ffffff'}}></div>
+              <span className="text-mte-charcoal">No Data</span>
+            </div>
           </div>
         </div>
       </div>

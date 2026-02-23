@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef, useEffect } from "react";
+import React, { useState, useCallback, useMemo, useRef } from "react";
 import { MapContainer, TileLayer, Marker, Tooltip, Polyline, Circle } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -8,6 +8,7 @@ import { countyData, countyCoordinatesByState, stateCoordinates, stateNameToCode
 
 // Assets
 import MTELogo from "../assets/MTE_Logo.png";
+import CountySelect from "../CountySelect";
 
 // Impact Area Icons
 import FosterKinshipIcon from "../assets/FosterKinship_icon.png";
@@ -326,45 +327,36 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   const [selectedImpactAreas, setSelectedImpactAreas] = useState(["Foster and Kinship Families", "Adoptive", "Biological", "Wraparound"]);
   const [showConnectionLines, setShowConnectionLines] = useState(false);
   const [showLocalNetworks, setShowLocalNetworks] = useState(false);
-  const [mapKey, setMapKey] = useState(0); // Force map remount when region changes
+  const [mapKey, setMapKey] = useState(0); // Force map remount when REGION changes (not filters)
   const [selectedEmptyCounty, setSelectedEmptyCounty] = useState(null); // Track counties with no orgs
   const [selectedOrg, setSelectedOrg] = useState(null); // Track selected organization from map click
   const cardContainerRef = useRef(null); // Ref for scrolling to org cards
-  const countySearchRef = useRef(null); // Ref for click-outside on county search
-  const [countySearchQuery, setCountySearchQuery] = useState("");
-  const [isCountyDropdownOpen, setIsCountyDropdownOpen] = useState(false);
 
-  // Close county search dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (countySearchRef.current && !countySearchRef.current.contains(event.target)) {
-        setIsCountyDropdownOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  // FIX #7: Removed countySearchRef, countySearchQuery, isCountyDropdownOpen state
+  // FIX #7: Removed click-outside useEffect for county search
+  // FIX #7: Removed filteredCounties memo
+  // All replaced by CountySelect component below
 
-  // Filter counties based on search query
-  const filteredCounties = React.useMemo(() => {
-    return Object.keys(countyData)
-      .filter(countyId => {
-        if (!countySearchQuery.trim()) return true;
-        const countyName = countyData[countyId].name.split(',')[0].trim();
-        return countyName.toLowerCase().includes(countySearchQuery.toLowerCase());
+  // FIX #7: Build county options for CountySelect (same shape as Landing_Page)
+  const countyOptions = useMemo(() => {
+    return Object.entries(countyData)
+      .map(([id, c]) => {
+        const base = c.name.includes(",") ? c.name.split(",")[0].trim() : c.name;
+        return { id, label: `${base}, ${c.state}`, data: c, state: c.state };
       })
       .sort((a, b) => {
-        const aName = countyData[a].name.split(',')[0].trim().toLowerCase();
-        const bName = countyData[b].name.split(',')[0].trim().toLowerCase();
-        const query = countySearchQuery.toLowerCase();
-        const aStarts = aName.startsWith(query);
-        const bStarts = bName.startsWith(query);
-        if (aStarts && !bStarts) return -1;
-        if (!aStarts && bStarts) return 1;
-        return countyData[a].name.localeCompare(countyData[b].name);
-      })
-      .slice(0, 50);
-  }, [countySearchQuery]);
+        const stateCompare = a.state.localeCompare(b.state);
+        if (stateCompare !== 0) return stateCompare;
+        return a.label.localeCompare(b.label);
+      });
+  }, []);
+
+  // FIX #7: Handler for CountySelect
+  const handleCountySelect = useCallback((opt) => {
+    if (opt && onSelectRegion) {
+      onSelectRegion({ level: 'county', id: opt.id, name: opt.data.name });
+    }
+  }, [onSelectRegion]);
 
   // Handle clicking on an organization marker
   const handleOrgMarkerClick = (org) => {
@@ -378,7 +370,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     }, 100);
   };
 
-  // Update map when region changes
+  // Update map when region changes (NOT when filters change)
   React.useEffect(() => {
     setMapKey(prev => prev + 1);
   }, [regionLevel, regionId]);
@@ -431,13 +423,14 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     }
   };
 
+  // FIX #7: Removed setMapKey from filter toggles — markers update reactively
+  // via filteredOrgs memo, no expensive Leaflet remount needed
   const handleCategoryToggle = (category) => {
     setSelectedCategories(prev =>
       prev.includes(category)
         ? prev.filter(c => c !== category)
         : [...prev, category]
     );
-    setMapKey(k => k + 1); // Force map remount to clear stale markers
   };
 
   const handleImpactAreaToggle = (impactArea) => {
@@ -446,7 +439,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         ? prev.filter(area => area !== impactArea)
         : [...prev, impactArea]
     );
-    setMapKey(k => k + 1); // Force map remount to clear stale markers
   };
 
   const handleConnectionLinesToggle = () => {
@@ -823,54 +815,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                   })}
                 </select>
                 
-                {/* Jump to County - Type to Search */}
-                <div className="relative" ref={countySearchRef}>
-                  <input
-                    type="text"
-                    placeholder="Type to search counties..."
-                    value={countySearchQuery}
-                    onChange={(e) => {
-                      setCountySearchQuery(e.target.value);
-                      setIsCountyDropdownOpen(true);
-                    }}
-                    onFocus={() => setIsCountyDropdownOpen(true)}
-                    className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue focus:border-mte-blue"
-                  />
-                  {isCountyDropdownOpen && (
-                    <div className="absolute z-20 w-full mt-1 bg-white border border-mte-light-grey rounded-lg shadow-lg max-h-60 overflow-y-auto">
-                      {filteredCounties.length > 0 ? (
-                        filteredCounties.map(countyId => (
-                          <div
-                            key={countyId}
-                            className="px-3 py-2 text-sm font-lato text-mte-charcoal hover:bg-mte-blue-20 cursor-pointer"
-                            onClick={() => {
-                              const county = countyData[countyId];
-                              if (county && onSelectRegion) {
-                                onSelectRegion({ 
-                                  level: 'county', 
-                                  id: countyId,
-                                  name: county.name,
-                                  fips: county.fips
-                                });
-                              }
-                              setCountySearchQuery("");
-                              setIsCountyDropdownOpen(false);
-                            }}
-                          >
-                            {countyData[countyId].name}
-                          </div>
-                        ))
-                      ) : (
-                        <div className="px-3 py-2 text-sm font-lato text-mte-charcoal">No counties found</div>
-                      )}
-                      {filteredCounties.length === 50 && countySearchQuery.trim() && (
-                        <div className="px-3 py-2 text-xs font-lato text-mte-charcoal border-t border-mte-light-grey">
-                          Showing first 50 results. Type more to narrow search.
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
+                {/* FIX #7: Replace inline county search with CountySelect */}
+                <CountySelect
+                  options={countyOptions}
+                  placeholder="Jump to a County"
+                  onChange={handleCountySelect}
+                />
               </div>
             )}
 
@@ -1025,8 +975,13 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         <div className="w-full lg:w-3/4 flex flex-col gap-4 md:gap-6">
           {/* Leaflet Map for All Levels */}
           <div className="bg-white rounded-lg shadow-mte-card p-4">
+            {/* FIX #7: MapContainer key only changes on region change, NOT on filter toggles.
+                Markers/polylines/circles update reactively via filteredOrgs memo.
+                Previously included selectedCategories.join(',') and selectedImpactAreas.join(',')
+                which forced a full Leaflet teardown+reinit (re-fetch tiles, re-init controls)
+                on every single checkbox click. */}
             <MapContainer
-              key={`${mapKey}-${selectedCategories.join(',')}-${selectedImpactAreas.join(',')}`}
+              key={mapKey}
               center={mapConfig.center}
               zoom={mapConfig.zoom}
               style={{ height: "500px", width: "100%", borderRadius: "8px" }}
@@ -1382,10 +1337,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
           {/* Organization Cards - National, State, and County Level */}
           {(showNationalMap || showStateMap || showCountyMap) && !selectedEmptyCounty && (
-            <div 
-              key={`cards-${selectedCategories.join(',')}-${selectedImpactAreas.join(',')}`}
-              className="bg-white rounded-lg shadow-mte-card p-4"
-            >
+            <div className="bg-white rounded-lg shadow-mte-card p-4">
               <h3 className="text-h4 font-bold uppercase mb-4 text-mte-black font-lato">
                 Organizations ({fmt(consolidatedOrgs.length)})
               </h3>

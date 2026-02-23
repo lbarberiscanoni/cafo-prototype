@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Tooltip, Polyline, Circle } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -330,6 +330,41 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   const [selectedEmptyCounty, setSelectedEmptyCounty] = useState(null); // Track counties with no orgs
   const [selectedOrg, setSelectedOrg] = useState(null); // Track selected organization from map click
   const cardContainerRef = useRef(null); // Ref for scrolling to org cards
+  const countySearchRef = useRef(null); // Ref for click-outside on county search
+  const [countySearchQuery, setCountySearchQuery] = useState("");
+  const [isCountyDropdownOpen, setIsCountyDropdownOpen] = useState(false);
+
+  // Close county search dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (countySearchRef.current && !countySearchRef.current.contains(event.target)) {
+        setIsCountyDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Filter counties based on search query
+  const filteredCounties = React.useMemo(() => {
+    return Object.keys(countyData)
+      .filter(countyId => {
+        if (!countySearchQuery.trim()) return true;
+        const countyName = countyData[countyId].name.split(',')[0].trim();
+        return countyName.toLowerCase().includes(countySearchQuery.toLowerCase());
+      })
+      .sort((a, b) => {
+        const aName = countyData[a].name.split(',')[0].trim().toLowerCase();
+        const bName = countyData[b].name.split(',')[0].trim().toLowerCase();
+        const query = countySearchQuery.toLowerCase();
+        const aStarts = aName.startsWith(query);
+        const bStarts = bName.startsWith(query);
+        if (aStarts && !bStarts) return -1;
+        if (!aStarts && bStarts) return 1;
+        return countyData[a].name.localeCompare(countyData[b].name);
+      })
+      .slice(0, 50);
+  }, [countySearchQuery]);
 
   // Handle clicking on an organization marker
   const handleOrgMarkerClick = (org) => {
@@ -780,36 +815,54 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                   })}
                 </select>
                 
-                {/* Jump to County Dropdown */}
-                <select 
-                  className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal"
-                  value=""
-                  onChange={(e) => {
-                    if (e.target.value && onSelectRegion) {
-                      const countyId = e.target.value;
-                      const county = countyData[countyId];
-                      if (county) {
-                        onSelectRegion({ 
-                          level: 'county', 
-                          id: countyId,
-                          name: county.name,
-                          fips: county.fips
-                        });
-                      }
-                    }
-                  }}
-                >
-                  <option value="">Jump to a County</option>
-                  {Object.keys(countyData).sort((a, b) => {
-                    const nameA = countyData[a].name;
-                    const nameB = countyData[b].name;
-                    return nameA.localeCompare(nameB);
-                  }).map(countyId => (
-                    <option key={countyId} value={countyId}>
-                      {countyData[countyId].name}
-                    </option>
-                  ))}
-                </select>
+                {/* Jump to County - Type to Search */}
+                <div className="relative" ref={countySearchRef}>
+                  <input
+                    type="text"
+                    placeholder="Type to search counties..."
+                    value={countySearchQuery}
+                    onChange={(e) => {
+                      setCountySearchQuery(e.target.value);
+                      setIsCountyDropdownOpen(true);
+                    }}
+                    onFocus={() => setIsCountyDropdownOpen(true)}
+                    className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal focus:outline-none focus:ring-2 focus:ring-mte-blue focus:border-mte-blue"
+                  />
+                  {isCountyDropdownOpen && (
+                    <div className="absolute z-20 w-full mt-1 bg-white border border-mte-light-grey rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                      {filteredCounties.length > 0 ? (
+                        filteredCounties.map(countyId => (
+                          <div
+                            key={countyId}
+                            className="px-3 py-2 text-sm font-lato text-mte-charcoal hover:bg-mte-blue-20 cursor-pointer"
+                            onClick={() => {
+                              const county = countyData[countyId];
+                              if (county && onSelectRegion) {
+                                onSelectRegion({ 
+                                  level: 'county', 
+                                  id: countyId,
+                                  name: county.name,
+                                  fips: county.fips
+                                });
+                              }
+                              setCountySearchQuery("");
+                              setIsCountyDropdownOpen(false);
+                            }}
+                          >
+                            {countyData[countyId].name}
+                          </div>
+                        ))
+                      ) : (
+                        <div className="px-3 py-2 text-sm font-lato text-mte-charcoal">No counties found</div>
+                      )}
+                      {filteredCounties.length === 50 && countySearchQuery.trim() && (
+                        <div className="px-3 py-2 text-xs font-lato text-mte-charcoal border-t border-mte-light-grey">
+                          Showing first 50 results. Type more to narrow search.
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
             )}
 

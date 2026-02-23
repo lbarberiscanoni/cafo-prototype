@@ -3,7 +3,6 @@
 - [ ] Look at "45444 County, Washington" 
 - [ ] Move the embed button to Metrics not Historic Data
 - [ ] In the tooltip in the metrics view at the county level, add "source of data" as well 
-- [ ] Add "search bar" for county on Org view, not just metrics view
 - [ ] There’s still an issue for anything not mapped to counties (e.g. regions and districts). Here are customizations
     - `Alabama: Date should be displayed for 2022, also in historic data
     Alaska: District

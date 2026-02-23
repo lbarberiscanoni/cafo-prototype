@@ -227,7 +227,7 @@ function App() {
     return (
       <div className="App min-h-screen">
         <div className="w-full">
-          <HistoricView
+          <MetricView
             regionLevel="national"
             regionId="usa"
             selectedRegion={{ level: 'national', id: 'usa', name: 'United States' }}

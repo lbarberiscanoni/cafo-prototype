@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef } from "react";
-import { MapContainer, TileLayer, Marker, Tooltip, Polyline } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Tooltip, Polyline, Circle } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -208,6 +208,17 @@ const generateArcPoints = (from, to, numPoints = 20, minArcHeight = 2, direction
   }
   
   return points;
+};
+
+// Haversine distance in meters between two [lat, lng] points
+const haversineMeters = (lat1, lng1, lat2, lng2) => {
+  const R = 6371000; // Earth radius in meters
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLng / 2) * Math.sin(dLng / 2);
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 };
 
 // Create custom dot icons based on category
@@ -654,6 +665,52 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
   const connectionLines = showConnectionLines ? generateConnectionLines() : [];
 
+  // ==================== LOCAL NETWORK BUBBLES ====================
+  // Compute semi-transparent circle overlays for each network.
+  // Centroid = average of member coords; radius = max member distance + padding.
+  const networkBubbles = React.useMemo(() => {
+    if (!showLocalNetworks) return [];
+
+    // Group filtered orgs by network
+    const networkGroups = {};
+    filteredOrgs.forEach(org => {
+      if (org.networkName && org.networkMember && org.coords) {
+        if (!networkGroups[org.networkName]) {
+          networkGroups[org.networkName] = [];
+        }
+        networkGroups[org.networkName].push(org);
+      }
+    });
+
+    return Object.entries(networkGroups)
+      .filter(([, orgs]) => orgs.length >= 1)
+      .map(([networkName, orgs]) => {
+        // Centroid of all members
+        const avgLat = orgs.reduce((sum, o) => sum + o.coords[0], 0) / orgs.length;
+        const avgLng = orgs.reduce((sum, o) => sum + o.coords[1], 0) / orgs.length;
+
+        // Max distance from centroid to any member (meters)
+        let maxDist = 0;
+        orgs.forEach(org => {
+          const dist = haversineMeters(avgLat, avgLng, org.coords[0], org.coords[1]);
+          if (dist > maxDist) maxDist = dist;
+        });
+
+        // Radius: max distance + 30% padding, with a 5 km floor so
+        // single-org networks and tightly clustered groups still show a visible bubble
+        const radius = Math.max(maxDist * 1.3, 5000);
+
+        return {
+          name: networkName,
+          center: [avgLat, avgLng],
+          radius,
+          members: orgs.map(o => o.name),
+          memberCount: orgs.length,
+          color: CATEGORY_COLORS["Local Network"]?.dot || "#dc6a42"
+        };
+      });
+  }, [showLocalNetworks, filteredOrgs]);
+
   // Conditional rendering
   const showNationalMap = regionLevel === "national";
   const showStateMap = regionLevel === "state";
@@ -892,6 +949,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     <span className="font-semibold">{connectionLines.length}</span> network connection{connectionLines.length !== 1 ? 's' : ''} displayed
                   </div>
                 )}
+                {/* Show bubble count when local networks are enabled */}
+                {showLocalNetworks && networkBubbles.length > 0 && (
+                  <div className="mt-3 text-sm text-mte-charcoal font-lato">
+                    <span className="font-semibold">{networkBubbles.length}</span> local network{networkBubbles.length !== 1 ? 's' : ''} displayed
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -974,6 +1037,31 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       </Tooltip>
                     </Marker>
                   ))}
+
+                  {/* Local Network Bubbles */}
+                  {networkBubbles.map((bubble) => (
+                    <Circle
+                      key={`bubble-national-${bubble.name}`}
+                      center={bubble.center}
+                      radius={bubble.radius}
+                      pathOptions={{
+                        color: bubble.color,
+                        fillColor: bubble.color,
+                        fillOpacity: 0.15,
+                        weight: 2,
+                        opacity: 0.6,
+                        dashArray: '6 4'
+                      }}
+                    >
+                      <Tooltip>
+                        <div className="font-lato text-sm">
+                          <strong>{bubble.name}</strong><br/>
+                          {bubble.memberCount} member{bubble.memberCount !== 1 ? 's' : ''}<br/>
+                          <span className="text-xs">{bubble.members.join(', ')}</span>
+                        </div>
+                      </Tooltip>
+                    </Circle>
+                  ))}
                 </>
               )}
 
@@ -1042,6 +1130,31 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         </Tooltip>
                       </Marker>
                     ))}
+
+                    {/* Local Network Bubbles */}
+                    {networkBubbles.map((bubble) => (
+                      <Circle
+                        key={`bubble-state-${bubble.name}`}
+                        center={bubble.center}
+                        radius={bubble.radius}
+                        pathOptions={{
+                          color: bubble.color,
+                          fillColor: bubble.color,
+                          fillOpacity: 0.15,
+                          weight: 2,
+                          opacity: 0.6,
+                          dashArray: '6 4'
+                        }}
+                      >
+                        <Tooltip>
+                          <div className="font-lato text-sm">
+                            <strong>{bubble.name}</strong><br/>
+                            {bubble.memberCount} member{bubble.memberCount !== 1 ? 's' : ''}<br/>
+                            <span className="text-xs">{bubble.members.join(', ')}</span>
+                          </div>
+                        </Tooltip>
+                      </Circle>
+                    ))}
                   </>
                 );
               })()}
@@ -1086,6 +1199,31 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         </div>
                       </Tooltip>
                     </Marker>
+                  ))}
+
+                  {/* Local Network Bubbles */}
+                  {networkBubbles.map((bubble) => (
+                    <Circle
+                      key={`bubble-county-${bubble.name}`}
+                      center={bubble.center}
+                      radius={bubble.radius}
+                      pathOptions={{
+                        color: bubble.color,
+                        fillColor: bubble.color,
+                        fillOpacity: 0.15,
+                        weight: 2,
+                        opacity: 0.6,
+                        dashArray: '6 4'
+                      }}
+                    >
+                      <Tooltip>
+                        <div className="font-lato text-sm">
+                          <strong>{bubble.name}</strong><br/>
+                          {bubble.memberCount} member{bubble.memberCount !== 1 ? 's' : ''}<br/>
+                          <span className="text-xs">{bubble.members.join(', ')}</span>
+                        </div>
+                      </Tooltip>
+                    </Circle>
                   ))}
                 </>
               )}

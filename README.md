@@ -1,4 +1,5 @@
-- [ ] No local networks show up (they are supposed to be the bubbles)
+- [ ] The Trends sidebar in MetricView uses hardcoded fake data (not from historicalData). The getTrendData() function returns static arrays regardless of selected state/metric.
+- [ ] The Download_Page component is a placeholder stub.
 - [ ] Add form link to "data missing want to rquest it"
 - [ ] on the metrics page we are going to have a "what does this mean" metrics guide
 - [ ] Look at "45444 County, Washington" 

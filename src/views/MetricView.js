@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { countyData, stateData, nationalStats, fmt, fmtPct, fmtCompact } from "../real-data.js";
+import { countyData, stateData, nationalStats, historicalData, fmt, fmtPct, fmtCompact } from "../real-data.js";
 
 // Assets
 import ChurchIcon from "../assets/church_icon.png";
@@ -157,20 +157,112 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
 
   const data = getData();
 
-  // Get trend data based on selected metric
+  // ==================== REAL TREND DATA ====================
+  // Pull from historicalData (AFCARS 2021-2023) based on region + selected metric.
+  // Returns null when no data is available (county level, or missing metric).
+
   const getTrendData = () => {
-    switch (selectedMetric) {
-      case "Count of Family Preservation Cases":
-        return { title: "Number of Family Preservation Cases in the U.S. (by 1000s)", values: [140, 105, 110], years: [2022, 2023, 2024], labels: ["140,000 Cases", "105,000 Cases", "110,000 Cases"], source: "AFCARS 2022–2024" };
-      case "Count of Children Waiting For Adoption":
-        return { title: "Children Waiting For Adoption in the U.S. (by 1000s)", values: [52, 50, 48], years: [2022, 2023, 2024], labels: ["52,000 Children", "50,000 Children", "48,000 Children"], source: "AFCARS 2022–2024" };
-      case "Ratio of Licensed Homes to Children in Care":
-        return { title: "Licensed Foster Homes per Child in Care (U.S.)", values: [0.68, 0.72, 0.75], years: [2022, 2023, 2024], labels: ["0.68 Homes per Child", "0.72 Homes per Child", "0.75 Homes per Child"], source: "AFCARS 2022–2024" };
-      case "Biological Family Reunification Rate":
-        return { title: "Biological Family Reunification Rate (% of exits)", values: [72, 74, 76], years: [2022, 2023, 2024], labels: ["72% Reunified", "74% Reunified", "76% Reunified"], source: "AFCARS 2022–2024" };
-      default:
-        return { title: "Data Trend", values: [100, 100, 100], years: [2022, 2023, 2024], labels: ["N/A", "N/A", "N/A"], source: "AFCARS" };
+    if (!historicalData) return null;
+
+    const regionName = regionLevel === 'national' ? 'the U.S.' : (data.name || 'Unknown');
+    let years, getValueForYear;
+
+    if (regionLevel === 'national') {
+      years = Object.keys(historicalData)
+        .map(Number)
+        .filter(y => !isNaN(y) && historicalData[y]?.national)
+        .sort((a, b) => a - b);
+
+      getValueForYear = (year) => {
+        const nd = historicalData[year]?.national;
+        if (!nd) return null;
+        switch (selectedMetric) {
+          case "Count of Children Waiting For Adoption":
+            return nd.childrenWaitingAdoption ?? null;
+          case "Count of Family Preservation Cases":
+            return nd.familyPreservationCases ?? null;
+          case "Ratio of Licensed Homes to Children in Care":
+            return (nd.licensedHomes && nd.childrenInCare && nd.childrenInCare > 0)
+              ? nd.licensedHomes / nd.childrenInCare
+              : null;
+          case "Biological Family Reunification Rate":
+            return null; // Not aggregated at national level
+          default:
+            return null;
+        }
+      };
+    } else if (regionLevel === 'state') {
+      const stateKey = regionId; // e.g. "california", "new-york"
+      years = Object.keys(historicalData)
+        .map(Number)
+        .filter(y => !isNaN(y) && historicalData[y]?.states?.[stateKey])
+        .sort((a, b) => a - b);
+
+      getValueForYear = (year) => {
+        const sd = historicalData[year]?.states?.[stateKey];
+        if (!sd) return null;
+        switch (selectedMetric) {
+          case "Count of Children Waiting For Adoption":
+            return sd.waitingForAdoption ?? null;
+          case "Count of Family Preservation Cases":
+            return sd.familyPreservationCases ?? null;
+          case "Ratio of Licensed Homes to Children in Care":
+            return (sd.licensedHomes && sd.totalChildren && sd.totalChildren > 0)
+              ? sd.licensedHomes / sd.totalChildren
+              : null;
+          case "Biological Family Reunification Rate":
+            return sd.reunificationRate ?? null;
+          default:
+            return null;
+        }
+      };
+    } else {
+      // County level — no AFCARS trend data
+      return null;
     }
+
+    if (years.length === 0) return null;
+
+    const values = years.map(getValueForYear);
+    // Need at least one non-null value to show anything useful
+    if (values.every(v => v === null)) return null;
+
+    const isRatio = selectedMetric === "Ratio of Licensed Homes to Children in Care";
+    const isPercent = selectedMetric === "Biological Family Reunification Rate";
+
+    const formatLabel = (v) => {
+      if (v === null || v === undefined) return 'N/A';
+      if (isRatio) return `${v.toFixed(2)} Homes per Child`;
+      if (isPercent) return fmtPct(v); // fmtPct handles decimal→% conversion
+      return fmt(Math.round(v));
+    };
+
+    // Build a descriptive title
+    let title;
+    switch (selectedMetric) {
+      case "Count of Children Waiting For Adoption":
+        title = `Children Waiting For Adoption in ${regionName}`;
+        break;
+      case "Count of Family Preservation Cases":
+        title = `Family Preservation Cases in ${regionName}`;
+        break;
+      case "Ratio of Licensed Homes to Children in Care":
+        title = `Licensed Homes per Child in Care in ${regionName}`;
+        break;
+      case "Biological Family Reunification Rate":
+        title = `Reunification Rate in ${regionName}`;
+        break;
+      default:
+        title = `${selectedMetric} in ${regionName}`;
+    }
+
+    return {
+      title,
+      values,
+      years,
+      labels: values.map(formatLabel),
+      source: `AFCARS ${years[0]}–${years[years.length - 1]}`
+    };
   };
 
   const trendData = getTrendData();
@@ -199,6 +291,53 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
     if (!data.state) return null;
     const stateKey = data.state.toLowerCase().replace(/\s+/g, '-');
     return stateData[stateKey];
+  };
+
+  // ==================== TREND BAR CHART RENDERER ====================
+  // Shared by national and state sidebars. Handles null values gracefully.
+  const renderTrendChart = () => {
+    if (!trendData) {
+      return (
+        <div className="bg-mte-subdued-white p-3 rounded">
+          <div className="h-28 flex items-center justify-center text-sm text-mte-charcoal font-lato">
+            No trend data available for this metric
+          </div>
+        </div>
+      );
+    }
+
+    // Filter to non-null for max calculation
+    const validValues = trendData.values.filter(v => v !== null && v !== undefined);
+    const maxValue = validValues.length > 0 ? Math.max(...validValues) : 1;
+
+    return (
+      <div className="bg-mte-subdued-white p-3 rounded relative overflow-hidden">
+        <div className="text-sm font-medium mb-2 font-lato text-mte-black">{trendData.title}</div>
+        <div className="h-28 bg-white rounded flex items-end justify-between px-3 pb-2 relative overflow-visible">
+          {trendData.values.map((value, index) => {
+            const isNull = value === null || value === undefined;
+            const heightPx = isNull ? 24 : Math.max(24, Math.round((value / maxValue) * 72));
+            return (
+              <div key={index} className="flex flex-col items-center relative group flex-1 max-w-[60px]">
+                <div
+                  className={`${isNull ? 'bg-mte-light-grey' : 'bg-mte-orange'} w-full max-w-[32px] rounded mb-1 cursor-pointer hover:opacity-80 transition-colors relative`}
+                  style={{ height: `${heightPx}px`, maxHeight: "72px" }}
+                >
+                  <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
+                    <div className="font-semibold">{trendData.labels[index]}</div>
+                    <div>{selectedMetric}</div>
+                    <div>End of Year {trendData.years[index] - 1}</div>
+                    <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
+                  </div>
+                </div>
+                <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">{trendData.years[index]}</span>
+              </div>
+            );
+          })}
+        </div>
+        <div className="mt-2 text-xs text-mte-charcoal font-lato">Source: {trendData.source}</div>
+      </div>
+    );
   };
 
   return (
@@ -290,33 +429,11 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               </div>
             </div>
 
-            {/* Trends */}
+            {/* Trends - Now uses real data */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
               <h3 className="text-base font-lato font-bold text-mte-black mb-1">Trends</h3>
-              <p className="text-sm text-mte-charcoal mb-3 font-lato">See trends for your selected metric over the past five years</p>
-              <div className="bg-mte-subdued-white p-3 rounded relative overflow-hidden">
-                <div className="text-sm font-medium mb-2 font-lato text-mte-black">{trendData.title}</div>
-                <div className="h-28 bg-white rounded flex items-end justify-between px-3 pb-2 relative overflow-visible">
-                  {trendData.values.map((value, index) => {
-                    const maxValue = Math.max(...trendData.values);
-                    const heightPx = Math.round((value / maxValue) * 72);
-                    return (
-                      <div key={index} className="flex flex-col items-center relative group flex-1 max-w-[60px]">
-                        <div className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: `${heightPx}px`, maxHeight: "72px" }}>
-                          <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
-                            <div className="font-semibold">{trendData.labels[index]}</div>
-                            <div>{selectedMetric} on</div>
-                            <div>December 31, {trendData.years[index]}</div>
-                            <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
-                          </div>
-                        </div>
-                        <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">{trendData.years[index]}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="mt-2 text-xs text-mte-charcoal font-lato">Source: {trendData.source}</div>
-              </div>
+              <p className="text-sm text-mte-charcoal mb-3 font-lato">See trends for your selected metric over the past several years</p>
+              {renderTrendChart()}
             </div>
           </div>
 
@@ -389,32 +506,11 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 </div>
               </div>
             </div>
+            {/* Trends - Now uses real data */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
               <h3 className="text-base font-lato font-bold text-mte-black mb-1">Trends</h3>
               <p className="text-sm text-mte-charcoal mb-3 font-lato">See trends for your selected metric in {data.name}</p>
-              <div className="bg-mte-subdued-white p-3 rounded relative overflow-hidden">
-                <div className="text-sm font-medium mb-2 font-lato text-mte-black">{trendData.title.replace('U.S.', data.name)}</div>
-                <div className="h-28 bg-white rounded flex items-end justify-between px-3 pb-2 relative overflow-visible">
-                  {trendData.values.map((value, index) => {
-                    const maxValue = Math.max(...trendData.values);
-                    const heightPx = Math.round((value / maxValue) * 72);
-                    return (
-                      <div key={index} className="flex flex-col items-center relative group flex-1 max-w-[60px]">
-                        <div className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:bg-mte-orange-80 transition-colors relative" style={{ height: `${heightPx}px`, maxHeight: "72px" }}>
-                          <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
-                            <div className="font-semibold">{trendData.labels[index]}</div>
-                            <div>{selectedMetric} on</div>
-                            <div>December 31, {trendData.years[index]}</div>
-                            <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
-                          </div>
-                        </div>
-                        <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">{trendData.years[index]}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="mt-2 text-xs text-mte-charcoal font-lato">Source: {trendData.source}</div>
-              </div>
+              {renderTrendChart()}
             </div>
           </div>
           <div className="w-full lg:w-3/4">

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { countyData, stateData, nationalStats, historicalData, fmt, fmtPct, fmtCompact, getGeographyLabel } from "../real-data.js";
 
 // Assets
@@ -61,6 +61,14 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   const [countySearchQuery, setCountySearchQuery] = useState("");
   const [isCountyDropdownOpen, setIsCountyDropdownOpen] = useState(false);
   const countySearchRef = useRef(null);
+
+  // Embed state
+  const isEmbed = useMemo(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('embed') === 'true';
+  }, []);
+  const [showEmbedModal, setShowEmbedModal] = useState(false);
+  const [embedCopied, setEmbedCopied] = useState(false);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -675,6 +683,74 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               </div>
             </div>
           </section>
+        );
+      })()}
+
+      {/* Embed Button - hidden in embed mode */}
+      {!isEmbed && (
+        <div className="max-w-7xl mx-auto px-4 mb-6">
+          <button
+            onClick={() => { setShowEmbedModal(true); setEmbedCopied(false); }}
+            className="flex items-center gap-2 mx-auto px-5 py-2.5 bg-white border-2 border-mte-blue rounded-lg text-mte-blue font-lato font-medium hover:bg-mte-blue hover:text-white transition-colors shadow-mte-card"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            Embed This View
+          </button>
+        </div>
+      )}
+
+      {/* Embed Modal */}
+      {showEmbedModal && (() => {
+        const baseUrl = 'https://cafo-prototype.vercel.app';
+        let hash = '';
+        if (regionLevel === 'national') {
+          hash = '#/national/metric';
+        } else if (regionLevel === 'state') {
+          hash = `#/state/${regionId}/metric`;
+        } else if (regionLevel === 'county') {
+          hash = `#/county/${regionId}/metric`;
+        }
+        const embedUrl = `${baseUrl}/?embed=true${hash}`;
+        const iframeCode = `<iframe src="${embedUrl}" width="100%" height="800" frameborder="0" style="border:none;border-radius:12px;" title="More Than Enough - ${data.name} Metrics"></iframe>`;
+
+        const handleCopy = () => {
+          navigator.clipboard.writeText(iframeCode).then(() => {
+            setEmbedCopied(true);
+            setTimeout(() => setEmbedCopied(false), 2500);
+          });
+        };
+
+        return (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" onClick={() => setShowEmbedModal(false)}>
+            <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6" onClick={(e) => e.stopPropagation()}>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold font-lato text-mte-black">Embed Metrics View</h3>
+                <button onClick={() => setShowEmbedModal(false)} className="text-mte-charcoal hover:text-mte-black transition-colors">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <p className="text-sm text-mte-charcoal font-lato mb-4">
+                Copy the code below and paste it into your website's HTML to embed the metrics view for <strong>{data.name}</strong>.
+              </p>
+              <div className="bg-gray-100 rounded-lg p-3 mb-4 relative">
+                <pre className="text-xs text-mte-charcoal font-mono whitespace-pre-wrap break-all leading-relaxed">{iframeCode}</pre>
+              </div>
+              <button
+                onClick={handleCopy}
+                className={`w-full py-2.5 rounded-lg font-lato font-medium transition-colors ${
+                  embedCopied 
+                    ? 'bg-green-500 text-white' 
+                    : 'bg-mte-blue text-white hover:bg-mte-blue-80'
+                }`}
+              >
+                {embedCopied ? '✓ Copied to Clipboard' : 'Copy Embed Code'}
+              </button>
+            </div>
+          </div>
         );
       })()}
 

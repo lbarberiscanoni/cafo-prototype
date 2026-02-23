@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
-import { countyData, fmt, getGeographyLabel } from './real-data.js';
+import { countyData, stateDataByCode, fmt, getGeographyLabel } from './real-data.js';
 
 // Metric configuration: maps metric names to data fields and formatting
 // Field names match real-data.js countyData structure
@@ -88,6 +88,17 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of 
   const [hoveredCounty, setHoveredCounty] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [error, setError] = useState(null);
+
+  // Get source info for this state
+  const sourceInfo = useMemo(() => {
+    const state = stateDataByCode[stateCode];
+    if (!state?.source) return null;
+    return {
+      agency: state.source.sourceAgency || null,
+      date: state.source.dataDate || null,
+      year: state.source.dataYear || null
+    };
+  }, [stateCode]);
   const [legendExpanded, setLegendExpanded] = useState(false);
 
   // Get metric configuration, fallback to ratio if metric not found
@@ -460,6 +471,11 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of 
             <div>{formatDisplayValue(hoveredCounty.value)} {selectedMetric}</div>
           ) : (
             <div className="text-mte-subdued-white">No data available</div>
+          )}
+          {sourceInfo && (
+            <div className="text-xs text-gray-300 mt-1 border-t border-gray-500 pt-1">
+              Source: {sourceInfo.agency}{sourceInfo.year ? ` (${sourceInfo.year})` : ''}
+            </div>
           )}
         </div>
       )}

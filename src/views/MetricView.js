@@ -24,12 +24,13 @@ const HoverableText = ({ children, tooltip }) => (
   </div>
 );
 
-const MetricRow = ({ label, value, tooltip }) => (
+const MetricRow = ({ label, value, tooltip, source }) => (
   <div className="relative group flex justify-between items-center px-2 py-1.5 rounded-md transition-colors duration-200 hover:bg-mte-blue-20">
     <div className="text-left text-mte-charcoal font-lato whitespace-nowrap">{label}</div>
     <div className="text-right font-semibold text-mte-black font-lato">{value}</div>
     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-2 bg-mte-charcoal text-white text-xs rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
       {tooltip}
+      {source && <div className="mt-1 pt-1 border-t border-gray-500 text-gray-300">Source: {source}</div>}
     </div>
   </div>
 );
@@ -158,6 +159,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           churchesProvidingSupport: county.churchesProvidingSupport,
           supportPercentage: county.supportPercentage,
           state: county.state,
+          sourceAgency: stateData[county.state?.toLowerCase().replace(/\s+/g, '-')]?.sourceAgency || null,
+          sourceUrl: stateData[county.state?.toLowerCase().replace(/\s+/g, '-')]?.sourceUrl || null,
+          dataYear: stateData[county.state?.toLowerCase().replace(/\s+/g, '-')]?.dataYear || county.year || null,
         };
       default:
         return {};
@@ -592,7 +596,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
       )}
 
       {/* Cards - County only */}
-      {showCountyDetails && (
+      {showCountyDetails && (() => {
+        const src = data.sourceAgency ? `${data.sourceAgency}${data.dataYear ? ` (${data.dataYear})` : ''}` : null;
+        return (
         <main className="max-w-7xl mx-auto px-4 py-6 md:py-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={FosterKinshipIcon} alt="Foster & Kinship" className="mx-auto w-20 h-20 mb-3" />
@@ -606,11 +612,11 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               </HoverableText>
             </div>
             <div className="max-w-sm mx-auto">
-              <MetricRow label="Children in Care" value={fmt(data.childrenInCare)} tooltip="Total number of children in the foster care system." />
-              <MetricRow label="Children in Family-based Foster Care" value={fmt(data.childrenInFamily)} tooltip="Children placed with licensed foster families." />
-              <MetricRow label="Children in Kinship Care" value={fmt(data.childrenInKinship)} tooltip="Children placed with relatives or family friends." />
-              <MetricRow label="Children Placed Out-of-County" value={fmt(data.childrenOutOfCounty)} tooltip="Children from this county placed in care outside county boundaries." />
-              <MetricRow label="Licensed Foster Homes" value={fmt(data.licensedHomes)} tooltip="Total number of state-licensed foster homes in this county." />
+              <MetricRow label="Children in Care" value={fmt(data.childrenInCare)} tooltip="Total number of children in the foster care system." source={src} />
+              <MetricRow label="Children in Family-based Foster Care" value={fmt(data.childrenInFamily)} tooltip="Children placed with licensed foster families." source={src} />
+              <MetricRow label="Children in Kinship Care" value={fmt(data.childrenInKinship)} tooltip="Children placed with relatives or family friends." source={src} />
+              <MetricRow label="Children Placed Out-of-County" value={fmt(data.childrenOutOfCounty)} tooltip="Children from this county placed in care outside county boundaries." source={src} />
+              <MetricRow label="Licensed Foster Homes" value={fmt(data.licensedHomes)} tooltip="Total number of state-licensed foster homes in this county." source={src} />
             </div>
           </div>
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
@@ -625,8 +631,8 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               </HoverableText>
             </div>
             <div className="max-w-md mx-auto">
-              <MetricRow label="Children Adopted in 2024" value={fmt(data.childrenAdopted2024)} tooltip="Number of finalized adoptions in the current year." />
-              <MetricRow label="Average Months to Adoption" value={fmt(data.avgMonthsToAdoption)} tooltip="Average time from termination of parental rights to finalized adoption." />
+              <MetricRow label="Children Adopted in 2024" value={fmt(data.childrenAdopted2024)} tooltip="Number of finalized adoptions in the current year." source={src} />
+              <MetricRow label="Average Months to Adoption" value={fmt(data.avgMonthsToAdoption)} tooltip="Average time from termination of parental rights to finalized adoption." source={src} />
             </div>
           </div>
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
@@ -659,12 +665,13 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               </HoverableText>
             </div>
             <div className="max-w-md mx-auto">
-              <MetricRow label="Churches Providing Support" value={fmt(data.churchesProvidingSupport)} tooltip="Number of churches with active foster care support programs." />
-              <MetricRow label="Total Churches" value={fmt(data.totalChurches)} tooltip="Total number of churches in this county." />
+              <MetricRow label="Churches Providing Support" value={fmt(data.churchesProvidingSupport)} tooltip="Number of churches with active foster care support programs." source={src} />
+              <MetricRow label="Total Churches" value={fmt(data.totalChurches)} tooltip="Total number of churches in this county." source={src} />
             </div>
           </div>
         </main>
-      )}
+        );
+      })()}
 
       {/* Statewide summary - County only */}
       {showStateContext && (() => {

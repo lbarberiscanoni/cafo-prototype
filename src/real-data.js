@@ -159,16 +159,16 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
     abbreviation: abbrev,
     name: state.name,
     // AFCARS data (state-level)
-    totalChildren: latestAfcars.childrenInCare || null,
-    childrenInCare: latestAfcars.childrenInCare || null,
-    childrenInFosterCare: latestAfcars.childrenInFosterCare || null,
-    childrenInKinshipCare: latestAfcars.childrenInKinshipCare || null,
-    waitingForAdoption: latestAfcars.childrenWaitingForAdoption || null,
-    childrenAdopted: latestAfcars.childrenAdopted || null,
-    reunificationRate: latestAfcars.reunificationRate || null,
-    familyPreservationCases: latestAfcars.familyPreservationCases || null,
+    totalChildren: latestAfcars.childrenInCare ?? null,
+    childrenInCare: latestAfcars.childrenInCare ?? null,
+    childrenInFosterCare: latestAfcars.childrenInFosterCare ?? null,
+    childrenInKinshipCare: latestAfcars.childrenInKinshipCare ?? null,
+    waitingForAdoption: latestAfcars.childrenWaitingForAdoption ?? null,
+    childrenAdopted: latestAfcars.childrenAdopted ?? null,
+    reunificationRate: latestAfcars.reunificationRate ?? null,
+    familyPreservationCases: latestAfcars.familyPreservationCases ?? null,
     // Licensed homes: use AFCARS if available, otherwise aggregate from county data
-    licensedHomes: latestAfcars.licensedHomes || (totalFosterKinshipHomes > 0 ? totalFosterKinshipHomes : null),
+    licensedHomes: latestAfcars.licensedHomes ?? (totalFosterKinshipHomes > 0 ? totalFosterKinshipHomes : null),
     // Aggregated from county data
     totalChurches: totalChurches > 0 ? totalChurches : null,
     // Source info

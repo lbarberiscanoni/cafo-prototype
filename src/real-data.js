@@ -51,6 +51,27 @@ export const stateCodeToName = Object.fromEntries(
   Object.entries(stateNameToCode).map(([name, code]) => [code, name])
 );
 
+// ==================== GEOGRAPHY LABEL OVERRIDES ====================
+// Some states don't use "County" — map to the correct label per checklist
+const GEOGRAPHY_LABEL_OVERRIDES = {
+  'AK': 'District',
+  'CT': 'Region',
+  'DC': 'District',
+  'NH': 'District',
+  'SD': 'District Office',
+  'VT': 'District Office',
+  'WA': 'Region',
+};
+
+/** Get the geography label for a state (e.g. "County", "Region", "District Office") */
+export const getGeographyLabel = (stateAbbrevOrName) => {
+  let abbrev = stateAbbrevOrName;
+  if (stateAbbrevOrName && stateAbbrevOrName.length > 2) {
+    abbrev = stateNameToCode[stateAbbrevOrName] || stateAbbrevOrName.toUpperCase();
+  }
+  return GEOGRAPHY_LABEL_OVERRIDES[abbrev] || 'County';
+};
+
 // ==================== ACTIVITY TO IMPACT AREA MAPPING ====================
 // Maps organization activities to MTE impact areas
 const activityToImpactArea = {
@@ -105,8 +126,28 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
   const countyYears = [...new Set((state.counties || []).map(c => c.year))].sort((a, b) => b - a);
   const latestCountyYear = countyYears[0] || null;
   
-  // Aggregate county data for state-level metrics not in AFCARS
-  const latestCounties = (state.counties || []).filter(c => c.year === latestCountyYear);
+  // Filter and deduplicate counties:
+  // 1. Remove junk entries (numeric-only names, or all-null data with no coords)
+  // 2. Take only the latest year for each county name
+  const validCounties = (state.counties || []).filter(c => {
+    // Filter out numeric-only names (e.g. "45444")
+    if (/^\d+$/.test(c.name)) return false;
+    // Filter out entries where all metric fields are null and no coordinates
+    const hasAnyData = ['childrenInCare', 'childrenInFosterCare', 'childrenInKinshipCare',
+      'childrenPlacedOutOfCounty', 'fosterKinshipHomes', 'childrenWaitingForAdoption',
+      'familyPreservationCases', 'churches', 'population'].some(k => c[k] != null);
+    if (!hasAnyData && !c.coordinates) return false;
+    return true;
+  });
+  
+  // Deduplicate: keep only the latest year entry per county name
+  const countyByName = {};
+  validCounties.forEach(c => {
+    if (!countyByName[c.name] || c.year > countyByName[c.name].year) {
+      countyByName[c.name] = c;
+    }
+  });
+  const latestCounties = Object.values(countyByName);
   const totalFosterKinshipHomes = latestCounties.reduce((sum, c) => sum + (c.fosterKinshipHomes || 0), 0);
   const totalChurches = latestCounties.reduce((sum, c) => sum + (c.churches || 0), 0);
   
@@ -140,7 +181,8 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
     afcars: state.afcars || {},
     // County data
     countyCount: latestCounties.length,
-    latestCountyYear: latestCountyYear
+    latestCountyYear: latestCountyYear,
+    geographyLabel: GEOGRAPHY_LABEL_OVERRIDES[abbrev] || 'County'
   };
   
   stateData[stateKey] = stateRecord;
@@ -165,7 +207,25 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
     countyCoordinatesByState[stateKey] = {};
   }
   
-  (state.counties || []).forEach(county => {
+  // Filter out junk entries and deduplicate (keep latest year per name)
+  const validCounties = (state.counties || []).filter(c => {
+    if (/^\d+$/.test(c.name)) return false;
+    const hasAnyData = ['childrenInCare', 'childrenInFosterCare', 'childrenInKinshipCare',
+      'childrenPlacedOutOfCounty', 'fosterKinshipHomes', 'childrenWaitingForAdoption',
+      'familyPreservationCases', 'churches', 'population'].some(k => c[k] != null);
+    if (!hasAnyData && !c.coordinates) return false;
+    return true;
+  });
+  
+  const countyByName = {};
+  validCounties.forEach(c => {
+    if (!countyByName[c.name] || c.year > countyByName[c.name].year) {
+      countyByName[c.name] = c;
+    }
+  });
+  const deduplicatedCounties = Object.values(countyByName);
+
+  deduplicatedCounties.forEach(county => {
     // Create county key: "county-name-statecode" (e.g., "autauga-al")
     const countyName = county.name.toLowerCase().replace(/\s+/g, '-');
     const countyKey = `${countyName}-${abbrev.toLowerCase()}`;
@@ -182,6 +242,7 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
       state: state.name,
       stateAbbrev: abbrev,
       geographyType: county.geographyType || 'county',
+      geographyLabel: GEOGRAPHY_LABEL_OVERRIDES[abbrev] || 'County',
       year: county.year,
       population: county.population,
       // Map to expected field names
@@ -232,17 +293,28 @@ export const getCountiesForState = (stateNameOrAbbrev, year = null) => {
   const state = realDataJson.states[abbrev];
   if (!state) return [];
   
-  let counties = state.counties || [];
+  // Filter out junk entries
+  let counties = (state.counties || []).filter(c => {
+    if (/^\d+$/.test(c.name)) return false;
+    const hasAnyData = ['childrenInCare', 'childrenInFosterCare', 'childrenInKinshipCare',
+      'childrenPlacedOutOfCounty', 'fosterKinshipHomes', 'childrenWaitingForAdoption',
+      'familyPreservationCases', 'churches', 'population'].some(k => c[k] != null);
+    if (!hasAnyData && !c.coordinates) return false;
+    return true;
+  });
   
   // Filter by year if specified
   if (year) {
     counties = counties.filter(c => c.year === year);
   } else {
-    // Get most recent year only
-    const years = [...new Set(counties.map(c => c.year))].sort((a, b) => b - a);
-    if (years.length > 0) {
-      counties = counties.filter(c => c.year === years[0]);
-    }
+    // Deduplicate: keep latest year per name
+    const byName = {};
+    counties.forEach(c => {
+      if (!byName[c.name] || c.year > byName[c.name].year) {
+        byName[c.name] = c;
+      }
+    });
+    counties = Object.values(byName);
   }
   
   return counties;
@@ -396,8 +468,15 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
     };
   });
   
-  // Add county data by year (from metrics)
-  (state.counties || []).forEach(county => {
+  // Add county data by year (from metrics) — filter junk entries
+  (state.counties || []).filter(c => {
+    if (/^\d+$/.test(c.name)) return false;
+    const hasAnyData = ['childrenInCare', 'childrenInFosterCare', 'childrenInKinshipCare',
+      'childrenPlacedOutOfCounty', 'fosterKinshipHomes', 'childrenWaitingForAdoption',
+      'familyPreservationCases', 'churches', 'population'].some(k => c[k] != null);
+    if (!hasAnyData && !c.coordinates) return false;
+    return true;
+  }).forEach(county => {
     const countyName = county.name.toLowerCase().replace(/\s+/g, '-');
     const countyKey = `${countyName}-${abbrev.toLowerCase()}`;
     const year = String(county.year);

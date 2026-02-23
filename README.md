@@ -1,6 +1,5 @@
 - [ ] Add form link to "data missing want to rquest it"
 - [ ] on the metrics page we are going to have a "what does this mean" metrics guide
-- [ ] Look at "45444 County, Washington" 
 - [ ] Move the embed button to Metrics not Historic Data
 - [ ] In the tooltip in the metrics view at the county level, add "source of data" as well 
 - [ ] There’s still an issue for anything not mapped to counties (e.g. regions and districts). Here are customizations

@@ -4,7 +4,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 // Import data from real-data
-import { countyData, countyCoordinatesByState, stateCoordinates, stateNameToCode, organizations, fmt } from "../real-data.js";
+import { countyData, countyCoordinatesByState, stateCoordinates, stateNameToCode, organizations, fmt, getGeographyLabel } from "../real-data.js";
 
 // Assets
 import MTELogo from "../assets/MTE_Logo.png";
@@ -400,12 +400,19 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         // regionId format: "nassau-ny", "butler-al"
         if (selectedRegion?.name) {
           const parts = selectedRegion.name.split(',');
-          if (parts.length >= 2 && !parts[0].trim().includes('County')) {
-            return `${parts[0].trim()} County,${parts.slice(1).join(',')}`;
+          if (parts.length >= 2) {
+            const statePart = parts.slice(1).join(',').trim();
+            const geoLabel = getGeographyLabel(statePart);
+            const namePart = parts[0].trim();
+            // Only append label if it's not already in the name
+            if (!namePart.includes('County') && !namePart.includes('Region') && 
+                !namePart.includes('District') && !namePart.includes('Office')) {
+              return `${namePart} ${geoLabel},${parts.slice(1).join(',')}`;
+            }
           }
           return selectedRegion.name;
         }
-        return "Unknown County";
+        return "Unknown Location";
       default:
         return "";
     }
@@ -469,12 +476,13 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     const displayName = getDisplayName();
     const stateCode = stateNameToCode[displayName];
     const countyId = `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode?.toLowerCase()}`;
+    const label = getGeographyLabel(stateCode);
     
     if (onSelectRegion) {
       onSelectRegion({ 
         level: 'county', 
         id: countyId,
-        name: `${countyName} County, ${displayName}`
+        name: `${countyName} ${label}, ${displayName}`
         // No view specified - preserves current view
       });
     }
@@ -1122,6 +1130,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               {showStateMap && (() => {
                 // Use derived county coordinates from orgs (more reliable than countyCoordinatesByState)
                 const countyCoords = derivedCountyCoords;
+                const stateGeoLabel = getGeographyLabel(getDisplayName());
                 
                 return (
                   <>
@@ -1137,7 +1146,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       >
                         <Tooltip>
                           <div className="font-lato text-sm">
-                            <strong>{countyName} County</strong><br/>
+                            <strong>{countyName} {stateGeoLabel}</strong><br/>
                             {fmt(data.orgCount)} Organizations
                           </div>
                         </Tooltip>
@@ -1337,10 +1346,10 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-lato font-bold text-mte-black mb-2">
-                    No Organizations Mapped in {selectedEmptyCounty.name} County
+                    No Organizations Mapped in {selectedEmptyCounty.name} {getGeographyLabel(selectedEmptyCounty.state)}
                   </h3>
                   <p className="text-base text-mte-charcoal mb-4 font-lato">
-                    We don't have any organizations mapped for {selectedEmptyCounty.name} County, {selectedEmptyCounty.state} yet. 
+                    We don't have any organizations mapped for {selectedEmptyCounty.name} {getGeographyLabel(selectedEmptyCounty.state)}, {selectedEmptyCounty.state} yet. 
                     You can help us build a more complete picture of foster care support in your area!
                   </p>
                   <div className="flex flex-wrap gap-3">
@@ -1351,7 +1360,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       Back to Map
                     </button>
                     <a 
-                      href={`mailto:data@morethanenough.org?subject=${encodeURIComponent(`Add Organization Data for ${selectedEmptyCounty.name} County, ${selectedEmptyCounty.state}`)}&body=${encodeURIComponent(`I would like to help add organization data for ${selectedEmptyCounty.name} County, ${selectedEmptyCounty.state}.\n\nPlease let me know what information you need and how I can assist.`)}`}
+                      href={`mailto:data@morethanenough.org?subject=${encodeURIComponent(`Add Organization Data for ${selectedEmptyCounty.name} ${getGeographyLabel(selectedEmptyCounty.state)}, ${selectedEmptyCounty.state}`)}&body=${encodeURIComponent(`I would like to help add organization data for ${selectedEmptyCounty.name} ${getGeographyLabel(selectedEmptyCounty.state)}, ${selectedEmptyCounty.state}.\n\nPlease let me know what information you need and how I can assist.`)}`}
                       className="px-4 py-2 bg-white border-2 border-mte-blue text-mte-blue rounded-lg font-lato font-medium hover:bg-mte-blue-20 transition-colors"
                     >
                       Contact Us to Add Data

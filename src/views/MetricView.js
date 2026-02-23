@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { countyData, stateData, nationalStats, historicalData, fmt, fmtPct, fmtCompact } from "../real-data.js";
+import { countyData, stateData, nationalStats, historicalData, fmt, fmtPct, fmtCompact, getGeographyLabel } from "../real-data.js";
 
 // Assets
 import ChurchIcon from "../assets/church_icon.png";
@@ -127,8 +127,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
       case "county":
         const county = countyData[regionId] || countyData['butler-al'];
         const countyParts = county.name.split(',');
+        const geoLabel = county.geographyLabel || 'County';
         const formattedCountyName = countyParts.length >= 2 
-          ? `${countyParts[0].trim()} County,${countyParts.slice(1).join(',')}` 
+          ? `${countyParts[0].trim()} ${geoLabel},${countyParts.slice(1).join(',')}` 
           : county.name;
         return {
           name: formattedCountyName,
@@ -277,8 +278,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   const handleCountyClick = useCallback((fips, countyName, clickedCountyData) => {
     const stateCode = stateNameToCode[data.name];
     const countyId = `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode?.toLowerCase()}`;
+    const label = getGeographyLabel(stateCode);
     if (onSelectRegion) {
-      onSelectRegion({ level: 'county', id: countyId, name: `${countyName} County, ${data.name}`, fips: fips });
+      onSelectRegion({ level: 'county', id: countyId, name: `${countyName} ${label}, ${data.name}`, fips: fips });
     }
   }, [data.name, onSelectRegion]);
 

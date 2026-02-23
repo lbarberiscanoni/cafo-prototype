@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
-import { countyData, fmt } from './real-data.js';
+import { countyData, fmt, getGeographyLabel } from './real-data.js';
 
 // Metric configuration: maps metric names to data fields and formatting
 // Field names match real-data.js countyData structure
@@ -455,7 +455,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of 
           className="absolute z-20 bg-mte-charcoal text-white p-3 rounded shadow-lg pointer-events-none transform -translate-x-1/2 -translate-y-full font-lato"
           style={{ left: mousePosition.x, top: mousePosition.y - 10 }}
         >
-          <div className="font-semibold">{hoveredCounty.name} County</div>
+          <div className="font-semibold">{hoveredCounty.name} {getGeographyLabel(stateCode)}</div>
           {hoveredCounty.hasData ? (
             <div>{formatDisplayValue(hoveredCounty.value)} {selectedMetric}</div>
           ) : (

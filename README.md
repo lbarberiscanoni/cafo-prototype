@@ -1,6 +1,6 @@
 - [ ] Church data comes from the county-level MTE data, not AFCARS. So it's not in the national dataset — but it could be aggregated from all the counties, same way the state records aggregate their counties' church counts. 
 - [ ] "Your Next Steps" button in TopNav — A new nav item between "Home" and "National Map View" that links to an exit page with CTAs/recommended next steps. She doesn't have the destination URL or page yet — she's going to send that.
-- [ ] Caption text on the embed card — A sentence that appears in the iframe footer (to the left of the MTE logo), or if that's not possible, as a caption below the iframe. She's going to send the actual copy via Hive.
+- [ ] Caption text on the embed card "Brought to you by More Than Enough"
 - [ ] Add form link to "data missing want to rquest it"
 - [ ] on the metrics page we are going to have a "what does this mean" metrics guide
 

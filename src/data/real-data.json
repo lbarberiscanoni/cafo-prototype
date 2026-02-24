@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-02-22T06:57:42.053Z",
+    "generated": "2026-02-24T07:08:50.253Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-02-22T06:57:35.121Z",
+        "generated": "2026-02-24T07:08:43.270Z",
         "years": [
           2021,
           2022,
@@ -33,7 +33,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-02-22T06:57:35.319Z",
+        "generated": "2026-02-24T07:08:43.458Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -61,15 +61,15 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-02-22T06:57:39.465Z",
-        "totalRecords": 5982,
+        "generated": "2026-02-24T07:08:47.629Z",
+        "totalRecords": 5977,
         "stateCount": 51,
         "byYear": {
           "2024": 3055,
-          "2025": 2927
+          "2025": 2922
         },
         "byGeographyType": {
-          "county": 5846,
+          "county": 5841,
           "region": 70,
           "district": 2,
           "city": 40,
@@ -86,12 +86,12 @@
           "fosterKinshipHomes": 2796,
           "reunificationRate": 3491,
           "childrenAdopted": 100,
-          "churches": 105
+          "churches": 100
         }
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-02-22T06:57:41.841Z",
+        "generated": "2026-02-24T07:08:50.042Z",
         "organizationCount": 490,
         "networkCount": 20,
         "stats": {
@@ -144,7 +144,7 @@
     },
     "counts": {
       "states": 52,
-      "countyRecords": 5982,
+      "countyRecords": 5977,
       "countiesWithCoordinates": 5935,
       "organizations": 490,
       "organizationsWithDescriptions": 287,
@@ -44948,22 +44948,7 @@
       },
       "counties": [
         {
-          "name": "Boston Regional Office",
-          "geographyType": "county",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 222,
-          "childrenInFosterCare": 119,
-          "childrenInKinshipCare": 77,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 45,
-          "childrenWaitingForAdoption": 94,
-          "reunificationRate": 0.671875,
-          "familyPreservationCases": 484,
-          "churches": null
-        },
-        {
-          "name": "Boston Regional Office Total",
+          "name": "Boston Region",
           "geographyType": "county",
           "year": 2025,
           "population": null,
@@ -44978,22 +44963,7 @@
           "churches": null
         },
         {
-          "name": "Central MA Regional Office",
-          "geographyType": "county",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 171,
-          "childrenInFosterCare": 108,
-          "childrenInKinshipCare": 65,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 87,
-          "childrenWaitingForAdoption": 57,
-          "reunificationRate": 0.5606060606060606,
-          "familyPreservationCases": 576,
-          "churches": null
-        },
-        {
-          "name": "Central MA Regional Office Total",
+          "name": "Central MA Region",
           "geographyType": "county",
           "year": 2025,
           "population": null,
@@ -45008,22 +44978,7 @@
           "churches": null
         },
         {
-          "name": "Northern Regional Office",
-          "geographyType": "county",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 83,
-          "childrenInFosterCare": 54,
-          "childrenInKinshipCare": 33,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 54,
-          "childrenWaitingForAdoption": 30,
-          "reunificationRate": 0.6578947368421053,
-          "familyPreservationCases": 160,
-          "churches": null
-        },
-        {
-          "name": "Northern Regional Office Total",
+          "name": "Northern Region",
           "geographyType": "county",
           "year": 2025,
           "population": null,
@@ -45038,22 +44993,7 @@
           "churches": null
         },
         {
-          "name": "Southern Regional Office",
-          "geographyType": "county",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 182,
-          "childrenInFosterCare": 112,
-          "childrenInKinshipCare": 60,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 86,
-          "childrenWaitingForAdoption": 61,
-          "reunificationRate": 0.5538461538461539,
-          "familyPreservationCases": 357,
-          "churches": null
-        },
-        {
-          "name": "Southern Regional Office Total",
+          "name": "Southern Region",
           "geographyType": "county",
           "year": 2025,
           "population": null,
@@ -45068,22 +45008,7 @@
           "churches": null
         },
         {
-          "name": "Western Regional Office",
-          "geographyType": "county",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 254,
-          "childrenInFosterCare": 168,
-          "childrenInKinshipCare": 96,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 98,
-          "childrenWaitingForAdoption": 116,
-          "reunificationRate": 0.5217391304347826,
-          "familyPreservationCases": 473,
-          "churches": null
-        },
-        {
-          "name": "Western Regional Office Total",
+          "name": "Western Region",
           "geographyType": "county",
           "year": 2025,
           "population": null,

@@ -1,10 +1,21 @@
 - [ ] Church data comes from the county-level MTE data, not AFCARS. So it's not in the national dataset — but it could be aggregated from all the counties, same way the state records aggregate their counties' church counts. 
 - [ ] "Your Next Steps" button in TopNav — A new nav item between "Home" and "National Map View" that links to an exit page with CTAs/recommended next steps. She doesn't have the destination URL or page yet — she's going to send that.
-- [ ] Caption text on the embed card "Brought to you by More Than Enough"
-- [ ] Add form link to "data missing want to rquest it"
-- [ ] on the metrics page we are going to have a "what does this mean" metrics guide
-
-
+- [ ] Caption text on the embed card "Brought to you by More Than Enough". Test the look on Codepen
+- [ ] Add form link to "data missing want to rquest it". This would be just for the county metrics view and county org view.
+- [ ] on the metrics page we are going to have a "what does this mean" metrics guide. This is for the county metrics view. Try adding an actual line "what does this data mean?" and it downloads [this PDF](https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/edit?tab=t.0#heading=h.lhvv1cgj8bwi)
+- [ ] Change titles to “Number of Children in Care,” “Number of Family Preservation Cases,” “Number of Children Waiting For Adoption,” etc. Basically add “Number of” everywhere except for Family Reunification Rate (%), but add the word “Biological Family Reunification Rate (%)”
+- [ ] for the historic view, The legend color coding should be green for positive, orange for negative? “Waiting For Adoption” is green and negative
+- [ ] Make sure the title spacing (for example at the county org view) needs to be compressed. 
+- [ ] Also change “Bridge” to “Bridge Organization” in Organization Categories
+- [ ] Let’s change “View Full Profile” to “Visit Website”
+- [ ] I think the icon for “Church” should be grey, not white in the legend
+- [ ] in the Nav Bar, I feel like there is an extra space between “National” and “Map” and “State” and “Map”
+- [ ] on the home page, Can we also shorten the “Select a county” bar because it’s a lot longer than the names of the counties?
+- [ ] On teh home page, move the explore the map closer to the bar
+- [ ] on county metrics view, make the first card equal width to the other cards
+- [ ] "Boston Region" > "Boston Region County"
+- [ ] Add "Massachusets" to the regional place
+- [ ] Review the data mapping for the regions
 
 
 

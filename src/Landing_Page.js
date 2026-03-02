@@ -122,7 +122,7 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
           </p>
 
           {/* County Selection */}
-          <div className="mt-6 md:mt-10 w-full max-w-2xl px-4 md:px-0">
+          <div className="mt-6 md:mt-10 w-full max-w-md px-4 md:px-0">
             <div className="mb-3 flex flex-col items-center gap-2">
               <div className="flex items-center gap-2 md:gap-3">
                 <img src={MapPin} alt="" className="h-7 w-7 md:h-9 md:w-9 opacity-90" aria-hidden />

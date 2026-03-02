@@ -1,6 +1,5 @@
 - [ ] Church data comes from the county-level MTE data, not AFCARS. So it's not in the national dataset — but it could be aggregated from all the counties, same way the state records aggregate their counties' church counts. 
 - [ ] Caption text on the embed card "Brought to you by More Than Enough". Test the look on Codepen
-- [ ] Add form link to "data missing want to rquest it". This would be just for the county metrics view and county org view.
 
 - [ ] I think the icon for “Church” should be grey, not white in the legend
 - [ ] "Boston Region" > "Boston Region County"
@@ -9,6 +8,7 @@
 
 Questions for Leah 
 - [ ] "Your Next Steps" link
+- [ ] Request missing data link
 - [ ] for the historic view, The legend color coding should be green for positive, orange for negative? “Waiting For Adoption” is green and negative
     - The color logic is contextual — for some metrics, a decrease is good (green) and an increase is bad (orange), and vice versa. Currently:
         `Children in Care: < 0 = green (fewer kids in care = good) — correct

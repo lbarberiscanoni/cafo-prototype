@@ -1432,7 +1432,17 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               ) : (
                 <div className="text-center py-8 text-mte-charcoal font-lato">
                   <p className="text-lg mb-2">No organizations match the selected filters</p>
-                  <p className="text-sm">Try selecting different categories or impact areas above</p>
+                  <p className="text-sm mb-3">Try selecting different categories or impact areas above</p>
+                  {regionLevel === 'county' && (
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfExample/viewform"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-lato text-mte-orange hover:text-mte-orange underline transition-colors"
+                    >
+                      Some data is missing — request it here
+                    </a>
+                  )}
                 </div>
               )}
             </div>

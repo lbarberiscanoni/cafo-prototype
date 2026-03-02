@@ -13,6 +13,21 @@ import InteractiveUSMap, { getAvailableMetrics } from "../InteractiveUSMap";
 import InteractiveStateMap from "../InteractiveStateMap";
 import CountySelect from "../CountySelect";
 
+const REQUEST_DATA_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfExample/viewform"; // TODO: replace with actual form URL
+
+const hasNA = (...values) => values.some(v => v === null || v === undefined);
+
+const RequestDataLink = () => (
+  <a
+    href={REQUEST_DATA_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-1 text-xs font-lato text-mte-orange hover:text-mte-orange underline transition-colors"
+  >
+    Some data is missing — request it here
+  </a>
+);
+
 // Hoverable text with tooltip
 const HoverableText = ({ children, tooltip }) => (
   <div className="relative inline-flex items-center group">
@@ -552,6 +567,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <MetricRow label="Children Placed Out-of-County" value={fmt(data.childrenOutOfCounty)} tooltip="Children from this county placed in care outside county boundaries." source={src} />
               <MetricRow label="Number of Licensed Foster Homes" value={fmt(data.licensedHomes)} tooltip="Total number of state-licensed foster homes in this county." source={src} />
             </div>
+            {hasNA(data.licensedHomesPerChild, data.childrenInCare, data.childrenInFamily, data.childrenInKinship, data.childrenOutOfCounty, data.licensedHomes) && (
+              <div className="mt-4 text-center"><RequestDataLink /></div>
+            )}
           </div>
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={AdoptiveFamilyIcon} alt="Adoptive Families" className="mx-auto w-20 h-20 mb-3" />
@@ -568,6 +586,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <MetricRow label="Children Adopted in 2024" value={fmt(data.childrenAdopted2024)} tooltip="Number of finalized adoptions in the current year." source={src} />
               <MetricRow label="Average Months to Adoption" value={fmt(data.avgMonthsToAdoption)} tooltip="Average time from termination of parental rights to finalized adoption." source={src} />
             </div>
+            {hasNA(data.waitingForAdoption, data.childrenAdopted2024, data.avgMonthsToAdoption) && (
+              <div className="mt-4 text-center"><RequestDataLink /></div>
+            )}
           </div>
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={BiologicalFamilyIcon} alt="Biological Families" className="mx-auto w-20 h-20 mb-3" />
@@ -586,6 +607,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Biological Family Reunification Rate</div>
               </HoverableText>
             </div>
+            {hasNA(data.familyPreservationCases, data.reunificationRate) && (
+              <div className="mt-4 text-center"><RequestDataLink /></div>
+            )}
           </div>
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={WrapAroundIcon} alt="Wraparound Support" className="mx-auto w-20 h-20 mb-3" />
@@ -602,6 +626,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <MetricRow label="Churches Providing Support" value={fmt(data.churchesProvidingSupport)} tooltip="Number of churches with active foster care support programs." source={src} />
               <MetricRow label="Total Churches" value={fmt(data.totalChurches)} tooltip="Total number of churches in this county." source={src} />
             </div>
+            {hasNA(data.supportPercentage, data.churchesProvidingSupport, data.totalChurches) && (
+              <div className="mt-4 text-center"><RequestDataLink /></div>
+            )}
           </div>
         </main>
         );

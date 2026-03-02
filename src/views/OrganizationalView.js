@@ -1414,7 +1414,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                             onClick={(e) => e.stopPropagation()}
                             className="mt-auto px-3 py-2 text-base bg-mte-blue text-white rounded hover:bg-mte-blue-80 w-full font-lato font-medium transition-colors inline-block text-center"
                           >
-                            View Full Profile
+                            Visit Website
                           </a>
                         ) : (
                           <button 

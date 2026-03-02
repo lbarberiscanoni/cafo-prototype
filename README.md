@@ -5,7 +5,6 @@
 - [ ] on the metrics page we are going to have a "what does this mean" metrics guide. This is for the county metrics view. Try adding an actual line "what does this data mean?" and it downloads [this PDF](https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/edit?tab=t.0#heading=h.lhvv1cgj8bwi)
 
 - [ ] Make sure the title spacing (for example at the county org view) needs to be compressed. 
-- [ ] Let’s change “View Full Profile” to “Visit Website”
 - [ ] I think the icon for “Church” should be grey, not white in the legend
 - [ ] in the Nav Bar, I feel like there is an extra space between “National” and “Map” and “State” and “Map”
 - [ ] on the home page, Can we also shorten the “Select a county” bar because it’s a lot longer than the names of the counties?

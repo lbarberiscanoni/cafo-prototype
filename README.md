@@ -1,5 +1,4 @@
 - [ ] Church data comes from the county-level MTE data, not AFCARS. So it's not in the national dataset — but it could be aggregated from all the counties, same way the state records aggregate their counties' church counts. 
-- [ ] "Your Next Steps" button in TopNav — A new nav item between "Home" and "National Map View" that links to an exit page with CTAs/recommended next steps. She doesn't have the destination URL or page yet — she's going to send that.
 - [ ] Caption text on the embed card "Brought to you by More Than Enough". Test the look on Codepen
 - [ ] Add form link to "data missing want to rquest it". This would be just for the county metrics view and county org view.
 - [ ] on the metrics page we are going to have a "what does this mean" metrics guide. This is for the county metrics view. Try adding an actual line "what does this data mean?" and it downloads [this PDF](https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/edit?tab=t.0#heading=h.lhvv1cgj8bwi)
@@ -10,6 +9,7 @@
 - [ ] Review the data mapping for the regions
 
 Questions for Leah 
+- [ ] "Your Next Steps" link
 - [ ] for the historic view, The legend color coding should be green for positive, orange for negative? “Waiting For Adoption” is green and negative
     - The color logic is contextual — for some metrics, a decrease is good (green) and an increase is bad (orange), and vice versa. Currently:
         `Children in Care: < 0 = green (fewer kids in care = good) — correct

@@ -223,6 +223,19 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
           </svg>
           <span className="hidden md:inline">Home</span>
         </button>
+        {/* Your Next Steps - opens external page */}
+        <a
+          href="https://cafo.org/morethanenough/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 md:px-3 md:py-2 bg-white border border-mte-light-grey rounded shadow-mte-card hover:bg-mte-blue-20 text-sm md:text-base font-lato text-mte-charcoal transition-colors flex items-center gap-1.5"
+          title="Your Next Steps"
+        >
+          <svg className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+          <span className="hidden sm:inline">Your Next Steps</span>
+        </a>
         {/* National - icon + abbreviated text on mobile */}
         <button
           onClick={handleNationalView}

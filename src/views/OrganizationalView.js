@@ -136,7 +136,7 @@ const CATEGORY_COLORS = {
 
 // Filter groups that combine similar categories for the UI
 const FILTER_GROUPS = {
-  "Bridge": ["Bridge Ministry", "Bridge Organization"],
+  "Bridge Organization": ["Bridge Ministry", "Bridge Organization"],
   "Service Organization": ["Service Organization"],
   "Church Ministry": ["Church Foster Care Ministry"],
   "Placement Agency": ["Placement Agency", "Child Placement Agency"],

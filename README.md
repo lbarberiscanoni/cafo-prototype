@@ -3,7 +3,7 @@
 - [ ] Caption text on the embed card "Brought to you by More Than Enough". Test the look on Codepen
 - [ ] Add form link to "data missing want to rquest it". This would be just for the county metrics view and county org view.
 - [ ] on the metrics page we are going to have a "what does this mean" metrics guide. This is for the county metrics view. Try adding an actual line "what does this data mean?" and it downloads [this PDF](https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/edit?tab=t.0#heading=h.lhvv1cgj8bwi)
-- [ ] for the historic view, The legend color coding should be green for positive, orange for negative? “Waiting For Adoption” is green and negative
+
 - [ ] Make sure the title spacing (for example at the county org view) needs to be compressed. 
 - [ ] Also change “Bridge” to “Bridge Organization” in Organization Categories
 - [ ] Let’s change “View Full Profile” to “Visit Website”
@@ -16,6 +16,15 @@
 - [ ] Add "Massachusets" to the regional place
 - [ ] Review the data mapping for the regions
 
+Questions for Leah 
+- [ ] for the historic view, The legend color coding should be green for positive, orange for negative? “Waiting For Adoption” is green and negative
+    - The color logic is contextual — for some metrics, a decrease is good (green) and an increase is bad (orange), and vice versa. Currently:
+        `Children in Care: < 0 = green (fewer kids in care = good) — correct
+        Licensed Homes: > 0 = green (more homes = good) — correct
+        Waiting For Adoption: < 0 = green (fewer kids waiting = good) — correct
+        Reunification Rate: > 0 = green (higher rate = good) — correct
+        Family Preservation Cases: > 0 = green (more cases = good) — correct
+        The logic is actually correct already — it uses domain-aware coloring where green = positive outcome, not positive number. For "Waiting For Adoption", a negative number (fewer children waiting) is the positive outcome, so it's green when negative.`
 
 
 

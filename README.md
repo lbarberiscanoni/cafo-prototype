@@ -1,7 +1,6 @@
 - [ ] Church data comes from the county-level MTE data, not AFCARS. So it's not in the national dataset — but it could be aggregated from all the counties, same way the state records aggregate their counties' church counts. 
 - [ ] Caption text on the embed card "Brought to you by More Than Enough". Test the look on Codepen
 - [ ] Add form link to "data missing want to rquest it". This would be just for the county metrics view and county org view.
-- [ ] on the metrics page we are going to have a "what does this mean" metrics guide. This is for the county metrics view. Try adding an actual line "what does this data mean?" and it downloads [this PDF](https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/edit?tab=t.0#heading=h.lhvv1cgj8bwi)
 
 - [ ] I think the icon for “Church” should be grey, not white in the legend
 - [ ] "Boston Region" > "Boston Region County"

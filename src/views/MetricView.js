@@ -614,7 +614,18 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         return (
           <section className="max-w-7xl mx-auto px-4">
             <div className="bg-white rounded-2xl shadow-mte-card px-6 py-6 text-center">
-              <h3 className="text-2xl font-nexa text-mte-black mb-4">Statewide Data Summary for {data.state}</h3>
+              <h3 className="text-2xl font-nexa text-mte-black mb-2">Statewide Data Summary for {data.state}</h3>
+              <a
+                href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/export?format=pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors mb-4"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                What does this data mean?
+              </a>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 text-center">
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.totalChildren)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Children in Care</p></div>
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.licensedHomes)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Licensed Foster Homes</p></div>

@@ -107,47 +107,47 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
       kinship: [
         childrenInCare.some(v => v !== null) && { 
           id: 'children_in_care', 
-          label: 'Children in Care', 
+          label: 'Number of Children in Care',
           data: childrenInCare
         },
-        childrenInFoster.some(v => v !== null) && { 
-          id: 'children_in_foster', 
-          label: 'Children in Foster Care', 
+        childrenInFoster.some(v => v !== null) && {
+          id: 'children_in_foster',
+          label: 'Number of Children in Foster Care',
           data: childrenInFoster
         },
-        childrenInKinship.some(v => v !== null) && { 
-          id: 'children_in_kinship', 
-          label: 'Children in Kinship Care', 
+        childrenInKinship.some(v => v !== null) && {
+          id: 'children_in_kinship',
+          label: 'Number of Children in Kinship Care',
           data: childrenInKinship
         },
-        licensedHomes.some(v => v !== null) && { 
-          id: 'licensed_homes', 
-          label: 'Licensed Homes', 
+        licensedHomes.some(v => v !== null) && {
+          id: 'licensed_homes',
+          label: 'Number of Licensed Homes',
           data: licensedHomes
         }
       ].filter(Boolean),
       adoption: [
-        waitingAdoption.some(v => v !== null) && { 
-          id: 'waiting_adoption', 
-          label: 'Waiting for Adoption', 
+        waitingAdoption.some(v => v !== null) && {
+          id: 'waiting_adoption',
+          label: 'Number of Children Waiting for Adoption',
           data: waitingAdoption
         },
-        childrenAdopted.some(v => v !== null) && { 
-          id: 'children_adopted', 
-          label: 'Children Adopted', 
+        childrenAdopted.some(v => v !== null) && {
+          id: 'children_adopted',
+          label: 'Number of Children Adopted',
           data: childrenAdopted
         }
       ].filter(Boolean),
       biological: [
-        reunificationRate.some(v => v !== null) && { 
-          id: 'reunification_rate', 
-          label: 'Reunification Rate (%)', 
+        reunificationRate.some(v => v !== null) && {
+          id: 'reunification_rate',
+          label: 'Biological Family Reunification Rate (%)',
           data: reunificationRate,
           isPercentage: true
         },
-        familyPreservation.some(v => v !== null) && { 
-          id: 'family_preservation', 
-          label: 'Family Preservation Cases', 
+        familyPreservation.some(v => v !== null) && {
+          id: 'family_preservation',
+          label: 'Number of Family Preservation Cases',
           data: familyPreservation
         }
       ].filter(Boolean),
@@ -155,7 +155,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
       source: `AFCARS End of Year ${years[0] - 1} - End of Year ${years[years.length - 1] - 1}`
     };
   }
-  
+
   // For national level, aggregate from historicalData[year].national
   if (regionLevel === 'national') {
     const childrenInCare = years.map(year => historicalData[year]?.national?.childrenInCare ?? null);
@@ -166,31 +166,31 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
     
     return {
       kinship: [
-        childrenInCare.some(v => v !== null) && { 
-          id: 'children_in_care', 
-          label: 'Children in Care', 
+        childrenInCare.some(v => v !== null) && {
+          id: 'children_in_care',
+          label: 'Number of Children in Care',
           data: childrenInCare
         },
-        childrenInFoster.some(v => v !== null) && { 
-          id: 'children_in_foster', 
-          label: 'Children in Foster Care', 
+        childrenInFoster.some(v => v !== null) && {
+          id: 'children_in_foster',
+          label: 'Number of Children in Foster Care',
           data: childrenInFoster
         },
-        childrenInKinship.some(v => v !== null) && { 
-          id: 'children_in_kinship', 
-          label: 'Children in Kinship Care', 
+        childrenInKinship.some(v => v !== null) && {
+          id: 'children_in_kinship',
+          label: 'Number of Children in Kinship Care',
           data: childrenInKinship
         }
       ].filter(Boolean),
       adoption: [
-        waitingAdoption.some(v => v !== null) && { 
-          id: 'waiting_adoption', 
-          label: 'Waiting for Adoption', 
+        waitingAdoption.some(v => v !== null) && {
+          id: 'waiting_adoption',
+          label: 'Number of Children Waiting for Adoption',
           data: waitingAdoption
         },
-        childrenAdopted.some(v => v !== null) && { 
-          id: 'children_adopted', 
-          label: 'Children Adopted', 
+        childrenAdopted.some(v => v !== null) && {
+          id: 'children_adopted',
+          label: 'Number of Children Adopted',
           data: childrenAdopted
         }
       ].filter(Boolean),
@@ -199,7 +199,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
       source: `AFCARS End of Year ${years[0] - 1} - End of Year ${years[years.length - 1] - 1}`
     };
   }
-  
+
   // For county level, use metrics CSV data (2024-2025)
   if (regionLevel === 'county') {
     const childrenInCare = getCountyMetricArray(regionId, 'childrenInCare', years);
@@ -214,54 +214,54 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
     
     return {
       kinship: [
-        childrenInCare.some(v => v !== null) && { 
-          id: 'children_in_care', 
-          label: 'Children in Care', 
+        childrenInCare.some(v => v !== null) && {
+          id: 'children_in_care',
+          label: 'Number of Children in Care',
           data: childrenInCare
         },
-        childrenInFoster.some(v => v !== null) && { 
-          id: 'children_in_foster', 
-          label: 'Children in Foster Care', 
+        childrenInFoster.some(v => v !== null) && {
+          id: 'children_in_foster',
+          label: 'Number of Children in Foster Care',
           data: childrenInFoster
         },
-        childrenInKinship.some(v => v !== null) && { 
-          id: 'children_in_kinship', 
-          label: 'Children in Kinship Care', 
+        childrenInKinship.some(v => v !== null) && {
+          id: 'children_in_kinship',
+          label: 'Number of Children in Kinship Care',
           data: childrenInKinship
         },
-        licensedHomes.some(v => v !== null) && { 
-          id: 'licensed_homes', 
-          label: 'Licensed Homes', 
+        licensedHomes.some(v => v !== null) && {
+          id: 'licensed_homes',
+          label: 'Number of Licensed Homes',
           data: licensedHomes
         },
-        childrenOutOfCounty.some(v => v !== null) && { 
-          id: 'children_out_of_county', 
-          label: 'Children Placed Out-of-County', 
+        childrenOutOfCounty.some(v => v !== null) && {
+          id: 'children_out_of_county',
+          label: 'Number of Children Placed Out-of-County',
           data: childrenOutOfCounty
         }
       ].filter(Boolean),
       adoption: [
-        waitingAdoption.some(v => v !== null) && { 
-          id: 'waiting_adoption', 
-          label: 'Waiting for Adoption', 
+        waitingAdoption.some(v => v !== null) && {
+          id: 'waiting_adoption',
+          label: 'Number of Children Waiting for Adoption',
           data: waitingAdoption
         },
-        childrenAdopted.some(v => v !== null) && { 
-          id: 'children_adopted', 
-          label: 'Children Adopted', 
+        childrenAdopted.some(v => v !== null) && {
+          id: 'children_adopted',
+          label: 'Number of Children Adopted',
           data: childrenAdopted
         }
       ].filter(Boolean),
       biological: [
-        reunificationRate.some(v => v !== null) && { 
-          id: 'reunification_rate', 
-          label: 'Reunification Rate (%)', 
+        reunificationRate.some(v => v !== null) && {
+          id: 'reunification_rate',
+          label: 'Biological Family Reunification Rate (%)',
           data: reunificationRate,
           isPercentage: true
         },
-        familyPreservation.some(v => v !== null) && { 
-          id: 'family_preservation', 
-          label: 'Family Preservation Cases', 
+        familyPreservation.some(v => v !== null) && {
+          id: 'family_preservation',
+          label: 'Number of Family Preservation Cases',
           data: familyPreservation
         }
       ].filter(Boolean),
@@ -835,31 +835,31 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
               <div className={`font-bold text-lg md:text-xl ${hasValue(trends.childrenInCare) ? (trends.childrenInCare < 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
                 {hasValue(trends.childrenInCare) ? `${trends.childrenInCare > 0 ? '+' : ''}${trends.childrenInCare}%` : 'N/A'}
               </div>
-              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Children in Care</div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Number of Children in Care</div>
             </div>
             <div className="text-center">
               <div className={`font-bold text-lg md:text-xl ${hasValue(trends.licensedHomes) ? (trends.licensedHomes > 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
                 {hasValue(trends.licensedHomes) ? `${trends.licensedHomes > 0 ? '+' : ''}${trends.licensedHomes}%` : 'N/A'}
               </div>
-              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Licensed Homes</div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Number of Licensed Homes</div>
             </div>
             <div className="text-center">
               <div className={`font-bold text-lg md:text-xl ${hasValue(trends.waitingForAdoption) ? (trends.waitingForAdoption < 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
                 {hasValue(trends.waitingForAdoption) ? `${trends.waitingForAdoption > 0 ? '+' : ''}${trends.waitingForAdoption}%` : 'N/A'}
               </div>
-              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Waiting for Adoption</div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Number of Children Waiting for Adoption</div>
             </div>
             <div className="text-center">
               <div className={`font-bold text-lg md:text-xl ${hasValue(trends.reunificationRate) ? (trends.reunificationRate > 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
                 {hasValue(trends.reunificationRate) ? `${trends.reunificationRate > 0 ? '+' : ''}${trends.reunificationRate}%` : 'N/A'}
               </div>
-              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Reunification Rate</div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Biological Family Reunification Rate (%)</div>
             </div>
             <div className="text-center col-span-2 md:col-span-1">
               <div className={`font-bold text-lg md:text-xl ${hasValue(trends.familyPreservationCases) ? (trends.familyPreservationCases > 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
                 {hasValue(trends.familyPreservationCases) ? `${trends.familyPreservationCases > 0 ? '+' : ''}${trends.familyPreservationCases}%` : 'N/A'}
               </div>
-              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Family Preservation</div>
+              <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Number of Family Preservation Cases</div>
             </div>
           </div>
         </div>

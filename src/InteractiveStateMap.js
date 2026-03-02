@@ -6,7 +6,7 @@ import { countyData, stateDataByCode, fmt, getGeographyLabel } from './real-data
 // Metric configuration: maps metric names to data fields and formatting
 // Field names match real-data.js countyData structure
 const COUNTY_METRIC_CONFIG = {
-  "Ratio of Licensed Homes to Children in Care": {
+  "Number of Licensed Homes to Children in Care": {
     isRatio: true,
     isPercent: false,
     getValue: (data) => {
@@ -17,21 +17,21 @@ const COUNTY_METRIC_CONFIG = {
     format: (v) => v !== null && v !== undefined ? v.toFixed(2) : 'N/A',
     legendFormat: (v) => v !== null && v !== undefined ? v.toFixed(2) : 'N/A'
   },
-  "Count of Children Waiting For Adoption": {
+  "Number of Children Waiting For Adoption": {
     isRatio: false,
     isPercent: false,
     getValue: (data) => data?.waitingForAdoption ?? null,
     format: fmt,
     legendFormat: fmt
   },
-  "Count of Family Preservation Cases": {
+  "Number of Family Preservation Cases": {
     isRatio: false,
     isPercent: false,
     getValue: (data) => data?.familyPreservationCases ?? null,
     format: fmt,
     legendFormat: fmt
   },
-  "Biological Family Reunification Rate": {
+  "Biological Family Reunification Rate (%)": {
     isRatio: false,
     isPercent: true,
     getValue: (data) => data?.reunificationRate ?? null,
@@ -82,7 +82,7 @@ const stateFips = {
   'VA': '51', 'WA': '53', 'WV': '54', 'WI': '55', 'WY': '56'
 };
 
-const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of Licensed Homes to Children in Care", onCountyClick }) => {
+const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of Licensed Homes to Children in Care", onCountyClick }) => {
   const mapRef = useRef();
   const containerRef = useRef();
   const [hoveredCounty, setHoveredCounty] = useState(null);
@@ -102,7 +102,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Ratio of 
   const [legendExpanded, setLegendExpanded] = useState(false);
 
   // Get metric configuration, fallback to ratio if metric not found
-  const metricConfig = COUNTY_METRIC_CONFIG[selectedMetric] || COUNTY_METRIC_CONFIG["Ratio of Licensed Homes to Children in Care"];
+  const metricConfig = COUNTY_METRIC_CONFIG[selectedMetric] || COUNTY_METRIC_CONFIG["Number of Licensed Homes to Children in Care"];
 
   // Get county data for this state based on selected metric
   const stateCountyData = useMemo(() => 

@@ -39,7 +39,7 @@ const stateNameToKey = {
 // Metric configuration: maps metric names to data fields and formatting
 // Field names match real-data.js: totalChildren, licensedHomes, waitingForAdoption, reunificationRate, familyPreservationCases
 const METRIC_CONFIG = {
-  "Ratio of Licensed Homes to Children in Care": {
+  "Number of Licensed Homes to Children in Care": {
     isRatio: true,
     isPercent: false,
     format: (v) => v !== null && v !== undefined ? v.toFixed(2) : 'N/A',
@@ -53,21 +53,21 @@ const METRIC_CONFIG = {
       return null;
     }
   },
-  "Count of Children Waiting For Adoption": {
+  "Number of Children Waiting For Adoption": {
     isRatio: false,
     isPercent: false,
     format: fmt,
     legendFormat: fmt,
     getFromState: (state) => state?.waitingForAdoption ?? null
   },
-  "Count of Family Preservation Cases": {
+  "Number of Family Preservation Cases": {
     isRatio: false,
     isPercent: false,
     format: fmt,
     legendFormat: fmt,
     getFromState: (state) => state?.familyPreservationCases ?? null
   },
-  "Biological Family Reunification Rate": {
+  "Biological Family Reunification Rate (%)": {
     isRatio: false,
     isPercent: true,
     // reunificationRate is stored as a number like 47 (meaning 47%)
@@ -96,7 +96,7 @@ const getAvailableMetrics = () => {
   return available;
 };
 
-const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adoption", onStateClick }) => {
+const InteractiveUSMap = ({ selectedMetric = "Number of Children Waiting For Adoption", onStateClick }) => {
   const mapRef = useRef();
   const containerRef = useRef();
   const [hoveredState, setHoveredState] = useState(null);
@@ -104,7 +104,7 @@ const InteractiveUSMap = ({ selectedMetric = "Count of Children Waiting For Adop
   const [legendExpanded, setLegendExpanded] = useState(false);
 
   // Get metric configuration, fallback to a default if metric not found
-  const metricConfig = METRIC_CONFIG[selectedMetric] || METRIC_CONFIG["Count of Children Waiting For Adoption"];
+  const metricConfig = METRIC_CONFIG[selectedMetric] || METRIC_CONFIG["Number of Children Waiting For Adoption"];
 
   // Build map data based on selected metric
   const mapData = useMemo(() => {

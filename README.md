@@ -3,7 +3,6 @@
 - [ ] Caption text on the embed card "Brought to you by More Than Enough". Test the look on Codepen
 - [ ] Add form link to "data missing want to rquest it". This would be just for the county metrics view and county org view.
 - [ ] on the metrics page we are going to have a "what does this mean" metrics guide. This is for the county metrics view. Try adding an actual line "what does this data mean?" and it downloads [this PDF](https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/edit?tab=t.0#heading=h.lhvv1cgj8bwi)
-- [ ] Change titles to “Number of Children in Care,” “Number of Family Preservation Cases,” “Number of Children Waiting For Adoption,” etc. Basically add “Number of” everywhere except for Family Reunification Rate (%), but add the word “Biological Family Reunification Rate (%)”
 - [ ] for the historic view, The legend color coding should be green for positive, orange for negative? “Waiting For Adoption” is green and negative
 - [ ] Make sure the title spacing (for example at the county org view) needs to be compressed. 
 - [ ] Also change “Bridge” to “Bridge Organization” in Organization Categories

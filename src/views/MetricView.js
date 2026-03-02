@@ -42,7 +42,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   
   // State for selected metric - default to first available or fallback
   const [selectedMetric, setSelectedMetric] = useState(
-    availableMetrics.length > 0 ? availableMetrics[0] : "Count of Children Waiting For Adoption"
+    availableMetrics.length > 0 ? availableMetrics[0] : "Number of Children Waiting For Adoption"
   );
 
   // Embed state
@@ -161,15 +161,15 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         const nd = historicalData[year]?.national;
         if (!nd) return null;
         switch (selectedMetric) {
-          case "Count of Children Waiting For Adoption":
+          case "Number of Children Waiting For Adoption":
             return nd.childrenWaitingAdoption ?? null;
-          case "Count of Family Preservation Cases":
+          case "Number of Family Preservation Cases":
             return nd.familyPreservationCases ?? null;
-          case "Ratio of Licensed Homes to Children in Care":
+          case "Number of Licensed Homes to Children in Care":
             return (nd.licensedHomes && nd.childrenInCare && nd.childrenInCare > 0)
               ? nd.licensedHomes / nd.childrenInCare
               : null;
-          case "Biological Family Reunification Rate":
+          case "Biological Family Reunification Rate (%)":
             return null; // Not aggregated at national level
           default:
             return null;
@@ -186,15 +186,15 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         const sd = historicalData[year]?.states?.[stateKey];
         if (!sd) return null;
         switch (selectedMetric) {
-          case "Count of Children Waiting For Adoption":
+          case "Number of Children Waiting For Adoption":
             return sd.waitingForAdoption ?? null;
-          case "Count of Family Preservation Cases":
+          case "Number of Family Preservation Cases":
             return sd.familyPreservationCases ?? null;
-          case "Ratio of Licensed Homes to Children in Care":
+          case "Number of Licensed Homes to Children in Care":
             return (sd.licensedHomes && sd.totalChildren && sd.totalChildren > 0)
               ? sd.licensedHomes / sd.totalChildren
               : null;
-          case "Biological Family Reunification Rate":
+          case "Biological Family Reunification Rate (%)":
             return sd.reunificationRate ?? null;
           default:
             return null;
@@ -211,8 +211,8 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
     // Need at least one non-null value to show anything useful
     if (values.every(v => v === null)) return null;
 
-    const isRatio = selectedMetric === "Ratio of Licensed Homes to Children in Care";
-    const isPercent = selectedMetric === "Biological Family Reunification Rate";
+    const isRatio = selectedMetric === "Number of Licensed Homes to Children in Care";
+    const isPercent = selectedMetric === "Biological Family Reunification Rate (%)";
 
     const formatLabel = (v) => {
       if (v === null || v === undefined) return 'N/A';
@@ -224,16 +224,16 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
     // Build a descriptive title
     let title;
     switch (selectedMetric) {
-      case "Count of Children Waiting For Adoption":
+      case "Number of Children Waiting For Adoption":
         title = `Children Waiting For Adoption in ${regionName}`;
         break;
-      case "Count of Family Preservation Cases":
+      case "Number of Family Preservation Cases":
         title = `Family Preservation Cases in ${regionName}`;
         break;
-      case "Ratio of Licensed Homes to Children in Care":
+      case "Number of Licensed Homes to Children in Care":
         title = `Licensed Homes per Child in Care in ${regionName}`;
         break;
-      case "Biological Family Reunification Rate":
+      case "Biological Family Reunification Rate (%)":
         title = `Reunification Rate in ${regionName}`;
         break;
       default:
@@ -411,7 +411,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                   <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-16 h-16 flex-shrink-0" />
                   <div className="space-y-2">
                     <div><span className="text-xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Waiting For Adoption</div>
+                    <div className="text-sm text-mte-charcoal font-lato">Number of Children Waiting For Adoption</div>
                     <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.childrenAdopted)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
                     <div className="text-sm text-mte-charcoal font-lato">Adopted FY 2023</div>
                   </div>
@@ -474,7 +474,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div><span className="text-xl font-black text-mte-blue">{fmt(data.totalChildren)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
                     <div className="text-sm text-mte-charcoal font-lato">in Care</div>
                     <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.licensedHomes)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Licensed Foster Homes</div>
+                    <div className="text-sm text-mte-charcoal font-lato">Number of Licensed Foster Homes</div>
                   </div>
                 </div>
               </div>
@@ -484,7 +484,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                   <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-16 h-16 flex-shrink-0" />
                   <div className="space-y-2">
                     <div><span className="text-xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Waiting for Adoption</div>
+                    <div className="text-sm text-mte-charcoal font-lato">Number of Children Waiting for Adoption</div>
                   </div>
                 </div>
               </div>
@@ -494,9 +494,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                   <img src={BiologicalFamilyIcon} alt="Reunification" className="w-16 h-16 flex-shrink-0" />
                   <div className="space-y-2">
                     <div><span className="text-xl font-black text-mte-blue">{fmtPct(data.reunificationRate)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Reunification Rate</div>
+                    <div className="text-sm text-mte-charcoal font-lato">Biological Family Reunification Rate (%)</div>
                     <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.familyPreservationCases)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Family Preservation Cases</div>
+                    <div className="text-sm text-mte-charcoal font-lato">Number of Family Preservation Cases</div>
                   </div>
                 </div>
               </div>
@@ -546,11 +546,11 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               </HoverableText>
             </div>
             <div className="max-w-sm mx-auto">
-              <MetricRow label="Children in Care" value={fmt(data.childrenInCare)} tooltip="Total number of children in the foster care system." source={src} />
+              <MetricRow label="Number of Children in Care" value={fmt(data.childrenInCare)} tooltip="Total number of children in the foster care system." source={src} />
               <MetricRow label="Children in Family-based Foster Care" value={fmt(data.childrenInFamily)} tooltip="Children placed with licensed foster families." source={src} />
               <MetricRow label="Children in Kinship Care" value={fmt(data.childrenInKinship)} tooltip="Children placed with relatives or family friends." source={src} />
               <MetricRow label="Children Placed Out-of-County" value={fmt(data.childrenOutOfCounty)} tooltip="Children from this county placed in care outside county boundaries." source={src} />
-              <MetricRow label="Licensed Foster Homes" value={fmt(data.licensedHomes)} tooltip="Total number of state-licensed foster homes in this county." source={src} />
+              <MetricRow label="Number of Licensed Foster Homes" value={fmt(data.licensedHomes)} tooltip="Total number of state-licensed foster homes in this county." source={src} />
             </div>
           </div>
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
@@ -561,7 +561,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             <div className="flex justify-center items-center gap-1 mb-4">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</div>
               <HoverableText tooltip="Children whose parental rights have been terminated and are legally free for adoption.">
-                <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Children Waiting For Adoption</div>
+                <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Number of Children Waiting For Adoption</div>
               </HoverableText>
             </div>
             <div className="max-w-md mx-auto">
@@ -577,7 +577,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             <div className="flex justify-center items-center gap-1 mb-4">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.familyPreservationCases)}</div>
               <HoverableText tooltip="Active cases providing intensive services to prevent foster care placement.">
-                <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Family Preservation Cases</div>
+                <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Number of Family Preservation Cases</div>
               </HoverableText>
             </div>
             <div className="flex justify-center items-center gap-1">
@@ -616,11 +616,11 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             <div className="bg-white rounded-2xl shadow-mte-card px-6 py-6 text-center">
               <h3 className="text-2xl font-nexa text-mte-black mb-4">Statewide Data Summary for {data.state}</h3>
               <div className="flex flex-wrap justify-around gap-6 md:gap-10 text-center">
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.totalChildren)}</p><p className="text-base text-mte-charcoal font-lato">Children in Care</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.licensedHomes)}</p><p className="text-base text-mte-charcoal font-lato">Licensed Foster Homes</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.waitingForAdoption)}</p><p className="text-base text-mte-charcoal font-lato">Children Waiting For Adoption</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(stateInfo.reunificationRate)}</p><p className="text-base text-mte-charcoal font-lato">Biological Family Reunification Rate</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.familyPreservationCases)}</p><p className="text-base text-mte-charcoal font-lato">Family Preservation Cases</p></div>
+                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.totalChildren)}</p><p className="text-base text-mte-charcoal font-lato">Number of Children in Care</p></div>
+                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.licensedHomes)}</p><p className="text-base text-mte-charcoal font-lato">Number of Licensed Foster Homes</p></div>
+                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.waitingForAdoption)}</p><p className="text-base text-mte-charcoal font-lato">Number of Children Waiting For Adoption</p></div>
+                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(stateInfo.reunificationRate)}</p><p className="text-base text-mte-charcoal font-lato">Biological Family Reunification Rate (%)</p></div>
+                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.familyPreservationCases)}</p><p className="text-base text-mte-charcoal font-lato">Number of Family Preservation Cases</p></div>
               </div>
             </div>
           </section>

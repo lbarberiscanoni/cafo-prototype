@@ -5,7 +5,6 @@
 - [ ] on the metrics page we are going to have a "what does this mean" metrics guide. This is for the county metrics view. Try adding an actual line "what does this data mean?" and it downloads [this PDF](https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/edit?tab=t.0#heading=h.lhvv1cgj8bwi)
 
 - [ ] I think the icon for “Church” should be grey, not white in the legend
-- [ ] on county metrics view, make the first card equal width to the other cards
 - [ ] "Boston Region" > "Boston Region County"
 - [ ] Add "Massachusets" to the regional place
 - [ ] Review the data mapping for the regions

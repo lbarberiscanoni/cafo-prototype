@@ -507,8 +507,8 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
 
       {/* County-specific: Total Churches + Population Card */}
       {showCountyDetails && (
-        <div className="max-w-7xl mx-auto px-4 mt-6">
-          <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center mx-auto" style={{ maxWidth: '800px' }}>
+        <div className="max-w-7xl mx-auto px-4 mt-6 flex justify-center">
+          <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center w-full md:w-[calc(50%-1rem)]">
             <div className="flex justify-center gap-12">
               <div className="flex flex-col items-center">
                 <img src={ChurchIcon} alt="Church" className="w-20 h-20 mb-3" />
@@ -615,12 +615,12 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           <section className="max-w-7xl mx-auto px-4">
             <div className="bg-white rounded-2xl shadow-mte-card px-6 py-6 text-center">
               <h3 className="text-2xl font-nexa text-mte-black mb-4">Statewide Data Summary for {data.state}</h3>
-              <div className="flex flex-wrap justify-around gap-6 md:gap-10 text-center">
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.totalChildren)}</p><p className="text-base text-mte-charcoal font-lato">Number of Children in Care</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.licensedHomes)}</p><p className="text-base text-mte-charcoal font-lato">Number of Licensed Foster Homes</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.waitingForAdoption)}</p><p className="text-base text-mte-charcoal font-lato">Number of Children Waiting For Adoption</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(stateInfo.reunificationRate)}</p><p className="text-base text-mte-charcoal font-lato">Biological Family Reunification Rate (%)</p></div>
-                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.familyPreservationCases)}</p><p className="text-base text-mte-charcoal font-lato">Number of Family Preservation Cases</p></div>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 text-center">
+                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.totalChildren)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Children in Care</p></div>
+                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.licensedHomes)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Licensed Foster Homes</p></div>
+                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.waitingForAdoption)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Children Waiting For Adoption</p></div>
+                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(stateInfo.reunificationRate)}</p><p className="text-sm text-mte-charcoal font-lato">Biological Family Reunification Rate (%)</p></div>
+                <div className="col-span-2 md:col-span-1"><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.familyPreservationCases)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Family Preservation Cases</p></div>
               </div>
             </div>
           </section>

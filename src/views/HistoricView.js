@@ -548,6 +548,14 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
           <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato -mt-5 md:-mt-6">
             Historical trends and data analysis
           </p>
+          {isEmbed && (
+            <p className="text-xs md:text-sm text-mte-charcoal text-center px-4 font-lato mt-1">
+              Brought to you by More Than Enough, CAFO's US Foster Care Initiative.{' '}
+              <a href="https://cafo-prototype.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-mte-blue hover:underline">
+                Visit the full dashboard for more data.
+              </a>
+            </p>
+          )}
         </div>
       </header>
 
@@ -867,20 +875,6 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
 
       {/* Footer */}
       <div className={`py-4 px-6 ${isEmbed ? 'flex flex-col md:flex-row items-start md:items-center justify-between gap-3' : 'text-right'}`}>
-        {isEmbed && (
-          <p className="text-sm font-lato text-mte-charcoal">
-            Brought to you by More Than Enough, CAFO's US Foster Care Initiative.{' '}
-            <a 
-              href="https://cafo-prototype.vercel.app/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-mte-blue hover:underline"
-            >
-              Visit the full dashboard
-            </a>{' '}
-            for more data — including data for other counties and states.
-          </p>
-        )}
         <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer" className={isEmbed ? '' : 'self-center'}>
           <img src={MTELogo} alt="More Than Enough" className="h-6 md:h-8 inline-block" />  
         </a>

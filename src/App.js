@@ -175,7 +175,7 @@ function App() {
     if (region === "landing") {
       // Clear hash if we're on landing
       if (window.location.hash) {
-        window.history.replaceState(null, '', window.location.pathname);
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
       }
       return;
     }
@@ -191,10 +191,11 @@ function App() {
       hash = `#/county/${selectedRegion.id}/${view}`;
     }
 
-    // Update URL if hash changed
+    // Update URL if hash changed (use replaceState to preserve query params like ?embed=true)
     if (hash && window.location.hash !== hash) {
-      window.location.hash = hash;
-      console.log('✅ URL updated:', hash); // Debug log - can remove later
+      const newUrl = window.location.pathname + window.location.search + hash;
+      window.history.replaceState(null, '', newUrl);
+      console.log('✅ URL updated:', newUrl); // Debug log - can remove later
     }
   }, [region, view, selectedRegion]);
   // ============================================

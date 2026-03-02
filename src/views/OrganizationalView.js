@@ -332,6 +332,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   const [selectedOrg, setSelectedOrg] = useState(null); // Track selected organization from map click
   const cardContainerRef = useRef(null); // Ref for scrolling to org cards
 
+  // Embed state
+  const isEmbed = useMemo(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('embed') === 'true';
+  }, []);
+
   // FIX #7: Removed countySearchRef, countySearchQuery, isCountyDropdownOpen state
   // FIX #7: Removed click-outside useEffect for county search
   // FIX #7: Removed filteredCounties memo
@@ -1451,9 +1457,23 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
       </div>
 
       {/* Footer */}
-      <div className="py-4 text-right pr-6 border-t border-mte-light-grey mt-auto">
-        <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer" className="self-center">
-          <img src={MTELogo} alt="More Than Enough" className="h-8 inline-block" /> 
+      <div className={`py-4 px-6 border-t border-mte-light-grey mt-auto ${isEmbed ? 'flex flex-col md:flex-row items-start md:items-center justify-between gap-3' : 'text-right'}`}>
+        {isEmbed && (
+          <p className="text-sm font-lato text-mte-charcoal">
+            Brought to you by More Than Enough, CAFO's US Foster Care Initiative.{' '}
+            <a
+              href="https://cafo-prototype.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-mte-blue hover:underline"
+            >
+              Visit the full dashboard
+            </a>{' '}
+            for more data.
+          </p>
+        )}
+        <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer">
+          <img src={MTELogo} alt="More Than Enough" className="h-6 md:h-8 inline-block" />
         </a>
       </div>
     </div>

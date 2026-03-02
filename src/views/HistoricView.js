@@ -869,7 +869,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       <div className={`py-4 px-6 ${isEmbed ? 'flex flex-col md:flex-row items-start md:items-center justify-between gap-3' : 'text-right'}`}>
         {isEmbed && (
           <p className="text-sm font-lato text-mte-charcoal">
-            This snapshot is powered by More Than Enough, CAFO's US Foster Care Initiative.{' '}
+            Brought to you by More Than Enough, CAFO's US Foster Care Initiative.{' '}
             <a 
               href="https://cafo-prototype.vercel.app/" 
               target="_blank" 

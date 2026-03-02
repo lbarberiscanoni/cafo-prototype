@@ -733,9 +733,23 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         );
       })()}
 
-      <footer className="py-6 pr-6 flex justify-end">
-        <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer" className="self-center">
-          <img src={MTELogo} alt="More Than Enough Logo" className="h-8" /> 
+      <footer className={`py-4 px-6 ${isEmbed ? 'flex flex-col md:flex-row items-start md:items-center justify-between gap-3' : 'flex justify-end'}`}>
+        {isEmbed && (
+          <p className="text-sm font-lato text-mte-charcoal">
+            Brought to you by More Than Enough, CAFO's US Foster Care Initiative.{' '}
+            <a
+              href="https://cafo-prototype.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-mte-blue hover:underline"
+            >
+              Visit the full dashboard
+            </a>{' '}
+            for more data.
+          </p>
+        )}
+        <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer">
+          <img src={MTELogo} alt="More Than Enough Logo" className="h-6 md:h-8 inline-block" />
         </a>
       </footer>
     </div>

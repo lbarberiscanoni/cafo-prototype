@@ -6,7 +6,6 @@
 
 - [ ] Make sure the title spacing (for example at the county org view) needs to be compressed. 
 - [ ] I think the icon for “Church” should be grey, not white in the legend
-- [ ] On teh home page, move the explore the map closer to the bar
 - [ ] on county metrics view, make the first card equal width to the other cards
 - [ ] "Boston Region" > "Boston Region County"
 - [ ] Add "Massachusets" to the regional place

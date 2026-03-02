@@ -193,11 +193,11 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
         </div>
 
         {/* CTA - Single Button */}
-        <div className="pointer-events-none fixed inset-x-0 bottom-4 md:bottom-6 z-10 flex justify-center px-2 md:px-4">
+        <div className="mt-6 flex justify-center px-2 md:px-4">
           <button
             type="button"
             onClick={() => onSelectRegion?.({ level: 'national', id: 'usa', name: 'United States', view: 'organizational' })}
-            className="pointer-events-auto inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-base md:text-lg font-lato font-semibold text-white bg-mte-blue shadow-mte-card hover:bg-mte-blue-80 focus:outline-none focus:ring-2 focus:ring-mte-blue focus:ring-offset-2 transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-base md:text-lg font-lato font-semibold text-white bg-mte-blue shadow-mte-card hover:bg-mte-blue-80 focus:outline-none focus:ring-2 focus:ring-mte-blue focus:ring-offset-2 transition-colors"
           >
             Explore the map <span aria-hidden="true">→</span>
           </button>

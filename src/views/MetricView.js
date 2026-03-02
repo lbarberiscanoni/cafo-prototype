@@ -63,7 +63,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   // Embed state
   const isEmbed = useMemo(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('embed') === 'true';
+    return urlParams.get('embed') === 'true' || window.location.href.includes('embed=true');
   }, []);
   const [showEmbedModal, setShowEmbedModal] = useState(false);
   const [embedCopied, setEmbedCopied] = useState(false);

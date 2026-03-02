@@ -335,7 +335,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   // Embed state
   const isEmbed = useMemo(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('embed') === 'true';
+    return urlParams.get('embed') === 'true' || window.location.href.includes('embed=true');
   }, []);
 
   // FIX #7: Removed countySearchRef, countySearchQuery, isCountyDropdownOpen state

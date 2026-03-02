@@ -346,7 +346,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
   // Detect embed mode from URL parameter
   const isEmbed = useMemo(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('embed') === 'true';
+    return urlParams.get('embed') === 'true' || window.location.href.includes('embed=true');
   }, []);
 
   // State for selected metrics in each category - each card tracks independently

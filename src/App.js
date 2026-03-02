@@ -119,8 +119,9 @@ function App() {
   const [view, setView] = useState("metric");
   const [selectedRegion, setSelectedRegion] = useState(null);
 
-  // Detect embed mode from URL parameter
-  const isEmbed = new URLSearchParams(window.location.search).get('embed') === 'true';
+  // Detect embed mode from URL parameter (check both search params and full URL for robustness)
+  const isEmbed = new URLSearchParams(window.location.search).get('embed') === 'true'
+    || window.location.href.includes('embed=true');
 
   // ============================================
   // STEP 2: URL READING - Read hash on initial load

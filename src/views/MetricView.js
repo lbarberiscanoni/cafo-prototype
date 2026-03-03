@@ -123,8 +123,10 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         const county = countyData[regionId] || countyData['butler-al'];
         const countyParts = county.name.split(',');
         const geoLabel = county.geographyLabel || 'County';
-        const formattedCountyName = countyParts.length >= 2 
-          ? `${countyParts[0].trim()} ${geoLabel},${countyParts.slice(1).join(',')}` 
+        const countyNamePart = countyParts[0].trim();
+        const alreadyHasLabel = countyNamePart.toLowerCase().includes(geoLabel.toLowerCase());
+        const formattedCountyName = countyParts.length >= 2
+          ? `${countyNamePart}${alreadyHasLabel ? '' : ` ${geoLabel}`},${countyParts.slice(1).join(',')}`
           : county.name;
         return {
           name: formattedCountyName,

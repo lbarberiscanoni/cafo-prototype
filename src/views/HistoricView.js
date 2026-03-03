@@ -430,9 +430,13 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     }
     if (regionLevel === 'county' && countyData[regionId]) {
       const parts = countyData[regionId].name.split(',');
-      return parts.length >= 2 
-        ? `${parts[0].trim()} County,${parts.slice(1).join(',')}` 
-        : countyData[regionId].name;
+      if (parts.length >= 2) {
+        const namePart = parts[0].trim();
+        const geoLabel = countyData[regionId].geographyLabel || 'County';
+        const alreadyHasLabel = namePart.toLowerCase().includes(geoLabel.toLowerCase());
+        return `${namePart}${alreadyHasLabel ? '' : ` ${geoLabel}`},${parts.slice(1).join(',')}`;
+      }
+      return countyData[regionId].name;
     }
     return regionId || 'Unknown Region';
   };

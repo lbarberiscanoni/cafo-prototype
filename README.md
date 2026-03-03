@@ -1,5 +1,4 @@
 - [ ] I think the icon for “Church” should be grey, not white in the legend
-- [ ] "Boston Region" > "Boston Region County"
 - [ ] Add "Massachusets" to the regional place
 - [ ] Review the data mapping for the regions
 

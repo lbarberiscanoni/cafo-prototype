@@ -1,16 +1,8 @@
 - [ ] I think the icon for “Church” should be grey, not white in the legend
 
 Questions for Leah 
-- [ ] "Your Next Steps" link
-- [ ] Request missing data link
-- [ ] for the historic view, The legend color coding should be green for positive, orange for negative? “Waiting For Adoption” is green and negative
-    - The color logic is contextual — for some metrics, a decrease is good (green) and an increase is bad (orange), and vice versa. Currently:
-        `Children in Care: < 0 = green (fewer kids in care = good) — correct
-        Licensed Homes: > 0 = green (more homes = good) — correct
-        Waiting For Adoption: < 0 = green (fewer kids waiting = good) — correct
-        Reunification Rate: > 0 = green (higher rate = good) — correct
-        Family Preservation Cases: > 0 = green (more cases = good) — correct
-        The logic is actually correct already — it uses domain-aware coloring where green = positive outcome, not positive number. For "Waiting For Adoption", a negative number (fewer children waiting) is the positive outcome, so it's green when negative.`
+- [ ] "Your Next Steps" linkt missing data link
+- [ ] Reques
 - [ ] County-to-Regions 
     - CT 2024: Had 8 county-named entries (Fairfield, Hartford, etc.)
     - CT 2025: Switched to 6 coded regions (R1-R6) — Connecticut reorganized their data structure between snapshots

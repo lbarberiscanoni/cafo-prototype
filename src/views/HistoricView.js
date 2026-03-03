@@ -437,7 +437,19 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
 
   // Build county options for searchable dropdown (filtered to current state)
   const countyOptionsForState = useMemo(() => {
-    return getCountiesForCurrentState().map(c => ({ id: c.id, label: c.name }));
+    let stateCode = 'al';
+    if (regionId) {
+      if (regionLevel === 'county') {
+        const parts = regionId.split('-');
+        stateCode = parts[parts.length - 1].toLowerCase();
+      } else if (regionLevel === 'state' && stateData[regionId]) {
+        stateCode = stateData[regionId].code?.toLowerCase() || regionId.slice(0, 2);
+      }
+    }
+    return Object.entries(countyData)
+      .filter(([id]) => id.split('-').pop() === stateCode)
+      .map(([id, d]) => ({ id, label: d.name.split(',')[0].trim() }))
+      .sort((a, b) => a.label.localeCompare(b.label));
   }, [regionLevel, regionId]);
 
   // Handler for county select

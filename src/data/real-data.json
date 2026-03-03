@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-03-03T00:32:30.254Z",
+    "generated": "2026-03-03T07:00:55.570Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-03-02T07:06:41.093Z",
+        "generated": "2026-03-03T07:00:48.735Z",
         "years": [
           2021,
           2022,
@@ -33,7 +33,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-03-02T07:06:41.303Z",
+        "generated": "2026-03-03T07:00:48.928Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -61,7 +61,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-03-03T00:32:22.574Z",
+        "generated": "2026-03-03T07:00:52.973Z",
         "totalRecords": 5943,
         "stateCount": 51,
         "byYear": {
@@ -91,7 +91,7 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-03-02T07:06:48.088Z",
+        "generated": "2026-03-03T07:00:55.355Z",
         "organizationCount": 490,
         "networkCount": 20,
         "stats": {
@@ -139,13 +139,13 @@
       },
       "coordinates": {
         "source": "county-coordinates.json",
-        "merged": 5907
+        "merged": 5902
       }
     },
     "counts": {
       "states": 52,
       "countyRecords": 5943,
-      "countiesWithCoordinates": 5907,
+      "countiesWithCoordinates": 5902,
       "organizations": 490,
       "organizationsWithDescriptions": 287,
       "networks": 20
@@ -44960,11 +44960,7 @@
           "childrenWaitingForAdoption": 353,
           "reunificationRate": 0.5972696245733788,
           "familyPreservationCases": 1673,
-          "churches": null,
-          "coordinates": {
-            "lat": 42.36,
-            "lng": -71.06
-          }
+          "churches": null
         },
         {
           "name": "Central MA Region",
@@ -44979,11 +44975,7 @@
           "childrenWaitingForAdoption": 571,
           "reunificationRate": 0.5874439461883408,
           "familyPreservationCases": 3509,
-          "churches": null,
-          "coordinates": {
-            "lat": 42.26,
-            "lng": -71.8
-          }
+          "churches": null
         },
         {
           "name": "Northern Region",
@@ -44998,11 +44990,7 @@
           "childrenWaitingForAdoption": 461,
           "reunificationRate": 0.7024793388429752,
           "familyPreservationCases": 2547,
-          "churches": null,
-          "coordinates": {
-            "lat": 42.71,
-            "lng": -71.16
-          }
+          "churches": null
         },
         {
           "name": "Southern Region",
@@ -45017,11 +45005,7 @@
           "childrenWaitingForAdoption": 618,
           "reunificationRate": 0.5802310654685494,
           "familyPreservationCases": 3247,
-          "churches": null,
-          "coordinates": {
-            "lat": 42.08,
-            "lng": -71.02
-          }
+          "churches": null
         },
         {
           "name": "Western Region",
@@ -45036,11 +45020,7 @@
           "childrenWaitingForAdoption": 670,
           "reunificationRate": null,
           "familyPreservationCases": 2894,
-          "churches": null,
-          "coordinates": {
-            "lat": 42.1,
-            "lng": -72.59
-          }
+          "churches": null
         }
       ]
     },

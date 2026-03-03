@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-02T07:06:48.215Z",
+  "timestamp": "2026-03-03T07:00:55.467Z",
   "dataDir": "./",
   "checks": [
     {
@@ -111,7 +111,7 @@
       "name": "has_records",
       "passed": true,
       "expected": "> 0 records",
-      "actual": 5977,
+      "actual": 5943,
       "message": null
     },
     {
@@ -151,7 +151,7 @@
       "name": "null_preservation",
       "passed": true,
       "expected": "nulls preserved",
-      "actual": "822 null childrenInCare values",
+      "actual": "789 null childrenInCare values",
       "message": null
     },
     {

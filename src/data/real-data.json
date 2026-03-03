@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated": "2026-03-03T00:12:36.546Z",
+    "generated": "2026-03-03T00:32:30.254Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
@@ -61,16 +61,16 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-03-03T00:12:27.959Z",
-        "totalRecords": 5976,
+        "generated": "2026-03-03T00:32:22.574Z",
+        "totalRecords": 5943,
         "stateCount": 51,
         "byYear": {
-          "2024": 3055,
+          "2024": 3022,
           "2025": 2921
         },
         "byGeographyType": {
           "county": 5835,
-          "region": 75,
+          "region": 42,
           "district": 2,
           "city": 40,
           "districtOffice": 24
@@ -82,10 +82,10 @@
           "KY": 120
         },
         "nullCounts": {
-          "childrenInCare": 822,
-          "fosterKinshipHomes": 2796,
-          "reunificationRate": 3491,
-          "childrenAdopted": 100,
+          "childrenInCare": 789,
+          "fosterKinshipHomes": 2763,
+          "reunificationRate": 3458,
+          "childrenAdopted": 106,
           "churches": 99
         }
       },
@@ -139,13 +139,13 @@
       },
       "coordinates": {
         "source": "county-coordinates.json",
-        "merged": 5935
+        "merged": 5907
       }
     },
     "counts": {
       "states": 52,
-      "countyRecords": 5976,
-      "countiesWithCoordinates": 5935,
+      "countyRecords": 5943,
+      "countiesWithCoordinates": 5907,
       "organizations": 490,
       "organizationsWithDescriptions": 287,
       "networks": 20
@@ -44960,7 +44960,11 @@
           "childrenWaitingForAdoption": 353,
           "reunificationRate": 0.5972696245733788,
           "familyPreservationCases": 1673,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 42.36,
+            "lng": -71.06
+          }
         },
         {
           "name": "Central MA Region",
@@ -44975,7 +44979,11 @@
           "childrenWaitingForAdoption": 571,
           "reunificationRate": 0.5874439461883408,
           "familyPreservationCases": 3509,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 42.26,
+            "lng": -71.8
+          }
         },
         {
           "name": "Northern Region",
@@ -44990,7 +44998,11 @@
           "childrenWaitingForAdoption": 461,
           "reunificationRate": 0.7024793388429752,
           "familyPreservationCases": 2547,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 42.71,
+            "lng": -71.16
+          }
         },
         {
           "name": "Southern Region",
@@ -45005,7 +45017,11 @@
           "childrenWaitingForAdoption": 618,
           "reunificationRate": 0.5802310654685494,
           "familyPreservationCases": 3247,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 42.08,
+            "lng": -71.02
+          }
         },
         {
           "name": "Western Region",
@@ -45020,7 +45036,11 @@
           "childrenWaitingForAdoption": 670,
           "reunificationRate": null,
           "familyPreservationCases": 2894,
-          "churches": null
+          "churches": null,
+          "coordinates": {
+            "lat": 42.1,
+            "lng": -72.59
+          }
         }
       ]
     },
@@ -109561,747 +109581,6 @@
       },
       "counties": [
         {
-          "name": "Adams",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 20613,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 24,
-          "coordinates": {
-            "lat": 46.98,
-            "lng": -118.56
-          }
-        },
-        {
-          "name": "Asotin",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 22285,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 17,
-          "coordinates": {
-            "lat": 46.19,
-            "lng": -117.21
-          }
-        },
-        {
-          "name": "Benton",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 206873,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 98,
-          "coordinates": {
-            "lat": 46.24,
-            "lng": -119.52
-          }
-        },
-        {
-          "name": "Chelan",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 79074,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 63,
-          "coordinates": {
-            "lat": 47.86,
-            "lng": -120.62
-          }
-        },
-        {
-          "name": "Clallam",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 77155,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 61,
-          "coordinates": {
-            "lat": 48.11,
-            "lng": -123.94
-          }
-        },
-        {
-          "name": "Clark",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 503311,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 181,
-          "coordinates": {
-            "lat": 45.78,
-            "lng": -122.48
-          }
-        },
-        {
-          "name": "Columbia",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 3952,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 8,
-          "coordinates": {
-            "lat": 46.3,
-            "lng": -117.91
-          }
-        },
-        {
-          "name": "Cowlitz",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 110730,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 92,
-          "coordinates": {
-            "lat": 46.19,
-            "lng": -122.68
-          }
-        },
-        {
-          "name": "Douglas",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 42938,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 27,
-          "coordinates": {
-            "lat": 47.74,
-            "lng": -119.69
-          }
-        },
-        {
-          "name": "Ferry",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 7178,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 9,
-          "coordinates": {
-            "lat": 48.47,
-            "lng": -118.52
-          }
-        },
-        {
-          "name": "Franklin",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 96749,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 39,
-          "coordinates": {
-            "lat": 46.54,
-            "lng": -118.89
-          }
-        },
-        {
-          "name": "Garfield",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 2286,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 5,
-          "coordinates": {
-            "lat": 46.43,
-            "lng": -117.54
-          }
-        },
-        {
-          "name": "Grant",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 99123,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 78,
-          "coordinates": {
-            "lat": 47.21,
-            "lng": -119.45
-          }
-        },
-        {
-          "name": "Grays Harbor",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 75636,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 75,
-          "coordinates": {
-            "lat": 47.15,
-            "lng": -123.76
-          }
-        },
-        {
-          "name": "Island",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 86857,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 51,
-          "coordinates": {
-            "lat": 48.16,
-            "lng": -122.68
-          }
-        },
-        {
-          "name": "Jefferson",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 32977,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 24,
-          "coordinates": {
-            "lat": 47.76,
-            "lng": -123.51
-          }
-        },
-        {
-          "name": "King",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 2269675,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 828,
-          "coordinates": {
-            "lat": 47.49,
-            "lng": -121.84
-          }
-        },
-        {
-          "name": "Kitsap",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 275611,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 151,
-          "coordinates": {
-            "lat": 47.64,
-            "lng": -122.65
-          }
-        },
-        {
-          "name": "Kittitas",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 44337,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 32,
-          "coordinates": {
-            "lat": 47.12,
-            "lng": -120.68
-          }
-        },
-        {
-          "name": "Klickitat",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 22735,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 28,
-          "coordinates": {
-            "lat": 45.87,
-            "lng": -120.78
-          }
-        },
-        {
-          "name": "Lewis",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 82149,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 77,
-          "coordinates": {
-            "lat": 46.58,
-            "lng": -122.38
-          }
-        },
-        {
-          "name": "Lincoln",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 10876,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 29,
-          "coordinates": {
-            "lat": 47.58,
-            "lng": -118.41
-          }
-        },
-        {
-          "name": "Mason",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 65726,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 42,
-          "coordinates": {
-            "lat": 47.35,
-            "lng": -123.18
-          }
-        },
-        {
-          "name": "Okanogan",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 42104,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 56,
-          "coordinates": {
-            "lat": 48.55,
-            "lng": -119.74
-          }
-        },
-        {
-          "name": "Pacific",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 23365,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 31,
-          "coordinates": {
-            "lat": 46.56,
-            "lng": -123.78
-          }
-        },
-        {
-          "name": "Pend Oreille",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 13401,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 15,
-          "coordinates": {
-            "lat": 48.53,
-            "lng": -117.27
-          }
-        },
-        {
-          "name": "Pierce",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 921130,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 426,
-          "coordinates": {
-            "lat": 47.04,
-            "lng": -122.13
-          }
-        },
-        {
-          "name": "San Juan",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 17788,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 10,
-          "coordinates": {
-            "lat": 48.53,
-            "lng": -123.02
-          }
-        },
-        {
-          "name": "Skagit",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 129523,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 90,
-          "coordinates": {
-            "lat": 48.48,
-            "lng": -121.8
-          }
-        },
-        {
-          "name": "Skamania",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 12036,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 11,
-          "coordinates": {
-            "lat": 46.02,
-            "lng": -121.92
-          }
-        },
-        {
-          "name": "Snohomish",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 827957,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 321,
-          "coordinates": {
-            "lat": 48.04,
-            "lng": -121.76
-          }
-        },
-        {
-          "name": "Spokane",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 539339,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 283,
-          "coordinates": {
-            "lat": 47.62,
-            "lng": -117.4
-          }
-        },
-        {
-          "name": "Stevens",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 46445,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 45,
-          "coordinates": {
-            "lat": 48.4,
-            "lng": -117.86
-          }
-        },
-        {
-          "name": "Thurston",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 294793,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 124,
-          "coordinates": {
-            "lat": 46.93,
-            "lng": -122.78
-          }
-        },
-        {
-          "name": "Wahkiakum",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 4422,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 7,
-          "coordinates": {
-            "lat": 46.29,
-            "lng": -123.42
-          }
-        },
-        {
-          "name": "Walla Walla",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 62584,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 41,
-          "coordinates": {
-            "lat": 46.23,
-            "lng": -118.48
-          }
-        },
-        {
-          "name": "Whatcom",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 226847,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 129,
-          "coordinates": {
-            "lat": 48.85,
-            "lng": -122.08
-          }
-        },
-        {
-          "name": "Whitman",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 47973,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 49,
-          "coordinates": {
-            "lat": 46.9,
-            "lng": -117.52
-          }
-        },
-        {
-          "name": "Yakima",
-          "geographyType": "region",
-          "year": 2024,
-          "population": 256728,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 155,
-          "coordinates": {
-            "lat": 46.46,
-            "lng": -120.51
-          }
-        },
-        {
           "name": "Region 1",
           "geographyType": "region",
           "year": 2025,
@@ -110422,6 +109701,138 @@
           "childrenWaitingForAdoption": null,
           "familyPreservationCases": null,
           "churches": null
+        },
+        {
+          "name": "Region 1",
+          "geographyType": "region",
+          "year": 2024,
+          "population": 1040171,
+          "childrenInCare": null,
+          "childrenInFosterCare": null,
+          "childrenInKinshipCare": null,
+          "childrenPlacedOutOfCounty": null,
+          "fosterKinshipHomes": null,
+          "fosterHomes": null,
+          "kinshipHomes": null,
+          "childrenWaitingForAdoption": null,
+          "reunificationRate": null,
+          "familyPreservationCases": null,
+          "churches": 749,
+          "childrenAdopted": null,
+          "coordinates": {
+            "lat": 47.66,
+            "lng": -117.43
+          }
+        },
+        {
+          "name": "Region 2",
+          "geographyType": "region",
+          "year": 2024,
+          "population": 627422,
+          "childrenInCare": null,
+          "childrenInFosterCare": null,
+          "childrenInKinshipCare": null,
+          "childrenPlacedOutOfCounty": null,
+          "fosterKinshipHomes": null,
+          "fosterHomes": null,
+          "kinshipHomes": null,
+          "childrenWaitingForAdoption": null,
+          "reunificationRate": null,
+          "familyPreservationCases": null,
+          "churches": 352,
+          "childrenAdopted": null,
+          "coordinates": {
+            "lat": 46.6,
+            "lng": -120.51
+          }
+        },
+        {
+          "name": "Region 6",
+          "geographyType": "region",
+          "year": 2024,
+          "population": 1282300,
+          "childrenInCare": null,
+          "childrenInFosterCare": null,
+          "childrenInKinshipCare": null,
+          "childrenPlacedOutOfCounty": null,
+          "fosterKinshipHomes": null,
+          "fosterHomes": null,
+          "kinshipHomes": null,
+          "childrenWaitingForAdoption": null,
+          "reunificationRate": null,
+          "familyPreservationCases": null,
+          "churches": 725,
+          "childrenAdopted": null,
+          "coordinates": {
+            "lat": 45.64,
+            "lng": -122.66
+          }
+        },
+        {
+          "name": "Region 3",
+          "geographyType": "region",
+          "year": 2024,
+          "population": 1288972,
+          "childrenInCare": null,
+          "childrenInFosterCare": null,
+          "childrenInKinshipCare": null,
+          "childrenPlacedOutOfCounty": null,
+          "fosterKinshipHomes": null,
+          "fosterHomes": null,
+          "kinshipHomes": null,
+          "childrenWaitingForAdoption": null,
+          "reunificationRate": null,
+          "familyPreservationCases": null,
+          "churches": 601,
+          "childrenAdopted": null,
+          "coordinates": {
+            "lat": 47.98,
+            "lng": -122.2
+          }
+        },
+        {
+          "name": "Region 4",
+          "geographyType": "region",
+          "year": 2024,
+          "population": 2269675,
+          "childrenInCare": null,
+          "childrenInFosterCare": null,
+          "childrenInKinshipCare": null,
+          "childrenPlacedOutOfCounty": null,
+          "fosterKinshipHomes": null,
+          "fosterHomes": null,
+          "kinshipHomes": null,
+          "childrenWaitingForAdoption": null,
+          "reunificationRate": null,
+          "familyPreservationCases": null,
+          "churches": 828,
+          "childrenAdopted": null,
+          "coordinates": {
+            "lat": 47.61,
+            "lng": -122.33
+          }
+        },
+        {
+          "name": "Region 5",
+          "geographyType": "region",
+          "year": 2024,
+          "population": 1196741,
+          "childrenInCare": null,
+          "childrenInFosterCare": null,
+          "childrenInKinshipCare": null,
+          "childrenPlacedOutOfCounty": null,
+          "fosterKinshipHomes": null,
+          "fosterHomes": null,
+          "kinshipHomes": null,
+          "childrenWaitingForAdoption": null,
+          "reunificationRate": null,
+          "familyPreservationCases": null,
+          "churches": 577,
+          "childrenAdopted": null,
+          "coordinates": {
+            "lat": 47.25,
+            "lng": -122.44
+          }
         }
       ]
     },

@@ -15871,6 +15871,28 @@
           "lng": -71.38
         }
       },
+      "MA": {
+        "Boston Region": {
+          "lat": 42.36,
+          "lng": -71.06
+        },
+        "Central MA Region": {
+          "lat": 42.26,
+          "lng": -71.80
+        },
+        "Northern Region": {
+          "lat": 42.71,
+          "lng": -71.16
+        },
+        "Southern Region": {
+          "lat": 42.08,
+          "lng": -71.02
+        },
+        "Western Region": {
+          "lat": 42.10,
+          "lng": -72.59
+        }
+      },
       "SD": {
         "Aberdeen": {
           "lat": 45.46,

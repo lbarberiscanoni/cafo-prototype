@@ -286,8 +286,79 @@ function parseMetrics(file2024, file2025, outputPath) {
   const result2025 = parseMetricsFile(file2025, 2025);
   
   // Combine records
-  const allRecords = [...result2024.records, ...result2025.records];
-  
+  let allRecords = [...result2024.records, ...result2025.records];
+
+  // ==================== WA county-to-region aggregation ====================
+  // WA 2024 data uses 39 county names; WA 2025 uses 6 DCYF regions.
+  // Aggregate 2024 counties into regions so both years use the same geography.
+  const WA_COUNTY_TO_REGION = {
+    'Adams': 'Region 1', 'Asotin': 'Region 1', 'Chelan': 'Region 1', 'Columbia': 'Region 1',
+    'Douglas': 'Region 1', 'Ferry': 'Region 1', 'Garfield': 'Region 1', 'Grant': 'Region 1',
+    'Lincoln': 'Region 1', 'Okanogan': 'Region 1', 'Pend Oreille': 'Region 1', 'Spokane': 'Region 1',
+    'Stevens': 'Region 1', 'Walla Walla': 'Region 1', 'Whitman': 'Region 1',
+    'Benton': 'Region 2', 'Franklin': 'Region 2', 'Kittitas': 'Region 2',
+    'Klickitat': 'Region 2', 'Yakima': 'Region 2',
+    'Island': 'Region 3', 'San Juan': 'Region 3', 'Skagit': 'Region 3',
+    'Snohomish': 'Region 3', 'Whatcom': 'Region 3',
+    'King': 'Region 4',
+    'Kitsap': 'Region 5', 'Pierce': 'Region 5',
+    'Clallam': 'Region 6', 'Clark': 'Region 6', 'Cowlitz': 'Region 6',
+    'Grays Harbor': 'Region 6', 'Jefferson': 'Region 6', 'Lewis': 'Region 6',
+    'Mason': 'Region 6', 'Pacific': 'Region 6', 'Skamania': 'Region 6',
+    'Thurston': 'Region 6', 'Wahkiakum': 'Region 6'
+  };
+
+  const waCounty2024 = allRecords.filter(r => r.state === 'WA' && r.year === 2024 && WA_COUNTY_TO_REGION[r.geography]);
+  if (waCounty2024.length > 0) {
+    // Group by region and sum numeric fields
+    const regionGroups = {};
+    const numericFields = ['population', 'childrenInCare', 'childrenInFosterCare', 'childrenInKinshipCare',
+      'childrenPlacedOutOfCounty', 'fosterKinshipHomes', 'fosterHomes', 'kinshipHomes',
+      'childrenWaitingForAdoption', 'familyPreservationCases', 'churches', 'childrenAdopted',
+      'adoptiveFamilies', 'biologicalFamilies', 'wraparoundSupporters', 'childrenWith80PlusConnections'];
+    // Rate fields need weighted average, not sum
+    const rateFields = ['reunificationRate', 'fosterRetentionRate', 'monthsToAdoption', 'avgBedsPerFamily'];
+
+    for (const record of waCounty2024) {
+      const region = WA_COUNTY_TO_REGION[record.geography];
+      if (!regionGroups[region]) {
+        regionGroups[region] = { records: [], region };
+      }
+      regionGroups[region].records.push(record);
+    }
+
+    const waRegionRecords = Object.values(regionGroups).map(({ records, region }) => {
+      const aggregated = {
+        state: 'WA', stateName: 'Washington', geography: region,
+        geographyType: 'region', year: 2024
+      };
+      // Sum numeric fields
+      for (const field of numericFields) {
+        const values = records.map(r => r[field]).filter(v => v !== null && v !== undefined);
+        aggregated[field] = values.length > 0 ? values.reduce((a, b) => a + b, 0) : null;
+      }
+      // Average rate fields (weighted by childrenInCare where possible)
+      for (const field of rateFields) {
+        const valuesWithWeights = records
+          .filter(r => r[field] !== null && r[field] !== undefined)
+          .map(r => ({ value: r[field], weight: r.childrenInCare || 1 }));
+        if (valuesWithWeights.length > 0) {
+          const totalWeight = valuesWithWeights.reduce((sum, v) => sum + v.weight, 0);
+          aggregated[field] = valuesWithWeights.reduce((sum, v) => sum + v.value * v.weight, 0) / totalWeight;
+        } else {
+          aggregated[field] = null;
+        }
+      }
+      return aggregated;
+    });
+
+    // Remove WA 2024 county records and add aggregated region records
+    allRecords = allRecords.filter(r => !(r.state === 'WA' && r.year === 2024 && WA_COUNTY_TO_REGION[r.geography]));
+    allRecords.push(...waRegionRecords);
+    console.log(`\n🔄 WA: Aggregated ${waCounty2024.length} county records (2024) into ${waRegionRecords.length} regions`);
+  }
+  // ==================== End WA aggregation ====================
+
   // Statistics
   const allStates = new Set([...result2024.states, ...result2025.states]);
   const byState = {};

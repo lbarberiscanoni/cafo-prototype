@@ -389,29 +389,6 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     return 'al'; // Default fallback
   };
 
-  // Get counties for the current state from countyData
-  const getCountiesForCurrentState = () => {
-    const stateCode = getCurrentStateCode(); // Already lowercase
-    
-    // Filter counties that match the current state
-    const countiesInState = Object.entries(countyData)
-      .filter(([countyId, data]) => {
-        // County IDs are formatted as "countyname-statecode"
-        const countyStateCode = countyId.split('-').pop();
-        return countyStateCode === stateCode;
-      })
-      .map(([countyId, data]) => {
-        // Extract just the county name without state suffix
-        const countyName = data.name.split(',')[0].trim();
-        return {
-          id: countyId,
-          name: countyName
-        };
-      })
-      .sort((a, b) => a.name.localeCompare(b.name));
-    
-    return countiesInState;
-  };
 
   // Get all states sorted alphabetically
   const getAllStates = () => {

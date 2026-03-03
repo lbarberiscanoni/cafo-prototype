@@ -371,23 +371,6 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     return calculateTrends(regionLevel, regionId, years);
   }, [regionLevel, regionId, years]);
 
-  // Get current state code from regionId (works for both state and county level)
-  const getCurrentStateCode = () => {
-    if (!regionId) return 'al';
-    
-    // At county level, regionId is like "los-angeles-ca" - get last part
-    if (regionLevel === 'county') {
-      const parts = regionId.split('-');
-      return parts[parts.length - 1].toLowerCase();
-    }
-    
-    // At state level, regionId is like "california" - get state code from stateData
-    if (regionLevel === 'state' && stateData[regionId]) {
-      return stateData[regionId].code?.toLowerCase() || regionId.slice(0, 2);
-    }
-    
-    return 'al'; // Default fallback
-  };
 
 
   // Get all states sorted alphabetically

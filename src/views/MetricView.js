@@ -105,6 +105,15 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
     }
   }, [onSelectRegion]);
 
+  // Build county options filtered to the current state (for county-level nav)
+  const countyOptionsForState = useMemo(() => {
+    if (regionLevel !== 'county') return [];
+    const county = countyData[regionId];
+    if (!county) return [];
+    const stateName = county.state;
+    return countyOptions.filter(o => o.state === stateName);
+  }, [regionLevel, regionId, countyOptions]);
+
   // Get data based on region level
   const getData = () => {
     switch (regionLevel) {
@@ -364,6 +373,16 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         <div className="max-w-7xl mx-auto px-4 pt-4 md:pt-6 pb-2 flex flex-col items-center gap-0">
           <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4 leading-tight mb-0">{data.name}</h1>
           {data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mt-1">{data.subtitle}</p>}
+          {showCountyDetails && (
+            <div className="mt-2 w-48">
+              <CountySelect
+                options={countyOptionsForState}
+                placeholder="Switch county"
+                searchPlaceholder="Search county…"
+                onChange={handleCountySelect}
+              />
+            </div>
+          )}
           {isEmbed && (
             <p className="text-xs md:text-sm text-mte-charcoal text-center px-4 font-lato mt-1">
               Brought to you by More Than Enough, CAFO's US Foster Care Initiative.{' '}

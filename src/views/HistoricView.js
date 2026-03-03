@@ -435,6 +435,18 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     }
   }, [onSelectRegion]);
 
+  // Build county options for searchable dropdown (filtered to current state)
+  const countyOptionsForState = useMemo(() => {
+    return getCountiesForCurrentState().map(c => ({ id: c.id, label: c.name }));
+  }, [regionLevel, regionId]);
+
+  // Handler for county select
+  const handleCountySelect = useCallback((opt) => {
+    if (opt && onSelectRegion) {
+      onSelectRegion({ level: 'county', id: opt.id, name: countyData[opt.id]?.name || opt.label });
+    }
+  }, [onSelectRegion]);
+
   // Get display name based on region
   const getDisplayName = () => {
     if (regionLevel === 'national') return 'United States';
@@ -596,25 +608,14 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
             {/* County Dropdown */}
             <div className="flex items-center gap-2">
               <label className="text-sm font-lato text-mte-charcoal">County:</label>
-              <select 
-                className="bg-white border border-mte-light-grey rounded px-3 py-1 text-sm font-lato text-mte-charcoal"
-                value=""
-                onChange={(e) => {
-                  const countyId = e.target.value;
-                  if (countyId && countyData[countyId]) {
-                    onSelectRegion({ 
-                      level: 'county', 
-                      id: countyId, 
-                      name: countyData[countyId].name 
-                    });
-                  }
-                }}
-              >
-                <option value="">Select a county</option>
-                {getCountiesForCurrentState().map(county => (
-                  <option key={county.id} value={county.id}>{county.name}</option>
-                ))}
-              </select>
+              <div className="w-48">
+                <CountySelect
+                  options={countyOptionsForState}
+                  placeholder="Select a county"
+                  searchPlaceholder="Search county…"
+                  onChange={handleCountySelect}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -666,24 +667,14 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
             {/* County Dropdown */}
             <div className="flex items-center gap-2">
               <label className="text-sm font-lato text-mte-charcoal">County:</label>
-              <select 
-                className="bg-white border border-mte-light-grey rounded px-3 py-1 text-sm font-lato text-mte-charcoal"
-                value={regionId || ''}
-                onChange={(e) => {
-                  const countyId = e.target.value;
-                  if (countyId && countyData[countyId]) {
-                    onSelectRegion({ 
-                      level: 'county', 
-                      id: countyId, 
-                      name: countyData[countyId].name 
-                    });
-                  }
-                }}
-              >
-                {getCountiesForCurrentState().map(county => (
-                  <option key={county.id} value={county.id}>{county.name}</option>
-                ))}
-              </select>
+              <div className="w-48">
+                <CountySelect
+                  options={countyOptionsForState}
+                  placeholder="Switch county"
+                  searchPlaceholder="Search county…"
+                  onChange={handleCountySelect}
+                />
+              </div>
             </div>
           </div>
         </div>

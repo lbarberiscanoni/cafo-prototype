@@ -1,5 +1,6 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { countyData, stateData, historicalData, fmt, hasValue } from "../real-data.js";
+import CountySelect from "../CountySelect";
 
 // Assets
 import FosterKinshipIcon from "../assets/FosterKinship_icon.png";
@@ -422,6 +423,18 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       .sort((a, b) => a.name.localeCompare(b.name));
   };
 
+  // Build state options for searchable dropdown
+  const stateOptions = useMemo(() => {
+    return getAllStates().map(s => ({ id: s.id, label: s.name }));
+  }, []);
+
+  // Handler for state select
+  const handleStateSelect = useCallback((opt) => {
+    if (opt && onSelectRegion) {
+      onSelectRegion({ level: 'state', id: opt.id, name: opt.label });
+    }
+  }, [onSelectRegion]);
+
   // Get display name based on region
   const getDisplayName = () => {
     if (regionLevel === 'national') return 'United States';
@@ -570,19 +583,14 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
             {/* State Dropdown */}
             <div className="flex items-center gap-2">
               <label className="text-sm font-lato text-mte-charcoal">State:</label>
-              <select 
-                className="bg-white border border-mte-light-grey rounded px-3 py-1 text-sm font-lato text-mte-charcoal"
-                value={regionId || ''}
-                onChange={(e) => {
-                  const stateId = e.target.value;
-                  const stateName = stateData[stateId]?.name || stateId;
-                  onSelectRegion({ level: 'state', id: stateId, name: stateName });
-                }}
-              >
-                {getAllStates().map(state => (
-                  <option key={state.id} value={state.id}>{state.name}</option>
-                ))}
-              </select>
+              <div className="w-48">
+                <CountySelect
+                  options={stateOptions}
+                  placeholder="Jump to a State"
+                  searchPlaceholder="Search state…"
+                  onChange={handleStateSelect}
+                />
+              </div>
             </div>
 
             {/* County Dropdown */}
@@ -619,25 +627,14 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
             {/* State Dropdown */}
             <div className="flex items-center gap-2">
               <label className="text-sm font-lato text-mte-charcoal">Jump to State:</label>
-              <select 
-                className="bg-white border border-mte-light-grey rounded px-3 py-1 text-sm font-lato text-mte-charcoal"
-                value=""
-                onChange={(e) => {
-                  const stateId = e.target.value;
-                  if (stateId && stateData[stateId]) {
-                    onSelectRegion({ 
-                      level: 'state', 
-                      id: stateId, 
-                      name: stateData[stateId].name 
-                    });
-                  }
-                }}
-              >
-                <option value="">Select a state</option>
-                {getAllStates().map(state => (
-                  <option key={state.id} value={state.id}>{state.name}</option>
-                ))}
-              </select>
+              <div className="w-48">
+                <CountySelect
+                  options={stateOptions}
+                  placeholder="Select a state"
+                  searchPlaceholder="Search state…"
+                  onChange={handleStateSelect}
+                />
+              </div>
             </div>
           </div>
         </div>

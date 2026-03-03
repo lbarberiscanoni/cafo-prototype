@@ -89,6 +89,22 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
     }
   }, [onSelectRegion]);
 
+  // Build state options for searchable dropdown
+  const stateOptions = useMemo(() => {
+    return Object.keys(stateNameToCode).sort().map(stateName => ({
+      id: stateName.toLowerCase().replace(/\s+/g, '-'),
+      label: stateName,
+    }));
+  }, []);
+
+  // Handler for state select
+  const handleStateSelect = useCallback((opt) => {
+    if (opt && onSelectRegion) {
+      const stateName = opt.label;
+      onSelectRegion({ level: 'state', id: opt.id, name: stateName, code: stateNameToCode[stateName] });
+    }
+  }, [onSelectRegion]);
+
   // Get data based on region level
   const getData = () => {
     switch (regionLevel) {
@@ -365,18 +381,12 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           <div className="w-full lg:w-1/4 space-y-3 md:space-y-4">
             {/* Jump selectors */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card space-y-3">
-              <select className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal" value="" onChange={(e) => {
-                if (e.target.value && onSelectRegion) {
-                  const stateId = e.target.value;
-                  const stateName = Object.keys(stateNameToCode).find(name => name.toLowerCase().replace(/\s+/g, '-') === stateId);
-                  onSelectRegion({ level: 'state', id: stateId, name: stateName, code: stateNameToCode[stateName] });
-                }
-              }}>
-                <option value="">Jump to a State</option>
-                {Object.keys(stateNameToCode).sort().map(stateName => (
-                  <option key={stateName} value={stateName.toLowerCase().replace(/\s+/g, '-')}>{stateName}</option>
-                ))}
-              </select>
+              <CountySelect
+                options={stateOptions}
+                placeholder="Jump to a State"
+                searchPlaceholder="Search state…"
+                onChange={handleStateSelect}
+              />
               <CountySelect
                 options={countyOptions}
                 placeholder="Jump to a County"

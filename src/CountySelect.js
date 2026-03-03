@@ -3,6 +3,7 @@ import React, { useMemo, useState, useEffect, useRef } from "react";
 export default function CountySelect({
   options = [],
   placeholder = "Select a county",
+  searchPlaceholder,
   onChange,
   containerClassName = "",
   controlClassName = "",
@@ -67,7 +68,7 @@ export default function CountySelect({
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search county…"
+            placeholder={searchPlaceholder || "Search…"}
             className={`mb-2 w-full rounded-lg border border-mte-light-grey px-3 py-2 text-base text-mte-charcoal font-lato focus:outline-none focus:ring-2 focus:ring-mte-blue ${inputClassName}`}
           />
           {/* square list + square hover */}

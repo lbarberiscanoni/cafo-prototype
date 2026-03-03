@@ -364,6 +364,23 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     }
   }, [onSelectRegion]);
 
+  // Build state options for searchable dropdown
+  const stateOptions = useMemo(() => {
+    return Object.keys(stateNameToCode).sort().map(stateName => ({
+      id: stateName.toLowerCase().replace(/\s+/g, '-'),
+      label: stateName,
+    }));
+  }, []);
+
+  // Handler for state select
+  const handleStateSelect = useCallback((opt) => {
+    if (opt && onSelectRegion) {
+      const stateName = opt.label;
+      const stateCode = stateNameToCode[stateName];
+      onSelectRegion({ level: 'state', id: opt.id, name: stateName, code: stateCode });
+    }
+  }, [onSelectRegion]);
+
   // Handle clicking on an organization marker
   const handleOrgMarkerClick = (org) => {
     setSelectedOrg(org.name);
@@ -799,35 +816,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
             {showNationalMap && (
               <div className="bg-white p-4 rounded-lg shadow-mte-card space-y-3">
                 {/* Jump to State Dropdown */}
-                <select 
-                  className="w-full border border-mte-light-grey rounded p-2 text-base font-lato text-mte-charcoal"
-                  value=""
-                  onChange={(e) => {
-                    if (e.target.value && onSelectRegion) {
-                      const stateId = e.target.value;
-                      const stateName = Object.keys(stateNameToCode).find(
-                        name => name.toLowerCase().replace(/\s+/g, '-') === stateId
-                      );
-                      const stateCode = stateNameToCode[stateName];
-                      onSelectRegion({ 
-                        level: 'state', 
-                        id: stateId,
-                        name: stateName,
-                        code: stateCode
-                      });
-                    }
-                  }}
-                >
-                  <option value="">Jump to a State</option>
-                  {Object.keys(stateNameToCode).sort().map(stateName => {
-                    const stateId = stateName.toLowerCase().replace(/\s+/g, '-');
-                    return (
-                      <option key={stateId} value={stateId}>
-                        {stateName}
-                      </option>
-                    );
-                  })}
-                </select>
+                <CountySelect
+                  options={stateOptions}
+                  placeholder="Jump to a State"
+                  searchPlaceholder="Search state…"
+                  onChange={handleStateSelect}
+                />
                 
                 {/* FIX #7: Replace inline county search with CountySelect */}
                 <CountySelect

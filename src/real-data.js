@@ -189,7 +189,8 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
   stateData[stateKey] = stateRecord;
   stateDataByCode[abbrev] = {
     ...state,
-    id: stateKey
+    id: stateKey,
+    countyToRegionMapping: state.countyToRegionMapping || null
   };
 });
 

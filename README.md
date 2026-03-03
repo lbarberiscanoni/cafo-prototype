@@ -1,6 +1,6 @@
 Questions for Leah 
 - [ ] "Your Next Steps" linkt missing data link
-- [ ] Reques
+- [ ] Request missing data link
 - [ ] County-to-Regions 
     - CT 2024: Had 8 county-named entries (Fairfield, Hartford, etc.)
     - CT 2025: Switched to 6 coded regions (R1-R6) — Connecticut reorganized their data structure between snapshots

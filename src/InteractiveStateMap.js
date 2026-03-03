@@ -181,8 +181,38 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
     d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json")
       .then(us => {
         if (cancelled) return;
-        const stateCounties = topojson.feature(us, us.objects.counties).features
-          .filter(d => d.id.toString().startsWith(fips));
+
+        // Check if this state has a county-to-region mapping (e.g. MA, CT, AK, WA...)
+        const regionMapping = stateDataByCode[stateCode]?.countyToRegionMapping;
+
+        let stateCounties;
+        if (regionMapping) {
+          // Merge county geometries into region shapes using topojson.merge()
+          const countyGeoms = us.objects.counties.geometries
+            .filter(d => d.id.toString().startsWith(fips));
+
+          // Group county geometries by region
+          const regionGeomGroups = {};
+          for (const geom of countyGeoms) {
+            const regionName = regionMapping[geom.properties.name];
+            if (regionName) {
+              if (!regionGeomGroups[regionName]) regionGeomGroups[regionName] = [];
+              regionGeomGroups[regionName].push(geom);
+            }
+          }
+
+          // Create merged features for each region
+          stateCounties = Object.entries(regionGeomGroups).map(([regionName, geoms]) => ({
+            type: "Feature",
+            geometry: topojson.merge(us, geoms),
+            properties: { name: regionName },
+            id: geoms[0].id,
+          }));
+        } else {
+          // Standard: individual county features
+          stateCounties = topojson.feature(us, us.objects.counties).features
+            .filter(d => d.id.toString().startsWith(fips));
+        }
 
         if (stateCounties.length === 0) {
           setError(`No counties found for state ${stateCode}`);
@@ -232,7 +262,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
             const countyName = d.properties.name;
             const data = stateCountyData[countyName];
             if (onCountyClick && data) {
-              const countyId = `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
+              const countyId = data.fips || `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
               onCountyClick(countyId, countyName, data);
             }
           });
@@ -292,7 +322,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
             const countyName = d.properties.name;
             const data = stateCountyData[countyName];
             if (onCountyClick && data) {
-              const countyId = `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
+              const countyId = data.fips || `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
               onCountyClick(countyId, countyName, data);
             }
           });
@@ -384,13 +414,13 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
           </svg>
-          <span className="font-lato text-mte-charcoal">Hover over a county to display the data</span>
+          <span className="font-lato text-mte-charcoal">Hover over a {stateDataByCode[stateCode]?.countyToRegionMapping ? getGeographyLabel(stateCode).toLowerCase() : 'county'} to display the data</span>
         </div>
         <div className="flex items-center gap-2">
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M6.672 1.911a1 1 0 10-1.932.518l.259.966a1 1 0 001.932-.518l-.26-.966zM2.429 4.74a1 1 0 10-.517 1.932l.966.259a1 1 0 00.517-1.932l-.966-.26zm8.814-.569a1 1 0 00-1.415-1.414l-.707.707a1 1 0 101.415 1.415l.707-.708zm-7.071 7.072l.707-.707A1 1 0 003.465 9.12l-.708.707a1 1 0 001.415 1.415zm3.2-5.171a1 1 0 00-1.3 1.3l4 10a1 1 0 001.823.075l1.38-2.759 3.018 3.02a1 1 0 001.414-1.415l-3.019-3.02 2.76-1.379a1 1 0 00-.076-1.822l-10-4z" clipRule="evenodd" />
           </svg>
-          <span className="font-lato text-mte-charcoal">Click to view detailed county data</span>
+          <span className="font-lato text-mte-charcoal">Click to view detailed {stateDataByCode[stateCode]?.countyToRegionMapping ? getGeographyLabel(stateCode).toLowerCase() : 'county'} data</span>
         </div>
       </div>
 
@@ -411,7 +441,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
         </button>
         {/* Legend body - hidden on mobile unless expanded, always visible on md+ */}
         <div className={`${legendExpanded ? 'block' : 'hidden'} md:block mt-1 md:mt-2`}>
-          <div className="text-xs text-mte-charcoal mb-1 md:mb-2 font-lato">{stateName} Counties</div>
+          <div className="text-xs text-mte-charcoal mb-1 md:mb-2 font-lato">{stateName} {stateDataByCode[stateCode]?.countyToRegionMapping ? `${getGeographyLabel(stateCode)}s` : 'Counties'}</div>
           <div className="space-y-1 text-xs font-lato">
             {hasData && legendBreaks.length > 1 ? (
               <>
@@ -466,7 +496,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
           className="absolute z-20 bg-mte-charcoal text-white p-3 rounded shadow-lg pointer-events-none transform -translate-x-1/2 -translate-y-full font-lato"
           style={{ left: mousePosition.x, top: mousePosition.y - 10 }}
         >
-          <div className="font-semibold">{hoveredCounty.name} {getGeographyLabel(stateCode)}</div>
+          <div className="font-semibold">{hoveredCounty.name}{hoveredCounty.name.toLowerCase().includes(getGeographyLabel(stateCode).toLowerCase()) ? '' : ` ${getGeographyLabel(stateCode)}`}</div>
           {hoveredCounty.hasData ? (
             <div>{formatDisplayValue(hoveredCounty.value)} {selectedMetric}</div>
           ) : (

@@ -117,7 +117,7 @@ function calculateNationalTotals(afcarsData) {
 }
 
 // Build state data structure
-function buildStates(afcarsData, sourcesData, metricsData, coordsData) {
+function buildStates(afcarsData, sourcesData, metricsData, coordsData, countyToRegionMappings = {}) {
   const states = {};
   
   // Initialize states from AFCARS
@@ -233,8 +233,13 @@ function buildStates(afcarsData, sourcesData, metricsData, coordsData) {
   for (const abbrev of Object.keys(states)) {
     const countiesObj = states[abbrev].counties;
     states[abbrev].counties = Object.values(countiesObj);
+
+    // Attach county-to-region mapping if one exists for this state
+    if (countyToRegionMappings[abbrev]) {
+      states[abbrev].countyToRegionMapping = countyToRegionMappings[abbrev];
+    }
   }
-  
+
   return states;
 }
 
@@ -303,7 +308,8 @@ function merge(dataDir, outputPath) {
   console.log(`   ✓ National totals: ${Object.keys(national).length} years`);
   
   // Build state data (includes coordinates if available)
-  const states = buildStates(afcars.data, sources.data, metrics.data, coords);
+  const countyToRegionMappings = metrics.countyToRegionMappings || {};
+  const states = buildStates(afcars.data, sources.data, metrics.data, coords, countyToRegionMappings);
   const stateCount = Object.keys(states).length;
   const totalCounties = Object.values(states).reduce((sum, s) => sum + s.counties.length, 0);
   console.log(`   ✓ States: ${stateCount}`);

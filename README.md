@@ -1,5 +1,3 @@
-- [ ] Church data comes from the county-level MTE data, not AFCARS. So it's not in the national dataset — but it could be aggregated from all the counties, same way the state records aggregate their counties' church counts. 
-
 - [ ] I think the icon for “Church” should be grey, not white in the legend
 - [ ] "Boston Region" > "Boston Region County"
 - [ ] Add "Massachusets" to the regional place

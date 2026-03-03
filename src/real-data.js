@@ -192,6 +192,11 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
   };
 });
 
+// Aggregate national church count from all states
+nationalStats.totalChurches = Object.values(stateData).reduce(
+  (sum, s) => sum + (s.totalChurches || 0), 0
+) || null;
+
 // ==================== COUNTY DATA ====================
 // Flatten counties into { "county-name-statecode": { ... } } structure
 
@@ -423,6 +428,11 @@ organizations.forEach(org => {
     }
   }
 });
+
+// Count churches with a known foster care ministry from org data
+nationalStats.churchesWithMinistry = organizations.filter(
+  org => org.category === "Church Foster Care Ministry"
+).length || null;
 
 // ==================== HISTORICAL DATA ====================
 // Build from AFCARS multi-year data + county metrics

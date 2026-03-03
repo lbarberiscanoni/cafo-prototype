@@ -1,5 +1,3 @@
-- [ ] I think the icon for “Church” should be grey, not white in the legend
-
 Questions for Leah 
 - [ ] "Your Next Steps" linkt missing data link
 - [ ] Reques

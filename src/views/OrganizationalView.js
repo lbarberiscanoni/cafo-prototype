@@ -125,7 +125,7 @@ const CATEGORY_COLORS = {
   "Bridge Ministry": { bg: "bg-mte-yellow-20", text: "text-mte-black", border: "border-mte-yellow", dot: "#e7d151" },
   "Bridge Organization": { bg: "bg-mte-yellow-20", text: "text-mte-black", border: "border-mte-yellow", dot: "#e7d151" },
   "Service Organization": { bg: "bg-mte-green-20", text: "text-mte-black", border: "border-mte-green", dot: "#4aa456" },
-  "Church Foster Care Ministry": { bg: "bg-mte-charcoal-20", text: "text-mte-black", border: "border-mte-charcoal", dot: "#5c5d5f" },
+  "Church Foster Care Ministry": { bg: "bg-mte-charcoal", text: "text-mte-black", border: "border-white", dot: "#5c5d5f" },
   "Placement Agency": { bg: "bg-mte-purple-20", text: "text-mte-black", border: "border-mte-purple", dot: "#882781" },
   "Child Placement Agency": { bg: "bg-mte-purple-20", text: "text-mte-black", border: "border-mte-purple", dot: "#882781" },
   "Local Network": { bg: "bg-mte-orange-20", text: "text-mte-black", border: "border-mte-orange", dot: "#dc6a42" },

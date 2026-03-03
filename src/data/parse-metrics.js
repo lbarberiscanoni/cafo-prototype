@@ -88,6 +88,7 @@ const COLUMN_MAP = {
 const GEOGRAPHY_TYPE = {
   'AK': 'region',
   'CT': 'region',
+  'MA': 'region',
   'NH': 'city',
   'SD': 'city',
   'VT': 'districtOffice',
@@ -126,7 +127,7 @@ function cleanGeography(value) {
   }
   
   // Skip aggregate rows
-  if (str.toLowerCase() === 'central office' || str.toLowerCase() === 'total') {
+  if (str.toLowerCase() === 'central office' || str.toLowerCase() === 'total' || str.toLowerCase() === 'grand total') {
     return null;
   }
   

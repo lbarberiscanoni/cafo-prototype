@@ -57,6 +57,7 @@ const GEOGRAPHY_LABEL_OVERRIDES = {
   'AK': 'District',
   'CT': 'Region',
   'DC': 'District',
+  'MA': 'Region',
   'NH': 'District',
   'SD': 'District Office',
   'VT': 'District Office',

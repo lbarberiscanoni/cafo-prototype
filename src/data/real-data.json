@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated": "2026-03-02T07:06:48.333Z",
+    "generated": "2026-03-03T00:12:36.546Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
@@ -61,16 +61,16 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-03-02T07:06:45.564Z",
-        "totalRecords": 5977,
+        "generated": "2026-03-03T00:12:27.959Z",
+        "totalRecords": 5976,
         "stateCount": 51,
         "byYear": {
           "2024": 3055,
-          "2025": 2922
+          "2025": 2921
         },
         "byGeographyType": {
-          "county": 5841,
-          "region": 70,
+          "county": 5835,
+          "region": 75,
           "district": 2,
           "city": 40,
           "districtOffice": 24
@@ -86,7 +86,7 @@
           "fosterKinshipHomes": 2796,
           "reunificationRate": 3491,
           "childrenAdopted": 100,
-          "churches": 100
+          "churches": 99
         }
       },
       "organizations": {
@@ -144,7 +144,7 @@
     },
     "counts": {
       "states": 52,
-      "countyRecords": 5977,
+      "countyRecords": 5976,
       "countiesWithCoordinates": 5935,
       "organizations": 490,
       "organizationsWithDescriptions": 287,
@@ -44949,7 +44949,7 @@
       "counties": [
         {
           "name": "Boston Region",
-          "geographyType": "county",
+          "geographyType": "region",
           "year": 2025,
           "population": null,
           "childrenInCare": 873,
@@ -44964,7 +44964,7 @@
         },
         {
           "name": "Central MA Region",
-          "geographyType": "county",
+          "geographyType": "region",
           "year": 2025,
           "population": null,
           "childrenInCare": 1336,
@@ -44979,7 +44979,7 @@
         },
         {
           "name": "Northern Region",
-          "geographyType": "county",
+          "geographyType": "region",
           "year": 2025,
           "population": null,
           "childrenInCare": 1165,
@@ -44994,7 +44994,7 @@
         },
         {
           "name": "Southern Region",
-          "geographyType": "county",
+          "geographyType": "region",
           "year": 2025,
           "population": null,
           "childrenInCare": 1538,
@@ -45009,7 +45009,7 @@
         },
         {
           "name": "Western Region",
-          "geographyType": "county",
+          "geographyType": "region",
           "year": 2025,
           "population": null,
           "childrenInCare": 1465,
@@ -45020,21 +45020,6 @@
           "childrenWaitingForAdoption": 670,
           "reunificationRate": null,
           "familyPreservationCases": 2894,
-          "churches": null
-        },
-        {
-          "name": "Grand Total",
-          "geographyType": "county",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 6377,
-          "childrenInFosterCare": 4180,
-          "childrenInKinshipCare": 2534,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 3101,
-          "childrenWaitingForAdoption": 2771,
-          "reunificationRate": 0.587,
-          "familyPreservationCases": 13990,
           "churches": null
         }
       ]

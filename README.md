@@ -1,5 +1,4 @@
 - [ ] I think the icon for “Church” should be grey, not white in the legend
-- [ ] Add "Massachusets" to the regional place
 - [ ] Review the data mapping for the regions
 
 Questions for Leah 
@@ -21,6 +20,7 @@ Here are the states that don't have counties (e.g. regions and districts). Here 
     - Alaska: District
     - Connecticut: Region
     - DC: Let's create a county page for DC, with the metrics card
+    - Massachusets: Region
     - New Hampshire: District
     - South Dakota: District Office
     - Vermont: District Office

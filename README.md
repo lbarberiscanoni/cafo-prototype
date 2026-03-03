@@ -1,5 +1,4 @@
 - [ ] I think the icon for “Church” should be grey, not white in the legend
-- [ ] Review the data mapping for the regions
 
 Questions for Leah 
 - [ ] "Your Next Steps" link
@@ -12,7 +11,11 @@ Questions for Leah
         Reunification Rate: > 0 = green (higher rate = good) — correct
         Family Preservation Cases: > 0 = green (more cases = good) — correct
         The logic is actually correct already — it uses domain-aware coloring where green = positive outcome, not positive number. For "Waiting For Adoption", a negative number (fewer children waiting) is the positive outcome, so it's green when negative.`
-
+- [ ] County-to-Regions 
+    - CT 2024: Had 8 county-named entries (Fairfield, Hartford, etc.)
+    - CT 2025: Switched to 6 coded regions (R1-R6) — Connecticut reorganized their data structure between snapshots
+    - WA 2024: Had 39 actual county names (Adams, Asotin, etc.)
+    - WA 2025: Switched to 6 regions (Region 1-6) — same thing, Washington reorganized
 
 
 Here are the states that don't have counties (e.g. regions and districts). Here are customizations

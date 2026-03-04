@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-03-04T00:48:03.958Z",
+    "generated": "2026-03-04T06:57:30.515Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-03-03T07:00:48.735Z",
+        "generated": "2026-03-04T06:57:23.463Z",
         "years": [
           2021,
           2022,
@@ -33,7 +33,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-03-03T07:00:48.928Z",
+        "generated": "2026-03-04T06:57:23.658Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -61,18 +61,18 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-03-03T22:32:23.547Z",
-        "totalRecords": 5943,
+        "generated": "2026-03-04T06:57:27.858Z",
+        "totalRecords": 5932,
         "stateCount": 51,
         "byYear": {
           "2024": 3022,
-          "2025": 2921
+          "2025": 2910
         },
         "byGeographyType": {
           "county": 5835,
           "region": 42,
           "district": 2,
-          "city": 40,
+          "city": 29,
           "districtOffice": 24
         },
         "verification": {
@@ -82,16 +82,16 @@
           "KY": 120
         },
         "nullCounts": {
-          "childrenInCare": 789,
+          "childrenInCare": 788,
           "fosterKinshipHomes": 2763,
-          "reunificationRate": 3458,
+          "reunificationRate": 3447,
           "childrenAdopted": 106,
-          "churches": 99
+          "churches": 88
         }
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-03-03T07:00:55.355Z",
+        "generated": "2026-03-04T06:57:30.295Z",
         "organizationCount": 490,
         "networkCount": 20,
         "stats": {
@@ -139,13 +139,13 @@
       },
       "coordinates": {
         "source": "county-coordinates.json",
-        "merged": 5902
+        "merged": 5891
       }
     },
     "counts": {
       "states": 52,
-      "countyRecords": 5943,
-      "countiesWithCoordinates": 5902,
+      "countyRecords": 5932,
+      "countiesWithCoordinates": 5891,
       "organizations": 490,
       "organizationsWithDescriptions": 287,
       "networks": 20
@@ -71066,215 +71066,6 @@
           "coordinates": {
             "lat": 43.36,
             "lng": -72.22
-          }
-        },
-        {
-          "name": "Berlin",
-          "geographyType": "city",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 111,
-          "childrenInFosterCare": 43,
-          "childrenInKinshipCare": 51,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 16,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": 15,
-          "churches": null,
-          "coordinates": {
-            "lat": 44.47,
-            "lng": -71.19
-          }
-        },
-        {
-          "name": "Claremont",
-          "geographyType": "city",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 66,
-          "childrenInFosterCare": 23,
-          "childrenInKinshipCare": 25,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 22,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": 16,
-          "churches": null,
-          "coordinates": {
-            "lat": 43.38,
-            "lng": -72.35
-          }
-        },
-        {
-          "name": "Concord",
-          "geographyType": "city",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 149,
-          "childrenInFosterCare": 60,
-          "childrenInKinshipCare": 53,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 33,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": 28,
-          "churches": null,
-          "coordinates": {
-            "lat": 43.21,
-            "lng": -71.54
-          }
-        },
-        {
-          "name": "Conway",
-          "geographyType": "city",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 22,
-          "childrenInFosterCare": 8,
-          "childrenInKinshipCare": 6,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 18,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": 6,
-          "churches": null,
-          "coordinates": {
-            "lat": 43.98,
-            "lng": -71.13
-          }
-        },
-        {
-          "name": "Keene",
-          "geographyType": "city",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 92,
-          "childrenInFosterCare": 29,
-          "childrenInKinshipCare": 36,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 38,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": 35,
-          "churches": null,
-          "coordinates": {
-            "lat": 42.93,
-            "lng": -72.28
-          }
-        },
-        {
-          "name": "Laconia",
-          "geographyType": "city",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 102,
-          "childrenInFosterCare": 35,
-          "childrenInKinshipCare": 41,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 26,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": 15,
-          "churches": null,
-          "coordinates": {
-            "lat": 43.53,
-            "lng": -71.47
-          }
-        },
-        {
-          "name": "Littleton",
-          "geographyType": "city",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 8,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": 11,
-          "churches": null,
-          "coordinates": {
-            "lat": 44.31,
-            "lng": -71.77
-          }
-        },
-        {
-          "name": "Manchester",
-          "geographyType": "city",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 218,
-          "childrenInFosterCare": 98,
-          "childrenInKinshipCare": 75,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 46,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": 44,
-          "churches": null,
-          "coordinates": {
-            "lat": 42.99,
-            "lng": -71.45
-          }
-        },
-        {
-          "name": "Seacoast",
-          "geographyType": "city",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 135,
-          "childrenInFosterCare": 52,
-          "childrenInKinshipCare": 50,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 82,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": 35,
-          "churches": null,
-          "coordinates": {
-            "lat": 43.07,
-            "lng": -70.76
-          }
-        },
-        {
-          "name": "Southern",
-          "geographyType": "city",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 132,
-          "childrenInFosterCare": 42,
-          "childrenInKinshipCare": 57,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 74,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": 59,
-          "churches": null,
-          "coordinates": {
-            "lat": 42.87,
-            "lng": -71.38
-          }
-        },
-        {
-          "name": "Southern Telework",
-          "geographyType": "city",
-          "year": 2025,
-          "population": null,
-          "childrenInCare": 9,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": 5,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": 37,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": 4,
-          "churches": null,
-          "coordinates": {
-            "lat": 42.87,
-            "lng": -71.38
           }
         }
       ],

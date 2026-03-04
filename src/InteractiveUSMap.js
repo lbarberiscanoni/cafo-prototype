@@ -14,7 +14,8 @@ const stateNameToAbbreviation = {
   'New Mexico': 'NM', 'New York': 'NY', 'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH',
   'Oklahoma': 'OK', 'Oregon': 'OR', 'Pennsylvania': 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC',
   'South Dakota': 'SD', 'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT', 'Vermont': 'VT',
-  'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY'
+  'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY',
+  'District of Columbia': 'DC'
 };
 
 // State name to key mapping (for looking up in stateData)
@@ -33,7 +34,8 @@ const stateNameToKey = {
   'Rhode Island': 'rhode-island', 'South Carolina': 'south-carolina', 'South Dakota': 'south-dakota',
   'Tennessee': 'tennessee', 'Texas': 'texas', 'Utah': 'utah', 'Vermont': 'vermont',
   'Virginia': 'virginia', 'Washington': 'washington', 'West Virginia': 'west-virginia',
-  'Wisconsin': 'wisconsin', 'Wyoming': 'wyoming'
+  'Wisconsin': 'wisconsin', 'Wyoming': 'wyoming',
+  'District of Columbia': 'washington-dc'
 };
 
 // Metric configuration: maps metric names to data fields and formatting
@@ -302,7 +304,7 @@ const InteractiveUSMap = ({ selectedMetric = "Number of Children Waiting For Ado
             .attr("fill", "#02ADEE")
             .attr("font-size", d => {
               const stateName = d.properties.name;
-              const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
+              const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland', 'District of Columbia'];
               const isSmall = smallStates.includes(stateName);
               const baseFontSize = parseFloat(getFontSize(isSmall));
               return `${baseFontSize * 1.1}px`;
@@ -316,7 +318,7 @@ const InteractiveUSMap = ({ selectedMetric = "Number of Children Waiting For Ado
             .attr("fill", "#5c5d5f")
             .attr("font-size", d => {
               const stateName = d.properties.name;
-              const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
+              const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland', 'District of Columbia'];
               const isSmall = smallStates.includes(stateName);
               return getFontSize(isSmall);
             });
@@ -339,7 +341,7 @@ const InteractiveUSMap = ({ selectedMetric = "Number of Children Waiting For Ado
         .attr("font-family", "'Lato', sans-serif")
         .attr("font-size", d => {
           const stateName = d.properties.name;
-          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland'];
+          const smallStates = ['Rhode Island', 'Delaware', 'Connecticut', 'New Jersey', 'Maryland', 'District of Columbia'];
           const isSmall = smallStates.includes(stateName);
           return getFontSize(isSmall);
         })

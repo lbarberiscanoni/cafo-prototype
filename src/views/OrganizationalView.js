@@ -348,7 +348,8 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     return Object.entries(countyData)
       .map(([id, c]) => {
         const base = c.name.includes(",") ? c.name.split(",")[0].trim() : c.name;
-        return { id, label: `${base}, ${c.state}`, data: c, state: c.state };
+        const label = base === c.state ? base : `${base}, ${c.state}`;
+        return { id, label, data: c, state: c.state };
       })
       .sort((a, b) => {
         const stateCompare = a.state.localeCompare(b.state);

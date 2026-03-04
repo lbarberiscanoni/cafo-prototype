@@ -71,7 +71,7 @@ const getCountyDataByState = (stateCode, metricConfig) => {
 // State FIPS codes
 const stateFips = {
   'AL': '01', 'AK': '02', 'AZ': '04', 'AR': '05', 'CA': '06',
-  'CO': '08', 'CT': '09', 'DE': '10', 'FL': '12', 'GA': '13',
+  'CO': '08', 'CT': '09', 'DC': '11', 'DE': '10', 'FL': '12', 'GA': '13',
   'HI': '15', 'ID': '16', 'IL': '17', 'IN': '18', 'IA': '19',
   'KS': '20', 'KY': '21', 'LA': '22', 'ME': '23', 'MD': '24',
   'MA': '25', 'MI': '26', 'MN': '27', 'MS': '28', 'MO': '29',
@@ -212,6 +212,15 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
           // Standard: individual county features
           stateCounties = topojson.feature(us, us.objects.counties).features
             .filter(d => d.id.toString().startsWith(fips));
+        }
+
+        // DC: rename county from "District of Columbia" to "Washington DC"
+        if (stateCode === 'DC') {
+          stateCounties.forEach(f => {
+            if (f.properties.name === 'District of Columbia') {
+              f.properties.name = 'Washington DC';
+            }
+          });
         }
 
         if (stateCounties.length === 0) {
@@ -496,7 +505,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
           className="absolute z-20 bg-mte-charcoal text-white p-3 rounded shadow-lg pointer-events-none transform -translate-x-1/2 -translate-y-full font-lato"
           style={{ left: mousePosition.x, top: mousePosition.y - 10 }}
         >
-          <div className="font-semibold">{hoveredCounty.name}{hoveredCounty.name.toLowerCase().includes(getGeographyLabel(stateCode).toLowerCase()) ? '' : ` ${getGeographyLabel(stateCode)}`}</div>
+          <div className="font-semibold">{hoveredCounty.name}{(hoveredCounty.name.toLowerCase().includes(getGeographyLabel(stateCode).toLowerCase()) || stateCode === 'DC') ? '' : ` ${getGeographyLabel(stateCode)}`}</div>
           {hoveredCounty.hasData ? (
             <div>{formatDisplayValue(hoveredCounty.value)} {selectedMetric}</div>
           ) : (

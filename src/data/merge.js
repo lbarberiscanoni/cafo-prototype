@@ -29,7 +29,7 @@ const DEFAULT_OUTPUT = './real-data.json';
 const STATE_NAMES = {
   'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas',
   'CA': 'California', 'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware',
-  'DC': 'District of Columbia', 'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii',
+  'DC': 'Washington DC', 'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii',
   'ID': 'Idaho', 'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa',
   'KS': 'Kansas', 'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine',
   'MD': 'Maryland', 'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota',
@@ -183,9 +183,12 @@ function buildStates(afcarsData, sourcesData, metricsData, coordsData, countyToR
       };
     }
     
-    const geoKey = `${record.geography}_${record.year}`;
+    // Rename DC's geography from "District of Columbia" to "Washington DC"
+    const geoName = (abbrev === 'DC' && record.geography === 'District of Columbia')
+      ? 'Washington DC' : record.geography;
+    const geoKey = `${geoName}_${record.year}`;
     const county = {
-      name: record.geography,
+      name: geoName,
       geographyType: record.geographyType,
       year: record.year,
       population: record.population,

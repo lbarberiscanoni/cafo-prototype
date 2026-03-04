@@ -35,7 +35,7 @@ export const hasValue = (val) => val !== null && val !== undefined;
 
 export const stateNameToCode = {
   'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR', 'California': 'CA',
-  'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE', 'District of Columbia': 'DC',
+  'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE', 'Washington DC': 'DC',
   'Florida': 'FL', 'Georgia': 'GA', 'Hawaii': 'HI', 'Idaho': 'ID', 'Illinois': 'IL',
   'Indiana': 'IN', 'Iowa': 'IA', 'Kansas': 'KS', 'Kentucky': 'KY', 'Louisiana': 'LA',
   'Maine': 'ME', 'Maryland': 'MD', 'Massachusetts': 'MA', 'Michigan': 'MI', 'Minnesota': 'MN',
@@ -56,7 +56,6 @@ export const stateCodeToName = Object.fromEntries(
 const GEOGRAPHY_LABEL_OVERRIDES = {
   'AK': 'District',
   'CT': 'Region',
-  'DC': 'District',
   'MA': 'Region',
   'NH': 'District',
   'SD': 'District Office',
@@ -244,7 +243,7 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
     
     countyData[countyKey] = {
       id: countyKey,
-      name: `${county.name}, ${state.name}`,
+      name: county.name === state.name ? county.name : `${county.name}, ${state.name}`,
       countyName: county.name,
       state: state.name,
       stateAbbrev: abbrev,
@@ -376,7 +375,7 @@ export const stateCoordinates = {
   'Colorado': { coords: [39.059811, -105.311104], orgCount: 0 },
   'Connecticut': { coords: [41.597782, -72.755371], orgCount: 0 },
   'Delaware': { coords: [39.318523, -75.507141], orgCount: 0 },
-  'District of Columbia': { coords: [38.897438, -77.026817], orgCount: 0 },
+  'Washington DC': { coords: [38.897438, -77.026817], orgCount: 0 },
   'Florida': { coords: [27.766279, -81.686783], orgCount: 0 },
   'Georgia': { coords: [33.040619, -83.643074], orgCount: 0 },
   'Hawaii': { coords: [21.094318, -157.498337], orgCount: 0 },

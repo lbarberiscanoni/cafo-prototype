@@ -26,7 +26,8 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
       .filter(([id, c]) => countyHasData(c)) // Only show counties with data
       .map(([id, c]) => {
         const base = c.name.includes(",") ? c.name.split(",")[0].trim() : c.name;
-        return { id, label: `${base}, ${c.state}`, data: c, state: c.state };
+        const label = base === c.state ? base : `${base}, ${c.state}`;
+        return { id, label, data: c, state: c.state };
       })
       .sort((a, b) => {
         // Sort by state first, then by county name

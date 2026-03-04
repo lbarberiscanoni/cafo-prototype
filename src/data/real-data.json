@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated": "2026-03-03T22:32:34.574Z",
+    "generated": "2026-03-04T00:48:03.958Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
@@ -11647,24 +11647,8 @@
     },
     "DC": {
       "abbreviation": "DC",
-      "name": "District of Columbia",
-      "source": {
-        "dataDate": "2024-12-31",
-        "dataYear": 2024,
-        "sourceAgency": "DC Child & Family Services",
-        "sourceUrl": "https://cfsa.dc.gov",
-        "definitions": {
-          "childrenInCare": "Includes all children in out-of-home care.",
-          "childrenInFosterCare": "Family based foster care: children are placed in licensed foster homes, including traditional foster homes and pre-adoptive foster homes",
-          "childrenInKinshipCare": "Children are placed with their kin, who have become licensed foster parents to care for them. Kin includes biological relatives and fictive kin (individuals that are unrelated by either birth or marriage, but have an emotionally significant relationship that existed prior to the child’s entry into care)",
-          "childrenPlacedOutOfCounty": "Indicates children who are wards of the District of Columbia who are placed in licensed foster homes in jurisdictions beyond DC and Maryland for the purposes of achieving permanency through guardianship or adoption. The licensed parents they are placed with may or may not be kin. DC’s Family Court continues to maintain jurisdiction over these cases, however the licensing of the foster parents and ongoing monitoring of the case occurs through a local entity, as provided for by the Interstate Compact for the Placement of Children (ICPC). The D.C. social worker and the ICPC social worker maintain regular communication.",
-          "fosterKinshipHomes": "The Imprint asks each state to identify the total number of licensed foster homes, regardless of non-relative or relative status, as of March 31, or the nearest date for which data was available. We also ask each state to provide the number of non-relative foster homes.",
-          "childrenWaitingForAdoption": "Number of Children Waiting for Adoption Whose Parental Rights Have Been Terminated: This is an estimated count of all children in care on the last day of the FFY whose parental rights have been terminated and who are waiting for adoption. An individual child who has these characteristics on the last day of the year is counted only once for that year.",
-          "reunificationRate": "Number of exits to reunification in FY 2024 / number of total exits in FY 2024. An exit occurs when Family Court issues a court order reunifying the child with their biological parent, finalizing a guardianship or adoption, or closing the child welfare case due to the child turning 21 years old. A child who has run away from their foster care placement has not exited from foster care.",
-          "familyPreservationCases": "Total number of families served in their homes: Number of families by CFSA in their home.",
-          "childrenAdopted": "Number of adoptions finalized in FY 2024."
-        }
-      },
+      "name": "Washington DC",
+      "source": null,
       "afcars": {
         "2021": {
           "childrenInCare": 504,
@@ -11699,7 +11683,7 @@
       },
       "counties": [
         {
-          "name": "District of Columbia",
+          "name": "Washington DC",
           "geographyType": "district",
           "year": 2024,
           "population": 689545,
@@ -11718,7 +11702,7 @@
           }
         },
         {
-          "name": "District of Columbia",
+          "name": "Washington DC",
           "geographyType": "district",
           "year": 2025,
           "population": 689545,

@@ -68,6 +68,11 @@ module.exports = {
         'mte-yellow-60': 'rgba(231, 209, 81, 0.6)',
         'mte-yellow-40': 'rgba(231, 209, 81, 0.4)',
         'mte-yellow-20': 'rgba(231, 209, 81, 0.2)',
+
+        'mte-charcoal-80': 'rgba(92, 93, 95, 0.8)',
+        'mte-charcoal-60': 'rgba(92, 93, 95, 0.6)',
+        'mte-charcoal-40': 'rgba(92, 93, 95, 0.4)',
+        'mte-charcoal-20': 'rgba(92, 93, 95, 0.2)',
       },
       
       // TYPOGRAPHY SIZES - Per MTE Brand Guide

@@ -225,7 +225,7 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
         </button>
         {/* Your Next Steps - opens external page */}
         <a
-          href="https://cafo.org/morethanenough/"
+          href="https://cafo.org/morethanenough/mte-dashboard/next-steps-with-your-countys-data"
           target="_blank"
           rel="noopener noreferrer"
           className="p-2 md:px-3 md:py-2 bg-white border border-mte-light-grey rounded shadow-mte-card hover:bg-mte-blue-20 text-sm md:text-base font-lato text-mte-charcoal transition-colors flex items-center gap-1.5"

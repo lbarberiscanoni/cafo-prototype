@@ -800,7 +800,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
           {isEmbed && (
             <p className="text-xs md:text-sm text-mte-charcoal text-center px-4 font-lato mt-1">
               Brought to you by More Than Enough, CAFO's US Foster Care Initiative.{' '}
-              <a href="https://cafo-prototype.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-mte-blue hover:underline">
+              <a href="https://fostercaredata.cafo.org/" target="_blank" rel="noopener noreferrer" className="text-mte-blue hover:underline">
                 Visit the full dashboard for more data.
               </a>
             </p>

@@ -21,7 +21,7 @@ const path = require('path');
 
 const DEFAULT_DATA_PATH = 'src/data/real-data.json';
 const DEFAULT_OUTPUT_DIR = 'public/data';
-const APP_BASE_URL = 'https://cafo-prototype.vercel.app';
+const APP_BASE_URL = 'https://fostercaredata.cafo.org';
 const SITE_NAME = 'More Than Enough - Foster Care Data';
 
 // ============================================

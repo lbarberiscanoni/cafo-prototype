@@ -1,6 +1,9 @@
 Questions for Leah 
-- [ ] "Your Next Steps" linkt missing data link
 - [ ] Request missing data link
+- [ ] Add all the county names to the state metrics view even if it's empty
+- [ ] "9 Children waiting for adoption" > "9 Number of children waiting for adoption" in the hover tooltip for the metric at the state level view
+- [ ] "Historic View, currently you have to click on “National Map View” or “State Map View” to get the national or state historic views… I feel like those buttons should lead back to the map and we should have a separate button perhaps on the page itself to lead to historical national view. We already have Jump to State"
+    - Natioanl Map Vie doesn't lead back to the map, it leads to the National Historical view therefore make it a separate button
 - [ ] County-to-Regions 
     - CT 2024: Had 8 county-named entries (Fairfield, Hartford, etc.)
     - CT 2025: Switched to 6 coded regions (R1-R6) — Connecticut reorganized their data structure between snapshots

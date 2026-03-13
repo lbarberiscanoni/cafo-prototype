@@ -1457,7 +1457,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                   <p className="text-sm mb-3">Try selecting different categories or impact areas above</p>
                   {regionLevel === 'county' && (
                     <a
-                      href="https://docs.google.com/forms/d/e/1FAIpQLSfExample/viewform"
+                      href="https://cafo.org/morethanenough/share-your-data/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-xs font-lato text-mte-orange hover:text-mte-orange underline transition-colors"

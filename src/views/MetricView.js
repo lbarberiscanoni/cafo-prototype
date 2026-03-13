@@ -13,7 +13,7 @@ import InteractiveUSMap, { getAvailableMetrics } from "../InteractiveUSMap";
 import InteractiveStateMap from "../InteractiveStateMap";
 import CountySelect from "../CountySelect";
 
-const REQUEST_DATA_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfExample/viewform"; // TODO: replace with actual form URL
+const REQUEST_DATA_URL = "https://cafo.org/morethanenough/share-your-data/";
 
 const hasNA = (...values) => values.some(v => v === null || v === undefined);
 

@@ -270,9 +270,9 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
           .on("click", function(event, d) {
             const countyName = d.properties.name;
             const data = stateCountyData[countyName];
-            if (onCountyClick && data) {
-              const countyId = data.fips || `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
-              onCountyClick(countyId, countyName, data);
+            if (onCountyClick) {
+              const countyId = data?.fips || `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
+              onCountyClick(countyId, countyName, data || {});
             }
           });
 
@@ -303,10 +303,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
 
         // County labels - only show for counties with data for the selected metric
         const labelGroups = svg.selectAll("g.county-label")
-          .data(stateCounties.filter(d => {
-            const data = stateCountyData[d.properties.name];
-            return data?.value !== null && data?.value !== undefined;
-          }))
+          .data(stateCounties)
           .enter()
           .append("g")
           .attr("class", "county-label")
@@ -330,9 +327,9 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
           .on("click", function(event, d) {
             const countyName = d.properties.name;
             const data = stateCountyData[countyName];
-            if (onCountyClick && data) {
-              const countyId = data.fips || `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
-              onCountyClick(countyId, countyName, data);
+            if (onCountyClick) {
+              const countyId = data?.fips || `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
+              onCountyClick(countyId, countyName, data || {});
             }
           });
 

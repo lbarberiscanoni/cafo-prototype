@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "Sources_and_Definitions.xlsx",
-    "generated": "2026-03-19T07:05:51.309Z",
+    "generated": "2026-03-20T07:04:16.883Z",
     "stateCount": 51,
     "statesWithUrl": 49,
     "dataYearDistribution": {
       "2022": 2,
-      "2023": 2,
-      "2024": 31,
+      "2023": 1,
+      "2024": 32,
       "2025": 14,
       "unknown": 2
     },
@@ -572,16 +572,16 @@
     },
     {
       "state": "Oregon",
-      "dataDate": "2023-09-30",
-      "dataYear": 2023,
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
       "sourceAgency": "Oregon Department of Human Services Child Welfare",
       "sourceUrl": "https://www.oregon.gov/odhs/child-welfare",
       "definitions": {
         "childrenInCare": "The count of children in out-of-home care, all placement types",
         "childrenInFosterCare": "The count of children in a foster family home (non-kinship)",
         "childrenInKinshipCare": "The count of children in kinship or relative care (excluding masked values)",
-        "fosterKinshipHomes": "The number of certified foster homes on 9/30/2023, including licensed and relative care",
-        "familyPreservationCases": "The number of children served in-home on 9/30/2023"
+        "fosterKinshipHomes": "The total number of certified foster homes on 9/30/2024",
+        "familyPreservationCases": "The total number of in-home cases on 9/30/2024"
       }
     },
     {

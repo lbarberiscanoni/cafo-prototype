@@ -814,25 +814,21 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         {/* Sidebar */}
         {showSidebar && (
           <div className="w-full lg:w-1/4 space-y-4 md:space-y-4">
-            {/* National: Jump selectors */}
-            {showNationalMap && (
-              <div className="bg-white p-4 rounded-lg shadow-mte-card space-y-3">
-                {/* Jump to State Dropdown */}
-                <CountySelect
-                  options={stateOptions}
-                  placeholder="Jump to a State"
-                  searchPlaceholder="Search state…"
-                  onChange={handleStateSelect}
-                />
-                
-                {/* FIX #7: Replace inline county search with CountySelect */}
-                <CountySelect
-                  options={countyOptions}
-                  placeholder="Jump to a County"
-                  onChange={handleCountySelect}
-                />
-              </div>
-            )}
+            {/* Jump selectors - shown for all levels */}
+            <div className="bg-white p-4 rounded-lg shadow-mte-card space-y-3">
+              <CountySelect
+                options={stateOptions}
+                placeholder="Jump to a State"
+                searchPlaceholder="Search state…"
+                onChange={handleStateSelect}
+              />
+              <CountySelect
+                options={countyOptions}
+                placeholder="Jump to a County"
+                searchPlaceholder="Search county…"
+                onChange={handleCountySelect}
+              />
+            </div>
 
             {/* Organization Categories */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
@@ -850,7 +846,8 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         onChange={() => handleCategoryToggle(groupName)}
                       />
                       <div
-                        className={`w-3 h-3 rounded-full ${colors.bg} ${colors.border} border`}
+                        className="w-3 h-3 rounded-full"
+                        style={{ backgroundColor: colors.dot }}
                       ></div>
                       <span className="text-mte-charcoal">{groupName}</span>
                     </label>
@@ -862,7 +859,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
             {/* Impact Areas */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
               <h3 className="text-base font-bold mb-1 text-mte-black font-lato">Impact Areas</h3>
-              <p className="text-sm text-mte-charcoal mb-3 font-lato">Check images to identify who is working in MTE's four impact areas</p>
+              <p className="text-sm text-mte-charcoal mb-3 font-lato">Check images to identify who is working in four key impact areas</p>
               <div className="grid grid-cols-2 gap-3 text-base font-lato">
                 <label className="flex flex-col items-center cursor-pointer">
                   <div className="relative">
@@ -1365,7 +1362,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                 Organizations ({fmt(consolidatedOrgs.length)})
               </h3>
               {consolidatedOrgs.length > 0 ? (
-                <div className="overflow-x-auto" ref={cardContainerRef}>
+                <div className="overflow-x-auto" ref={cardContainerRef} onWheel={(e) => { if (e.deltaY !== 0) { e.currentTarget.scrollLeft += e.deltaY; e.preventDefault(); } }}>
                   <div className="flex gap-4 pb-4" style={{ minWidth: "max-content" }}>
                     {consolidatedOrgs.map((org) => {
                     const colors = CATEGORY_COLORS[org.category];
@@ -1429,24 +1426,26 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                             {org.email && <div className="text-sm text-mte-charcoal font-lato">Email: {org.email}</div>}
                           </>
                         )}
-                        {websiteUrl ? (
-                          <a
-                            href={websiteUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="mt-auto px-3 py-2 text-base bg-mte-blue text-white rounded hover:bg-mte-blue-80 w-full font-lato font-medium transition-colors inline-block text-center"
-                          >
-                            Visit Website
-                          </a>
-                        ) : (
-                          <button 
-                            disabled
-                            className="mt-auto px-3 py-2 text-base bg-mte-light-grey text-mte-charcoal rounded w-full font-lato font-medium cursor-not-allowed"
-                          >
-                            No Website Available
-                          </button>
-                        )}
+                        <div className="mt-auto pt-3">
+                          {websiteUrl ? (
+                            <a
+                              href={websiteUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="px-3 py-2 text-base bg-mte-blue text-white rounded hover:bg-mte-blue-80 w-full font-lato font-medium transition-colors inline-block text-center"
+                            >
+                              Visit Website
+                            </a>
+                          ) : (
+                            <button
+                              disabled
+                              className="px-3 py-2 text-base bg-mte-light-grey text-mte-charcoal rounded w-full font-lato font-medium cursor-not-allowed"
+                            >
+                              No Website Available
+                            </button>
+                          )}
+                        </div>
                       </div>
                     );
                   })}

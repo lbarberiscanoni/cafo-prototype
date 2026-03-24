@@ -139,7 +139,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         }
         return {
           name: state.name,
-          subtitle: "Explore foster care data in this state",
+          subtitle: "Explore foster care data and trends in",
           totalChildren: state.totalChildren,
           licensedHomes: state.licensedHomes,
           waitingForAdoption: state.waitingForAdoption,
@@ -340,7 +340,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
     const maxValue = validValues.length > 0 ? Math.max(...validValues) : 1;
 
     return (
-      <div className="bg-mte-subdued-white p-3 rounded relative overflow-hidden">
+      <div className="bg-mte-subdued-white p-3 rounded relative overflow-visible">
         <div className="text-sm font-medium mb-2 font-lato text-mte-black">{trendData.title}</div>
         <div className="h-28 bg-white rounded flex items-end justify-between px-3 pb-2 relative overflow-visible">
           {trendData.values.map((value, index) => {
@@ -373,8 +373,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
     <div className="min-h-screen">
       <header className="relative">
         <div className="max-w-7xl mx-auto px-4 pt-4 md:pt-6 pb-2 flex flex-col items-center gap-0">
+          {regionLevel === "state" && data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mb-0">{data.subtitle}</p>}
           <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4 leading-tight mb-0">{data.name}</h1>
-          {data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mt-1">{data.subtitle}</p>}
+          {regionLevel !== "state" && data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mt-1">{data.subtitle}</p>}
           {showCountyDetails && (
             <div className="mt-2 w-48">
               <CountySelect
@@ -466,10 +467,10 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <div className="flex items-start gap-4">
                   <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-16 h-16 flex-shrink-0" />
                   <div className="space-y-2">
-                    <div><span className="text-xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Number of Children Waiting For Adoption</div>
-                    <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.childrenAdopted)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Adopted FY 2023</div>
+                    <div><span className="text-xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</span></div>
+                    <div className="text-sm text-mte-charcoal font-lato">Children Waiting for Adoption</div>
+                    <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.childrenAdopted)}</span></div>
+                    <div className="text-sm text-mte-charcoal font-lato">Children Adopted in FY 2023</div>
                   </div>
                 </div>
               </div>
@@ -516,6 +517,20 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <p className="text-sm text-mte-charcoal mb-3 font-lato">See trends for your selected metric in {data.name}</p>
               {renderTrendChart()}
             </div>
+            <div className="bg-white p-4 rounded-lg shadow-mte-card space-y-3">
+              <CountySelect
+                options={stateOptions}
+                placeholder="Jump to a State"
+                searchPlaceholder="Search state…"
+                onChange={handleStateSelect}
+              />
+              <CountySelect
+                options={countyOptions}
+                placeholder="Jump to a County"
+                searchPlaceholder="Search county…"
+                onChange={handleCountySelect}
+              />
+            </div>
           </div>
           <div className="w-full lg:w-3/4">
             <div className="bg-white rounded-lg shadow-mte-card p-4 mb-6">
@@ -530,7 +545,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div><span className="text-xl font-black text-mte-blue">{fmt(data.totalChildren)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
                     <div className="text-sm text-mte-charcoal font-lato">in Care</div>
                     <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.licensedHomes)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Number of Licensed Foster Homes</div>
+                    <div className="text-sm text-mte-charcoal font-lato">Licensed Foster Homes</div>
                   </div>
                 </div>
               </div>
@@ -539,8 +554,8 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <div className="flex items-start gap-4">
                   <img src={AdoptiveFamilyIcon} alt="Adoption" className="w-16 h-16 flex-shrink-0" />
                   <div className="space-y-2">
-                    <div><span className="text-xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</span> <span className="text-sm text-mte-charcoal font-lato">Children</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Number of Children Waiting for Adoption</div>
+                    <div><span className="text-xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</span></div>
+                    <div className="text-sm text-mte-charcoal font-lato">Children Waiting for Adoption</div>
                   </div>
                 </div>
               </div>
@@ -552,7 +567,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div><span className="text-xl font-black text-mte-blue">{fmtPct(data.reunificationRate)}</span></div>
                     <div className="text-sm text-mte-charcoal font-lato">Biological Family Reunification Rate (%)</div>
                     <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.familyPreservationCases)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Number of Family Preservation Cases</div>
+                    <div className="text-sm text-mte-charcoal font-lato">Family Preservation Cases</div>
                   </div>
                 </div>
               </div>

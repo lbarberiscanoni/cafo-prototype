@@ -447,6 +447,7 @@ const InteractiveUSMap = ({ selectedMetric = "Number of Children Waiting For Ado
               <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#ffffff'}}></div>
               <span className="text-mte-charcoal">No Data</span>
             </div>
+            <div className="text-mte-charcoal mt-1 pt-1 border-t border-gray-200">as of End of Year 2023</div>
           </div>
         </div>
       </div>

@@ -355,7 +355,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                   <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
                     <div className="font-semibold">{trendData.labels[index]}</div>
                     <div>{selectedMetric}</div>
-                    <div>End of Year {trendData.years[index] - 1}</div>
+                    <div>End of Year {trendData.years[index]}</div>
                     <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
                   </div>
                 </div>

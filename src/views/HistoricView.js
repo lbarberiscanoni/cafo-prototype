@@ -590,6 +590,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                   placeholder="Select a county"
                   searchPlaceholder="Search county…"
                   onChange={handleCountySelect}
+                  emptyMessage="No county historical data available"
                 />
               </div>
             </div>
@@ -649,6 +650,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                   placeholder="Switch county"
                   searchPlaceholder="Search county…"
                   onChange={handleCountySelect}
+                  emptyMessage="No county historical data available"
                 />
               </div>
             </div>
@@ -697,6 +699,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                   </select>
                 </div>
                 {renderBarChart('kinship', 'bg-mte-purple')}
+                {categoryMetrics.source && <div className="mt-3 text-xs text-mte-charcoal font-lato">Source: {categoryMetrics.source}</div>}
               </>
             ) : (
               <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
@@ -728,6 +731,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                   </select>
                 </div>
                 {renderBarChart('adoption', 'bg-mte-green')}
+                {categoryMetrics.source && <div className="mt-3 text-xs text-mte-charcoal font-lato">Source: {categoryMetrics.source}</div>}
               </>
             ) : (
               <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
@@ -759,6 +763,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                   </select>
                 </div>
                 {renderBarChart('biological', 'bg-mte-orange')}
+                {categoryMetrics.source && <div className="mt-3 text-xs text-mte-charcoal font-lato">Source: {categoryMetrics.source}</div>}
               </>
             ) : (
               <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">
@@ -790,6 +795,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                   </select>
                 </div>
                 {renderBarChart('wraparound', 'bg-mte-yellow')}
+                {categoryMetrics.source && <div className="mt-3 text-xs text-mte-charcoal font-lato">Source: {categoryMetrics.source}</div>}
               </>
             ) : (
               <div className="h-48 flex items-center justify-center text-mte-charcoal font-lato">

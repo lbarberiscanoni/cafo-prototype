@@ -740,7 +740,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
 
       {/* Embed Button - hidden in embed mode */}
       {!isEmbed && (
-        <div className="max-w-7xl mx-auto px-4 mb-6">
+        <div className="max-w-7xl mx-auto px-4 mt-6 mb-6">
           <button
             onClick={() => { setShowEmbedModal(true); setEmbedCopied(false); }}
             className="flex items-center gap-2 mx-auto px-5 py-2.5 bg-white border-2 border-mte-blue rounded-lg text-mte-blue font-lato font-medium hover:bg-mte-blue hover:text-white transition-colors shadow-mte-card"
@@ -748,7 +748,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
             </svg>
-            Embed This View
+            Embed This Page
           </button>
         </div>
       )}

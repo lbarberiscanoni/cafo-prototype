@@ -10,6 +10,7 @@ export default function CountySelect({
   menuClassName = "",
   optionClassName = "",
   inputClassName = "",
+  emptyMessage = "",
 }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -75,7 +76,9 @@ export default function CountySelect({
           {/* square list + square hover */}
           <ul role="listbox" className="max-h-64 overflow-auto rounded-none">
             {filtered.length === 0 && (
-              <li className="px-3 py-2 text-left text-base text-mte-charcoal font-lato">No matches</li>
+              <li className="px-3 py-2 text-left text-base text-mte-charcoal font-lato">
+                {options.length === 0 && emptyMessage ? emptyMessage : "No matches"}
+              </li>
             )}
             {filtered.map((opt) => {
               const isSel = selected?.id === opt.id;

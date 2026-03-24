@@ -46,7 +46,7 @@ const MetricRow = ({ label, value, tooltip, source }) => (
     <div className="text-right font-semibold text-mte-black font-lato">{value}</div>
     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-2 bg-mte-charcoal text-white text-xs rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
       {tooltip}
-      {source && <div className="mt-1 pt-1 border-t border-gray-500 text-gray-300">Source: {source}</div>}
+      {source && value !== 'N/A' && <div className="mt-1 pt-1 border-t border-gray-500 text-gray-300">Source: {source}</div>}
     </div>
   </div>
 );
@@ -157,7 +157,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           : county.name;
         return {
           name: formattedCountyName,
-          subtitle: "",
+          subtitle: "Foster care data in",
           population: county.population,
           totalChurches: county.totalChurches,
           childrenInCare: county.childrenInCare,
@@ -373,9 +373,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
     <div className="min-h-screen">
       <header className="relative">
         <div className="max-w-7xl mx-auto px-4 pt-4 md:pt-6 pb-2 flex flex-col items-center gap-0">
-          {regionLevel === "state" && data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mb-0">{data.subtitle}</p>}
+          {regionLevel !== "national" && data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mb-0">{data.subtitle}</p>}
           <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4 leading-tight mb-0">{data.name}</h1>
-          {regionLevel !== "state" && data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mt-1">{data.subtitle}</p>}
+          {regionLevel === "national" && data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mt-1">{data.subtitle}</p>}
           {showCountyDetails && (
             <div className="mt-2 w-48">
               <CountySelect
@@ -388,10 +388,11 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           )}
           {isEmbed && (
             <p className="text-xs md:text-sm text-mte-charcoal text-center px-4 font-lato mt-1">
-              Brought to you by More Than Enough, CAFO's US Foster Care Initiative.{' '}
+              This snapshot is powered by More Than Enough, CAFO's US Foster Care Initiative.{' '}
               <a href="https://fostercaredata.cafo.org/" target="_blank" rel="noopener noreferrer" className="text-mte-blue hover:underline">
-                Visit the full dashboard for more data.
-              </a>
+                Visit the full dashboard
+              </a>{' '}
+              for more data — including data for other counties and states.
             </p>
           )}
         </div>
@@ -607,26 +608,26 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         <main className="max-w-7xl mx-auto px-4 py-6 md:py-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={FosterKinshipIcon} alt="Foster & Kinship" className="mx-auto w-20 h-20 mb-3" />
-            <HoverableText tooltip="Families who provide temporary care for children through formal foster care or informal kinship arrangements with relatives.">
+            <HoverableText tooltip="Families who provide temporary care for children through formal foster care or informal kinship arrangements with relatives">
               <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Foster and Kinship Families</h3>
             </HoverableText>
             <div className="flex justify-center items-center gap-1 mb-4">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.licensedHomesPerChild)}</div>
-              <HoverableText tooltip="The ratio of available licensed foster homes to children currently in out-of-home care.">
+              <HoverableText tooltip="The ratio of available licensed foster homes to children currently in out-of-home care">
                 <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Licensed Foster Homes Per Child in Care</div>
               </HoverableText>
             </div>
             <div className="max-w-sm mx-auto">
-              <MetricRow label="Number of Children in Care" value={fmt(data.childrenInCare)} tooltip="Total number of children in the foster care system." source={src} />
-              <MetricRow label="Children in Family-based Foster Care" value={fmt(data.childrenInFamily)} tooltip="Children placed with licensed foster families." source={src} />
-              <MetricRow label="Children in Kinship Care" value={fmt(data.childrenInKinship)} tooltip="Children placed with relatives or family friends." source={src} />
-              <MetricRow label="Children Placed Out-of-County" value={fmt(data.childrenOutOfCounty)} tooltip="Children from this county placed in care outside county boundaries." source={src} />
-              <MetricRow label="Number of Licensed Foster Homes" value={fmt(data.licensedHomes)} tooltip="Total number of state-licensed foster homes in this county." source={src} />
+              <MetricRow label="Number of Children in Care" value={fmt(data.childrenInCare)} tooltip="Total number of children in the foster care system" source={src} />
+              <MetricRow label="Children in Family-based Foster Care" value={fmt(data.childrenInFamily)} tooltip="Children placed with licensed foster families" source={src} />
+              <MetricRow label="Children in Kinship Care" value={fmt(data.childrenInKinship)} tooltip="Children placed with relatives or family friends" source={src} />
+              <MetricRow label="Children Placed Out-of-County" value={fmt(data.childrenOutOfCounty)} tooltip="Children from this county placed in care outside county boundaries" source={src} />
+              <MetricRow label="Number of Licensed Foster Homes" value={fmt(data.licensedHomes)} tooltip="Total number of state-licensed foster homes in this county" source={src} />
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>
                 <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/export?format=pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
-                  What does this data mean?
+                  Download our data guide
                 </a>
               </div>
               {hasNA(data.licensedHomesPerChild, data.childrenInCare, data.childrenInFamily, data.childrenInKinship, data.childrenOutOfCounty, data.licensedHomes) && (
@@ -636,23 +637,23 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           </div>
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={AdoptiveFamilyIcon} alt="Adoptive Families" className="mx-auto w-20 h-20 mb-3" />
-            <HoverableText tooltip="Families who have completed or are in the process of legally adopting children from foster care.">
+            <HoverableText tooltip="Families who have completed or are in the process of legally adopting children from foster care">
               <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Adoptive Families</h3>
             </HoverableText>
             <div className="flex justify-center items-center gap-1 mb-4">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</div>
-              <HoverableText tooltip="Children whose parental rights have been terminated and are legally free for adoption.">
+              <HoverableText tooltip="Children whose parental rights have been terminated and are legally free for adoption">
                 <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Number of Children Waiting For Adoption</div>
               </HoverableText>
             </div>
             <div className="max-w-md mx-auto">
-              <MetricRow label="Children Adopted in 2024" value={fmt(data.childrenAdopted2024)} tooltip="Number of finalized adoptions in the current year." source={src} />
-              <MetricRow label="Average Months to Adoption" value={fmt(data.avgMonthsToAdoption)} tooltip="Average time from termination of parental rights to finalized adoption." source={src} />
+              <MetricRow label="Children Adopted in 2024" value={fmt(data.childrenAdopted2024)} tooltip="Number of finalized adoptions in the current year" source={src} />
+              <MetricRow label="Average Months to Adoption" value={fmt(data.avgMonthsToAdoption)} tooltip="Average time from termination of parental rights to finalized adoption" source={src} />
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>
                 <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/export?format=pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
-                  What does this data mean?
+                  Download our data guide
                 </a>
               </div>
               {hasNA(data.waitingForAdoption, data.childrenAdopted2024, data.avgMonthsToAdoption) && (
@@ -662,25 +663,17 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           </div>
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={BiologicalFamilyIcon} alt="Biological Families" className="mx-auto w-20 h-20 mb-3" />
-            <HoverableText tooltip="Services and support provided to birth parents working toward reunification with their children.">
+            <HoverableText tooltip="Services and support provided to birth parents working toward reunification with their children">
               <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Support for Biological Families</h3>
             </HoverableText>
-            <div className="flex justify-center items-center gap-1 mb-4">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.familyPreservationCases)}</div>
-              <HoverableText tooltip="Active cases providing intensive services to prevent foster care placement.">
-                <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Number of Family Preservation Cases</div>
-              </HoverableText>
-            </div>
-            <div className="flex justify-center items-center gap-1">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(data.reunificationRate)}</div>
-              <HoverableText tooltip="Percentage of children who successfully return to their birth families.">
-                <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Biological Family Reunification Rate</div>
-              </HoverableText>
+            <div className="max-w-sm mx-auto">
+              <MetricRow label="Number of Family Preservation Cases" value={fmt(data.familyPreservationCases)} tooltip="Active cases providing intensive services to prevent foster care placement" source={src} />
+              <MetricRow label="Biological Family Reunification Rate" value={fmtPct(data.reunificationRate)} tooltip="Percentage of children who successfully return to their birth families" source={src} />
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>
                 <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/export?format=pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
-                  What does this data mean?
+                  Download our data guide
                 </a>
               </div>
               {hasNA(data.familyPreservationCases, data.reunificationRate) && (
@@ -690,23 +683,23 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           </div>
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={WrapAroundIcon} alt="Wraparound Support" className="mx-auto w-20 h-20 mb-3" />
-            <HoverableText tooltip="Comprehensive community-based support services for all families involved in foster care.">
+            <HoverableText tooltip="Comprehensive community-based support services for all families involved in foster care">
               <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Wraparound Support</h3>
             </HoverableText>
             <div className="flex justify-center items-center gap-1 mb-4">
               <div className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(data.supportPercentage)}</div>
-              <HoverableText tooltip="Percentage of local churches actively engaged in foster care ministry.">
+              <HoverableText tooltip="Percentage of local churches actively engaged in foster care ministry">
                 <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Churches Providing Support</div>
               </HoverableText>
             </div>
             <div className="max-w-md mx-auto">
-              <MetricRow label="Churches Providing Support" value={fmt(data.churchesProvidingSupport)} tooltip="Number of churches with active foster care support programs." source={src} />
-              <MetricRow label="Total Churches" value={fmt(data.totalChurches)} tooltip="Total number of churches in this county." source={src} />
+              <MetricRow label="Churches Providing Support" value={fmt(data.churchesProvidingSupport)} tooltip="Number of churches with active foster care support programs" source="DM Databases" />
+              <MetricRow label="Total Churches" value={fmt(data.totalChurches)} tooltip="Total number of churches in this county" source="DM Databases" />
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>
                 <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/export?format=pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
-                  What does this data mean?
+                  Download our data guide
                 </a>
               </div>
               {hasNA(data.supportPercentage, data.churchesProvidingSupport, data.totalChurches) && (
@@ -723,7 +716,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         const stateInfo = getStateDataForCounty();
         if (!stateInfo) return null;
         return (
-          <section className="max-w-7xl mx-auto px-4">
+          <section className="max-w-7xl mx-auto px-4 mb-6">
             <div className="bg-white rounded-2xl shadow-mte-card px-6 py-6 text-center">
               <h3 className="text-2xl font-nexa text-mte-black mb-4">Statewide Data Summary for {data.state}</h3>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 text-center">
@@ -733,6 +726,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(stateInfo.reunificationRate)}</p><p className="text-sm text-mte-charcoal font-lato">Biological Family Reunification Rate (%)</p></div>
                 <div className="col-span-2 md:col-span-1"><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.familyPreservationCases)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Family Preservation Cases</p></div>
               </div>
+              <div className="mt-4 text-xs text-mte-charcoal font-lato">Source: AFCARS</div>
             </div>
           </section>
         );

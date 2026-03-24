@@ -194,7 +194,7 @@ function App() {
     // Update URL if hash changed (use replaceState to preserve query params like ?embed=true)
     if (hash && window.location.hash !== hash) {
       const newUrl = window.location.pathname + window.location.search + hash;
-      window.history.replaceState(null, '', newUrl);
+      window.history.pushState(null, '', newUrl);
       console.log('✅ URL updated:', newUrl); // Debug log - can remove later
     }
   }, [region, view, selectedRegion]);

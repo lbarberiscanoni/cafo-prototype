@@ -73,7 +73,8 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
     return Object.entries(countyData)
       .map(([id, c]) => {
         const base = c.name.includes(",") ? c.name.split(",")[0].trim() : c.name;
-        const label = base === c.state ? base : `${base}, ${c.state}`;
+        const geoLabel = getGeographyLabel(c.state);
+        const label = base === c.state ? base : `${base} ${geoLabel}, ${c.state}`;
         return { id, label, data: c, state: c.state };
       })
       .sort((a, b) => {

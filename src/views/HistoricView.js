@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback } from "react";
-import { countyData, stateData, historicalData, fmt, hasValue } from "../real-data.js";
+import { countyData, stateData, historicalData, fmt, hasValue, getGeographyLabel, stateNameToCode } from "../real-data.js";
 import CountySelect from "../CountySelect";
 
 // Assets
@@ -403,12 +403,16 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
         const parts = regionId.split('-');
         stateCode = parts[parts.length - 1].toLowerCase();
       } else if (regionLevel === 'state' && stateData[regionId]) {
-        stateCode = stateData[regionId].code?.toLowerCase() || regionId.slice(0, 2);
+        stateCode = (stateNameToCode[stateData[regionId].name] || '').toLowerCase();
       }
     }
     return Object.entries(countyData)
       .filter(([id]) => id.split('-').pop() === stateCode)
-      .map(([id, d]) => ({ id, label: d.name.split(',')[0].trim() }))
+      .map(([id, d]) => {
+        const base = d.name.split(',')[0].trim();
+        const geoLabel = getGeographyLabel(d.state);
+        return { id, label: `${base} ${geoLabel}` };
+      })
       .sort((a, b) => a.label.localeCompare(b.label));
   }, [regionLevel, regionId]);
 

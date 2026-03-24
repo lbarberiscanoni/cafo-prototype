@@ -66,6 +66,7 @@ export default function CountySelect({
         >
           <input
             type="text"
+            autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={searchPlaceholder || "Search…"}

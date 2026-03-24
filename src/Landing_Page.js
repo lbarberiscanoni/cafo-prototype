@@ -4,7 +4,7 @@ import * as topojson from "topojson-client";
 import MTELogo from "./assets/MTE_Logo.png";
 import MapPin from "./assets/Map_Pin_icon.png";
 import CountySelect from "./CountySelect";
-import { countyData, stateData, fmt } from "./real-data.js";
+import { countyData, stateData, fmt, getGeographyLabel } from "./real-data.js";
 
 export default function LandingPage({ onSelectRegion, onExploreMap }) {
   const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);
@@ -26,7 +26,8 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
       .filter(([id, c]) => countyHasData(c)) // Only show counties with data
       .map(([id, c]) => {
         const base = c.name.includes(",") ? c.name.split(",")[0].trim() : c.name;
-        const label = base === c.state ? base : `${base}, ${c.state}`;
+        const geoLabel = getGeographyLabel(c.state);
+        const label = base === c.state ? base : `${base} ${geoLabel}, ${c.state}`;
         return { id, label, data: c, state: c.state };
       })
       .sort((a, b) => {
@@ -35,6 +36,12 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
         if (stateCompare !== 0) return stateCompare;
         return a.label.localeCompare(b.label);
       });
+  }, []);
+
+  const stateOptions = useMemo(() => {
+    return Object.entries(stateData)
+      .map(([id, s]) => ({ id, label: s.name }))
+      .sort((a, b) => a.label.localeCompare(b.label));
   }, []);
 
   // D3.js map rendering
@@ -119,7 +126,7 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
 
           {/* Subtitle - Responsive: 14px mobile, 16px desktop */}
           <p className="mt-2 md:mt-3 text-center text-sm md:text-base font-lato text-mte-charcoal px-4">
-            Explore the data and connect to local organizations
+            Explore foster care data where you live and connect to local organizations
           </p>
 
           {/* County Selection */}
@@ -171,22 +178,19 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
                     <div className="text-sm font-lato text-mte-charcoal">View national statistics</div>
                   </button>
 
-                  {/* State Options - Direct list, no nesting */}
-                  <div className="space-y-2">
-                    <div className="text-sm font-lato font-semibold text-mte-charcoal mb-2">Select a state:</div>
-                    {Object.entries(stateData).map(([stateId, state]) => (
-                      <button
-                        key={stateId}
-                        onClick={() => handleStateSelect(stateId, state.name)}
-                        className="w-full px-4 py-2 bg-white rounded-lg border border-mte-light-grey text-left hover:bg-mte-blue-20 hover:border-mte-blue transition-colors"
-                      >
-                        <div className="font-lato font-semibold text-mte-black">{state.name}</div>
-                        <div className="text-sm font-lato text-mte-charcoal">
-                          {fmt(state.totalChildren)} children in care
-                        </div>
-                      </button>
-                    ))}
-                  </div>
+                  {/* State Options - Searchable dropdown */}
+                  <div className="text-sm font-lato font-semibold text-mte-charcoal mb-2">Select a state:</div>
+                  <CountySelect
+                    options={stateOptions}
+                    placeholder="Select a state"
+                    searchPlaceholder="Search states…"
+                    onChange={(opt) => handleStateSelect(opt.id, opt.label)}
+                    containerClassName="w-full"
+                    controlClassName="w-full rounded-xl border border-mte-light-grey bg-white/80 backdrop-blur px-4 py-3 text-left shadow-mte-card focus-within:ring-2 focus-within:ring-mte-blue"
+                    menuClassName="rounded-xl border border-mte-light-grey bg-white/95 shadow-lg overflow-hidden"
+                    optionClassName="px-4 py-2 text-left hover:bg-mte-blue hover:text-white transition-colors"
+                    inputClassName="text-left font-lato"
+                  />
                 </div>
               </div>
             )}
@@ -200,7 +204,7 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
             onClick={() => onSelectRegion?.({ level: 'national', id: 'usa', name: 'United States', view: 'organizational' })}
             className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-base md:text-lg font-lato font-semibold text-white bg-mte-blue shadow-mte-card hover:bg-mte-blue-80 focus:outline-none focus:ring-2 focus:ring-mte-blue focus:ring-offset-2 transition-colors"
           >
-            Explore the map <span aria-hidden="true">→</span>
+            Explore the Map <span aria-hidden="true">→</span>
           </button>
         </div>
       </div>

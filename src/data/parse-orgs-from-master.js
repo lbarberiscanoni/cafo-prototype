@@ -93,6 +93,7 @@ function parseMasterSheet(workbook) {
       category: cleanString(row['category']),
       activities: activities,
       officialFosterMinistry: parseFlag(row['official_foster_ministry']),
+      cafoMember: parseFlag(row['member']),
       contact: {
         name: cleanString(row['contact_name']),
         title: cleanString(row['contact_title']),

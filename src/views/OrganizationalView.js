@@ -1200,6 +1200,11 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                           <span className={`text-sm px-2 py-1 rounded whitespace-nowrap border ${colors?.bg || 'bg-mte-blue-20'} ${colors?.border || 'border-mte-blue'} ${colors?.text || 'text-mte-black'} font-lato`}>
                             {getCategoryDisplayName(org.category)}
                           </span>
+                          {org.cafoMember && (
+                            <span className="text-sm px-2 py-1 rounded whitespace-nowrap border bg-mte-yellow-20 border-mte-yellow text-mte-black font-lato">
+                              CAFO Member
+                            </span>
+                          )}
                           {org.networkName && org.networkMember && (
                             <span className="text-sm px-2 py-1 rounded whitespace-nowrap border bg-mte-green-20 border-mte-green text-mte-black font-lato">
                               🔗 {org.networkName}

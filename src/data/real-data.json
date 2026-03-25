@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated": "2026-03-25T07:10:54.716Z",
+    "generated": "2026-03-25T23:24:28.863Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
@@ -91,7 +91,7 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-03-25T07:10:54.490Z",
+        "generated": "2026-03-25T23:24:16.660Z",
         "organizationCount": 518,
         "networkCount": 31,
         "stats": {
@@ -115691,6 +115691,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -115717,6 +115718,7 @@
       "category": "State/Regional Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -115743,6 +115745,7 @@
       "category": "State/Regional Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -115769,6 +115772,7 @@
       "category": "State/Regional Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -115795,6 +115799,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -115842,6 +115847,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Ashley Alm",
         "title": null,
@@ -115924,6 +115930,7 @@
       "category": "Regional Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -115958,6 +115965,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Miriam Cobb",
         "title": "Founder & Director",
@@ -115993,6 +116001,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Angela Bollo",
         "title": "Fostering Communities Officer",
@@ -116028,6 +116037,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Angela Bollo",
         "title": "Fostering Communities Officer",
@@ -116059,6 +116069,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Vince Smith",
         "title": "Executive Director",
@@ -116090,6 +116101,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Vince Smith",
         "title": "Executive Director",
@@ -116121,6 +116133,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Vince Smith",
         "title": "Executive Director",
@@ -116152,6 +116165,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Vince Smith",
         "title": "Executive Director",
@@ -116183,6 +116197,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Vince Smith",
         "title": "Executive Director",
@@ -116214,6 +116229,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Vince Smith",
         "title": "Executive Director",
@@ -116245,6 +116261,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Vince Smith",
         "title": "Executive Director",
@@ -116276,6 +116293,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Vince Smith",
         "title": "Executive Director",
@@ -116307,6 +116325,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Vince Smith",
         "title": "Executive Director",
@@ -116338,6 +116357,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Vince Smith",
         "title": "Executive Director",
@@ -116369,6 +116389,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Vince Smith",
         "title": "Executive Director",
@@ -116396,6 +116417,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Michelle Douglas",
         "title": null,
@@ -116704,6 +116726,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117441,6 +117464,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117473,6 +117497,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117505,6 +117530,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117537,6 +117563,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117569,6 +117596,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117611,6 +117639,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -117638,6 +117667,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117675,6 +117705,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117707,6 +117738,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117733,6 +117765,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117770,6 +117803,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117802,6 +117836,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117834,6 +117869,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117866,6 +117902,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117903,6 +117940,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117935,6 +117973,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -117972,6 +118011,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -118004,6 +118044,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -118030,6 +118071,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -118062,6 +118104,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -118104,6 +118147,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -118136,6 +118180,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -118168,6 +118213,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -118200,6 +118246,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -118262,6 +118309,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -118304,6 +118352,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -118330,6 +118379,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -118362,6 +118412,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Connie Lannom",
         "title": null,
@@ -118388,6 +118439,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Lacy Paredes",
         "title": null,
@@ -118414,6 +118466,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Dayna Gleason",
         "title": null,
@@ -118440,6 +118493,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Tony Streetman",
         "title": null,
@@ -118466,6 +118520,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -118492,6 +118547,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Damen Woolsey",
         "title": null,
@@ -118518,6 +118574,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Brianna Bray",
         "title": null,
@@ -118544,6 +118601,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Janet Kelly",
         "title": null,
@@ -118570,6 +118628,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Anna Graham",
         "title": null,
@@ -118596,6 +118655,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Brian Mavis",
         "title": null,
@@ -118622,6 +118682,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Johnston Moore",
         "title": null,
@@ -118648,6 +118709,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Stephanie Roberts",
         "title": null,
@@ -118674,6 +118736,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Cindy Thomas",
         "title": null,
@@ -118700,6 +118763,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Carissa Marine",
         "title": null,
@@ -118726,6 +118790,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Kim Miller",
         "title": null,
@@ -118752,6 +118817,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Anna Thomas",
         "title": null,
@@ -118778,6 +118844,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jason Grewe",
         "title": null,
@@ -118804,6 +118871,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Theodore Stackpole",
         "title": null,
@@ -118830,6 +118898,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Ashley Wambach",
         "title": null,
@@ -118856,6 +118925,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Randall Nichols",
         "title": null,
@@ -118882,6 +118952,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Kyle Dahl",
         "title": null,
@@ -118908,6 +118979,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Anita Hyde",
         "title": null,
@@ -118934,6 +119006,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Lisa Steele",
         "title": null,
@@ -118960,6 +119033,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Brian Strawser",
         "title": null,
@@ -119002,6 +119076,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Brandon Mead",
         "title": null,
@@ -119028,6 +119103,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Kate Danielson",
         "title": null,
@@ -119054,6 +119130,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -119080,6 +119157,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Gerilyn Ahrens",
         "title": null,
@@ -119106,6 +119184,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Sherry Bouquet",
         "title": null,
@@ -119133,6 +119212,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Debbie Stromwall",
         "title": null,
@@ -119159,6 +119239,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Julie Kouri",
         "title": null,
@@ -119185,6 +119266,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Lesli Reece",
         "title": null,
@@ -119211,6 +119293,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Susie Black Holamon",
         "title": null,
@@ -119244,6 +119327,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Shelly Radic",
         "title": "President",
@@ -119342,6 +119426,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Denise Kendrick",
         "title": "Executive Director",
@@ -119377,6 +119462,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Chris Seaton",
         "title": "Director",
@@ -119491,6 +119577,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Susan Wimmer",
         "title": "Foster Family Support Network Director",
@@ -119532,6 +119619,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Bryan Proctor",
         "title": "Director of Ministry Development & Church Engagement",
@@ -119571,6 +119659,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Kim Trainer",
         "title": "CEO",
@@ -119651,6 +119740,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -119690,6 +119780,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Savannah Lyon",
         "title": "Director of Engagement and Promotions",
@@ -119765,6 +119856,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Renae Denbow",
         "title": "Regional manager Ambassador",
@@ -119823,6 +119915,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "WC Martin",
         "title": "Bishop",
@@ -119850,6 +119943,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -119890,6 +119984,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "WC Martin",
         "title": "Bishop",
@@ -119931,6 +120026,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Janiece Wieschhaus",
         "title": "Director",
@@ -119992,6 +120088,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Steve Poissant",
         "title": "Executive Director",
@@ -120038,6 +120135,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Mike Evans",
         "title": "Founder",
@@ -120076,6 +120174,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Rachal Pollard",
         "title": "Executive Director",
@@ -120108,6 +120207,7 @@
         "bio_family"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Emily Tupta",
         "title": "Church Engagement Coordinator",
@@ -120148,6 +120248,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Amy King",
         "title": "Director",
@@ -120180,6 +120281,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Amy Jo Fox",
         "title": "Care communities and communications director",
@@ -120212,6 +120314,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Melissa Bachtel",
         "title": "Leader",
@@ -120251,6 +120354,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Christine Erickson",
         "title": "Director,  children at risk ministries",
@@ -120284,6 +120388,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Christina Googer",
         "title": "Orphan Care Ministry Leader",
@@ -120317,6 +120422,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Claire Hall",
         "title": "Child Resource Advocate",
@@ -120355,6 +120461,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Christal Gavin",
         "title": "Clement care director",
@@ -120404,6 +120511,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Katie Deyo",
         "title": "Embrace Coordinator",
@@ -120443,6 +120551,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Tami Carter",
         "title": "Streamline initiave/ CarePortal Director",
@@ -120483,6 +120592,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Amanda Moore",
         "title": "Foster Care & Adoption Guide",
@@ -120516,6 +120626,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Mandy Chapman",
         "title": "Regional Manager",
@@ -120557,6 +120668,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Christi Sowell",
         "title": "Program Director",
@@ -120597,6 +120709,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Deborah West",
         "title": "County Coordinator",
@@ -120647,6 +120760,7 @@
         "bio_family"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Katie England",
         "title": "VP of Domestic Services",
@@ -120680,6 +120794,7 @@
         "recruit_adoptive"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Rozdi Collins",
         "title": "Executive Director",
@@ -120712,6 +120827,7 @@
         "bio_family"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Nate Rogers",
         "title": "Regional Manager",
@@ -120747,6 +120863,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Chris Schutter",
         "title": "Ministry leader",
@@ -120785,6 +120902,7 @@
         "recruit_adoptive"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Lexie Fowler",
         "title": "Foster care program manager",
@@ -120817,6 +120935,7 @@
         "recruit_foster_kinship"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Elizabeth",
         "title": "Occhipinti",
@@ -120942,6 +121061,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Susanna Kavanaugh",
         "title": "Executive Director",
@@ -121313,6 +121433,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Travis Cutbirth",
         "title": "Foster Care & Adoption Guide",
@@ -121359,6 +121480,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Wendy Cheek",
         "title": "Network Director",
@@ -121397,6 +121519,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Blake Jacobs",
         "title": "Support Manager",
@@ -121429,6 +121552,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Will Prusia",
         "title": "National Director of Adventure Camps",
@@ -121467,6 +121591,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Brian Crisman",
         "title": "Executive Director",
@@ -121535,6 +121660,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Christine Robinson",
         "title": "Director",
@@ -121591,6 +121717,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Karen Roy",
         "title": "Ministry Leader",
@@ -121629,6 +121756,7 @@
         "recruit_foster_kinship"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -121668,6 +121796,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Miriam Cobb",
         "title": "Founder & Director",
@@ -121713,6 +121842,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Christy Sevier",
         "title": "Ministry Leader",
@@ -121748,6 +121878,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Paris Yanno",
         "title": "Father's Heart Director",
@@ -121787,6 +121918,7 @@
         "recruit_adoptive"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -121827,6 +121959,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Sharen Ford",
         "title": "Director, Foster Care and Adoption",
@@ -121866,6 +121999,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Heidi Mnkandhla",
         "title": "Care Coordinator",
@@ -121907,6 +122041,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Carly Souza",
         "title": "Director",
@@ -121942,6 +122077,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Mark Reidland",
         "title": "Pastor",
@@ -121983,6 +122119,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Chelsea Reidland",
         "title": "Advocacy Director",
@@ -122037,6 +122174,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Ellie Egles",
         "title": "Director of Care and Support",
@@ -122222,6 +122360,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Claudia Fletcher",
         "title": "Chief Program Officer",
@@ -122254,6 +122393,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Bruce Williams",
         "title": "715-281-6697",
@@ -122292,6 +122432,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Mandy Humphry",
         "title": "Director",
@@ -122324,6 +122465,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Christal Gavin",
         "title": "Ministry Co-Leader",
@@ -122365,6 +122507,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Travis Cutbirth",
         "title": "Foster Care & Adoption Guide",
@@ -122400,6 +122543,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Travis Cutbirth",
         "title": "Foster Care & Adoption Guide",
@@ -122435,6 +122579,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Travis Cutbirth",
         "title": "Foster Care & Adoption Guide",
@@ -122470,6 +122615,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Travis Cutbirth",
         "title": "Foster Care & Adoption Guide",
@@ -122505,6 +122651,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Travis Cutbirth",
         "title": "Foster Care & Adoption Guide",
@@ -122546,6 +122693,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Amanda Moore",
         "title": "Foster Care & Adoption Guide",
@@ -122581,6 +122729,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Travis Cutbirth",
         "title": "Foster Care & Adoption Guide",
@@ -122647,6 +122796,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Esther McDaniel",
         "title": "Executive Director",
@@ -122686,6 +122836,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Sarah Grundy",
         "title": "Director of Family Ministry",
@@ -122727,6 +122878,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Angela Coston",
         "title": "Executive Director",
@@ -122790,6 +122942,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Melissa Tubergen",
         "title": null,
@@ -122816,6 +122969,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Joshua Conley",
         "title": null,
@@ -122842,6 +122996,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Janet Hartery",
         "title": null,
@@ -122868,6 +123023,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Robert Mattox",
         "title": null,
@@ -122894,6 +123050,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Anna McIldoon",
         "title": null,
@@ -122920,6 +123077,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Myrlande Saint-Jean",
         "title": null,
@@ -122946,6 +123104,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Alexis Mcquown",
         "title": null,
@@ -122972,6 +123131,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Toni Steere / Jenny Sheets",
         "title": null,
@@ -122998,6 +123158,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Aimee Harris",
         "title": null,
@@ -123024,6 +123185,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Adam Carroll",
         "title": null,
@@ -123050,6 +123212,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Mandy Straus",
         "title": null,
@@ -123076,6 +123239,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Matthew Becker",
         "title": null,
@@ -123102,6 +123266,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Wendi Kapenga",
         "title": null,
@@ -123128,6 +123293,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Brenda Parks\nBeth Plyler",
         "title": null,
@@ -123162,6 +123328,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Justin Higham",
         "title": null,
@@ -123188,6 +123355,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jamie Blealey",
         "title": null,
@@ -123214,6 +123382,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Stephanie Guignard",
         "title": null,
@@ -123240,6 +123409,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Chris Gray",
         "title": null,
@@ -123266,6 +123436,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Stephanie Clinton",
         "title": null,
@@ -123292,6 +123463,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Bhadraiah Kommu",
         "title": null,
@@ -123318,6 +123490,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Victor Bondarenko",
         "title": null,
@@ -123344,6 +123517,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jane Gommermann",
         "title": null,
@@ -123370,6 +123544,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Sarah Carter",
         "title": null,
@@ -123396,6 +123571,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Sharon Seeberger\nHolly Stewart",
         "title": null,
@@ -123422,6 +123598,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Julius Goslin",
         "title": null,
@@ -123448,6 +123625,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Lindsay Smith",
         "title": null,
@@ -123474,6 +123652,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Ryan Keith",
         "title": null,
@@ -123500,6 +123679,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Mark Fisher",
         "title": null,
@@ -123526,6 +123706,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Kimberly Quinley",
         "title": null,
@@ -123552,6 +123733,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Matt Waller",
         "title": null,
@@ -123584,6 +123766,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Louise Witcher",
         "title": null,
@@ -123610,6 +123793,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Amanda Wooten",
         "title": null,
@@ -123636,6 +123820,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Jamie Phillips",
         "title": null,
@@ -123662,6 +123847,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "not listed",
         "title": null,
@@ -123688,6 +123874,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Amy Pettit",
         "title": null,
@@ -123714,6 +123901,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Lisa Prescott",
         "title": null,
@@ -123740,6 +123928,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Krista Hamlin",
         "title": null,
@@ -123766,6 +123955,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Emily Treadway",
         "title": null,
@@ -123792,6 +123982,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Tonya Ross",
         "title": null,
@@ -123818,6 +124009,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Dixie Coffee",
         "title": null,
@@ -123844,6 +124036,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Jodi King",
         "title": null,
@@ -123870,6 +124063,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Rodney Stroud",
         "title": null,
@@ -123896,6 +124090,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "not listed",
         "title": null,
@@ -123922,6 +124117,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Daniel Wakefield",
         "title": null,
@@ -123948,6 +124144,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "not listed",
         "title": null,
@@ -123974,6 +124171,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Edie Hampton",
         "title": null,
@@ -124000,6 +124198,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Laura Smith",
         "title": null,
@@ -124026,6 +124225,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Ann Book",
         "title": null,
@@ -124052,6 +124252,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Makenzie Hayes",
         "title": null,
@@ -124078,6 +124279,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Sherri Smith",
         "title": null,
@@ -124104,6 +124306,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "not listed",
         "title": null,
@@ -124130,6 +124333,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Meg Scott",
         "title": null,
@@ -124156,6 +124360,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Alicen Bennett",
         "title": null,
@@ -124182,6 +124387,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Meg Scott",
         "title": null,
@@ -124208,6 +124414,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Julia Descarpentrie",
         "title": null,
@@ -124234,6 +124441,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Kristy Manzanares",
         "title": null,
@@ -124260,6 +124468,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Karen Hicks",
         "title": null,
@@ -124286,6 +124495,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "James Tucker & Kristen Tucker",
         "title": null,
@@ -124312,6 +124522,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Christy Duncan",
         "title": null,
@@ -124338,6 +124549,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Angie Grant",
         "title": null,
@@ -124364,6 +124576,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Sarah Homeier\nOlivia Hayse",
         "title": null,
@@ -124390,6 +124603,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Jamie Kent",
         "title": null,
@@ -124416,6 +124630,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Brittani Belvedere",
         "title": null,
@@ -124442,6 +124657,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Kari Stewart",
         "title": null,
@@ -124469,6 +124685,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jessica Birbeck",
         "title": null,
@@ -124495,6 +124712,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Janet Rinaldi",
         "title": null,
@@ -124521,6 +124739,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Monique McClendon",
         "title": null,
@@ -124547,6 +124766,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Hitomi Mewhinney",
         "title": null,
@@ -124573,6 +124793,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Kim Eylar-Shanchez",
         "title": null,
@@ -124599,6 +124820,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Erin Deale",
         "title": null,
@@ -124625,6 +124847,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Nathan Renfree",
         "title": null,
@@ -124651,6 +124874,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Mark Orphan",
         "title": null,
@@ -124677,6 +124901,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Lisa Hoeve",
         "title": null,
@@ -124703,6 +124928,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jennifer Nolder",
         "title": null,
@@ -124729,6 +124955,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Misty Seale",
         "title": null,
@@ -124755,6 +124982,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Gina Russell\nNick Faucett",
         "title": null,
@@ -124781,6 +125009,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Kaylee Newbold",
         "title": null,
@@ -124807,6 +125036,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Sondra Ajasin",
         "title": null,
@@ -124833,6 +125063,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Gerald Driskill",
         "title": null,
@@ -124859,6 +125090,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Marissa Sanders",
         "title": null,
@@ -124888,6 +125120,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Steve Duer",
         "title": null,
@@ -124996,6 +125229,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Michelle Glassford",
         "title": null,
@@ -125023,6 +125257,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Skip Stallings",
         "title": null,
@@ -125050,6 +125285,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Brian O'Neil",
         "title": null,
@@ -125077,6 +125313,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Colleen Holman",
         "title": null,
@@ -125104,6 +125341,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Lindsey Stamm",
         "title": null,
@@ -125131,6 +125369,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Andrea Stuart",
         "title": null,
@@ -125158,6 +125397,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Kerry Rhodes",
         "title": null,
@@ -125185,6 +125425,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Wayne Mott",
         "title": null,
@@ -125212,6 +125453,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Charlotte Paulsen",
         "title": null,
@@ -125239,6 +125481,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Daniel Nehrbass",
         "title": null,
@@ -125266,6 +125509,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Emily Fazio",
         "title": null,
@@ -125293,6 +125537,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Deborah Ospino",
         "title": null,
@@ -125320,6 +125565,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Rick Smith",
         "title": null,
@@ -125347,6 +125593,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Lisa Castetter",
         "title": null,
@@ -125379,6 +125626,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Melanie Bunn",
         "title": null,
@@ -125406,6 +125654,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Beth Woods",
         "title": null,
@@ -125433,6 +125682,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Steve Gillis",
         "title": null,
@@ -125460,6 +125710,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Tom Lukasik",
         "title": null,
@@ -125518,6 +125769,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Stephen Robert",
         "title": null,
@@ -125556,6 +125808,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Joseph Sica",
         "title": null,
@@ -125583,6 +125836,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Tami Kent",
         "title": null,
@@ -125610,6 +125864,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Riley Green",
         "title": null,
@@ -125637,6 +125892,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Andy Cook",
         "title": null,
@@ -125664,6 +125920,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Kim DeGreen",
         "title": null,
@@ -125691,6 +125948,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jacqui Jackson",
         "title": null,
@@ -125718,6 +125976,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Walter Gilbert",
         "title": null,
@@ -125745,6 +126004,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Anna Bearden",
         "title": null,
@@ -125777,6 +126037,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Pam Parish",
         "title": null,
@@ -125804,6 +126065,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jeff Mauer",
         "title": null,
@@ -125831,6 +126093,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Ally Christianson",
         "title": null,
@@ -125858,6 +126121,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Kay Williams",
         "title": null,
@@ -125885,6 +126149,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Jodi Lewis",
         "title": null,
@@ -125912,6 +126177,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Tricia Wells",
         "title": null,
@@ -125939,6 +126205,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Richard Burslem",
         "title": null,
@@ -125966,6 +126233,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Mandi Wallis",
         "title": null,
@@ -125992,6 +126260,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Lisa Willerer",
         "title": null,
@@ -126019,6 +126288,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Margaret Dunn",
         "title": null,
@@ -126046,6 +126316,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Trace Turlby",
         "title": null,
@@ -126073,6 +126344,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -126100,6 +126372,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Sara Beth Fentress",
         "title": null,
@@ -126127,6 +126400,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Mike Briles",
         "title": null,
@@ -126154,6 +126428,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jodi Tucker",
         "title": null,
@@ -126181,6 +126456,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Melissa Matthews",
         "title": null,
@@ -126208,6 +126484,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Luke Wrobleski",
         "title": "Love Your Neighbor Director",
@@ -126235,6 +126512,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Chris Campbell",
         "title": null,
@@ -126262,6 +126540,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Dorie Alcaro",
         "title": null,
@@ -126289,6 +126568,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Stephen Yagilnicky",
         "title": null,
@@ -126316,6 +126596,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Florence Rhue",
         "title": null,
@@ -126342,6 +126623,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jonathan Reid",
         "title": null,
@@ -126369,6 +126651,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Stephanie Bruce",
         "title": null,
@@ -126396,6 +126679,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Chandler Means",
         "title": null,
@@ -126449,6 +126733,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Aimee Sipe",
         "title": null,
@@ -126476,6 +126761,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Courtney Greene",
         "title": null,
@@ -126503,6 +126789,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Jeff Jones",
         "title": null,
@@ -126530,6 +126817,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Tami Burkett",
         "title": null,
@@ -126557,6 +126845,7 @@
       "category": "Child Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Brett Bouck",
         "title": null,
@@ -126584,6 +126873,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Kate Johnson",
         "title": null,
@@ -126611,6 +126901,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Lolita Baker",
         "title": null,
@@ -126638,6 +126929,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Charonne Ganiere",
         "title": null,
@@ -126664,6 +126956,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "April Karber",
         "title": null,
@@ -126691,6 +126984,7 @@
       "category": "Bridge Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Cayela Moody",
         "title": null,
@@ -126725,6 +127019,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Pat O'Brien",
         "title": "Executive Director",
@@ -126784,6 +127079,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Janece Ferris",
         "title": "Director of Foster Care",
@@ -126832,6 +127128,7 @@
         "bio_family"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Aaron Scofield",
         "title": "Montana Director",
@@ -126871,6 +127168,7 @@
         "recruit_adoptive"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Alessandra Thomas",
         "title": "Director of Operations",
@@ -126910,6 +127208,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Bob Vanderveen",
         "title": "Director",
@@ -126949,6 +127248,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": true,
       "contact": {
         "name": "Philip Holmes",
         "title": "Director of Missions/Associational Mission Strategist",
@@ -126988,6 +127288,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Rich Kellogg",
         "title": "Ministry Leader",
@@ -127027,6 +127328,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Elizabeth Drollette",
         "title": "Minister of Missions",
@@ -127068,6 +127370,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Christie McCullough",
         "title": "Ministry Coordinator",
@@ -127109,6 +127412,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Lauren Clark",
         "title": "Missions & Ministries Director",
@@ -127148,6 +127452,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Melanie Stimmell",
         "title": "Adoption & Foster Care Coordinator",
@@ -127187,6 +127492,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Rachel Garrison",
         "title": "Team Lead",
@@ -127225,6 +127531,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Ariel Cephus",
         "title": "Foster + Adopt Director",
@@ -127266,6 +127573,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": true,
       "contact": {
         "name": "Rhonda Littleton",
         "title": "Esecutive Director",
@@ -127306,6 +127614,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Rhonda Littleton",
         "title": "Children's Minister",
@@ -127344,6 +127653,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Renee Phillips Griffin",
         "title": "CEO",
@@ -127384,6 +127694,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Caroline Pepper",
         "title": "Foster Care Ministry Director",
@@ -127423,6 +127734,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Joy Zedler",
         "title": "Executive Director",
@@ -127479,6 +127791,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Kimberly Reed",
         "title": "Founder, Ministry Leader",
@@ -127522,6 +127835,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Rachal Pollard",
         "title": "Ministry Leader",
@@ -127561,6 +127875,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Jenn Decker",
         "title": "Ministry Director",
@@ -127602,6 +127917,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Sheri Schmidt",
         "title": "Director of Orphan Care",
@@ -127641,6 +127957,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Jorden Tramp",
         "title": "Donor Relations & Event Coordinator",
@@ -127716,6 +128033,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Tamara Landes",
         "title": "Children's Pastor",
@@ -127755,6 +128073,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Janeen Cox",
         "title": "Regional coordinator",
@@ -127826,6 +128145,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "David White",
         "title": "CEO",
@@ -127865,6 +128185,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Bethany Gallegos",
         "title": "Executive Director",
@@ -127903,6 +128224,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jen Fister",
         "title": "Foster Care & Adoption Program Supervisor",
@@ -127961,6 +128283,7 @@
         "recruit_adoptive"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Sandra Flach",
         "title": "Executive Director",
@@ -128035,6 +128358,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Laura Mobley",
         "title": "State Manager",
@@ -128074,6 +128398,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Judy Holmes",
         "title": "Director of Family Connection and Community Development",
@@ -128178,6 +128503,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Rob Marks",
         "title": "Executive Pastor",
@@ -128217,6 +128543,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Patricia Curry",
         "title": null,
@@ -128257,6 +128584,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Rob Mattox",
         "title": "Executive Director",
@@ -128306,6 +128634,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Carolyn Knowlton",
         "title": "County Coordinator",
@@ -128338,6 +128667,7 @@
         "recruit_adoptive"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Zacchaeus Tree Adoption Ministry",
         "title": "Chris Gray - President",
@@ -128375,6 +128705,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Angela Boblitt",
         "title": "Executive Director",
@@ -128414,6 +128745,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Anna Unruh",
         "title": "Director of Community Engagement",
@@ -128454,6 +128786,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Brandy Page",
         "title": "Executive Director",
@@ -128542,6 +128875,7 @@
         "recruit_foster_kinship"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Ray Biggerstaff",
         "title": "Regional Director",
@@ -128581,6 +128915,7 @@
         "recruit_adoptive"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Jess Pienaar",
         "title": "Family Education Specialist",
@@ -128622,6 +128957,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Jacqueline Bergren",
         "title": "Family Engagement Coordinator",
@@ -128662,6 +128998,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Melissa Puyear",
         "title": "Family Education Specialist",
@@ -128702,6 +129039,7 @@
         "bio_family"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": true,
       "contact": {
         "name": "Cindy Larsen",
         "title": "Regional Director",
@@ -128740,6 +129078,7 @@
         "recruit_foster_kinship"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jodi Lewis",
         "title": "Coordinator",
@@ -128779,6 +129118,7 @@
         "recruit_adoptive"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Andrew Morrow",
         "title": "Regional Director",
@@ -128820,6 +129160,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "LaTrisha Larson",
         "title": "Family Education Specialist",
@@ -128861,6 +129202,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Angela Bollo",
         "title": "Fostering Communities Officer",
@@ -128920,6 +129262,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Jennifer Smith",
         "title": "Executive Director",
@@ -128986,6 +129329,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Scott Bowser",
         "title": "Lead Advocate",
@@ -129026,6 +129370,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Adam Speas",
         "title": "Pastor of Campus Development",
@@ -129059,6 +129404,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Tawnya Hansen",
         "title": "Christian Heritage Foster Care Director",
@@ -129125,6 +129471,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Robby Lybarger",
         "title": "Development Coordinator",
@@ -129190,6 +129537,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Laura Marinucci",
         "title": "Special Home Finding",
@@ -129228,6 +129576,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": true,
       "contact": {
         "name": "Jenni Olowo",
         "title": "Executive Director",
@@ -129271,6 +129620,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "John Keane",
         "title": "M1.27 Leader",
@@ -129309,6 +129659,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Sarah Bowman",
         "title": "Missions Coordinator for Foster Care and Compassion International",
@@ -129355,6 +129706,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Amber Bohl",
         "title": "Chief Operating Officer",
@@ -129400,6 +129752,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Danny Holmes",
         "title": "Executive Director",
@@ -129439,6 +129792,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Nicole Taylor",
         "title": "Executive Director",
@@ -129473,6 +129827,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Tera Melber",
         "title": "Foster Care Mobilizer and Trauma Educator",
@@ -129512,6 +129867,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Megan Lagoy",
         "title": "Program Director",
@@ -129562,6 +129918,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Thomas Dent",
         "title": "Board President",
@@ -129613,6 +129970,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Greg Clutter",
         "title": "Director of Foster Care Initiatives",
@@ -129653,6 +130011,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Anna Nielsen",
         "title": "Life on Mission Director",
@@ -129691,6 +130050,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Gerilyn Ahrens",
         "title": "Ministry leader",
@@ -129729,6 +130089,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Amie Cooper",
         "title": "Executive Director",
@@ -129770,6 +130131,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Kimberly M Du Vall",
         "title": "Founder, Executive Director",
@@ -129805,6 +130167,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Jennifer Oei",
         "title": "Director of Foster and Adoptions",
@@ -129839,6 +130202,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Alison Nistal",
         "title": "Foster and Adoptions Director",
@@ -129874,6 +130238,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Nicole Perez",
         "title": "Regional Director of Foster and Adoptions",
@@ -129907,6 +130272,7 @@
         "recruit_adoptive"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Missy Bell",
         "title": "Programs Director",
@@ -129992,6 +130358,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Rebecca Radicchi",
         "title": "State Manager",
@@ -130030,6 +130397,7 @@
         "recruit_adoptive"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Tracee Rudd",
         "title": "Executive Director",
@@ -130092,6 +130460,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Erika Austin",
         "title": "Adoption Recruiter",
@@ -130221,6 +130590,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Kristin Allender",
         "title": "Director",
@@ -130260,6 +130630,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -130298,6 +130669,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Staci Thomas",
         "title": "Chief Programs Officer",
@@ -130336,6 +130708,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Jennifer Mitchell",
         "title": "Director of Counseling Center",
@@ -130382,6 +130755,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Tiffany Loeffler",
         "title": "Executive Director",
@@ -130443,6 +130817,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Rebecca Rudy",
         "title": "Executive Director",
@@ -130502,6 +130877,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Vince Smith",
         "title": "Executive Director",
@@ -130597,6 +130973,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Margo Stefka",
         "title": "Operations Manager",
@@ -130788,6 +131165,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": true,
       "contact": {
         "name": "Elaine Jones",
         "title": "Deacon, Founder and Court Appointed Special Advocate (CASA_",
@@ -130824,6 +131202,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Tom Lukasik",
         "title": null,
@@ -130860,6 +131239,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Tom Lukasik",
         "title": null,
@@ -130896,6 +131276,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Tom Lukasik",
         "title": null,
@@ -130932,6 +131313,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Tom Lukasik",
         "title": null,
@@ -130983,6 +131365,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Tom Lukasik",
         "title": null,
@@ -131040,6 +131423,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Tim Bowes",
         "title": "Co-Founder",
@@ -131086,6 +131470,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": true,
       "contact": {
         "name": "Emily and Ricardo Arredondo",
         "title": "Leader of The Village",
@@ -131131,6 +131516,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Lisa Robertson",
         "title": "Executive Director",
@@ -131185,6 +131571,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Sherry Bouquet",
         "title": "Executive Director",
@@ -131261,6 +131648,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Angela (AJ) Doyle",
         "title": "Wildwood Collective Director",
@@ -131301,6 +131689,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Stacy Pullen",
         "title": "Executive Director",
@@ -131369,6 +131758,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Emily Joldersma",
         "title": "Local Engagement Coordinator",
@@ -131409,6 +131799,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jamie Bartlett",
         "title": "Adoption & Foster Care Ministry Director",
@@ -131451,6 +131842,7 @@
         "recruit_foster_kinship"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jackie Haddix",
         "title": "Program Director",
@@ -131541,6 +131933,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Tracy Brown",
         "title": "HarvestCare Director",
@@ -131584,6 +131977,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Hannah Miller",
         "title": "FAM Minister",
@@ -131622,6 +132016,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -131655,6 +132050,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Kearstin Criswell",
         "title": null,
@@ -131681,6 +132077,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Corrie Vos",
         "title": null,
@@ -131707,6 +132104,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jamie Bartlett",
         "title": null,
@@ -131733,6 +132131,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Greg Clutter",
         "title": null,
@@ -131759,6 +132158,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Kylee Hassan",
         "title": null,
@@ -131785,6 +132185,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Justin Bowers",
         "title": null,
@@ -131811,6 +132212,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Lauren DeLuca",
         "title": null,
@@ -131837,6 +132239,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Laure Mulrooney",
         "title": null,
@@ -131863,6 +132266,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Keith Fortier",
         "title": null,
@@ -131889,6 +132293,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Paul\tvan Woudenberg",
         "title": null,
@@ -131915,6 +132320,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jaime Kent",
         "title": null,
@@ -131941,6 +132347,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Tim Bowes",
         "title": null,
@@ -131967,6 +132374,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Carly Souza",
         "title": null,
@@ -131993,6 +132401,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Andie Jamerson",
         "title": null,
@@ -132019,6 +132428,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Liz Brodinski",
         "title": null,
@@ -132045,6 +132455,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Denise Buchanan",
         "title": null,
@@ -132071,6 +132482,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Amberlee Rogers",
         "title": null,
@@ -132097,6 +132509,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Marisa Stam",
         "title": null,
@@ -132123,6 +132536,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Angela Doyle",
         "title": null,
@@ -132149,6 +132563,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Leslie Fuller",
         "title": null,
@@ -132175,6 +132590,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Margo Stefka",
         "title": null,
@@ -132201,6 +132617,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -132227,6 +132644,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -132253,6 +132671,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -132279,6 +132698,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -132305,6 +132725,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -132331,6 +132752,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -132357,6 +132779,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -132383,6 +132806,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -132409,6 +132833,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -132435,6 +132860,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -132461,6 +132887,7 @@
       "category": "Local Network",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -132493,6 +132920,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Rebecca van Woudenberg",
         "title": "Executive Director",
@@ -132620,6 +133048,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Fran Maynard",
         "title": "Executive Director",
@@ -132768,6 +133197,7 @@
         "bio_family"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Amberlee Rogers",
         "title": "Program Director",
@@ -132800,6 +133230,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Carly Souza",
         "title": "Founder",
@@ -132846,6 +133277,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Joanna Holden",
         "title": "Program Director",
@@ -132894,6 +133326,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Brooke Eggert",
         "title": "Foster Care Recruitment and Support Supervisor",
@@ -132940,6 +133373,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Moriah Bruner",
         "title": "Outreach Coordinator",
@@ -132988,6 +133422,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Bobby Allison",
         "title": "Pastor",
@@ -133038,6 +133473,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Randall Nichols",
         "title": "Executive Director of Partnerships",
@@ -133070,6 +133506,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Paul Hemminger",
         "title": "Founder",
@@ -133111,6 +133548,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Dede Schumacher",
         "title": "Volunteer",
@@ -133147,6 +133585,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Rachel Selby",
         "title": "Executive Director",
@@ -133176,6 +133615,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -133213,6 +133653,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Eric C. Basye",
         "title": "Executive Director",
@@ -133240,6 +133681,7 @@
       "category": "Bridge Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -133274,6 +133716,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133309,6 +133752,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133344,6 +133788,7 @@
       "category": "Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133379,6 +133824,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133417,6 +133863,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133461,6 +133908,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133499,6 +133947,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133534,6 +133983,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133568,6 +134018,7 @@
       "category": "Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -133610,6 +134061,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133645,6 +134097,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133680,6 +134133,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -133715,6 +134169,7 @@
       "category": "Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -133750,6 +134205,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133780,6 +134236,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133815,6 +134272,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133842,6 +134300,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133877,6 +134336,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133912,6 +134372,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133946,6 +134407,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -133981,6 +134443,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134016,6 +134479,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134057,6 +134521,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134092,6 +134557,7 @@
       "category": "Bridge Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -134121,6 +134587,7 @@
       "category": "Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -134172,6 +134639,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134210,6 +134678,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134245,6 +134714,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -134283,6 +134753,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -134313,6 +134784,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134340,6 +134812,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134374,6 +134847,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134412,6 +134886,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134452,6 +134927,7 @@
         "bio_family"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -134508,6 +134984,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134543,6 +135020,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -134585,6 +135063,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134620,6 +135099,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134655,6 +135135,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134693,6 +135174,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134731,6 +135213,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134766,6 +135249,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134801,6 +135285,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": null,
         "title": null,
@@ -134836,6 +135321,7 @@
       "category": "Placement Agency",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134887,6 +135373,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134922,6 +135409,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134957,6 +135445,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -134995,6 +135484,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -135033,6 +135523,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -135070,6 +135561,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -135105,6 +135597,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -135147,6 +135640,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -135182,6 +135676,7 @@
       "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": null,
         "title": null,
@@ -135215,6 +135710,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Beth Drake",
         "title": null,
@@ -135250,6 +135746,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Kim Wright",
         "title": "Founder",
@@ -135281,6 +135778,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
+      "cafoMember": true,
       "contact": {
         "name": "Rebecca Rudy",
         "title": "Executive Director",
@@ -135312,6 +135810,7 @@
         "support"
       ],
       "officialFosterMinistry": true,
+      "cafoMember": false,
       "contact": {
         "name": "Caroline Chen",
         "title": "Foster Care Ministry Advocate",
@@ -135339,6 +135838,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Nicole Roberts",
         "title": null,
@@ -135379,6 +135879,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Rachel Bristol",
         "title": null,
@@ -135500,6 +136001,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Dan Sparling",
         "title": null,
@@ -135534,6 +136036,7 @@
       "category": "Church Foster Care Ministry",
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Brandy Bauman",
         "title": null,
@@ -135568,6 +136071,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Mikel Stull",
         "title": null,
@@ -135616,6 +136120,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Robbie Gaines",
         "title": null,
@@ -135642,6 +136147,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Melissa Vaughan",
         "title": null,
@@ -135676,6 +136182,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jerrod Pfeffer",
         "title": null,
@@ -135724,6 +136231,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Jennifer Hanson",
         "title": null,
@@ -135758,6 +136266,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Racheal Holland",
         "title": "Church Representative",
@@ -135792,6 +136301,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Emily Wood",
         "title": "Executive Director",
@@ -135826,6 +136336,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Kendra Paulton",
         "title": "WRAP ministry director, Church on the Hill",
@@ -135860,6 +136371,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Richard Roseland",
         "title": "FAM (Foster and Adoption Ministry) co-director and co-founder",
@@ -135894,6 +136406,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Rachel Peterman",
         "title": "Program Manager, Safe & Secure TN",
@@ -135928,6 +136441,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Joshua Conley",
         "title": "Executive Director-Foster Village Memphis",
@@ -135962,6 +136476,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Ximena Roseland",
         "title": "Bookkeeper",
@@ -135996,6 +136511,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Connie Booker",
         "title": "Family Preservation Director",
@@ -136030,6 +136546,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Anna Barber",
         "title": "Assistant to Lead Minister/Ministry Leader over Threads of Hope (Foster Clothing Boutique)",
@@ -136064,6 +136581,7 @@
       "category": null,
       "activities": [],
       "officialFosterMinistry": false,
+      "cafoMember": false,
       "contact": {
         "name": "Ava Conley",
         "title": "Shelby County Location Leader",

@@ -1,43 +1,78 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-03-24T07:12:39.454Z",
-    "organizationCount": 490,
-    "networkCount": 20,
+    "generated": "2026-03-25T07:10:54.490Z",
+    "organizationCount": 518,
+    "networkCount": 31,
     "stats": {
       "withCoordinates": 194,
       "withWebsite": 302,
       "withActivities": 197,
-      "withNetworkMemberships": 58,
+      "withNetworkMemberships": 76,
       "withCountiesServed": 194
     },
     "categories": {
-      "Local Network": 22,
+      "Local Network": 33,
       "State/Regional Network": 3,
       "Bridge Organization": 14,
       "Regional Network": 1,
       "Service Organization": 118,
       "Placement Agency": 34,
-      "Unknown": 149,
+      "Unknown": 165,
       "Bridge Ministry": 53,
-      "Church Foster Care Ministry": 73,
+      "Church Foster Care Ministry": 74,
       "Child Placement Agency": 23
     },
     "networkMemberships": {
-      "total": 61,
-      "skipped": 11,
+      "total": 84,
+      "skipped": 46,
       "skippedOrgs": [
-        "Dream Together 2030",
-        "Wildwood Collective (of Wildwood Hills Ranch)",
-        "Plant Tamarisk, King's Table Church",
-        "NoCo CAFO",
+        "CarePortal (Alachua County)",
+        "St. Patrick Catholic Church",
+        "Trinity United Methodist Church",
+        "Partnership for Strong Families",
+        "Flatirons Community Church",
+        "Trailhead Church",
+        "One More, One Less Project",
+        "Pleasant City Church",
+        "Chestnut Ridge Baptist Church",
+        "Project Belong",
+        "Awake Church",
+        "Foster Family Resource Center",
+        "First Presbyterian Church Greenville",
+        "Mitchell Road Presbyterian Church",
+        "Adoption Helpers",
+        "Harbor Church",
+        "Rise Foundation, Inc.",
+        "Foothills Calvary Church",
+        "Hands of Hope NWI",
+        "LV Foster Care",
+        "Mountain View Wesleyan Church",
+        "Lutheran Church of the Holy Spirit",
+        "Jordan Lutheran Church",
+        "New Jerusalem Evangelical Lutheran Church",
+        "Morningstar Storage, Generations Church",
         "Camp Rock of Georgia, Inc",
         "The Church of Remerton",
-        "Project Belong",
-        "Morningstar Storage, Generations Church",
         "Chestnut Mountain Village Ministry",
+        "Wildwood Collective (of Wildwood Hills Ranch)",
         "Chestnut Mountain Village Ministry",
-        "Hands of Hope NWI"
+        "Life Assembly Church",
+        "Emmanuel Christian Center",
+        "Chara Family Mission",
+        "Guardian ad Litem Program",
+        "Partnership of Children of the Foothills",
+        "Green River Baptist Association",
+        "Blue Ridge Hope",
+        "Second Baptist Church",
+        "Children 1st",
+        "KVC Kansas",
+        "Word of Life",
+        "Dream Together 2030",
+        "Plant Tamarisk, King's Table Church",
+        "NoCo CAFO",
+        "Gateway Church",
+        "Country Church at Four Corners"
       ]
     }
   },
@@ -2065,13 +2100,7 @@
       },
       "onMap": false,
       "networkMemberships": [],
-      "countiesServed": [
-        {
-          "county": "Wabash",
-          "state": "IN",
-          "countyState": "Wabash, IN"
-        }
-      ]
+      "countiesServed": []
     },
     {
       "id": 136,
@@ -3609,7 +3638,7 @@
       "networkMemberships": [
         {
           "network": "Weld County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -4530,93 +4559,7 @@
       },
       "onMap": true,
       "networkMemberships": [],
-      "countiesServed": [
-        {
-          "county": "Hamilton",
-          "state": "IN",
-          "countyState": "Hamilton, IN"
-        },
-        {
-          "county": "Allen",
-          "state": "IN",
-          "countyState": "Allen, IN"
-        },
-        {
-          "county": "Boone",
-          "state": "IN",
-          "countyState": "Boone, IN"
-        },
-        {
-          "county": "Cass",
-          "state": "IN",
-          "countyState": "Cass, IN"
-        },
-        {
-          "county": "Hendricks",
-          "state": "IN",
-          "countyState": "Hendricks, IN"
-        },
-        {
-          "county": "Howard",
-          "state": "IN",
-          "countyState": "Howard, IN"
-        },
-        {
-          "county": "Madison",
-          "state": "IN",
-          "countyState": "Madison, IN"
-        },
-        {
-          "county": "Montgomery",
-          "state": "IN",
-          "countyState": "Montgomery, IN"
-        },
-        {
-          "county": "Vanderburgh",
-          "state": "IN",
-          "countyState": "Vanderburgh, IN"
-        },
-        {
-          "county": "Allen",
-          "state": "IN",
-          "countyState": "Allen, IN"
-        },
-        {
-          "county": "Johnson",
-          "state": "IN",
-          "countyState": "Johnson, IN"
-        },
-        {
-          "county": "Kosciusko",
-          "state": "IN",
-          "countyState": "Kosciusko, IN"
-        },
-        {
-          "county": "Madison",
-          "state": "IN",
-          "countyState": "Madison, IN"
-        },
-        {
-          "county": "Marion",
-          "state": "IN",
-          "countyState": "Marion, IN"
-        },
-        {
-          "county": "Vanderburgh",
-          "state": "IN",
-          "countyState": "Vanderburgh, IN"
-        },
-        {
-          "county": "Vigo",
-          "state": "IN",
-          "countyState": "Vigo, IN"
-        },
-        {
-          "county": "Warrick",
-          "state": "IN",
-          "countyState": "Warrick, IN"
-        }
-      ]
+      "countiesServed": []
     },
     {
       "id": 258,
@@ -6315,22 +6258,8 @@
         "email": "carly@thehublv.com"
       },
       "onMap": true,
-      "networkMemberships": [
-        {
-          "network": "Clark County Collaboration",
-          "fellowshipCohort": "F23_02",
-          "mouParticipant": true,
-          "addedToMap": "Yes",
-          "membershipOnMap": true
-        }
-      ],
-      "countiesServed": [
-        {
-          "county": "Clark",
-          "state": "NV",
-          "countyState": "Clark, NV"
-        }
-      ]
+      "networkMemberships": [],
+      "countiesServed": []
     },
     {
       "id": 374,
@@ -7532,7 +7461,15 @@
         "email": "BParks@miraclehill.org\nbplyler@firstpresgreenville.org"
       },
       "onMap": false,
-      "networkMemberships": [],
+      "networkMemberships": [
+        {
+          "network": "Greenville County Collaboration",
+          "fellowshipCohort": "Summer 2025",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
       "countiesServed": []
     },
     {
@@ -11592,7 +11529,15 @@
         "email": "rhonda@ahomeforme.sc"
       },
       "onMap": true,
-      "networkMemberships": [],
+      "networkMemberships": [
+        {
+          "network": "Greenville County Collaboration",
+          "fellowshipCohort": "Summer 2025",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
       "countiesServed": []
     },
     {
@@ -11741,7 +11686,7 @@
       "networkMemberships": [
         {
           "network": "Okaloosa County Collaboration",
-          "fellowshipCohort": "S24_01",
+          "fellowshipCohort": "Spring 2024",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -12561,7 +12506,7 @@
       "networkMemberships": [
         {
           "network": "Wake County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -14295,8 +14240,22 @@
       "onMap": true,
       "networkMemberships": [
         {
+          "network": "Boulder County Collaboration",
+          "fellowshipCohort": "Spring 2025",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        },
+        {
+          "network": "Jefferson County Collaboration",
+          "fellowshipCohort": "Spring 2025",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        },
+        {
           "network": "Weld County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -15279,7 +15238,7 @@
       "networkMemberships": [
         {
           "network": "Douglas County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -16405,6 +16364,292 @@
       "countiesServed": []
     },
     {
+      "id": 1023,
+      "name": "Shelby County Collaboration",
+      "isOrganization": false,
+      "isNetwork": true,
+      "address": {
+        "street": null,
+        "city": null,
+        "state": "TN",
+        "zip": "38103",
+        "county": "Shelby"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": "Local Network",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": null,
+        "title": null,
+        "email": null
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 1024,
+      "name": "Allen County Collaboration",
+      "isOrganization": false,
+      "isNetwork": true,
+      "address": {
+        "street": null,
+        "city": null,
+        "state": "IN",
+        "zip": "46802",
+        "county": "Allen"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": "Local Network",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": null,
+        "title": null,
+        "email": null
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 1025,
+      "name": "Jefferson County Collaboration",
+      "isOrganization": false,
+      "isNetwork": true,
+      "address": {
+        "street": null,
+        "city": null,
+        "state": "CO",
+        "zip": "80401",
+        "county": "Jefferson"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": "Local Network",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": null,
+        "title": null,
+        "email": null
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 1026,
+      "name": "Lehigh County Collaboration",
+      "isOrganization": false,
+      "isNetwork": true,
+      "address": {
+        "street": null,
+        "city": null,
+        "state": "PA",
+        "zip": "18101",
+        "county": "Lehigh"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": "Local Network",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": null,
+        "title": null,
+        "email": null
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 1027,
+      "name": "Cleveland County Collaboration",
+      "isOrganization": false,
+      "isNetwork": true,
+      "address": {
+        "street": null,
+        "city": null,
+        "state": "NC",
+        "zip": "28152",
+        "county": "Cleveland"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": "Local Network",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": null,
+        "title": null,
+        "email": null
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 1028,
+      "name": "Greenville County Collaboration",
+      "isOrganization": false,
+      "isNetwork": true,
+      "address": {
+        "street": null,
+        "city": null,
+        "state": "SC",
+        "zip": "29681",
+        "county": "Greenville"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": "Local Network",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": null,
+        "title": null,
+        "email": null
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 1029,
+      "name": "Alachua County Collaboration",
+      "isOrganization": false,
+      "isNetwork": true,
+      "address": {
+        "street": null,
+        "city": null,
+        "state": "FL",
+        "zip": "32060",
+        "county": "Alachua"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": "Local Network",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": null,
+        "title": null,
+        "email": null
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 1030,
+      "name": "Forsyth County Collaboration",
+      "isOrganization": false,
+      "isNetwork": true,
+      "address": {
+        "street": null,
+        "city": null,
+        "state": "NC",
+        "zip": "27006",
+        "county": "Forsyth"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": "Local Network",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": null,
+        "title": null,
+        "email": null
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 1031,
+      "name": "Ramsey County Collaboration",
+      "isOrganization": false,
+      "isNetwork": true,
+      "address": {
+        "street": null,
+        "city": null,
+        "state": "MN",
+        "zip": "55082",
+        "county": "Ramsey"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": "Local Network",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": null,
+        "title": null,
+        "email": null
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 1032,
+      "name": "Sedgwick County Collaboration",
+      "isOrganization": false,
+      "isNetwork": true,
+      "address": {
+        "street": null,
+        "city": null,
+        "state": "KS",
+        "zip": "67211",
+        "county": "Sedgwick"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": "Local Network",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": null,
+        "title": null,
+        "email": null
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 1033,
+      "name": "Rutherford County Collaboration",
+      "isOrganization": false,
+      "isNetwork": true,
+      "address": {
+        "street": null,
+        "city": null,
+        "state": "NC",
+        "zip": "28139",
+        "county": "Rutherford"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": "Local Network",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": null,
+        "title": null,
+        "email": null
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
       "id": 1061,
       "name": "Connect South Central Tennessee",
       "isOrganization": true,
@@ -16436,7 +16681,7 @@
       "networkMemberships": [
         {
           "network": "Maury County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -16740,7 +16985,7 @@
       "networkMemberships": [
         {
           "network": "Clark County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -16786,7 +17031,7 @@
       "networkMemberships": [
         {
           "network": "Travis County Collaboration",
-          "fellowshipCohort": "S24_01",
+          "fellowshipCohort": "Spring 2024",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17171,7 +17416,7 @@
       "networkMemberships": [
         {
           "network": "Travis County Collaboration",
-          "fellowshipCohort": "S24_01",
+          "fellowshipCohort": "Spring 2024",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17205,7 +17450,7 @@
       "networkMemberships": [
         {
           "network": "Travis County Collaboration",
-          "fellowshipCohort": "S24_01",
+          "fellowshipCohort": "Spring 2024",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17239,7 +17484,7 @@
       "networkMemberships": [
         {
           "network": "Polk County Collaboration",
-          "fellowshipCohort": "S24_01",
+          "fellowshipCohort": "Spring 2024",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17273,7 +17518,7 @@
       "networkMemberships": [
         {
           "network": "Polk County Collaboration",
-          "fellowshipCohort": "S24_01",
+          "fellowshipCohort": "Spring 2024",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17307,7 +17552,7 @@
       "networkMemberships": [
         {
           "network": "Polk County Collaboration",
-          "fellowshipCohort": "S24_01",
+          "fellowshipCohort": "Spring 2024",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17344,7 +17589,7 @@
       "networkMemberships": [
         {
           "network": "Okaloosa County Collaboration",
-          "fellowshipCohort": "S24_01",
+          "fellowshipCohort": "Spring 2024",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17387,7 +17632,7 @@
       "networkMemberships": [
         {
           "network": "Okaloosa County Collaboration",
-          "fellowshipCohort": "S24_01",
+          "fellowshipCohort": "Spring 2024",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17424,7 +17669,7 @@
       "networkMemberships": [
         {
           "network": "Okaloosa County Collaboration",
-          "fellowshipCohort": "S24_01",
+          "fellowshipCohort": "Spring 2024",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17458,7 +17703,7 @@
       "networkMemberships": [
         {
           "network": "Okaloosa County Collaboration",
-          "fellowshipCohort": "S24_01",
+          "fellowshipCohort": "Spring 2024",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17491,8 +17736,15 @@
       "onMap": true,
       "networkMemberships": [
         {
+          "network": "Forsyth County Collaboration",
+          "fellowshipCohort": "Fall 2025",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        },
+        {
           "network": "Wake County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17526,7 +17778,7 @@
       "networkMemberships": [
         {
           "network": "Wake County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17560,7 +17812,7 @@
       "networkMemberships": [
         {
           "network": "Wake County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17594,7 +17846,7 @@
       "networkMemberships": [
         {
           "network": "Wake County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17628,7 +17880,7 @@
       "networkMemberships": [
         {
           "network": "Wake County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17691,7 +17943,7 @@
       "networkMemberships": [
         {
           "network": "Maury County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17722,29 +17974,8 @@
         "email": null
       },
       "onMap": true,
-      "networkMemberships": [
-        {
-          "network": "Maury County Collaboration",
-          "fellowshipCohort": "F23_02",
-          "mouParticipant": true,
-          "addedToMap": "Yes",
-          "membershipOnMap": true
-        },
-        {
-          "network": "Kent County Collaboration",
-          "fellowshipCohort": "F23_01",
-          "mouParticipant": true,
-          "addedToMap": "Yes",
-          "membershipOnMap": true
-        }
-      ],
-      "countiesServed": [
-        {
-          "county": "Cole",
-          "state": "MO",
-          "countyState": "Cole, MO"
-        }
-      ]
+      "networkMemberships": [],
+      "countiesServed": []
     },
     {
       "id": 2117,
@@ -17772,7 +18003,7 @@
       "networkMemberships": [
         {
           "network": "Douglas County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17806,7 +18037,7 @@
       "networkMemberships": [
         {
           "network": "Douglas County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17840,7 +18071,7 @@
       "networkMemberships": [
         {
           "network": "Clark County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17874,7 +18105,7 @@
       "networkMemberships": [
         {
           "network": "Clark County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17908,7 +18139,7 @@
       "networkMemberships": [
         {
           "network": "Randolph County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17942,7 +18173,7 @@
       "networkMemberships": [
         {
           "network": "Randolph County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -17982,7 +18213,7 @@
       "networkMemberships": [
         {
           "network": "Randolph County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18045,7 +18276,7 @@
       "networkMemberships": [
         {
           "network": "Weld County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18095,7 +18326,7 @@
       "networkMemberships": [
         {
           "network": "Weld County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18132,7 +18363,7 @@
       "networkMemberships": [
         {
           "network": "Weld County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18166,7 +18397,7 @@
       "networkMemberships": [
         {
           "network": "Weld County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18258,7 +18489,7 @@
       "networkMemberships": [
         {
           "network": "Lowndes County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18292,7 +18523,7 @@
       "networkMemberships": [
         {
           "network": "Highlands County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18329,7 +18560,7 @@
       "networkMemberships": [
         {
           "network": "Highlands County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18368,14 +18599,14 @@
       "networkMemberships": [
         {
           "network": "Highlands County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
         },
         {
           "network": "York County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18423,7 +18654,7 @@
       "networkMemberships": [
         {
           "network": "York County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18456,15 +18687,15 @@
       "onMap": true,
       "networkMemberships": [
         {
-          "network": "York County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "network": "Leon County Collaboration",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
         },
         {
-          "network": "Leon County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "network": "York County Collaboration",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18498,7 +18729,7 @@
       "networkMemberships": [
         {
           "network": "Fairfax County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18532,7 +18763,7 @@
       "networkMemberships": [
         {
           "network": "Fairfax County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18566,7 +18797,7 @@
       "networkMemberships": [
         {
           "network": "Leon County Collaboration",
-          "fellowshipCohort": "F23_02",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18603,7 +18834,7 @@
       "networkMemberships": [
         {
           "network": "Upshur County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18640,7 +18871,7 @@
       "networkMemberships": [
         {
           "network": "Upshur County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18674,7 +18905,7 @@
       "networkMemberships": [
         {
           "network": "Upshur County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18708,7 +18939,7 @@
       "networkMemberships": [
         {
           "network": "Kent County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18742,7 +18973,7 @@
       "networkMemberships": [
         {
           "network": "Kent County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18792,7 +19023,7 @@
       "networkMemberships": [
         {
           "network": "Monongalia County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18826,7 +19057,7 @@
       "networkMemberships": [
         {
           "network": "Monongalia County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18860,7 +19091,7 @@
       "networkMemberships": [
         {
           "network": "Putnam County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18897,7 +19128,7 @@
       "networkMemberships": [
         {
           "network": "Kosciusko County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18934,7 +19165,7 @@
       "networkMemberships": [
         {
           "network": "Kosciusko County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -18971,7 +19202,7 @@
       "networkMemberships": [
         {
           "network": "Kosciusko County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -19005,10 +19236,17 @@
       "networkMemberships": [
         {
           "network": "Lake County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
+        },
+        {
+          "network": "Lehigh County Collaboration",
+          "fellowshipCohort": "Spring 2025",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
         }
       ],
       "countiesServed": []
@@ -19039,7 +19277,7 @@
       "networkMemberships": [
         {
           "network": "Lake County Collaboration",
-          "fellowshipCohort": "F23_01",
+          "fellowshipCohort": "Fall 2023",
           "mouParticipant": true,
           "addedToMap": "Yes",
           "membershipOnMap": true
@@ -19201,41 +19439,15 @@
       "countiesServed": []
     },
     {
-      "id": 1023,
-      "name": "Shelby County Collaboration",
-      "isOrganization": false,
-      "isNetwork": true,
+      "id": 2701,
+      "name": "Josiah White's",
+      "isOrganization": true,
+      "isNetwork": false,
       "address": {
-        "street": null,
-        "city": null,
-        "state": "TN",
-        "zip": null,
-        "county": "Shelby"
-      },
-      "coordinates": null,
-      "website": null,
-      "category": null,
-      "activities": [],
-      "officialFosterMinistry": false,
-      "contact": {
-        "name": null,
-        "title": null,
-        "email": null
-      },
-      "onMap": false,
-      "networkMemberships": [],
-      "countiesServed": []
-    },
-    {
-      "id": 1024,
-      "name": "Allen County Collaboration",
-      "isOrganization": false,
-      "isNetwork": true,
-      "address": {
-        "street": null,
-        "city": null,
+        "street": "11809 Lima Road, Fort Wayne, IN 46818",
+        "city": "Fort Wayne",
         "state": "IN",
-        "zip": null,
+        "zip": "46818",
         "county": "Allen"
       },
       "coordinates": null,
@@ -19244,64 +19456,772 @@
       "activities": [],
       "officialFosterMinistry": false,
       "contact": {
-        "name": null,
+        "name": "Nicole Roberts",
         "title": null,
-        "email": null
+        "email": "Nicole.Roberts@whitesrfs.org"
       },
-      "onMap": false,
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Allen County Collaboration",
+          "fellowshipCohort": "Fall 2024",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": [
+        {
+          "county": "Wabash",
+          "state": "IN",
+          "countyState": "Wabash, IN"
+        }
+      ]
+    },
+    {
+      "id": 2702,
+      "name": "Hands of Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "8201 Quincy ct., Fort Wayne, IN 46835",
+        "city": "Fort Wayne",
+        "state": "IN",
+        "zip": "46835",
+        "county": "Allen"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Rachel Bristol",
+        "title": null,
+        "email": "Rbristol@handsofhopein.org"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Allen County Collaboration",
+          "fellowshipCohort": "Fall 2024",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": [
+        {
+          "county": "Hamilton",
+          "state": "IN",
+          "countyState": "Hamilton, IN"
+        },
+        {
+          "county": "Allen",
+          "state": "IN",
+          "countyState": "Allen, IN"
+        },
+        {
+          "county": "Boone",
+          "state": "IN",
+          "countyState": "Boone, IN"
+        },
+        {
+          "county": "Cass",
+          "state": "IN",
+          "countyState": "Cass, IN"
+        },
+        {
+          "county": "Hendricks",
+          "state": "IN",
+          "countyState": "Hendricks, IN"
+        },
+        {
+          "county": "Howard",
+          "state": "IN",
+          "countyState": "Howard, IN"
+        },
+        {
+          "county": "Madison",
+          "state": "IN",
+          "countyState": "Madison, IN"
+        },
+        {
+          "county": "Montgomery",
+          "state": "IN",
+          "countyState": "Montgomery, IN"
+        },
+        {
+          "county": "Vanderburgh",
+          "state": "IN",
+          "countyState": "Vanderburgh, IN"
+        },
+        {
+          "county": "Allen",
+          "state": "IN",
+          "countyState": "Allen, IN"
+        },
+        {
+          "county": "Johnson",
+          "state": "IN",
+          "countyState": "Johnson, IN"
+        },
+        {
+          "county": "Kosciusko",
+          "state": "IN",
+          "countyState": "Kosciusko, IN"
+        },
+        {
+          "county": "Madison",
+          "state": "IN",
+          "countyState": "Madison, IN"
+        },
+        {
+          "county": "Marion",
+          "state": "IN",
+          "countyState": "Marion, IN"
+        },
+        {
+          "county": "Vanderburgh",
+          "state": "IN",
+          "countyState": "Vanderburgh, IN"
+        },
+        {
+          "county": "Vigo",
+          "state": "IN",
+          "countyState": "Vigo, IN"
+        },
+        {
+          "county": "Warrick",
+          "state": "IN",
+          "countyState": "Warrick, IN"
+        }
+      ]
+    },
+    {
+      "id": 2703,
+      "name": "Gateway Woods",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "14505 Klopfenstein Road, Leo, IN 46765",
+        "city": "Leo",
+        "state": "IN",
+        "zip": "46765",
+        "county": "Allen"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Dan Sparling",
+        "title": null,
+        "email": "Dan.Sparling@gatewaywoods.org"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Allen County Collaboration",
+          "fellowshipCohort": "Fall 2024",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2704,
+      "name": "Pathway Community Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1206 E Dupont Road, Fort Wayne, IN 46825",
+        "city": "Fort Wayne",
+        "state": "IN",
+        "zip": "46825",
+        "county": "Allen"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": "Church Foster Care Ministry",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Brandy Bauman",
+        "title": null,
+        "email": "bbaumann@pccfw.org"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Allen County Collaboration",
+          "fellowshipCohort": "Fall 2024",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2705,
+      "name": "Hope Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "3975 Cobblestone Cove New Haven, IN 46774",
+        "city": "New Haven",
+        "state": "IN",
+        "zip": "46774",
+        "county": "Allen"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Mikel Stull",
+        "title": null,
+        "email": "mstull@handsofhopein.org"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Allen County Collaboration",
+          "fellowshipCohort": "Fall 2024",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        },
+        {
+          "network": "Clark County Collaboration",
+          "fellowshipCohort": "Fall 2023",
+          "mouParticipant": true,
+          "addedToMap": "Yes",
+          "membershipOnMap": true
+        }
+      ],
+      "countiesServed": [
+        {
+          "county": "Clark",
+          "state": "NV",
+          "countyState": "Clark, NV"
+        }
+      ]
+    },
+    {
+      "id": 2706,
+      "name": "One More One Less Project",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2031 Pleasant Hill Church Rd, Shelby, North Carolina 28152",
+        "city": "Shelby",
+        "state": "NC",
+        "zip": "28152",
+        "county": "Cleveland"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Robbie Gaines",
+        "title": null,
+        "email": "robbie@onemoreonelessproject.com"
+      },
+      "onMap": true,
       "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2707,
+      "name": "Two Cities Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "175 Graywood CT, ADVANCE, NC, 27006",
+        "city": "Advance",
+        "state": "NC",
+        "zip": "27006",
+        "county": "Forsyth"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Melissa Vaughan",
+        "title": null,
+        "email": "mercy@twocitieschurch.net"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Forsyth County Collaboration",
+          "fellowshipCohort": "Fall 2025",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2708,
+      "name": "CarePortal",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "4793 94th Place, Live Oak, FL, 32060",
+        "city": "Live Oak",
+        "state": "FL",
+        "zip": "32060",
+        "county": "Alachua"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Jerrod Pfeffer",
+        "title": null,
+        "email": "jerrod.pfeffer@careportal.org"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Kent County Collaboration",
+          "fellowshipCohort": "Fall 2023",
+          "mouParticipant": true,
+          "addedToMap": "Yes",
+          "membershipOnMap": true
+        },
+        {
+          "network": "Maury County Collaboration",
+          "fellowshipCohort": "Fall 2023",
+          "mouParticipant": true,
+          "addedToMap": "Yes",
+          "membershipOnMap": true
+        }
+      ],
+      "countiesServed": [
+        {
+          "county": "Cole",
+          "state": "MO",
+          "countyState": "Cole, MO"
+        }
+      ]
+    },
+    {
+      "id": 2709,
+      "name": "Embrace Family",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1281 Paris Trail N, Stillwater, MN, 55082",
+        "city": "Stillwater",
+        "state": "MN",
+        "zip": "55082",
+        "county": "Ramsey"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Jennifer Hanson",
+        "title": null,
+        "email": "embracefamilymn@gmail.com"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Ramsey County Collaboration",
+          "fellowshipCohort": "Fall 2025",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2710,
+      "name": "Welcome Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1512 South Hydraulic Avenue, Wichita, KS, 67211",
+        "city": "Wichita",
+        "state": "KS",
+        "zip": "67211",
+        "county": "Sedgwick"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Racheal Holland",
+        "title": "Church Representative",
+        "email": "racheal.holland@gmail.com"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Sedgwick County Collaboration",
+          "fellowshipCohort": "Fall 2025",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2711,
+      "name": "Mosaic Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "PO Box 1211, Rutherfordton, North Carolina, 28139",
+        "city": "Rutherford",
+        "state": "NC",
+        "zip": "28139",
+        "county": "Rutherford"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Emily Wood",
+        "title": "Executive Director",
+        "email": "emily@mosaichope.org"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Rutherford County Collaboration",
+          "fellowshipCohort": "Fall 2025",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2712,
+      "name": "Church on the Hill",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "301 Delaware, Newcastle, WY, 82701",
+        "city": "Newcastle",
+        "state": "WY",
+        "zip": "82701",
+        "county": "Weston"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Kendra Paulton",
+        "title": "WRAP ministry director, Church on the Hill",
+        "email": "mrs.paulton@gmail.com"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Weston County Collaboration",
+          "fellowshipCohort": "Spring 2026",
+          "mouParticipant": false,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2713,
+      "name": "The Orchard Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "3690 S. Houston Levee Rd., Collierville, TN, 38017",
+        "city": "Collierville",
+        "state": "TN",
+        "zip": "38017",
+        "county": "Shelby"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Richard Roseland",
+        "title": "FAM (Foster and Adoption Ministry) co-director and co-founder",
+        "email": "richard.roseland@gmail.com"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Shelby County Collaboration",
+          "fellowshipCohort": "Summer 2024",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2714,
+      "name": "Empowered to Connect",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "815 N. McLean Blvd, Memphis, TN, 38107",
+        "city": "Memphis",
+        "state": "TN",
+        "zip": "38017",
+        "county": "Shelby"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Rachel Peterman",
+        "title": "Program Manager, Safe & Secure TN",
+        "email": "rachel@empoweredtoconnect.org"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Shelby County Collaboration",
+          "fellowshipCohort": "Summer 2024",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2715,
+      "name": "Foster Village Memphis",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1322 LaPaloma St., Memphis, TN, 38114",
+        "city": "Memphis",
+        "state": "TN",
+        "zip": "38114",
+        "county": "Shelby"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Joshua Conley",
+        "title": "Executive Director-Foster Village Memphis",
+        "email": "joshua@fostervillagememphis.org"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Shelby County Collaboration",
+          "fellowshipCohort": "Summer 2024",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2716,
+      "name": "Orphanos",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "110 Timber Creek Dr., Suite #1, Memphis, TN, 38088",
+        "city": "Memphis",
+        "state": "TN",
+        "zip": "38088",
+        "county": "Shelby"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Ximena Roseland",
+        "title": "Bookkeeper",
+        "email": "Ximena.roseland@gmail.com"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Shelby County Collaboration",
+          "fellowshipCohort": "Summer 2024",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2717,
+      "name": "Cathedral of Faith Community Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2212 Jackson Ave., Memphis, TN, 38112",
+        "city": "Memphis",
+        "state": "TN",
+        "zip": "38112",
+        "county": "Shelby"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Connie Booker",
+        "title": "Family Preservation Director",
+        "email": "cofcc1@yahoo.com"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Shelby County Collaboration",
+          "fellowshipCohort": "Summer 2024",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2718,
+      "name": "White Station Church of Christ",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1106 Colonial Rd., Memphis, TN, 38117",
+        "city": "Memphis",
+        "state": "TN",
+        "zip": "38117",
+        "county": "Shelby"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Anna Barber",
+        "title": "Assistant to Lead Minister/Ministry Leader over Threads of Hope (Foster Clothing Boutique)",
+        "email": "abarber@cocws.org"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Shelby County Collaboration",
+          "fellowshipCohort": "Summer 2024",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2719,
+      "name": "Isaiah 117 House",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1322 LaPaloma St., Memphis, TN, 38114",
+        "city": "Memphis",
+        "state": "TN",
+        "zip": "38114",
+        "county": "Shelby"
+      },
+      "coordinates": null,
+      "website": null,
+      "category": null,
+      "activities": [],
+      "officialFosterMinistry": false,
+      "contact": {
+        "name": "Ava Conley",
+        "title": "Shelby County Location Leader",
+        "email": "Ava.Conley@isaiah117house.com"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Shelby County Collaboration",
+          "fellowshipCohort": "Summer 2024",
+          "mouParticipant": true,
+          "addedToMap": null,
+          "membershipOnMap": false
+        }
+      ],
       "countiesServed": []
     }
   ],
   "networks": [
     {
-      "name": "Travis County Collaboration",
-      "memberCount": 3,
-      "members": [
-        "Fostering Hope",
-        "Dwelling Place Texas",
-        "Radiant Church"
-      ]
-    },
-    {
-      "name": "Polk County Collaboration",
-      "memberCount": 3,
-      "members": [
-        "Cornerstone Church of Ames",
-        "Four Oaks",
-        "Foster SQUAD"
-      ]
-    },
-    {
-      "name": "Okaloosa County Collaboration",
+      "name": "Allen County Collaboration",
       "memberCount": 5,
       "members": [
-        "The Pearl Project",
-        "Crosspoint Church",
-        "Church on Bayshore",
-        "Generations United Church",
-        "Emerald Coast Orphan Care"
+        "Josiah White's",
+        "Hands of Hope",
+        "Gateway Woods",
+        "Pathway Community Church",
+        "Hope Church"
       ]
     },
     {
-      "name": "Wake County Collaboration",
-      "memberCount": 6,
+      "name": "Boulder County Collaboration",
+      "memberCount": 1,
       "members": [
-        "Agape of NC",
-        "Carolina Care Center",
-        "Second Home RDU",
-        "Sustaining Hope for High Impact Parents (SHHIP)",
-        "Summit Church Collaborative",
-        "Seven Homes"
+        "Colorado Kids Belong"
       ]
     },
     {
-      "name": "Maury County Collaboration",
-      "memberCount": 3,
+      "name": "Clark County Collaboration",
+      "memberCount": 4,
       "members": [
-        "Connect South Central Tennessee",
-        "Church at Station Hill",
-        "CarePortal"
+        "Fostering Hope Consulting",
+        "Hope Church",
+        "Hannah's Closet North",
+        "F to A Bridge"
       ]
     },
     {
@@ -19314,41 +20234,27 @@
       ]
     },
     {
-      "name": "Clark County Collaboration",
-      "memberCount": 4,
+      "name": "Fairfax County Collaboration",
+      "memberCount": 2,
       "members": [
-        "Fostering Hope Consulting",
-        "Hannah's Closet North",
-        "F to A Bridge",
-        "Hope Church"
+        "McLean Bible Church - Tysons Campus",
+        "Good Shepherd"
       ]
     },
     {
-      "name": "Randolph County Collaboration",
-      "memberCount": 3,
+      "name": "Forsyth County Collaboration",
+      "memberCount": 2,
       "members": [
-        "Faith Bridge",
-        "Redeemer Church",
-        "Rooted242"
+        "Two Cities Church",
+        "Agape of NC"
       ]
     },
     {
-      "name": "Weld County Collaboration",
-      "memberCount": 6,
+      "name": "Greenville County Collaboration",
+      "memberCount": 2,
       "members": [
-        "Nightlight Christian Adoptions",
-        "Project 1.27",
-        "Foster Alight",
-        "Colorado Kids Belong",
-        "Maple Star Colorado",
-        "Timberline Church"
-      ]
-    },
-    {
-      "name": "Lowndes County Collaboration",
-      "memberCount": 1,
-      "members": [
-        "MG Empowerment Center"
+        "A Home for Me",
+        "Miracle Hill Ministries"
       ]
     },
     {
@@ -19361,37 +20267,10 @@
       ]
     },
     {
-      "name": "York County Collaboration",
-      "memberCount": 3,
+      "name": "Jefferson County Collaboration",
+      "memberCount": 1,
       "members": [
-        "Worthy & Known Family Project",
-        "Curtis Lake Church",
-        "NOMORE Foundation"
-      ]
-    },
-    {
-      "name": "Fairfax County Collaboration",
-      "memberCount": 2,
-      "members": [
-        "McLean Bible Church - Tysons Campus",
-        "Good Shepherd"
-      ]
-    },
-    {
-      "name": "Leon County Collaboration",
-      "memberCount": 2,
-      "members": [
-        "Four Oaks Church - Killearn",
-        "NoMore Foundation"
-      ]
-    },
-    {
-      "name": "Upshur County Collaboration",
-      "memberCount": 3,
-      "members": [
-        "Appalachian Impact",
-        "New Community Church",
-        "Explore the New Manufacturing"
+        "Colorado Kids Belong"
       ]
     },
     {
@@ -19401,21 +20280,6 @@
         "Crossroads Bible Church",
         "CarePortal",
         "Bethany Christian Services"
-      ]
-    },
-    {
-      "name": "Monongalia County Collaboration",
-      "memberCount": 2,
-      "members": [
-        "CMA Church of Morgantown",
-        "Chestnut Ridge Church"
-      ]
-    },
-    {
-      "name": "Putnam County Collaboration",
-      "memberCount": 1,
-      "members": [
-        "Calvary Baptist Church"
       ]
     },
     {
@@ -19433,6 +20297,173 @@
       "members": [
         "Faith Church",
         "Flourish Church"
+      ]
+    },
+    {
+      "name": "Lehigh County Collaboration",
+      "memberCount": 1,
+      "members": [
+        "Faith Church"
+      ]
+    },
+    {
+      "name": "Leon County Collaboration",
+      "memberCount": 2,
+      "members": [
+        "Four Oaks Church - Killearn",
+        "NoMore Foundation"
+      ]
+    },
+    {
+      "name": "Lowndes County Collaboration",
+      "memberCount": 1,
+      "members": [
+        "MG Empowerment Center"
+      ]
+    },
+    {
+      "name": "Maury County Collaboration",
+      "memberCount": 3,
+      "members": [
+        "Connect South Central Tennessee",
+        "Church at Station Hill",
+        "CarePortal"
+      ]
+    },
+    {
+      "name": "Monongalia County Collaboration",
+      "memberCount": 2,
+      "members": [
+        "CMA Church of Morgantown",
+        "Chestnut Ridge Church"
+      ]
+    },
+    {
+      "name": "Okaloosa County Collaboration",
+      "memberCount": 5,
+      "members": [
+        "The Pearl Project",
+        "Crosspoint Church",
+        "Church on Bayshore",
+        "Generations United Church",
+        "Emerald Coast Orphan Care"
+      ]
+    },
+    {
+      "name": "Polk County Collaboration",
+      "memberCount": 3,
+      "members": [
+        "Cornerstone Church of Ames",
+        "Four Oaks",
+        "Foster SQUAD"
+      ]
+    },
+    {
+      "name": "Putnam County Collaboration",
+      "memberCount": 1,
+      "members": [
+        "Calvary Baptist Church"
+      ]
+    },
+    {
+      "name": "Ramsey County Collaboration",
+      "memberCount": 1,
+      "members": [
+        "Embrace Family"
+      ]
+    },
+    {
+      "name": "Randolph County Collaboration",
+      "memberCount": 3,
+      "members": [
+        "Faith Bridge",
+        "Redeemer Church",
+        "Rooted242"
+      ]
+    },
+    {
+      "name": "Rutherford County Collaboration",
+      "memberCount": 1,
+      "members": [
+        "Mosaic Hope"
+      ]
+    },
+    {
+      "name": "Sedgwick County Collaboration",
+      "memberCount": 1,
+      "members": [
+        "Welcome Church"
+      ]
+    },
+    {
+      "name": "Shelby County Collaboration",
+      "memberCount": 7,
+      "members": [
+        "The Orchard Church",
+        "Empowered to Connect",
+        "Foster Village Memphis",
+        "Orphanos",
+        "Cathedral of Faith Community Church",
+        "White Station Church of Christ",
+        "Isaiah 117 House"
+      ]
+    },
+    {
+      "name": "Travis County Collaboration",
+      "memberCount": 3,
+      "members": [
+        "Fostering Hope",
+        "Dwelling Place Texas",
+        "Radiant Church"
+      ]
+    },
+    {
+      "name": "Upshur County Collaboration",
+      "memberCount": 3,
+      "members": [
+        "Appalachian Impact",
+        "New Community Church",
+        "Explore the New Manufacturing"
+      ]
+    },
+    {
+      "name": "Wake County Collaboration",
+      "memberCount": 6,
+      "members": [
+        "Carolina Care Center",
+        "Agape of NC",
+        "Second Home RDU",
+        "Sustaining Hope for High Impact Parents (SHHIP)",
+        "Summit Church Collaborative",
+        "Seven Homes"
+      ]
+    },
+    {
+      "name": "Weld County Collaboration",
+      "memberCount": 6,
+      "members": [
+        "Project 1.27",
+        "Colorado Kids Belong",
+        "Nightlight Christian Adoptions",
+        "Foster Alight",
+        "Maple Star Colorado",
+        "Timberline Church"
+      ]
+    },
+    {
+      "name": "Weston County Collaboration",
+      "memberCount": 1,
+      "members": [
+        "Church on the Hill"
+      ]
+    },
+    {
+      "name": "York County Collaboration",
+      "memberCount": 3,
+      "members": [
+        "Worthy & Known Family Project",
+        "Curtis Lake Church",
+        "NOMORE Foundation"
       ]
     }
   ]

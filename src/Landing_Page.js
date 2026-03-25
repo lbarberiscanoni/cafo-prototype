@@ -204,7 +204,7 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
             onClick={() => onSelectRegion?.({ level: 'national', id: 'usa', name: 'United States', view: 'organizational' })}
             className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-base md:text-lg font-lato font-semibold text-white bg-mte-blue shadow-mte-card hover:bg-mte-blue-80 focus:outline-none focus:ring-2 focus:ring-mte-blue focus:ring-offset-2 transition-colors"
           >
-            Explore the Map <span aria-hidden="true">→</span>
+            Explore Organizations Nationwide <span aria-hidden="true">→</span>
           </button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo, useRef } from "react";
-import { MapContainer, TileLayer, Marker, Tooltip, Polyline, Circle } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Tooltip, Circle } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -164,53 +164,6 @@ const getCategoryFilterGroup = (category) => {
   return "Other"; // Default unmapped categories to Other
 };
 
-// Generate curved arc points between two coordinates
-// This ensures connection lines are visible even when orgs are close together
-// direction: 1 = curve left, -1 = curve right (alternate to avoid overlap)
-const generateArcPoints = (from, to, numPoints = 20, minArcHeight = 2, direction = 1) => {
-  const [lat1, lng1] = from;
-  const [lat2, lng2] = to;
-  
-  // Calculate distance between points
-  const distance = Math.sqrt(Math.pow(lat2 - lat1, 2) + Math.pow(lng2 - lng1, 2));
-  
-  // Arc height scales with distance but has a minimum for visibility
-  // At national zoom, we need a LARGE minimum to see arcs between nearby orgs
-  const arcHeight = Math.max(distance * 0.5, minArcHeight);
-  
-  // Midpoint
-  const midLat = (lat1 + lat2) / 2;
-  const midLng = (lng1 + lng2) / 2;
-  
-  // Perpendicular direction for the arc bulge
-  const dx = lat2 - lat1;
-  const dy = lng2 - lng1;
-  const len = Math.sqrt(dx * dx + dy * dy) || 1;
-  
-  // Control point offset (perpendicular to the line) - direction determines which side
-  const perpLat = -dy / len * arcHeight * direction;
-  const perpLng = dx / len * arcHeight * direction;
-  
-  // Control point for quadratic bezier
-  const ctrlLat = midLat + perpLat;
-  const ctrlLng = midLng + perpLng;
-  
-  // Generate points along quadratic bezier curve
-  const points = [];
-  for (let i = 0; i <= numPoints; i++) {
-    const t = i / numPoints;
-    const invT = 1 - t;
-    
-    // Quadratic bezier: B(t) = (1-t)²P0 + 2(1-t)tP1 + t²P2
-    const lat = invT * invT * lat1 + 2 * invT * t * ctrlLat + t * t * lat2;
-    const lng = invT * invT * lng1 + 2 * invT * t * ctrlLng + t * t * lng2;
-    
-    points.push([lat, lng]);
-  }
-  
-  return points;
-};
-
 // Haversine distance in meters between two [lat, lng] points
 const haversineMeters = (lat1, lng1, lat2, lng2) => {
   const R = 6371000; // Earth radius in meters
@@ -325,7 +278,6 @@ const createCountyTextLabel = (countyName) => {
 export default function OrganizationalView({ regionLevel, regionId, onSelectRegion, selectedRegion }) {
   const [selectedCategories, setSelectedCategories] = useState(Object.keys(FILTER_GROUPS));
   const [selectedImpactAreas, setSelectedImpactAreas] = useState(["Foster and Kinship Families", "Adoptive", "Biological", "Wraparound"]);
-  const [showConnectionLines, setShowConnectionLines] = useState(false);
   const [showLocalNetworks, setShowLocalNetworks] = useState(false);
   const [mapKey, setMapKey] = useState(0); // Force map remount when REGION changes (not filters)
   const [selectedEmptyCounty, setSelectedEmptyCounty] = useState(null); // Track counties with no orgs
@@ -464,10 +416,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         ? prev.filter(area => area !== impactArea)
         : [...prev, impactArea]
     );
-  };
-
-  const handleConnectionLinesToggle = () => {
-    setShowConnectionLines(prev => !prev);
   };
 
   // Handler for when a state marker is clicked - preserve current view
@@ -686,45 +634,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     return consolidateOrganizations(filteredOrgs);
   }, [filteredOrgs]);
 
-  // Generate connection lines between organizations in the same network
-  // Uses hub-and-spoke model: first org connects to all others (cleaner than all-pairs)
-  const generateConnectionLines = () => {
-    const connectionLines = [];
-    
-    // Group organizations by network
-    const networks = {};
-    filteredOrgs.forEach(org => {
-      if (org.networkName && org.networkMember) {
-        if (!networks[org.networkName]) {
-          networks[org.networkName] = [];
-        }
-        networks[org.networkName].push(org);
-      }
-    });
-    
-    // Create hub-and-spoke connections within each network
-    // First org is the hub, connects to all others
-    Object.values(networks).forEach(networkOrgs => {
-      if (networkOrgs.length < 2) return;
-      
-      const hub = networkOrgs[0];
-      for (let i = 1; i < networkOrgs.length; i++) {
-        connectionLines.push({
-          from: hub.coords,
-          to: networkOrgs[i].coords,
-          fromName: hub.name,
-          toName: networkOrgs[i].name,
-          category: hub.category,
-          network: hub.networkName
-        });
-      }
-    });
-    
-    return connectionLines;
-  };
-
-  const connectionLines = showConnectionLines ? generateConnectionLines() : [];
-
   // ==================== LOCAL NETWORK BUBBLES ====================
   // Compute semi-transparent circle overlays for each network.
   // Centroid = average of member coords; radius = max member distance + padding.
@@ -912,62 +821,31 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               </div>
             </div>
 
-            {/* Relationships - Now shown for County, State, AND National */}
+            {/* Local Networks */}
             {(showCountyMap || showStateMap || showNationalMap) && (
               <div className="bg-white p-4 rounded-lg shadow-mte-card">
-                <h3 className="text-base font-bold mb-1 text-mte-black font-lato">Relationships</h3>
-                <p className="text-sm text-mte-charcoal mb-3 font-lato">Display collaborations to see how organizations work together</p>
-                <div className="space-y-2">
-                  <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-base font-lato cursor-pointer transition-colors ${
-                    showConnectionLines ? 'bg-mte-blue text-white' : 'bg-mte-light-grey text-mte-charcoal hover:bg-mte-blue-20'
-                  }`}>
-                    <div className="flex items-center gap-2">
-                      <input 
-                        type="checkbox" 
-                        className="sr-only"
-                        checked={showConnectionLines}
-                        onChange={handleConnectionLinesToggle}
-                      />
-                      {showConnectionLines && (
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                <h3 className="text-base font-bold mb-1 text-mte-black font-lato">Local Networks</h3>
+                <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-base font-lato cursor-pointer transition-colors ${
+                  showLocalNetworks ? 'bg-mte-blue text-white' : 'bg-mte-light-grey text-mte-charcoal hover:bg-mte-blue-20'
+                }`}>
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      className="sr-only"
+                      checked={showLocalNetworks}
+                      onChange={() => setShowLocalNetworks(prev => !prev)}
+                    />
+                    {showLocalNetworks && (
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
-                      <span>View Connection Lines</span>
-                    </div>
-                  </label>
-                  <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-base font-lato cursor-pointer transition-colors ${
-                    showLocalNetworks ? 'bg-mte-blue text-white' : 'bg-mte-light-grey text-mte-charcoal hover:bg-mte-blue-20'
-                  }`}>
-                    <div className="flex items-center gap-2">
-                      <input 
-                        type="checkbox" 
-                        className="sr-only"
-                        checked={showLocalNetworks}
-                        onChange={() => setShowLocalNetworks(prev => !prev)}
-                      />
-                      {showLocalNetworks && (
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
-                      <span>View Local Networks</span>
-                    </div>
-                  </label>
-                </div>
-                {/* Show network count when connection lines are enabled */}
-                {showConnectionLines && connectionLines.length > 0 && (
-                  <div className="mt-3 text-sm text-mte-charcoal font-lato">
-                    <span className="font-semibold">{connectionLines.length}</span> network connection{connectionLines.length !== 1 ? 's' : ''} displayed
+                    )}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span>View Local Networks</span>
                   </div>
-                )}
-                {/* Show bubble count when local networks are enabled */}
+                </label>
                 {showLocalNetworks && networkBubbles.length > 0 && (
                   <div className="mt-3 text-sm text-mte-charcoal font-lato">
                     <span className="font-semibold">{networkBubbles.length}</span> local network{networkBubbles.length !== 1 ? 's' : ''} displayed
@@ -1032,26 +910,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         </div>
                       </Tooltip>
                     </Marker>
-                  ))}
-
-                  {/* Connection Lines - curved arcs for visibility */}
-                  {connectionLines.map((connection, index) => (
-                    <Polyline
-                      key={`national-connection-${index}`}
-                      positions={generateArcPoints(connection.from, connection.to, 20, 3, index % 2 === 0 ? 1 : -1)}
-                      pathOptions={{
-                        color: CATEGORY_COLORS[connection.category]?.dot || "#02ADEE",
-                        weight: 3,
-                        opacity: 0.7
-                      }}
-                    >
-                      <Tooltip>
-                        <div className="font-lato text-sm">
-                          <strong>{connection.network}</strong><br/>
-                          {connection.fromName} ↔ {connection.toName}
-                        </div>
-                      </Tooltip>
-                    </Polyline>
                   ))}
 
                   {/* Organization Dots - only render if we have filtered orgs */}
@@ -1128,31 +986,11 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       </Marker>
                     ))}
 
-                    {/* Connection Lines - curved arcs */}
-                    {connectionLines.map((connection, index) => (
-                      <Polyline
-                        key={`state-connection-${index}`}
-                        positions={generateArcPoints(connection.from, connection.to, 20, 0.5, index % 2 === 0 ? 1 : -1)}
-                        pathOptions={{
-                          color: CATEGORY_COLORS[connection.category]?.dot || "#02ADEE",
-                          weight: 3,
-                          opacity: 0.7
-                        }}
-                      >
-                        <Tooltip>
-                          <div className="font-lato text-sm">
-                            <strong>{connection.network}</strong><br/>
-                            {connection.fromName} ↔ {connection.toName}
-                          </div>
-                        </Tooltip>
-                      </Polyline>
-                    ))}
-
                     {/* Organization Dots - only render if we have filtered orgs */}
                     {filteredOrgs.length > 0 && filteredOrgs.map((org) => (
-                      <Marker 
-                        key={org.name} 
-                        position={org.coords} 
+                      <Marker
+                        key={org.name}
+                        position={org.coords}
                         icon={createDotIcon(org.category, "20px")}
                         eventHandlers={{
                           click: () => handleOrgMarkerClick(org)
@@ -1199,26 +1037,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               {/* County Level: Organization Markers with Connection Lines */}
               {showCountyMap && (
                 <>
-                  {/* Connection Lines - curved arcs */}
-                  {connectionLines.map((connection, index) => (
-                    <Polyline
-                      key={`county-connection-${index}`}
-                      positions={generateArcPoints(connection.from, connection.to, 20, 0.05, index % 2 === 0 ? 1 : -1)}
-                      pathOptions={{
-                        color: CATEGORY_COLORS[connection.category]?.dot || "#02ADEE",
-                        weight: 4,
-                        opacity: 0.9
-                      }}
-                    >
-                      <Tooltip>
-                        <div className="font-lato text-sm">
-                          <strong>{connection.network}</strong><br/>
-                          {connection.fromName} ↔ {connection.toName}
-                        </div>
-                      </Tooltip>
-                    </Polyline>
-                  ))}
-                  
                   {/* Organization Markers - only render if we have filtered orgs */}
                   {filteredOrgs.length > 0 && filteredOrgs.map((org) => (
                     <Marker 
@@ -1278,11 +1096,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                       {fmt(filteredOrgs.length)} Total Locations
                     </span>
                   )}
-                  {showConnectionLines && connectionLines.length > 0 && (
-                    <span className="px-2 py-1 bg-mte-green-20 text-mte-charcoal rounded">
-                      {fmt(connectionLines.length)} Connections
-                    </span>
-                  )}
                 </>
               )}
               {showStateMap && consolidatedOrgs.length > 0 && (
@@ -1293,11 +1106,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                   {filteredOrgs.length !== consolidatedOrgs.length && (
                     <span className="px-2 py-1 bg-mte-purple-20 text-mte-charcoal rounded">
                       {fmt(filteredOrgs.length)} Total Locations
-                    </span>
-                  )}
-                  {showConnectionLines && connectionLines.length > 0 && (
-                    <span className="px-2 py-1 bg-mte-green-20 text-mte-charcoal rounded">
-                      {fmt(connectionLines.length)} Connections
                     </span>
                   )}
                 </>
@@ -1334,11 +1142,13 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     >
                       Back to Map
                     </button>
-                    <a 
-                      href={`mailto:data@morethanenough.org?subject=${encodeURIComponent(`Add Organization Data for ${selectedEmptyCounty.name} ${getGeographyLabel(selectedEmptyCounty.state)}, ${selectedEmptyCounty.state}`)}&body=${encodeURIComponent(`I would like to help add organization data for ${selectedEmptyCounty.name} ${getGeographyLabel(selectedEmptyCounty.state)}, ${selectedEmptyCounty.state}.\n\nPlease let me know what information you need and how I can assist.`)}`}
+                    <a
+                      href="https://cafo.org/morethanenough/find-your-place/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="px-4 py-2 bg-white border-2 border-mte-blue text-mte-blue rounded-lg font-lato font-medium hover:bg-mte-blue-20 transition-colors"
                     >
-                      Contact Us to Add Data
+                      Find Your Place
                     </a>
                   </div>
                 </div>
@@ -1457,12 +1267,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                   <p className="text-sm mb-3">Try selecting different categories or impact areas above</p>
                   {regionLevel === 'county' && (
                     <a
-                      href="https://cafo.org/morethanenough/share-your-data/"
+                      href="https://cafo.org/morethanenough/find-your-place/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-xs font-lato text-mte-orange hover:text-mte-orange underline transition-colors"
                     >
-                      Some data is missing — request it here
+                      Find your place — get involved here
                     </a>
                   )}
                 </div>

@@ -1201,7 +1201,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                             {getCategoryDisplayName(org.category)}
                           </span>
                           {org.cafoMember && (
-                            <span className="text-sm px-2 py-1 rounded whitespace-nowrap border bg-mte-yellow-20 border-mte-yellow text-mte-black font-lato">
+                            <span className="text-sm px-2 py-1 rounded whitespace-nowrap border bg-mte-blue-20 border-mte-blue text-mte-black font-lato">
                               CAFO Member
                             </span>
                           )}

@@ -119,7 +119,7 @@ function parseMasterSheet(workbook) {
 function parseNetworkMembers(workbook, orgsByName) {
   console.log('');
   console.log('📋 Parsing Network Members sheet...');
-  const sheet = workbook.Sheets['Network Members'];
+  const sheet = workbook.Sheets['Network Member Orgs'] || workbook.Sheets['Network Members'];
   const rawData = XLSX.utils.sheet_to_json(sheet);
   console.log(`   Found ${rawData.length} rows`);
   

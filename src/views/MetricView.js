@@ -3,7 +3,6 @@ import { countyData, stateData, nationalStats, historicalData, stateNameToCode, 
 
 // Assets
 import ChurchIcon from "../assets/church_icon.png";
-import PeopleIcon from "../assets/people.svg";
 import FosterKinshipIcon from "../assets/FosterKinship_icon.png";
 import AdoptiveFamilyIcon from "../assets/Adoptive_family_icon.png";
 import BiologicalFamilyIcon from "../assets/BiologicalFamily_icon.png";

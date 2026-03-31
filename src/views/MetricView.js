@@ -24,7 +24,7 @@ const RequestDataLink = () => (
     rel="noopener noreferrer"
     className="inline-flex items-center gap-1 text-xs font-lato text-mte-orange hover:text-mte-orange underline transition-colors"
   >
-    Some data is missing — request it here
+    Some data is missing for your county. Learn how you can help add it.
   </a>
 );
 
@@ -184,6 +184,29 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   };
 
   const data = getData();
+
+  // ==================== PROGRESS INDICATOR DATA ====================
+  const progressData = useMemo(() => {
+    if (regionLevel !== 'county') return null;
+
+    const countyRatio = data.licensedHomesPerChild != null
+      ? parseFloat(data.licensedHomesPerChild)
+      : null;
+
+    // State average
+    const stateKey = data.state?.toLowerCase().replace(/\s+/g, '-');
+    const st = stateKey ? stateData[stateKey] : null;
+    const stateRatio = (st?.licensedHomes && st?.totalChildren && st.totalChildren > 0)
+      ? st.licensedHomes / st.totalChildren
+      : null;
+
+    // National average
+    const nationalRatio = (nationalStats.licensedHomes && nationalStats.childrenInCare && nationalStats.childrenInCare > 0)
+      ? nationalStats.licensedHomes / nationalStats.childrenInCare
+      : null;
+
+    return { countyRatio, stateRatio, nationalRatio };
+  }, [regionLevel, data.licensedHomesPerChild, data.state]);
 
   // ==================== REAL TREND DATA ====================
   // Pull from historicalData (AFCARS 2021-2023) based on region + selected metric.
@@ -376,6 +399,13 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           {regionLevel !== "national" && data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mb-0">{data.subtitle}</p>}
           <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4 leading-tight mb-0">{data.name}</h1>
           {regionLevel === "national" && data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mt-1">{data.subtitle}</p>}
+          {showCountyDetails && (data.population != null || data.totalChurches != null) && (
+            <p className="text-sm text-mte-charcoal font-lato mt-1">
+              {data.population != null && <>Population: <span className="font-semibold">{fmt(data.population)}</span></>}
+              {data.population != null && data.totalChurches != null && <span className="mx-2">|</span>}
+              {data.totalChurches != null && <>Churches: <span className="font-semibold">{fmt(data.totalChurches)}</span></>}
+            </p>
+          )}
           {showCountyDetails && (
             <div className="mt-2 w-48">
               <CountySelect
@@ -577,29 +607,121 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         </div>
       )}
 
-      {/* County-specific: Total Churches + Population Card */}
-      {showCountyDetails && (
-        <div className="max-w-7xl mx-auto px-4 mt-6 flex justify-center">
-          <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center w-full md:w-[calc(50%-1rem)]">
-            <div className="flex justify-center gap-12">
-              <div className="flex flex-col items-center">
-                <img src={ChurchIcon} alt="Church" className="w-20 h-20 mb-3" />
-                <div className="flex items-center gap-1">
-                  <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.totalChurches)}</div>
-                  <div className="text-base text-mte-charcoal font-lato">Churches</div>
+      {/* County-specific: Progress Indicator */}
+      {showCountyDetails && progressData?.countyRatio != null && (() => {
+        const maxRatio = 1.5;
+        const barPct = (r) => Math.min(r / maxRatio, 1) * 100;
+        const countyPct = barPct(progressData.countyRatio);
+        const statePct = progressData.stateRatio != null ? barPct(progressData.stateRatio) : null;
+        const nationalPct = progressData.nationalRatio != null ? barPct(progressData.nationalRatio) : null;
+        const labelInside = countyPct > 12;
+
+        return (
+          <div className="max-w-7xl mx-auto px-4 mt-6">
+            <div className="bg-white rounded-2xl shadow-mte-card p-6 md:p-8">
+              {/* Title */}
+              <div className="text-center mb-6">
+                <h2 className="text-xl md:text-2xl font-lato font-bold text-mte-black">
+                  Foster Care Progress Indicator
+                </h2>
+                <p className="text-sm md:text-base text-mte-charcoal font-lato mt-1">
+                  Tracking progress toward <em className="font-source-serif">more than enough</em>
+                </p>
+              </div>
+
+              {/* SVG Progress Bar */}
+              <div className="w-full overflow-visible">
+                <svg viewBox="-10 0 820 120" className="w-full" preserveAspectRatio="xMidYMid meet" style={{ overflow: 'visible' }}>
+                  {/* Scale labels above bar */}
+                  <text x={800 * (0.5 / maxRatio)} y="14" textAnchor="middle" className="fill-mte-charcoal" style={{ fontSize: '12px', fontFamily: 'Lato, sans-serif' }}>.50 to 1</text>
+                  <text x={800 * (1.0 / maxRatio)} y="14" textAnchor="middle" className="fill-mte-charcoal" style={{ fontSize: '12px', fontFamily: 'Lato, sans-serif' }}>1 to 1</text>
+                  <text x={800 * (1.5 / maxRatio)} y="14" textAnchor="middle" className="fill-mte-charcoal" style={{ fontSize: '12px', fontFamily: 'Lato, sans-serif' }}>1.5 to 1</text>
+
+                  {/* Gray arrow track */}
+                  <polygon points="0,24 760,24 800,52 760,80 0,80" fill="#e0e0e0" rx="8" />
+                  {/* Rounded left edge */}
+                  <rect x="0" y="24" width="16" height="56" rx="8" fill="#e0e0e0" />
+
+                  {/* Blue filled portion */}
+                  <clipPath id="barClip">
+                    <rect x="0" y="24" width={Math.max(760 * (countyPct / 100), 16)} height="56" rx="8" />
+                  </clipPath>
+                  <polygon points="0,24 760,24 800,52 760,80 0,80" fill="#02ADEE" clipPath="url(#barClip)" />
+                  <rect x="0" y="24" width="16" height="56" rx="8" fill="#02ADEE" clipPath="url(#barClip)" />
+
+                  {/* County ratio label */}
+                  {labelInside ? (
+                    <text
+                      x={Math.max(760 * (countyPct / 100) / 2, 30)}
+                      y="58"
+                      textAnchor="middle"
+                      fill="white"
+                      style={{ fontSize: '22px', fontFamily: 'Lato, sans-serif', fontWeight: 900 }}
+                    >
+                      {progressData.countyRatio < 1 ? '.' + progressData.countyRatio.toFixed(2).split('.')[1] : progressData.countyRatio.toFixed(2)}
+                    </text>
+                  ) : (
+                    <text
+                      x={760 * (countyPct / 100) + 10}
+                      y="58"
+                      textAnchor="start"
+                      fill="#02ADEE"
+                      style={{ fontSize: '22px', fontFamily: 'Lato, sans-serif', fontWeight: 900 }}
+                    >
+                      {progressData.countyRatio < 1 ? '.' + progressData.countyRatio.toFixed(2).split('.')[1] : progressData.countyRatio.toFixed(2)}
+                    </text>
+                  )}
+
+                  {/* Scale tick marks */}
+                  {[0.5, 1.0, 1.5].map(tick => (
+                    <line key={tick} x1={760 * (tick / maxRatio)} y1="24" x2={760 * (tick / maxRatio)} y2="80" stroke="white" strokeWidth="2" />
+                  ))}
+
+                  {/* "more than enough" label */}
+                  <text x="800" y="100" textAnchor="end" style={{ fontSize: '14px', fontFamily: 'Source Serif Pro, Georgia, serif', fontStyle: 'italic', fontWeight: 600 }} className="fill-mte-black">
+                    more than enough
+                  </text>
+
+                  {/* State average dashed line */}
+                  {statePct != null && (
+                    <g>
+                      <line x1={760 * (statePct / 100)} y1="20" x2={760 * (statePct / 100)} y2="84" stroke="#4aa456" strokeWidth="2.5" strokeDasharray="6,4" />
+                    </g>
+                  )}
+
+                  {/* National average dashed line */}
+                  {nationalPct != null && (
+                    <g>
+                      <line x1={760 * (nationalPct / 100)} y1="20" x2={760 * (nationalPct / 100)} y2="84" stroke="#882781" strokeWidth="2.5" strokeDasharray="6,4" />
+                    </g>
+                  )}
+                </svg>
+
+                {/* Average legends below bar */}
+                <div className="flex justify-center gap-6 md:gap-10 mt-2 flex-wrap">
+                  {statePct != null && (
+                    <div className="flex items-center gap-2">
+                      <svg width="32" height="2" className="flex-shrink-0"><line x1="0" y1="1" x2="32" y2="1" stroke="#4aa456" strokeWidth="2.5" strokeDasharray="6,4" /></svg>
+                      <span className="text-xs md:text-sm text-mte-charcoal font-lato">Statewide avg.={progressData.stateRatio.toFixed(2)}</span>
+                    </div>
+                  )}
+                  {nationalPct != null && (
+                    <div className="flex items-center gap-2">
+                      <svg width="32" height="2" className="flex-shrink-0"><line x1="0" y1="1" x2="32" y2="1" stroke="#882781" strokeWidth="2.5" strokeDasharray="6,4" /></svg>
+                      <span className="text-xs md:text-sm text-mte-charcoal font-lato">National avg.={progressData.nationalRatio.toFixed(2)}</span>
+                    </div>
+                  )}
                 </div>
               </div>
-              <div className="flex flex-col items-center">
-                <img src={PeopleIcon} alt="Population" className="w-20 h-20 mb-3" />
-                <div className="flex items-center gap-1">
-                  <div className="text-xl md:text-2xl font-black text-mte-blue">{fmt(data.population)}</div>
-                  <div className="text-base text-mte-charcoal font-lato">Population</div>
-                </div>
-              </div>
+
+              {/* Description */}
+              <p className="text-xs md:text-sm text-mte-charcoal font-lato mt-4 text-center max-w-3xl mx-auto leading-relaxed">
+                This metric shows the ratio of children in foster care to licensed homes. Because a positive change in any metrics listed below can meaningfully increase this overall ratio, it is a helpful indicator of your community's progress toward <em className="font-source-serif">more than enough</em>.
+              </p>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
       {/* Cards - County only */}
       {showCountyDetails && (() => {

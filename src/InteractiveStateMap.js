@@ -14,7 +14,7 @@ const COUNTY_METRIC_CONFIG = {
       const val = data?.licensedHomesPerChild;
       return (val !== null && val !== undefined) ? parseFloat(val) : null;
     },
-    format: (v) => v !== null && v !== undefined ? v.toFixed(2) : 'N/A',
+    format: (v) => v !== null && v !== undefined ? v.toFixed(2) : '--',
     legendFormat: (v) => v !== null && v !== undefined ? v.toFixed(2) : 'N/A'
   },
   "Number of Children Waiting For Adoption": {
@@ -37,11 +37,11 @@ const COUNTY_METRIC_CONFIG = {
     getValue: (data) => data?.reunificationRate ?? null,
     // reunificationRate is stored as decimal (0.45 = 45%)
     format: (v) => {
-      if (v === null || v === undefined) return 'N/A';
+      if (v === null || v === undefined) return '--';
       return `${(v * 100).toFixed(1)}%`;
     },
     legendFormat: (v) => {
-      if (v === null || v === undefined) return 'N/A';
+      if (v === null || v === undefined) return '--';
       return `${(v * 100).toFixed(1)}%`;
     }
   }

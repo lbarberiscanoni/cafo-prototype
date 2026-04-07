@@ -6,11 +6,11 @@ import realDataJson from './data/real-data.json';
 // ==================== FORMATTING UTILITIES ====================
 
 /** Format number with locale string, returns fallback for null */
-export const fmt = (val, fallback = 'N/A') => 
+export const fmt = (val, fallback = '--') =>
   val !== null && val !== undefined ? val.toLocaleString() : fallback;
 
 /** Format percentage - handles both decimal (0.45) and whole number (45) formats */
-export const fmtPct = (val, fallback = 'N/A') => {
+export const fmtPct = (val, fallback = '--') => {
   if (val === null || val === undefined) return fallback;
   // If value is less than 1, treat as decimal (0.45 = 45%)
   // If value is >= 1, treat as already a percentage (45 = 45%)
@@ -21,7 +21,7 @@ export const fmtPct = (val, fallback = 'N/A') => {
 };
 
 /** Format large numbers with K/M suffix */
-export const fmtCompact = (val, fallback = 'N/A') => {
+export const fmtCompact = (val, fallback = '--') => {
   if (val === null || val === undefined) return fallback;
   if (val >= 1000000) return `${(val / 1000000).toFixed(1)}M`;
   if (val >= 1000) return `${Math.round(val / 1000)}K`;

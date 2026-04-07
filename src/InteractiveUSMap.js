@@ -44,8 +44,8 @@ const METRIC_CONFIG = {
   "Number of Licensed Homes to Children in Care": {
     isRatio: true,
     isPercent: false,
-    format: (v) => v !== null && v !== undefined ? v.toFixed(2) : 'N/A',
-    legendFormat: (v) => v !== null && v !== undefined ? v.toFixed(2) : 'N/A',
+    format: (v) => v !== null && v !== undefined ? v.toFixed(2) : '--',
+    legendFormat: (v) => v !== null && v !== undefined ? v.toFixed(2) : '--',
     getFromState: (state) => {
       if (!state) return null;
       // Calculate from licensedHomes / totalChildren
@@ -73,8 +73,8 @@ const METRIC_CONFIG = {
     isRatio: false,
     isPercent: true,
     // reunificationRate is stored as a number like 47 (meaning 47%)
-    format: (v) => v !== null && v !== undefined ? `${v}%` : 'N/A',
-    legendFormat: (v) => v !== null && v !== undefined ? `${v}%` : 'N/A',
+    format: (v) => v !== null && v !== undefined ? `${v}%` : '--',
+    legendFormat: (v) => v !== null && v !== undefined ? `${v}%` : '--',
     getFromState: (state) => state?.reunificationRate ?? null
   }
 };
@@ -363,13 +363,13 @@ const InteractiveUSMap = ({ selectedMetric = "Number of Children Waiting For Ado
 
   // Format value for display in tooltip
   const formatDisplayValue = (value) => {
-    if (value === null || value === undefined) return 'N/A';
+    if (value === null || value === undefined) return '--';
     return metricConfig.format(value);
   };
 
   // Format legend value
   const formatLegendValue = (value) => {
-    if (value === null || value === undefined) return 'N/A';
+    if (value === null || value === undefined) return '--';
     return metricConfig.legendFormat(value);
   };
 

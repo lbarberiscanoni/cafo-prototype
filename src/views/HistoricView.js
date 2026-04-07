@@ -498,7 +498,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     
     // Format value for display
     const formatValue = (value) => {
-      if (value === null) return 'N/A';
+      if (value === null) return '--';
       if (isPercentage) {
         return `${Math.round(value)}%`;
       }
@@ -815,31 +815,31 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 text-sm md:text-base font-lato">
             <div className="text-center">
               <div className={`font-bold text-lg md:text-xl ${hasValue(trends.childrenInCare) ? (trends.childrenInCare < 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
-                {hasValue(trends.childrenInCare) ? `${trends.childrenInCare > 0 ? '+' : ''}${trends.childrenInCare}%` : 'N/A'}
+                {hasValue(trends.childrenInCare) ? `${trends.childrenInCare > 0 ? '+' : ''}${trends.childrenInCare}%` : '--'}
               </div>
               <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Number of Children in Care</div>
             </div>
             <div className="text-center">
               <div className={`font-bold text-lg md:text-xl ${hasValue(trends.licensedHomes) ? (trends.licensedHomes > 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
-                {hasValue(trends.licensedHomes) ? `${trends.licensedHomes > 0 ? '+' : ''}${trends.licensedHomes}%` : 'N/A'}
+                {hasValue(trends.licensedHomes) ? `${trends.licensedHomes > 0 ? '+' : ''}${trends.licensedHomes}%` : '--'}
               </div>
               <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Number of Licensed Homes</div>
             </div>
             <div className="text-center">
               <div className={`font-bold text-lg md:text-xl ${hasValue(trends.waitingForAdoption) ? (trends.waitingForAdoption < 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
-                {hasValue(trends.waitingForAdoption) ? `${trends.waitingForAdoption > 0 ? '+' : ''}${trends.waitingForAdoption}%` : 'N/A'}
+                {hasValue(trends.waitingForAdoption) ? `${trends.waitingForAdoption > 0 ? '+' : ''}${trends.waitingForAdoption}%` : '--'}
               </div>
               <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Number of Children Waiting for Adoption</div>
             </div>
             <div className="text-center">
               <div className={`font-bold text-lg md:text-xl ${hasValue(trends.reunificationRate) ? (trends.reunificationRate > 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
-                {hasValue(trends.reunificationRate) ? `${trends.reunificationRate > 0 ? '+' : ''}${trends.reunificationRate}%` : 'N/A'}
+                {hasValue(trends.reunificationRate) ? `${trends.reunificationRate > 0 ? '+' : ''}${trends.reunificationRate}%` : '--'}
               </div>
               <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Biological Family Reunification Rate (%)</div>
             </div>
             <div className="text-center col-span-2 md:col-span-1">
               <div className={`font-bold text-lg md:text-xl ${hasValue(trends.familyPreservationCases) ? (trends.familyPreservationCases > 0 ? 'text-mte-green' : 'text-mte-orange') : 'text-mte-charcoal'}`}>
-                {hasValue(trends.familyPreservationCases) ? `${trends.familyPreservationCases > 0 ? '+' : ''}${trends.familyPreservationCases}%` : 'N/A'}
+                {hasValue(trends.familyPreservationCases) ? `${trends.familyPreservationCases > 0 ? '+' : ''}${trends.familyPreservationCases}%` : '--'}
               </div>
               <div className="text-mte-charcoal text-xs md:text-sm leading-tight">Number of Family Preservation Cases</div>
             </div>

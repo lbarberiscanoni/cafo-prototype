@@ -29,12 +29,12 @@ const SITE_NAME = 'More Than Enough - Foster Care Data';
 // ============================================
 
 const fmt = (val) => {
-  if (val === null || val === undefined) return 'N/A';
+  if (val === null || val === undefined) return 'Data not yet available';
   return Number(val).toLocaleString('en-US');
 };
 
 const fmtPct = (val) => {
-  if (val === null || val === undefined) return 'N/A';
+  if (val === null || val === undefined) return 'Data not yet available';
   if (val < 1) return `${(val * 100).toFixed(1)}%`;
   return `${Number(val).toFixed(1)}%`;
 };
@@ -278,7 +278,16 @@ function generateCountyPage(county, state, stateSlug, stateAbbrev) {
   const countyKey = `${countySlug}-${stateAbbrev.toLowerCase()}`;
 
   const title = `Foster Care Data for ${county.name} County, ${state.name}`;
-  const description = `${county.name} County, ${state.name} foster care data: ${fmt(county.childrenInCare)} children in care, ${fmt(county.fosterKinshipHomes)} licensed homes, ${fmt(county.childrenWaitingForAdoption)} waiting for adoption.`;
+
+  // Build description with available data, gracefully handling missing values
+  const descParts = [];
+  if (county.childrenInCare != null) descParts.push(`${fmt(county.childrenInCare)} children in care`);
+  if (county.fosterKinshipHomes != null) descParts.push(`${fmt(county.fosterKinshipHomes)} licensed homes`);
+  if (county.childrenWaitingForAdoption != null) descParts.push(`${fmt(county.childrenWaitingForAdoption)} waiting for adoption`);
+  if (county.population != null) descParts.push(`population ${fmt(county.population)}`);
+  const description = descParts.length > 0
+    ? `${county.name} County, ${state.name} foster care data: ${descParts.join(', ')}. View local metrics on children in care, licensed foster homes, adoption, and reunification.`
+    : `Explore foster care data for ${county.name} County, ${state.name}. View local metrics on children in care, licensed foster homes, adoption, and reunification rates.`;
 
   // Calculate ratio
   let ratio = null;
@@ -293,7 +302,7 @@ function generateCountyPage(county, state, stateSlug, stateAbbrev) {
     <div class="metric"><span class="metric-label">Children in Kinship Care</span><span class="metric-value">${fmt(county.childrenInKinshipCare)}</span></div>
     <div class="metric"><span class="metric-label">Children Placed Out-of-County</span><span class="metric-value">${fmt(county.childrenPlacedOutOfCounty)}</span></div>
     <div class="metric"><span class="metric-label">Licensed Foster Homes</span><span class="metric-value">${fmt(county.fosterKinshipHomes)}</span></div>
-    <div class="metric"><span class="metric-label">Licensed Homes per Child in Care</span><span class="metric-value">${ratio || 'N/A'}</span></div>
+    <div class="metric"><span class="metric-label">Licensed Homes per Child in Care</span><span class="metric-value">${ratio || 'Data not yet available'}</span></div>
 
     <h2>Adoption</h2>
     <div class="metric"><span class="metric-label">Children Waiting for Adoption</span><span class="metric-value">${fmt(county.childrenWaitingForAdoption)}</span></div>
@@ -305,7 +314,15 @@ function generateCountyPage(county, state, stateSlug, stateAbbrev) {
 
     <h2>Community</h2>
     <div class="metric"><span class="metric-label">Churches</span><span class="metric-value">${fmt(county.churches)}</span></div>
-    <div class="metric"><span class="metric-label">Population</span><span class="metric-value">${fmt(county.population)}</span></div>`;
+    <div class="metric"><span class="metric-label">Population</span><span class="metric-value">${fmt(county.population)}</span></div>
+
+    <h2>About Foster Care in ${county.name} County</h2>
+    <p>${county.name} County is located in ${state.name}${county.population ? ` and has a population of approximately ${fmt(county.population)} residents` : ''}. This page presents local foster care data including children in out-of-home care, licensed foster and kinship homes, adoption statistics, and family reunification rates. Some metrics may not yet be available for this county as data reporting varies by state and locality.</p>
+    <p>For statewide context, visit <a href="/data/${stateSlug}/" style="color: #02ADEE; text-decoration: none;">foster care data for ${state.name}</a>, or see the <a href="/data/" style="color: #02ADEE; text-decoration: none;">national foster care overview</a>.</p>
+
+    <h2>Why Local Foster Care Data Matters</h2>
+    <p>Understanding foster care at the county level helps local churches, nonprofits, and community leaders respond effectively. When communities can see how many children are in care, how many families are licensed to foster, and what gaps remain, they can take targeted action. The goal of More Than Enough is to ensure every child in foster care has more than enough loving families and support in their community.</p>
+    <p>Learn more about how you can make a difference at <a href="https://cafo.org/morethanenough/" style="color: #02ADEE; text-decoration: none;">cafo.org/morethanenough</a>.</p>`;
 
   const schemaJson = {
     "@context": "https://schema.org",

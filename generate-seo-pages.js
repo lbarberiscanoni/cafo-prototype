@@ -78,6 +78,7 @@ function buildPage({ title, description, canonicalPath, hashRoute, breadcrumbs, 
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="${SITE_NAME}">
+  <meta property="og:image" content="${APP_BASE_URL}/logo512.png">
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">

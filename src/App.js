@@ -14,6 +14,33 @@ import HistoricView from "./views/HistoricView";
 // Import data for looking up names
 import { stateData, countyData, stateNameToCode } from "./real-data.js";
 
+// SEO footer with crawlable links to static data pages
+function SeoFooter() {
+  const states = Object.entries(stateData)
+    .map(([id, s]) => ({ id, name: s.name }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  return (
+    <footer className="bg-white border-t border-gray-100 mt-12 py-3 px-4 opacity-40">
+      <div className="max-w-7xl mx-auto">
+        <p className="text-[9px] text-gray-300 font-lato mb-1 leading-tight">
+          <a href="/data/" className="text-gray-300 hover:text-gray-400">Explore Foster Care Data</a> — Children in care, licensed foster homes, adoption, and reunification rates across the US.
+        </p>
+        <div className="columns-3 sm:columns-4 md:columns-6 gap-x-2">
+          {states.map(s => (
+            <a key={s.id} href={`/data/${s.id}/`} className="block text-[8px] text-gray-300 hover:text-gray-400 font-lato leading-tight">
+              {s.name}
+            </a>
+          ))}
+        </div>
+        <p className="text-[8px] text-gray-300 font-lato mt-1 leading-tight">
+          &copy; {new Date().getFullYear()} <a href="https://cafo.org/morethanenough/" className="text-gray-300 hover:text-gray-400">Christian Alliance for Orphans</a>. Data sources: AFCARS, state agencies.
+        </p>
+      </div>
+    </footer>
+  );
+}
+
 // View component mapping
 const VIEW_COMPONENTS = {
   metric: MetricView,
@@ -217,10 +244,13 @@ function App() {
   // Landing page (not shown in embed mode)
   if (region === "landing" && !isEmbed) {
     return (
-      <LandingPage
-        onSelectRegion={handleSelectRegion}
-        onSwitchView={handleSwitchView}
-      />
+      <>
+        <LandingPage
+          onSelectRegion={handleSelectRegion}
+          onSwitchView={handleSwitchView}
+        />
+        <SeoFooter />
+      </>
     );
   }
 
@@ -264,6 +294,7 @@ function App() {
           />
         )}
       </div>
+      {!isEmbed && <SeoFooter />}
     </div>
   );
 }

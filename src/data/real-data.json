@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-04-07T07:27:33.331Z",
+    "generated": "2026-04-08T07:44:13.882Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-04-07T07:27:25.866Z",
+        "generated": "2026-04-08T07:44:06.775Z",
         "years": [
           2021,
           2022,
@@ -33,7 +33,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-04-07T07:27:26.096Z",
+        "generated": "2026-04-08T07:44:06.988Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -61,7 +61,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-04-07T07:27:30.375Z",
+        "generated": "2026-04-08T07:44:11.027Z",
         "totalRecords": 5932,
         "stateCount": 51,
         "byYear": {
@@ -82,16 +82,16 @@
           "KY": 120
         },
         "nullCounts": {
-          "childrenInCare": 756,
-          "fosterKinshipHomes": 2733,
-          "reunificationRate": 3447,
+          "childrenInCare": 741,
+          "fosterKinshipHomes": 2724,
+          "reunificationRate": 3440,
           "childrenAdopted": 106,
-          "churches": 98
+          "churches": 105
         }
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-04-07T07:27:33.121Z",
+        "generated": "2026-04-08T07:44:13.691Z",
         "organizationCount": 513,
         "networkCount": 31,
         "stats": {
@@ -164,13 +164,13 @@
       },
       "coordinates": {
         "source": "county-coordinates.json",
-        "merged": 5891
+        "merged": 5892
       }
     },
     "counts": {
       "states": 52,
       "countyRecords": 5932,
-      "countiesWithCoordinates": 5891,
+      "countiesWithCoordinates": 5892,
       "organizations": 513,
       "organizationsWithDescriptions": 283,
       "networks": 31
@@ -5684,14 +5684,14 @@
           "geographyType": "county",
           "year": 2025,
           "population": 399125,
-          "childrenInCare": null,
+          "childrenInCare": 416,
           "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
+          "childrenInKinshipCare": 104,
           "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
+          "fosterKinshipHomes": 137,
+          "childrenWaitingForAdoption": 26,
           "reunificationRate": null,
-          "familyPreservationCases": null,
+          "familyPreservationCases": 143,
           "churches": 445,
           "coordinates": {
             "lat": 34.77,
@@ -14262,14 +14262,14 @@
           "geographyType": "county",
           "year": 2025,
           "population": 273425,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
+          "childrenInCare": 42,
+          "childrenInFosterCare": 24,
+          "childrenInKinshipCare": 11,
           "childrenPlacedOutOfCounty": null,
           "fosterKinshipHomes": null,
           "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
+          "reunificationRate": 0.3428571429,
+          "familyPreservationCases": 7,
           "churches": 123,
           "coordinates": {
             "lat": 29.9016,
@@ -14277,23 +14277,19 @@
           }
         },
         {
-          "name": "St. Lucie",
+          "name": "Saint Lucie",
           "geographyType": "county",
           "year": 2025,
-          "population": 329226,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
+          "population": null,
+          "childrenInCare": 198,
+          "childrenInFosterCare": 106,
+          "childrenInKinshipCare": 55,
           "childrenPlacedOutOfCounty": null,
           "fosterKinshipHomes": null,
           "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 175,
-          "coordinates": {
-            "lat": 27.3773,
-            "lng": -80.4721
-          }
+          "reunificationRate": 0.4827586207,
+          "familyPreservationCases": 16,
+          "churches": null
         },
         {
           "name": "Santa Rosa",
@@ -18394,19 +18390,23 @@
           }
         },
         {
-          "name": "De Kalb",
+          "name": "Dekalb",
           "geographyType": "county",
           "year": 2025,
-          "population": 764382,
-          "childrenInCare": null,
+          "population": 762105,
+          "childrenInCare": 703,
           "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
+          "childrenInKinshipCare": 126,
+          "childrenPlacedOutOfCounty": 523,
           "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
+          "childrenWaitingForAdoption": 61,
+          "reunificationRate": 45.3,
           "familyPreservationCases": null,
-          "churches": 425
+          "churches": null,
+          "coordinates": {
+            "lat": 33.7716,
+            "lng": -84.2264
+          }
         },
         {
           "name": "Dodge",
@@ -28699,38 +28699,38 @@
           }
         },
         {
-          "name": "De Kalb",
+          "name": "DeKalb",
           "geographyType": "county",
           "year": 2025,
-          "population": 100420,
-          "childrenInCare": null,
+          "population": 100512,
+          "childrenInCare": 106,
           "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
+          "childrenInKinshipCare": 58,
           "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 67
+          "fosterKinshipHomes": 47,
+          "childrenWaitingForAdoption": 12,
+          "reunificationRate": 0.2045454545,
+          "familyPreservationCases": 30,
+          "churches": null,
+          "coordinates": {
+            "lat": 41.8935,
+            "lng": -88.7703
+          }
         },
         {
-          "name": "De Witt",
+          "name": "DeWitt",
           "geographyType": "county",
           "year": 2025,
-          "population": 15516,
-          "childrenInCare": null,
+          "population": null,
+          "childrenInCare": 40,
           "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
+          "childrenInKinshipCare": 21,
           "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 19,
-          "coordinates": {
-            "lat": 40.1746,
-            "lng": -88.9041
-          }
+          "fosterKinshipHomes": 9,
+          "childrenWaitingForAdoption": 7,
+          "reunificationRate": 0.6111111111,
+          "familyPreservationCases": 9,
+          "churches": null
         },
         {
           "name": "Douglas",
@@ -29265,19 +29265,23 @@
           }
         },
         {
-          "name": "La Salle",
+          "name": "LaSalle",
           "geographyType": "county",
           "year": 2025,
-          "population": 109658,
-          "childrenInCare": null,
+          "population": 109049,
+          "childrenInCare": 196,
           "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
+          "childrenInKinshipCare": 135,
           "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 83
+          "fosterKinshipHomes": 76,
+          "childrenWaitingForAdoption": 15,
+          "reunificationRate": 0.5178571429,
+          "familyPreservationCases": 69,
+          "churches": null,
+          "coordinates": {
+            "lat": 41.344,
+            "lng": -88.8859
+          }
         },
         {
           "name": "Lake",
@@ -32386,19 +32390,23 @@
           }
         },
         {
-          "name": "De Kalb",
+          "name": "DeKalb",
           "geographyType": "county",
           "year": 2025,
-          "population": 43265,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
+          "population": 43584,
+          "childrenInCare": 116,
+          "childrenInFosterCare": 23,
+          "childrenInKinshipCare": 28,
           "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
-          "reunificationRate": null,
-          "familyPreservationCases": null,
-          "churches": 31
+          "fosterKinshipHomes": 18,
+          "childrenWaitingForAdoption": 43,
+          "reunificationRate": 0.6296296296,
+          "familyPreservationCases": 195,
+          "churches": null,
+          "coordinates": {
+            "lat": 41.3976,
+            "lng": -84.9991
+          }
         },
         {
           "name": "Delaware",
@@ -32937,14 +32945,14 @@
           "geographyType": "county",
           "year": 2025,
           "population": 112417,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
+          "childrenInCare": 255,
+          "childrenInFosterCare": 65,
+          "childrenInKinshipCare": 94,
           "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
+          "fosterKinshipHomes": 48,
+          "childrenWaitingForAdoption": 85,
           "reunificationRate": null,
-          "familyPreservationCases": null,
+          "familyPreservationCases": 1286,
           "churches": 89
         },
         {
@@ -33408,14 +33416,14 @@
           "geographyType": "county",
           "year": 2025,
           "population": 272912,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
+          "childrenInCare": 680,
+          "childrenInFosterCare": 148,
+          "childrenInKinshipCare": 217,
           "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
+          "fosterKinshipHomes": 118,
+          "childrenWaitingForAdoption": 20,
           "reunificationRate": null,
-          "familyPreservationCases": null,
+          "familyPreservationCases": 47,
           "churches": 238,
           "coordinates": {
             "lat": 41.6167,
@@ -57893,7 +57901,7 @@
           "geographyType": "county",
           "year": 2025,
           "population": 185314,
-          "childrenInCare": null,
+          "childrenInCare": 135,
           "childrenInFosterCare": null,
           "childrenInKinshipCare": null,
           "childrenPlacedOutOfCounty": null,
@@ -66659,14 +66667,14 @@
           "geographyType": "county",
           "year": 2025,
           "population": 2394,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
+          "childrenInCare": 0,
+          "childrenInFosterCare": 0,
           "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": null,
+          "childrenPlacedOutOfCounty": 0,
+          "fosterKinshipHomes": 0,
+          "childrenWaitingForAdoption": 0,
           "reunificationRate": null,
-          "familyPreservationCases": null,
+          "familyPreservationCases": 0,
           "churches": 1,
           "coordinates": {
             "lat": 46.9801,
@@ -75750,23 +75758,19 @@
           }
         },
         {
-          "name": "New York",
+          "name": "New York City",
           "geographyType": "county",
           "year": 2025,
-          "population": 1694251,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
-          "childrenPlacedOutOfCounty": 302,
+          "population": null,
+          "childrenInCare": 7708,
+          "childrenInFosterCare": 2971,
+          "childrenInKinshipCare": 3277,
+          "childrenPlacedOutOfCounty": 112,
           "fosterKinshipHomes": null,
-          "childrenWaitingForAdoption": 712,
-          "reunificationRate": 0.493,
+          "childrenWaitingForAdoption": 46,
+          "reunificationRate": 0.404,
           "familyPreservationCases": null,
-          "churches": 476,
-          "coordinates": {
-            "lat": 40.7792,
-            "lng": -73.9668
-          }
+          "churches": null
         },
         {
           "name": "Niagara",
@@ -83986,14 +83990,14 @@
           "geographyType": "county",
           "year": 2025,
           "population": 1870,
-          "childrenInCare": null,
-          "childrenInFosterCare": null,
-          "childrenInKinshipCare": null,
+          "childrenInCare": 130,
+          "childrenInFosterCare": 56,
+          "childrenInKinshipCare": 34,
           "childrenPlacedOutOfCounty": null,
-          "fosterKinshipHomes": null,
+          "fosterKinshipHomes": 85,
           "childrenWaitingForAdoption": null,
           "reunificationRate": null,
-          "familyPreservationCases": 0,
+          "familyPreservationCases": 12,
           "churches": 0,
           "coordinates": {
             "lat": 45.4052,
@@ -84062,7 +84066,7 @@
           "geographyType": "county",
           "year": 2025,
           "population": 7391,
-          "childrenInCare": null,
+          "childrenInCare": 11,
           "childrenInFosterCare": null,
           "childrenInKinshipCare": null,
           "childrenPlacedOutOfCounty": null,

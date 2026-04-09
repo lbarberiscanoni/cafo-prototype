@@ -846,9 +846,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 text-center">
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.totalChildren)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Children in Care</p></div>
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.licensedHomes)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Licensed Foster Homes</p></div>
+                <div><p className="text-xl md:text-2xl font-black text-mte-blue">{stateInfo.licensedHomes && stateInfo.totalChildren && stateInfo.totalChildren > 0 ? (stateInfo.licensedHomes / stateInfo.totalChildren).toFixed(2) : '--'}</p><p className="text-sm text-mte-charcoal font-lato">Number of Licensed Homes / Number of Children in Care</p></div>
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.waitingForAdoption)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Children Waiting For Adoption</p></div>
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(stateInfo.reunificationRate)}</p><p className="text-sm text-mte-charcoal font-lato">Biological Family Reunification Rate (%)</p></div>
-                <div className="col-span-2 md:col-span-1"><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.familyPreservationCases)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Family Preservation Cases</p></div>
               </div>
               <div className="mt-4 text-xs text-mte-charcoal font-lato">Source: AFCARS</div>
             </div>

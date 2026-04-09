@@ -85,6 +85,7 @@ const getCountyMetricArray = (countyKey, metricName, years) => {
 const getCategoryMetrics = (regionLevel, regionId, years) => {
   if (!historicalData || years.length === 0) {
     return {
+      progress: [],
       kinship: [],
       adoption: [],
       biological: [],
@@ -103,8 +104,21 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
     const childrenAdopted = getMetricArray(regionId, 'childrenAdopted', years);
     const reunificationRate = getMetricArray(regionId, 'reunificationRate', years);
     const familyPreservation = getMetricArray(regionId, 'familyPreservation', years);
-    
+
+    // Compute progress ratio: licensedHomes / childrenInCare per year
+    const progressRatio = childrenInCare.map((cic, i) => {
+      const homes = licensedHomes[i];
+      return (homes != null && cic != null && cic > 0) ? homes / cic : null;
+    });
+
     return {
+      progress: [
+        progressRatio.some(v => v !== null) && {
+          id: 'progress_ratio',
+          label: 'Licensed Homes / Children in Care',
+          data: progressRatio
+        }
+      ].filter(Boolean),
       kinship: [
         childrenInCare.some(v => v !== null) && { 
           id: 'children_in_care', 
@@ -164,8 +178,10 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
     const childrenInKinship = years.map(year => historicalData[year]?.national?.childrenInKinship ?? null);
     const waitingAdoption = years.map(year => historicalData[year]?.national?.childrenWaitingAdoption ?? null);
     const childrenAdopted = years.map(year => historicalData[year]?.national?.childrenAdopted ?? null);
-    
+
+    // National doesn't have licensedHomes in historical data, so progress is empty
     return {
+      progress: [],
       kinship: [
         childrenInCare.some(v => v !== null) && {
           id: 'children_in_care',
@@ -212,8 +228,21 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
     const reunificationRate = getCountyMetricArray(regionId, 'reunificationRate', years);
     const familyPreservation = getCountyMetricArray(regionId, 'familyPreservation', years);
     const childrenOutOfCounty = getCountyMetricArray(regionId, 'childrenOutOfCounty', years);
-    
+
+    // Compute progress ratio: licensedHomes / childrenInCare per year
+    const progressRatio = childrenInCare.map((cic, i) => {
+      const homes = licensedHomes[i];
+      return (homes != null && cic != null && cic > 0) ? homes / cic : null;
+    });
+
     return {
+      progress: [
+        progressRatio.some(v => v !== null) && {
+          id: 'progress_ratio',
+          label: 'Licensed Homes / Children in Care',
+          data: progressRatio
+        }
+      ].filter(Boolean),
       kinship: [
         childrenInCare.some(v => v !== null) && {
           id: 'children_in_care',
@@ -272,6 +301,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
   }
   
   return {
+    progress: [],
     kinship: [],
     adoption: [],
     biological: [],
@@ -672,6 +702,57 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
           </div>
         </div>
       )}
+
+      {/* Foster Care Progress Indicator Card */}
+      {years.length > 0 && categoryMetrics.progress.length > 0 && (() => {
+        const progressMetric = categoryMetrics.progress[0];
+        const ratioData = progressMetric.data;
+        const validRatioData = ratioData.filter(v => v !== null);
+        if (validRatioData.length === 0) return null;
+        const maxValue = Math.max(...validRatioData);
+        const chartHeight = 140;
+        const yMax = maxValue > 0 ? maxValue : 1;
+
+        return (
+          <div className="max-w-5xl mx-auto px-4 mb-4 md:mb-6">
+            <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
+              <h3 className="text-lg md:text-xl font-bold text-mte-black font-lato mb-1" style={{ textAlign: 'center' }}>Foster Care Progress Indicator</h3>
+              <p className="text-sm text-mte-charcoal font-lato mb-2" style={{ textAlign: 'center', maxWidth: 'none' }}>Ratio of licensed foster homes to children in care</p>
+
+              <div className="mt-4">
+                <div className="flex items-end justify-around gap-4 px-4" style={{ height: `${chartHeight}px` }}>
+                  {years.map((year, index) => {
+                    const value = ratioData[index];
+                    const isNull = value === null;
+                    const barHeight = isNull ? 24 : Math.max(24, (value / yMax) * chartHeight);
+                    return (
+                      <div key={year} className="flex-1 max-w-[80px] flex flex-col items-center">
+                        <div
+                          className={`w-full ${isNull ? 'bg-mte-light-grey' : 'bg-mte-blue'} rounded-t flex items-center justify-center transition-all duration-300`}
+                          style={{ height: `${barHeight}px` }}
+                        >
+                          <span className="text-white text-sm font-bold font-lato drop-shadow-sm">
+                            {isNull ? '--' : value.toFixed(2)}
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="flex justify-around gap-4 px-4 mt-2">
+                  {years.map((year) => (
+                    <div key={year} className="flex-1 max-w-[80px] text-center">
+                      <div className="text-xs font-semibold text-mte-charcoal font-lato">End of Year {year - 1}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {categoryMetrics.source && <div className="mt-3 text-xs text-mte-charcoal font-lato">Source: {categoryMetrics.source}</div>}
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Metric Cards - Only show if we have data */}
       {years.length > 0 && (

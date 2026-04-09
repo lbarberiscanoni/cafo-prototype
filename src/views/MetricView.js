@@ -607,15 +607,15 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
       )}
 
       {/* County-specific: Progress Indicator */}
-      {showCountyDetails && progressData?.countyRatio != null && (() => {
+      {showCountyDetails && progressData != null && (() => {
         const maxRatio = 2.0;
         const barPct = (r) => Math.min(r / maxRatio, 1) * 100;
-        const countyPct = barPct(progressData.countyRatio);
+        const countyPct = progressData.countyRatio != null ? barPct(progressData.countyRatio) : null;
         const statePct = progressData.stateRatio != null ? barPct(progressData.stateRatio) : null;
         const nationalPct = progressData.nationalRatio != null ? barPct(progressData.nationalRatio) : null;
         // Next milestone: next 0.5 increment above countyRatio
-        const nextMilestone = Math.ceil(progressData.countyRatio * 2) / 2;
-        const nextMilestonePct = nextMilestone <= maxRatio ? barPct(nextMilestone) : null;
+        const nextMilestone = progressData.countyRatio != null ? Math.ceil(progressData.countyRatio * 2) / 2 : null;
+        const nextMilestonePct = (nextMilestone != null && nextMilestone <= maxRatio) ? barPct(nextMilestone) : null;
 
         return (
           <div className="max-w-7xl mx-auto px-4 mt-6">
@@ -630,16 +630,22 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 </p>
               </div>
 
-              {/* Large ratio number */}
+              {/* Large ratio number or unavailable message */}
               <div className="text-center mb-4">
-                <span className="text-4xl md:text-6xl font-black text-mte-blue font-lato">
-                  {progressData.countyRatio.toFixed(2)}
-                </span>
+                {progressData.countyRatio != null ? (
+                  <span className="text-4xl md:text-6xl font-black text-mte-blue font-lato">
+                    {progressData.countyRatio.toFixed(2)}
+                  </span>
+                ) : (
+                  <span className="text-lg md:text-xl italic text-mte-blue font-lato font-semibold text-center block">
+                    Indicator not currently available for your county
+                  </span>
+                )}
               </div>
 
               {/* SVG Progress Bar */}
               <div className="w-full">
-                <svg viewBox="0 0 860 120" className="w-full" preserveAspectRatio="xMidYMid meet">
+                <svg viewBox="0 0 860 100" className="w-full" preserveAspectRatio="xMidYMid meet">
                   {/* Scale labels above bar */}
                   {[0.5, 1.0, 1.5, 2.0].map(tick => (
                     <text key={tick} x={50 + 660 * (tick / maxRatio)} y="14" textAnchor="middle" className="fill-mte-charcoal" style={{ fontSize: '12px', fontFamily: 'Lato, sans-serif' }}>{tick.toFixed(1)}</text>
@@ -649,7 +655,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                   <polygon points="50,30 730,30 730,18 755,52 730,86 730,74 50,74" fill="#e0e0e0" />
 
                   {/* Blue filled portion - inset inside gray shaft */}
-                  <rect x="54" y="34" width={Math.min(660 * (countyPct / 100), 672)} height="36" fill="#02ADEE" />
+                  {countyPct != null && (
+                    <rect x="54" y="34" width={Math.min(660 * (countyPct / 100), 672)} height="36" fill="#02ADEE" />
+                  )}
 
                   {/* Scale tick marks */}
                   {[0.5, 1.0, 1.5, 2.0].map(tick => (
@@ -670,12 +678,12 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
 
                   {/* State average triangle marker below bar */}
                   {statePct != null && (
-                    <polygon points={`${50 + 660 * (statePct / 100) - 7},106 ${50 + 660 * (statePct / 100) + 7},106 ${50 + 660 * (statePct / 100)},97`} fill="#dc6a42" />
+                    <polygon points={`${50 + 660 * (statePct / 100) - 7},91 ${50 + 660 * (statePct / 100) + 7},91 ${50 + 660 * (statePct / 100)},82`} fill="#dc6a42" />
                   )}
 
                   {/* National average triangle marker below bar */}
                   {nationalPct != null && (
-                    <polygon points={`${50 + 660 * (nationalPct / 100) - 7},106 ${50 + 660 * (nationalPct / 100) + 7},106 ${50 + 660 * (nationalPct / 100)},97`} fill="#882781" />
+                    <polygon points={`${50 + 660 * (nationalPct / 100) - 7},91 ${50 + 660 * (nationalPct / 100) + 7},91 ${50 + 660 * (nationalPct / 100)},82`} fill="#882781" />
                   )}
                 </svg>
 

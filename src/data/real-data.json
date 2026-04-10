@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-04-09T07:46:33.947Z",
+    "generated": "2026-04-10T07:50:52.691Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-04-09T07:46:26.400Z",
+        "generated": "2026-04-10T07:50:45.354Z",
         "years": [
           2021,
           2022,
@@ -33,7 +33,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-04-09T07:46:26.627Z",
+        "generated": "2026-04-10T07:50:45.570Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -61,7 +61,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-04-09T07:46:30.888Z",
+        "generated": "2026-04-10T07:50:49.662Z",
         "totalRecords": 5932,
         "stateCount": 51,
         "byYear": {
@@ -91,7 +91,7 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-04-09T07:46:33.737Z",
+        "generated": "2026-04-10T07:50:52.476Z",
         "organizationCount": 513,
         "networkCount": 31,
         "stats": {
@@ -49882,7 +49882,7 @@
           "geographyType": "county",
           "year": 2025,
           "population": 1793561,
-          "childrenInCare": 4,
+          "childrenInCare": 2352,
           "childrenInFosterCare": 0,
           "childrenInKinshipCare": 0,
           "childrenPlacedOutOfCounty": 888,

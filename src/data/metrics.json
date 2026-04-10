@@ -4,7 +4,7 @@
       "MTE_Metrics_2024.xlsx",
       "MTE_Metrics_2025.xlsx"
     ],
-    "generated": "2026-04-09T07:46:30.888Z",
+    "generated": "2026-04-10T07:50:49.662Z",
     "totalRecords": 5932,
     "stateCount": 51,
     "byYear": {
@@ -98708,7 +98708,7 @@
       "geographyType": "county",
       "year": 2025,
       "population": 1793561,
-      "childrenInCare": 4,
+      "childrenInCare": 2352,
       "childrenInFosterCare": 0,
       "childrenInKinshipCare": 0,
       "childrenPlacedOutOfCounty": 888,

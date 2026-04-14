@@ -391,14 +391,14 @@ const InteractiveUSMap = ({ selectedMetric = "Number of Children Waiting For Ado
         </div>
       </div>
 
-      {/* Map Legend - Collapsible on mobile, always open on md+ */}
-      <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 bg-white p-2 md:p-3 rounded shadow-lg z-10 max-w-[160px] md:max-w-none">
+      {/* Map Legend - Horizontal bar along the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm px-3 py-2 rounded-b shadow-lg z-10">
         {/* Legend header - clickable on mobile to expand/collapse */}
-        <button 
+        <button
           className="w-full text-left flex items-center justify-between md:cursor-default"
           onClick={() => setLegendExpanded(prev => !prev)}
         >
-          <div className="text-xs md:text-sm font-semibold font-lato text-mte-black leading-tight">
+          <div className="text-xs font-semibold font-lato text-mte-black leading-tight">
             {selectedMetric}
           </div>
           {/* Chevron - only on mobile */}
@@ -407,35 +407,35 @@ const InteractiveUSMap = ({ selectedMetric = "Number of Children Waiting For Ado
           </svg>
         </button>
         {/* Legend body - hidden on mobile unless expanded, always visible on md+ */}
-        <div className={`${legendExpanded ? 'block' : 'hidden'} md:block mt-1 md:mt-2`}>
-          <div className="space-y-1 text-xs font-lato">
+        <div className={`${legendExpanded ? 'block' : 'hidden'} md:block mt-1`}>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-lato">
             {hasData && legendBreaks.length > 1 ? (
               <>
                 {legendBreaks.length >= 5 && (
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
                     <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#16a34a'}}></div>
                     <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[4])}+</span>
                   </div>
                 )}
                 {legendBreaks.length >= 4 && (
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
                     <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#22c55e'}}></div>
                     <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[3])} – {formatLegendValue(legendBreaks[Math.min(4, legendBreaks.length - 1)])}</span>
                   </div>
                 )}
                 {legendBreaks.length >= 3 && (
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
                     <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#4ade80'}}></div>
                     <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[2])} – {formatLegendValue(legendBreaks[Math.min(3, legendBreaks.length - 1)])}</span>
                   </div>
                 )}
                 {legendBreaks.length >= 2 && (
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
                     <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#86efac'}}></div>
                     <span className="text-mte-charcoal">{formatLegendValue(legendBreaks[1])} – {formatLegendValue(legendBreaks[Math.min(2, legendBreaks.length - 1)])}</span>
                   </div>
                 )}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
                   <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#bbf7d0'}}></div>
                   <span className="text-mte-charcoal">&lt; {formatLegendValue(legendBreaks[1])}</span>
                 </div>
@@ -443,11 +443,11 @@ const InteractiveUSMap = ({ selectedMetric = "Number of Children Waiting For Ado
             ) : (
               <div className="text-mte-charcoal">No data available</div>
             )}
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#ffffff'}}></div>
+            <div className="flex items-center gap-1">
+              <div className="w-4 h-3 flex-shrink-0" style={{backgroundColor: '#ffffff', border: '1px solid #e5e7eb'}}></div>
               <span className="text-mte-charcoal">No Data</span>
             </div>
-            <div className="text-mte-charcoal mt-1 pt-1 border-t border-gray-200">as of End of Year 2023</div>
+            <div className="text-mte-charcoal text-xs ml-auto">as of End of Year 2023</div>
           </div>
         </div>
       </div>

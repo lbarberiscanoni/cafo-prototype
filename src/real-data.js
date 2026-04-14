@@ -56,6 +56,7 @@ export const stateCodeToName = Object.fromEntries(
 const GEOGRAPHY_LABEL_OVERRIDES = {
   'AK': 'District',
   'CT': 'Region',
+  'LA': 'Parish',
   'MA': 'Region',
   'NH': 'District',
   'SD': 'District Office',

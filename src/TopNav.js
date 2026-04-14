@@ -1,5 +1,5 @@
 import React from "react";
-import { nationalStats, stateData, countyData } from "./real-data.js";
+import { nationalStats, stateData, countyData, getGeographyLabel } from "./real-data.js";
 
 // Assets
 import ChartsIcon from "./assets/Charts.png";
@@ -68,8 +68,8 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
       
       if (stateCounties.length > 0) {
         rows.push([
-          '"County"', '"Population"', '"Total Churches"', '"Children in Care"',
-          '"Children in Family Foster"', '"Children in Kinship"', '"Children Out of County"',
+          `"${getGeographyLabel(stateCode.toUpperCase())}"`, '"Population"', '"Total Churches"', '"Children in Care"',
+          '"Children in Family Foster"', '"Children in Kinship"', `"Children Out of ${getGeographyLabel(stateCode.toUpperCase())}"`,
           '"Licensed Homes"', '"Licensed Homes per Child"', '"Children Waiting for Adoption"',
           '"Children Adopted (2024)"', '"Avg Months to Adoption"', '"Family Preservation Cases"',
           '"Reunification Rate (%)"', '"Churches Providing Support"'

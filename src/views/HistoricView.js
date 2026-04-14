@@ -425,26 +425,32 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
     }
   }, [onSelectRegion]);
 
+  // Derive current state code for geography label and county filtering
+  const currentStateCode = useMemo(() => {
+    if (!regionId) return 'al';
+    if (regionLevel === 'county') {
+      const parts = regionId.split('-');
+      return parts[parts.length - 1].toLowerCase();
+    }
+    if (regionLevel === 'state' && stateData[regionId]) {
+      return (stateNameToCode[stateData[regionId].name] || '').toLowerCase();
+    }
+    return 'al';
+  }, [regionLevel, regionId]);
+
+  const geoLabel = getGeographyLabel(currentStateCode.toUpperCase());
+
   // Build county options for searchable dropdown (filtered to current state)
   const countyOptionsForState = useMemo(() => {
-    let stateCode = 'al';
-    if (regionId) {
-      if (regionLevel === 'county') {
-        const parts = regionId.split('-');
-        stateCode = parts[parts.length - 1].toLowerCase();
-      } else if (regionLevel === 'state' && stateData[regionId]) {
-        stateCode = (stateNameToCode[stateData[regionId].name] || '').toLowerCase();
-      }
-    }
     return Object.entries(countyData)
-      .filter(([id]) => id.split('-').pop() === stateCode)
+      .filter(([id]) => id.split('-').pop() === currentStateCode)
       .map(([id, d]) => {
         const base = d.name.split(',')[0].trim();
         const geoLabel = getGeographyLabel(d.state);
         return { id, label: `${base} ${geoLabel}` };
       })
       .sort((a, b) => a.label.localeCompare(b.label));
-  }, [regionLevel, regionId]);
+  }, [currentStateCode]);
 
   // Handler for county select
   const handleCountySelect = useCallback((opt) => {
@@ -613,14 +619,14 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
 
             {/* County Dropdown */}
             <div className="flex items-center gap-2">
-              <label className="text-sm font-lato text-mte-charcoal">County:</label>
+              <label className="text-sm font-lato text-mte-charcoal">{geoLabel}:</label>
               <div className="w-48">
                 <CountySelect
                   options={countyOptionsForState}
-                  placeholder="Select a county"
-                  searchPlaceholder="Search county…"
+                  placeholder={`Select a ${geoLabel.toLowerCase()}`}
+                  searchPlaceholder={`Search ${geoLabel.toLowerCase()}…`}
                   onChange={handleCountySelect}
-                  emptyMessage="No county historical data available"
+                  emptyMessage={`No ${geoLabel.toLowerCase()} historical data available`}
                 />
               </div>
             </div>

@@ -218,62 +218,6 @@ const createStateTextLabel = (stateCode) => {
   });
 };
 
-// Create clickable county text label with elevated card design - FULL NAME
-const createCountyTextLabel = (countyName) => {
-  // Display full county name
-  const displayName = countyName;
-  
-  // Responsive scaling based on screen width
-  const isMobile = window.innerWidth < 768;
-  const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-  
-  // Calculate font size based on name length and device
-  let fontSize, padding, borderWidth;
-  
-  if (isMobile) {
-    // Mobile: smaller overall
-    fontSize = countyName.length > 12 ? '7px' : countyName.length > 8 ? '8px' : '9px';
-    padding = '3px 5px 5px 5px';
-    borderWidth = '2px';
-  } else if (isTablet) {
-    // Tablet: medium
-    fontSize = countyName.length > 12 ? '8px' : countyName.length > 8 ? '9px' : '10px';
-    padding = '3px 6px 6px 6px';
-    borderWidth = '2.5px';
-  } else {
-    // Desktop: full size
-    fontSize = countyName.length > 12 ? '9px' : countyName.length > 8 ? '10px' : '11px';
-    padding = '4px 8px 8px 8px';
-    borderWidth = '3px';
-  }
-  
-  return new L.DivIcon({
-    className: "county-text-label",
-    html: `<div style="
-      font-family: 'Lato', sans-serif;
-      font-weight: 600;
-      font-size: ${fontSize};
-      color: #5c5d5f;
-      text-align: center;
-      cursor: pointer;
-      user-select: none;
-      padding: ${padding};
-      background: #ffffff;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-      white-space: nowrap;
-      transition: all 0.15s ease;
-      border-bottom: ${borderWidth} solid #02ADEE;
-      display: inline-block;
-      max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.18)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.12)';">${displayName}</div>`,
-    iconSize: null, // Auto-size to content
-    iconAnchor: null, // Auto-center
-  });
-};
-
 export default function OrganizationalView({ regionLevel, regionId, onSelectRegion, selectedRegion }) {
   const [selectedCategories, setSelectedCategories] = useState(Object.keys(FILTER_GROUPS));
   const [selectedImpactAreas, setSelectedImpactAreas] = useState(["Foster and Kinship Families", "Adoptive", "Biological", "Wraparound"]);
@@ -429,24 +373,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         id: stateId,
         name: stateName,
         code: stateCode
-        // No view specified - preserves current view
-      });
-    }
-  };
-
-  // Handler for when a county marker is clicked - preserve current view
-  const handleCountyMarkerClick = (countyName) => {
-    console.log('County marker clicked:', countyName);
-    const displayName = getDisplayName();
-    const stateCode = stateNameToCode[displayName];
-    const countyId = `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode?.toLowerCase()}`;
-    const label = getGeographyLabel(stateCode);
-    
-    if (onSelectRegion) {
-      onSelectRegion({ 
-        level: 'county', 
-        id: countyId,
-        name: `${countyName} ${label}, ${displayName}`
         // No view specified - preserves current view
       });
     }
@@ -986,10 +912,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
               {/* State Level: County Text Labels + Organization Dots + Connection Lines */}
               {showStateMap && (() => {
-                // Use derived county coordinates from orgs (more reliable than countyCoordinatesByState)
-                const countyCoords = derivedCountyCoords;
-                const stateGeoLabel = getGeographyLabel(getDisplayName());
-                
                 return (
                   <>
                     {/* Organization Dots - only render if we have filtered orgs */}

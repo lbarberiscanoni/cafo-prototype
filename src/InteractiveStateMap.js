@@ -100,6 +100,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
     };
   }, [stateCode]);
   const [legendExpanded, setLegendExpanded] = useState(false);
+  const zoomRef = useRef(null);
 
   // Get metric configuration, fallback to ratio if metric not found
   const metricConfig = COUNTY_METRIC_CONFIG[selectedMetric] || COUNTY_METRIC_CONFIG["Number of Licensed Homes to Children in Care"];
@@ -233,7 +234,28 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
 
         const path = d3.geoPath().projection(projection);
 
-        svg.selectAll("path")
+        // Create zoom group that wraps all map content
+        const zoomGroup = svg.append("g").attr("class", "zoom-group");
+
+        // Set up d3.zoom behavior
+        const zoom = d3.zoom()
+          .scaleExtent([1, 8])
+          .translateExtent([[0, 0], [width, height]])
+          .on("zoom", (event) => {
+            zoomGroup.attr("transform", event.transform);
+          });
+
+        svg.call(zoom);
+        // Prevent scroll-wheel zoom from scrolling the page
+        svg.on("wheel.zoom", function(event) {
+          event.preventDefault();
+          // Re-dispatch as a zoom event
+          zoom.scaleBy(d3.select(this).transition().duration(200),
+            event.deltaY < 0 ? 1.3 : 1 / 1.3);
+        });
+        zoomRef.current = zoom;
+
+        zoomGroup.selectAll("path")
           .data(stateCounties)
           .enter()
           .append("path")
@@ -302,7 +324,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
         };
 
         // County labels - only show for counties with data for the selected metric
-        const labelGroups = svg.selectAll("g.county-label")
+        const labelGroups = zoomGroup.selectAll("g.county-label")
           .data(stateCounties)
           .enter()
           .append("g")
@@ -428,6 +450,44 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
           </svg>
           <span className="font-lato text-mte-charcoal">Click to view detailed {stateDataByCode[stateCode]?.countyToRegionMapping ? getGeographyLabel(stateCode).toLowerCase() : 'county'} data</span>
         </div>
+        <div className="flex items-center gap-2">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+          </svg>
+          <span className="font-lato text-mte-charcoal">Scroll to zoom, drag to pan</span>
+        </div>
+      </div>
+
+      {/* Zoom Controls */}
+      <div className="absolute top-4 right-4 flex flex-col gap-1 z-10">
+        <button
+          onClick={() => {
+            const svg = d3.select(mapRef.current);
+            if (zoomRef.current) svg.transition().duration(300).call(zoomRef.current.scaleBy, 1.5);
+          }}
+          className="w-8 h-8 bg-white rounded shadow-md flex items-center justify-center text-mte-charcoal hover:bg-gray-50 font-bold text-lg leading-none"
+          title="Zoom in"
+        >+</button>
+        <button
+          onClick={() => {
+            const svg = d3.select(mapRef.current);
+            if (zoomRef.current) svg.transition().duration(300).call(zoomRef.current.scaleBy, 1 / 1.5);
+          }}
+          className="w-8 h-8 bg-white rounded shadow-md flex items-center justify-center text-mte-charcoal hover:bg-gray-50 font-bold text-lg leading-none"
+          title="Zoom out"
+        >−</button>
+        <button
+          onClick={() => {
+            const svg = d3.select(mapRef.current);
+            if (zoomRef.current) svg.transition().duration(300).call(zoomRef.current.transform, d3.zoomIdentity);
+          }}
+          className="w-8 h-8 bg-white rounded shadow-md flex items-center justify-center text-mte-charcoal hover:bg-gray-50"
+          title="Reset zoom"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </button>
       </div>
 
       {/* Map Legend - Horizontal bar along the bottom */}

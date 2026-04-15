@@ -550,18 +550,24 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
   // Get state organizations
   const stateOrgs = React.useMemo(() => {
-    if (regionLevel !== 'state') return [];
-    
-    const displayName = getDisplayName();
-    const stateCode = stateNameToCode[displayName];
-    
+    if (regionLevel !== 'state' && regionLevel !== 'county') return [];
+
+    let stateCode = '';
+    if (regionLevel === 'state') {
+      const displayName = getDisplayName();
+      stateCode = stateNameToCode[displayName];
+    } else if (regionLevel === 'county' && regionId && regionId.includes('-')) {
+      const parts = regionId.split('-');
+      stateCode = parts[parts.length - 1].toUpperCase();
+    }
+
     // Filter real organizations by state
-    return organizations.filter(org => 
+    return organizations.filter(org =>
       org.state === stateCode &&
       org.onMap === true &&
       org.coords
     );
-  }, [regionLevel, getDisplayName]);
+  }, [regionLevel, regionId, getDisplayName]);
 
   // Derive county coordinates from organizations (for state view)
   const derivedCountyCoords = React.useMemo(() => {
@@ -605,10 +611,15 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     );
   }, [regionLevel]);
 
-  // Get current organizations based on region level
-  const currentOrgs = regionLevel === 'county' ? countyOrgs : 
-                     regionLevel === 'state' ? stateOrgs : 
+  // Get current organizations based on region level (for card list)
+  const currentOrgs = regionLevel === 'county' ? countyOrgs :
+                     regionLevel === 'state' ? stateOrgs :
                      nationalOrgs;
+
+  // Map orgs: at county level, show all state orgs so zooming out reveals nearby orgs
+  const mapOrgs = regionLevel === 'county' ? stateOrgs :
+                  regionLevel === 'state' ? stateOrgs :
+                  nationalOrgs;
 
   // Filter organizations based on selected categories and impact areas
   const filteredOrgs = React.useMemo(() => {
@@ -627,6 +638,20 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
       return categoryMatch && impactAreaMatch;
     });
   }, [currentOrgs, selectedCategories, selectedImpactAreas]);
+
+  // Filtered map orgs: at county level includes all state orgs matching filters
+  const filteredMapOrgs = React.useMemo(() => {
+    return mapOrgs.filter(org => {
+      const filterGroup = getCategoryFilterGroup(org.category);
+      const categoryMatch = selectedCategories.includes(filterGroup);
+      const impactAreaMatch = selectedImpactAreas.length > 0 && (
+        !org.areas ||
+        org.areas.length === 0 ||
+        org.areas.some(area => selectedImpactAreas.includes(area))
+      );
+      return categoryMatch && impactAreaMatch;
+    });
+  }, [mapOrgs, selectedCategories, selectedImpactAreas]);
 
   // Consolidate organizations with multiple locations for card display
   // Keep original filteredOrgs for map markers (shows all physical locations)
@@ -1037,11 +1062,11 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               {/* County Level: Organization Markers with Connection Lines */}
               {showCountyMap && (
                 <>
-                  {/* Organization Markers - only render if we have filtered orgs */}
-                  {filteredOrgs.length > 0 && filteredOrgs.map((org) => (
-                    <Marker 
-                      key={org.name} 
-                      position={org.coords} 
+                  {/* Organization Markers - show all state orgs so zooming out reveals nearby */}
+                  {filteredMapOrgs.length > 0 && filteredMapOrgs.map((org) => (
+                    <Marker
+                      key={`${org.name}-${org.coords[0]}-${org.coords[1]}`}
+                      position={org.coords}
                       icon={createDotIcon(org.category)}
                       eventHandlers={{
                         click: () => handleOrgMarkerClick(org)
@@ -1217,7 +1242,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                           )}
                         </div>
                         {validDescription && (
-                          <p className="text-base text-mte-charcoal mb-2 font-lato line-clamp-3">{validDescription}</p>
+                          <p className={`text-base text-mte-charcoal mb-2 font-lato ${isSelected ? '' : 'line-clamp-3'}`}>{validDescription}</p>
                         )}
                         <div className="text-sm text-mte-charcoal mb-2 font-lato">
                           <strong>Impact Areas:</strong> {org.areas?.join(", ") || 'N/A'}

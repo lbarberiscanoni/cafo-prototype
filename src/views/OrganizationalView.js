@@ -140,7 +140,6 @@ const FILTER_GROUPS = {
   "Service Organization": ["Service Organization"],
   "Church Ministry": ["Church Foster Care Ministry"],
   "Placement Agency": ["Placement Agency", "Child Placement Agency"],
-  "Network": ["Local Network", "State/Regional Network", "Regional Network"],
   "Other": ["Other"],
 };
 
@@ -790,6 +789,39 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               </div>
             </div>
 
+            {/* Local Networks */}
+            {(showCountyMap || showStateMap || showNationalMap) && (
+              <div className="bg-white p-4 rounded-lg shadow-mte-card">
+                <h3 className="text-base font-bold mb-1 text-mte-black font-lato">Local Networks</h3>
+                <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-base font-lato cursor-pointer transition-colors ${
+                  showLocalNetworks ? 'bg-mte-blue text-white' : 'bg-mte-light-grey text-mte-charcoal hover:bg-mte-blue-20'
+                }`}>
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      className="sr-only"
+                      checked={showLocalNetworks}
+                      onChange={() => setShowLocalNetworks(prev => !prev)}
+                    />
+                    {showLocalNetworks && (
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span>View Local Networks</span>
+                  </div>
+                </label>
+                {showLocalNetworks && networkBubbles.length > 0 && (
+                  <div className="mt-3 text-sm text-mte-charcoal font-lato">
+                    <span className="font-semibold">{networkBubbles.length}</span> local network{networkBubbles.length !== 1 ? 's' : ''} displayed
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Impact Areas */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
               <h3 className="text-base font-bold mb-1 text-mte-black font-lato">Impact Areas</h3>
@@ -845,39 +877,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                 </label>
               </div>
             </div>
-
-            {/* Local Networks */}
-            {(showCountyMap || showStateMap || showNationalMap) && (
-              <div className="bg-white p-4 rounded-lg shadow-mte-card">
-                <h3 className="text-base font-bold mb-1 text-mte-black font-lato">Local Networks</h3>
-                <label className={`w-full flex items-center justify-between px-3 py-2 rounded text-base font-lato cursor-pointer transition-colors ${
-                  showLocalNetworks ? 'bg-mte-blue text-white' : 'bg-mte-light-grey text-mte-charcoal hover:bg-mte-blue-20'
-                }`}>
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      className="sr-only"
-                      checked={showLocalNetworks}
-                      onChange={() => setShowLocalNetworks(prev => !prev)}
-                    />
-                    {showLocalNetworks && (
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    )}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                    <span>View Local Networks</span>
-                  </div>
-                </label>
-                {showLocalNetworks && networkBubbles.length > 0 && (
-                  <div className="mt-3 text-sm text-mte-charcoal font-lato">
-                    <span className="font-semibold">{networkBubbles.length}</span> local network{networkBubbles.length !== 1 ? 's' : ''} displayed
-                  </div>
-                )}
-              </div>
-            )}
 
             {/* Get On the Map */}
             <a
@@ -939,9 +938,9 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
                   {/* Organization Dots - only render if we have filtered orgs */}
                   {filteredOrgs.length > 0 && filteredOrgs.map((org, idx) => (
-                    <Marker 
-                      key={org.name} 
-                      position={org.coords} 
+                    <Marker
+                      key={`nat-${org.id || idx}-${org.coords[0]}-${org.coords[1]}`}
+                      position={org.coords}
                       icon={createDotIcon(org.category, "20px")}
                       eventHandlers={{
                         click: () => handleOrgMarkerClick(org)
@@ -1012,9 +1011,9 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     ))}
 
                     {/* Organization Dots - only render if we have filtered orgs */}
-                    {filteredOrgs.length > 0 && filteredOrgs.map((org) => (
+                    {filteredOrgs.length > 0 && filteredOrgs.map((org, idx) => (
                       <Marker
-                        key={org.name}
+                        key={`state-${org.id || idx}-${org.coords[0]}-${org.coords[1]}`}
                         position={org.coords}
                         icon={createDotIcon(org.category, "20px")}
                         eventHandlers={{
@@ -1199,7 +1198,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               {consolidatedOrgs.length > 0 ? (
                 <div className="overflow-x-auto" ref={cardContainerRef} onWheel={(e) => { if (e.deltaY !== 0) { e.currentTarget.scrollLeft += e.deltaY; e.preventDefault(); } }}>
                   <div className="flex gap-4 pb-4" style={{ minWidth: "max-content" }}>
-                    {consolidatedOrgs.map((org) => {
+                    {consolidatedOrgs.map((org, cardIdx) => {
                     const colors = CATEGORY_COLORS[org.category];
                     const isSelected = selectedOrg === org.name;
                     const cardId = `org-card-${org.name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '')}`;
@@ -1207,7 +1206,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                     const validDescription = getValidDescription(org);
                     return (
                       <div
-                        key={org.name}
+                        key={`card-${org.name}-${cardIdx}`}
                         id={cardId}
                         className={`p-4 rounded-lg shadow-mte-card border-l-4 ${colors?.border || 'border-mte-blue'} flex-shrink-0 transition-all duration-300 flex flex-col ${
                           isSelected 

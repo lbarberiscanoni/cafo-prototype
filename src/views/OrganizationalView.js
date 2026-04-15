@@ -494,36 +494,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
     );
   }, [regionLevel, regionId, getDisplayName]);
 
-  // Derive county coordinates from organizations (for state view)
-  const derivedCountyCoords = React.useMemo(() => {
-    if (regionLevel !== 'state') return {};
-    
-    // Group orgs by county
-    const countyGroups = {};
-    stateOrgs.forEach(org => {
-      if (org.county && org.coords) {
-        const countyName = org.county.replace(/\s+County.*$/i, '').trim();
-        if (!countyGroups[countyName]) {
-          countyGroups[countyName] = { coords: [], orgCount: 0 };
-        }
-        countyGroups[countyName].coords.push(org.coords);
-        countyGroups[countyName].orgCount++;
-      }
-    });
-    
-    // Calculate centroid for each county
-    const result = {};
-    Object.entries(countyGroups).forEach(([countyName, data]) => {
-      const avgLat = data.coords.reduce((sum, c) => sum + c[0], 0) / data.coords.length;
-      const avgLng = data.coords.reduce((sum, c) => sum + c[1], 0) / data.coords.length;
-      result[countyName] = {
-        coords: [avgLat, avgLng],
-        orgCount: data.orgCount
-      };
-    });
-    
-    return result;
-  }, [regionLevel, stateOrgs]);
+
 
   // Get national organizations
   const nationalOrgs = React.useMemo(() => {

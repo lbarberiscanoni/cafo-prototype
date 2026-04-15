@@ -145,6 +145,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           waitingForAdoption: state.waitingForAdoption,
           reunificationRate: state.reunificationRate,
           familyPreservationCases: state.familyPreservationCases,
+          totalChurches: state.totalChurches,
           sourceAgency: state.sourceAgency || null,
           dataYear: state.dataYear || null,
           sourceUrl: state.sourceUrl || null,
@@ -406,7 +407,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           {regionLevel !== "national" && data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mb-0">{data.subtitle}</p>}
           <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4 leading-tight mb-0">{data.name}</h1>
           {regionLevel === "national" && data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mt-1">{data.subtitle}</p>}
-          {showCountyDetails && (data.population != null || data.totalChurches != null) && (
+          {(data.population != null || data.totalChurches != null) && (
             <p className="text-sm text-mte-charcoal font-lato mt-1">
               {data.population != null && <>Population: <span className="font-semibold">{fmt(data.population)}</span></>}
               {data.population != null && data.totalChurches != null && <span className="mx-2">|</span>}
@@ -521,8 +522,6 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                   <div className="space-y-2">
                     <div><span className="text-xl font-black text-mte-blue">{fmtCompact(data.totalChurches)}</span></div>
                     <div className="text-sm text-mte-charcoal font-lato">Churches</div>
-                    <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmtCompact(data.churchesWithMinistry)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Churches with a Known Foster Care Ministry</div>
                   </div>
                 </div>
               </div>

@@ -736,6 +736,15 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
       {showCountyDetails && (() => {
         const src = data.sourceAgency ? `${data.sourceAgency}${data.dataYear ? ` (${data.dataYear})` : ''}` : null;
         return (
+        <>
+        <div className="max-w-7xl mx-auto px-4 pt-4 pb-0">
+          <p className="text-xs text-mte-charcoal font-lato text-center flex items-center justify-center gap-1.5">
+            <svg className="w-4 h-4 flex-shrink-0 text-mte-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Hover over any metric to see its source, definition, and date
+          </p>
+        </div>
         <main className="max-w-7xl mx-auto px-4 py-6 md:py-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={FosterKinshipIcon} alt="Foster & Kinship" className="mx-auto w-20 h-20 mb-3" />
@@ -757,7 +766,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>
-                <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/export?format=pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
+                <a href="/mte-data-guide.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
                   Download our data guide
                 </a>
               </div>
@@ -783,7 +792,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>
-                <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/export?format=pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
+                <a href="/mte-data-guide.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
                   Download our data guide
                 </a>
               </div>
@@ -808,7 +817,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>
-                <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/export?format=pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
+                <a href="/mte-data-guide.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
                   Download our data guide
                 </a>
               </div>
@@ -834,7 +843,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>
-                <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/export?format=pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
+                <a href="/mte-data-guide.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
                   Download our data guide
                 </a>
               </div>
@@ -844,6 +853,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </div>
           </div>
         </main>
+        </>
         );
       })()}
 
@@ -862,7 +872,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.waitingForAdoption)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Children Waiting For Adoption</p></div>
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(stateInfo.reunificationRate)}</p><p className="text-sm text-mte-charcoal font-lato">Biological Family Reunification Rate (%)</p></div>
               </div>
-              <div className="mt-4 text-xs text-mte-charcoal font-lato">Source: AFCARS</div>
+              <div className="mt-4 text-xs text-mte-charcoal font-lato">Source: AFCARS{stateInfo.dataYear ? ` (End of Year ${stateInfo.dataYear})` : ''}</div>
             </div>
           </section>
         );

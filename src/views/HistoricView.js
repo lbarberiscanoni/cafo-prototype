@@ -219,6 +219,11 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
 
   // For county level, use metrics CSV data (2024-2025)
   if (regionLevel === 'county') {
+    // Derive state source agency from county ID
+    const countyParts = regionId.split('-');
+    const countyStateCode = countyParts[countyParts.length - 1]?.toLowerCase();
+    const countyStateKey = Object.keys(stateData).find(k => stateData[k].abbreviation?.toLowerCase() === countyStateCode);
+    const countyStateSource = countyStateKey ? stateData[countyStateKey].sourceAgency : null;
     const childrenInCare = getCountyMetricArray(regionId, 'childrenInCare', years);
     const childrenInFoster = getCountyMetricArray(regionId, 'childrenInFoster', years);
     const childrenInKinship = getCountyMetricArray(regionId, 'childrenInKinship', years);
@@ -296,7 +301,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
         }
       ].filter(Boolean),
       wraparound: [],
-      source: `MTE Metrics End of Year ${years[0] - 1} - End of Year ${years[years.length - 1] - 1}`
+      source: `${countyStateSource || 'AFCARS'} End of Year ${years[0] - 1} - End of Year ${years[years.length - 1] - 1}`
     };
   }
   
@@ -548,19 +553,22 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
           {years.map((year, index) => {
             const value = displayData[index];
             const isNull = value === null;
-            const barHeight = isNull ? 24 : Math.max(24, (value / yMax) * chartHeight);
-            
+            const barHeight = isNull ? 0 : Math.max(24, (value / yMax) * chartHeight);
+
             return (
-              <div key={year} className="flex-1 max-w-[80px] flex flex-col items-center">
-                {/* Bar with value inside */}
-                <div 
-                  className={`w-full ${isNull ? 'bg-mte-light-grey' : bgColor} rounded-t flex items-center justify-center transition-all duration-300`}
-                  style={{ height: `${barHeight}px` }}
-                >
-                  <span className="text-white text-sm font-bold font-lato drop-shadow-sm">
-                    {formatValue(value)}
-                  </span>
-                </div>
+              <div key={year} className="flex-1 max-w-[80px] flex flex-col items-center justify-end">
+                {isNull ? (
+                  <span className="text-sm font-bold text-mte-light-grey mb-1">--</span>
+                ) : (
+                  <div
+                    className={`w-full ${bgColor} rounded-t flex items-center justify-center transition-all duration-300`}
+                    style={{ height: `${barHeight}px` }}
+                  >
+                    <span className="text-white text-sm font-bold font-lato drop-shadow-sm">
+                      {formatValue(value)}
+                    </span>
+                  </div>
+                )}
               </div>
             );
           })}
@@ -730,17 +738,21 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
                   {years.map((year, index) => {
                     const value = ratioData[index];
                     const isNull = value === null;
-                    const barHeight = isNull ? 24 : Math.max(24, (value / yMax) * chartHeight);
+                    const barHeight = isNull ? 0 : Math.max(24, (value / yMax) * chartHeight);
                     return (
-                      <div key={year} className="flex-1 max-w-[80px] flex flex-col items-center">
-                        <div
-                          className={`w-full ${isNull ? 'bg-mte-light-grey' : 'bg-mte-blue'} rounded-t flex items-center justify-center transition-all duration-300`}
-                          style={{ height: `${barHeight}px` }}
-                        >
-                          <span className="text-white text-sm font-bold font-lato drop-shadow-sm">
-                            {isNull ? '--' : value.toFixed(2)}
-                          </span>
-                        </div>
+                      <div key={year} className="flex-1 max-w-[80px] flex flex-col items-center justify-end">
+                        {isNull ? (
+                          <span className="text-sm font-bold text-mte-light-grey mb-1">--</span>
+                        ) : (
+                          <div
+                            className="w-full bg-mte-blue rounded-t flex items-center justify-center transition-all duration-300"
+                            style={{ height: `${barHeight}px` }}
+                          >
+                            <span className="text-white text-sm font-bold font-lato drop-shadow-sm">
+                              {value.toFixed(2)}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     );
                   })}

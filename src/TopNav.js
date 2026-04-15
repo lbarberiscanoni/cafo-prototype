@@ -27,6 +27,10 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
     
     if (currentRegion === 'national') {
       regionName = "united_states";
+      rows.push('"Data from More Than Enough Foster Care Dashboard"');
+      rows.push('"https://fostercaredata.cafo.org"');
+      rows.push(`"Source: AFCARS${nationalStats.dataYear ? ` (End of Year ${nationalStats.dataYear})` : ''}"`);
+      rows.push('');
       rows.push(['Metric', 'Value'].join(','));
       rows.push(['"Children in Care"', nationalStats.childrenInCare ?? 'N/A'].join(','));
       rows.push(['"Children in Family Foster Care"', nationalStats.childrenInFamilyFoster ?? 'N/A'].join(','));
@@ -34,13 +38,16 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
       rows.push(['"Children Waiting for Adoption"', nationalStats.childrenWaitingAdoption ?? 'N/A'].join(','));
       rows.push(['"Children Adopted (2023)"', nationalStats.childrenAdopted2023 ?? 'N/A'].join(','));
       rows.push(['"Total Churches"', nationalStats.totalChurches ?? 'N/A'].join(','));
-      rows.push(['"Churches with Foster Ministry"', nationalStats.churchesWithMinistry ?? 'N/A'].join(','));
     } else if (currentRegion === 'state') {
       const stateId = selectedRegion?.id;
       const state = stateData[stateId];
       regionName = (state?.name || stateId || 'state').replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
       
       if (state) {
+        rows.push('"Data from More Than Enough Foster Care Dashboard"');
+        rows.push('"https://fostercaredata.cafo.org"');
+        rows.push(`"Source: ${state.sourceAgency || 'AFCARS'}${state.dataYear ? ` (${state.dataYear})` : ''}"`);
+        rows.push('');
         rows.push(['Metric', 'Value'].join(','));
         rows.push(['"State"', `"${state.name}"`].join(','));
         rows.push(['"Total Children in Care"', state.totalChildren ?? 'N/A'].join(','));
@@ -66,7 +73,15 @@ export default function TopNav({ currentView, currentRegion, selectedRegion, onS
         .filter(([id]) => id.split('-').pop() === stateCode)
         .sort(([, a], [, b]) => a.name.localeCompare(b.name));
       
+      // Get state source info
+      const stateKey = stateName.toLowerCase().replace(/\s+/g, '-');
+      const stateInfo = stateData[stateKey];
+
       if (stateCounties.length > 0) {
+        rows.push('"Data from More Than Enough Foster Care Dashboard"');
+        rows.push('"https://fostercaredata.cafo.org"');
+        rows.push(`"Source: ${stateInfo?.sourceAgency || 'AFCARS'}${stateInfo?.dataYear ? ` (${stateInfo.dataYear})` : ''}"`);
+        rows.push('');
         rows.push([
           `"${getGeographyLabel(stateCode.toUpperCase())}"`, '"Population"', '"Total Churches"', '"Children in Care"',
           '"Children in Family Foster"', '"Children in Kinship"', `"Children Out of ${getGeographyLabel(stateCode.toUpperCase())}"`,

@@ -222,6 +222,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   const [selectedCategories, setSelectedCategories] = useState(Object.keys(FILTER_GROUPS));
   const [selectedImpactAreas, setSelectedImpactAreas] = useState(["Foster and Kinship Families", "Adoptive", "Biological", "Wraparound"]);
   const [showLocalNetworks, setShowLocalNetworks] = useState(false);
+  const [cafoMemberOnly, setCafoMemberOnly] = useState(false);
   const [mapKey, setMapKey] = useState(0); // Force map remount when REGION changes (not filters)
   const [selectedEmptyCounty, setSelectedEmptyCounty] = useState(null); // Track counties with no orgs
   const [selectedOrg, setSelectedOrg] = useState(null); // Track selected organization from map click
@@ -531,9 +532,10 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         org.areas.some(area => selectedImpactAreas.includes(area))
       );
       
-      return categoryMatch && impactAreaMatch;
+      const cafoMatch = !cafoMemberOnly || org.cafoMember;
+      return categoryMatch && impactAreaMatch && cafoMatch;
     });
-  }, [currentOrgs, selectedCategories, selectedImpactAreas]);
+  }, [currentOrgs, selectedCategories, selectedImpactAreas, cafoMemberOnly]);
 
   // Filtered map orgs: at county level includes all state orgs matching filters
   const filteredMapOrgs = React.useMemo(() => {
@@ -545,9 +547,10 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
         org.areas.length === 0 ||
         org.areas.some(area => selectedImpactAreas.includes(area))
       );
-      return categoryMatch && impactAreaMatch;
+      const cafoMatch = !cafoMemberOnly || org.cafoMember;
+      return categoryMatch && impactAreaMatch && cafoMatch;
     });
-  }, [mapOrgs, selectedCategories, selectedImpactAreas]);
+  }, [mapOrgs, selectedCategories, selectedImpactAreas, cafoMemberOnly]);
 
   // Consolidate organizations with multiple locations for card display
   // Keep original filteredOrgs for map markers (shows all physical locations)
@@ -731,6 +734,18 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                 )}
               </div>
             )}
+
+            {/* CAFO Members Filter */}
+            <div className="bg-white p-4 rounded-lg shadow-mte-card">
+              <label className="flex items-center gap-2 cursor-pointer font-lato text-base text-mte-charcoal">
+                <input
+                  type="checkbox"
+                  checked={cafoMemberOnly}
+                  onChange={() => setCafoMemberOnly(prev => !prev)}
+                />
+                CAFO Members Only
+              </label>
+            </div>
 
             {/* Impact Areas */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">

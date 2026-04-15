@@ -763,6 +763,19 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               />
             </div>
 
+            {/* Get On the Map */}
+            <a
+              href="https://cafo.org/morethanenough/find-your-place/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full inline-flex items-center justify-center gap-2 bg-mte-yellow hover:bg-mte-yellow-80 text-mte-charcoal font-lato font-bold px-4 py-2.5 rounded-lg transition-colors text-sm"
+            >
+              Get On the Map
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+
             {/* Organization Categories */}
             <div className="bg-white p-4 rounded-lg shadow-mte-card">
               <h3 className="text-base font-bold mb-1 text-mte-black font-lato">Organization Categories</h3>
@@ -878,18 +891,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               </div>
             </div>
 
-            {/* Get On the Map */}
-            <a
-              href="https://cafo.org/morethanenough/find-your-place/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 bg-mte-yellow hover:bg-mte-yellow-80 text-mte-charcoal font-lato font-bold px-4 py-2.5 rounded-lg transition-colors text-sm"
-            >
-              Get On the Map
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
           </div>
         )}
 

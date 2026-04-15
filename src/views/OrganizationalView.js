@@ -991,25 +991,6 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                 
                 return (
                   <>
-                    {/* County Labels - derived from org locations, all clickable */}
-                    {Object.entries(countyCoords).map(([countyName, data]) => (
-                      <Marker 
-                        key={countyName}
-                        position={data.coords}
-                        icon={createCountyTextLabel(countyName)}
-                        eventHandlers={{
-                          click: () => handleCountyMarkerClick(countyName)
-                        }}
-                      >
-                        <Tooltip>
-                          <div className="font-lato text-sm">
-                            <strong>{countyName} {stateGeoLabel}</strong><br/>
-                            {fmt(data.orgCount)} Organizations
-                          </div>
-                        </Tooltip>
-                      </Marker>
-                    ))}
-
                     {/* Organization Dots - only render if we have filtered orgs */}
                     {filteredOrgs.length > 0 && filteredOrgs.map((org, idx) => (
                       <Marker

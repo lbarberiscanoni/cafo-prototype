@@ -94,6 +94,7 @@ const latestYear = Math.max(...Object.keys(realDataJson.national).map(Number));
 const latestNational = realDataJson.national[latestYear];
 
 export const nationalStats = {
+  dataYear: latestYear,
   childrenInCare: latestNational.childrenInCare,
   childrenInFamilyFoster: latestNational.childrenInFosterCare,
   childrenInKinship: latestNational.childrenInKinshipCare,

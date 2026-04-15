@@ -129,6 +129,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           waitingForAdoption: nationalStats.childrenWaitingAdoption,
           childrenAdopted: nationalStats.childrenAdopted2023,
           churchesWithMinistry: nationalStats.churchesWithMinistry,
+          dataYear: nationalStats.dataYear,
         };
       case "state":
         let state = stateData[regionId];
@@ -144,6 +145,9 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           waitingForAdoption: state.waitingForAdoption,
           reunificationRate: state.reunificationRate,
           familyPreservationCases: state.familyPreservationCases,
+          sourceAgency: state.sourceAgency || null,
+          dataYear: state.dataYear || null,
+          sourceUrl: state.sourceUrl || null,
         };
       case "county":
         const county = countyData[regionId] || countyData['butler-al'];
@@ -367,20 +371,24 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         <div className="h-28 bg-white rounded flex items-end justify-between px-3 pb-2 relative overflow-visible">
           {trendData.values.map((value, index) => {
             const isNull = value === null || value === undefined;
-            const heightPx = isNull ? 24 : Math.max(24, Math.round((value / maxValue) * 72));
+            const heightPx = isNull ? 0 : Math.max(24, Math.round((value / maxValue) * 72));
             return (
-              <div key={index} className="flex flex-col items-center relative group flex-1 max-w-[60px]">
-                <div
-                  className={`${isNull ? 'bg-mte-light-grey' : 'bg-mte-orange'} w-full max-w-[32px] rounded mb-1 cursor-pointer hover:opacity-80 transition-colors relative`}
-                  style={{ height: `${heightPx}px`, maxHeight: "72px" }}
-                >
-                  <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
-                    <div className="font-semibold">{trendData.labels[index]}</div>
-                    <div>{selectedMetric}</div>
-                    <div>End of Year {trendData.years[index]}</div>
-                    <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
+              <div key={index} className="flex flex-col items-center justify-end relative group flex-1 max-w-[60px]">
+                {isNull ? (
+                  <span className="text-sm font-semibold text-mte-light-grey mb-1">--</span>
+                ) : (
+                  <div
+                    className="bg-mte-orange w-full max-w-[32px] rounded mb-1 cursor-pointer hover:opacity-80 transition-colors relative"
+                    style={{ height: `${heightPx}px`, maxHeight: "72px" }}
+                  >
+                    <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-mte-charcoal text-white text-xs p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
+                      <div className="font-semibold">{trendData.labels[index]}</div>
+                      <div>{selectedMetric}</div>
+                      <div>End of Year {trendData.years[index]}</div>
+                      <div className="text-mte-subdued-white mt-1">Source: AFCARS</div>
+                    </div>
                   </div>
-                </div>
+                )}
                 <span className="text-xs text-mte-charcoal font-lato whitespace-nowrap">{trendData.years[index]}</span>
               </div>
             );
@@ -491,6 +499,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">in Kinship Care</div>
                   </div>
                 </div>
+                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: AFCARS{data.dataYear ? ` (End of Year ${data.dataYear})` : ''}</div>
               </div>
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Adoption Data in the U.S.</h4>
@@ -503,6 +512,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">Children Adopted in FY 2023</div>
                   </div>
                 </div>
+                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: AFCARS{data.dataYear ? ` (End of Year ${data.dataYear})` : ''}</div>
               </div>
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Church Data in the U.S.</h4>
@@ -578,6 +588,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">Licensed Foster Homes</div>
                   </div>
                 </div>
+                {data.sourceAgency && <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {data.sourceAgency}{data.dataYear ? ` (${data.dataYear})` : ''}</div>}
               </div>
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Adoption Data</h4>
@@ -588,6 +599,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">Children Waiting for Adoption</div>
                   </div>
                 </div>
+                {data.sourceAgency && <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {data.sourceAgency}{data.dataYear ? ` (${data.dataYear})` : ''}</div>}
               </div>
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Biological Family Data</h4>
@@ -600,6 +612,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">Family Preservation Cases</div>
                   </div>
                 </div>
+                {data.sourceAgency && <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {data.sourceAgency}{data.dataYear ? ` (${data.dataYear})` : ''}</div>}
               </div>
             </div>
           </div>

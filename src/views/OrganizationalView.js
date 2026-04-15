@@ -664,9 +664,9 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   const networkBubbles = React.useMemo(() => {
     if (!showLocalNetworks) return [];
 
-    // Group filtered orgs by network
+    // Group all orgs by network (not filtered by category, so networks always show)
     const networkGroups = {};
-    filteredOrgs.forEach(org => {
+    currentOrgs.forEach(org => {
       if (org.networkName && org.networkMember && org.coords) {
         if (!networkGroups[org.networkName]) {
           networkGroups[org.networkName] = [];
@@ -702,7 +702,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
           color: CATEGORY_COLORS["Local Network"]?.dot || "#dc6a42"
         };
       });
-  }, [showLocalNetworks, filteredOrgs]);
+  }, [showLocalNetworks, currentOrgs]);
 
   // Conditional rendering
   const showNationalMap = regionLevel === "national";
@@ -1253,7 +1253,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                         )}
                         {showStateMap && (
                           <div className="text-sm text-mte-charcoal font-lato">
-                            <strong>Location:</strong> {org.city}, {org.county}
+                            <strong>Location:</strong> {org.city}, {org.county} {getGeographyLabel(org.state)}
                           </div>
                         )}
                         {showCountyMap && org.location && (
@@ -1265,26 +1265,20 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
                             {org.email && <div className="text-sm text-mte-charcoal font-lato">Email: {org.email}</div>}
                           </>
                         )}
-                        <div className="mt-auto pt-3">
-                          {websiteUrl ? (
+                        {websiteUrl && (
+                          <div className="text-sm text-mte-charcoal font-lato mt-1">
+                            <strong>Website:</strong>{' '}
                             <a
                               href={websiteUrl}
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="px-3 py-2 text-base bg-mte-blue text-white rounded hover:bg-mte-blue-80 w-full font-lato font-medium transition-colors inline-block text-center"
+                              className="text-mte-blue hover:underline"
                             >
-                              Visit Website
+                              {org.website || 'Visit'}
                             </a>
-                          ) : (
-                            <button
-                              disabled
-                              className="px-3 py-2 text-base bg-mte-light-grey text-mte-charcoal rounded w-full font-lato font-medium cursor-not-allowed"
-                            >
-                              No Website Available
-                            </button>
-                          )}
-                        </div>
+                          </div>
+                        )}
                       </div>
                     );
                   })}

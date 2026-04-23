@@ -73,6 +73,25 @@ export const getGeographyLabel = (stateAbbrevOrName) => {
   return GEOGRAPHY_LABEL_OVERRIDES[abbrev] || 'County';
 };
 
+/**
+ * Format a county's display name with its geography label, e.g. "Butler County, Alabama".
+ * Accepts either a county object (with `name` and optional `geographyLabel`/`state`) or a raw string.
+ * Avoids duplicating the label if it's already present in the county name.
+ */
+export const formatCountyDisplayName = (countyOrName) => {
+  if (!countyOrName) return '';
+  const name = typeof countyOrName === 'string' ? countyOrName : countyOrName.name;
+  if (!name) return '';
+  const parts = name.split(',');
+  if (parts.length < 2) return name;
+  const namePart = parts[0].trim();
+  const statePart = parts.slice(1).join(',').trim();
+  const geoLabel = (typeof countyOrName === 'object' && countyOrName.geographyLabel)
+    || getGeographyLabel(statePart);
+  const alreadyHasLabel = namePart.toLowerCase().includes(geoLabel.toLowerCase());
+  return `${namePart}${alreadyHasLabel ? '' : ` ${geoLabel}`}, ${statePart}`;
+};
+
 // ==================== ACTIVITY TO IMPACT AREA MAPPING ====================
 // Maps organization activities to MTE impact areas
 const activityToImpactArea = {

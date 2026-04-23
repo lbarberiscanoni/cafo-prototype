@@ -404,9 +404,14 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
     <div className="min-h-screen">
       <header className="relative">
         <div className="max-w-7xl mx-auto px-4 pt-4 md:pt-6 pb-2 flex flex-col items-center gap-0">
-          {regionLevel !== "national" && data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mb-0">{data.subtitle}</p>}
-          <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4 leading-tight mb-0">{data.name}</h1>
-          {regionLevel === "national" && data.subtitle && <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mt-1">{data.subtitle}</p>}
+          <h1 className="text-center font-nexa text-mte-black px-4 leading-tight mb-0">
+            {data.subtitle && (
+              <span className="block text-sm md:text-base text-mte-charcoal font-lato font-normal">
+                {data.subtitle}
+              </span>
+            )}
+            <span className="block text-2xl md:text-4xl">{data.name}</span>
+          </h1>
           {(data.population != null || data.totalChurches != null) && (
             <p className="text-sm text-mte-charcoal font-lato mt-1">
               {data.population != null && <>Population: <span className="font-semibold">{fmt(data.population)}</span></>}

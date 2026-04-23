@@ -591,12 +591,12 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       {/* Header */}
       <header className="relative">
         <div className="max-w-7xl mx-auto px-4 pt-2 md:pt-3 pb-1 flex flex-col items-center">
-          <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4 leading-none">
-            {getDisplayName()}
+          <h1 className="text-center font-nexa text-mte-black px-4 leading-none">
+            <span className="block text-sm md:text-base text-mte-charcoal font-lato font-normal">
+              Historical foster care data in
+            </span>
+            <span className="block text-2xl md:text-4xl">{getDisplayName()}</span>
           </h1>
-          <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato -mt-5 md:-mt-6">
-            Historical trends and data analysis
-          </p>
           {isEmbed && (
             <p className="text-xs md:text-sm text-mte-charcoal text-center px-4 font-lato mt-1">
               Brought to you by More Than Enough, CAFO's US Foster Care Initiative.{' '}

@@ -12,7 +12,7 @@ import OrganizationalView from "./views/OrganizationalView";
 import HistoricView from "./views/HistoricView";
 
 // Import data for looking up names
-import { stateData, countyData, stateNameToCode } from "./real-data.js";
+import { stateData, countyData, stateNameToCode, formatCountyDisplayName } from "./real-data.js";
 
 // SEO footer with crawlable links to static data pages
 function SeoFooter() {
@@ -224,6 +224,40 @@ function App() {
       window.history.pushState(null, '', newUrl);
       console.log('✅ URL updated:', newUrl); // Debug log - can remove later
     }
+  }, [region, view, selectedRegion]);
+  // ============================================
+
+  // ============================================
+  // SEO: update <title> and <meta description> per region
+  // ============================================
+  useEffect(() => {
+    const DEFAULT_TITLE = "More Than Enough - Foster Care Data Where You Live";
+    const DEFAULT_DESCRIPTION = "Explore foster care data where you live. View county and state-level metrics on children in care, licensed foster homes, adoption, and reunification rates across the US.";
+
+    let title = DEFAULT_TITLE;
+    let description = DEFAULT_DESCRIPTION;
+
+    if (region === "national") {
+      title = "Foster Care Data in the United States | More Than Enough";
+      description = "Explore foster care data across the United States. View national metrics on children in care, licensed foster homes, adoption, and reunification rates.";
+    } else if (region === "state" && selectedRegion?.id) {
+      const stateInfo = stateData[selectedRegion.id];
+      if (stateInfo) {
+        title = `Foster Care Data in ${stateInfo.name} | More Than Enough`;
+        description = `Explore foster care data in ${stateInfo.name}. View state and county-level metrics on children in care, licensed foster homes, adoption, and reunification rates.`;
+      }
+    } else if (region === "county" && selectedRegion?.id) {
+      const countyInfo = countyData[selectedRegion.id];
+      if (countyInfo) {
+        const formatted = formatCountyDisplayName(countyInfo);
+        title = `Foster Care Data in ${formatted} | More Than Enough`;
+        description = `Explore foster care data in ${formatted}. View local metrics on children in care, licensed foster homes, adoption, and reunification rates.`;
+      }
+    }
+
+    document.title = title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', description);
   }, [region, view, selectedRegion]);
   // ============================================
 

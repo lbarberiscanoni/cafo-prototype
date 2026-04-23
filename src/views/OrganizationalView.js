@@ -334,11 +334,11 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
   const getSubtitle = () => {
     switch (regionLevel) {
       case "national":
-        return "Explore foster care organizations across the country";
+        return "Foster care organizations across";
       case "state":
-        return "Explore local organizations in this state";
+        return "Foster care organizations in";
       case "county":
-        return "Explore local organizations and connections near you";
+        return "Foster care organizations in";
       default:
         return "";
     }
@@ -589,9 +589,9 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
           if (dist > maxDist) maxDist = dist;
         });
 
-        // Radius: max distance + 30% padding, with a 5 km floor so
-        // single-org networks and tightly clustered groups still show a visible bubble
-        const radius = Math.max(maxDist * 1.3, 5000);
+        // Radius: max distance + 30% padding, with a 20 km floor so
+        // single-org networks and tightly clustered groups still show a visible bubble at state level
+        const radius = Math.max(maxDist * 1.3, 20000);
 
         return {
           name: networkName,
@@ -625,12 +625,12 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
       {/* Header */}
       <header className="relative">
         <div className="max-w-7xl mx-auto px-4 pt-4 md:pt-6 pb-2 flex flex-col items-center gap-0">
-          <h1 className="text-2xl md:text-4xl text-center font-nexa text-mte-black px-4 leading-tight mb-0">
-            {getDisplayName()}
+          <h1 className="text-center font-nexa text-mte-black px-4 leading-tight mb-0">
+            <span className="block text-sm md:text-base text-mte-charcoal font-lato font-normal">
+              {getSubtitle()}
+            </span>
+            <span className="block text-2xl md:text-4xl mt-1">{getDisplayName()}</span>
           </h1>
-          <p className="text-sm md:text-base text-mte-charcoal text-center px-4 font-lato mt-1">
-            {getSubtitle()}
-          </p>
           {isEmbed && (
             <p className="text-xs md:text-sm text-mte-charcoal text-center px-4 font-lato mt-1">
               Brought to you by More Than Enough, CAFO's US Foster Care Initiative.{' '}

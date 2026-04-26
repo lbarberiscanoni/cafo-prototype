@@ -17,6 +17,17 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>More Than Enough - Foster Care Data Where You Live</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5FBGBG0F3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      // send_page_view: false — page_view events are fired manually from App.js
+      // on hash-route changes so GA4 sees each county/state navigation.
+      gtag('config', 'G-J5FBGBG0F3', { send_page_view: false });
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

@@ -258,6 +258,19 @@ function App() {
     document.title = title;
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', description);
+
+    // Fire GA4 page_view for hash-route navigations. The gtag config in
+    // public/index.html sets send_page_view: false so we control this manually.
+    // Skip if the URL has a hash but state hasn't been parsed yet (region still
+    // "landing") — avoids a duplicate page_view on deep-linked loads.
+    const hasUnparsedHash = region === "landing" && !!window.location.hash;
+    if (typeof window.gtag === 'function' && !hasUnparsedHash) {
+      window.gtag('event', 'page_view', {
+        page_title: title,
+        page_location: window.location.href,
+        page_path: window.location.pathname + window.location.search + window.location.hash,
+      });
+    }
   }, [region, view, selectedRegion]);
   // ============================================
 

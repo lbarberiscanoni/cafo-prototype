@@ -595,7 +595,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
             <span className="block text-sm md:text-base text-mte-charcoal font-lato font-normal">
               Historical foster care data in
             </span>
-            <span className="block text-2xl md:text-4xl">{getDisplayName()}</span>
+            <span className="block text-2xl md:text-4xl font-nexa">{getDisplayName()}</span>
           </h1>
           {isEmbed && (
             <p className="text-xs md:text-sm text-mte-charcoal text-center px-4 font-lato mt-1">

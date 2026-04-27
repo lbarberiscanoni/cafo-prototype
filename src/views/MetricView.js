@@ -410,7 +410,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 {data.subtitle}
               </span>
             )}
-            <span className="block text-2xl md:text-4xl">{data.name}</span>
+            <span className="block text-2xl md:text-4xl font-nexa">{data.name}</span>
           </h1>
           {(data.population != null || data.totalChurches != null) && (
             <p className="text-sm text-mte-charcoal font-lato mt-1">

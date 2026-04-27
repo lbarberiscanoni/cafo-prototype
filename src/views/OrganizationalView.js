@@ -629,7 +629,7 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
             <span className="block text-sm md:text-base text-mte-charcoal font-lato font-normal">
               {getSubtitle()}
             </span>
-            <span className="block text-2xl md:text-4xl mt-1">{getDisplayName()}</span>
+            <span className="block text-2xl md:text-4xl mt-1 font-nexa">{getDisplayName()}</span>
           </h1>
           {isEmbed && (
             <p className="text-xs md:text-sm text-mte-charcoal text-center px-4 font-lato mt-1">

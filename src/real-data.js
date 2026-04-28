@@ -198,6 +198,8 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
     dataYear: state.source?.dataYear || null,
     sourceAgency: state.source?.sourceAgency || null,
     sourceUrl: state.source?.sourceUrl || null,
+    // Latest AFCARS (NDACAN) year — citation for state-level AFCARS cards
+    afcarsYear: latestAfcarsYear || null,
     definitions: state.source?.definitions || {},
     // AFCARS by year
     afcars: state.afcars || {},

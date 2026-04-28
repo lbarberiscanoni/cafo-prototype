@@ -170,7 +170,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
         }
       ].filter(Boolean),
       wraparound: [],
-      source: `AFCARS End of Year ${years[0] - 1} - End of Year ${years[years.length - 1] - 1}`
+      source: `NDACAN ${years[0]}–${years[years.length - 1]}`
     };
   }
 
@@ -216,7 +216,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
       ].filter(Boolean),
       biological: [],
       wraparound: [],
-      source: `AFCARS End of Year ${years[0] - 1} - End of Year ${years[years.length - 1] - 1}`
+      source: `NDACAN ${years[0]}–${years[years.length - 1]}`
     };
   }
 
@@ -304,7 +304,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
         }
       ].filter(Boolean),
       wraparound: [],
-      source: `${countyStateSource || 'AFCARS'} End of Year ${years[0] - 1} - End of Year ${years[years.length - 1] - 1}`
+      source: `${countyStateSource || 'NDACAN'} ${years[0]}–${years[years.length - 1]}`
     };
   }
   

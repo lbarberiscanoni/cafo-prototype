@@ -10,24 +10,27 @@ import WrapAroundIcon from "../assets/WrapAround_icon.png";
 import MTELogo from "../assets/MTE_Logo.png";
 
 // Get years array from historical data based on region level
-// parse-data.js format: { "2021": {...}, "2022": {...}, "2023": {...} }
-// AFCARS has 2021-2023 for states/national
-// Metrics files have 2024-2025 for counties
+// parse-data.js format: { "2021": {...}, "2022": {...}, ... }
+// AFCARS provides yearly data for states/national (currently 2021–2024)
+// Metrics files provide annual snapshots for counties (currently 2024–2025)
+const AFCARS_MIN_YEAR = 2021;
+const COUNTY_METRICS_MIN_YEAR = 2024;
+
 const getYearsForRegion = (regionLevel, regionId) => {
   if (!historicalData) return [];
-  
-  // For county level, only 2024-2025 have data
+
+  // For county level, take any year >= COUNTY_METRICS_MIN_YEAR that has this county
   if (regionLevel === 'county') {
-    const countyYears = [];
-    if (historicalData['2024']?.counties?.[regionId]) countyYears.push(2024);
-    if (historicalData['2025']?.counties?.[regionId]) countyYears.push(2025);
-    return countyYears;
+    return Object.keys(historicalData)
+      .map(y => parseInt(y))
+      .filter(y => !isNaN(y) && y >= COUNTY_METRICS_MIN_YEAR && historicalData[y]?.counties?.[regionId])
+      .sort((a, b) => a - b);
   }
-  
-  // For state/national, use AFCARS years (2021-2023)
+
+  // For state/national, use any AFCARS year (>= AFCARS_MIN_YEAR) present in the data
   const years = Object.keys(historicalData)
     .map(y => parseInt(y))
-    .filter(y => !isNaN(y) && y >= 2021 && y <= 2023) // Only AFCARS years for state/national
+    .filter(y => !isNaN(y) && y >= AFCARS_MIN_YEAR && historicalData[y]?.states)
     .sort((a, b) => a - b);
   return years;
 };

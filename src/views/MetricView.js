@@ -515,7 +515,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div><span className="text-xl font-black text-mte-blue">{fmt(data.waitingForAdoption)}</span></div>
                     <div className="text-sm text-mte-charcoal font-lato">Children Waiting for Adoption</div>
                     <div className="pt-2"><span className="text-xl font-black text-mte-blue">{fmt(data.childrenAdopted)}</span></div>
-                    <div className="text-sm text-mte-charcoal font-lato">Children Adopted in FY 2023</div>
+                    <div className="text-sm text-mte-charcoal font-lato">Children Adopted{data.dataYear ? ` in FY ${data.dataYear}` : ''}</div>
                   </div>
                 </div>
                 <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: AFCARS{data.dataYear ? ` (End of Year ${data.dataYear})` : ''}</div>

@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated": "2026-02-05T23:47:19.754Z",
-    "totalDescriptions": 281,
-    "withDescription": 259,
-    "withErrors": 22
+    "generated": "2026-04-28T22:18:29.189Z",
+    "totalDescriptions": 303,
+    "withDescription": 280,
+    "withErrors": 23
   },
   "descriptions": {
     "Empty Frames Initiative": {
@@ -1151,6 +1151,95 @@
     "Bay Area Chinese Bible Church": {
       "description": "A Chinese Bible church in Alameda providing care ministries and local outreach services to support children and families in the community.",
       "generatedAt": "2026-02-05T23:47:19.753Z"
+    },
+    "Josiah White's": {
+      "description": "Provides comprehensive foster care, residential treatment, and family preservation services through a faith-based approach with statewide facilities across Indiana.",
+      "generatedAt": "2026-04-28T22:17:24.078Z"
+    },
+    "Gateway Woods": {
+      "description": "Provides Christ-centered foster care, adoption, residential treatment, and transitional housing services to children and families in northeast Indiana.",
+      "generatedAt": "2026-04-28T22:17:27.150Z"
+    },
+    "Pathway Community Church": {
+      "description": "Faith-based ministry that empowers and supports foster and adoptive families through care communities, resources, and family preservation services in Fort Wayne.",
+      "generatedAt": "2026-04-28T22:17:29.904Z"
+    },
+    "Two Cities Church": {
+      "description": "Church with multiple locations in Winston-Salem area that connects families to community support and biblical guidance through foster care ministry programs.",
+      "generatedAt": "2026-04-28T22:17:33.189Z"
+    },
+    "Embrace Family": {
+      "description": "Provides faith-based support groups, trauma-informed resources, and church partnerships to strengthen families involved in foster care and adoption.",
+      "generatedAt": "2026-04-28T22:17:36.564Z"
+    },
+    "Mosaic Hope": {
+      "description": "A bridge ministry that equips and mobilizes individuals, churches, and businesses to provide immediate assistance and support within the child welfare community.",
+      "generatedAt": "2026-04-28T22:17:39.637Z"
+    },
+    "The Orchard Church": {
+      "description": "A Collierville church ministry supporting foster care families through community connections, resources, and faith-based encouragement for those caring for vulnerable children.",
+      "generatedAt": "2026-04-28T22:17:42.401Z"
+    },
+    "Orphanos": {
+      "description": "Provides comprehensive donor management and support services to missionaries and ministries working with orphaned children worldwide.",
+      "generatedAt": "2026-04-28T22:17:48.052Z"
+    },
+    "Cathedral of Faith Community Church": {
+      "description": null,
+      "error": "Fetch failed: Failed to parse URL from https://Not available",
+      "generatedAt": "2026-04-28T22:17:48.054Z"
+    },
+    "White Station Church of Christ": {
+      "description": "Provides community support services including food pantry, clothing closet, and various ministries that serve vulnerable families in Memphis.",
+      "generatedAt": "2026-04-28T22:17:50.681Z"
+    },
+    "Isaiah 117 House": {
+      "description": "Provides emergency shelter and care coordination services for children entering the foster care system in Shelby County, Tennessee.",
+      "generatedAt": "2026-04-28T22:17:53.461Z"
+    },
+    "Harbor Church": {
+      "description": "A church-based ministry providing support and resources for families involved in adoption and foster care through their Welcome Home program.",
+      "generatedAt": "2026-04-28T22:17:56.519Z"
+    },
+    "RISE": {
+      "description": "Provides practical and relational support to foster and adoptive families through meals, encouragement, and resources to help children reach their full potential.",
+      "generatedAt": "2026-04-28T22:18:00.319Z"
+    },
+    "Foothills Calvary Church": {
+      "description": "A Calvary Chapel church in Lakewood supporting foster care through their ministry programs while focusing on Christ-centered community outreach and discipleship.",
+      "generatedAt": "2026-04-28T22:18:03.495Z"
+    },
+    "Mitchell Road Presbyterian": {
+      "description": "Based on the limited information provided, I cannot determine what specific foster care or child welfare services Mitchell Road Presbyterian offers, as the website content appears to contain only CSS code rather than descriptive text about their ministry programs.",
+      "generatedAt": "2026-04-28T22:18:06.965Z"
+    },
+    "Adoption Helpers": {
+      "description": "Provides free respite services, community events, and ongoing support to foster, adoptive, and kinship families in Greenville, South Carolina.",
+      "generatedAt": "2026-04-28T22:18:09.606Z"
+    },
+    "One More One Less Project": {
+      "description": "Connects local churches with foster care through education and support, aiming to establish Champion Churches that create cultures of foster care and adoption.",
+      "generatedAt": "2026-04-28T22:18:12.301Z"
+    },
+    "First Presbyterian Church": {
+      "description": "A large Presbyterian congregation in downtown Greenville supporting foster care and child welfare through their comprehensive community care and mission ministries.",
+      "generatedAt": "2026-04-28T22:18:15.889Z"
+    },
+    "Foster Village Memphis": {
+      "description": "Bridges the gap between foster families needing support and community members who want to help by providing practical resources and connections.",
+      "generatedAt": "2026-04-28T22:18:19.222Z"
+    },
+    "The Haven Impact": {
+      "description": "Provides personalized care packages, meals, resources, and ongoing support to foster and kinship families in the Denver metro area within 48 hours of placement.",
+      "generatedAt": "2026-04-28T22:18:22.577Z"
+    },
+    "Church on the Hill": {
+      "description": "A church-based ministry providing faith-centered support and resources for foster families and children in the child welfare system.",
+      "generatedAt": "2026-04-28T22:18:26.125Z"
+    },
+    "Children 1st": {
+      "description": "Provides child welfare services and support programs for vulnerable children and families in the Wichita, Kansas community.",
+      "generatedAt": "2026-04-28T22:18:29.189Z"
     }
   }
 }

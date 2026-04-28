@@ -41,6 +41,20 @@ const fmtPct = (val) => {
 
 const slugify = (str) => str.toLowerCase().replace(/\s+/g, '-');
 
+// Geography label overrides — must match src/real-data.js GEOGRAPHY_LABEL_OVERRIDES.
+const GEOGRAPHY_LABEL_OVERRIDES = {
+  AK: 'District',
+  CT: 'Region',
+  LA: 'Parish',
+  MA: 'Region',
+  NH: 'District',
+  SD: 'District Office',
+  VA: 'Office',
+  VT: 'District Office',
+  WA: 'Region',
+};
+const getGeographyLabel = (abbrev) => GEOGRAPHY_LABEL_OVERRIDES[(abbrev || '').toUpperCase()] || 'County';
+
 const stateNameToCode = {
   'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR', 'California': 'CA',
   'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE', 'District of Columbia': 'DC',
@@ -276,8 +290,12 @@ function generateStatePage(abbrev, state, data) {
 function generateCountyPage(county, state, stateSlug, stateAbbrev) {
   const countySlug = slugify(county.name);
   const countyKey = `${countySlug}-${stateAbbrev.toLowerCase()}`;
+  const geoLabel = getGeographyLabel(stateAbbrev);
+  // Avoid duplicating the label if it's already part of the county name
+  const nameAlreadyHasLabel = county.name.toLowerCase().includes(geoLabel.toLowerCase());
+  const fullCountyLabel = nameAlreadyHasLabel ? county.name : `${county.name} ${geoLabel}`;
 
-  const title = `Foster Care Data for ${county.name} County, ${state.name}`;
+  const title = `Foster Care Data for ${fullCountyLabel}, ${state.name}`;
 
   // Build description with available data, gracefully handling missing values
   const descParts = [];
@@ -286,8 +304,8 @@ function generateCountyPage(county, state, stateSlug, stateAbbrev) {
   if (county.childrenWaitingForAdoption != null) descParts.push(`${fmt(county.childrenWaitingForAdoption)} waiting for adoption`);
   if (county.population != null) descParts.push(`population ${fmt(county.population)}`);
   const description = descParts.length > 0
-    ? `${county.name} County, ${state.name} foster care data: ${descParts.join(', ')}. View local metrics on children in care, licensed foster homes, adoption, and reunification.`
-    : `Explore foster care data for ${county.name} County, ${state.name}. View local metrics on children in care, licensed foster homes, adoption, and reunification rates.`;
+    ? `${fullCountyLabel}, ${state.name} foster care data: ${descParts.join(', ')}. View local metrics on children in care, licensed foster homes, adoption, and reunification.`
+    : `Explore foster care data for ${fullCountyLabel}, ${state.name}. View local metrics on children in care, licensed foster homes, adoption, and reunification rates.`;
 
   // Calculate ratio
   let ratio = null;
@@ -300,7 +318,7 @@ function generateCountyPage(county, state, stateSlug, stateAbbrev) {
     <div class="metric"><span class="metric-label">Children in Care</span><span class="metric-value">${fmt(county.childrenInCare)}</span></div>
     <div class="metric"><span class="metric-label">Children in Family-based Foster Care</span><span class="metric-value">${fmt(county.childrenInFosterCare)}</span></div>
     <div class="metric"><span class="metric-label">Children in Kinship Care</span><span class="metric-value">${fmt(county.childrenInKinshipCare)}</span></div>
-    <div class="metric"><span class="metric-label">Children Placed Out-of-County</span><span class="metric-value">${fmt(county.childrenPlacedOutOfCounty)}</span></div>
+    <div class="metric"><span class="metric-label">Children Placed Out-of-${geoLabel}</span><span class="metric-value">${fmt(county.childrenPlacedOutOfCounty)}</span></div>
     <div class="metric"><span class="metric-label">Licensed Foster Homes</span><span class="metric-value">${fmt(county.fosterKinshipHomes)}</span></div>
     <div class="metric"><span class="metric-label">Licensed Homes per Child in Care</span><span class="metric-value">${ratio || 'Data not yet available'}</span></div>
 
@@ -316,18 +334,18 @@ function generateCountyPage(county, state, stateSlug, stateAbbrev) {
     <div class="metric"><span class="metric-label">Churches</span><span class="metric-value">${fmt(county.churches)}</span></div>
     <div class="metric"><span class="metric-label">Population</span><span class="metric-value">${fmt(county.population)}</span></div>
 
-    <h2>About Foster Care in ${county.name} County</h2>
-    <p>${county.name} County is located in ${state.name}${county.population ? ` and has a population of approximately ${fmt(county.population)} residents` : ''}. This page presents local foster care data including children in out-of-home care, licensed foster and kinship homes, adoption statistics, and family reunification rates. Some metrics may not yet be available for this county as data reporting varies by state and locality.</p>
+    <h2>About Foster Care in ${fullCountyLabel}</h2>
+    <p>${fullCountyLabel} is located in ${state.name}${county.population ? ` and has a population of approximately ${fmt(county.population)} residents` : ''}. This page presents local foster care data including children in out-of-home care, licensed foster and kinship homes, adoption statistics, and family reunification rates. Some metrics may not yet be available for this ${geoLabel.toLowerCase()} as data reporting varies by state and locality.</p>
     <p>For statewide context, visit <a href="/data/${stateSlug}/" style="color: #02ADEE; text-decoration: none;">foster care data for ${state.name}</a>, or see the <a href="/data/" style="color: #02ADEE; text-decoration: none;">national foster care overview</a>.</p>
 
     <h2>Why Local Foster Care Data Matters</h2>
-    <p>Understanding foster care at the county level helps local churches, nonprofits, and community leaders respond effectively. When communities can see how many children are in care, how many families are licensed to foster, and what gaps remain, they can take targeted action. The goal of More Than Enough is to ensure every child in foster care has more than enough loving families and support in their community.</p>
+    <p>Understanding foster care at the local level helps churches, nonprofits, and community leaders respond effectively. When communities can see how many children are in care, how many families are licensed to foster, and what gaps remain, they can take targeted action. The goal of More Than Enough is to ensure every child in foster care has more than enough loving families and support in their community.</p>
     <p>Learn more about how you can make a difference at <a href="https://cafo.org/morethanenough/" style="color: #02ADEE; text-decoration: none;">cafo.org/morethanenough</a>.</p>`;
 
   const schemaJson = {
     "@context": "https://schema.org",
     "@type": "Dataset",
-    "name": `${county.name} County, ${state.name} Foster Care Data`,
+    "name": `${fullCountyLabel}, ${state.name} Foster Care Data`,
     "description": description,
     "url": `${APP_BASE_URL}/data/${stateSlug}/${countySlug}/`,
     "publisher": {
@@ -338,7 +356,7 @@ function generateCountyPage(county, state, stateSlug, stateAbbrev) {
     "temporalCoverage": county.year ? `${county.year}` : undefined,
     "spatialCoverage": {
       "@type": "Place",
-      "name": `${county.name} County, ${state.name}`,
+      "name": `${fullCountyLabel}, ${state.name}`,
       "containedInPlace": { "@type": "AdministrativeArea", "name": state.name }
     }
   };
@@ -350,7 +368,7 @@ function generateCountyPage(county, state, stateSlug, stateAbbrev) {
       description,
       canonicalPath: `/data/${stateSlug}/${countySlug}/`,
       hashRoute: `#/county/${countyKey}/metric`,
-      breadcrumbs: `<a href="/data/">United States</a> &rsaquo; <a href="/data/${stateSlug}/">${state.name}</a> &rsaquo; <a href="/data/${stateSlug}/${countySlug}/">${county.name} County</a>`,
+      breadcrumbs: `<a href="/data/">United States</a> &rsaquo; <a href="/data/${stateSlug}/">${state.name}</a> &rsaquo; <a href="/data/${stateSlug}/${countySlug}/">${fullCountyLabel}</a>`,
       metricsHtml,
       schemaJson
     })

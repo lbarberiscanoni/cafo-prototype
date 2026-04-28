@@ -32,9 +32,9 @@ const GROUND_TRUTH = {
     childrenInCare: 358080,
     childrenAdopted: 55480,
     caChildrenInCare: 44468,
-    totalRecords: 156,
+    totalRecords: 208,
     stateCount: 52,
-    yearCount: 3
+    yearCount: 4
   },
   sources: {
     minStates: 51

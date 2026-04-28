@@ -60,6 +60,7 @@ const GEOGRAPHY_LABEL_OVERRIDES = {
   'MA': 'Region',
   'NH': 'District',
   'SD': 'District Office',
+  'VA': 'Office',
   'VT': 'District Office',
   'WA': 'Region',
 };
@@ -107,7 +108,7 @@ const mapActivitiesToAreas = (activities) => {
 };
 
 // ==================== NATIONAL STATS ====================
-// Use most recent year (2023) as default
+// Use most recent year present in AFCARS national timeseries as default
 
 const latestYear = Math.max(...Object.keys(realDataJson.national).map(Number));
 const latestNational = realDataJson.national[latestYear];

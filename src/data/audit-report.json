@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-27T08:35:12.542Z",
+  "timestamp": "2026-04-28T22:11:33.592Z",
   "dataDir": "./",
   "checks": [
     {
@@ -14,8 +14,8 @@
       "category": "afcars",
       "name": "record_count",
       "passed": true,
-      "expected": 156,
-      "actual": 156,
+      "expected": 208,
+      "actual": 208,
       "message": null
     },
     {
@@ -30,8 +30,8 @@
       "category": "afcars",
       "name": "year_count",
       "passed": true,
-      "expected": 3,
-      "actual": 3,
+      "expected": 4,
+      "actual": 4,
       "message": null
     },
     {
@@ -63,7 +63,7 @@
       "name": "null_preservation",
       "passed": true,
       "expected": "nulls preserved",
-      "actual": "45 null values",
+      "actual": "97 null values",
       "message": null
     },
     {

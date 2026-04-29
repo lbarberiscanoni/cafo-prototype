@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-04-28T22:18:06.219Z",
+    "generated": "2026-04-29T08:26:54.142Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-04-28T22:10:55.163Z",
+        "generated": "2026-04-29T08:26:47.005Z",
         "years": [
           2021,
           2022,
@@ -34,7 +34,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-04-28T22:11:09.305Z",
+        "generated": "2026-04-29T08:26:47.230Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -62,7 +62,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-04-28T22:11:01.657Z",
+        "generated": "2026-04-29T08:26:51.231Z",
         "totalRecords": 5932,
         "stateCount": 51,
         "byYear": {
@@ -92,7 +92,7 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-04-28T22:11:06.444Z",
+        "generated": "2026-04-29T08:26:53.920Z",
         "organizationCount": 518,
         "networkCount": 32,
         "stats": {
@@ -119,7 +119,7 @@
     "enrichment": {
       "descriptions": {
         "source": "org-descriptions.json",
-        "merged": 292
+        "merged": 304
       },
       "coordinates": {
         "source": "county-coordinates.json",
@@ -131,7 +131,7 @@
       "countyRecords": 5932,
       "countiesWithCoordinates": 5892,
       "organizations": 518,
-      "organizationsWithDescriptions": 292,
+      "organizationsWithDescriptions": 304,
       "networks": 32
     }
   },
@@ -135949,7 +135949,8 @@
           "membershipOnMap": true
         }
       ],
-      "countiesServed": []
+      "countiesServed": [],
+      "generatedDescription": "Provides emergency shelter and care coordination services for children entering the foster care system in Shelby County, Tennessee."
     },
     {
       "id": 2720,
@@ -135981,7 +135982,8 @@
           "membershipOnMap": true
         }
       ],
-      "countiesServed": []
+      "countiesServed": [],
+      "generatedDescription": "A church-based ministry providing support and resources for families involved in adoption and foster care through their Welcome Home program."
     },
     {
       "id": 2721,
@@ -136013,7 +136015,8 @@
           "membershipOnMap": true
         }
       ],
-      "countiesServed": []
+      "countiesServed": [],
+      "generatedDescription": "Provides practical and relational support to foster and adoptive families through meals, encouragement, and resources to help children reach their full potential."
     },
     {
       "id": 2722,
@@ -136045,7 +136048,8 @@
           "membershipOnMap": true
         }
       ],
-      "countiesServed": []
+      "countiesServed": [],
+      "generatedDescription": "A Calvary Chapel church in Lakewood supporting foster care through their ministry programs while focusing on Christ-centered community outreach and discipleship."
     },
     {
       "id": 2726,
@@ -136077,7 +136081,8 @@
           "membershipOnMap": true
         }
       ],
-      "countiesServed": []
+      "countiesServed": [],
+      "generatedDescription": "Based on the limited information provided, I cannot determine what specific foster care or child welfare services Mitchell Road Presbyterian offers, as the website content appears to contain only CSS code rather than descriptive text about their ministry programs."
     },
     {
       "id": 2727,
@@ -136109,7 +136114,8 @@
           "membershipOnMap": true
         }
       ],
-      "countiesServed": []
+      "countiesServed": [],
+      "generatedDescription": "Provides free respite services, community events, and ongoing support to foster, adoptive, and kinship families in Greenville, South Carolina."
     },
     {
       "id": 2728,
@@ -136239,7 +136245,8 @@
           "membershipOnMap": true
         }
       ],
-      "countiesServed": []
+      "countiesServed": [],
+      "generatedDescription": "Connects local churches with foster care through education and support, aiming to establish Champion Churches that create cultures of foster care and adoption."
     },
     {
       "id": 2732,
@@ -136401,7 +136408,8 @@
           "membershipOnMap": true
         }
       ],
-      "countiesServed": []
+      "countiesServed": [],
+      "generatedDescription": "A large Presbyterian congregation in downtown Greenville supporting foster care and child welfare through their comprehensive community care and mission ministries."
     },
     {
       "id": 2737,
@@ -136480,7 +136488,8 @@
           "membershipOnMap": true
         }
       ],
-      "countiesServed": []
+      "countiesServed": [],
+      "generatedDescription": "Bridges the gap between foster families needing support and community members who want to help by providing practical resources and connections."
     },
     {
       "id": 2739,
@@ -136584,7 +136593,8 @@
           "membershipOnMap": true
         }
       ],
-      "countiesServed": []
+      "countiesServed": [],
+      "generatedDescription": "Provides personalized care packages, meals, resources, and ongoing support to foster and kinship families in the Denver metro area within 48 hours of placement."
     },
     {
       "id": 2742,
@@ -136648,7 +136658,8 @@
           "membershipOnMap": true
         }
       ],
-      "countiesServed": []
+      "countiesServed": [],
+      "generatedDescription": "A church-based ministry providing faith-centered support and resources for foster families and children in the child welfare system."
     },
     {
       "id": 2744,
@@ -136793,7 +136804,8 @@
           "membershipOnMap": true
         }
       ],
-      "countiesServed": []
+      "countiesServed": [],
+      "generatedDescription": "Provides child welfare services and support programs for vulnerable children and families in the Wichita, Kansas community."
     },
     {
       "id": 2748,

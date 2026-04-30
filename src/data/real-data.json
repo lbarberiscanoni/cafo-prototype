@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-04-29T08:26:54.142Z",
+    "generated": "2026-04-30T08:30:11.099Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-04-29T08:26:47.005Z",
+        "generated": "2026-04-30T08:30:03.781Z",
         "years": [
           2021,
           2022,
@@ -34,7 +34,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-04-29T08:26:47.230Z",
+        "generated": "2026-04-30T08:30:03.990Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -62,7 +62,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-04-29T08:26:51.231Z",
+        "generated": "2026-04-30T08:30:08.157Z",
         "totalRecords": 5932,
         "stateCount": 51,
         "byYear": {
@@ -92,14 +92,14 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-04-29T08:26:53.920Z",
-        "organizationCount": 518,
+        "generated": "2026-04-30T08:30:10.889Z",
+        "organizationCount": 522,
         "networkCount": 32,
         "stats": {
           "withCoordinates": 187,
-          "withWebsite": 321,
+          "withWebsite": 325,
           "withActivities": 194,
-          "withNetworkMemberships": 94,
+          "withNetworkMemberships": 95,
           "withCountiesServed": 191
         },
         "categories": {
@@ -108,10 +108,10 @@
           "Bridge Organization": 14,
           "Regional Network": 1,
           "Service Organization": 127,
-          "Placement Agency": 35,
+          "Placement Agency": 36,
           "Unknown": 143,
-          "Bridge Ministry": 58,
-          "Church Foster Care Ministry": 82,
+          "Bridge Ministry": 60,
+          "Church Foster Care Ministry": 83,
           "Child Placement Agency": 22
         }
       }
@@ -119,7 +119,7 @@
     "enrichment": {
       "descriptions": {
         "source": "org-descriptions.json",
-        "merged": 304
+        "merged": 305
       },
       "coordinates": {
         "source": "county-coordinates.json",
@@ -130,8 +130,8 @@
       "states": 52,
       "countyRecords": 5932,
       "countiesWithCoordinates": 5892,
-      "organizations": 518,
-      "organizationsWithDescriptions": 304,
+      "organizations": 522,
+      "organizationsWithDescriptions": 305,
       "networks": 32
     }
   },
@@ -136782,9 +136782,9 @@
       "address": {
         "street": "2755 E 19th St N",
         "city": "Wichita",
-        "state": "Kansas",
+        "state": "KS",
         "zip": "67214",
-        "county": null
+        "county": "Sedgwick"
       },
       "coordinates": null,
       "website": "children1stks.org",
@@ -136815,9 +136815,9 @@
       "address": {
         "street": "3365 Cypress Mill Road",
         "city": "Brunswick",
-        "state": "Georgia",
+        "state": "GA",
         "zip": "31520",
-        "county": null
+        "county": "Glynn"
       },
       "coordinates": null,
       "website": "hope1312co.org",
@@ -136834,6 +136834,120 @@
       "networkMemberships": [],
       "countiesServed": [],
       "generatedDescription": "Based on the limited website content provided (which appears to be mostly code/technical elements), I cannot determine what specific services Hope 1312 Collective provides in the foster care and child welfare space.\n\nWithout access to meaningful content about their mission, services, or approach, I cannot write an accurate one-liner description. I would need additional information about their actual programs and services to create an appropriate description for the directory."
+    },
+    {
+      "id": 2749,
+      "name": "The Orchard Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "3690 S. Houston Levee Rd.",
+        "city": "Collierville",
+        "state": "TN",
+        "zip": "38017",
+        "county": "Shelby"
+      },
+      "coordinates": null,
+      "website": "theorchardchurch.com/FAM",
+      "category": "Church Foster Care Ministry",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Claire Pennel",
+        "title": "Finance Director",
+        "email": "claire.pennel@theorchardchurch.com"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Shelby County Collaboration",
+          "membershipOnMap": true
+        }
+      ],
+      "countiesServed": [],
+      "generatedDescription": "A Collierville church ministry supporting foster care families through community connections, resources, and faith-based encouragement for those caring for vulnerable children."
+    },
+    {
+      "id": 2750,
+      "name": "111Project",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "PO Box 54973",
+        "city": "Oklahoma City",
+        "state": "OK",
+        "zip": "73154",
+        "county": "Oklahoma"
+      },
+      "coordinates": null,
+      "website": "111project.org",
+      "category": "Bridge Ministry",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Chris Campbell",
+        "title": "Executive Director",
+        "email": "chris@111project.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2751,
+      "name": "Foster in Faith",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "6225 Annie Oakley Dr",
+        "city": "Las Vegas",
+        "state": "NV",
+        "zip": "89120",
+        "county": "Clark"
+      },
+      "coordinates": null,
+      "website": "FosterinFaith.com",
+      "category": "Bridge Ministry",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Amanda Dillon",
+        "title": "Co-Founder",
+        "email": "amanda@fosterinfaith.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2752,
+      "name": "Baptist Children's Homes of North Carolina",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "204 Idol St.",
+        "city": "Thomasville",
+        "state": "NC",
+        "zip": "27360",
+        "county": "Davidson"
+      },
+      "coordinates": null,
+      "website": "bchfamily.org",
+      "category": "Placement Agency",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Greg Teffertiller",
+        "title": "Chief Marketing Officer",
+        "email": "gteffertiller@bchfamily.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
     }
   ],
   "networks": [
@@ -137071,14 +137185,15 @@
     },
     {
       "name": "Shelby County Collaboration",
-      "memberCount": 6,
+      "memberCount": 7,
       "members": [
         "The Orchard Church",
         "Orphanos",
         "Cathedral of Faith Community Church",
         "White Station Church of Christ",
         "Isaiah 117 House",
-        "Foster Village Memphis"
+        "Foster Village Memphis",
+        "The Orchard Church"
       ]
     },
     {

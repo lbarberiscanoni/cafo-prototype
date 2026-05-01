@@ -1,7 +1,7 @@
 {
   "metadata": {
     "source": "Sources_and_Definitions.xlsx",
-    "generated": "2026-04-30T08:30:03.990Z",
+    "generated": "2026-05-01T08:20:35.881Z",
     "stateCount": 51,
     "statesWithUrl": 49,
     "dataYearDistribution": {
@@ -12,15 +12,15 @@
       "unknown": 2
     },
     "definitionCoverage": {
-      "childrenInCare": 46,
-      "childrenInFosterCare": 39,
-      "childrenInKinshipCare": 45,
-      "fosterKinshipHomes": 31,
-      "childrenWaitingForAdoption": 31,
-      "reunificationRate": 35,
+      "childrenInCare": 47,
+      "childrenInFosterCare": 40,
+      "childrenInKinshipCare": 46,
+      "fosterKinshipHomes": 32,
+      "childrenWaitingForAdoption": 32,
+      "reunificationRate": 36,
       "familyPreservationCases": 18,
       "churches": 0,
-      "childrenAdopted": 33
+      "childrenAdopted": 34
     },
     "issues": []
   },
@@ -121,7 +121,13 @@
       "dataYear": 2025,
       "sourceAgency": "Connecticut Department of Children and Families",
       "sourceUrl": "https://portal.ct.gov/dcf",
-      "definitions": {}
+      "definitions": {
+        "childrenInCare": "Children in Placement (includes all placement types)",
+        "childrenInFosterCare": "Children in Non-Relative Foster Care",
+        "childrenInKinshipCare": "Children in Kinship Care (includes relative and fictive kin)",
+        "fosterKinshipHomes": "Number of Licensed Providers (Includes Providers Placed on Hold)",
+        "childrenWaitingForAdoption": "Children Available for Adoption (Post-TPR)"
+      }
     },
     {
       "state": "Delaware",
@@ -247,7 +253,7 @@
         "reunificationRate": "The ratio of exits to reunification to total exits from foster care in CY 2024",
         "familyPreservationCases": "Number of total open family preservation cases",
         "childrenAdopted": "The ratio of exits to reunification to total exits from foster care in CY 2024",
-        "monthsToAdoption": "Mean time elapsed between termination of parental rights and adoption (days)"
+        "monthsToAdoption": "Mean time elapsed between termination of parental rights and adoption (months)"
       }
     },
     {
@@ -407,7 +413,7 @@
         "childrenWaitingForAdoption": "Number of children waiting for adoption in custody with termination of parental rights",
         "reunificationRate": "The ratio of exits to relative home to total exits from foster care",
         "familyPreservationCases": "Number of famillies receiving in-home services",
-        "childrenAdopted": "The number of children adopted in CY 2024"
+        "childrenAdopted": "The number of children exiting to adoptive homes in CY 2024"
       }
     },
     {
@@ -444,7 +450,9 @@
       "definitions": {
         "childrenInCare": "The count of children in all out-of-home placement types.",
         "childrenInFosterCare": "The count of children in family foster care.",
-        "childrenInKinshipCare": "The count of children in relative care."
+        "childrenInKinshipCare": "The count of children in relative care.",
+        "reunificationRate": "The % of children reuniting with caretaker, parent or other relative in SFY 2024.",
+        "childrenAdopted": "The number of adoptions in SFY 2024."
       }
     },
     {

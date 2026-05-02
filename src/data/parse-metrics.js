@@ -56,6 +56,10 @@ const COLUMN_MAP = {
   'County': 'geography',
   'Region': 'geography',
   'District Office': 'geography',
+  'Office': 'geography',
+  'Agency': 'geography',      // Minnesota 2025
+  'District': 'geography',    // New Hampshire 2025
+  'AREA_NAME': 'geography',   // Massachusetts 2024
   
   // Population columns
   'County Population': 'population',
@@ -80,6 +84,7 @@ const COLUMN_MAP = {
   'Number of Churches': 'churches',
   'Foster Family Retention Rate': 'fosterRetentionRate',
   'Number Adopted': 'childrenAdopted',
+  'Number of Adoptions': 'childrenAdopted',
   'Time Elapsed to Adoption (Months)': 'monthsToAdoption',
   'Average Beds per Family': 'avgBedsPerFamily'
 };
@@ -238,7 +243,7 @@ function parseStateSheet(workbook, sheetName, year) {
   // Row 0 has state name, Row 1 has headers, Row 2+ has data
   // But some sheets might have headers in row 0 - check for 'County' or 'Region'
   let headerRowIdx = 0;
-  const geoColumns = ['County', 'Region', 'District Office'];
+  const geoColumns = ['County', 'Region', 'District Office', 'Office', 'Agency', 'District', 'AREA_NAME'];
   
   // Find the header row by looking for geography column
   for (let i = 0; i < Math.min(3, rawData.length); i++) {

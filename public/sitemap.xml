@@ -7927,12 +7927,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/cottonwood/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://fostercaredata.cafo.org/data/minnesota/crow-wing/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
@@ -7945,19 +7939,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/dodge/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://fostercaredata.cafo.org/data/minnesota/douglas/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/faribault/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -7976,12 +7958,6 @@
   </url>
   <url>
     <loc>https://fostercaredata.cafo.org/data/minnesota/goodhue/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/grant/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -8012,12 +7988,6 @@
   </url>
   <url>
     <loc>https://fostercaredata.cafo.org/data/minnesota/itasca/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/jackson/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -8059,7 +8029,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/lake-of-the-wood/</loc>
+    <loc>https://fostercaredata.cafo.org/data/minnesota/lake-of-the-woods/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -8071,37 +8041,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/lincoln/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/lyon/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/mahnomen/</loc>
+    <loc>https://fostercaredata.cafo.org/data/minnesota/mcleod/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://fostercaredata.cafo.org/data/minnesota/marshall/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/martin/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/mcleod/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -8126,12 +8072,6 @@
   </url>
   <url>
     <loc>https://fostercaredata.cafo.org/data/minnesota/mower/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/murray/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -8179,19 +8119,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/pipestone/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://fostercaredata.cafo.org/data/minnesota/polk/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/pope/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -8209,12 +8137,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/redwood/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://fostercaredata.cafo.org/data/minnesota/renville/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
@@ -8222,12 +8144,6 @@
   </url>
   <url>
     <loc>https://fostercaredata.cafo.org/data/minnesota/rice/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/rock/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -8269,12 +8185,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/steele/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://fostercaredata.cafo.org/data/minnesota/stevens/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
@@ -8311,12 +8221,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/waseca/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://fostercaredata.cafo.org/data/minnesota/washington/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
@@ -8342,12 +8246,6 @@
   </url>
   <url>
     <loc>https://fostercaredata.cafo.org/data/minnesota/wright/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://fostercaredata.cafo.org/data/minnesota/yellow-medicine/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -11383,61 +11281,67 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/new-hampshire/belknap/</loc>
+    <loc>https://fostercaredata.cafo.org/data/new-hampshire/berlin/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/new-hampshire/carroll/</loc>
+    <loc>https://fostercaredata.cafo.org/data/new-hampshire/claremont/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/new-hampshire/cheshire/</loc>
+    <loc>https://fostercaredata.cafo.org/data/new-hampshire/concord/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/new-hampshire/coos/</loc>
+    <loc>https://fostercaredata.cafo.org/data/new-hampshire/conway/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/new-hampshire/grafton/</loc>
+    <loc>https://fostercaredata.cafo.org/data/new-hampshire/keene/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/new-hampshire/hillsborough/</loc>
+    <loc>https://fostercaredata.cafo.org/data/new-hampshire/laconia/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/new-hampshire/merrimack/</loc>
+    <loc>https://fostercaredata.cafo.org/data/new-hampshire/littleton/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/new-hampshire/rockingham/</loc>
+    <loc>https://fostercaredata.cafo.org/data/new-hampshire/manchester/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/new-hampshire/strafford/</loc>
+    <loc>https://fostercaredata.cafo.org/data/new-hampshire/seacoast/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/new-hampshire/sullivan/</loc>
+    <loc>https://fostercaredata.cafo.org/data/new-hampshire/southern/</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fostercaredata.cafo.org/data/new-hampshire/southern-telework/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -14239,7 +14143,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/south-dakota/deadwood*/</loc>
+    <loc>https://fostercaredata.cafo.org/data/south-dakota/deadwood/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -14323,7 +14227,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/south-dakota/sioux-falls/</loc>
+    <loc>https://fostercaredata.cafo.org/data/south-dakota/vermillion/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -14335,7 +14239,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fostercaredata.cafo.org/data/south-dakota/vermillion/</loc>
+    <loc>https://fostercaredata.cafo.org/data/south-dakota/sioux-falls/</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

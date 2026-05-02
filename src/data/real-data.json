@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated": "2026-05-02T07:52:15.882Z",
+    "generated": "2026-05-02T17:47:17.451Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
@@ -11795,6 +11795,7 @@
           "reunificationRate": 0.37,
           "familyPreservationCases": 346,
           "churches": null,
+          "monthsToAdoption": 5.3,
           "coordinates": {
             "lat": 38.91,
             "lng": -77.04
@@ -20850,6 +20851,7 @@
           "reunificationRate": 0.5646551724,
           "familyPreservationCases": null,
           "churches": null,
+          "monthsToAdoption": 8,
           "coordinates": {
             "lat": 19.5984,
             "lng": -155.5183
@@ -20869,6 +20871,7 @@
           "reunificationRate": 0.4856396867,
           "familyPreservationCases": null,
           "churches": null,
+          "monthsToAdoption": 8.6,
           "coordinates": {
             "lat": 21.4899,
             "lng": -158.0739
@@ -20888,6 +20891,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": null,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 21.1709,
             "lng": -156.9475
@@ -20907,6 +20911,7 @@
           "reunificationRate": 0.6666666667,
           "familyPreservationCases": null,
           "churches": null,
+          "monthsToAdoption": 13,
           "coordinates": {
             "lat": 22.04,
             "lng": -159.5961
@@ -20926,6 +20931,7 @@
           "reunificationRate": 0.4479166667,
           "familyPreservationCases": null,
           "churches": null,
+          "monthsToAdoption": 9.8,
           "coordinates": {
             "lat": 20.8596,
             "lng": -156.565
@@ -32234,6 +32240,7 @@
           "reunificationRate": 0.4117647059,
           "familyPreservationCases": 143,
           "churches": 31,
+          "monthsToAdoption": 3.256666667,
           "coordinates": {
             "lat": 40.7457,
             "lng": -84.9367
@@ -32253,6 +32260,7 @@
           "reunificationRate": 0.3734567901,
           "familyPreservationCases": 522,
           "churches": 302,
+          "monthsToAdoption": 6.77,
           "coordinates": {
             "lat": 41.0909,
             "lng": -85.0665
@@ -32272,6 +32280,7 @@
           "reunificationRate": 0.746835443,
           "familyPreservationCases": 104,
           "churches": 74,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.206,
             "lng": -85.8976
@@ -32291,6 +32300,7 @@
           "reunificationRate": 0.875,
           "familyPreservationCases": 54,
           "churches": 6,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.6063,
             "lng": -87.3109
@@ -32310,6 +32320,7 @@
           "reunificationRate": 0.8387096774,
           "familyPreservationCases": 60,
           "churches": 13,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 40.4736,
             "lng": -85.3249
@@ -32329,6 +32340,7 @@
           "reunificationRate": 0.8,
           "familyPreservationCases": 82,
           "churches": 40,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.0508,
             "lng": -86.4687
@@ -32348,6 +32360,7 @@
           "reunificationRate": 0.6923076923,
           "familyPreservationCases": 50,
           "churches": 15,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.1962,
             "lng": -86.2274
@@ -32367,6 +32380,7 @@
           "reunificationRate": 0.8571428571,
           "familyPreservationCases": 51,
           "churches": 21,
+          "monthsToAdoption": 4.433333333,
           "coordinates": {
             "lat": 40.5828,
             "lng": -86.5635
@@ -32386,6 +32400,7 @@
           "reunificationRate": 0.6666666667,
           "familyPreservationCases": 103,
           "churches": 44,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.7615,
             "lng": -86.346
@@ -32405,6 +32420,7 @@
           "reunificationRate": 0.6,
           "familyPreservationCases": 230,
           "churches": 87,
+          "monthsToAdoption": 2.216666667,
           "coordinates": {
             "lat": 38.4772,
             "lng": -85.7073
@@ -32424,6 +32440,7 @@
           "reunificationRate": 0.58,
           "familyPreservationCases": 180,
           "churches": 30,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.3928,
             "lng": -87.1158
@@ -32443,6 +32460,7 @@
           "reunificationRate": 0.652173913,
           "familyPreservationCases": 97,
           "churches": 31,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.3017,
             "lng": -86.4751
@@ -32462,6 +32480,7 @@
           "reunificationRate": 0.4210526316,
           "familyPreservationCases": 91,
           "churches": 4,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.2924,
             "lng": -86.4517
@@ -32481,6 +32500,7 @@
           "reunificationRate": 0.7435897436,
           "familyPreservationCases": 143,
           "churches": 43,
+          "monthsToAdoption": 7.333333333,
           "coordinates": {
             "lat": 38.7024,
             "lng": -87.072
@@ -32500,6 +32520,7 @@
           "reunificationRate": 0.4594594595,
           "familyPreservationCases": 162,
           "churches": 53,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 39.1452,
             "lng": -84.9732
@@ -32519,6 +32540,7 @@
           "reunificationRate": 0.7575757576,
           "familyPreservationCases": 195,
           "churches": 24,
+          "monthsToAdoption": 4.533333333,
           "coordinates": {
             "lat": 39.307,
             "lng": -85.5011
@@ -32538,6 +32560,7 @@
           "reunificationRate": 0.6296296296,
           "familyPreservationCases": 176,
           "churches": null,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 41.3976,
             "lng": -84.9991
@@ -32557,6 +32580,7 @@
           "reunificationRate": 0.5850340136,
           "familyPreservationCases": 418,
           "churches": 109,
+          "monthsToAdoption": 5.133333333,
           "coordinates": {
             "lat": 40.2275,
             "lng": -85.3969
@@ -32576,6 +32600,7 @@
           "reunificationRate": 0.8095238095,
           "familyPreservationCases": 124,
           "churches": 38,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.3643,
             "lng": -86.8798
@@ -32595,6 +32620,7 @@
           "reunificationRate": 0.6666666667,
           "familyPreservationCases": 257,
           "churches": 184,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 41.5974,
             "lng": -85.8587
@@ -32614,6 +32640,7 @@
           "reunificationRate": 0.5172413793,
           "familyPreservationCases": 121,
           "churches": 28,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.64,
             "lng": -85.1788
@@ -32633,6 +32660,7 @@
           "reunificationRate": 0.5197368421,
           "familyPreservationCases": 448,
           "churches": 72,
+          "monthsToAdoption": 11.45666667,
           "coordinates": {
             "lat": 38.3187,
             "lng": -85.907
@@ -32652,6 +32680,7 @@
           "reunificationRate": 0.5714285714,
           "familyPreservationCases": 30,
           "churches": 16,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.1209,
             "lng": -87.242
@@ -32671,6 +32700,7 @@
           "reunificationRate": 0.6666666667,
           "familyPreservationCases": 87,
           "churches": 20,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.4149,
             "lng": -85.0602
@@ -32690,6 +32720,7 @@
           "reunificationRate": 0.55,
           "familyPreservationCases": 57,
           "churches": 20,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 41.047,
             "lng": -86.2635
@@ -32709,6 +32740,7 @@
           "reunificationRate": 0.5172413793,
           "familyPreservationCases": 133,
           "churches": 36,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.3119,
             "lng": -87.5846
@@ -32728,6 +32760,7 @@
           "reunificationRate": 0.6635514019,
           "familyPreservationCases": 270,
           "churches": 88,
+          "monthsToAdoption": 25.76666667,
           "coordinates": {
             "lat": 40.5158,
             "lng": -85.6547
@@ -32747,6 +32780,7 @@
           "reunificationRate": 0.6176470588,
           "familyPreservationCases": 97,
           "churches": 42,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.0364,
             "lng": -86.9621
@@ -32766,6 +32800,7 @@
           "reunificationRate": 0.5573770492,
           "familyPreservationCases": 226,
           "churches": 145,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.0725,
             "lng": -86.052
@@ -32785,6 +32820,7 @@
           "reunificationRate": 0.7407407407,
           "familyPreservationCases": 199,
           "churches": 55,
+          "monthsToAdoption": 16.26666667,
           "coordinates": {
             "lat": 39.8236,
             "lng": -85.7733
@@ -32804,6 +32840,7 @@
           "reunificationRate": 0.5128205128,
           "familyPreservationCases": 71,
           "churches": 46,
+          "monthsToAdoption": 7.766666667,
           "coordinates": {
             "lat": 38.1951,
             "lng": -86.1115
@@ -32823,6 +32860,7 @@
           "reunificationRate": 0.5769230769,
           "familyPreservationCases": 160,
           "churches": 88,
+          "monthsToAdoption": 2.133333333,
           "coordinates": {
             "lat": 39.7695,
             "lng": -86.51
@@ -32842,6 +32880,7 @@
           "reunificationRate": 0.7021276596,
           "familyPreservationCases": 159,
           "churches": 55,
+          "monthsToAdoption": 6.333333333,
           "coordinates": {
             "lat": 39.9311,
             "lng": -85.3964
@@ -32861,6 +32900,7 @@
           "reunificationRate": 0.679245283,
           "familyPreservationCases": 312,
           "churches": 101,
+          "monthsToAdoption": 6.673333333,
           "coordinates": {
             "lat": 40.4836,
             "lng": -86.1169
@@ -32880,6 +32920,7 @@
           "reunificationRate": 0.6666666667,
           "familyPreservationCases": 59,
           "churches": 37,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.8292,
             "lng": -85.4881
@@ -32899,6 +32940,7 @@
           "reunificationRate": 0.7192982456,
           "familyPreservationCases": 91,
           "churches": 57,
+          "monthsToAdoption": 14.08333333,
           "coordinates": {
             "lat": 38.9064,
             "lng": -86.0375
@@ -32918,6 +32960,7 @@
           "reunificationRate": 0.8666666667,
           "familyPreservationCases": 69,
           "churches": 30,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 41.023,
             "lng": -87.1161
@@ -32937,6 +32980,7 @@
           "reunificationRate": 0.7234042553,
           "familyPreservationCases": 102,
           "churches": 20,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.4379,
             "lng": -85.0056
@@ -32956,6 +33000,7 @@
           "reunificationRate": 0.3513513514,
           "familyPreservationCases": 203,
           "churches": 40,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.7858,
             "lng": -85.4386
@@ -32975,6 +33020,7 @@
           "reunificationRate": 0.5405405405,
           "familyPreservationCases": 64,
           "churches": 28,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.9969,
             "lng": -85.628
@@ -32994,6 +33040,7 @@
           "reunificationRate": 0.6274509804,
           "familyPreservationCases": 155,
           "churches": 96,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.49,
             "lng": -86.1016
@@ -33013,6 +33060,7 @@
           "reunificationRate": 0.6712328767,
           "familyPreservationCases": 248,
           "churches": 40,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.6891,
             "lng": -87.418
@@ -33032,6 +33080,7 @@
           "reunificationRate": 0.7352941176,
           "familyPreservationCases": 124,
           "churches": 58,
+          "monthsToAdoption": 3.933333333,
           "coordinates": {
             "lat": 41.2441,
             "lng": -85.8607
@@ -33051,6 +33100,7 @@
           "reunificationRate": 0.5909090909,
           "familyPreservationCases": 87,
           "churches": 19,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 41.6426,
             "lng": -85.4265
@@ -33070,6 +33120,7 @@
           "reunificationRate": 0.6506024096,
           "familyPreservationCases": 1286,
           "churches": 433,
+          "monthsToAdoption": 3.5,
           "coordinates": {
             "lat": 41.4167,
             "lng": -87.3821
@@ -33088,7 +33139,8 @@
           "childrenWaitingForAdoption": 85,
           "reunificationRate": null,
           "familyPreservationCases": 250,
-          "churches": 89
+          "churches": 89,
+          "monthsToAdoption": null
         },
         {
           "name": "Lawrence",
@@ -33104,6 +33156,7 @@
           "reunificationRate": 0.4647887324,
           "familyPreservationCases": 177,
           "churches": 58,
+          "monthsToAdoption": 5.056666667,
           "coordinates": {
             "lat": 38.8412,
             "lng": -86.4834
@@ -33123,6 +33176,7 @@
           "reunificationRate": 0.5331010453,
           "familyPreservationCases": 564,
           "churches": 126,
+          "monthsToAdoption": 5.863333333,
           "coordinates": {
             "lat": 40.1616,
             "lng": -85.7194
@@ -33142,6 +33196,7 @@
           "reunificationRate": 0.5993189557,
           "familyPreservationCases": 23,
           "churches": 815,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.7817,
             "lng": -86.1385
@@ -33161,6 +33216,7 @@
           "reunificationRate": 0.9259259259,
           "familyPreservationCases": 79,
           "churches": 50,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 41.3248,
             "lng": -86.2618
@@ -33180,6 +33236,7 @@
           "reunificationRate": 0.6666666667,
           "familyPreservationCases": 53,
           "churches": 8,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.708,
             "lng": -86.8031
@@ -33199,6 +33256,7 @@
           "reunificationRate": 0.7291666667,
           "familyPreservationCases": 136,
           "churches": 32,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.7695,
             "lng": -86.045
@@ -33218,6 +33276,7 @@
           "reunificationRate": 0.6666666667,
           "familyPreservationCases": 296,
           "churches": 106,
+          "monthsToAdoption": 5.066666667,
           "coordinates": {
             "lat": 39.1609,
             "lng": -86.5231
@@ -33237,6 +33296,7 @@
           "reunificationRate": 0.53125,
           "familyPreservationCases": 114,
           "churches": 32,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 40.0404,
             "lng": -86.8933
@@ -33256,6 +33316,7 @@
           "reunificationRate": 0.4393939394,
           "familyPreservationCases": 149,
           "churches": 58,
+          "monthsToAdoption": 7.866666667,
           "coordinates": {
             "lat": 39.4816,
             "lng": -86.4462
@@ -33275,6 +33336,7 @@
           "reunificationRate": 0.8695652174,
           "familyPreservationCases": 61,
           "churches": 6,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.9558,
             "lng": -87.3976
@@ -33294,6 +33356,7 @@
           "reunificationRate": 0.4347826087,
           "familyPreservationCases": 96,
           "churches": 37,
+          "monthsToAdoption": 3.466666667,
           "coordinates": {
             "lat": 41.3986,
             "lng": -85.4175
@@ -33313,6 +33376,7 @@
           "reunificationRate": 0.1111111111,
           "familyPreservationCases": 28,
           "churches": 7,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.9501,
             "lng": -84.9652
@@ -33332,6 +33396,7 @@
           "reunificationRate": 0.475,
           "familyPreservationCases": 129,
           "churches": 25,
+          "monthsToAdoption": 2.933333333,
           "coordinates": {
             "lat": 38.5418,
             "lng": -86.495
@@ -33351,6 +33416,7 @@
           "reunificationRate": 0.7857142857,
           "familyPreservationCases": 181,
           "churches": 21,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 39.3128,
             "lng": -86.8377
@@ -33370,6 +33436,7 @@
           "reunificationRate": 0.5,
           "familyPreservationCases": 47,
           "churches": 8,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.7736,
             "lng": -87.2064
@@ -33389,6 +33456,7 @@
           "reunificationRate": 0.6851851852,
           "familyPreservationCases": 160,
           "churches": 15,
+          "monthsToAdoption": 11.4,
           "coordinates": {
             "lat": 38.0796,
             "lng": -86.638
@@ -33408,6 +33476,7 @@
           "reunificationRate": 0.7037037037,
           "familyPreservationCases": 73,
           "churches": 13,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.3988,
             "lng": -87.2322
@@ -33427,6 +33496,7 @@
           "reunificationRate": 0.6744186047,
           "familyPreservationCases": 203,
           "churches": 98,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 41.4603,
             "lng": -87.0672
@@ -33446,6 +33516,7 @@
           "reunificationRate": 0.7894736842,
           "familyPreservationCases": 101,
           "churches": 17,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.0218,
             "lng": -87.8685
@@ -33465,6 +33536,7 @@
           "reunificationRate": 0.3888888889,
           "familyPreservationCases": 47,
           "churches": 11,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 41.0419,
             "lng": -86.6988
@@ -33484,6 +33556,7 @@
           "reunificationRate": 0.5714285714,
           "familyPreservationCases": 134,
           "churches": 26,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.6663,
             "lng": -86.845
@@ -33503,6 +33576,7 @@
           "reunificationRate": 0.4736842105,
           "familyPreservationCases": 133,
           "churches": 27,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.1576,
             "lng": -85.0113
@@ -33522,6 +33596,7 @@
           "reunificationRate": 0.7735849057,
           "familyPreservationCases": 156,
           "churches": 29,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.1035,
             "lng": -85.2624
@@ -33541,6 +33616,7 @@
           "reunificationRate": 0.652173913,
           "familyPreservationCases": 73,
           "churches": 18,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.62,
             "lng": -85.4658
@@ -33560,6 +33636,7 @@
           "reunificationRate": null,
           "familyPreservationCases": 460,
           "churches": 238,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 41.6167,
             "lng": -86.2899
@@ -33579,6 +33656,7 @@
           "reunificationRate": 0.4320987654,
           "familyPreservationCases": 93,
           "churches": 24,
+          "monthsToAdoption": 2.766666667,
           "coordinates": {
             "lat": 38.6851,
             "lng": -85.7475
@@ -33598,6 +33676,7 @@
           "reunificationRate": 0.6842105263,
           "familyPreservationCases": 71,
           "churches": 45,
+          "monthsToAdoption": 10.93333333,
           "coordinates": {
             "lat": 39.5237,
             "lng": -85.7917
@@ -33617,6 +33696,7 @@
           "reunificationRate": 0.6875,
           "familyPreservationCases": 192,
           "churches": 10,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.0141,
             "lng": -87.0077
@@ -33636,6 +33716,7 @@
           "reunificationRate": 0.6428571429,
           "familyPreservationCases": 95,
           "churches": 16,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 41.2809,
             "lng": -86.6476
@@ -33655,6 +33736,7 @@
           "reunificationRate": 0.4166666667,
           "familyPreservationCases": 80,
           "churches": 28,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 41.6439,
             "lng": -85.0008
@@ -33674,6 +33756,7 @@
           "reunificationRate": 0.92,
           "familyPreservationCases": 87,
           "churches": 19,
+          "monthsToAdoption": 18,
           "coordinates": {
             "lat": 39.0889,
             "lng": -87.4147
@@ -33693,6 +33776,7 @@
           "reunificationRate": 0.5333333333,
           "familyPreservationCases": 82,
           "churches": 3,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.8262,
             "lng": -85.0369
@@ -33712,6 +33796,7 @@
           "reunificationRate": 0.5869565217,
           "familyPreservationCases": 214,
           "churches": 101,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 40.3886,
             "lng": -86.8941
@@ -33731,6 +33816,7 @@
           "reunificationRate": 0.375,
           "familyPreservationCases": 40,
           "churches": 19,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.3113,
             "lng": -86.0519
@@ -33750,6 +33836,7 @@
           "reunificationRate": 0.6666666667,
           "familyPreservationCases": 23,
           "churches": 4,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 39.6256,
             "lng": -84.9252
@@ -33769,6 +33856,7 @@
           "reunificationRate": 0.7350746269,
           "familyPreservationCases": 729,
           "churches": 185,
+          "monthsToAdoption": 18.47666667,
           "coordinates": {
             "lat": 38.0249,
             "lng": -87.5859
@@ -33788,6 +33876,7 @@
           "reunificationRate": 0.7,
           "familyPreservationCases": 52,
           "churches": 6,
+          "monthsToAdoption": 14.93333333,
           "coordinates": {
             "lat": 39.8538,
             "lng": -87.464
@@ -33807,6 +33896,7 @@
           "reunificationRate": 0.603960396,
           "familyPreservationCases": 757,
           "churches": 93,
+          "monthsToAdoption": 3.993333333,
           "coordinates": {
             "lat": 39.4306,
             "lng": -87.39
@@ -33826,6 +33916,7 @@
           "reunificationRate": 0.8571428571,
           "familyPreservationCases": 54,
           "churches": 37,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.8457,
             "lng": -85.794
@@ -33845,6 +33936,7 @@
           "reunificationRate": 1,
           "familyPreservationCases": 15,
           "churches": 10,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.3469,
             "lng": -87.3533
@@ -33864,6 +33956,7 @@
           "reunificationRate": 0.75,
           "familyPreservationCases": 240,
           "churches": 42,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.0922,
             "lng": -87.2721
@@ -33883,6 +33976,7 @@
           "reunificationRate": 0.6,
           "familyPreservationCases": 98,
           "churches": 27,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 38.6,
             "lng": -86.1053
@@ -33902,6 +33996,7 @@
           "reunificationRate": 0.5412844037,
           "familyPreservationCases": 217,
           "churches": 68,
+          "monthsToAdoption": 4.55,
           "coordinates": {
             "lat": 39.8644,
             "lng": -85.0099
@@ -33921,6 +34016,7 @@
           "reunificationRate": 0.375,
           "familyPreservationCases": 114,
           "churches": 33,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.7293,
             "lng": -85.2212
@@ -33940,6 +34036,7 @@
           "reunificationRate": 0.7692307692,
           "familyPreservationCases": 119,
           "churches": 19,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 40.7498,
             "lng": -86.8655
@@ -33959,6 +34056,7 @@
           "reunificationRate": 0.8260869565,
           "familyPreservationCases": 113,
           "churches": null,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 41.1394,
             "lng": -85.5051
@@ -45193,7 +45291,8 @@
           "childrenWaitingForAdoption": 353,
           "reunificationRate": 0.5972696245733788,
           "familyPreservationCases": 1673,
-          "churches": null
+          "churches": null,
+          "monthsToAdoption": 16.345238095238095
         },
         {
           "name": "Central MA Region",
@@ -45208,7 +45307,8 @@
           "childrenWaitingForAdoption": 571,
           "reunificationRate": 0.5874439461883408,
           "familyPreservationCases": 3509,
-          "churches": null
+          "churches": null,
+          "monthsToAdoption": 11.83957219251337
         },
         {
           "name": "Northern Region",
@@ -45223,7 +45323,8 @@
           "childrenWaitingForAdoption": 461,
           "reunificationRate": 0.7024793388429752,
           "familyPreservationCases": 2547,
-          "churches": null
+          "churches": null,
+          "monthsToAdoption": 15.944444444444445
         },
         {
           "name": "Southern Region",
@@ -45238,7 +45339,8 @@
           "childrenWaitingForAdoption": 618,
           "reunificationRate": 0.5802310654685494,
           "familyPreservationCases": 3247,
-          "churches": null
+          "churches": null,
+          "monthsToAdoption": 14.859296482412061
         },
         {
           "name": "Western Region",
@@ -45253,7 +45355,8 @@
           "childrenWaitingForAdoption": 670,
           "reunificationRate": null,
           "familyPreservationCases": 2894,
-          "churches": null
+          "churches": null,
+          "monthsToAdoption": 13.467289719626168
         }
       ],
       "countyToRegionMapping": {
@@ -106878,6 +106981,7 @@
           "reunificationRate": 1,
           "familyPreservationCases": null,
           "churches": 15,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.7644,
             "lng": -75.6334
@@ -106897,6 +107001,7 @@
           "reunificationRate": 0.4210526316,
           "familyPreservationCases": null,
           "churches": 69,
+          "monthsToAdoption": 46.87,
           "coordinates": {
             "lat": 38.0229,
             "lng": -78.5567
@@ -106916,6 +107021,7 @@
           "reunificationRate": 0.5,
           "familyPreservationCases": null,
           "churches": 18,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.7878,
             "lng": -80.0062
@@ -106935,6 +107041,7 @@
           "reunificationRate": 1,
           "familyPreservationCases": null,
           "churches": 25,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.336,
             "lng": -77.9761
@@ -106954,6 +107061,7 @@
           "reunificationRate": 0.2142857143,
           "familyPreservationCases": null,
           "churches": 39,
+          "monthsToAdoption": 61.97,
           "coordinates": {
             "lat": 37.6048,
             "lng": -79.1452
@@ -106973,6 +107081,7 @@
           "reunificationRate": 0.1666666667,
           "familyPreservationCases": null,
           "churches": 15,
+          "monthsToAdoption": 13.37,
           "coordinates": {
             "lat": 37.3723,
             "lng": -78.8126
@@ -106992,6 +107101,7 @@
           "reunificationRate": 0.3928571429,
           "familyPreservationCases": null,
           "churches": 98,
+          "monthsToAdoption": 26.26,
           "coordinates": {
             "lat": 38.8786,
             "lng": -77.1011
@@ -107011,6 +107121,7 @@
           "reunificationRate": 0.3636363636,
           "familyPreservationCases": null,
           "churches": 75,
+          "monthsToAdoption": 61.57,
           "coordinates": {
             "lat": 38.1644,
             "lng": -79.1338
@@ -107030,6 +107141,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 7,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 38.0587,
             "lng": -79.7411
@@ -107049,6 +107161,7 @@
           "reunificationRate": 0.28125,
           "familyPreservationCases": null,
           "churches": 71,
+          "monthsToAdoption": 20.4,
           "coordinates": {
             "lat": 37.3152,
             "lng": -79.5242
@@ -107068,6 +107181,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 4,
+          "monthsToAdoption": 62.59,
           "coordinates": {
             "lat": 37.134,
             "lng": -81.1302
@@ -107087,6 +107201,7 @@
           "reunificationRate": 0.3333333333,
           "familyPreservationCases": null,
           "churches": 28,
+          "monthsToAdoption": 36.14,
           "coordinates": {
             "lat": 37.5571,
             "lng": -79.8123
@@ -107106,6 +107221,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 22,
+          "monthsToAdoption": 140.71,
           "coordinates": {
             "lat": 36.7648,
             "lng": -77.859
@@ -107125,6 +107241,7 @@
           "reunificationRate": 0.3684210526,
           "familyPreservationCases": null,
           "churches": 10,
+          "monthsToAdoption": 24.91,
           "coordinates": {
             "lat": 37.2666,
             "lng": -82.036
@@ -107144,6 +107261,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 10,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.5722,
             "lng": -78.5288
@@ -107163,6 +107281,7 @@
           "reunificationRate": 0.3636363636,
           "familyPreservationCases": null,
           "churches": 57,
+          "monthsToAdoption": 28.09,
           "coordinates": {
             "lat": 37.2054,
             "lng": -79.0966
@@ -107182,6 +107301,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 26,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 38.0267,
             "lng": -77.3472
@@ -107201,6 +107321,7 @@
           "reunificationRate": 0.1176470588,
           "familyPreservationCases": null,
           "churches": 33,
+          "monthsToAdoption": 32.11,
           "coordinates": {
             "lat": 36.7316,
             "lng": -80.7339
@@ -107220,6 +107341,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 14,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 37.3567,
             "lng": -77.0622
@@ -107239,6 +107361,7 @@
           "reunificationRate": 0.4,
           "familyPreservationCases": null,
           "churches": 7,
+          "monthsToAdoption": 27.93,
           "coordinates": {
             "lat": 37.0116,
             "lng": -78.6616
@@ -107258,6 +107381,7 @@
           "reunificationRate": 0.1071428571,
           "familyPreservationCases": null,
           "churches": 235,
+          "monthsToAdoption": 41.14,
           "coordinates": {
             "lat": 37.3785,
             "lng": -77.587
@@ -107277,6 +107401,7 @@
           "reunificationRate": 1,
           "familyPreservationCases": null,
           "churches": 9,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 39.1123,
             "lng": -77.9967
@@ -107296,6 +107421,7 @@
           "reunificationRate": 0.2,
           "familyPreservationCases": null,
           "churches": 5,
+          "monthsToAdoption": 34.27,
           "coordinates": {
             "lat": 37.4817,
             "lng": -80.2114
@@ -107315,6 +107441,7 @@
           "reunificationRate": 0.5714285714,
           "familyPreservationCases": null,
           "churches": 50,
+          "monthsToAdoption": 1.38,
           "coordinates": {
             "lat": 38.486,
             "lng": -77.9558
@@ -107334,6 +107461,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 14,
+          "monthsToAdoption": 30.69,
           "coordinates": {
             "lat": 37.5121,
             "lng": -78.245
@@ -107353,6 +107481,7 @@
           "reunificationRate": 0.3333333333,
           "familyPreservationCases": null,
           "churches": 3,
+          "monthsToAdoption": 7.33,
           "coordinates": {
             "lat": 37.1258,
             "lng": -82.3504
@@ -107372,6 +107501,7 @@
           "reunificationRate": 0.2857142857,
           "familyPreservationCases": null,
           "churches": 25,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.076,
             "lng": -77.6323
@@ -107391,6 +107521,7 @@
           "reunificationRate": 0.6666666667,
           "familyPreservationCases": null,
           "churches": 7,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.9428,
             "lng": -76.9519
@@ -107410,6 +107541,7 @@
           "reunificationRate": 0.2941176471,
           "familyPreservationCases": null,
           "churches": 17,
+          "monthsToAdoption": 39.87,
           "coordinates": {
             "lat": 38.8531,
             "lng": -77.2998
@@ -107429,6 +107561,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 69,
+          "monthsToAdoption": 21.44,
           "coordinates": {
             "lat": 38.7386,
             "lng": -77.8092
@@ -107448,6 +107581,7 @@
           "reunificationRate": 0.25,
           "familyPreservationCases": null,
           "churches": 21,
+          "monthsToAdoption": 9.66,
           "coordinates": {
             "lat": 36.9316,
             "lng": -80.3625
@@ -107467,6 +107601,7 @@
           "reunificationRate": 0.5714285714,
           "familyPreservationCases": null,
           "churches": 17,
+          "monthsToAdoption": 14.14,
           "coordinates": {
             "lat": 37.8419,
             "lng": -78.2773
@@ -107486,6 +107621,7 @@
           "reunificationRate": 0.3913043478,
           "familyPreservationCases": null,
           "churches": 15,
+          "monthsToAdoption": 31.59,
           "coordinates": {
             "lat": 36.6831,
             "lng": -76.9386
@@ -107505,6 +107641,7 @@
           "reunificationRate": 0.09090909091,
           "familyPreservationCases": null,
           "churches": 60,
+          "monthsToAdoption": 49.54,
           "coordinates": {
             "lat": 39.2046,
             "lng": -78.2626
@@ -107524,6 +107661,7 @@
           "reunificationRate": 0.2222222222,
           "familyPreservationCases": null,
           "churches": 14,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.3142,
             "lng": -80.7029
@@ -107543,6 +107681,7 @@
           "reunificationRate": 0.2857142857,
           "familyPreservationCases": null,
           "churches": 20,
+          "monthsToAdoption": 24.85,
           "coordinates": {
             "lat": 37.416,
             "lng": -76.5434
@@ -107562,6 +107701,7 @@
           "reunificationRate": 0.6666666667,
           "familyPreservationCases": null,
           "churches": 25,
+          "monthsToAdoption": 67.15,
           "coordinates": {
             "lat": 37.7221,
             "lng": -77.9158
@@ -107581,6 +107721,7 @@
           "reunificationRate": 0.125,
           "familyPreservationCases": null,
           "churches": 10,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 36.6565,
             "lng": -81.2249
@@ -107600,6 +107741,7 @@
           "reunificationRate": 0.07692307692,
           "familyPreservationCases": null,
           "churches": 8,
+          "monthsToAdoption": 35.93,
           "coordinates": {
             "lat": 38.2976,
             "lng": -78.4669
@@ -107619,6 +107761,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 13,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 36.6759,
             "lng": -77.5596
@@ -107638,6 +107781,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 43,
+          "monthsToAdoption": 50.45,
           "coordinates": {
             "lat": 36.7669,
             "lng": -78.9366
@@ -107657,6 +107801,7 @@
           "reunificationRate": 0.1724137931,
           "familyPreservationCases": null,
           "churches": 105,
+          "monthsToAdoption": 16.41,
           "coordinates": {
             "lat": 37.7601,
             "lng": -77.491
@@ -107676,6 +107821,7 @@
           "reunificationRate": 0.3333333333,
           "familyPreservationCases": null,
           "churches": 200,
+          "monthsToAdoption": 37.88,
           "coordinates": {
             "lat": 37.538,
             "lng": -77.4058
@@ -107695,6 +107841,7 @@
           "reunificationRate": 0.2962962963,
           "familyPreservationCases": null,
           "churches": 75,
+          "monthsToAdoption": 34.3,
           "coordinates": {
             "lat": 36.6828,
             "lng": -79.874
@@ -107714,6 +107861,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 5,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.3623,
             "lng": -79.5686
@@ -107733,6 +107881,7 @@
           "reunificationRate": 0.3636363636,
           "familyPreservationCases": null,
           "churches": 46,
+          "monthsToAdoption": 12.14,
           "coordinates": {
             "lat": 36.8912,
             "lng": -76.7259
@@ -107752,6 +107901,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 40,
+          "monthsToAdoption": 21.22,
           "coordinates": {
             "lat": 37.3289,
             "lng": -76.7789
@@ -107771,6 +107921,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 3,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.7186,
             "lng": -76.8953
@@ -107790,6 +107941,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 15,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 38.2733,
             "lng": -77.1572
@@ -107809,6 +107961,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 14,
+          "monthsToAdoption": 42.43,
           "coordinates": {
             "lat": 37.7066,
             "lng": -77.0885
@@ -107828,6 +107981,7 @@
           "reunificationRate": 0.25,
           "familyPreservationCases": null,
           "churches": 4,
+          "monthsToAdoption": 56.18,
           "coordinates": {
             "lat": 37.7345,
             "lng": -76.4632
@@ -107847,6 +108001,7 @@
           "reunificationRate": 0.5454545455,
           "familyPreservationCases": null,
           "churches": 10,
+          "monthsToAdoption": 27.54,
           "coordinates": {
             "lat": 36.7054,
             "lng": -83.1286
@@ -107866,6 +108021,7 @@
           "reunificationRate": 0.3333333333,
           "familyPreservationCases": null,
           "churches": 119,
+          "monthsToAdoption": 48.99,
           "coordinates": {
             "lat": 39.0907,
             "lng": -77.6357
@@ -107885,6 +108041,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 32,
+          "monthsToAdoption": 40.99,
           "coordinates": {
             "lat": 37.9786,
             "lng": -77.963
@@ -107904,6 +108061,7 @@
           "reunificationRate": 0.3333333333,
           "familyPreservationCases": null,
           "churches": 11,
+          "monthsToAdoption": 59.83,
           "coordinates": {
             "lat": 36.9462,
             "lng": -78.2406
@@ -107923,6 +108081,7 @@
           "reunificationRate": 0.2857142857,
           "familyPreservationCases": null,
           "churches": 13,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 38.4137,
             "lng": -78.2792
@@ -107942,6 +108101,7 @@
           "reunificationRate": 0.3333333333,
           "familyPreservationCases": null,
           "churches": 3,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.4353,
             "lng": -76.3438
@@ -107961,6 +108121,7 @@
           "reunificationRate": 0.2,
           "familyPreservationCases": null,
           "churches": 28,
+          "monthsToAdoption": 9.13,
           "coordinates": {
             "lat": 36.6804,
             "lng": -78.3627
@@ -107980,6 +108141,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 2,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.6303,
             "lng": -76.5698
@@ -107999,6 +108161,7 @@
           "reunificationRate": 0.2,
           "familyPreservationCases": null,
           "churches": 75,
+          "monthsToAdoption": 36.24,
           "coordinates": {
             "lat": 37.1743,
             "lng": -80.3872
@@ -108018,6 +108181,7 @@
           "reunificationRate": 1,
           "familyPreservationCases": null,
           "churches": 21,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.7874,
             "lng": -78.8868
@@ -108037,6 +108201,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 17,
+          "monthsToAdoption": 1.28,
           "coordinates": {
             "lat": 37.5052,
             "lng": -76.9974
@@ -108056,6 +108221,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 5,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.344,
             "lng": -75.8772
@@ -108075,6 +108241,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 4,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.8873,
             "lng": -76.4195
@@ -108094,6 +108261,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 19,
+          "monthsToAdoption": 35.98,
           "coordinates": {
             "lat": 37.143,
             "lng": -78.0512
@@ -108113,6 +108281,7 @@
           "reunificationRate": 0.375,
           "familyPreservationCases": null,
           "churches": 23,
+          "monthsToAdoption": 11.03,
           "coordinates": {
             "lat": 38.2461,
             "lng": -78.014
@@ -108132,6 +108301,7 @@
           "reunificationRate": 0.2222222222,
           "familyPreservationCases": null,
           "churches": 27,
+          "monthsToAdoption": 62.92,
           "coordinates": {
             "lat": 38.6194,
             "lng": -78.4844
@@ -108151,6 +108321,7 @@
           "reunificationRate": 0.3913043478,
           "familyPreservationCases": null,
           "churches": 18,
+          "monthsToAdoption": 17.79,
           "coordinates": {
             "lat": 36.6783,
             "lng": -80.2844
@@ -108170,6 +108341,7 @@
           "reunificationRate": 0.380952381,
           "familyPreservationCases": null,
           "churches": 103,
+          "monthsToAdoption": 32.78,
           "coordinates": {
             "lat": 36.8213,
             "lng": -79.3971
@@ -108189,6 +108361,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 25,
+          "monthsToAdoption": 27.53,
           "coordinates": {
             "lat": 37.5502,
             "lng": -77.9152
@@ -108208,6 +108381,7 @@
           "reunificationRate": 0.2,
           "familyPreservationCases": null,
           "churches": 26,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.2243,
             "lng": -78.4411
@@ -108227,6 +108401,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 23,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.1865,
             "lng": -77.2242
@@ -108246,6 +108421,7 @@
           "reunificationRate": 0.2142857143,
           "familyPreservationCases": null,
           "churches": 203,
+          "monthsToAdoption": 46.14,
           "coordinates": {
             "lat": 38.7029,
             "lng": -77.4809
@@ -108265,6 +108441,7 @@
           "reunificationRate": 0.2173913043,
           "familyPreservationCases": null,
           "churches": 27,
+          "monthsToAdoption": 24,
           "coordinates": {
             "lat": 37.0636,
             "lng": -80.7144
@@ -108284,6 +108461,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 6,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 38.6848,
             "lng": -78.1592
@@ -108303,6 +108481,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 246,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.9426,
             "lng": -76.7252
@@ -108322,6 +108501,7 @@
           "reunificationRate": 0.3076923077,
           "familyPreservationCases": null,
           "churches": 129,
+          "monthsToAdoption": 28.56,
           "coordinates": {
             "lat": 37.2693,
             "lng": -80.068
@@ -108341,6 +108521,7 @@
           "reunificationRate": 0.875,
           "familyPreservationCases": null,
           "churches": 24,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.8145,
             "lng": -79.4473
@@ -108360,6 +108541,7 @@
           "reunificationRate": 0.25,
           "familyPreservationCases": null,
           "churches": 90,
+          "monthsToAdoption": 32.9,
           "coordinates": {
             "lat": 38.512,
             "lng": -78.8757
@@ -108379,6 +108561,7 @@
           "reunificationRate": 0.12,
           "familyPreservationCases": null,
           "churches": 18,
+          "monthsToAdoption": 83.84,
           "coordinates": {
             "lat": 36.9339,
             "lng": -82.0954
@@ -108398,6 +108581,7 @@
           "reunificationRate": 0.1481481481,
           "familyPreservationCases": null,
           "churches": 25,
+          "monthsToAdoption": 49.95,
           "coordinates": {
             "lat": 36.7143,
             "lng": -82.6029
@@ -108417,6 +108601,7 @@
           "reunificationRate": 0.375,
           "familyPreservationCases": null,
           "churches": 57,
+          "monthsToAdoption": 71.69,
           "coordinates": {
             "lat": 38.8583,
             "lng": -78.5709
@@ -108436,6 +108621,7 @@
           "reunificationRate": 0.0625,
           "familyPreservationCases": null,
           "churches": 29,
+          "monthsToAdoption": 35.98,
           "coordinates": {
             "lat": 36.8438,
             "lng": -81.537
@@ -108455,6 +108641,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 29,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 36.7204,
             "lng": -77.1062
@@ -108474,6 +108661,7 @@
           "reunificationRate": 0.2380952381,
           "familyPreservationCases": null,
           "churches": 80,
+          "monthsToAdoption": 59.04,
           "coordinates": {
             "lat": 38.1851,
             "lng": -77.6561
@@ -108493,6 +108681,7 @@
           "reunificationRate": 0.6875,
           "familyPreservationCases": null,
           "churches": 104,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 38.4207,
             "lng": -77.458
@@ -108512,6 +108701,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 16,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 37.1098,
             "lng": -76.9002
@@ -108531,6 +108721,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 12,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 36.9218,
             "lng": -77.2618
@@ -108550,6 +108741,7 @@
           "reunificationRate": 0.2857142857,
           "familyPreservationCases": null,
           "churches": 45,
+          "monthsToAdoption": 42.69,
           "coordinates": {
             "lat": 37.125,
             "lng": -81.5606
@@ -108569,6 +108761,7 @@
           "reunificationRate": 0.5333333333,
           "familyPreservationCases": null,
           "churches": 36,
+          "monthsToAdoption": 38.38,
           "coordinates": {
             "lat": 38.9087,
             "lng": -78.2085
@@ -108588,6 +108781,7 @@
           "reunificationRate": 0.2619047619,
           "familyPreservationCases": null,
           "churches": 58,
+          "monthsToAdoption": 46.55,
           "coordinates": {
             "lat": 36.7244,
             "lng": -81.9598
@@ -108607,6 +108801,7 @@
           "reunificationRate": 0.25,
           "familyPreservationCases": null,
           "churches": 14,
+          "monthsToAdoption": 12.52,
           "coordinates": {
             "lat": 38.112,
             "lng": -76.8042
@@ -108626,6 +108821,7 @@
           "reunificationRate": 0.40625,
           "familyPreservationCases": null,
           "churches": 17,
+          "monthsToAdoption": 30.44,
           "coordinates": {
             "lat": 36.9752,
             "lng": -82.6212
@@ -108645,6 +108841,7 @@
           "reunificationRate": 0.3703703704,
           "familyPreservationCases": null,
           "churches": 25,
+          "monthsToAdoption": 24,
           "coordinates": {
             "lat": 36.9171,
             "lng": -81.0787
@@ -108664,6 +108861,7 @@
           "reunificationRate": 0.1538461538,
           "familyPreservationCases": null,
           "churches": 48,
+          "monthsToAdoption": 35.99,
           "coordinates": {
             "lat": 37.2431,
             "lng": -76.5635
@@ -108683,6 +108881,7 @@
           "reunificationRate": 0.1,
           "familyPreservationCases": null,
           "churches": 74,
+          "monthsToAdoption": 78.23,
           "coordinates": {
             "lat": 38.8185,
             "lng": -77.0861
@@ -108702,6 +108901,7 @@
           "reunificationRate": 0.4090909091,
           "familyPreservationCases": null,
           "churches": 40,
+          "monthsToAdoption": 46.41,
           "coordinates": {
             "lat": 36.618,
             "lng": -82.1605
@@ -108721,6 +108921,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 10,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 37.7319,
             "lng": -79.3568
@@ -108740,6 +108941,7 @@
           "reunificationRate": 0.07692307692,
           "familyPreservationCases": null,
           "churches": 48,
+          "monthsToAdoption": 48.26,
           "coordinates": {
             "lat": 38.0375,
             "lng": -78.4855
@@ -108759,6 +108961,7 @@
           "reunificationRate": 0.05555555556,
           "familyPreservationCases": null,
           "churches": 211,
+          "monthsToAdoption": 45.67,
           "coordinates": {
             "lat": 36.6778,
             "lng": -76.3023
@@ -108778,6 +108981,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": null,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 37.265,
             "lng": -77.3969
@@ -108797,6 +109001,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 22,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 37.7785,
             "lng": -79.9868
@@ -108816,6 +109021,7 @@
           "reunificationRate": 0.4193548387,
           "familyPreservationCases": null,
           "churches": 92,
+          "monthsToAdoption": 94.59,
           "coordinates": {
             "lat": 36.5831,
             "lng": -79.4087
@@ -108835,6 +109041,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 14,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 36.6952,
             "lng": -77.5364
@@ -108853,7 +109060,8 @@
           "childrenWaitingForAdoption": 0,
           "reunificationRate": null,
           "familyPreservationCases": null,
-          "churches": 17
+          "churches": 17,
+          "monthsToAdoption": null
         },
         {
           "name": "Falls Church",
@@ -108869,6 +109077,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 13,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.8847,
             "lng": -77.1751
@@ -108887,7 +109096,8 @@
           "childrenWaitingForAdoption": 4,
           "reunificationRate": 0.6666666667,
           "familyPreservationCases": null,
-          "churches": 15
+          "churches": 15,
+          "monthsToAdoption": 0
         },
         {
           "name": "Fredericksburg",
@@ -108903,6 +109113,7 @@
           "reunificationRate": 0.2608695652,
           "familyPreservationCases": null,
           "churches": 32,
+          "monthsToAdoption": 56.1,
           "coordinates": {
             "lat": 38.2992,
             "lng": -77.4872
@@ -108922,6 +109133,7 @@
           "reunificationRate": 0.2272727273,
           "familyPreservationCases": null,
           "churches": 10,
+          "monthsToAdoption": 18.62,
           "coordinates": {
             "lat": 36.666,
             "lng": -80.9176
@@ -108941,6 +109153,7 @@
           "reunificationRate": 0.03448275862,
           "familyPreservationCases": null,
           "churches": 128,
+          "monthsToAdoption": 28.51,
           "coordinates": {
             "lat": 37.0554,
             "lng": -76.3632
@@ -108960,6 +109173,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 49,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.4362,
             "lng": -78.8735
@@ -108979,6 +109193,7 @@
           "reunificationRate": 0.3157894737,
           "familyPreservationCases": null,
           "churches": 29,
+          "monthsToAdoption": 34.17,
           "coordinates": {
             "lat": 37.2915,
             "lng": -77.2985
@@ -108998,6 +109213,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 10,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 37.7825,
             "lng": -79.444
@@ -109017,6 +109233,7 @@
           "reunificationRate": 0.2054794521,
           "familyPreservationCases": null,
           "churches": 93,
+          "monthsToAdoption": 36.78,
           "coordinates": {
             "lat": 37.4004,
             "lng": -79.1908
@@ -109036,6 +109253,7 @@
           "reunificationRate": 0.75,
           "familyPreservationCases": null,
           "churches": 28,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 38.7479,
             "lng": -77.4839
@@ -109055,6 +109273,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 5,
+          "monthsToAdoption": 40.05,
           "coordinates": {
             "lat": 38.7709,
             "lng": -77.4429
@@ -109074,6 +109293,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 24,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 36.6827,
             "lng": -79.8636
@@ -109093,6 +109313,7 @@
           "reunificationRate": 0.2878787879,
           "familyPreservationCases": null,
           "churches": 162,
+          "monthsToAdoption": 45,
           "coordinates": {
             "lat": 37.105,
             "lng": -76.5181
@@ -109112,6 +109333,7 @@
           "reunificationRate": 0.3398058252,
           "familyPreservationCases": null,
           "churches": 224,
+          "monthsToAdoption": 31.7,
           "coordinates": {
             "lat": 36.8947,
             "lng": -76.257
@@ -109131,6 +109353,7 @@
           "reunificationRate": 0.3636363636,
           "familyPreservationCases": null,
           "churches": 3,
+          "monthsToAdoption": 0,
           "coordinates": {
             "lat": 36.9315,
             "lng": -82.6262
@@ -109150,6 +109373,7 @@
           "reunificationRate": 0.2222222222,
           "familyPreservationCases": null,
           "churches": 56,
+          "monthsToAdoption": 5.72,
           "coordinates": {
             "lat": 37.2043,
             "lng": -77.3913
@@ -109169,6 +109393,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 7,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 37.1309,
             "lng": -76.3569
@@ -109188,6 +109413,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 110,
+          "monthsToAdoption": 56.11,
           "coordinates": {
             "lat": 36.8453,
             "lng": -76.3554
@@ -109207,6 +109433,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 13,
+          "monthsToAdoption": 38.83,
           "coordinates": {
             "lat": 37.1229,
             "lng": -80.5587
@@ -109225,7 +109452,8 @@
           "childrenWaitingForAdoption": 86,
           "reunificationRate": 0.3194444444,
           "familyPreservationCases": null,
-          "churches": 246
+          "churches": 246,
+          "monthsToAdoption": 49
         },
         {
           "name": "Roanoke City",
@@ -109240,7 +109468,8 @@
           "childrenWaitingForAdoption": 97,
           "reunificationRate": 0.1546391753,
           "familyPreservationCases": null,
-          "churches": 129
+          "churches": 129,
+          "monthsToAdoption": 29.3
         },
         {
           "name": "Salem",
@@ -109256,6 +109485,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 29,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 37.2864,
             "lng": -80.0554
@@ -109275,6 +109505,7 @@
           "reunificationRate": 0.1578947368,
           "familyPreservationCases": null,
           "churches": 36,
+          "monthsToAdoption": 74.61,
           "coordinates": {
             "lat": 38.1593,
             "lng": -79.0611
@@ -109294,6 +109525,7 @@
           "reunificationRate": 0.3571428571,
           "familyPreservationCases": null,
           "churches": 97,
+          "monthsToAdoption": 36.64,
           "coordinates": {
             "lat": 36.6953,
             "lng": -76.6398
@@ -109313,6 +109545,7 @@
           "reunificationRate": 0.4166666667,
           "familyPreservationCases": null,
           "churches": 221,
+          "monthsToAdoption": 56.32,
           "coordinates": {
             "lat": 36.7335,
             "lng": -76.0435
@@ -109332,6 +109565,7 @@
           "reunificationRate": null,
           "familyPreservationCases": null,
           "churches": 31,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 38.0674,
             "lng": -78.9014
@@ -109351,6 +109585,7 @@
           "reunificationRate": 0,
           "familyPreservationCases": null,
           "churches": 16,
+          "monthsToAdoption": 55.56,
           "coordinates": {
             "lat": 37.2693,
             "lng": -76.7076
@@ -109370,6 +109605,7 @@
           "reunificationRate": 0.4,
           "familyPreservationCases": null,
           "churches": 32,
+          "monthsToAdoption": 66.65,
           "coordinates": {
             "lat": 39.1735,
             "lng": -78.1746
@@ -110123,6 +110359,7 @@
           "familyPreservationCases": null,
           "churches": 749,
           "childrenAdopted": null,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 47.66,
             "lng": -117.43
@@ -110145,6 +110382,7 @@
           "familyPreservationCases": null,
           "churches": 352,
           "childrenAdopted": null,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 46.6,
             "lng": -120.51
@@ -110167,6 +110405,7 @@
           "familyPreservationCases": null,
           "churches": 725,
           "childrenAdopted": null,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 45.64,
             "lng": -122.66
@@ -110189,6 +110428,7 @@
           "familyPreservationCases": null,
           "churches": 601,
           "childrenAdopted": null,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 47.98,
             "lng": -122.2
@@ -110211,6 +110451,7 @@
           "familyPreservationCases": null,
           "churches": 828,
           "childrenAdopted": null,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 47.61,
             "lng": -122.33
@@ -110233,6 +110474,7 @@
           "familyPreservationCases": null,
           "churches": 577,
           "childrenAdopted": null,
+          "monthsToAdoption": null,
           "coordinates": {
             "lat": 47.25,
             "lng": -122.44

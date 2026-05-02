@@ -203,7 +203,8 @@ function buildStates(afcarsData, sourcesData, metricsData, coordsData, countyToR
       reunificationRate: record.reunificationRate,
       familyPreservationCases: record.familyPreservationCases,
       churches: record.churches,
-      childrenAdopted: record.childrenAdopted
+      childrenAdopted: record.childrenAdopted,
+      monthsToAdoption: record.monthsToAdoption
     };
     
     // Add coordinates if available

@@ -295,8 +295,9 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
       totalChurches: county.churches,
       churches: county.churches,
       coordinates: county.coordinates || null,
+      // Average time from termination of parental rights to finalized adoption (months)
+      avgMonthsToAdoption: county.monthsToAdoption ?? null,
       // Fields not in new data - set to null
-      avgMonthsToAdoption: null,
       churchesProvidingSupport: null,
       supportPercentage: null
     };

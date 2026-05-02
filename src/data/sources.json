@@ -1,13 +1,12 @@
 {
   "metadata": {
     "source": "Sources_and_Definitions.xlsx",
-    "generated": "2026-05-01T08:20:35.881Z",
+    "generated": "2026-05-02T07:52:08.842Z",
     "stateCount": 51,
     "statesWithUrl": 49,
     "dataYearDistribution": {
       "2022": 2,
-      "2023": 1,
-      "2024": 32,
+      "2024": 33,
       "2025": 14,
       "unknown": 2
     },
@@ -217,7 +216,7 @@
       "sourceUrl": "https://healthandwelfare.idaho.gov/services-programs/children-families-older-adults/child-and-family-services-and-foster-care-7",
       "definitions": {
         "childrenInCare": "Number of foster children",
-        "childrenInFosterCare": "Number of children placed with a foster family",
+        "childrenInFosterCare": "Number of children placed with a foster family, including kinship placements",
         "childrenInKinshipCare": "Number of children placed with a relative or fictive kin",
         "fosterKinshipHomes": "Number of licensed foster providers",
         "childrenWaitingForAdoption": "Number of children with parental rights terminated"
@@ -349,7 +348,7 @@
       "sourceUrl": "https://www.mass.gov/orgs/dcf",
       "definitions": {
         "childrenInCare": "Number of children in all placement types",
-        "childrenInFosterCare": "Number of children in family-like foster care",
+        "childrenInFosterCare": "Number of children in family-like foster care, including kinship care",
         "childrenInKinshipCare": "Number of children in kinship care",
         "childrenPlacedOutOfCounty": "Number of children placed out-of-county",
         "fosterKinshipHomes": "Number of foster and kinship homes",
@@ -728,7 +727,7 @@
         "childrenInFosterCare": "The number of children with current placement of a non-relative foster family",
         "childrenInKinshipCare": "The number of children with a current placement of relative foster family",
         "childrenWaitingForAdoption": "The number of children with a placement goal of adoption",
-        "reunificationRate": "The percent of exits to reunification in FY 2024",
+        "reunificationRate": "The percent of exits to reunification in CY 2024",
         "childrenAdopted": "The number of adoptions in FY 2024",
         "monthsToAdoption": "The average months to adoption in 2024"
       }
@@ -755,15 +754,16 @@
       "sourceUrl": "https://dhhr.wv.gov",
       "definitions": {
         "childrenInCare": "The number of children in state custody",
-        "childrenInFosterCare": "The number of children in certi",
+        "childrenInFosterCare": "The number of children in foster care (including kinship)",
         "childrenInKinshipCare": "The number of children in kinship placements (certified and pending)",
+        "childrenPlacedOutOfCounty": "The number of children placed out of state.",
         "fosterKinshipHomes": "The total number of CPA and kinship homes"
       }
     },
     {
       "state": "Wisconsin",
-      "dataDate": "2023-12-31",
-      "dataYear": 2023,
+      "dataDate": "2024-12-31",
+      "dataYear": 2024,
       "sourceAgency": "Wisconsin Department of Children and Families",
       "sourceUrl": "https://dcf.wisconsin.gov",
       "definitions": {

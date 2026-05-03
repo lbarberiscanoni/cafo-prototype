@@ -1,11 +1,11 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-05-03T08:07:53.766Z",
+    "generated": "2026-05-03T15:57:11.802Z",
     "organizationCount": 522,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 187,
+      "withCoordinates": 285,
       "withWebsite": 325,
       "withActivities": 194,
       "withNetworkMemberships": 95,
@@ -22,6 +22,14 @@
       "Bridge Ministry": 60,
       "Church Foster Care Ministry": 83,
       "Child Placement Agency": 22
+    },
+    "geocoding": {
+      "manual": 187,
+      "cacheHit": 98,
+      "newlyGeocoded": 0,
+      "cachedFailure": 51,
+      "unresolved": 0,
+      "skipped": 186
     }
   },
   "organizations": [
@@ -4416,7 +4424,10 @@
         "zip": "22551",
         "county": "Spotsylvania"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 38.177948329678,
+        "lng": -77.569372700229
+      },
       "website": "redeemednetwork.org",
       "category": "Bridge Ministry",
       "activities": [
@@ -9383,7 +9394,10 @@
         "zip": "35216",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.404047569182,
+        "lng": -86.764872358084
+      },
       "website": "alabamachild.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -9410,7 +9424,10 @@
         "zip": "35242",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.419444698637,
+        "lng": -86.689216006238
+      },
       "website": "lifelinechild.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -9437,7 +9454,10 @@
         "zip": "36830",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 32.615342417367,
+        "lng": -85.464442166431
+      },
       "website": "third-lens.org",
       "category": "Service Organization",
       "activities": [],
@@ -9464,7 +9484,10 @@
         "zip": "85004",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.474445175072,
+        "lng": -112.073840168393
+      },
       "website": "cfcare.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -9491,7 +9514,10 @@
         "zip": "85233",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.349813179618,
+        "lng": -111.83293362055
+      },
       "website": "az127.org",
       "category": "Bridge Organization",
       "activities": [],
@@ -9518,7 +9544,10 @@
         "zip": "85712",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 32.244503114849,
+        "lng": -110.909747328976
+      },
       "website": "abcs.org",
       "category": "Bridge Organization",
       "activities": [],
@@ -9545,7 +9574,10 @@
         "zip": "92704-7920",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.699889380317,
+        "lng": -117.910153410664
+      },
       "website": "forthechildren.org",
       "category": "Service Organization",
       "activities": [],
@@ -9572,7 +9604,10 @@
         "zip": "95350",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 37.659186824623,
+        "lng": -121.012018947159
+      },
       "website": "fcadoptions.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -9599,7 +9634,10 @@
         "zip": "92590",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.516009177915,
+        "lng": -117.165500950459
+      },
       "website": "4achild.com",
       "category": "Child Placement Agency",
       "activities": [],
@@ -9626,7 +9664,10 @@
         "zip": "92705",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.713463829798,
+        "lng": -117.848351704006
+      },
       "website": "nightlight.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -9653,7 +9694,10 @@
         "zip": "92649",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.748065859552,
+        "lng": -117.836918514002
+      },
       "website": "olivecrest.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -9680,7 +9724,10 @@
         "zip": "92243",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 32.788737852966,
+        "lng": -115.556286524207
+      },
       "website": "amarisministries.com",
       "category": "Bridge Organization",
       "activities": [],
@@ -9707,7 +9754,10 @@
         "zip": "93301",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.382976563672,
+        "lng": -119.022240062641
+      },
       "website": "pfsffa.org",
       "category": "Service Organization",
       "activities": [],
@@ -9793,7 +9843,10 @@
         "zip": "80104",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.355913650781,
+        "lng": -104.86143857882
+      },
       "website": "hopespromise.com",
       "category": "Child Placement Agency",
       "activities": [],
@@ -9885,7 +9938,10 @@
         "zip": "33021",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 26.024992247707,
+        "lng": -80.207071579587
+      },
       "website": "adoptabsc.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -9912,7 +9968,10 @@
         "zip": "34638",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 28.207835804965,
+        "lng": -82.490324234482
+      },
       "website": "fornomore.org",
       "category": "Service Organization",
       "activities": [],
@@ -9939,7 +9998,10 @@
         "zip": "30349-2945",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.604487550697,
+        "lng": -84.499863295227
+      },
       "website": "winshape.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -9966,7 +10028,10 @@
         "zip": "30071",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.940678181939,
+        "lng": -84.212771621059
+      },
       "website": "promise686.org",
       "category": "Bridge Organization",
       "activities": [],
@@ -9993,7 +10058,10 @@
         "zip": "30022",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 34.059825844604,
+        "lng": -84.265848085215
+      },
       "website": "faithbridgefostercare.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -10020,7 +10088,10 @@
         "zip": "30064",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.970236370255,
+        "lng": -84.638617814576
+      },
       "website": "ignitehope.online",
       "category": "Child Placement Agency",
       "activities": [],
@@ -10047,7 +10118,10 @@
         "zip": "31792",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 30.838566657183,
+        "lng": -83.978612513759
+      },
       "website": "opendooradoption.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -10074,7 +10148,10 @@
         "zip": "30677",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.879049789545,
+        "lng": -83.434120956614
+      },
       "website": "chosenforlifemiinstries.org",
       "category": "Service Organization",
       "activities": [],
@@ -10107,7 +10184,10 @@
         "zip": "30046",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.957112173098,
+        "lng": -83.994952851433
+      },
       "website": "connectionshomes.org",
       "category": "Service Organization",
       "activities": [],
@@ -10134,7 +10214,10 @@
         "zip": "30161",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 34.234776310759,
+        "lng": -85.169689725914
+      },
       "website": "globalimpactintl.org",
       "category": null,
       "activities": [],
@@ -10161,7 +10244,10 @@
         "zip": "31520",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 31.14705796853,
+        "lng": -81.48276139487
+      },
       "website": "hope1312co.org",
       "category": "Service Organization",
       "activities": [],
@@ -10215,7 +10301,10 @@
         "zip": "46037",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.982876143819,
+        "lng": -85.91904279887
+      },
       "website": "hephzibah.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -10296,7 +10385,10 @@
         "zip": "70124",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 29.986194606792,
+        "lng": -90.110474317154
+      },
       "website": null,
       "category": null,
       "activities": [],
@@ -10377,7 +10469,10 @@
         "zip": "64111",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.069480336025,
+        "lng": -94.588082522567
+      },
       "website": "goproject.org",
       "category": "Service Organization",
       "activities": [],
@@ -10458,7 +10553,10 @@
         "zip": "28079-8675",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.106092504857,
+        "lng": -80.633521624829
+      },
       "website": "christianadopt.org",
       "category": "Service Organization",
       "activities": [],
@@ -10485,7 +10583,10 @@
         "zip": "27519",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.818535915393,
+        "lng": -78.904336146544
+      },
       "website": "pharaohsdaughters.com",
       "category": "Service Organization",
       "activities": [],
@@ -10539,7 +10640,10 @@
         "zip": "45241",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.284685727649,
+        "lng": -84.43395391648
+      },
       "website": "thechildrenarewaiting.org",
       "category": "Bridge Organization",
       "activities": [],
@@ -10593,7 +10697,10 @@
         "zip": "16142",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.125865193545,
+        "lng": -80.334761088917
+      },
       "website": "bair.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -10620,7 +10727,10 @@
         "zip": "18964",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 40.300278885033,
+        "lng": -75.32039536053
+      },
       "website": "lovecradleint.org",
       "category": "Service Organization",
       "activities": [],
@@ -10674,7 +10784,10 @@
         "zip": "O2903",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.818901387101,
+        "lng": -71.42253680536
+      },
       "website": "fosteringhope.org",
       "category": "Bridge Organization",
       "activities": [],
@@ -10701,7 +10814,10 @@
         "zip": "37024",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.99260532604,
+        "lng": -86.81262455054
+      },
       "website": "tennesseechildren.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -10728,7 +10844,10 @@
         "zip": "37204",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 36.086941085073,
+        "lng": -86.753588925937
+      },
       "website": "agapenashville.org",
       "category": "Service Organization",
       "activities": [],
@@ -10889,7 +11008,10 @@
         "zip": "76065-8842",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 32.424890641449,
+        "lng": -97.001522798415
+      },
       "website": "backyardorphans.org",
       "category": "Child Placement Agency",
       "activities": [],
@@ -10916,7 +11038,10 @@
         "zip": "77046",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 29.732512842143,
+        "lng": -95.43140945476
+      },
       "website": "pathwaysforlittlefeet.org",
       "category": "Service Organization",
       "activities": [],
@@ -10970,7 +11095,10 @@
         "zip": "53210",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 43.063558345358,
+        "lng": -87.97254929861
+      },
       "website": "onehope27.org",
       "category": "Bridge Organization",
       "activities": [],
@@ -11024,7 +11152,10 @@
         "zip": "32223",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 30.150582499446,
+        "lng": -81.656907733648
+      },
       "website": "hopemultiplies.com",
       "category": "Bridge Organization",
       "activities": [],
@@ -15757,7 +15888,10 @@
         "zip": "83501",
         "county": "Nez Perce"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 46.403043636969,
+        "lng": -117.021124225628
+      },
       "website": "homesofhopeidwa.org",
       "category": null,
       "activities": [],
@@ -17195,7 +17329,10 @@
         "zip": "23666",
         "county": "Hampton City"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 37.04057395782,
+        "lng": -76.419479225485
+      },
       "website": "wearetheecho.org",
       "category": "Bridge Ministry",
       "activities": [
@@ -17268,7 +17405,10 @@
         "zip": "20852",
         "county": "Montgomery"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.06150607857,
+        "lng": -77.114406279918
+      },
       "website": "mcleanbible.org/montgomery-county/",
       "category": "Church Foster Care Ministry",
       "activities": [
@@ -17304,7 +17444,10 @@
         "zip": "43215",
         "county": "Franklin"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.960738246172,
+        "lng": -83.013176848848
+      },
       "website": "ohiokidsfirst.org",
       "category": "Service Organization",
       "activities": [
@@ -17334,7 +17477,10 @@
         "zip": "35046",
         "county": "Chilton"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 32.852524508092,
+        "lng": -86.515090624024
+      },
       "website": "raleighsplace.org",
       "category": "Service Organization",
       "activities": [
@@ -17400,7 +17546,10 @@
         "zip": "78642",
         "county": "Williamson"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 30.671014132019,
+        "lng": -97.917454967674
+      },
       "website": "dwellingplacetx.org",
       "category": "Bridge Ministry",
       "activities": [],
@@ -17432,7 +17581,10 @@
         "zip": "78681",
         "county": "Travis"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 30.511666207307,
+        "lng": -97.693463157255
+      },
       "website": "radiantaustin.com",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -17464,7 +17616,10 @@
         "zip": "50010",
         "county": "Story"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 42.008520761381,
+        "lng": -93.561866418515
+      },
       "website": "cornerstonelife.com",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -17496,7 +17651,10 @@
         "zip": "50023",
         "county": "Polk"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.68625900283,
+        "lng": -93.60073955117
+      },
       "website": "Iowafosterandadoption.org",
       "category": "Placement Agency",
       "activities": [],
@@ -17707,7 +17865,10 @@
         "zip": "27540",
         "county": "Wake"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.656730909982,
+        "lng": -78.837205552525
+      },
       "website": "secondhomerdu.com",
       "category": "Service Organization",
       "activities": [],
@@ -17771,7 +17932,10 @@
         "zip": "27703",
         "county": "Wake"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.925468483025,
+        "lng": -78.841433328357
+      },
       "website": "summitchurch.com/serve/locally/opportunity-detail?OpportunityId=97",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -17803,7 +17967,10 @@
         "zip": "27511",
         "county": "Wake"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.767877224695,
+        "lng": -78.784840973213
+      },
       "website": "7homes.org",
       "category": "Placement Agency",
       "activities": [],
@@ -17835,7 +18002,10 @@
         "zip": "27607",
         "county": "Wake"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.791899310389,
+        "lng": -78.680814640367
+      },
       "website": "kingstablenc.com/foster-care-adoption",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -17902,7 +18072,10 @@
         "zip": "68134",
         "county": "Douglas"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.302159521134,
+        "lng": -96.023761574488
+      },
       "website": "apexfamily.org",
       "category": "Service Organization",
       "activities": [],
@@ -17934,7 +18107,10 @@
         "zip": "68137",
         "county": "Douglas"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.216155469462,
+        "lng": -96.093634239493
+      },
       "website": "kingofkings.org/the-core-omaha/",
       "category": "Service Organization",
       "activities": [],
@@ -18068,7 +18244,10 @@
         "zip": "80538",
         "county": "Weld"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 40.408267659408,
+        "lng": -105.002296869477
+      },
       "website": "nccafo.org",
       "category": "Bridge Ministry",
       "activities": [],
@@ -18250,7 +18429,10 @@
         "zip": "33825",
         "county": "Highlands"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 27.634360119745,
+        "lng": -81.528160951677
+      },
       "website": "aplbc.info",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -18400,7 +18582,10 @@
         "zip": "34638",
         "county": "Pasco"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 28.199176065188,
+        "lng": -82.539382714344
+      },
       "website": "declarenomore.com",
       "category": "Service Organization",
       "activities": [],
@@ -18432,7 +18617,10 @@
         "zip": "22182",
         "county": "Fairfax"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 38.940464106416,
+        "lng": -77.253019803779
+      },
       "website": "mcleanbible.org",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -18464,7 +18652,10 @@
         "zip": "20147",
         "county": "Fairfax"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.049187956491,
+        "lng": -77.485352866278
+      },
       "website": "goodshepherdnova.org",
       "category": "Service Organization",
       "activities": [],
@@ -18496,7 +18687,10 @@
         "zip": "32309",
         "county": "Leon"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 30.536309597066,
+        "lng": -84.215060576098
+      },
       "website": "fouroakskillearn.com",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -18630,7 +18824,10 @@
         "zip": "49501-0294",
         "county": "Kent"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 42.979297262433,
+        "lng": -85.649720385052
+      },
       "website": "bethany.org",
       "category": "Placement Agency",
       "activities": [],
@@ -18678,7 +18875,10 @@
         "zip": "26505",
         "county": "Monongalia"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.650490057751,
+        "lng": -79.974835953269
+      },
       "website": "cmachurch.net",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -18710,7 +18910,10 @@
         "zip": "26508",
         "county": "Monongalia"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.673735191923,
+        "lng": -79.852570767018
+      },
       "website": "theridge.church",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -18876,7 +19079,10 @@
         "zip": "46408",
         "county": "Lake"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.547584015584,
+        "lng": -87.360562444439
+      },
       "website": "flourishchurchnwi.org",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -18908,7 +19114,10 @@
         "zip": "27606",
         "county": "Wake"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.751732552829,
+        "lng": -78.725943395358
+      },
       "website": "tamarisk.community",
       "category": "Service Organization",
       "activities": [],
@@ -18979,7 +19188,10 @@
         "zip": "60645",
         "county": "Cook"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 42.006986434966,
+        "lng": -87.680910211615
+      },
       "website": "theymim.org",
       "category": "Service Organization",
       "activities": [
@@ -19039,7 +19251,10 @@
         "zip": "94502",
         "county": "Alameda"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 37.726357256213,
+        "lng": -122.23991171994
+      },
       "website": "BACBC.org",
       "category": "Church Foster Care Ministry",
       "activities": [
@@ -19071,7 +19286,10 @@
         "zip": "46818",
         "county": "Allen"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.190761219678,
+        "lng": -85.167154892132
+      },
       "website": "josiahwhites.org",
       "category": "Placement Agency",
       "activities": [],
@@ -19227,7 +19445,10 @@
         "zip": "46765",
         "county": "Allen"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.220284520596,
+        "lng": -84.989128242139
+      },
       "website": "gatewaywoods.org",
       "category": "Placement Agency",
       "activities": [],
@@ -19259,7 +19480,10 @@
         "zip": "46825",
         "county": "Allen"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.178298138911,
+        "lng": -85.126479527227
+      },
       "website": "pccfw.org/adoption-and-foster-care",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -19387,7 +19611,10 @@
         "zip": "38017",
         "county": "Shelby"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.047856299929,
+        "lng": -89.732471887375
+      },
       "website": "theorchardchurch.com",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -19419,7 +19646,10 @@
         "zip": "38088",
         "county": "Shelby"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.137078984839,
+        "lng": -89.965857923674
+      },
       "website": "orphanos.org",
       "category": "Service Organization",
       "activities": [],
@@ -19451,7 +19681,10 @@
         "zip": "38112",
         "county": "Shelby"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.158808049203,
+        "lng": -89.983143155933
+      },
       "website": "Not available",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -19483,7 +19716,10 @@
         "zip": "38117",
         "county": "Shelby"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.103107609909,
+        "lng": -89.90300635065
+      },
       "website": "www.cocws.org",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -19547,7 +19783,10 @@
         "zip": "80031",
         "county": "Jefferson"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.85846631945,
+        "lng": -105.063991097407
+      },
       "website": "https://harborchurch.life/foster",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -19579,7 +19818,10 @@
         "zip": "80021",
         "county": "Jefferson"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.877419269432,
+        "lng": -105.095674948986
+      },
       "website": "https://risefamily.org/",
       "category": "Service Organization",
       "activities": [],
@@ -19611,7 +19853,10 @@
         "zip": "80228",
         "county": "Jefferson"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.70460381865,
+        "lng": -105.137419685051
+      },
       "website": "https://foothillscalvary.org/",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -19643,7 +19888,10 @@
         "zip": "29615",
         "county": "Greenville"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 34.871762238643,
+        "lng": -82.317903883398
+      },
       "website": "https://www.mitchellroad.org/",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -19675,7 +19923,10 @@
         "zip": "29607",
         "county": "Greenville"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 34.820121600313,
+        "lng": -82.257631963435
+      },
       "website": "https://www.adoptionhelpers.org/",
       "category": "Service Organization",
       "activities": [],
@@ -19772,7 +20023,10 @@
         "zip": "89130",
         "county": "Clark"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 36.234237460542,
+        "lng": -115.22788770914
+      },
       "website": null,
       "category": "Service Organization",
       "activities": [],
@@ -19804,7 +20058,10 @@
         "zip": "28152",
         "county": "Cleveland"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.238252940043,
+        "lng": -81.502682137761
+      },
       "website": "onemoreonelessproject.com",
       "category": "Bridge Ministry",
       "activities": [],
@@ -19836,7 +20093,10 @@
         "zip": "65270",
         "county": "Randolph"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.419725412164,
+        "lng": -92.442194161337
+      },
       "website": "faithbridgemoberly.org",
       "category": "Service Organization",
       "activities": [],
@@ -19868,7 +20128,10 @@
         "zip": "49504",
         "county": "Kent"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 42.976907399734,
+        "lng": -85.677124919718
+      },
       "website": "crossroads-bible.org",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -19900,7 +20163,10 @@
         "zip": "28043",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.341892106735,
+        "lng": -81.890486430313
+      },
       "website": null,
       "category": "Service Organization",
       "activities": [],
@@ -19932,7 +20198,10 @@
         "zip": "80550",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 40.471145875275,
+        "lng": -104.914505138133
+      },
       "website": null,
       "category": "Service Organization",
       "activities": [],
@@ -19964,7 +20233,10 @@
         "zip": "29601",
         "county": "Greenville"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 34.851361054307,
+        "lng": -82.400707088721
+      },
       "website": "firstpresgreenville.org",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -19996,7 +20268,10 @@
         "zip": "80537",
         "county": "Jefferson"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 40.380569783745,
+        "lng": -105.097977415908
+      },
       "website": "americaskidsbelong.org/states/co",
       "category": "Service Organization",
       "activities": [],
@@ -20074,7 +20349,10 @@
         "zip": "49525",
         "county": "Kent"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 42.97600505389,
+        "lng": -85.590864374748
+      },
       "website": "calvarygr.org",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -20112,7 +20390,10 @@
         "zip": "50023",
         "county": "Polk"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.687320946098,
+        "lng": -93.600735198825
+      },
       "website": "fostersquad.org",
       "category": "Service Organization",
       "activities": [],
@@ -20144,7 +20425,10 @@
         "zip": "80031",
         "county": "Jefferson"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.861220557326,
+        "lng": -105.063969168699
+      },
       "website": "thehavenimpact.org",
       "category": "Service Organization",
       "activities": [],
@@ -20267,7 +20551,10 @@
         "zip": "46590",
         "county": "Kosciusko"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.226145581125,
+        "lng": -85.810178131564
+      },
       "website": "missionpoint.net",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -20351,7 +20638,10 @@
         "zip": "67214",
         "county": "Sedgwick"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 37.718968014029,
+        "lng": -97.304148854574
+      },
       "website": "children1stks.org",
       "category": "Service Organization",
       "activities": [],
@@ -20383,7 +20673,10 @@
         "zip": "31520",
         "county": "Glynn"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 31.194263979102,
+        "lng": -81.480240498912
+      },
       "website": "hope1312co.org",
       "category": "Bridge Ministry",
       "activities": [],
@@ -20410,7 +20703,10 @@
         "zip": "38017",
         "county": "Shelby"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.047856299929,
+        "lng": -89.732471887375
+      },
       "website": "theorchardchurch.com/FAM",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -20469,7 +20765,10 @@
         "zip": "89120",
         "county": "Clark"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 36.076104790437,
+        "lng": -115.087039796792
+      },
       "website": "FosterinFaith.com",
       "category": "Bridge Ministry",
       "activities": [],
@@ -20496,7 +20795,10 @@
         "zip": "27360",
         "county": "Davidson"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.875922113051,
+        "lng": -80.097177337434
+      },
       "website": "bchfamily.org",
       "category": "Placement Agency",
       "activities": [],
@@ -20804,5 +21106,1195 @@
         "Children 1st"
       ]
     }
-  ]
+  ],
+  "_geocodeCache": {
+    "84": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "erie, pa|erie|pa|16501",
+      "attemptedAt": "2026-05-03T15:56:38.886Z"
+    },
+    "85": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "clarion, pa|clarion|pa|16214",
+      "attemptedAt": "2026-05-03T15:56:39.234Z"
+    },
+    "86": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "smicksburg, pa|smicksburg|pa|16256",
+      "attemptedAt": "2026-05-03T15:56:39.397Z"
+    },
+    "87": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "somerset, pa|somerset|pa|15501",
+      "attemptedAt": "2026-05-03T15:56:39.554Z"
+    },
+    "88": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "altoona, pa|altoona|pa|16601",
+      "attemptedAt": "2026-05-03T15:56:39.721Z"
+    },
+    "89": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "lewistown, pa|lewistown|pa|17044",
+      "attemptedAt": "2026-05-03T15:56:39.895Z"
+    },
+    "90": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "mechanicsburg, pa|mechanicsburg|pa|17055",
+      "attemptedAt": "2026-05-03T15:56:40.049Z"
+    },
+    "91": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "lancaster, pa|lancaster|pa|17601",
+      "attemptedAt": "2026-05-03T15:56:40.204Z"
+    },
+    "92": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "allentown, pa|allentown|pa|18103",
+      "attemptedAt": "2026-05-03T15:56:40.369Z"
+    },
+    "93": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "york, pa|york|pa|17401",
+      "attemptedAt": "2026-05-03T15:56:40.656Z"
+    },
+    "94": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "lebanon, pa|lebanon|pa|17042",
+      "attemptedAt": "2026-05-03T15:56:40.815Z"
+    },
+    "101": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 25524 little rock ar 25524|little rock|ar|25524",
+      "attemptedAt": "2026-05-03T15:56:40.996Z"
+    },
+    "248": {
+      "status": "ok",
+      "lat": 38.177948329678,
+      "lng": -77.569372700229,
+      "addressHash": "7930 dowd farm rd|spotsylvania|va|22551",
+      "matchedAddress": "7930 DOWD FARM RD, SPOTSYLVANIA, VA, 22551",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:41.163Z"
+    },
+    "576": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "p.o. box 230472 montgomery al 36123-0472|montgomery|al|36123-0472",
+      "attemptedAt": "2026-05-03T15:56:41.326Z"
+    },
+    "577": {
+      "status": "ok",
+      "lat": 33.404047569182,
+      "lng": -86.764872358084,
+      "addressHash": "2681 rocky ridge lane birmingham al 35216|birmingham|al|35216",
+      "matchedAddress": "2681 ROCKY RIDGE LN, BIRMINGHAM, AL, 35216",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:41.512Z"
+    },
+    "578": {
+      "status": "ok",
+      "lat": 33.419444698637,
+      "lng": -86.689216006238,
+      "addressHash": "100 missionary ridge birmingham al 35242|birmingham|al|35242",
+      "matchedAddress": "100 MISSIONARY RIDGE DR, BIRMINGHAM, AL, 35242",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:41.723Z"
+    },
+    "579": {
+      "status": "ok",
+      "lat": 32.615342417367,
+      "lng": -85.464442166431,
+      "addressHash": "472 n dean road, ste 104 auburn al 36830|auburn|al|36830",
+      "matchedAddress": "472 N DEAN RD, AUBURN, AL, 36830",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:41.892Z"
+    },
+    "581": {
+      "status": "ok",
+      "lat": 33.474445175072,
+      "lng": -112.073840168393,
+      "addressHash": "2346 n. central ave. phoenix az 85004|phoenix|az|85004",
+      "matchedAddress": "2346 N CENTRAL AVE, PHOENIX, AZ, 85004",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:42.052Z"
+    },
+    "582": {
+      "status": "ok",
+      "lat": 33.349813179618,
+      "lng": -111.83293362055,
+      "addressHash": "1820 w. elliot rd gilbert az 85233|gilbert|az|85233",
+      "matchedAddress": "1820 W ELLIOT RD, GILBERT, AZ, 85233",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:42.218Z"
+    },
+    "583": {
+      "status": "ok",
+      "lat": 32.244503114849,
+      "lng": -110.909747328976,
+      "addressHash": "1779 north alvernon way tuscon az 85712|tuscon|az|85712",
+      "matchedAddress": "1779 N ALVERNON WAY, TUCSON, AZ, 85712",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:42.382Z"
+    },
+    "584": {
+      "status": "ok",
+      "lat": 33.699889380317,
+      "lng": -117.910153410664,
+      "addressHash": "3000 w macarthur blvd ste 412 santa ana ca 92704-7920|santa ana|ca|92704-7920",
+      "matchedAddress": "3000 W MACARTHUR BLVD, SANTA ANA, CA, 92704",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:42.561Z"
+    },
+    "585": {
+      "status": "ok",
+      "lat": 37.659186824623,
+      "lng": -121.012018947159,
+      "addressHash": "1120 tully rd modesto ca 95350|modesto|ca|95350",
+      "matchedAddress": "1120 TULLY RD, MODESTO, CA, 95350",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:42.730Z"
+    },
+    "586": {
+      "status": "ok",
+      "lat": 33.516009177915,
+      "lng": -117.165500950459,
+      "addressHash": "41745 rider way suite #2 temecula ca 92590|temecula|ca|92590",
+      "matchedAddress": "41745 RIDER WAY, TEMECULA, CA, 92590",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:42.897Z"
+    },
+    "587": {
+      "status": "ok",
+      "lat": 33.713463829798,
+      "lng": -117.848351704006,
+      "addressHash": "1528 brookhollow dr #100 santa ana ca 92705|santa ana|ca|92705",
+      "matchedAddress": "1528 BROOKHOLLOW DR, SANTA ANA, CA, 92705",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:43.078Z"
+    },
+    "588": {
+      "status": "ok",
+      "lat": 33.748065859552,
+      "lng": -117.836918514002,
+      "addressHash": "2130 east 4th street, suite. 200 santa ana ca 92649|santa ana|ca|92649",
+      "matchedAddress": "2130 E 4TH ST, SANTA ANA, CA, 92705",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:43.253Z"
+    },
+    "589": {
+      "status": "ok",
+      "lat": 32.788737852966,
+      "lng": -115.556286524207,
+      "addressHash": "571 w. orange avenue el centro ca 92243|el centro|ca|92243",
+      "matchedAddress": "571 W ORANGE AVE, EL CENTRO, CA, 92243",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:43.420Z"
+    },
+    "590": {
+      "status": "ok",
+      "lat": 35.382976563672,
+      "lng": -119.022240062641,
+      "addressHash": "2600 g street bakersfield ca 93301|bakersfield|ca|93301",
+      "matchedAddress": "2600 G ST, BAKERSFIELD, CA, 93301",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:43.580Z"
+    },
+    "592": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 7342 newport beach ca 92658|newport beach|ca|92658",
+      "attemptedAt": "2026-05-03T15:56:43.754Z"
+    },
+    "594": {
+      "status": "ok",
+      "lat": 39.355913650781,
+      "lng": -104.86143857882,
+      "addressHash": "1585 s. perry st, ste e castle rock co 80104|castle rock|co|80104",
+      "matchedAddress": "1585 S PERRY ST, CASTLE ROCK, CO, 80104",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:43.931Z"
+    },
+    "597": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 841 placida fl 33946-0841|placida|fl|33946-0841",
+      "attemptedAt": "2026-05-03T15:56:44.093Z"
+    },
+    "599": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 8190 lakeland fl 33802|lakeland|fl|33802",
+      "attemptedAt": "2026-05-03T15:56:44.270Z"
+    },
+    "600": {
+      "status": "ok",
+      "lat": 26.024992247707,
+      "lng": -80.207071579587,
+      "addressHash": "5935 taft street hollywood fl 33021|hollywood|fl|33021",
+      "matchedAddress": "5935 TAFT ST, HOLLYWOOD, FL, 33021",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:44.428Z"
+    },
+    "601": {
+      "status": "ok",
+      "lat": 28.207835804965,
+      "lng": -82.490324234482,
+      "addressHash": "19625 bergenfeld dr land o lakes fl 34638|land o lakes|fl|34638",
+      "matchedAddress": "19625 BERGENFELD DR, LAND O LAKES, FL, 34638",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:44.605Z"
+    },
+    "602": {
+      "status": "ok",
+      "lat": 33.604487550697,
+      "lng": -84.499863295227,
+      "addressHash": "5200 buffington rd atlanta ga 30349-2945|atlanta|ga|30349-2945",
+      "matchedAddress": "5200 BUFFINGTON RD, ATLANTA, GA, 30349",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:44.799Z"
+    },
+    "603": {
+      "status": "ok",
+      "lat": 33.940678181939,
+      "lng": -84.212771621059,
+      "addressHash": "19 holcomb bridge road norcross ga 30071|norcross|ga|30071",
+      "matchedAddress": "19 HOLCOMB BRIDGE RD, NORCROSS, GA, 30071",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:45.031Z"
+    },
+    "604": {
+      "status": "ok",
+      "lat": 34.059825844604,
+      "lng": -84.265848085215,
+      "addressHash": "4400 north point pkwysuite 210 alpharetta ga 30022|alpharetta|ga|30022",
+      "matchedAddress": "4400 N POINT PKWY, ALPHARETTA, GA, 30022",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:45.195Z"
+    },
+    "605": {
+      "status": "ok",
+      "lat": 33.970236370255,
+      "lng": -84.638617814576,
+      "addressHash": "2879 observation point marietta ga 30064|marietta|ga|30064",
+      "matchedAddress": "2879 OBSERVATION PT, MARIETTA, GA, 30064",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:45.359Z"
+    },
+    "606": {
+      "status": "ok",
+      "lat": 30.838566657183,
+      "lng": -83.978612513759,
+      "addressHash": "p.o. box 4, 218 east jackson street thomasville ga 31792|thomasville|ga|31792",
+      "matchedAddress": "218 E JACKSON ST, THOMASVILLE, GA, 31792",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:45.553Z"
+    },
+    "607": {
+      "status": "ok",
+      "lat": 33.879049789545,
+      "lng": -83.434120956614,
+      "addressHash": "1800 hog mountain rd bldg 700-101 watkinsville ga 30677|watkinsville|ga|30677",
+      "matchedAddress": "1800 HOG MOUNTAIN RD, WATKINSVILLE, GA, 30677",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:45.728Z"
+    },
+    "608": {
+      "status": "ok",
+      "lat": 33.957112173098,
+      "lng": -83.994952851433,
+      "addressHash": "337 w. pike street lawrenceville ga 30046|lawrenceville|ga|30046",
+      "matchedAddress": "337 W PIKE ST, LAWRENCEVILLE, GA, 30046",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:45.954Z"
+    },
+    "609": {
+      "status": "ok",
+      "lat": 34.234776310759,
+      "lng": -85.169689725914,
+      "addressHash": "1400 crane street rome ga 30161|rome|ga|30161",
+      "matchedAddress": "1400 CRANE ST, ROME, GA, 30161",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:46.111Z"
+    },
+    "610": {
+      "status": "ok",
+      "lat": 31.14705796853,
+      "lng": -81.48276139487,
+      "addressHash": "1115 sycamore ave brunswick ga 31520|brunswick|ga|31520",
+      "matchedAddress": "1115 SYCAMORE AVE, BRUNSWICK, GA, 31520",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:46.271Z"
+    },
+    "611": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 9 gridley il 61744-0040|gridley|il|61744-0040",
+      "attemptedAt": "2026-05-03T15:56:46.433Z"
+    },
+    "613": {
+      "status": "ok",
+      "lat": 39.982876143819,
+      "lng": -85.91904279887,
+      "addressHash": "13300 olio road fishers in 46037|fishers|in|46037",
+      "matchedAddress": "13300 OLIO RD, FISHERS, IN, 46037",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:46.599Z"
+    },
+    "614": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "900 w broadway st newton ks 67114-2004|newton|ks|67114-2004",
+      "attemptedAt": "2026-05-03T15:56:46.809Z"
+    },
+    "615": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "300 hope street po box 1429 mt. washington ky 40047|mt. washington|ky|40047",
+      "attemptedAt": "2026-05-03T15:56:46.973Z"
+    },
+    "617": {
+      "status": "ok",
+      "lat": 29.986194606792,
+      "lng": -90.110474317154,
+      "addressHash": "5290 canal blvd new orleans la 70124|new orleans|la|70124",
+      "matchedAddress": "5290 CANAL BLVD, NEW ORLEANS, LA, 70124",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:47.139Z"
+    },
+    "618": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 294901 eastern avenue ne grand rapids mi 49503|grand rapids|mi|49503",
+      "attemptedAt": "2026-05-03T15:56:47.325Z"
+    },
+    "619": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "p.o. box 18 oxford mi 48371|oxford|mi|48371",
+      "attemptedAt": "2026-05-03T15:56:47.493Z"
+    },
+    "620": {
+      "status": "ok",
+      "lat": 39.069480336025,
+      "lng": -94.588082522567,
+      "addressHash": "3161 wyandotte street kansas city mo 64111|kansas city|mo|64111",
+      "matchedAddress": "3161 WYANDOTTE ST, KANSAS CITY, MO, 64111",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:47.651Z"
+    },
+    "621": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 746 columbus ms 39703|columbus|ms|39703",
+      "attemptedAt": "2026-05-03T15:56:47.809Z"
+    },
+    "622": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 6127 raleigh nc 27628|raleigh|nc|27628",
+      "attemptedAt": "2026-05-03T15:56:47.966Z"
+    },
+    "623": {
+      "status": "ok",
+      "lat": 35.106092504857,
+      "lng": -80.633521624829,
+      "addressHash": "7884 idlewild rd indian trail nc 28079-8675|indian trail|nc|28079-8675",
+      "matchedAddress": "7884 IDLEWILD RD, INDIAN TRAIL, NC, 28079",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:48.188Z"
+    },
+    "625": {
+      "status": "ok",
+      "lat": 35.818535915393,
+      "lng": -78.904336146544,
+      "addressHash": "5047 cary glen blvd cary nc 27519|cary|nc|27519",
+      "matchedAddress": "5047 CARY GLEN BLVD, CARY, NC, 27519",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:48.419Z"
+    },
+    "626": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 15946 wilmington nc 28408|wilmington|nc|28408",
+      "attemptedAt": "2026-05-03T15:56:48.576Z"
+    },
+    "629": {
+      "status": "ok",
+      "lat": 39.284685727649,
+      "lng": -84.43395391648,
+      "addressHash": "2430 e. kemper rd. cincinnati oh 45241|cincinnati|oh|45241",
+      "matchedAddress": "2430 E KEMPER RD, CINCINNATI, OH, 45241",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:48.735Z"
+    },
+    "630": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 54973 oklahoma city ok 74012|oklahoma city|ok|74012",
+      "attemptedAt": "2026-05-03T15:56:48.911Z"
+    },
+    "631": {
+      "status": "ok",
+      "lat": 41.125865193545,
+      "lng": -80.334761088917,
+      "addressHash": "241 high street new wilmington pa 16142|new wilmington|pa|16142",
+      "matchedAddress": "241 HIGH ST, NEW WILMINGTON, PA, 16142",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:49.072Z"
+    },
+    "632": {
+      "status": "ok",
+      "lat": 40.300278885033,
+      "lng": -75.32039536053,
+      "addressHash": "276 west cherry lane souderton pa 18964|souderton|pa|18964",
+      "matchedAddress": "276 W CHERRY LN, SOUDERTON, PA, 18964",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:49.230Z"
+    },
+    "633": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "2200 hamilton street, suite 200 allentown pa 18104|allentown|pa|18104",
+      "attemptedAt": "2026-05-03T15:56:49.395Z"
+    },
+    "634": {
+      "status": "ok",
+      "lat": 41.818901387101,
+      "lng": -71.42253680536,
+      "addressHash": "383 west fountain street #121 providence ri o2903|providence|ri|o2903",
+      "matchedAddress": "383 W FOUNTAIN ST, PROVIDENCE, RI, 02903",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:49.563Z"
+    },
+    "637": {
+      "status": "ok",
+      "lat": 35.99260532604,
+      "lng": -86.81262455054,
+      "addressHash": "1310 franklin rd, po box 2206 brentwood tn 37024|brentwood|tn|37024",
+      "matchedAddress": "1310 FRANKLIN RD, BRENTWOOD, TN, 37027",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:49.730Z"
+    },
+    "638": {
+      "status": "ok",
+      "lat": 36.086941085073,
+      "lng": -86.753588925937,
+      "addressHash": "4555 trousdale dr nashville tn 37204|nashville|tn|37204",
+      "matchedAddress": "4555 TROUSDALE DR, NASHVILLE, TN, 37204",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:49.893Z"
+    },
+    "639": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 2713 brentwood tn 37024|brentwood|tn|37024",
+      "attemptedAt": "2026-05-03T15:56:50.054Z"
+    },
+    "640": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 647 franklin tn 37064|franklin|tn|37064",
+      "attemptedAt": "2026-05-03T15:56:50.216Z"
+    },
+    "641": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "700 n. pearl st., suite 1200 dallas tx 75201-2874|dallas|tx|75201-2874",
+      "attemptedAt": "2026-05-03T15:56:50.377Z"
+    },
+    "642": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 868049 plano tx 75086-8049|plano|tx|75086-8049",
+      "attemptedAt": "2026-05-03T15:56:50.535Z"
+    },
+    "643": {
+      "status": "ok",
+      "lat": 32.424890641449,
+      "lng": -97.001522798415,
+      "addressHash": "702 champlain ct midlothian tx 76065-8842|midlothian|tx|76065-8842",
+      "matchedAddress": "702 CHAMPLIN CT, MIDLOTHIAN, TX, 76065",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:50.696Z"
+    },
+    "646": {
+      "status": "ok",
+      "lat": 29.732512842143,
+      "lng": -95.43140945476,
+      "addressHash": "9 greenway plaza, suite 3150 houston tx 77046|houston|tx|77046",
+      "matchedAddress": "9 E GREENWAY PLZ, HOUSTON, TX, 77046",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:50.864Z"
+    },
+    "647": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 3647 wichita falls tx 76301|wichita falls|tx|76301",
+      "attemptedAt": "2026-05-03T15:56:51.020Z"
+    },
+    "651": {
+      "status": "ok",
+      "lat": 43.063558345358,
+      "lng": -87.97254929861,
+      "addressHash": "2461 n. 47th st milwaukee wi 53210|milwaukee|wi|53210",
+      "matchedAddress": "2461 N 47TH ST, MILWAUKEE, WI, 53210",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:51.198Z"
+    },
+    "653": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "p.o. box 75635 wichita ks 67275|wichita|ks|67275",
+      "attemptedAt": "2026-05-03T15:56:51.362Z"
+    },
+    "654": {
+      "status": "ok",
+      "lat": 30.150582499446,
+      "lng": -81.656907733648,
+      "addressHash": "1764 river plantation lane jacksonville fl 32223|jacksonville|fl|32223",
+      "matchedAddress": "1764 RIVER PLANTATION LN, JACKSONVILLE, FL, 32223",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:51.530Z"
+    },
+    "901": {
+      "status": "ok",
+      "lat": 46.403043636969,
+      "lng": -117.021124225628,
+      "addressHash": "818 17th ave., lewiston, id 83501|lewiston|id|83501",
+      "matchedAddress": "818 17TH AVE, LEWISTON, ID, 83501",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:51.726Z"
+    },
+    "1802": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 402 sulphur, ok 73086|sulphur|ok|73086",
+      "attemptedAt": "2026-05-03T15:56:51.882Z"
+    },
+    "1913": {
+      "status": "ok",
+      "lat": 37.04057395782,
+      "lng": -76.419479225485,
+      "addressHash": "1458 todds lane, hampton va 23666|hampton|va|23666",
+      "matchedAddress": "1458 TODDS LN, HAMPTON, VA, 23666",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:52.071Z"
+    },
+    "1919": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "dayton, ohio|dayton|oh|45377",
+      "attemptedAt": "2026-05-03T15:56:52.230Z"
+    },
+    "1930": {
+      "status": "ok",
+      "lat": 39.06150607857,
+      "lng": -77.114406279918,
+      "addressHash": "12440 parklawn street, rockville, md 20852|rockville|md|20852",
+      "matchedAddress": "12440 PARKLAWN DR, ROCKVILLE, MD, 20852",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:52.393Z"
+    },
+    "1932": {
+      "status": "ok",
+      "lat": 39.960738246172,
+      "lng": -83.013176848848,
+      "addressHash": "470 w broad st. columbus, oh 43215|columbus|oh|43215",
+      "matchedAddress": "470 W BROAD ST, COLUMBUS, OH, 43215",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:52.590Z"
+    },
+    "2035": {
+      "status": "ok",
+      "lat": 32.852524508092,
+      "lng": -86.515090624024,
+      "addressHash": "346 county road 1028 clanton, al 35046|clanton|al|35046",
+      "matchedAddress": "346 CO RD 1028, CLANTON, AL, 35046",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:52.802Z"
+    },
+    "2036": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 310, bigfork, montana 59911|bigfork|mt|59911",
+      "attemptedAt": "2026-05-03T15:56:52.966Z"
+    },
+    "2100": {
+      "status": "ok",
+      "lat": 30.671014132019,
+      "lng": -97.917454967674,
+      "addressHash": "14125 w hwy 29 ste b203-113 liberty hill, tx. 78642|liberty hill|tx|78642",
+      "matchedAddress": "14125 W STATE HWY 29, LIBERTY HILL, TX, 78642",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:53.136Z"
+    },
+    "2101": {
+      "status": "ok",
+      "lat": 30.511666207307,
+      "lng": -97.693463157255,
+      "addressHash": "1205 round rock ave ste 109, round rock, tx 78681|round rock|tx|78681",
+      "matchedAddress": "1205 ROUND ROCK AVE, ROUND ROCK, TX, 78681",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:53.295Z"
+    },
+    "2102": {
+      "status": "ok",
+      "lat": 42.008520761381,
+      "lng": -93.561866418515,
+      "addressHash": "56829 us hwy 30, ames, ia 50010|ames|ia|50010",
+      "matchedAddress": "56829 US HWY 30, AMES, IA, 50010",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:53.468Z"
+    },
+    "2103": {
+      "status": "ok",
+      "lat": 41.68625900283,
+      "lng": -93.60073955117,
+      "addressHash": "6900 ne 14th st (ste 25), ankeny, ia 50023|ankeny|ia|50023",
+      "matchedAddress": "6900 NE 14TH ST, ANKENY, IA, 50023",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:53.645Z"
+    },
+    "2109": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "p.o. box 985, wake forest, nc 27588-0985|wake forest|nc|27588",
+      "attemptedAt": "2026-05-03T15:56:53.815Z"
+    },
+    "2110": {
+      "status": "ok",
+      "lat": 35.656730909982,
+      "lng": -78.837205552525,
+      "addressHash": "112 3rd st #218, holly springs, nc 27540|holly springs|nc|27540",
+      "matchedAddress": "112 THIRD ST, HOLLY SPRINGS, NC, 27540",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:54.018Z"
+    },
+    "2111": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 1879, fuquay-varina, nc, 27526|fuquay-varina|nc|27526",
+      "attemptedAt": "2026-05-03T15:56:54.174Z"
+    },
+    "2112": {
+      "status": "ok",
+      "lat": 35.925468483025,
+      "lng": -78.841433328357,
+      "addressHash": "2335 presidential drive, suite 114, durham, nc 27703|durham|nc|27703",
+      "matchedAddress": "2335 PRESIDENTIAL DR, DURHAM, NC, 27703",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:54.330Z"
+    },
+    "2113": {
+      "status": "ok",
+      "lat": 35.767877224695,
+      "lng": -78.784840973213,
+      "addressHash": "207 new edition ct, cary, nc 27511|cary|nc|27511",
+      "matchedAddress": "207 NEW EDITION CT, CARY, NC, 27511",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:54.534Z"
+    },
+    "2114": {
+      "status": "ok",
+      "lat": 35.791899310389,
+      "lng": -78.680814640367,
+      "addressHash": "3321 trillium whorl ct, suite 200, raleigh, nc 27607|raleigh|nc|27607",
+      "matchedAddress": "3321 TRILLIUM WHORL CT, RALEIGH, NC, 27607",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:54.698Z"
+    },
+    "2117": {
+      "status": "ok",
+      "lat": 41.302159521134,
+      "lng": -96.023761574488,
+      "addressHash": "4805 n. 72nd st., omaha, nebraska 68134|omaha|ne|68134",
+      "matchedAddress": "4805 N 72ND ST, OMAHA, NE, 68134",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:54.866Z"
+    },
+    "2118": {
+      "status": "ok",
+      "lat": 41.216155469462,
+      "lng": -96.093634239493,
+      "addressHash": "11615 i st, omaha, ne|omaha|ne|68137",
+      "matchedAddress": "11615 I ST, OMAHA, NE, 68137",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:55.028Z"
+    },
+    "2120": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "p.o. box 564 pahrump, nv 89041|pahrump|nv|89041",
+      "attemptedAt": "2026-05-03T15:56:55.188Z"
+    },
+    "2124": {
+      "status": "ok",
+      "lat": 40.408267659408,
+      "lng": -105.002296869477,
+      "addressHash": "1455 rocky mountain ave, loveland, co 80538|loveland|co|80538",
+      "matchedAddress": "1455 ROCKY MOUNTAIN AVE, LOVELAND, CO, 80538",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:55.377Z"
+    },
+    "2128": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "360 crossroads blvd., windsor, co 80550|windsor|co|80550",
+      "attemptedAt": "2026-05-03T15:56:55.560Z"
+    },
+    "2132": {
+      "status": "ok",
+      "lat": 27.634360119745,
+      "lng": -81.528160951677,
+      "addressHash": "2600 n highlands blvd, avon park, fl 33825|avon park|fl|33825",
+      "matchedAddress": "2600 N HIGHLANDS BLVD, AVON PARK, FL, 33825",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:55.725Z"
+    },
+    "2136": {
+      "status": "ok",
+      "lat": 28.199176065188,
+      "lng": -82.539382714344,
+      "addressHash": "16703 early riser ave, ste 231, land o'lakes, fl 34638|land o'lakes|fl|34638",
+      "matchedAddress": "16703 EARLY RISER AVE, LAND O LAKES, FL, 34638",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:55.911Z"
+    },
+    "2137": {
+      "status": "ok",
+      "lat": 38.940464106416,
+      "lng": -77.253019803779,
+      "addressHash": "8925 leesburg pike, vienna, va 22182|vienna|va|22182",
+      "matchedAddress": "8925 LEESBURG PIKE, VIENNA, VA, 22182",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:56.075Z"
+    },
+    "2138": {
+      "status": "ok",
+      "lat": 39.049187956491,
+      "lng": -77.485352866278,
+      "addressHash": "20684 ashburn road, ashburn, va 20147|ashburn|va|20147",
+      "matchedAddress": "20684 ASHBURN RD, ASHBURN, VA, 20147",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:56.243Z"
+    },
+    "2139": {
+      "status": "ok",
+      "lat": 30.536309597066,
+      "lng": -84.215060576098,
+      "addressHash": "4500 w. shannon lakes drive, suite 12, tallahassee, fl 32309|tallahassee|fl|32309",
+      "matchedAddress": "4500 W SHANNON LAKES DR, TALLAHASSEE, FL, 32309",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:56.408Z"
+    },
+    "2144": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 2558, fairmont, wv 26554|fairmont|wv|26554",
+      "attemptedAt": "2026-05-03T15:56:56.563Z"
+    },
+    "2147": {
+      "status": "ok",
+      "lat": 42.979297262433,
+      "lng": -85.649720385052,
+      "addressHash": "901 eastern ave ne, po box 294, grand rapids, mi 49501-0294|grands rapids|mi|49501-0294",
+      "matchedAddress": "901 EASTERN AVE NE, GRAND RAPIDS, MI, 49503",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:56.738Z"
+    },
+    "2148": {
+      "status": "ok",
+      "lat": 39.650490057751,
+      "lng": -79.974835953269,
+      "addressHash": "308 elmhurst st. morgantown, wv 26505|morgantown|wv|26505",
+      "matchedAddress": "308 ELMHURST ST, MORGANTOWN, WV, 26505",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:56.901Z"
+    },
+    "2149": {
+      "status": "ok",
+      "lat": 39.673735191923,
+      "lng": -79.852570767018,
+      "addressHash": "2223 cheat road, morgantown, wv 26508|morgantown|wv|26508",
+      "matchedAddress": "2223 CHEAT RD, MORGANTOWN, WV, 26508",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:57.062Z"
+    },
+    "2150": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "3653 teays valley road, hurricane, wv 25526|hurricane|wv|25526",
+      "attemptedAt": "2026-05-03T15:56:57.232Z"
+    },
+    "2154": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "100-81st ave, dyer, in 46311|dyer|in|46311",
+      "attemptedAt": "2026-05-03T15:56:57.398Z"
+    },
+    "2156": {
+      "status": "ok",
+      "lat": 41.547584015584,
+      "lng": -87.360562444439,
+      "addressHash": "3935 cleveland st, gary, in 46408|gary|in|46408",
+      "matchedAddress": "3935 CLEVELAND ST, GARY, IN, 46408",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:57.569Z"
+    },
+    "2157": {
+      "status": "ok",
+      "lat": 35.751732552829,
+      "lng": -78.725943395358,
+      "addressHash": "5200 dillard dr, raleigh, nc 27606|raleigh|nc|27606",
+      "matchedAddress": "5200 DILLARD DR, RALEIGH, NC, 27606",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:57.730Z"
+    },
+    "2685": {
+      "status": "ok",
+      "lat": 42.006986434966,
+      "lng": -87.680910211615,
+      "addressHash": "6959 n ridge blvd|chicago|il|60645",
+      "matchedAddress": "6959 N RIDGE BLVD, CHICAGO, IL, 60645",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:57.900Z"
+    },
+    "2692": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 1023|hockessin|de|19707",
+      "attemptedAt": "2026-05-03T15:56:58.063Z"
+    },
+    "2700": {
+      "status": "ok",
+      "lat": 37.726357256213,
+      "lng": -122.23991171994,
+      "addressHash": "1801 n loop rd|alameda|ca|94502",
+      "matchedAddress": "1801 N LOOP RD, ALAMEDA, CA, 94502",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:58.231Z"
+    },
+    "2701": {
+      "status": "ok",
+      "lat": 41.190761219678,
+      "lng": -85.167154892132,
+      "addressHash": "11809 lima road, fort wayne, in 46818|fort wayne|in|46818",
+      "matchedAddress": "11809 LIMA RD, FORT WAYNE, IN, 46818",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:58.408Z"
+    },
+    "2702": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "fort wayne, in 46845|fort wayne|in|46845",
+      "attemptedAt": "2026-05-03T15:56:58.638Z"
+    },
+    "2703": {
+      "status": "ok",
+      "lat": 41.220284520596,
+      "lng": -84.989128242139,
+      "addressHash": "14505 klopfenstein road, leo, in 46765|leo|in|46765",
+      "matchedAddress": "14505 KLOPFENSTEIN RD, LEO, IN, 46765",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:58.802Z"
+    },
+    "2704": {
+      "status": "ok",
+      "lat": 41.178298138911,
+      "lng": -85.126479527227,
+      "addressHash": "1206 e dupont road, fort wayne, in 46825|fort wayne|in|46825",
+      "matchedAddress": "1206 E DUPONT RD, FORT WAYNE, IN, 46825",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:58.974Z"
+    },
+    "2711": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "rutherfordton, north carolina, 28139|rutherford|nc|28139",
+      "attemptedAt": "2026-05-03T15:56:59.145Z"
+    },
+    "2713": {
+      "status": "ok",
+      "lat": 35.047856299929,
+      "lng": -89.732471887375,
+      "addressHash": "3690 s. houston levee rd., collierville, tn, 38017|collierville|tn|38017",
+      "matchedAddress": "3690 S HOUSTON LEVEE RD, COLLIERVILLE, TN, 38017",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:59.313Z"
+    },
+    "2716": {
+      "status": "ok",
+      "lat": 35.137078984839,
+      "lng": -89.965857923674,
+      "addressHash": "110 timber creek dr., suite #1, memphis, tn, 38088|memphis|tn|38088",
+      "matchedAddress": "110 TIMBER LN, MEMPHIS, TN, 38112",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:59.480Z"
+    },
+    "2717": {
+      "status": "ok",
+      "lat": 35.158808049203,
+      "lng": -89.983143155933,
+      "addressHash": "2212 jackson ave., memphis, tn, 38112|memphis|tn|38112",
+      "matchedAddress": "2212 JACKSON AVE, MEMPHIS, TN, 38112",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:59.638Z"
+    },
+    "2718": {
+      "status": "ok",
+      "lat": 35.103107609909,
+      "lng": -89.90300635065,
+      "addressHash": "1106 colonial rd., memphis, tn, 38117|memphis|tn|38117",
+      "matchedAddress": "1106 COLONIAL RD, MEMPHIS, TN, 38117",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:56:59.800Z"
+    },
+    "2719": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "memphis, tn 38114|memphis|tn|38114",
+      "attemptedAt": "2026-05-03T15:56:59.951Z"
+    },
+    "2720": {
+      "status": "ok",
+      "lat": 39.85846631945,
+      "lng": -105.063991097407,
+      "addressHash": "8811 n harlan st, westminster, co 80031|westminster|co|80031",
+      "matchedAddress": "8811 HARLAN ST, WESTMINSTER, CO, 80031",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:00.155Z"
+    },
+    "2721": {
+      "status": "ok",
+      "lat": 39.877419269432,
+      "lng": -105.095674948986,
+      "addressHash": "9975 wadsworth pkwy, unit k2 pmb 402, westminster, co 80021|westminster|co|80021",
+      "matchedAddress": "9975 WADSWORTH PKWY, WESTMINSTER, CO, 80021",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:00.332Z"
+    },
+    "2722": {
+      "status": "ok",
+      "lat": 39.70460381865,
+      "lng": -105.137419685051,
+      "addressHash": "12344 w alameda parkway, lakewood, colorado 80228|lakewood|co|80228",
+      "matchedAddress": "12344 W ALAMEDA PKWY, LAKEWOOD, CO, 80228",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:00.535Z"
+    },
+    "2726": {
+      "status": "ok",
+      "lat": 34.871762238643,
+      "lng": -82.317903883398,
+      "addressHash": "207 mitchell road, greenville, sc 29615|greenville|sc|29615",
+      "matchedAddress": "207 MITCHELL RD, GREENVILLE, SC, 29615",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:00.699Z"
+    },
+    "2727": {
+      "status": "ok",
+      "lat": 34.820121600313,
+      "lng": -82.257631963435,
+      "addressHash": "2131 woodruff rd ste 2100 greenville, sc 29607|greenville|sc|29607",
+      "matchedAddress": "2131 WOODRUFF RD, GREENVILLE, SC, 29607",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:00.864Z"
+    },
+    "2729": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "atlanta, ga|acworth|ga|30101",
+      "attemptedAt": "2026-05-03T15:57:01.019Z"
+    },
+    "2730": {
+      "status": "ok",
+      "lat": 36.234237460542,
+      "lng": -115.22788770914,
+      "addressHash": "4079 n rancho dr #110, las vegas, nv 89130|las vegas|nv|89130",
+      "matchedAddress": "4079 N RANCHO DR, LAS VEGAS, NV, 89130",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:01.179Z"
+    },
+    "2731": {
+      "status": "ok",
+      "lat": 35.238252940043,
+      "lng": -81.502682137761,
+      "addressHash": "2031 pleasant hill church rd, shelby, north carolina 28152|shelby|nc|28152",
+      "matchedAddress": "2031 PLEASANT HILL CHURCH RD, SHELBY, NC, 28152",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:01.369Z"
+    },
+    "2732": {
+      "status": "ok",
+      "lat": 39.419725412164,
+      "lng": -92.442194161337,
+      "addressHash": "538 w reed st, moberly, mo 65270|moberly|mo|65270",
+      "matchedAddress": "538 W REED ST, MOBERLY, MO, 65270",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:01.549Z"
+    },
+    "2733": {
+      "status": "ok",
+      "lat": 42.976907399734,
+      "lng": -85.677124919718,
+      "addressHash": "800 scribner nw, grand rapids, mi 49504|grand rapids|mi|49504",
+      "matchedAddress": "800 SCRIBNER AVE NW, GRAND RAPIDS, MI, 49504",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:01.729Z"
+    },
+    "2734": {
+      "status": "ok",
+      "lat": 35.341892106735,
+      "lng": -81.890486430313,
+      "addressHash": "338 withrow rd. suite b|forest city|nc|28043",
+      "matchedAddress": "338 WITHROW RD, FOREST CITY, NC, 28043",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:01.905Z"
+    },
+    "2735": {
+      "status": "ok",
+      "lat": 40.471145875275,
+      "lng": -104.914505138133,
+      "addressHash": "808 pine drive|windsor|co|80550",
+      "matchedAddress": "808 PINE DR, WINDSOR, CO, 80550",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:02.078Z"
+    },
+    "2736": {
+      "status": "ok",
+      "lat": 34.851361054307,
+      "lng": -82.400707088721,
+      "addressHash": "200 w washington street|greenville|sc|29601",
+      "matchedAddress": "200 W WASHINGTON ST, GREENVILLE, SC, 29601",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:02.240Z"
+    },
+    "2737": {
+      "status": "ok",
+      "lat": 40.380569783745,
+      "lng": -105.097977415908,
+      "addressHash": "1151 eagle dr., #464, loveland, co 80537|loveland|co|80537",
+      "matchedAddress": "1151 EAGLE DR, LOVELAND, CO, 80537",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:02.416Z"
+    },
+    "2738": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 241514|memphis|tn|38124",
+      "attemptedAt": "2026-05-03T15:57:02.569Z"
+    },
+    "2739": {
+      "status": "ok",
+      "lat": 42.97600505389,
+      "lng": -85.590864374748,
+      "addressHash": "707 e beltline ne grand rapids, mi 49525|grand rapids|mi|49525",
+      "matchedAddress": "707 E BELTLINE AVE NE, GRAND RAPIDS, MI, 49525",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:02.733Z"
+    },
+    "2740": {
+      "status": "ok",
+      "lat": 41.687320946098,
+      "lng": -93.600735198825,
+      "addressHash": "6950 ne 14th st, ste 33|ankeny|ia|50023",
+      "matchedAddress": "6950 NE 14TH ST, ANKENY, IA, 50023",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:02.909Z"
+    },
+    "2741": {
+      "status": "ok",
+      "lat": 39.861220557326,
+      "lng": -105.063969168699,
+      "addressHash": "9101 harlan street, unit 260, westminster, co 80031|westminster|co|80031",
+      "matchedAddress": "9101 HARLAN ST, WESTMINSTER, CO, 80031",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:03.080Z"
+    },
+    "2743": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "301 delaware, newcastle, wy, 82701|newcastle|wy|82701",
+      "attemptedAt": "2026-05-03T15:57:03.240Z"
+    },
+    "2744": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 266|winona lake|in|46590",
+      "attemptedAt": "2026-05-03T15:57:03.398Z"
+    },
+    "2745": {
+      "status": "ok",
+      "lat": 41.226145581125,
+      "lng": -85.810178131564,
+      "addressHash": "1003 presidential drive, winona lake, in 46590|winona lake|in|46590",
+      "matchedAddress": "1003 PRESIDENTIAL DR, WINONA LAKE, IN, 46590",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:03.570Z"
+    },
+    "2747": {
+      "status": "ok",
+      "lat": 37.718968014029,
+      "lng": -97.304148854574,
+      "addressHash": "2755 e 19th st n|wichita|ks|67214",
+      "matchedAddress": "2755 E 19TH ST N, WICHITA, KS, 67214",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:03.754Z"
+    },
+    "2748": {
+      "status": "ok",
+      "lat": 31.194263979102,
+      "lng": -81.480240498912,
+      "addressHash": "3365 cypress mill road|brunswick|ga|31520",
+      "matchedAddress": "3365 CYPRESS MILL RD, BRUNSWICK, GA, 31520",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:03.931Z"
+    },
+    "2749": {
+      "status": "ok",
+      "lat": 35.047856299929,
+      "lng": -89.732471887375,
+      "addressHash": "3690 s. houston levee rd.|collierville|tn|38017",
+      "matchedAddress": "3690 S HOUSTON LEVEE RD, COLLIERVILLE, TN, 38017",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:04.097Z"
+    },
+    "2750": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 54973|oklahoma city|ok|73154",
+      "attemptedAt": "2026-05-03T15:57:04.270Z"
+    },
+    "2751": {
+      "status": "ok",
+      "lat": 36.076104790437,
+      "lng": -115.087039796792,
+      "addressHash": "6225 annie oakley dr|las vegas|nv|89120",
+      "matchedAddress": "6225 ANNIE OAKLEY DR, LAS VEGAS, NV, 89120",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:04.425Z"
+    },
+    "2752": {
+      "status": "ok",
+      "lat": 35.875922113051,
+      "lng": -80.097177337434,
+      "addressHash": "204 idol st.|thomasville|nc|27360",
+      "matchedAddress": "204 IDOL ST, THOMASVILLE, NC, 27360",
+      "source": "census",
+      "geocodedAt": "2026-05-03T15:57:04.580Z"
+    }
+  }
 }

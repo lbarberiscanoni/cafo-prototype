@@ -31,6 +31,36 @@ export const fmtCompact = (val, fallback = '--') => {
 /** Check if value exists (not null/undefined) */
 export const hasValue = (val) => val !== null && val !== undefined;
 
+// ==================== DATA SOURCE ATTRIBUTION ====================
+// Years sourced directly from AFCARS (because NDACAN's curated archive
+// hasn't been published yet for that year). All other years are NDACAN.
+// Update when NDACAN releases a new year's archive.
+const AFCARS_LIVE_YEARS = new Set([2025]);
+
+const sourceForYear = (y) => AFCARS_LIVE_YEARS.has(Number(y)) ? 'AFCARS' : 'NDACAN';
+
+/**
+ * Build a citation label for one or more years.
+ *   getSourceLabel(2025)              → "AFCARS 2025"
+ *   getSourceLabel(2024)              → "NDACAN 2024"
+ *   getSourceLabel([2021,2022,2023])  → "NDACAN 2021-2023"
+ *   getSourceLabel([2021,2022,2023,2024,2025]) → "NDACAN 2021-2024, AFCARS 2025"
+ */
+export const getSourceLabel = (years) => {
+  const arr = (Array.isArray(years) ? years : [years])
+    .map(Number)
+    .filter(y => !isNaN(y))
+    .sort((a, b) => a - b);
+  if (arr.length === 0) return null;
+  const buckets = { NDACAN: [], AFCARS: [] };
+  for (const y of arr) buckets[sourceForYear(y)].push(y);
+  const fmt = (ys) => ys.length === 1 ? `${ys[0]}` : `${ys[0]}-${ys[ys.length - 1]}`;
+  const parts = [];
+  if (buckets.NDACAN.length) parts.push(`NDACAN ${fmt(buckets.NDACAN)}`);
+  if (buckets.AFCARS.length) parts.push(`AFCARS ${fmt(buckets.AFCARS)}`);
+  return parts.join(', ');
+};
+
 // ==================== STATE MAPPINGS ====================
 
 export const stateNameToCode = {

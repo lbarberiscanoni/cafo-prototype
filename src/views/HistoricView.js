@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback } from "react";
-import { countyData, stateData, historicalData, fmt, hasValue, getGeographyLabel, stateNameToCode } from "../real-data.js";
+import { countyData, stateData, historicalData, fmt, hasValue, getGeographyLabel, stateNameToCode, getSourceLabel } from "../real-data.js";
 import CountySelect from "../CountySelect";
 
 // Assets
@@ -170,7 +170,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
         }
       ].filter(Boolean),
       wraparound: [],
-      source: `NDACAN ${years[0]}–${years[years.length - 1]}`
+      source: getSourceLabel(years)
     };
   }
 
@@ -216,7 +216,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
       ].filter(Boolean),
       biological: [],
       wraparound: [],
-      source: `NDACAN ${years[0]}–${years[years.length - 1]}`
+      source: getSourceLabel(years)
     };
   }
 
@@ -304,7 +304,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
         }
       ].filter(Boolean),
       wraparound: [],
-      source: `${countyStateSource || 'NDACAN'} ${years[0]}–${years[years.length - 1]}`
+      source: countyStateSource || getSourceLabel(years)
     };
   }
   

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from "react";
-import { countyData, stateData, nationalStats, historicalData, stateNameToCode, fmt, fmtPct, fmtCompact, getGeographyLabel } from "../real-data.js";
+import { countyData, stateData, nationalStats, historicalData, stateNameToCode, fmt, fmtPct, fmtCompact, getGeographyLabel, getSourceLabel } from "../real-data.js";
 
 // Assets
 import ChurchIcon from "../assets/church_icon.png";
@@ -317,7 +317,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
       values,
       years,
       labels: values.map(formatLabel),
-      source: `NDACAN ${years[0]}–${years[years.length - 1]}`
+      source: getSourceLabel(years)
     };
   };
 
@@ -387,7 +387,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                       <div className="font-semibold">{trendData.labels[index]}</div>
                       <div>{selectedMetric}</div>
                       <div>End of Year {trendData.years[index]}</div>
-                      <div className="text-mte-subdued-white mt-1">Source: NDACAN</div>
+                      <div className="text-mte-subdued-white mt-1">Source: {trendData.source}</div>
                     </div>
                   </div>
                 )}
@@ -506,7 +506,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">in Kinship Care</div>
                   </div>
                 </div>
-                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: NDACAN{data.dataYear ? ` ${data.dataYear}` : ''}</div>
+                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.dataYear)}</div>
               </div>
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Adoption Data in the U.S.</h4>
@@ -519,7 +519,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">Children Adopted{data.dataYear ? ` in FY ${data.dataYear}` : ''}</div>
                   </div>
                 </div>
-                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: NDACAN{data.dataYear ? ` ${data.dataYear}` : ''}</div>
+                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.dataYear)}</div>
               </div>
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Church Data in the U.S.</h4>
@@ -593,7 +593,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">Licensed Foster Homes</div>
                   </div>
                 </div>
-                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: NDACAN{data.afcarsYear ? ` ${data.afcarsYear}` : ''}</div>
+                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.afcarsYear)}</div>
               </div>
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Adoption Data</h4>
@@ -604,7 +604,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">Children Waiting for Adoption</div>
                   </div>
                 </div>
-                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: NDACAN{data.afcarsYear ? ` ${data.afcarsYear}` : ''}</div>
+                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.afcarsYear)}</div>
               </div>
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Biological Family Data</h4>
@@ -617,7 +617,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">Family Preservation Cases</div>
                   </div>
                 </div>
-                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: NDACAN{data.afcarsYear ? ` ${data.afcarsYear}` : ''}</div>
+                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.afcarsYear)}</div>
               </div>
             </div>
           </div>
@@ -878,7 +878,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.waitingForAdoption)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Children Waiting For Adoption</p></div>
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(stateInfo.reunificationRate)}</p><p className="text-sm text-mte-charcoal font-lato">Biological Family Reunification Rate (%)</p></div>
               </div>
-              <div className="mt-4 text-xs text-mte-charcoal font-lato">Source: NDACAN{stateInfo.dataYear ? ` ${stateInfo.dataYear}` : ''}</div>
+              <div className="mt-4 text-xs text-mte-charcoal font-lato">Source: {getSourceLabel(stateInfo.dataYear)}</div>
             </div>
           </section>
         );

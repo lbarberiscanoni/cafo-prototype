@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-03T08:07:53.876Z",
+  "timestamp": "2026-05-03T22:33:26.353Z",
   "dataDir": "./",
   "checks": [
     {
@@ -14,8 +14,8 @@
       "category": "afcars",
       "name": "record_count",
       "passed": true,
-      "expected": 208,
-      "actual": 208,
+      "expected": 260,
+      "actual": 260,
       "message": null
     },
     {
@@ -30,8 +30,8 @@
       "category": "afcars",
       "name": "year_count",
       "passed": true,
-      "expected": 4,
-      "actual": 4,
+      "expected": 5,
+      "actual": 5,
       "message": null
     },
     {
@@ -63,7 +63,7 @@
       "name": "null_preservation",
       "passed": true,
       "expected": "nulls preserved",
-      "actual": "97 null values",
+      "actual": "149 null values",
       "message": null
     },
     {
@@ -183,7 +183,7 @@
       "name": "with_coordinates",
       "passed": true,
       "expected": ">= 150",
-      "actual": 187,
+      "actual": 285,
       "message": null
     },
     {

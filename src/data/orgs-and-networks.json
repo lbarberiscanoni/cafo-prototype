@@ -1,12 +1,12 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-05-04T08:37:03.395Z",
-    "organizationCount": 522,
+    "generated": "2026-05-06T08:34:35.932Z",
+    "organizationCount": 528,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 285,
-      "withWebsite": 325,
+      "withCoordinates": 288,
+      "withWebsite": 331,
       "withActivities": 194,
       "withNetworkMemberships": 95,
       "withCountiesServed": 191
@@ -14,21 +14,21 @@
     "categories": {
       "Local Network": 33,
       "State/Regional Network": 3,
-      "Bridge Organization": 14,
+      "Bridge Organization": 13,
       "Regional Network": 1,
-      "Service Organization": 127,
+      "Service Organization": 130,
       "Placement Agency": 36,
       "Unknown": 143,
-      "Bridge Ministry": 60,
-      "Church Foster Care Ministry": 83,
+      "Bridge Ministry": 62,
+      "Church Foster Care Ministry": 85,
       "Child Placement Agency": 22
     },
     "geocoding": {
       "manual": 187,
       "cacheHit": 98,
-      "newlyGeocoded": 0,
-      "cachedFailure": 51,
-      "unresolved": 0,
+      "newlyGeocoded": 3,
+      "cachedFailure": 50,
+      "unresolved": 4,
       "skipped": 186
     }
   },
@@ -10659,33 +10659,6 @@
       "countiesServed": []
     },
     {
-      "id": 630,
-      "name": "111 Project",
-      "isOrganization": true,
-      "isNetwork": false,
-      "address": {
-        "street": "PO Box 54973 Oklahoma City OK 74012",
-        "city": "Oklahoma City",
-        "state": "OK",
-        "zip": "74012",
-        "county": null
-      },
-      "coordinates": null,
-      "website": "111project.org",
-      "category": "Bridge Organization",
-      "activities": [],
-      "officialFosterMinistry": false,
-      "cafoMember": true,
-      "contact": {
-        "name": "Chris Campbell",
-        "title": null,
-        "email": "chris@111project.org"
-      },
-      "onMap": false,
-      "networkMemberships": [],
-      "countiesServed": []
-    },
-    {
       "id": 631,
       "name": "Bair Foundation",
       "isOrganization": true,
@@ -20812,6 +20785,204 @@
       "onMap": true,
       "networkMemberships": [],
       "countiesServed": []
+    },
+    {
+      "id": 2753,
+      "name": "Waymark (Kids Cubed Inc.)",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2500 Dallas Highway, Suite 202, #480",
+        "city": "Marietta",
+        "state": "GA",
+        "zip": "30064",
+        "county": null
+      },
+      "coordinates": null,
+      "website": "waymarkfoster.org/",
+      "category": "Service Organization",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Doug Whitener",
+        "title": "Tasha Whitener",
+        "email": "tasha@waymarkfoster.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2754,
+      "name": "Plesion",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "P.O. Box 532",
+        "city": "Schnecksville",
+        "state": "PA",
+        "zip": "18078",
+        "county": null
+      },
+      "coordinates": null,
+      "website": "plesion.org",
+      "category": "Service Organization",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Maria Samaritano",
+        "title": "Founder and Director",
+        "email": "maria@plesion.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2755,
+      "name": "Spokane127",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "711 E 3rd Ave",
+        "city": "Spokane",
+        "state": "WA",
+        "zip": "99202",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 47.653638144735,
+        "lng": -117.400386661889
+      },
+      "website": "spokane127.org",
+      "category": "Bridge Ministry",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Nathan Henry",
+        "title": "Director",
+        "email": "nathan@spokane127.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2756,
+      "name": "Big House Family Ministry",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "PO Box 1045",
+        "city": "Lenoir",
+        "state": "NC",
+        "zip": "28645",
+        "county": null
+      },
+      "coordinates": null,
+      "website": "www.BigHouseFamilyMinistry.org",
+      "category": "Bridge Ministry",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Sarah Thomas",
+        "title": "Executive Director",
+        "email": "saraht@bighousefamilyministry.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2757,
+      "name": "Open Door Baptist Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "350 Chili Scottsville Rd.",
+        "city": "Churchville",
+        "state": "NY",
+        "zip": "14428",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 43.080519874723,
+        "lng": -77.766211577201
+      },
+      "website": "opendoorchili.org",
+      "category": "Church Foster Care Ministry",
+      "activities": [],
+      "officialFosterMinistry": true,
+      "cafoMember": true,
+      "contact": {
+        "name": "T-Bear Stansel",
+        "title": "Family Pastor",
+        "email": "bear@opendoorchili.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2758,
+      "name": "The Family Room",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "5331 S Macadam Ave Ste 258, PMB 327",
+        "city": "Portland",
+        "state": "OR",
+        "zip": "97239",
+        "county": null
+      },
+      "coordinates": null,
+      "website": "familyroomoregon.org/",
+      "category": "Service Organization",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Jen Browning",
+        "title": "Executive Director",
+        "email": "jen@familyroomoregon.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2759,
+      "name": "Four Oaks Church East",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1377 Cross Creek Circle",
+        "city": "Tallahassee",
+        "state": "FL",
+        "zip": "32317",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 30.429583775709,
+        "lng": -84.23687039471
+      },
+      "website": "fouroakseast.com",
+      "category": "Church Foster Care Ministry",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Danny Bevil",
+        "title": "Director of Operation",
+        "email": "danny.bevil@fouroakschurch.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
     }
   ],
   "networks": [
@@ -21539,12 +21710,6 @@
       "matchedAddress": "2430 E KEMPER RD, CINCINNATI, OH, 45241",
       "source": "census",
       "geocodedAt": "2026-05-03T15:56:48.735Z"
-    },
-    "630": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "po box 54973 oklahoma city ok 74012|oklahoma city|ok|74012",
-      "attemptedAt": "2026-05-03T15:56:48.911Z"
     },
     "631": {
       "status": "ok",
@@ -22295,6 +22460,57 @@
       "matchedAddress": "204 IDOL ST, THOMASVILLE, NC, 27360",
       "source": "census",
       "geocodedAt": "2026-05-03T15:57:04.580Z"
+    },
+    "2753": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "2500 dallas highway, suite 202, #480|marietta|ga|30064",
+      "attemptedAt": "2026-05-06T08:34:35.323Z"
+    },
+    "2754": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "p.o. box 532|schnecksville|pa|18078",
+      "attemptedAt": "2026-05-06T08:34:35.433Z"
+    },
+    "2755": {
+      "status": "ok",
+      "lat": 47.653638144735,
+      "lng": -117.400386661889,
+      "addressHash": "711 e 3rd ave|spokane|wa|99202",
+      "matchedAddress": "711 E 3RD AVE, SPOKANE, WA, 99202",
+      "source": "census",
+      "geocodedAt": "2026-05-06T08:34:35.529Z"
+    },
+    "2756": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "po box 1045|lenoir|nc|28645",
+      "attemptedAt": "2026-05-06T08:34:35.615Z"
+    },
+    "2757": {
+      "status": "ok",
+      "lat": 43.080519874723,
+      "lng": -77.766211577201,
+      "addressHash": "350 chili scottsville rd.|churchville|ny|14428",
+      "matchedAddress": "350 CHILI SCOTTSVILLE RD, CHURCHVILLE, NY, 14428",
+      "source": "census",
+      "geocodedAt": "2026-05-06T08:34:35.713Z"
+    },
+    "2758": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "5331 s macadam ave ste 258, pmb 327|portland|or|97239",
+      "attemptedAt": "2026-05-06T08:34:35.831Z"
+    },
+    "2759": {
+      "status": "ok",
+      "lat": 30.429583775709,
+      "lng": -84.23687039471,
+      "addressHash": "1377 cross creek circle|tallahassee|fl|32317",
+      "matchedAddress": "1377 CROSS CREEK CIR, TALLAHASSEE, FL, 32301",
+      "source": "census",
+      "geocodedAt": "2026-05-06T08:34:35.931Z"
     }
   }
 }

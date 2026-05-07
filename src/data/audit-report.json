@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-06T08:34:36.037Z",
+  "timestamp": "2026-05-07T08:42:33.570Z",
   "dataDir": "./",
   "checks": [
     {
@@ -175,7 +175,7 @@
       "name": "organization_count",
       "passed": true,
       "expected": ">= 400",
-      "actual": 528,
+      "actual": 530,
       "message": null
     },
     {
@@ -183,7 +183,7 @@
       "name": "with_coordinates",
       "passed": true,
       "expected": ">= 150",
-      "actual": 288,
+      "actual": 319,
       "message": null
     },
     {
@@ -198,8 +198,8 @@
       "category": "orgs",
       "name": "all_have_names",
       "passed": true,
-      "expected": 528,
-      "actual": 528,
+      "expected": 530,
+      "actual": 530,
       "message": null
     },
     {
@@ -223,7 +223,7 @@
       "name": "orgs_with_counties",
       "passed": true,
       "expected": "> 0",
-      "actual": 191,
+      "actual": 190,
       "message": null
     }
   ],

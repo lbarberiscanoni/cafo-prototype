@@ -1,35 +1,35 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-05-06T08:34:35.932Z",
-    "organizationCount": 528,
+    "generated": "2026-05-07T08:42:33.460Z",
+    "organizationCount": 530,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 288,
-      "withWebsite": 331,
-      "withActivities": 194,
+      "withCoordinates": 319,
+      "withWebsite": 334,
+      "withActivities": 192,
       "withNetworkMemberships": 95,
-      "withCountiesServed": 191
+      "withCountiesServed": 190
     },
     "categories": {
       "Local Network": 33,
       "State/Regional Network": 3,
       "Bridge Organization": 13,
       "Regional Network": 1,
-      "Service Organization": 130,
+      "Service Organization": 131,
       "Placement Agency": 36,
-      "Unknown": 143,
+      "Unknown": 142,
       "Bridge Ministry": 62,
-      "Church Foster Care Ministry": 85,
+      "Church Foster Care Ministry": 87,
       "Child Placement Agency": 22
     },
     "geocoding": {
-      "manual": 187,
+      "manual": 185,
       "cacheHit": 98,
-      "newlyGeocoded": 3,
-      "cachedFailure": 50,
-      "unresolved": 4,
-      "skipped": 186
+      "newlyGeocoded": 36,
+      "cachedFailure": 22,
+      "unresolved": 11,
+      "skipped": 178
     }
   },
   "organizations": [
@@ -305,7 +305,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 576, Knightdale, NC 27545",
+        "street": "1003 MULFORD CT, KNIGHTDALE, NC 27545-999",
         "city": "Knightdale",
         "state": "NC",
         "zip": "27545",
@@ -409,13 +409,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Erie, PA",
+        "street": "1401 STATE ST STE 100, ERIE, PA 16501-9998",
         "city": "Erie",
         "state": "PA",
         "zip": "16501",
         "county": "Erie"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 42.121740021449,
+        "lng": -80.08001598138
+      },
       "website": "keyfam.org/county/erie",
       "category": "Service Organization",
       "activities": [
@@ -440,13 +443,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Clarion, PA",
+        "street": "626 MAIN ST, CLARION, PA 16214-1100",
         "city": "Clarion",
         "state": "PA",
         "zip": "16214",
         "county": "Clarion"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.213614620793,
+        "lng": -79.383046753266
+      },
       "website": "keyfam.org/county/clarion",
       "category": "Service Organization",
       "activities": [
@@ -471,13 +477,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Smicksburg, PA",
+        "street": "148 MILL ST, SMICKSBURG, PA 16256-9800",
         "city": "Smicksburg",
         "state": "PA",
         "zip": "16256",
         "county": "Indiana"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 40.869452584493,
+        "lng": -79.170852201328
+      },
       "website": "keyfam.org/county/indiana",
       "category": "Service Organization",
       "activities": [
@@ -502,13 +511,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Somerset, PA",
+        "street": "201 N CENTER AVE, SOMERSET, PA 15501-9998",
         "city": "Somerset",
         "state": "PA",
         "zip": "15501",
         "county": "Somerset"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 40.009398098314,
+        "lng": -79.078690976574
+      },
       "website": "keyfam.org/county/somerset",
       "category": "Service Organization",
       "activities": [
@@ -533,13 +545,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Altoona, PA",
+        "street": "1201 11TH AVE, ALTOONA, PA 16601-9998",
         "city": "Altoona",
         "state": "PA",
         "zip": "16601",
         "county": "Blair"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 40.515617030984,
+        "lng": -78.400805755081
+      },
       "website": "keyfam.org/county/blair",
       "category": "Service Organization",
       "activities": [
@@ -564,13 +579,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Lewistown, PA",
+        "street": "100 W MARKET ST, LEWISTOWN, PA 17044-9998",
         "city": "Lewistown",
         "state": "PA",
         "zip": "17044",
         "county": "Mifflin"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 40.5965804112,
+        "lng": -77.575923719079
+      },
       "website": "keyfam.org/county/mifflin",
       "category": "Service Organization",
       "activities": [
@@ -595,7 +613,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Mechanicsburg, PA",
+        "street": "702 E SIMPSON ST, MECHANICSBURG, PA 17055-9998",
         "city": "Mechanicsburg",
         "state": "PA",
         "zip": "17055",
@@ -626,13 +644,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Lancaster, PA",
+        "street": "1400 HARRISBURG PIKE, LANCASTER, PA 17604-9992",
         "city": "Lancaster",
         "state": "PA",
         "zip": "17601",
         "county": "Lancaster"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 40.061895559151,
+        "lng": -76.337127129581
+      },
       "website": "keyfam.org/county/lancaster",
       "category": "Service Organization",
       "activities": [
@@ -657,7 +678,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Allentown, PA",
+        "street": "442 HAMILTON ST OFC, ALLENTOWN, PA 18101-9998",
         "city": "Allentown",
         "state": "PA",
         "zip": "18103",
@@ -688,13 +709,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "York, PA",
+        "street": "1250 SMILE WAY, YORK, PA 17404-9900",
         "city": "York",
         "state": "PA",
         "zip": "17401",
         "county": "York"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.987192199798,
+        "lng": -76.755018148744
+      },
       "website": "keyfam.org",
       "category": "Service Organization",
       "activities": [
@@ -719,13 +743,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Lebanon, PA",
+        "street": "101 S 8TH ST, LEBANON, PA 17042-9998",
         "city": "Lebanon",
         "state": "PA",
         "zip": "17042",
         "county": "Lebanon"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 40.337272110295,
+        "lng": -76.424347987523
+      },
       "website": "keyfam.org",
       "category": "Service Organization",
       "activities": [
@@ -3829,7 +3856,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 1513, Kenosha, WI 53140",
+        "street": "5605 SHERIDAN RD, KENOSHA, WI 53140-9998",
         "city": "Kenosha",
         "state": "WI",
         "zip": "53140",
@@ -4229,7 +4256,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "P.O. Box 1147 Center Texas 75935",
+        "street": "101 WEAVER ST, CENTER, TX 75935-9998",
         "city": "Center",
         "state": "TX",
         "zip": "75935",
@@ -4453,7 +4480,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 578 Lakeside, CA 92040",
+        "street": "12515 WOODSIDE AVE, LAKESIDE, CA 92040-9998",
         "city": "Lakeside",
         "state": "CA",
         "zip": "92040",
@@ -4864,7 +4891,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Wilkes-Barre, PA 18701",
+        "street": "300 S MAIN ST, WILKES BARRE, PA 18701-9990",
         "city": "Wilkes-Barre",
         "state": "PA",
         "zip": "18701",
@@ -5786,7 +5813,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Sherwood, OR 97140",
+        "street": "16300 SW LANGER DR, SHERWOOD, OR 97140-8766",
         "city": "Sherwood",
         "state": "OR",
         "zip": "97140",
@@ -5824,7 +5851,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 786, Niceville, FL 32567",
+        "street": "306 EDGE AVE, VALPARAISO, FL 32580-9998",
         "city": "Niceville",
         "state": "FL",
         "zip": "32567",
@@ -6144,7 +6171,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "1265 W McCoy   Santa Maria, CA 93455",
+        "street": "1265 W McCoy Lane, Santa Maria, CA 93455",
         "city": "Santa Maria",
         "state": "CA",
         "zip": "93455",
@@ -6662,7 +6689,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 194, Carthage IL 62321",
+        "street": "615 MAIN ST, CARTHAGE, IL 62321-9998",
         "city": "Carthage",
         "state": "IL",
         "zip": "62321",
@@ -6718,13 +6745,7 @@
       },
       "onMap": true,
       "networkMemberships": [],
-      "countiesServed": [
-        {
-          "county": "Muscogee",
-          "state": "GA",
-          "countyState": "Muscogee, GA"
-        }
-      ]
+      "countiesServed": []
     },
     {
       "id": 392,
@@ -9277,13 +9298,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "P.O. Box 230472 Montgomery AL 36123-0472",
+        "street": "135 CATOMA ST, MONTGOMERY, AL 36104-9998",
         "city": "Montgomery",
         "state": "AL",
         "zip": "36123-0472",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 32.374685075191,
+        "lng": -86.311804513846
+      },
       "website": "agapeforchildren.org",
       "category": "Child Placement Agency",
       "activities": [
@@ -9805,7 +9829,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 221510 Santa Clarita CA 91322",
+        "street": "28201 FRANKLIN PKWY, SANTA CLARITA, CA 91383-9998",
         "city": "Santa Clarita",
         "state": "CA",
         "zip": "91322",
@@ -11210,7 +11234,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 5689, Kalispell, MT, 59903",
+        "street": "248 1ST AVE W, KALISPELL, MT 59901-4465",
         "city": "Kalispell",
         "state": "MT",
         "zip": "59903",
@@ -12348,7 +12372,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Indianapolis, IN",
+        "street": "4401 E 10TH ST STE 18, INDIANAPOLIS, IN 46201-9998",
         "city": "Indianapolis",
         "state": "IN",
         "zip": null,
@@ -12725,7 +12749,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO BOX 182 Basehor, KS 66007",
+        "street": "2402 N 155TH ST, BASEHOR, KS 66007-9998",
         "city": "Basehor",
         "state": "KS",
         "zip": "66007",
@@ -12931,7 +12955,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 4821, Butte, MT 59701",
+        "street": "701 DEWEY BLVD, BUTTE, MT 59701-9998",
         "city": "Butte",
         "state": "MT",
         "zip": "59701",
@@ -12972,7 +12996,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 7713, Helena, MT 59604",
+        "street": "500 N LAST CHANCE GULCH, HELENA, MT 59601-5021",
         "city": "Helena",
         "state": "MT",
         "zip": "59604",
@@ -13012,7 +13036,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 685 Glendive MT 59330",
+        "street": "221 N KENDRICK AVE, GLENDIVE, MT 59330-9998",
         "city": "Glendive",
         "state": "MT",
         "zip": "59330",
@@ -13744,7 +13768,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Duluth, GA 30097",
+        "street": "1605 BOGGS RD, DULUTH, GA 30096-9922",
         "city": "Duluth",
         "state": "GA",
         "zip": "30097",
@@ -14267,40 +14291,6 @@
       ]
     },
     {
-      "id": 742,
-      "name": "Georgia Kids Belong",
-      "isOrganization": true,
-      "isNetwork": false,
-      "address": {
-        "street": "Acworth, GA 30144",
-        "city": "Acworth",
-        "state": "GA",
-        "zip": "30144",
-        "county": "Cobb"
-      },
-      "coordinates": {
-        "lat": 34.034515,
-        "lng": -84.707349
-      },
-      "website": "americaskidsbelong.org/ga/",
-      "category": "Service Organization",
-      "activities": [
-        "recruit_foster_kinship",
-        "recruit_adoptive",
-        "support"
-      ],
-      "officialFosterMinistry": false,
-      "cafoMember": false,
-      "contact": {
-        "name": "Rebecca Radicchi",
-        "title": "State Manager",
-        "email": "Rradicchi@gakidsbelong.org"
-      },
-      "onMap": true,
-      "networkMemberships": [],
-      "countiesServed": []
-    },
-    {
       "id": 745,
       "name": "Camelot Community Care",
       "isOrganization": true,
@@ -14652,73 +14642,12 @@
       ]
     },
     {
-      "id": 780,
-      "name": "Mid-Atlantic Orphan Care Coalition",
-      "isOrganization": true,
-      "isNetwork": false,
-      "address": {
-        "street": "PO Box 1023, Hockessin DE 19707",
-        "city": "Hockessin",
-        "state": "DE",
-        "zip": "19707",
-        "county": "New Castle"
-      },
-      "coordinates": {
-        "lat": 39.78384,
-        "lng": -75.6816
-      },
-      "website": "familyhopecoalition.org",
-      "category": "Service Organization",
-      "activities": [
-        "recruit_foster_kinship",
-        "recruit_adoptive",
-        "bio_family",
-        "support"
-      ],
-      "officialFosterMinistry": false,
-      "cafoMember": false,
-      "contact": {
-        "name": "Rebecca Rudy",
-        "title": "Executive Director",
-        "email": "info@familyhopecoalition.org"
-      },
-      "onMap": true,
-      "networkMemberships": [],
-      "countiesServed": [
-        {
-          "county": "New Castle",
-          "state": "DE",
-          "countyState": "New Castle, DE"
-        },
-        {
-          "county": "Kent",
-          "state": "DE",
-          "countyState": "Kent, DE"
-        },
-        {
-          "county": "Sussex",
-          "state": "DE",
-          "countyState": "Sussex, DE"
-        },
-        {
-          "county": "Delaware",
-          "state": "PA",
-          "countyState": "Delaware, PA"
-        },
-        {
-          "county": "Chester",
-          "state": "PA",
-          "countyState": "Chester, PA"
-        }
-      ]
-    },
-    {
       "id": 783,
       "name": "Keystone Family Alliance",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 255, Millheim, PA 16854",
+        "street": "164 S RACHELS WAY, AARONSBURG, PA 16820-9998",
         "city": "Millheim",
         "state": "PA",
         "zip": "16854",
@@ -16879,7 +16808,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "P.O. Box 40221  Nashville, TN 37204",
+        "street": "901 BROADWAY, NASHVILLE, TN 37202-4105",
         "city": "Nashville",
         "state": "TN",
         "zip": "37204",
@@ -17243,13 +17172,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 402 Sulphur, Ok 73086",
+        "street": "1100 W 2ND ST, SULPHUR, OK 73086-9998",
         "city": "Sulphur",
         "state": "OK",
         "zip": "73086",
         "county": "Garvin"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 34.508551382365,
+        "lng": -96.969723913285
+      },
       "website": "kehilapark@gmail.com",
       "category": "Church Foster Care Ministry",
       "activities": [
@@ -17329,13 +17261,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Dayton, Ohio",
+        "street": "323 JAMES BOHANAN DR, VANDALIA, OH 45377-9998",
         "city": "Dayton",
         "state": "OH",
         "zip": "45377",
         "county": "Montgomery"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.892553240906,
+        "lng": -84.193006568453
+      },
       "website": "storyconnect.love/post/childwelfarenetworkdayton",
       "category": "Bridge Ministry",
       "activities": [
@@ -17482,13 +17417,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 310, Bigfork, Montana 59911",
+        "street": "265 HOLT DR, BIGFORK, MT 59911-9998",
         "city": "Bigfork",
         "state": "MT",
         "zip": "59911",
         "county": "Flathead"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 48.06672543906,
+        "lng": -114.092201918176
+      },
       "website": "childbridgemontana.org",
       "category": "Service Organization",
       "activities": [
@@ -17618,7 +17556,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "6900 NE 14th St (Ste 25), Ankeny, IA 50023",
+        "street": "6900 NE 14th St, Ankeny, IA 50023",
         "city": "Ankeny",
         "state": "IA",
         "zip": "50023",
@@ -17764,10 +17702,10 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": null,
-        "city": null,
-        "state": null,
-        "zip": null,
+        "street": "90 PALM BLVD N, NICEVILLE, FL 32578-1213",
+        "city": "Niceville",
+        "state": "FL",
+        "zip": "32578",
         "county": "Okaloosa"
       },
       "coordinates": null,
@@ -17796,13 +17734,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "P.O. Box 985, Wake Forest, NC 27588-0985",
+        "street": "224 E HOLDING AVE, WAKE FOREST, NC 27587-9998",
         "city": "Wake Forest",
         "state": "NC",
         "zip": "27588",
         "county": "Wake"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.971494796807,
+        "lng": -78.512635063676
+      },
       "website": "Agapeofnc.org",
       "category": "Placement Agency",
       "activities": [],
@@ -17867,13 +17808,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO box 1879, Fuquay-Varina, NC, 27526",
+        "street": "131 N JUDD PKWY NE, FUQUAY VARINA, NC 27526-2368",
         "city": "Fuquay-Varina",
         "state": "NC",
         "zip": "27526",
         "county": "Wake"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.586026770507,
+        "lng": -78.782118888007
+      },
       "website": "shhip.net",
       "category": "Service Organization",
       "activities": [],
@@ -18109,7 +18053,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "P.O. Box 564 Pahrump, NV 89041",
+        "street": "2300 POSTAL DR, PAHRUMP, NV 89048-9998",
         "city": "Pahrump",
         "state": "NV",
         "zip": "89041",
@@ -18141,13 +18085,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": null,
-        "city": null,
-        "state": null,
-        "zip": null,
+        "street": "112 N. 4th St., Moberly, MO 65270",
+        "city": "Moberly",
+        "state": "MO",
+        "zip": "65270",
         "county": "Randolph"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.418873873956,
+        "lng": -92.440252602596
+      },
       "website": null,
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -18179,13 +18126,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": null,
+        "street": "121 JOHNSON ST, MOBERLY, MO 65270-9998",
         "city": "Moberly",
         "state": "MO",
         "zip": "652702",
         "county": "Randolph"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.418927349096,
+        "lng": -92.443435215531
+      },
       "website": "rooted242moberly.org",
       "category": "Service Organization",
       "activities": [],
@@ -18297,13 +18247,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": null,
+        "street": "446 E 29TH ST, LOVELAND, CO 80538-9998",
         "city": "Loveland",
         "state": "CO",
         "zip": null,
         "county": "County"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 40.421687422502,
+        "lng": -105.070430207212
+      },
       "website": "fosteralight.com",
       "category": "Service Organization",
       "activities": [],
@@ -18466,7 +18419,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": null,
+        "street": "30 SCHOOL ST, SANFORD, ME 04073-9998",
         "city": "Sanford",
         "state": "ME",
         "zip": "04073",
@@ -18689,7 +18642,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": null,
+        "street": "11 S SPRING ST, BUCKHANNON, WV 26201-9998",
         "city": "Buckhannon",
         "state": "WV",
         "zip": "26201",
@@ -18759,13 +18712,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 2558, Fairmont, WV 26554",
+        "street": "215 MERCHANT ST, FAIRMONT, WV 26554-9995",
         "city": "Fairmont",
         "state": "WV",
         "zip": "26554",
         "county": "Upshur"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.478851481401,
+        "lng": -80.142421541947
+      },
       "website": "exploremfgwv.com",
       "category": "Service Organization",
       "activities": [],
@@ -19014,7 +18970,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "100-81st Ave, Dyer, IN 46311",
+        "street": "100 81st Ave, Dyer, IN 46311",
         "city": "Dyer",
         "state": "IN",
         "zip": "46311",
@@ -19187,13 +19143,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 1023",
+        "street": "651 VALLEY RD, HOCKESSIN, DE 19707-9998",
         "city": "Hockessin",
         "state": "DE",
         "zip": "19707",
         "county": "New Castle"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 39.776688265215,
+        "lng": -75.713017049233
+      },
       "website": "familyhopecoalition.org",
       "category": "Bridge Ministry",
       "activities": [
@@ -19294,13 +19253,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Fort Wayne, IN 46845",
+        "street": "1501 S CLINTON ST, FORT WAYNE, IN 46802-9998",
         "city": "Fort Wayne",
         "state": "IN",
         "zip": "46845",
         "county": "Allen"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.072263658143,
+        "lng": -85.136691162679
+      },
       "website": "handsofhopein.org",
       "category": "Bridge Ministry",
       "activities": [],
@@ -19483,12 +19445,15 @@
       "isNetwork": false,
       "address": {
         "street": "1001 N. Patterson Ave, Winston-Salem, NC 27101",
-        "city": null,
-        "state": null,
-        "zip": null,
+        "city": "Winston-Salem",
+        "state": "NC",
+        "zip": "27101",
         "county": "Forsyth"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 36.10664501115,
+        "lng": -80.241809523659
+      },
       "website": "twocitieschurch.net",
       "category": "Church Foster Care Ministry",
       "activities": [],
@@ -19514,7 +19479,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": null,
+        "street": "216 MYRTLE ST W, STILLWATER, MN 55082-4805",
         "city": null,
         "state": null,
         "zip": "55082",
@@ -19546,13 +19511,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Rutherfordton, North Carolina, 28139",
+        "street": "130 E COURT ST, RUTHERFORDTON, NC 28139-9702",
         "city": "Rutherford",
         "state": "NC",
         "zip": "28139",
         "county": "Rutherford"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.366858584143,
+        "lng": -81.95638600242
+      },
       "website": "mosaichope.org",
       "category": "Bridge Ministry",
       "activities": [],
@@ -19718,7 +19686,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Memphis, TN 38114",
+        "street": "161 E GE PATTERSON AVE, MEMPHIS, TN 38103-9997",
         "city": "Memphis",
         "state": "TN",
         "zip": "38114",
@@ -19925,15 +19893,18 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": null,
-        "city": null,
-        "state": null,
-        "zip": null,
-        "county": null
+        "street": "2850 NW 43rd St #200, Gainesville, FL 32606",
+        "city": "Gainesville",
+        "state": "FL",
+        "zip": "32606",
+        "county": "Alachua"
       },
-      "coordinates": null,
-      "website": null,
-      "category": null,
+      "coordinates": {
+        "lat": 29.678617006866,
+        "lng": -82.389035565698
+      },
+      "website": "https://www.pfsf.org/",
+      "category": "Service Organization",
       "activities": [],
       "officialFosterMinistry": false,
       "cafoMember": false,
@@ -19957,13 +19928,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "Atlanta, GA",
+        "street": "5330 BROOKSTONE DR NW, ACWORTH, GA 30101-7183",
         "city": "Acworth",
         "state": "GA",
         "zip": "30101",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.998154223018,
+        "lng": -84.707364175501
+      },
       "website": null,
       "category": "Service Organization",
       "activities": [],
@@ -20235,7 +20209,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "1151 Eagle Dr., #464, Loveland, CO 80537",
+        "street": "1151 Eagle Dr., Loveland, CO 80537",
         "city": "Loveland",
         "state": "CO",
         "zip": "80537",
@@ -20284,7 +20258,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 241514",
+        "street": "555 S B B KING BLVD, MEMPHIS, TN 38101-9998",
         "city": "Memphis",
         "state": "TN",
         "zip": "38124",
@@ -20357,7 +20331,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "6950 NE 14th St, Ste 33",
+        "street": "6950 NE 14th St",
         "city": "Ankeny",
         "state": "IA",
         "zip": "50023",
@@ -20427,13 +20401,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": null,
+        "street": "1501 S CLINTON ST, FORT WAYNE, IN 46802-9998",
         "city": "Fort Wayne",
         "state": "IN",
         "zip": "46835",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.072263658143,
+        "lng": -85.136691162679
+      },
       "website": null,
       "category": "Bridge Ministry",
       "activities": [],
@@ -20491,13 +20468,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 266",
+        "street": "710 PARK AVE, WINONA LAKE, IN 46590-9998",
         "city": "Winona Lake",
         "state": "IN",
         "zip": "46590",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 41.230392462927,
+        "lng": -85.822485559836
+      },
       "website": null,
       "category": "Service Organization",
       "activities": [],
@@ -20553,7 +20533,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": null,
+        "street": "90 PALM BLVD N, NICEVILLE, FL 32578-1213",
         "city": "Niceville",
         "state": "FL",
         "zip": "32578",
@@ -20705,13 +20685,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 54973",
+        "street": "305 NW 5TH ST, OKLAHOMA CITY, OK 73102-9998",
         "city": "Oklahoma City",
         "state": "OK",
         "zip": "73154",
         "county": "Oklahoma"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.473086766145,
+        "lng": -97.517925347934
+      },
       "website": "111project.org",
       "category": "Bridge Ministry",
       "activities": [],
@@ -20792,7 +20775,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "2500 Dallas Highway, Suite 202, #480",
+        "street": "2500 Dallas Highway",
         "city": "Marietta",
         "state": "GA",
         "zip": "30064",
@@ -20819,13 +20802,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "P.O. Box 532",
+        "street": "4709 ROUTE 309, SCHNECKSVILLE, PA 18078-2460",
         "city": "Schnecksville",
         "state": "PA",
         "zip": "18078",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 40.670625091037,
+        "lng": -75.608511582904
+      },
       "website": "plesion.org",
       "category": "Service Organization",
       "activities": [],
@@ -20876,13 +20862,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "PO Box 1045",
+        "street": "114 RIDGE ST NW, LENOIR, NC 28645-5200",
         "city": "Lenoir",
         "state": "NC",
         "zip": "28645",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.915037738323,
+        "lng": -81.537012305962
+      },
       "website": "www.BigHouseFamilyMinistry.org",
       "category": "Bridge Ministry",
       "activities": [],
@@ -20933,7 +20922,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "5331 S Macadam Ave Ste 258, PMB 327",
+        "street": "5331 S Macadam Avenue",
         "city": "Portland",
         "state": "OR",
         "zip": "97239",
@@ -20979,6 +20968,129 @@
         "name": "Danny Bevil",
         "title": "Director of Operation",
         "email": "danny.bevil@fouroakschurch.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2760,
+      "name": "Alabama Baptist Children's Homes",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2681 Rocky Ridge Lane",
+        "city": "Birmingham",
+        "state": "Alabama",
+        "zip": "35216",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 33.404047569182,
+        "lng": -86.764872358084
+      },
+      "website": "alabamachild.org",
+      "category": "Service Organization",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Rod Marshall",
+        "title": "CEO",
+        "email": "rmarshall@alabamachild.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2761,
+      "name": "Christ Community Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "5501 GW Carver Ave",
+        "city": "Ames",
+        "state": "Iowa",
+        "zip": "50010",
+        "county": null
+      },
+      "coordinates": null,
+      "website": "rfkcames.org",
+      "category": "Church Foster Care Ministry",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Wayne Stewart",
+        "title": "Serve Pastor | RFKC Director",
+        "email": "wstewart@ccames.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": [
+        {
+          "county": "Muscogee",
+          "state": "GA",
+          "countyState": "Muscogee, GA"
+        }
+      ]
+    },
+    {
+      "id": 2762,
+      "name": "The Cooper House",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "444 Lafayette Road",
+        "city": "Noblesville",
+        "state": "Indiana",
+        "zip": "46060",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 40.050174872098,
+        "lng": -86.025222880552
+      },
+      "website": "thecooperhouseindiana.com",
+      "category": "Service Organization",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Brooke Howe",
+        "title": "Executive Director",
+        "email": "brooke@thecooperhouseindiana.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2763,
+      "name": "First Methodist",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "37 E Beauregard Avenue",
+        "city": "San Angelo",
+        "state": "Texas",
+        "zip": "76901",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 31.462703995644,
+        "lng": -100.436013723023
+      },
+      "website": "Firstmethodist.net",
+      "category": "Church Foster Care Ministry",
+      "activities": [],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Amy Harrison",
+        "title": "Church member/volunteer",
+        "email": "amyharrison.casa@gmail.com"
       },
       "onMap": true,
       "networkMemberships": [],
@@ -21280,70 +21392,97 @@
   ],
   "_geocodeCache": {
     "84": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "erie, pa|erie|pa|16501",
-      "attemptedAt": "2026-05-03T15:56:38.886Z"
+      "status": "ok",
+      "lat": 42.121740021449,
+      "lng": -80.08001598138,
+      "addressHash": "1401 state st ste 100, erie, pa 16501-9998|erie|pa|16501",
+      "matchedAddress": "1401 STATE ST, ERIE, PA, 16501",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:28.349Z"
     },
     "85": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "clarion, pa|clarion|pa|16214",
-      "attemptedAt": "2026-05-03T15:56:39.234Z"
+      "status": "ok",
+      "lat": 41.213614620793,
+      "lng": -79.383046753266,
+      "addressHash": "626 main st, clarion, pa 16214-1100|clarion|pa|16214",
+      "matchedAddress": "626 MAIN ST, CLARION, PA, 16214",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:28.476Z"
     },
     "86": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "smicksburg, pa|smicksburg|pa|16256",
-      "attemptedAt": "2026-05-03T15:56:39.397Z"
+      "status": "ok",
+      "lat": 40.869452584493,
+      "lng": -79.170852201328,
+      "addressHash": "148 mill st, smicksburg, pa 16256-9800|smicksburg|pa|16256",
+      "matchedAddress": "148 MILL ST, SMICKSBURG, PA, 16256",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:28.855Z"
     },
     "87": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "somerset, pa|somerset|pa|15501",
-      "attemptedAt": "2026-05-03T15:56:39.554Z"
+      "status": "ok",
+      "lat": 40.009398098314,
+      "lng": -79.078690976574,
+      "addressHash": "201 n center ave, somerset, pa 15501-9998|somerset|pa|15501",
+      "matchedAddress": "201 N CENTER AVE, SOMERSET, PA, 15501",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:28.955Z"
     },
     "88": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "altoona, pa|altoona|pa|16601",
-      "attemptedAt": "2026-05-03T15:56:39.721Z"
+      "status": "ok",
+      "lat": 40.515617030984,
+      "lng": -78.400805755081,
+      "addressHash": "1201 11th ave, altoona, pa 16601-9998|altoona|pa|16601",
+      "matchedAddress": "1201 11TH AVE, ALTOONA, PA, 16601",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:29.063Z"
     },
     "89": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "lewistown, pa|lewistown|pa|17044",
-      "attemptedAt": "2026-05-03T15:56:39.895Z"
+      "status": "ok",
+      "lat": 40.5965804112,
+      "lng": -77.575923719079,
+      "addressHash": "100 w market st, lewistown, pa 17044-9998|lewistown|pa|17044",
+      "matchedAddress": "100 W MARKET ST, LEWISTOWN, PA, 17044",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:29.172Z"
     },
     "90": {
       "status": "failed",
       "reason": "no match",
-      "addressHash": "mechanicsburg, pa|mechanicsburg|pa|17055",
-      "attemptedAt": "2026-05-03T15:56:40.049Z"
+      "addressHash": "702 e simpson st, mechanicsburg, pa 17055-9998|mechanicsburg|pa|17055",
+      "attemptedAt": "2026-05-07T08:42:29.273Z"
     },
     "91": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "lancaster, pa|lancaster|pa|17601",
-      "attemptedAt": "2026-05-03T15:56:40.204Z"
+      "status": "ok",
+      "lat": 40.061895559151,
+      "lng": -76.337127129581,
+      "addressHash": "1400 harrisburg pike, lancaster, pa 17604-9992|lancaster|pa|17601",
+      "matchedAddress": "1400 HARRISBURG PIKE, LANCASTER, PA, 17601",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:29.368Z"
     },
     "92": {
       "status": "failed",
       "reason": "no match",
-      "addressHash": "allentown, pa|allentown|pa|18103",
-      "attemptedAt": "2026-05-03T15:56:40.369Z"
+      "addressHash": "442 hamilton st ofc, allentown, pa 18101-9998|allentown|pa|18103",
+      "attemptedAt": "2026-05-07T08:42:29.476Z"
     },
     "93": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "york, pa|york|pa|17401",
-      "attemptedAt": "2026-05-03T15:56:40.656Z"
+      "status": "ok",
+      "lat": 39.987192199798,
+      "lng": -76.755018148744,
+      "addressHash": "1250 smile way, york, pa 17404-9900|york|pa|17401",
+      "matchedAddress": "1250 SMILE WAY, YORK, PA, 17404",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:29.575Z"
     },
     "94": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "lebanon, pa|lebanon|pa|17042",
-      "attemptedAt": "2026-05-03T15:56:40.815Z"
+      "status": "ok",
+      "lat": 40.337272110295,
+      "lng": -76.424347987523,
+      "addressHash": "101 s 8th st, lebanon, pa 17042-9998|lebanon|pa|17042",
+      "matchedAddress": "101 S 8TH ST, LEBANON, PA, 17042",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:29.696Z"
     },
     "101": {
       "status": "failed",
@@ -21361,10 +21500,13 @@
       "geocodedAt": "2026-05-03T15:56:41.163Z"
     },
     "576": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "p.o. box 230472 montgomery al 36123-0472|montgomery|al|36123-0472",
-      "attemptedAt": "2026-05-03T15:56:41.326Z"
+      "status": "ok",
+      "lat": 32.374685075191,
+      "lng": -86.311804513846,
+      "addressHash": "135 catoma st, montgomery, al 36104-9998|montgomery|al|36123-0472",
+      "matchedAddress": "135 CATOMA ST, MONTGOMERY, AL, 36104",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:29.792Z"
     },
     "577": {
       "status": "ok",
@@ -21844,10 +21986,13 @@
       "geocodedAt": "2026-05-03T15:56:51.726Z"
     },
     "1802": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "po box 402 sulphur, ok 73086|sulphur|ok|73086",
-      "attemptedAt": "2026-05-03T15:56:51.882Z"
+      "status": "ok",
+      "lat": 34.508551382365,
+      "lng": -96.969723913285,
+      "addressHash": "1100 w 2nd st, sulphur, ok 73086-9998|sulphur|ok|73086",
+      "matchedAddress": "1100 W 2ND ST, SULPHUR, OK, 73086",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:29.905Z"
     },
     "1913": {
       "status": "ok",
@@ -21859,10 +22004,13 @@
       "geocodedAt": "2026-05-03T15:56:52.071Z"
     },
     "1919": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "dayton, ohio|dayton|oh|45377",
-      "attemptedAt": "2026-05-03T15:56:52.230Z"
+      "status": "ok",
+      "lat": 39.892553240906,
+      "lng": -84.193006568453,
+      "addressHash": "323 james bohanan dr, vandalia, oh 45377-9998|dayton|oh|45377",
+      "matchedAddress": "323 JAMES BOHANAN DR, VANDALIA, OH, 45377",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:29.997Z"
     },
     "1930": {
       "status": "ok",
@@ -21892,10 +22040,13 @@
       "geocodedAt": "2026-05-03T15:56:52.802Z"
     },
     "2036": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "po box 310, bigfork, montana 59911|bigfork|mt|59911",
-      "attemptedAt": "2026-05-03T15:56:52.966Z"
+      "status": "ok",
+      "lat": 48.06672543906,
+      "lng": -114.092201918176,
+      "addressHash": "265 holt dr, bigfork, mt 59911-9998|bigfork|mt|59911",
+      "matchedAddress": "265 HOLT DR, BIGFORK, MT, 59911",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:30.092Z"
     },
     "2100": {
       "status": "ok",
@@ -21928,16 +22079,25 @@
       "status": "ok",
       "lat": 41.68625900283,
       "lng": -93.60073955117,
-      "addressHash": "6900 ne 14th st (ste 25), ankeny, ia 50023|ankeny|ia|50023",
+      "addressHash": "6900 ne 14th st, ankeny, ia 50023|ankeny|ia|50023",
       "matchedAddress": "6900 NE 14TH ST, ANKENY, IA, 50023",
       "source": "census",
-      "geocodedAt": "2026-05-03T15:56:53.645Z"
+      "geocodedAt": "2026-05-07T08:42:30.202Z"
     },
-    "2109": {
+    "2108": {
       "status": "failed",
       "reason": "no match",
-      "addressHash": "p.o. box 985, wake forest, nc 27588-0985|wake forest|nc|27588",
-      "attemptedAt": "2026-05-03T15:56:53.815Z"
+      "addressHash": "90 palm blvd n, niceville, fl 32578-1213|niceville|fl|32578",
+      "attemptedAt": "2026-05-07T08:42:30.296Z"
+    },
+    "2109": {
+      "status": "ok",
+      "lat": 35.971494796807,
+      "lng": -78.512635063676,
+      "addressHash": "224 e holding ave, wake forest, nc 27587-9998|wake forest|nc|27588",
+      "matchedAddress": "224 E HOLDING AVE, WAKE FOREST, NC, 27587",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:30.402Z"
     },
     "2110": {
       "status": "ok",
@@ -21949,10 +22109,13 @@
       "geocodedAt": "2026-05-03T15:56:54.018Z"
     },
     "2111": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "po box 1879, fuquay-varina, nc, 27526|fuquay-varina|nc|27526",
-      "attemptedAt": "2026-05-03T15:56:54.174Z"
+      "status": "ok",
+      "lat": 35.586026770507,
+      "lng": -78.782118888007,
+      "addressHash": "131 n judd pkwy ne, fuquay varina, nc 27526-2368|fuquay-varina|nc|27526",
+      "matchedAddress": "131 N JUDD PKWY NE, FUQUAY VARINA, NC, 27526",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:30.497Z"
     },
     "2112": {
       "status": "ok",
@@ -22002,8 +22165,26 @@
     "2120": {
       "status": "failed",
       "reason": "no match",
-      "addressHash": "p.o. box 564 pahrump, nv 89041|pahrump|nv|89041",
-      "attemptedAt": "2026-05-03T15:56:55.188Z"
+      "addressHash": "2300 postal dr, pahrump, nv 89048-9998|pahrump|nv|89041",
+      "attemptedAt": "2026-05-07T08:42:30.598Z"
+    },
+    "2122": {
+      "status": "ok",
+      "lat": 39.418873873956,
+      "lng": -92.440252602596,
+      "addressHash": "112 n. 4th st., moberly, mo 65270|moberly|mo|65270",
+      "matchedAddress": "112 N 4TH ST, MOBERLY, MO, 65270",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:30.712Z"
+    },
+    "2123": {
+      "status": "ok",
+      "lat": 39.418927349096,
+      "lng": -92.443435215531,
+      "addressHash": "121 johnson st, moberly, mo 65270-9998|moberly|mo|652702",
+      "matchedAddress": "121 JOHNSON ST, MOBERLY, MO, 65270",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:30.809Z"
     },
     "2124": {
       "status": "ok",
@@ -22013,6 +22194,15 @@
       "matchedAddress": "1455 ROCKY MOUNTAIN AVE, LOVELAND, CO, 80538",
       "source": "census",
       "geocodedAt": "2026-05-03T15:56:55.377Z"
+    },
+    "2126": {
+      "status": "ok",
+      "lat": 40.421687422502,
+      "lng": -105.070430207212,
+      "addressHash": "446 e 29th st, loveland, co 80538-9998|loveland|co|",
+      "matchedAddress": "446 E 29TH ST, LOVELAND, CO, 80538",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:30.949Z"
     },
     "2128": {
       "status": "failed",
@@ -22066,10 +22256,13 @@
       "geocodedAt": "2026-05-03T15:56:56.408Z"
     },
     "2144": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "po box 2558, fairmont, wv 26554|fairmont|wv|26554",
-      "attemptedAt": "2026-05-03T15:56:56.563Z"
+      "status": "ok",
+      "lat": 39.478851481401,
+      "lng": -80.142421541947,
+      "addressHash": "215 merchant st, fairmont, wv 26554-9995|fairmont|wv|26554",
+      "matchedAddress": "215 MERCHANT ST, FAIRMONT, WV, 26554",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:31.038Z"
     },
     "2147": {
       "status": "ok",
@@ -22107,8 +22300,8 @@
     "2154": {
       "status": "failed",
       "reason": "no match",
-      "addressHash": "100-81st ave, dyer, in 46311|dyer|in|46311",
-      "attemptedAt": "2026-05-03T15:56:57.398Z"
+      "addressHash": "100 81st ave, dyer, in 46311|dyer|in|46311",
+      "attemptedAt": "2026-05-07T08:42:31.142Z"
     },
     "2156": {
       "status": "ok",
@@ -22138,10 +22331,13 @@
       "geocodedAt": "2026-05-03T15:56:57.900Z"
     },
     "2692": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "po box 1023|hockessin|de|19707",
-      "attemptedAt": "2026-05-03T15:56:58.063Z"
+      "status": "ok",
+      "lat": 39.776688265215,
+      "lng": -75.713017049233,
+      "addressHash": "651 valley rd, hockessin, de 19707-9998|hockessin|de|19707",
+      "matchedAddress": "651 VALLEY RD, HOCKESSIN, DE, 19707",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:31.254Z"
     },
     "2700": {
       "status": "ok",
@@ -22162,10 +22358,13 @@
       "geocodedAt": "2026-05-03T15:56:58.408Z"
     },
     "2702": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "fort wayne, in 46845|fort wayne|in|46845",
-      "attemptedAt": "2026-05-03T15:56:58.638Z"
+      "status": "ok",
+      "lat": 41.072263658143,
+      "lng": -85.136691162679,
+      "addressHash": "1501 s clinton st, fort wayne, in 46802-9998|fort wayne|in|46845",
+      "matchedAddress": "1501 S CLINTON ST, FORT WAYNE, IN, 46803",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:31.355Z"
     },
     "2703": {
       "status": "ok",
@@ -22185,11 +22384,23 @@
       "source": "census",
       "geocodedAt": "2026-05-03T15:56:58.974Z"
     },
+    "2707": {
+      "status": "ok",
+      "lat": 36.10664501115,
+      "lng": -80.241809523659,
+      "addressHash": "1001 n. patterson ave, winston-salem, nc 27101|winston-salem|nc|27101",
+      "matchedAddress": "1001 PATTERSON AVE, WINSTON SALEM, NC, 27101",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:31.450Z"
+    },
     "2711": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "rutherfordton, north carolina, 28139|rutherford|nc|28139",
-      "attemptedAt": "2026-05-03T15:56:59.145Z"
+      "status": "ok",
+      "lat": 35.366858584143,
+      "lng": -81.95638600242,
+      "addressHash": "130 e court st, rutherfordton, nc 28139-9702|rutherford|nc|28139",
+      "matchedAddress": "130 E COURT ST, RUTHERFORDTON, NC, 28139",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:31.550Z"
     },
     "2713": {
       "status": "ok",
@@ -22230,8 +22441,8 @@
     "2719": {
       "status": "failed",
       "reason": "no match",
-      "addressHash": "memphis, tn 38114|memphis|tn|38114",
-      "attemptedAt": "2026-05-03T15:56:59.951Z"
+      "addressHash": "161 e ge patterson ave, memphis, tn 38103-9997|memphis|tn|38114",
+      "attemptedAt": "2026-05-07T08:42:31.648Z"
     },
     "2720": {
       "status": "ok",
@@ -22278,11 +22489,23 @@
       "source": "census",
       "geocodedAt": "2026-05-03T15:57:00.864Z"
     },
+    "2728": {
+      "status": "ok",
+      "lat": 29.678617006866,
+      "lng": -82.389035565698,
+      "addressHash": "2850 nw 43rd st #200, gainesville, fl 32606|gainesville|fl|32606",
+      "matchedAddress": "2850 NW 43RD ST, GAINESVILLE, FL, 32606",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:31.777Z"
+    },
     "2729": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "atlanta, ga|acworth|ga|30101",
-      "attemptedAt": "2026-05-03T15:57:01.019Z"
+      "status": "ok",
+      "lat": 33.998154223018,
+      "lng": -84.707364175501,
+      "addressHash": "5330 brookstone dr nw, acworth, ga 30101-7183|acworth|ga|30101",
+      "matchedAddress": "5330 BROOKSTONE DR NW, ACWORTH, GA, 30101",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:31.874Z"
     },
     "2730": {
       "status": "ok",
@@ -22351,16 +22574,16 @@
       "status": "ok",
       "lat": 40.380569783745,
       "lng": -105.097977415908,
-      "addressHash": "1151 eagle dr., #464, loveland, co 80537|loveland|co|80537",
+      "addressHash": "1151 eagle dr., loveland, co 80537|loveland|co|80537",
       "matchedAddress": "1151 EAGLE DR, LOVELAND, CO, 80537",
       "source": "census",
-      "geocodedAt": "2026-05-03T15:57:02.416Z"
+      "geocodedAt": "2026-05-07T08:42:31.990Z"
     },
     "2738": {
       "status": "failed",
       "reason": "no match",
-      "addressHash": "po box 241514|memphis|tn|38124",
-      "attemptedAt": "2026-05-03T15:57:02.569Z"
+      "addressHash": "555 s b b king blvd, memphis, tn 38101-9998|memphis|tn|38124",
+      "attemptedAt": "2026-05-07T08:42:32.106Z"
     },
     "2739": {
       "status": "ok",
@@ -22375,10 +22598,10 @@
       "status": "ok",
       "lat": 41.687320946098,
       "lng": -93.600735198825,
-      "addressHash": "6950 ne 14th st, ste 33|ankeny|ia|50023",
+      "addressHash": "6950 ne 14th st|ankeny|ia|50023",
       "matchedAddress": "6950 NE 14TH ST, ANKENY, IA, 50023",
       "source": "census",
-      "geocodedAt": "2026-05-03T15:57:02.909Z"
+      "geocodedAt": "2026-05-07T08:42:32.217Z"
     },
     "2741": {
       "status": "ok",
@@ -22389,6 +22612,15 @@
       "source": "census",
       "geocodedAt": "2026-05-03T15:57:03.080Z"
     },
+    "2742": {
+      "status": "ok",
+      "lat": 41.072263658143,
+      "lng": -85.136691162679,
+      "addressHash": "1501 s clinton st, fort wayne, in 46802-9998|fort wayne|in|46835",
+      "matchedAddress": "1501 S CLINTON ST, FORT WAYNE, IN, 46803",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:32.321Z"
+    },
     "2743": {
       "status": "failed",
       "reason": "no match",
@@ -22396,10 +22628,13 @@
       "attemptedAt": "2026-05-03T15:57:03.240Z"
     },
     "2744": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "po box 266|winona lake|in|46590",
-      "attemptedAt": "2026-05-03T15:57:03.398Z"
+      "status": "ok",
+      "lat": 41.230392462927,
+      "lng": -85.822485559836,
+      "addressHash": "710 park ave, winona lake, in 46590-9998|winona lake|in|46590",
+      "matchedAddress": "710 PARK AVE, WINONA LAKE, IN, 46590",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:32.425Z"
     },
     "2745": {
       "status": "ok",
@@ -22409,6 +22644,12 @@
       "matchedAddress": "1003 PRESIDENTIAL DR, WINONA LAKE, IN, 46590",
       "source": "census",
       "geocodedAt": "2026-05-03T15:57:03.570Z"
+    },
+    "2746": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "90 palm blvd n, niceville, fl 32578-1213|niceville|fl|32578",
+      "attemptedAt": "2026-05-07T08:42:32.519Z"
     },
     "2747": {
       "status": "ok",
@@ -22438,10 +22679,13 @@
       "geocodedAt": "2026-05-03T15:57:04.097Z"
     },
     "2750": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "po box 54973|oklahoma city|ok|73154",
-      "attemptedAt": "2026-05-03T15:57:04.270Z"
+      "status": "ok",
+      "lat": 35.473086766145,
+      "lng": -97.517925347934,
+      "addressHash": "305 nw 5th st, oklahoma city, ok 73102-9998|oklahoma city|ok|73154",
+      "matchedAddress": "305 NW 5TH ST, OKLAHOMA CITY, OK, 73102",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:32.640Z"
     },
     "2751": {
       "status": "ok",
@@ -22464,14 +22708,17 @@
     "2753": {
       "status": "failed",
       "reason": "no match",
-      "addressHash": "2500 dallas highway, suite 202, #480|marietta|ga|30064",
-      "attemptedAt": "2026-05-06T08:34:35.323Z"
+      "addressHash": "2500 dallas highway|marietta|ga|30064",
+      "attemptedAt": "2026-05-07T08:42:32.737Z"
     },
     "2754": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "p.o. box 532|schnecksville|pa|18078",
-      "attemptedAt": "2026-05-06T08:34:35.433Z"
+      "status": "ok",
+      "lat": 40.670625091037,
+      "lng": -75.608511582904,
+      "addressHash": "4709 route 309, schnecksville, pa 18078-2460|schnecksville|pa|18078",
+      "matchedAddress": "4709 STATE RTE 309, SCHNECKSVILLE, PA, 18078",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:32.833Z"
     },
     "2755": {
       "status": "ok",
@@ -22483,10 +22730,13 @@
       "geocodedAt": "2026-05-06T08:34:35.529Z"
     },
     "2756": {
-      "status": "failed",
-      "reason": "no match",
-      "addressHash": "po box 1045|lenoir|nc|28645",
-      "attemptedAt": "2026-05-06T08:34:35.615Z"
+      "status": "ok",
+      "lat": 35.915037738323,
+      "lng": -81.537012305962,
+      "addressHash": "114 ridge st nw, lenoir, nc 28645-5200|lenoir|nc|28645",
+      "matchedAddress": "114 RIDGE ST NW, LENOIR, NC, 28645",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:32.952Z"
     },
     "2757": {
       "status": "ok",
@@ -22500,8 +22750,8 @@
     "2758": {
       "status": "failed",
       "reason": "no match",
-      "addressHash": "5331 s macadam ave ste 258, pmb 327|portland|or|97239",
-      "attemptedAt": "2026-05-06T08:34:35.831Z"
+      "addressHash": "5331 s macadam avenue|portland|or|97239",
+      "attemptedAt": "2026-05-07T08:42:33.062Z"
     },
     "2759": {
       "status": "ok",
@@ -22511,6 +22761,39 @@
       "matchedAddress": "1377 CROSS CREEK CIR, TALLAHASSEE, FL, 32301",
       "source": "census",
       "geocodedAt": "2026-05-06T08:34:35.931Z"
+    },
+    "2760": {
+      "status": "ok",
+      "lat": 33.404047569182,
+      "lng": -86.764872358084,
+      "addressHash": "2681 rocky ridge lane|birmingham|alabama|35216",
+      "matchedAddress": "2681 ROCKY RIDGE LN, BIRMINGHAM, AL, 35216",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:33.170Z"
+    },
+    "2761": {
+      "status": "failed",
+      "reason": "no match",
+      "addressHash": "5501 gw carver ave|ames|iowa|50010",
+      "attemptedAt": "2026-05-07T08:42:33.266Z"
+    },
+    "2762": {
+      "status": "ok",
+      "lat": 40.050174872098,
+      "lng": -86.025222880552,
+      "addressHash": "444 lafayette road|noblesville|indiana|46060",
+      "matchedAddress": "444 LAFAYETTE RD, NOBLESVILLE, IN, 46060",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:33.364Z"
+    },
+    "2763": {
+      "status": "ok",
+      "lat": 31.462703995644,
+      "lng": -100.436013723023,
+      "addressHash": "37 e beauregard avenue|san angelo|texas|76901",
+      "matchedAddress": "37 E BEAUREGARD AVE, SAN ANGELO, TX, 76903",
+      "source": "census",
+      "geocodedAt": "2026-05-07T08:42:33.459Z"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-05-07T08:42:33.460Z",
+    "generated": "2026-05-08T07:49:06.677Z",
     "organizationCount": 530,
     "networkCount": 32,
     "stats": {
       "withCoordinates": 319,
       "withWebsite": 334,
-      "withActivities": 192,
+      "withActivities": 227,
       "withNetworkMemberships": 95,
       "withCountiesServed": 190
     },
@@ -24,11 +24,11 @@
       "Child Placement Agency": 22
     },
     "geocoding": {
-      "manual": 185,
-      "cacheHit": 98,
-      "newlyGeocoded": 36,
-      "cachedFailure": 22,
-      "unresolved": 11,
+      "manual": 184,
+      "cacheHit": 131,
+      "newlyGeocoded": 4,
+      "cachedFailure": 31,
+      "unresolved": 2,
       "skipped": 178
     }
   },
@@ -4480,15 +4480,15 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "12515 WOODSIDE AVE, LAKESIDE, CA 92040-9998",
-        "city": "Lakeside",
+        "street": "2930 Howard Ave, San Diego, CA 92104",
+        "city": "San Diego",
         "state": "CA",
-        "zip": "92040",
+        "zip": "92104",
         "county": "San Diego"
       },
       "coordinates": {
-        "lat": 32.893498,
-        "lng": -116.898945
+        "lat": 32.754135811954,
+        "lng": -117.130561284535
       },
       "website": "restoration225.com",
       "category": "Service Organization",
@@ -18479,7 +18479,10 @@
       },
       "website": "curtislake.org",
       "category": "Church Foster Care Ministry",
-      "activities": [],
+      "activities": [
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -19940,7 +19943,11 @@
       },
       "website": null,
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -19976,7 +19983,9 @@
       },
       "website": null,
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": true,
       "contact": {
@@ -20011,7 +20020,12 @@
       },
       "website": "onemoreonelessproject.com",
       "category": "Bridge Ministry",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20046,7 +20060,10 @@
       },
       "website": "faithbridgemoberly.org",
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20081,7 +20098,12 @@
       },
       "website": "crossroads-bible.org",
       "category": "Church Foster Care Ministry",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": true,
       "cafoMember": true,
       "contact": {
@@ -20116,7 +20138,9 @@
       },
       "website": null,
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20151,7 +20175,9 @@
       },
       "website": null,
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": true,
       "contact": {
@@ -20186,7 +20212,12 @@
       },
       "website": "firstpresgreenville.org",
       "category": "Church Foster Care Ministry",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": true,
       "cafoMember": true,
       "contact": {
@@ -20221,7 +20252,11 @@
       },
       "website": "americaskidsbelong.org/states/co",
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20267,7 +20302,11 @@
       "coordinates": null,
       "website": "fostervillagememphis.org",
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20302,7 +20341,12 @@
       },
       "website": "calvarygr.org",
       "category": "Church Foster Care Ministry",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": true,
       "cafoMember": true,
       "contact": {
@@ -20343,7 +20387,9 @@
       },
       "website": "fostersquad.org",
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20378,7 +20424,9 @@
       },
       "website": "thehavenimpact.org",
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20413,7 +20461,9 @@
       },
       "website": null,
       "category": "Bridge Ministry",
-      "activities": [],
+      "activities": [
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20445,7 +20495,9 @@
       "coordinates": null,
       "website": "churchonthehillnewcastle.com",
       "category": "Church Foster Care Ministry",
-      "activities": [],
+      "activities": [
+        "support"
+      ],
       "officialFosterMinistry": true,
       "cafoMember": false,
       "contact": {
@@ -20480,7 +20532,10 @@
       },
       "website": null,
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20510,7 +20565,10 @@
       },
       "website": "missionpoint.net",
       "category": "Church Foster Care Ministry",
-      "activities": [],
+      "activities": [
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": true,
       "contact": {
@@ -20597,7 +20655,10 @@
       },
       "website": "children1stks.org",
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": true,
       "contact": {
@@ -20632,7 +20693,12 @@
       },
       "website": "hope1312co.org",
       "category": "Bridge Ministry",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": true,
       "contact": {
@@ -20662,7 +20728,12 @@
       },
       "website": "theorchardchurch.com/FAM",
       "category": "Church Foster Care Ministry",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20697,7 +20768,12 @@
       },
       "website": "111project.org",
       "category": "Bridge Ministry",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": true,
       "contact": {
@@ -20727,7 +20803,12 @@
       },
       "website": "FosterinFaith.com",
       "category": "Bridge Ministry",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20757,7 +20838,12 @@
       },
       "website": "bchfamily.org",
       "category": "Placement Agency",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": true,
       "contact": {
@@ -20775,7 +20861,7 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "2500 Dallas Highway",
+        "street": "2500 Dallas Hwy",
         "city": "Marietta",
         "state": "GA",
         "zip": "30064",
@@ -20784,7 +20870,9 @@
       "coordinates": null,
       "website": "waymarkfoster.org/",
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20814,7 +20902,10 @@
       },
       "website": "plesion.org",
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20844,7 +20935,10 @@
       },
       "website": "spokane127.org",
       "category": "Bridge Ministry",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20872,9 +20966,12 @@
         "lat": 35.915037738323,
         "lng": -81.537012305962
       },
-      "website": "www.BigHouseFamilyMinistry.org",
+      "website": "bighousefamilyministry.org",
       "category": "Bridge Ministry",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": true,
       "contact": {
@@ -20904,7 +21001,10 @@
       },
       "website": "opendoorchili.org",
       "category": "Church Foster Care Ministry",
-      "activities": [],
+      "activities": [
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": true,
       "cafoMember": true,
       "contact": {
@@ -20931,7 +21031,9 @@
       "coordinates": null,
       "website": "familyroomoregon.org/",
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "bio_family"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20961,7 +21063,10 @@
       },
       "website": "fouroakseast.com",
       "category": "Church Foster Care Ministry",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -20981,7 +21086,7 @@
       "address": {
         "street": "2681 Rocky Ridge Lane",
         "city": "Birmingham",
-        "state": "Alabama",
+        "state": "AL",
         "zip": "35216",
         "county": null
       },
@@ -20991,7 +21096,11 @@
       },
       "website": "alabamachild.org",
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "recruit_foster_kinship",
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": true,
       "contact": {
@@ -21011,14 +21120,16 @@
       "address": {
         "street": "5501 GW Carver Ave",
         "city": "Ames",
-        "state": "Iowa",
+        "state": "IA",
         "zip": "50010",
         "county": null
       },
       "coordinates": null,
       "website": "rfkcames.org",
       "category": "Church Foster Care Ministry",
-      "activities": [],
+      "activities": [
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -21044,7 +21155,7 @@
       "address": {
         "street": "444 Lafayette Road",
         "city": "Noblesville",
-        "state": "Indiana",
+        "state": "IN",
         "zip": "46060",
         "county": null
       },
@@ -21054,7 +21165,10 @@
       },
       "website": "thecooperhouseindiana.com",
       "category": "Service Organization",
-      "activities": [],
+      "activities": [
+        "bio_family",
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -21074,7 +21188,7 @@
       "address": {
         "street": "37 E Beauregard Avenue",
         "city": "San Angelo",
-        "state": "Texas",
+        "state": "TX",
         "zip": "76901",
         "county": null
       },
@@ -21082,9 +21196,11 @@
         "lat": 31.462703995644,
         "lng": -100.436013723023
       },
-      "website": "Firstmethodist.net",
+      "website": "firstmethodist.net",
       "category": "Church Foster Care Ministry",
-      "activities": [],
+      "activities": [
+        "support"
+      ],
       "officialFosterMinistry": false,
       "cafoMember": false,
       "contact": {
@@ -21498,6 +21614,15 @@
       "matchedAddress": "7930 DOWD FARM RD, SPOTSYLVANIA, VA, 22551",
       "source": "census",
       "geocodedAt": "2026-05-03T15:56:41.163Z"
+    },
+    "252": {
+      "status": "ok",
+      "lat": 32.754135811954,
+      "lng": -117.130561284535,
+      "addressHash": "2930 howard ave, san diego, ca 92104|san diego|ca|92104",
+      "matchedAddress": "2930 HOWARD AVE, SAN DIEGO, CA, 92104",
+      "source": "census",
+      "geocodedAt": "2026-05-08T07:49:06.165Z"
     },
     "576": {
       "status": "ok",
@@ -22708,8 +22833,8 @@
     "2753": {
       "status": "failed",
       "reason": "no match",
-      "addressHash": "2500 dallas highway|marietta|ga|30064",
-      "attemptedAt": "2026-05-07T08:42:32.737Z"
+      "addressHash": "2500 dallas hwy|marietta|ga|30064",
+      "attemptedAt": "2026-05-08T07:49:06.289Z"
     },
     "2754": {
       "status": "ok",
@@ -22766,34 +22891,34 @@
       "status": "ok",
       "lat": 33.404047569182,
       "lng": -86.764872358084,
-      "addressHash": "2681 rocky ridge lane|birmingham|alabama|35216",
+      "addressHash": "2681 rocky ridge lane|birmingham|al|35216",
       "matchedAddress": "2681 ROCKY RIDGE LN, BIRMINGHAM, AL, 35216",
       "source": "census",
-      "geocodedAt": "2026-05-07T08:42:33.170Z"
+      "geocodedAt": "2026-05-08T07:49:06.393Z"
     },
     "2761": {
       "status": "failed",
       "reason": "no match",
-      "addressHash": "5501 gw carver ave|ames|iowa|50010",
-      "attemptedAt": "2026-05-07T08:42:33.266Z"
+      "addressHash": "5501 gw carver ave|ames|ia|50010",
+      "attemptedAt": "2026-05-08T07:49:06.486Z"
     },
     "2762": {
       "status": "ok",
       "lat": 40.050174872098,
       "lng": -86.025222880552,
-      "addressHash": "444 lafayette road|noblesville|indiana|46060",
+      "addressHash": "444 lafayette road|noblesville|in|46060",
       "matchedAddress": "444 LAFAYETTE RD, NOBLESVILLE, IN, 46060",
       "source": "census",
-      "geocodedAt": "2026-05-07T08:42:33.364Z"
+      "geocodedAt": "2026-05-08T07:49:06.582Z"
     },
     "2763": {
       "status": "ok",
       "lat": 31.462703995644,
       "lng": -100.436013723023,
-      "addressHash": "37 e beauregard avenue|san angelo|texas|76901",
+      "addressHash": "37 e beauregard avenue|san angelo|tx|76901",
       "matchedAddress": "37 E BEAUREGARD AVE, SAN ANGELO, TX, 76903",
       "source": "census",
-      "geocodedAt": "2026-05-07T08:42:33.459Z"
+      "geocodedAt": "2026-05-08T07:49:06.676Z"
     }
   }
 }

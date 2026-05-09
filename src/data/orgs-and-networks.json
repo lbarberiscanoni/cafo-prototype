@@ -1,14 +1,14 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-05-08T07:49:06.677Z",
-    "organizationCount": 530,
+    "generated": "2026-05-09T08:03:13.357Z",
+    "organizationCount": 536,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 319,
-      "withWebsite": 334,
-      "withActivities": 227,
-      "withNetworkMemberships": 95,
+      "withCoordinates": 325,
+      "withWebsite": 341,
+      "withActivities": 233,
+      "withNetworkMemberships": 97,
       "withCountiesServed": 190
     },
     "categories": {
@@ -16,19 +16,19 @@
       "State/Regional Network": 3,
       "Bridge Organization": 13,
       "Regional Network": 1,
-      "Service Organization": 131,
-      "Placement Agency": 36,
+      "Service Organization": 132,
+      "Placement Agency": 37,
       "Unknown": 142,
-      "Bridge Ministry": 62,
-      "Church Foster Care Ministry": 87,
+      "Bridge Ministry": 64,
+      "Church Foster Care Ministry": 89,
       "Child Placement Agency": 22
     },
     "geocoding": {
       "manual": 184,
-      "cacheHit": 131,
-      "newlyGeocoded": 4,
-      "cachedFailure": 31,
-      "unresolved": 2,
+      "cacheHit": 135,
+      "newlyGeocoded": 6,
+      "cachedFailure": 33,
+      "unresolved": 0,
       "skipped": 178
     }
   },
@@ -20173,7 +20173,7 @@
         "lat": 40.471145875275,
         "lng": -104.914505138133
       },
-      "website": null,
+      "website": "www.bridgethegaptogether.com",
       "category": "Service Organization",
       "activities": [
         "support"
@@ -20734,7 +20734,7 @@
         "bio_family",
         "support"
       ],
-      "officialFosterMinistry": false,
+      "officialFosterMinistry": true,
       "cafoMember": false,
       "contact": {
         "name": "Claire Pennel",
@@ -21067,7 +21067,7 @@
         "recruit_foster_kinship",
         "support"
       ],
-      "officialFosterMinistry": false,
+      "officialFosterMinistry": true,
       "cafoMember": false,
       "contact": {
         "name": "Danny Bevil",
@@ -21130,7 +21130,7 @@
       "activities": [
         "support"
       ],
-      "officialFosterMinistry": false,
+      "officialFosterMinistry": true,
       "cafoMember": false,
       "contact": {
         "name": "Wayne Stewart",
@@ -21201,12 +21201,220 @@
       "activities": [
         "support"
       ],
-      "officialFosterMinistry": false,
+      "officialFosterMinistry": true,
       "cafoMember": false,
       "contact": {
         "name": "Amy Harrison",
         "title": "Church member/volunteer",
         "email": "amyharrison.casa@gmail.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2765,
+      "name": "The James Project",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "907 Clock Tower Dr",
+        "city": "Springfield",
+        "state": "IL",
+        "zip": "62703",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 39.790935824198,
+        "lng": -89.704980793531
+      },
+      "website": "thejamesproject127.com",
+      "category": "Service Organization",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Sarah Homeier",
+        "title": "Ministry and family director",
+        "email": "sarahhomeier9@gmail.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2767,
+      "name": "Ignite Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1635 Old 41 HWY NW Suite 112-241",
+        "city": "Kennesaw",
+        "state": "GA",
+        "zip": "30152",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 33.990831278031,
+        "lng": -84.594458070036
+      },
+      "website": "ignite-hope.org",
+      "category": "Bridge Ministry",
+      "activities": [
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Jacqui Jackson",
+        "title": "CEO",
+        "email": "jacqui@ignite-hope.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2768,
+      "name": "Apex Baptist Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "110 S Salem St",
+        "city": "Apex",
+        "state": "NC",
+        "zip": "27502",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 35.730628676705,
+        "lng": -78.851777039621
+      },
+      "website": "apexbaptist.org/village127",
+      "category": "Church Foster Care Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "support"
+      ],
+      "officialFosterMinistry": true,
+      "cafoMember": true,
+      "contact": {
+        "name": "Sara Meadows",
+        "title": "Village 127 Coordinator",
+        "email": "smeadows@apexbaptist.com"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Wake County Collaboration",
+          "membershipOnMap": true
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2769,
+      "name": "Living Hope Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "9000 Taft Street",
+        "city": "Merrillville",
+        "state": "IN",
+        "zip": "46410",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 41.460360088529,
+        "lng": -87.365027212921
+      },
+      "website": "lhcweb.org",
+      "category": "Church Foster Care Ministry",
+      "activities": [
+        "support"
+      ],
+      "officialFosterMinistry": true,
+      "cafoMember": false,
+      "contact": {
+        "name": "Darlene Hamlin",
+        "title": "Foster Care Pastor",
+        "email": "darlene.hamlin@lhcweb.org"
+      },
+      "onMap": true,
+      "networkMemberships": [
+        {
+          "network": "Lake County Collaboration",
+          "membershipOnMap": true
+        }
+      ],
+      "countiesServed": []
+    },
+    {
+      "id": 2770,
+      "name": "COMPACT Family Services",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2325 Malvern Ave.",
+        "city": "Hot Springs",
+        "state": "AR",
+        "zip": "71901",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 34.472239623551,
+        "lng": -93.020347918048
+      },
+      "website": "compact.family",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Perla Farias",
+        "title": "Arkansas Foster Care Director",
+        "email": "pfarias@COMPACT.family"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2771,
+      "name": "Foster the Family - Florida",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1604 17th St W",
+        "city": "Bradenton",
+        "state": "FL",
+        "zip": "34205",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 27.485213576134,
+        "lng": -82.578572830327
+      },
+      "website": "fosterthefamily.org",
+      "category": "Bridge Ministry",
+      "activities": [
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Kimberlee Peralta",
+        "title": "Florida Director",
+        "email": "kim.peralta@fosterthefamily.org"
       },
       "onMap": true,
       "networkMemberships": [],
@@ -21267,7 +21475,7 @@
     },
     {
       "name": "Wake County Collaboration",
-      "memberCount": 8,
+      "memberCount": 9,
       "members": [
         "Carolina Care Center",
         "Agape of NC",
@@ -21276,7 +21484,8 @@
         "Summit Church Collaborative",
         "Seven Homes",
         "King's Table Church",
-        "Tamarisk Community"
+        "Tamarisk Community",
+        "Apex Baptist Church"
       ]
     },
     {
@@ -21414,10 +21623,11 @@
     },
     {
       "name": "Lake County Collaboration",
-      "memberCount": 2,
+      "memberCount": 3,
       "members": [
         "Faith Church",
-        "Flourish Church"
+        "Flourish Church",
+        "Living Hope Church"
       ]
     },
     {
@@ -22919,6 +23129,60 @@
       "matchedAddress": "37 E BEAUREGARD AVE, SAN ANGELO, TX, 76903",
       "source": "census",
       "geocodedAt": "2026-05-08T07:49:06.676Z"
+    },
+    "2765": {
+      "status": "ok",
+      "lat": 39.790935824198,
+      "lng": -89.704980793531,
+      "addressHash": "907 clock tower dr|springfield|il|62703",
+      "matchedAddress": "907 CLOCKTOWER DR, SPRINGFIELD, IL, 62704",
+      "source": "census",
+      "geocodedAt": "2026-05-09T08:03:12.664Z"
+    },
+    "2767": {
+      "status": "ok",
+      "lat": 33.990831278031,
+      "lng": -84.594458070036,
+      "addressHash": "1635 old 41 hwy nw suite 112-241|kennesaw|ga|30152",
+      "matchedAddress": "1635 OLD 41 HWY NW, KENNESAW, GA, 30152",
+      "source": "census",
+      "geocodedAt": "2026-05-09T08:03:12.864Z"
+    },
+    "2768": {
+      "status": "ok",
+      "lat": 35.730628676705,
+      "lng": -78.851777039621,
+      "addressHash": "110 s salem st|apex|nc|27502",
+      "matchedAddress": "110 S SALEM ST, APEX, NC, 27502",
+      "source": "census",
+      "geocodedAt": "2026-05-09T08:03:12.976Z"
+    },
+    "2769": {
+      "status": "ok",
+      "lat": 41.460360088529,
+      "lng": -87.365027212921,
+      "addressHash": "9000 taft street|merrillville|in|46410",
+      "matchedAddress": "9000 TAFT ST, MERRILLVILLE, IN, 46410",
+      "source": "census",
+      "geocodedAt": "2026-05-09T08:03:13.092Z"
+    },
+    "2770": {
+      "status": "ok",
+      "lat": 34.472239623551,
+      "lng": -93.020347918048,
+      "addressHash": "2325 malvern ave.|hot springs|ar|71901",
+      "matchedAddress": "2325 MALVERN AVE, HOT SPRINGS, AR, 71901",
+      "source": "census",
+      "geocodedAt": "2026-05-09T08:03:13.197Z"
+    },
+    "2771": {
+      "status": "ok",
+      "lat": 27.485213576134,
+      "lng": -82.578572830327,
+      "addressHash": "1604 17th st w|bradenton|fl|34205",
+      "matchedAddress": "1604 17TH ST W, BRADENTON, FL, 34205",
+      "source": "census",
+      "geocodedAt": "2026-05-09T08:03:13.356Z"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-05-11T09:51:06.705Z",
+    "generated": "2026-05-11T23:32:21.676Z",
     "organizationCount": 536,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 325,
+      "withCoordinates": 328,
       "withWebsite": 341,
       "withActivities": 233,
       "withNetworkMemberships": 97,
@@ -25,10 +25,12 @@
     },
     "geocoding": {
       "manual": 184,
-      "cacheHit": 141,
+      "cacheHit": 143,
       "newlyGeocoded": 0,
-      "cachedFailure": 33,
-      "unresolved": 0,
+      "newlyGeocodedNominatim": 0,
+      "newlyGeocodedExpansion": 1,
+      "cachedFailure": 0,
+      "unresolved": 30,
       "skipped": 178
     }
   },
@@ -20867,7 +20869,10 @@
         "zip": "30064",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 33.9483617,
+        "lng": -84.6256317
+      },
       "website": "waymarkfoster.org/",
       "category": "Service Organization",
       "activities": [
@@ -21028,7 +21033,10 @@
         "zip": "97239",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 45.4844705,
+        "lng": -122.675816
+      },
       "website": "familyroomoregon.org/",
       "category": "Service Organization",
       "activities": [
@@ -21124,7 +21132,10 @@
         "zip": "50010",
         "county": null
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 42.0457285,
+        "lng": -93.619571
+      },
       "website": "rfkcames.org",
       "category": "Church Foster Care Ministry",
       "activities": [
@@ -21773,9 +21784,11 @@
     },
     "90": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "702 e simpson st, mechanicsburg, pa 17055-9998|mechanicsburg|pa|17055",
-      "attemptedAt": "2026-05-07T08:42:29.273Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:40.224Z"
     },
     "91": {
       "status": "ok",
@@ -21788,9 +21801,11 @@
     },
     "92": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "442 hamilton st ofc, allentown, pa 18101-9998|allentown|pa|18103",
-      "attemptedAt": "2026-05-07T08:42:29.476Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:41.527Z"
     },
     "93": {
       "status": "ok",
@@ -21812,9 +21827,11 @@
     },
     "101": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 25524 little rock ar 25524|little rock|ar|25524",
-      "attemptedAt": "2026-05-03T15:56:40.996Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:43.109Z"
     },
     "248": {
       "status": "ok",
@@ -21962,9 +21979,11 @@
     },
     "592": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 7342 newport beach ca 92658|newport beach|ca|92658",
-      "attemptedAt": "2026-05-03T15:56:43.754Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:44.414Z"
     },
     "594": {
       "status": "ok",
@@ -21977,15 +21996,19 @@
     },
     "597": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 841 placida fl 33946-0841|placida|fl|33946-0841",
-      "attemptedAt": "2026-05-03T15:56:44.093Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:45.720Z"
     },
     "599": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 8190 lakeland fl 33802|lakeland|fl|33802",
-      "attemptedAt": "2026-05-03T15:56:44.270Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:47.017Z"
     },
     "600": {
       "status": "ok",
@@ -22088,9 +22111,11 @@
     },
     "611": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 9 gridley il 61744-0040|gridley|il|61744-0040",
-      "attemptedAt": "2026-05-03T15:56:46.433Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:48.290Z"
     },
     "613": {
       "status": "ok",
@@ -22103,15 +22128,19 @@
     },
     "614": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "900 w broadway st newton ks 67114-2004|newton|ks|67114-2004",
-      "attemptedAt": "2026-05-03T15:56:46.809Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:49.841Z"
     },
     "615": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "300 hope street po box 1429 mt. washington ky 40047|mt. washington|ky|40047",
-      "attemptedAt": "2026-05-03T15:56:46.973Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:51.126Z"
     },
     "617": {
       "status": "ok",
@@ -22124,15 +22153,19 @@
     },
     "618": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 294901 eastern avenue ne grand rapids mi 49503|grand rapids|mi|49503",
-      "attemptedAt": "2026-05-03T15:56:47.325Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:52.431Z"
     },
     "619": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "p.o. box 18 oxford mi 48371|oxford|mi|48371",
-      "attemptedAt": "2026-05-03T15:56:47.493Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:53.718Z"
     },
     "620": {
       "status": "ok",
@@ -22145,15 +22178,19 @@
     },
     "621": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 746 columbus ms 39703|columbus|ms|39703",
-      "attemptedAt": "2026-05-03T15:56:47.809Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:55.010Z"
     },
     "622": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 6127 raleigh nc 27628|raleigh|nc|27628",
-      "attemptedAt": "2026-05-03T15:56:47.966Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:56.288Z"
     },
     "623": {
       "status": "ok",
@@ -22175,9 +22212,11 @@
     },
     "626": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 15946 wilmington nc 28408|wilmington|nc|28408",
-      "attemptedAt": "2026-05-03T15:56:48.576Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:57.817Z"
     },
     "629": {
       "status": "ok",
@@ -22208,9 +22247,11 @@
     },
     "633": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "2200 hamilton street, suite 200 allentown pa 18104|allentown|pa|18104",
-      "attemptedAt": "2026-05-03T15:56:49.395Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:31:59.101Z"
     },
     "634": {
       "status": "ok",
@@ -22241,27 +22282,35 @@
     },
     "639": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 2713 brentwood tn 37024|brentwood|tn|37024",
-      "attemptedAt": "2026-05-03T15:56:50.054Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:00.374Z"
     },
     "640": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 647 franklin tn 37064|franklin|tn|37064",
-      "attemptedAt": "2026-05-03T15:56:50.216Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:01.637Z"
     },
     "641": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "700 n. pearl st., suite 1200 dallas tx 75201-2874|dallas|tx|75201-2874",
-      "attemptedAt": "2026-05-03T15:56:50.377Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:03.186Z"
     },
     "642": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 868049 plano tx 75086-8049|plano|tx|75086-8049",
-      "attemptedAt": "2026-05-03T15:56:50.535Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:04.461Z"
     },
     "643": {
       "status": "ok",
@@ -22283,9 +22332,11 @@
     },
     "647": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "po box 3647 wichita falls tx 76301|wichita falls|tx|76301",
-      "attemptedAt": "2026-05-03T15:56:51.020Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:05.733Z"
     },
     "651": {
       "status": "ok",
@@ -22298,9 +22349,11 @@
     },
     "653": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "p.o. box 75635 wichita ks 67275|wichita|ks|67275",
-      "attemptedAt": "2026-05-03T15:56:51.362Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:07.005Z"
     },
     "654": {
       "status": "ok",
@@ -22421,9 +22474,11 @@
     },
     "2108": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "90 palm blvd n, niceville, fl 32578-1213|niceville|fl|32578",
-      "attemptedAt": "2026-05-07T08:42:30.296Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:08.282Z"
     },
     "2109": {
       "status": "ok",
@@ -22499,9 +22554,11 @@
     },
     "2120": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "2300 postal dr, pahrump, nv 89048-9998|pahrump|nv|89041",
-      "attemptedAt": "2026-05-07T08:42:30.598Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:09.819Z"
     },
     "2122": {
       "status": "ok",
@@ -22541,9 +22598,11 @@
     },
     "2128": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "360 crossroads blvd., windsor, co 80550|windsor|co|80550",
-      "attemptedAt": "2026-05-03T15:56:55.560Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:11.116Z"
     },
     "2132": {
       "status": "ok",
@@ -22628,15 +22687,19 @@
     },
     "2150": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "3653 teays valley road, hurricane, wv 25526|hurricane|wv|25526",
-      "attemptedAt": "2026-05-03T15:56:57.232Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:12.416Z"
     },
     "2154": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "100 81st ave, dyer, in 46311|dyer|in|46311",
-      "attemptedAt": "2026-05-07T08:42:31.142Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:13.701Z"
     },
     "2156": {
       "status": "ok",
@@ -22775,9 +22838,11 @@
     },
     "2719": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "161 e ge patterson ave, memphis, tn 38103-9997|memphis|tn|38114",
-      "attemptedAt": "2026-05-07T08:42:31.648Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:14.984Z"
     },
     "2720": {
       "status": "ok",
@@ -22916,9 +22981,11 @@
     },
     "2738": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "555 s b b king blvd, memphis, tn 38101-9998|memphis|tn|38124",
-      "attemptedAt": "2026-05-07T08:42:32.106Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:16.276Z"
     },
     "2739": {
       "status": "ok",
@@ -22958,9 +23025,11 @@
     },
     "2743": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "301 delaware, newcastle, wy, 82701|newcastle|wy|82701",
-      "attemptedAt": "2026-05-03T15:57:03.240Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:17.554Z"
     },
     "2744": {
       "status": "ok",
@@ -22982,9 +23051,11 @@
     },
     "2746": {
       "status": "failed",
-      "reason": "no match",
+      "reason": "census: no match; nominatim: no match",
       "addressHash": "90 palm blvd n, niceville, fl 32578-1213|niceville|fl|32578",
-      "attemptedAt": "2026-05-07T08:42:32.519Z"
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-05-11T23:32:18.836Z"
     },
     "2747": {
       "status": "ok",
@@ -23041,10 +23112,13 @@
       "geocodedAt": "2026-05-03T15:57:04.580Z"
     },
     "2753": {
-      "status": "failed",
-      "reason": "no match",
+      "status": "ok",
+      "lat": 33.9483617,
+      "lng": -84.6256317,
       "addressHash": "2500 dallas hwy|marietta|ga|30064",
-      "attemptedAt": "2026-05-08T07:49:06.289Z"
+      "matchedAddress": "Publix, 2500, Dallas Highway, Marietta, Cobb County, Georgia, 30064, United States",
+      "source": "nominatim",
+      "geocodedAt": "2026-05-11T23:21:52.313Z"
     },
     "2754": {
       "status": "ok",
@@ -23083,10 +23157,13 @@
       "geocodedAt": "2026-05-06T08:34:35.713Z"
     },
     "2758": {
-      "status": "failed",
-      "reason": "no match",
+      "status": "ok",
+      "lat": 45.4844705,
+      "lng": -122.675816,
       "addressHash": "5331 s macadam avenue|portland|or|97239",
-      "attemptedAt": "2026-05-07T08:42:33.062Z"
+      "matchedAddress": "5331, South Macadam Avenue, Terwilliger, South Portland, Portland, Multnomah County, Oregon, 97239, United States",
+      "source": "nominatim",
+      "geocodedAt": "2026-05-11T23:21:54.074Z"
     },
     "2759": {
       "status": "ok",
@@ -23107,10 +23184,14 @@
       "geocodedAt": "2026-05-08T07:49:06.393Z"
     },
     "2761": {
-      "status": "failed",
-      "reason": "no match",
+      "status": "ok",
+      "lat": 42.0457285,
+      "lng": -93.619571,
       "addressHash": "5501 gw carver ave|ames|ia|50010",
-      "attemptedAt": "2026-05-08T07:49:06.486Z"
+      "matchedAddress": "24th Street, Ames, Story County, Iowa, 50010, United States",
+      "source": "nominatim-expanded",
+      "expandedStreet": "5501 George Washington Carver Ave",
+      "geocodedAt": "2026-05-11T23:32:21.671Z"
     },
     "2762": {
       "status": "ok",

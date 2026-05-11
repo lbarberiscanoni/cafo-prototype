@@ -87,6 +87,97 @@ async function geocodeAddress(address) {
   }
 }
 
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+// Fallback geocoder: OpenStreetMap Nominatim. Used when Census returns "no
+// match" — Census has known patchy coverage (suite-only buildings, newer
+// roads). Nominatim policy: max 1 req/sec, descriptive User-Agent required.
+async function geocodeAddressNominatim(address) {
+  const oneline = [address.street, address.city, address.state, address.zip]
+    .map(v => (v == null ? '' : String(v).trim()))
+    .filter(Boolean)
+    .join(', ');
+  if (!oneline) return { ok: false, reason: 'empty address' };
+  await sleep(1100);
+  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(oneline)}&limit=1&countrycodes=us&addressdetails=0`;
+  try {
+    const res = await fetch(url, {
+      headers: {
+        'User-Agent': 'MTE-FosterCare-ETL/1.0 (https://github.com/lbarberiscanoni/foster-care-app)'
+      },
+      signal: AbortSignal.timeout(15000)
+    });
+    if (!res.ok) return { ok: false, reason: `HTTP ${res.status}` };
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) {
+      return { ok: false, reason: 'no match' };
+    }
+    const m = data[0];
+    const lat = parseFloat(m.lat);
+    const lng = parseFloat(m.lon);
+    if (Number.isNaN(lat) || Number.isNaN(lng)) {
+      return { ok: false, reason: 'invalid lat/lng' };
+    }
+    return { ok: true, lat, lng, matchedAddress: m.display_name };
+  } catch (e) {
+    return { ok: false, reason: e.message || String(e) };
+  }
+}
+
+// Common street-name abbreviations that geocoders (especially Nominatim) miss.
+// Applied as a last-resort retry when the original address yields no match.
+// Whole-word, case-insensitive. Grow this list from audit observations.
+const STREET_ABBREVIATIONS = [
+  [/\bG\.?\s*W\.?\s+Carver\b/gi, 'George Washington Carver'],
+  [/\bM\.?\s*L\.?\s*K\.?\b/gi, 'Martin Luther King'],
+  [/\bJ\.?\s*F\.?\s*K\.?\b/gi, 'John F Kennedy'],
+  [/\bF\.?\s*D\.?\s*R\.?\b/gi, 'Franklin D Roosevelt'],
+  [/\bL\.?\s*B\.?\s*J\.?\b/gi, 'Lyndon B Johnson'],
+  [/\bR\.?\s*F\.?\s*K\.?\b/gi, 'Robert F Kennedy'],
+];
+
+function expandStreetAbbreviations(street) {
+  if (!street) return null;
+  let out = street;
+  for (const [pat, rep] of STREET_ABBREVIATIONS) {
+    out = out.replace(pat, rep);
+  }
+  return out !== street ? out : null;
+}
+
+// Full geocoder chain for one address:
+//   Census(orig) → Nominatim(orig) → [expand abbreviations] → Census(exp) → Nominatim(exp)
+// Returns the first successful match tagged with its source, or a failure with
+// the reason from every tried path.
+async function geocodeChain(address) {
+  const census = await geocodeAddress(address);
+  if (census.ok) return { ...census, source: 'census' };
+
+  const nominatim = await geocodeAddressNominatim(address);
+  if (nominatim.ok) return { ...nominatim, source: 'nominatim' };
+
+  const expandedStreet = expandStreetAbbreviations(address.street);
+  if (!expandedStreet) {
+    return { ok: false, reason: `census: ${census.reason}; nominatim: ${nominatim.reason}` };
+  }
+
+  const expandedAddress = { ...address, street: expandedStreet };
+  const censusExp = await geocodeAddress(expandedAddress);
+  if (censusExp.ok) {
+    return { ...censusExp, source: 'census-expanded', expandedStreet };
+  }
+
+  const nominatimExp = await geocodeAddressNominatim(expandedAddress);
+  if (nominatimExp.ok) {
+    return { ...nominatimExp, source: 'nominatim-expanded', expandedStreet };
+  }
+
+  return {
+    ok: false,
+    reason: `census: ${census.reason}; nominatim: ${nominatim.reason}; census-expanded[${expandedStreet}]: ${censusExp.reason}; nominatim-expanded[${expandedStreet}]: ${nominatimExp.reason}`
+  };
+}
+
 // Read previous orgs-and-networks.json's _geocodeCache so subsequent runs
 // don't re-call Census for orgs we've already geocoded.
 function loadPreviousGeocodeCache(outputPath) {
@@ -112,15 +203,21 @@ async function runGeocoding(organizations, prevCache) {
   console.log('🌍 Geocoding pass (US Census)...');
 
   const newCache = {};
-  let manual = 0, cacheHit = 0, cachedFailure = 0, newlyGeocoded = 0, unresolved = 0, skipped = 0;
+  let manual = 0, cacheHit = 0, cachedFailure = 0, newlyGeocoded = 0, newlyGeocodedNominatim = 0, newlyGeocodedExpansion = 0, unresolved = 0, skipped = 0;
   let processed = 0;
 
-  // First pass: count how many we'll actually call Census for, so we can show progress
+  // First pass: count how many we'll actually retry, so the progress line is accurate.
+  // A cached failure is retried when we've added a new path (Nominatim or expansion)
+  // since it was recorded — gated by `triedExpansion`, which marks the full chain done.
   const needsApiCall = organizations.filter(o => {
     if (o.coordinates && o.coordinates.lat != null) return false;
     if (!o.address?.street || !o.address?.city || !o.address?.state) return false;
     const cached = prevCache.get(String(o.id));
-    if (cached && cached.addressHash === addressHash(o.address)) return false;
+    if (cached && cached.addressHash === addressHash(o.address)) {
+      if (cached.status === 'ok') return false;
+      if (cached.triedExpansion) return false;
+      return true;
+    }
     return true;
   }).length;
 
@@ -150,32 +247,41 @@ async function runGeocoding(organizations, prevCache) {
 
     // (b) Cache hit (and address unchanged)
     if (cached && cached.addressHash === hash) {
-      newCache[id] = cached;
       if (cached.status === 'ok' && cached.lat != null) {
+        newCache[id] = cached;
         org.coordinates = { lat: cached.lat, lng: cached.lng };
         cacheHit++;
-      } else {
-        cachedFailure++;
+        continue;
       }
-      continue;
+      // Cached failure that's already tried the full chain — keep as-is.
+      if (cached.triedExpansion) {
+        newCache[id] = cached;
+        cachedFailure++;
+        continue;
+      }
+      // Otherwise fall through and rerun the chain — there's a new fallback path
+      // (Nominatim and/or street-abbreviation expansion) since the cached attempt.
     }
 
-    // (c) Need to call Census
+    // (c) Run the geocoder chain: Census → Nominatim → expand → Census → Nominatim
     processed++;
     if (processed % 25 === 0) {
       console.log(`   ... ${processed}/${needsApiCall} geocoded`);
     }
-    const result = await geocodeAddress(org.address);
+    const result = await geocodeChain(org.address);
     if (result.ok) {
       org.coordinates = { lat: result.lat, lng: result.lng };
-      newlyGeocoded++;
+      if (result.source === 'census') newlyGeocoded++;
+      else if (result.source === 'nominatim') newlyGeocodedNominatim++;
+      else newlyGeocodedExpansion++;
       newCache[id] = {
         status: 'ok',
         lat: result.lat,
         lng: result.lng,
         addressHash: hash,
         matchedAddress: result.matchedAddress,
-        source: 'census',
+        source: result.source,
+        ...(result.expandedStreet ? { expandedStreet: result.expandedStreet } : {}),
         geocodedAt: new Date().toISOString()
       };
     } else {
@@ -184,6 +290,8 @@ async function runGeocoding(organizations, prevCache) {
         status: 'failed',
         reason: result.reason,
         addressHash: hash,
+        triedNominatim: true,
+        triedExpansion: true,
         attemptedAt: new Date().toISOString()
       };
     }
@@ -194,6 +302,12 @@ async function runGeocoding(organizations, prevCache) {
   console.log(`     ✓ ${manual} with manual coords (preserved)`);
   console.log(`     ✓ ${cacheHit} cache-hits (already geocoded, address unchanged)`);
   console.log(`     ✓ ${newlyGeocoded} newly geocoded via Census`);
+  if (newlyGeocodedNominatim > 0) {
+    console.log(`     ✓ ${newlyGeocodedNominatim} newly geocoded via Nominatim (Census fallback)`);
+  }
+  if (newlyGeocodedExpansion > 0) {
+    console.log(`     ✓ ${newlyGeocodedExpansion} newly geocoded after expanding street abbreviations`);
+  }
   if (cachedFailure > 0) {
     console.log(`     ↺ ${cachedFailure} previously-unresolved (cached, not retried)`);
   }
@@ -204,7 +318,7 @@ async function runGeocoding(organizations, prevCache) {
     console.log(`     ⚠️  ${skipped} skipped — no usable address (need at least street + city + state)`);
   }
 
-  return { newCache, manual, cacheHit, cachedFailure, newlyGeocoded, unresolved, skipped };
+  return { newCache, manual, cacheHit, cachedFailure, newlyGeocoded, newlyGeocodedNominatim, newlyGeocodedExpansion, unresolved, skipped };
 }
 
 // Parse Master sheet
@@ -432,6 +546,8 @@ async function parseOrganizations(inputPath, outputPath) {
         manual: geocodeResult.manual,
         cacheHit: geocodeResult.cacheHit,
         newlyGeocoded: geocodeResult.newlyGeocoded,
+        newlyGeocodedNominatim: geocodeResult.newlyGeocodedNominatim,
+        newlyGeocodedExpansion: geocodeResult.newlyGeocodedExpansion,
         cachedFailure: geocodeResult.cachedFailure,
         unresolved: geocodeResult.unresolved,
         skipped: geocodeResult.skipped

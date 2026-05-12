@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-05-11T23:32:21.676Z",
-    "organizationCount": 536,
+    "generated": "2026-05-12T08:48:18.377Z",
+    "organizationCount": 538,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 328,
-      "withWebsite": 341,
-      "withActivities": 233,
+      "withCoordinates": 330,
+      "withWebsite": 343,
+      "withActivities": 235,
       "withNetworkMemberships": 97,
       "withCountiesServed": 190
     },
@@ -17,20 +17,20 @@
       "Bridge Organization": 13,
       "Regional Network": 1,
       "Service Organization": 132,
-      "Placement Agency": 37,
+      "Placement Agency": 38,
       "Unknown": 142,
       "Bridge Ministry": 64,
-      "Church Foster Care Ministry": 89,
+      "Church Foster Care Ministry": 90,
       "Child Placement Agency": 22
     },
     "geocoding": {
       "manual": 184,
-      "cacheHit": 143,
-      "newlyGeocoded": 0,
+      "cacheHit": 144,
+      "newlyGeocoded": 2,
       "newlyGeocodedNominatim": 0,
-      "newlyGeocodedExpansion": 1,
-      "cachedFailure": 0,
-      "unresolved": 30,
+      "newlyGeocodedExpansion": 0,
+      "cachedFailure": 30,
+      "unresolved": 0,
       "skipped": 178
     }
   },
@@ -20175,7 +20175,7 @@
         "lat": 40.471145875275,
         "lng": -104.914505138133
       },
-      "website": "www.bridgethegaptogether.com",
+      "website": "bridgethegaptogether.com",
       "category": "Service Organization",
       "activities": [
         "support"
@@ -21426,6 +21426,74 @@
         "name": "Kimberlee Peralta",
         "title": "Florida Director",
         "email": "kim.peralta@fosterthefamily.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2772,
+      "name": "A Door of Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "525 14th Ave S",
+        "city": "Safety Harbor",
+        "state": "FL",
+        "zip": "34655",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 27.987751268023,
+        "lng": -82.702336460302
+      },
+      "website": "adoorofhope.com",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Godly Daniel",
+        "title": "Executive Director",
+        "email": "info@adoorofhope.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2773,
+      "name": "Traders Point Christian Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "6590 S Indianapolis Rd",
+        "city": "Whitestown",
+        "state": "IN",
+        "zip": "46075",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 39.939024636859,
+        "lng": -86.351305175955
+      },
+      "website": "rock.tpcc.org/fam",
+      "category": "Church Foster Care Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": true,
+      "cafoMember": true,
+      "contact": {
+        "name": "Brielle Hernandez",
+        "title": "Foster and Adoption Mobilization Lead",
+        "email": "Bhernandez@tpcc.org"
       },
       "onMap": true,
       "networkMemberships": [],
@@ -23264,6 +23332,24 @@
       "matchedAddress": "1604 17TH ST W, BRADENTON, FL, 34205",
       "source": "census",
       "geocodedAt": "2026-05-09T08:03:13.356Z"
+    },
+    "2772": {
+      "status": "ok",
+      "lat": 27.987751268023,
+      "lng": -82.702336460302,
+      "addressHash": "525 14th ave s|safety harbor|fl|34655",
+      "matchedAddress": "525 14TH AVE S, SAFETY HARBOR, FL, 34695",
+      "source": "census",
+      "geocodedAt": "2026-05-12T08:48:18.255Z"
+    },
+    "2773": {
+      "status": "ok",
+      "lat": 39.939024636859,
+      "lng": -86.351305175955,
+      "addressHash": "6590 s indianapolis rd|whitestown|in|46075",
+      "matchedAddress": "6590 S INDIANAPOLIS RD, WHITESTOWN, IN, 46075",
+      "source": "census",
+      "geocodedAt": "2026-05-12T08:48:18.376Z"
     }
   }
 }

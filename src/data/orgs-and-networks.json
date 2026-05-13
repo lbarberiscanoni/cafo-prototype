@@ -1,7 +1,7 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-05-12T08:48:18.377Z",
+    "generated": "2026-05-13T08:51:52.085Z",
     "organizationCount": 538,
     "networkCount": 32,
     "stats": {
@@ -25,9 +25,9 @@
     },
     "geocoding": {
       "manual": 184,
-      "cacheHit": 144,
-      "newlyGeocoded": 2,
-      "newlyGeocodedNominatim": 0,
+      "cacheHit": 145,
+      "newlyGeocoded": 0,
+      "newlyGeocodedNominatim": 1,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 30,
       "unresolved": 0,
@@ -21126,15 +21126,15 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "5501 GW Carver Ave",
+        "street": "5501 George Washington Carver Ave",
         "city": "Ames",
         "state": "IA",
         "zip": "50010",
         "county": null
       },
       "coordinates": {
-        "lat": 42.0457285,
-        "lng": -93.619571
+        "lat": 42.0454874,
+        "lng": -93.6379341
       },
       "website": "rfkcames.org",
       "category": "Church Foster Care Ministry",
@@ -23253,13 +23253,12 @@
     },
     "2761": {
       "status": "ok",
-      "lat": 42.0457285,
-      "lng": -93.619571,
-      "addressHash": "5501 gw carver ave|ames|ia|50010",
-      "matchedAddress": "24th Street, Ames, Story County, Iowa, 50010, United States",
-      "source": "nominatim-expanded",
-      "expandedStreet": "5501 George Washington Carver Ave",
-      "geocodedAt": "2026-05-11T23:32:21.671Z"
+      "lat": 42.0454874,
+      "lng": -93.6379341,
+      "addressHash": "5501 george washington carver ave|ames|ia|50010",
+      "matchedAddress": "24th Street, Somerset, Ames, Franklin Township, Story County, Iowa, 50010, United States",
+      "source": "nominatim",
+      "geocodedAt": "2026-05-13T08:51:52.084Z"
     },
     "2762": {
       "status": "ok",

@@ -23,8 +23,11 @@ function SeoFooter() {
   return (
     <footer className="bg-white border-t border-gray-200 mt-12 py-6 px-4">
       <div className="max-w-7xl mx-auto">
+        <p className="text-sm text-gray-700 font-lato mb-1 leading-snug">
+          <a href="/data/" className="text-gray-700 hover:text-mte-blue font-semibold">Explore National U.S. Foster Care Data</a>
+        </p>
         <p className="text-xs text-gray-600 font-lato mb-2 leading-snug">
-          <a href="/data/" className="text-gray-700 hover:text-mte-blue">Explore Foster Care Data</a> — Children in care, licensed foster homes, adoption, and reunification rates across the US.
+          Children in care, licensed foster homes, adoption, and reunification rates across the US.
         </p>
         <div className="columns-3 sm:columns-4 md:columns-6 gap-x-2">
           {states.map(s => (

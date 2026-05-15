@@ -1,12 +1,12 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-05-14T08:44:58.636Z",
-    "organizationCount": 538,
+    "generated": "2026-05-15T08:55:56.536Z",
+    "organizationCount": 536,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 330,
-      "withWebsite": 343,
+      "withCoordinates": 329,
+      "withWebsite": 342,
       "withActivities": 235,
       "withNetworkMemberships": 97,
       "withCountiesServed": 190
@@ -18,20 +18,20 @@
       "Regional Network": 1,
       "Service Organization": 132,
       "Placement Agency": 38,
-      "Unknown": 142,
+      "Unknown": 141,
       "Bridge Ministry": 64,
       "Church Foster Care Ministry": 90,
-      "Child Placement Agency": 22
+      "Child Placement Agency": 21
     },
     "geocoding": {
       "manual": 184,
-      "cacheHit": 146,
+      "cacheHit": 145,
       "newlyGeocoded": 0,
       "newlyGeocodedNominatim": 0,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 30,
       "unresolved": 0,
-      "skipped": 178
+      "skipped": 177
     }
   },
   "organizations": [
@@ -8809,33 +8809,6 @@
       "countiesServed": []
     },
     {
-      "id": 551,
-      "name": "The NOMORE Foundation",
-      "isOrganization": true,
-      "isNetwork": false,
-      "address": {
-        "street": null,
-        "city": null,
-        "state": null,
-        "zip": null,
-        "county": null
-      },
-      "coordinates": null,
-      "website": null,
-      "category": null,
-      "activities": [],
-      "officialFosterMinistry": false,
-      "cafoMember": true,
-      "contact": {
-        "name": "Jamie Kent",
-        "title": null,
-        "email": "jaime@fornomore.org"
-      },
-      "onMap": false,
-      "networkMemberships": [],
-      "countiesServed": []
-    },
-    {
       "id": 554,
       "name": "This Colorful LIfe",
       "isOrganization": true,
@@ -9703,36 +9676,6 @@
         "name": "Daniel Nehrbass",
         "title": null,
         "email": "daniel@nightlight.org"
-      },
-      "onMap": false,
-      "networkMemberships": [],
-      "countiesServed": []
-    },
-    {
-      "id": 588,
-      "name": "Olive Crest",
-      "isOrganization": true,
-      "isNetwork": false,
-      "address": {
-        "street": "2130 East 4th Street, Suite. 200 Santa Ana CA 92649",
-        "city": "Santa Ana",
-        "state": "CA",
-        "zip": "92649",
-        "county": null
-      },
-      "coordinates": {
-        "lat": 33.748065859552,
-        "lng": -117.836918514002
-      },
-      "website": "olivecrest.org",
-      "category": "Child Placement Agency",
-      "activities": [],
-      "officialFosterMinistry": false,
-      "cafoMember": true,
-      "contact": {
-        "name": "Emily Fazio",
-        "title": null,
-        "email": "emily-fazio@olivecrest.org"
       },
       "onMap": false,
       "networkMemberships": [],
@@ -14163,7 +14106,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
-      "cafoMember": false,
+      "cafoMember": true,
       "contact": {
         "name": "Alison Nistal",
         "title": "Foster and Adoptions Director",
@@ -14198,7 +14141,7 @@
         "support"
       ],
       "officialFosterMinistry": false,
-      "cafoMember": false,
+      "cafoMember": true,
       "contact": {
         "name": "Nicole Perez",
         "title": "Regional Director of Foster and Adoptions",
@@ -14231,7 +14174,7 @@
         "recruit_adoptive"
       ],
       "officialFosterMinistry": false,
-      "cafoMember": false,
+      "cafoMember": true,
       "contact": {
         "name": "Missy Bell",
         "title": "Programs Director",
@@ -22017,15 +21960,6 @@
       "matchedAddress": "1528 BROOKHOLLOW DR, SANTA ANA, CA, 92705",
       "source": "census",
       "geocodedAt": "2026-05-03T15:56:43.078Z"
-    },
-    "588": {
-      "status": "ok",
-      "lat": 33.748065859552,
-      "lng": -117.836918514002,
-      "addressHash": "2130 east 4th street, suite. 200 santa ana ca 92649|santa ana|ca|92649",
-      "matchedAddress": "2130 E 4TH ST, SANTA ANA, CA, 92705",
-      "source": "census",
-      "geocodedAt": "2026-05-03T15:56:43.253Z"
     },
     "589": {
       "status": "ok",

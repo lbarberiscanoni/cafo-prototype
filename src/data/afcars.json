@@ -1,7 +1,7 @@
 {
   "metadata": {
     "source": "AFCARS.xlsx",
-    "generated": "2026-05-15T08:55:49.331Z",
+    "generated": "2026-05-16T08:11:03.852Z",
     "years": [
       2021,
       2022,
@@ -20,7 +20,7 @@
       "childrenWaitingForAdoption": 8,
       "childrenAdopted": 1,
       "reunificationRate": 1,
-      "familyPreservationCases": 149,
+      "familyPreservationCases": 114,
       "licensedHomes": 109
     },
     "verification": {
@@ -2548,7 +2548,7 @@
       "childrenWaitingForAdoption": 398,
       "childrenAdopted": 720,
       "reunificationRate": 0.361,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 11,
       "licensedHomes": 2697
     },
     {
@@ -2560,7 +2560,7 @@
       "childrenWaitingForAdoption": 96,
       "childrenAdopted": 511,
       "reunificationRate": 0.415,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 648,
       "licensedHomes": 1618
     },
     {
@@ -2572,7 +2572,7 @@
       "childrenWaitingForAdoption": 1073,
       "childrenAdopted": 1440,
       "reunificationRate": 0.452,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 1131,
       "licensedHomes": 1918
     },
     {
@@ -2584,7 +2584,7 @@
       "childrenWaitingForAdoption": 4916,
       "childrenAdopted": 5352,
       "reunificationRate": 0.476,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 23372,
       "licensedHomes": 30945
     },
     {
@@ -2596,7 +2596,7 @@
       "childrenWaitingForAdoption": null,
       "childrenAdopted": 451,
       "reunificationRate": 0.443,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 613,
       "licensedHomes": 2179
     },
     {
@@ -2608,7 +2608,7 @@
       "childrenWaitingForAdoption": null,
       "childrenAdopted": 133,
       "reunificationRate": 0.196,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 151,
       "licensedHomes": 2090
     },
     {
@@ -2620,7 +2620,7 @@
       "childrenWaitingForAdoption": null,
       "childrenAdopted": 60,
       "reunificationRate": 0.357,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 49,
       "licensedHomes": 346
     },
     {
@@ -2656,7 +2656,7 @@
       "childrenWaitingForAdoption": 891,
       "childrenAdopted": 1051,
       "reunificationRate": 0.458,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 4402,
       "licensedHomes": 4495
     },
     {
@@ -2668,7 +2668,7 @@
       "childrenWaitingForAdoption": 178,
       "childrenAdopted": 122,
       "reunificationRate": 0.57,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 83,
       "licensedHomes": 702
     },
     {
@@ -2692,7 +2692,7 @@
       "childrenWaitingForAdoption": 104,
       "childrenAdopted": 237,
       "reunificationRate": 0.598,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 215,
       "licensedHomes": 1197
     },
     {
@@ -2716,7 +2716,7 @@
       "childrenWaitingForAdoption": 1007,
       "childrenAdopted": 1729,
       "reunificationRate": 0.584,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 7292,
       "licensedHomes": 3837
     },
     {
@@ -2728,7 +2728,7 @@
       "childrenWaitingForAdoption": 1926,
       "childrenAdopted": 421,
       "reunificationRate": 0.495,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 101,
       "licensedHomes": 1923
     },
     {
@@ -2740,7 +2740,7 @@
       "childrenWaitingForAdoption": 1697,
       "childrenAdopted": 1125,
       "reunificationRate": 0.41,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 960,
       "licensedHomes": 4516
     },
     {
@@ -2752,7 +2752,7 @@
       "childrenWaitingForAdoption": 496,
       "childrenAdopted": 651,
       "reunificationRate": 0.506,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 2000,
       "licensedHomes": 2114
     },
     {
@@ -2764,7 +2764,7 @@
       "childrenWaitingForAdoption": 1309,
       "childrenAdopted": 758,
       "reunificationRate": 0.556,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 2941,
       "licensedHomes": 3029
     },
     {
@@ -2776,7 +2776,7 @@
       "childrenWaitingForAdoption": 133,
       "childrenAdopted": 265,
       "reunificationRate": 0.351,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 485,
       "licensedHomes": 2270
     },
     {
@@ -2800,7 +2800,7 @@
       "childrenWaitingForAdoption": 2234,
       "childrenAdopted": 1254,
       "reunificationRate": 0.429,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 1290,
       "licensedHomes": 3718
     },
     {
@@ -2812,7 +2812,7 @@
       "childrenWaitingForAdoption": 1048,
       "childrenAdopted": 597,
       "reunificationRate": 0.546,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 64,
       "licensedHomes": 3186
     },
     {
@@ -2824,7 +2824,7 @@
       "childrenWaitingForAdoption": 417,
       "childrenAdopted": 1058,
       "reunificationRate": 0.569,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 131,
       "licensedHomes": 5047
     },
     {
@@ -2848,7 +2848,7 @@
       "childrenWaitingForAdoption": 216,
       "childrenAdopted": 212,
       "reunificationRate": 0.588,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 225,
       "licensedHomes": 1054
     },
     {
@@ -2860,7 +2860,7 @@
       "childrenWaitingForAdoption": 1113,
       "childrenAdopted": 1063,
       "reunificationRate": 0.212,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 196,
       "licensedHomes": 5820
     },
     {
@@ -2872,7 +2872,7 @@
       "childrenWaitingForAdoption": 186,
       "childrenAdopted": 264,
       "reunificationRate": 0.414,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 77,
       "licensedHomes": 724
     },
     {
@@ -2884,7 +2884,7 @@
       "childrenWaitingForAdoption": 521,
       "childrenAdopted": 476,
       "reunificationRate": 0.537,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 384,
       "licensedHomes": 2480
     },
     {
@@ -2896,7 +2896,7 @@
       "childrenWaitingForAdoption": 30,
       "childrenAdopted": 186,
       "reunificationRate": 0.532,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 91,
       "licensedHomes": 671
     },
     {
@@ -2908,7 +2908,7 @@
       "childrenWaitingForAdoption": 381,
       "childrenAdopted": 327,
       "reunificationRate": 0.498,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 569,
       "licensedHomes": 2056
     },
     {
@@ -2920,7 +2920,7 @@
       "childrenWaitingForAdoption": 418,
       "childrenAdopted": 175,
       "reunificationRate": 0.6,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 147,
       "licensedHomes": 1059
     },
     {
@@ -2932,7 +2932,7 @@
       "childrenWaitingForAdoption": 428,
       "childrenAdopted": 577,
       "reunificationRate": 0.58,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 895,
       "licensedHomes": 1209
     },
     {
@@ -2956,7 +2956,7 @@
       "childrenWaitingForAdoption": 3803,
       "childrenAdopted": 1439,
       "reunificationRate": 0.418,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 55,
       "licensedHomes": 6976
     },
     {
@@ -2968,7 +2968,7 @@
       "childrenWaitingForAdoption": 1245,
       "childrenAdopted": 1103,
       "reunificationRate": 0.477,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 447,
       "licensedHomes": 3820
     },
     {
@@ -2992,7 +2992,7 @@
       "childrenWaitingForAdoption": 1031,
       "childrenAdopted": 1709,
       "reunificationRate": 0.452,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 34,
       "licensedHomes": 8985
     },
     {
@@ -3004,7 +3004,7 @@
       "childrenWaitingForAdoption": 19,
       "childrenAdopted": null,
       "reunificationRate": null,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 2285,
       "licensedHomes": null
     },
     {
@@ -3028,7 +3028,7 @@
       "childrenWaitingForAdoption": 567,
       "childrenAdopted": 522,
       "reunificationRate": 0.482,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 474,
       "licensedHomes": 2151
     },
     {
@@ -3064,7 +3064,7 @@
       "childrenWaitingForAdoption": 5146,
       "childrenAdopted": 2581,
       "reunificationRate": 0.4,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 15156,
       "licensedHomes": 6911
     },
     {
@@ -3076,7 +3076,7 @@
       "childrenWaitingForAdoption": 216,
       "childrenAdopted": 276,
       "reunificationRate": 0.468,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 1266,
       "licensedHomes": 936
     },
     {
@@ -3112,7 +3112,7 @@
       "childrenWaitingForAdoption": null,
       "childrenAdopted": 497,
       "reunificationRate": 0.594,
-      "familyPreservationCases": null,
+      "familyPreservationCases": 422,
       "licensedHomes": 4800
     },
     {

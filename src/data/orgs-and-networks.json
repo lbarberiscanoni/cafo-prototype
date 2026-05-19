@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-05-18T10:15:40.196Z",
-    "organizationCount": 536,
+    "generated": "2026-05-19T09:56:21.387Z",
+    "organizationCount": 538,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 329,
-      "withWebsite": 342,
-      "withActivities": 235,
+      "withCoordinates": 331,
+      "withWebsite": 344,
+      "withActivities": 237,
       "withNetworkMemberships": 97,
       "withCountiesServed": 190
     },
@@ -19,14 +19,14 @@
       "Service Organization": 132,
       "Placement Agency": 38,
       "Unknown": 141,
-      "Bridge Ministry": 64,
-      "Church Foster Care Ministry": 90,
+      "Bridge Ministry": 65,
+      "Church Foster Care Ministry": 91,
       "Child Placement Agency": 21
     },
     "geocoding": {
       "manual": 184,
       "cacheHit": 145,
-      "newlyGeocoded": 0,
+      "newlyGeocoded": 2,
       "newlyGeocodedNominatim": 0,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 30,
@@ -15381,7 +15381,7 @@
       "onMap": true,
       "networkMemberships": [
         {
-          "network": "Polk County Collaboration",
+          "network": "Polk County Collaboration (Iowa)",
           "membershipOnMap": true
         }
       ],
@@ -17489,7 +17489,7 @@
       "onMap": true,
       "networkMemberships": [
         {
-          "network": "Polk County Collaboration",
+          "network": "Polk County Collaboration (Iowa)",
           "membershipOnMap": true
         }
       ],
@@ -17524,7 +17524,7 @@
       "onMap": true,
       "networkMemberships": [
         {
-          "network": "Polk County Collaboration",
+          "network": "Polk County Collaboration (Iowa)",
           "membershipOnMap": true
         }
       ],
@@ -20345,7 +20345,7 @@
       "onMap": true,
       "networkMemberships": [
         {
-          "network": "Polk County Collaboration",
+          "network": "Polk County Collaboration (Iowa)",
           "membershipOnMap": true
         }
       ],
@@ -21441,6 +21441,70 @@
       "onMap": true,
       "networkMemberships": [],
       "countiesServed": []
+    },
+    {
+      "id": 2774,
+      "name": "Eagle Ranch",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "5500 Union Church Rd",
+        "city": "Flowery Branch",
+        "state": "GA",
+        "zip": "30542",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 34.138876269491,
+        "lng": -83.854004524452
+      },
+      "website": "eagleranch.org",
+      "category": "Bridge Ministry",
+      "activities": [
+        "bio_family"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Andy Nelson",
+        "title": "Director of Foster Care",
+        "email": "anelson@eagleranch.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2775,
+      "name": "Salty Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "160 East Granada Blvd",
+        "city": "Ormond Beach",
+        "state": "FL",
+        "zip": "32176",
+        "county": null
+      },
+      "coordinates": {
+        "lat": 29.290764413098,
+        "lng": -81.042779463157
+      },
+      "website": "saltyfamilyservices.org",
+      "category": "Church Foster Care Ministry",
+      "activities": [
+        "bio_family"
+      ],
+      "officialFosterMinistry": true,
+      "cafoMember": true,
+      "contact": {
+        "name": "Jeff Chaisson",
+        "title": "Executive Director",
+        "email": "jeff@salty.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
     }
   ],
   "networks": [
@@ -21546,7 +21610,7 @@
       ]
     },
     {
-      "name": "Polk County Collaboration",
+      "name": "Polk County Collaboration (Iowa)",
       "memberCount": 4,
       "members": [
         "Wildwood Collective (an initiative of Wildwood Hills Ranch)",
@@ -23283,6 +23347,24 @@
       "matchedAddress": "6590 S INDIANAPOLIS RD, WHITESTOWN, IN, 46075",
       "source": "census",
       "geocodedAt": "2026-05-12T08:48:18.376Z"
+    },
+    "2774": {
+      "status": "ok",
+      "lat": 34.138876269491,
+      "lng": -83.854004524452,
+      "addressHash": "5500 union church rd|flowery branch|ga|30542",
+      "matchedAddress": "5500 UNION CHURCH RD, FLOWERY BRANCH, GA, 30542",
+      "source": "census",
+      "geocodedAt": "2026-05-19T09:56:21.074Z"
+    },
+    "2775": {
+      "status": "ok",
+      "lat": 29.290764413098,
+      "lng": -81.042779463157,
+      "addressHash": "160 east granada blvd|ormond beach|fl|32176",
+      "matchedAddress": "160 E GRANADA BLVD, ORMOND BEACH, FL, 32176",
+      "source": "census",
+      "geocodedAt": "2026-05-19T09:56:21.386Z"
     }
   }
 }

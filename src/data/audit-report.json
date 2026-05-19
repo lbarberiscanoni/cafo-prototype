@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-18T10:15:40.302Z",
+  "timestamp": "2026-05-19T09:56:21.479Z",
   "dataDir": "./",
   "checks": [
     {
@@ -175,7 +175,7 @@
       "name": "organization_count",
       "passed": true,
       "expected": ">= 400",
-      "actual": 536,
+      "actual": 538,
       "message": null
     },
     {
@@ -183,7 +183,7 @@
       "name": "with_coordinates",
       "passed": true,
       "expected": ">= 150",
-      "actual": 329,
+      "actual": 331,
       "message": null
     },
     {
@@ -198,8 +198,8 @@
       "category": "orgs",
       "name": "all_have_names",
       "passed": true,
-      "expected": 536,
-      "actual": 536,
+      "expected": 538,
+      "actual": 538,
       "message": null
     },
     {

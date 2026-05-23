@@ -73,10 +73,11 @@ const consolidateOrganizations = (orgs) => {
   const orgsByName = {};
   
   orgs.forEach(org => {
-    if (!orgsByName[org.name]) {
-      orgsByName[org.name] = [];
+    const key = `${org.name}|${org.state || ''}`;
+    if (!orgsByName[key]) {
+      orgsByName[key] = [];
     }
-    orgsByName[org.name].push(org);
+    orgsByName[key].push(org);
   });
   
   // Consolidate each group

@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-05-27T10:04:18.776Z",
-    "organizationCount": 538,
+    "generated": "2026-05-28T10:13:51.595Z",
+    "organizationCount": 539,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 331,
-      "withWebsite": 344,
-      "withActivities": 237,
+      "withCoordinates": 332,
+      "withWebsite": 345,
+      "withActivities": 238,
       "withNetworkMemberships": 97,
       "withCountiesServed": 190
     },
@@ -19,14 +19,14 @@
       "Service Organization": 132,
       "Placement Agency": 38,
       "Unknown": 141,
-      "Bridge Ministry": 65,
+      "Bridge Ministry": 66,
       "Church Foster Care Ministry": 91,
       "Child Placement Agency": 21
     },
     "geocoding": {
       "manual": 184,
       "cacheHit": 147,
-      "newlyGeocoded": 0,
+      "newlyGeocoded": 1,
       "newlyGeocodedNominatim": 0,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 30,
@@ -18196,7 +18196,7 @@
         "city": "Loveland",
         "state": "CO",
         "zip": null,
-        "county": "County"
+        "county": "Weld"
       },
       "coordinates": {
         "lat": 40.421687422502,
@@ -19880,7 +19880,7 @@
         "city": "Acworth",
         "state": "GA",
         "zip": "30101",
-        "county": null
+        "county": "Cobb"
       },
       "coordinates": {
         "lat": 33.998154223018,
@@ -20075,7 +20075,7 @@
         "city": "Forest City",
         "state": "NC",
         "zip": "28043",
-        "county": null
+        "county": "Rutherford"
       },
       "coordinates": {
         "lat": 35.341892106735,
@@ -20112,7 +20112,7 @@
         "city": "Windsor",
         "state": "CO",
         "zip": "80550",
-        "county": null
+        "county": "Weld"
       },
       "coordinates": {
         "lat": 40.471145875275,
@@ -20398,7 +20398,7 @@
         "city": "Fort Wayne",
         "state": "IN",
         "zip": "46835",
-        "county": null
+        "county": "Allen"
       },
       "coordinates": {
         "lat": 41.072263658143,
@@ -20469,7 +20469,7 @@
         "city": "Winona Lake",
         "state": "IN",
         "zip": "46590",
-        "county": null
+        "county": "Kosciusko"
       },
       "coordinates": {
         "lat": 41.230392462927,
@@ -20810,7 +20810,7 @@
         "city": "Marietta",
         "state": "GA",
         "zip": "30064",
-        "county": null
+        "county": "Cobb"
       },
       "coordinates": {
         "lat": 33.9483617,
@@ -20842,7 +20842,7 @@
         "city": "Schnecksville",
         "state": "PA",
         "zip": "18078",
-        "county": null
+        "county": "Lehigh"
       },
       "coordinates": {
         "lat": 40.670625091037,
@@ -20875,7 +20875,7 @@
         "city": "Spokane",
         "state": "WA",
         "zip": "99202",
-        "county": null
+        "county": "Spokane"
       },
       "coordinates": {
         "lat": 47.653638144735,
@@ -20908,7 +20908,7 @@
         "city": "Lenoir",
         "state": "NC",
         "zip": "28645",
-        "county": null
+        "county": "Caldwell"
       },
       "coordinates": {
         "lat": 35.915037738323,
@@ -20941,7 +20941,7 @@
         "city": "Churchville",
         "state": "NY",
         "zip": "14428",
-        "county": null
+        "county": "Monroe"
       },
       "coordinates": {
         "lat": 43.080519874723,
@@ -20974,7 +20974,7 @@
         "city": "Portland",
         "state": "OR",
         "zip": "97239",
-        "county": null
+        "county": "Multnomah"
       },
       "coordinates": {
         "lat": 45.4844705,
@@ -21006,7 +21006,7 @@
         "city": "Tallahassee",
         "state": "FL",
         "zip": "32317",
-        "county": null
+        "county": "Leon"
       },
       "coordinates": {
         "lat": 30.429583775709,
@@ -21039,7 +21039,7 @@
         "city": "Birmingham",
         "state": "AL",
         "zip": "35216",
-        "county": null
+        "county": "Jefferson"
       },
       "coordinates": {
         "lat": 33.404047569182,
@@ -21073,7 +21073,7 @@
         "city": "Ames",
         "state": "IA",
         "zip": "50010",
-        "county": null
+        "county": "Story"
       },
       "coordinates": {
         "lat": 42.0454874,
@@ -21111,7 +21111,7 @@
         "city": "Noblesville",
         "state": "IN",
         "zip": "46060",
-        "county": null
+        "county": "Hamilton"
       },
       "coordinates": {
         "lat": 40.050174872098,
@@ -21144,7 +21144,7 @@
         "city": "San Angelo",
         "state": "TX",
         "zip": "76901",
-        "county": null
+        "county": "Tom Green"
       },
       "coordinates": {
         "lat": 31.462703995644,
@@ -21176,7 +21176,7 @@
         "city": "Springfield",
         "state": "IL",
         "zip": "62703",
-        "county": null
+        "county": "Sangamon"
       },
       "coordinates": {
         "lat": 39.790935824198,
@@ -21209,7 +21209,7 @@
         "city": "Kennesaw",
         "state": "GA",
         "zip": "30152",
-        "county": null
+        "county": "Cobb"
       },
       "coordinates": {
         "lat": 33.990831278031,
@@ -21241,7 +21241,7 @@
         "city": "Apex",
         "state": "NC",
         "zip": "27502",
-        "county": null
+        "county": "Wake"
       },
       "coordinates": {
         "lat": 35.730628676705,
@@ -21280,7 +21280,7 @@
         "city": "Merrillville",
         "state": "IN",
         "zip": "46410",
-        "county": null
+        "county": "Lake"
       },
       "coordinates": {
         "lat": 41.460360088529,
@@ -21317,7 +21317,7 @@
         "city": "Hot Springs",
         "state": "AR",
         "zip": "71901",
-        "county": null
+        "county": "Garland"
       },
       "coordinates": {
         "lat": 34.472239623551,
@@ -21352,7 +21352,7 @@
         "city": "Bradenton",
         "state": "FL",
         "zip": "34205",
-        "county": null
+        "county": "Manatee"
       },
       "coordinates": {
         "lat": 27.485213576134,
@@ -21384,7 +21384,7 @@
         "city": "Safety Harbor",
         "state": "FL",
         "zip": "34655",
-        "county": null
+        "county": "Pinellas"
       },
       "coordinates": {
         "lat": 27.987751268023,
@@ -21417,7 +21417,7 @@
         "city": "Whitestown",
         "state": "IN",
         "zip": "46075",
-        "county": null
+        "county": "Boone"
       },
       "coordinates": {
         "lat": 39.939024636859,
@@ -21452,7 +21452,7 @@
         "city": "Flowery Branch",
         "state": "GA",
         "zip": "30542",
-        "county": null
+        "county": "Hall"
       },
       "coordinates": {
         "lat": 34.138876269491,
@@ -21484,7 +21484,7 @@
         "city": "Ormond Beach",
         "state": "FL",
         "zip": "32176",
-        "county": null
+        "county": "Volusia"
       },
       "coordinates": {
         "lat": 29.290764413098,
@@ -21501,6 +21501,41 @@
         "name": "Jeff Chaisson",
         "title": "Executive Director",
         "email": "jeff@salty.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2776,
+      "name": "Project Belong Maryland",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "14720 BALTIMORE AVE",
+        "city": "Laurel",
+        "state": "MD",
+        "zip": "20707",
+        "county": "Prince George's"
+      },
+      "coordinates": {
+        "lat": 39.092493801864,
+        "lng": -76.856418521887
+      },
+      "website": "projectbelongmaryland.org",
+      "category": "Bridge Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Jason Float",
+        "title": "Executive Director",
+        "email": "jason@projectbelongmaryland.org"
       },
       "onMap": true,
       "networkMemberships": [],
@@ -23365,6 +23400,15 @@
       "matchedAddress": "160 E GRANADA BLVD, ORMOND BEACH, FL, 32176",
       "source": "census",
       "geocodedAt": "2026-05-19T09:56:21.386Z"
+    },
+    "2776": {
+      "status": "ok",
+      "lat": 39.092493801864,
+      "lng": -76.856418521887,
+      "addressHash": "14720 baltimore ave|laurel|md|20707",
+      "matchedAddress": "14720 BALTIMORE AVE, LAUREL, MD, 20707",
+      "source": "census",
+      "geocodedAt": "2026-05-28T10:13:51.593Z"
     }
   }
 }

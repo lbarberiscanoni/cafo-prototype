@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-27T10:04:18.884Z",
+  "timestamp": "2026-05-28T10:13:51.773Z",
   "dataDir": "./",
   "checks": [
     {
@@ -111,7 +111,7 @@
       "name": "has_records",
       "passed": true,
       "expected": "> 0 records",
-      "actual": 6066,
+      "actual": 6100,
       "message": null
     },
     {
@@ -151,7 +151,7 @@
       "name": "null_preservation",
       "passed": true,
       "expected": "nulls preserved",
-      "actual": "748 null childrenInCare values",
+      "actual": "753 null childrenInCare values",
       "message": null
     },
     {
@@ -175,7 +175,7 @@
       "name": "organization_count",
       "passed": true,
       "expected": ">= 400",
-      "actual": 538,
+      "actual": 539,
       "message": null
     },
     {
@@ -183,7 +183,7 @@
       "name": "with_coordinates",
       "passed": true,
       "expected": ">= 150",
-      "actual": 331,
+      "actual": 332,
       "message": null
     },
     {
@@ -198,8 +198,8 @@
       "category": "orgs",
       "name": "all_have_names",
       "passed": true,
-      "expected": 538,
-      "actual": 538,
+      "expected": 539,
+      "actual": 539,
       "message": null
     },
     {

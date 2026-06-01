@@ -3,6 +3,14 @@
 
 import realDataJson from './data/real-data.json';
 
+// Strip trailing footnote markers (e.g. "Deadwood*" → "Deadwood") so per-year
+// entries collapse correctly in the name-keyed dedup below.
+Object.values(realDataJson.states || {}).forEach(state => {
+  (state.counties || []).forEach(c => {
+    if (typeof c.name === 'string') c.name = c.name.replace(/[*†‡§]+\s*$/, '').trim();
+  });
+});
+
 // ==================== FORMATTING UTILITIES ====================
 
 /** Format number with locale string, returns fallback for null */

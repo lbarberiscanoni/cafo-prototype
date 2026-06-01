@@ -500,23 +500,21 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
 
   // Get national organizations
   const nationalOrgs = React.useMemo(() => {
-    if (regionLevel !== 'national') return [];
-    
     // Filter all organizations marked for map display
-    return organizations.filter(org => 
+    return organizations.filter(org =>
       org.onMap === true &&
       org.coords
     );
-  }, [regionLevel]);
+  }, []);
 
   // Get current organizations based on region level (for card list)
   const currentOrgs = regionLevel === 'county' ? countyOrgs :
                      regionLevel === 'state' ? stateOrgs :
                      nationalOrgs;
 
-  // Map orgs: at county level, show all state orgs so zooming out reveals nearby orgs
-  const mapOrgs = regionLevel === 'county' ? stateOrgs :
-                  regionLevel === 'state' ? stateOrgs :
+  // Map orgs: at county/state level, show all national orgs so zooming out reveals orgs in neighboring states
+  const mapOrgs = regionLevel === 'county' ? nationalOrgs :
+                  regionLevel === 'state' ? nationalOrgs :
                   nationalOrgs;
 
   // Filter organizations based on selected categories and impact areas
@@ -901,8 +899,8 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               {showStateMap && (() => {
                 return (
                   <>
-                    {/* Organization Dots - only render if we have filtered orgs */}
-                    {filteredOrgs.length > 0 && filteredOrgs.map((org, idx) => (
+                    {/* Organization Dots - render all national orgs so zooming out reveals nearby states */}
+                    {filteredMapOrgs.length > 0 && filteredMapOrgs.map((org, idx) => (
                       <Marker
                         key={`state-${org.id || idx}-${org.coords[0]}-${org.coords[1]}`}
                         position={org.coords}

@@ -455,7 +455,8 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       .map(([id, d]) => {
         const base = d.name.split(',')[0].trim();
         const geoLabel = getGeographyLabel(d.state);
-        return { id, label: `${base} ${geoLabel}` };
+        const alreadyHasLabel = base.toLowerCase().includes(geoLabel.toLowerCase());
+        return { id, label: `${base}${alreadyHasLabel ? '' : ` ${geoLabel}`}` };
       })
       .sort((a, b) => a.label.localeCompare(b.label));
   }, [currentStateCode]);

@@ -955,7 +955,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
 
       <footer className={`py-4 px-6 ${isEmbed ? 'flex flex-col md:flex-row items-start md:items-center justify-between gap-3' : 'flex justify-end'}`}>
         <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer">
-          <img src={MTELogo} alt="More Than Enough Logo" className="h-6 md:h-8 inline-block" />
+          <img src={MTELogo} alt="More Than Enough Logo" className="h-10 md:h-12 inline-block" />
         </a>
       </footer>
     </div>

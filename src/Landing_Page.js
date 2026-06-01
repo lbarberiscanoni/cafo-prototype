@@ -115,7 +115,7 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
       <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col px-4 pb-28 pt-6">
         {/* Logo */}
         <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer" className="self-center">
-          <img src={MTELogo} alt="More Than Enough logo" className="h-9 w-auto object-contain mt-1 hover:opacity-80 transition-opacity cursor-pointer" />
+          <img src={MTELogo} alt="More Than Enough logo" className="h-14 w-auto object-contain mt-1 hover:opacity-80 transition-opacity cursor-pointer" />
         </a>
 
         {/* Main Content Area - Centered on Map */}

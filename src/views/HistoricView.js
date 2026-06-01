@@ -953,7 +953,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       {/* Footer */}
       <div className={`py-4 px-6 ${isEmbed ? 'flex flex-col md:flex-row items-start md:items-center justify-between gap-3' : 'text-right'}`}>
         <a href="https://cafo.org/morethanenough/" target="_blank" rel="noopener noreferrer" className={isEmbed ? '' : 'self-center'}>
-          <img src={MTELogo} alt="More Than Enough" className="h-6 md:h-8 inline-block" />  
+          <img src={MTELogo} alt="More Than Enough" className="h-10 md:h-12 inline-block" />  
         </a>
       </div>
     </div>

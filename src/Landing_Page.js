@@ -27,7 +27,7 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
       .map(([id, c]) => {
         const base = c.name.includes(",") ? c.name.split(",")[0].trim() : c.name;
         const geoLabel = getGeographyLabel(c.state);
-        const alreadyHasLabel = base.toLowerCase().includes(geoLabel.toLowerCase());
+        const alreadyHasLabel = /\b(county|parish|borough|city|municipality|census area|region|district)\b/i.test(base);
         const label = base === c.state ? base : `${base}${alreadyHasLabel ? '' : ` ${geoLabel}`}, ${c.state}`;
         return { id, label, data: c, state: c.state };
       })

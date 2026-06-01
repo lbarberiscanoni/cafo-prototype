@@ -73,7 +73,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
       .map(([id, c]) => {
         const base = c.name.includes(",") ? c.name.split(",")[0].trim() : c.name;
         const geoLabel = getGeographyLabel(c.state);
-        const alreadyHasLabel = base.toLowerCase().includes(geoLabel.toLowerCase());
+        const alreadyHasLabel = /\b(county|parish|borough|city|municipality|census area|region|district)\b/i.test(base);
         const label = base === c.state ? base : `${base}${alreadyHasLabel ? '' : ` ${geoLabel}`}, ${c.state}`;
         return { id, label, data: c, state: c.state };
       })
@@ -157,7 +157,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         const countyParts = county.name.split(',');
         const geoLabel = county.geographyLabel || 'County';
         const countyNamePart = countyParts[0].trim();
-        const alreadyHasLabel = countyNamePart.toLowerCase().includes(geoLabel.toLowerCase());
+        const alreadyHasLabel = /\b(county|parish|borough|city|municipality|census area|region|district)\b/i.test(countyNamePart);
         const formattedCountyName = countyParts.length >= 2
           ? `${countyNamePart}${alreadyHasLabel ? '' : ` ${geoLabel}`},${countyParts.slice(1).join(',')}`
           : county.name;

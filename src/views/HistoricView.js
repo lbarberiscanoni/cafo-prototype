@@ -455,7 +455,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       .map(([id, d]) => {
         const base = d.name.split(',')[0].trim();
         const geoLabel = getGeographyLabel(d.state);
-        const alreadyHasLabel = base.toLowerCase().includes(geoLabel.toLowerCase());
+        const alreadyHasLabel = /\b(county|parish|borough|city|municipality|census area|region|district)\b/i.test(base);
         return { id, label: `${base}${alreadyHasLabel ? '' : ` ${geoLabel}`}` };
       })
       .sort((a, b) => a.label.localeCompare(b.label));
@@ -479,7 +479,7 @@ export default function HistoricView({ regionLevel, regionId, onSelectRegion }) 
       if (parts.length >= 2) {
         const namePart = parts[0].trim();
         const geoLabel = countyData[regionId].geographyLabel || 'County';
-        const alreadyHasLabel = namePart.toLowerCase().includes(geoLabel.toLowerCase());
+        const alreadyHasLabel = /\b(county|parish|borough|city|municipality|census area|region|district)\b/i.test(namePart);
         return `${namePart}${alreadyHasLabel ? '' : ` ${geoLabel}`},${parts.slice(1).join(',')}`;
       }
       return countyData[regionId].name;

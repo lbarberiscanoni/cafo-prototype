@@ -119,7 +119,7 @@ export const formatCountyDisplayName = (countyOrName) => {
   const statePart = parts.slice(1).join(',').trim();
   const geoLabel = (typeof countyOrName === 'object' && countyOrName.geographyLabel)
     || getGeographyLabel(statePart);
-  const alreadyHasLabel = namePart.toLowerCase().includes(geoLabel.toLowerCase());
+  const alreadyHasLabel = /\b(county|parish|borough|city|municipality|census area|region|district)\b/i.test(namePart);
   return `${namePart}${alreadyHasLabel ? '' : ` ${geoLabel}`}, ${statePart}`;
 };
 

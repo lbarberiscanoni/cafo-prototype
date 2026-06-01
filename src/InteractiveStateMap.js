@@ -229,6 +229,48 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
           return;
         }
 
+        // Build a FIPS -> countyData id map so clicks on TopoJSON features whose
+        // simplified `properties.name` collides (e.g. MD Baltimore County vs.
+        // Baltimore city; VA independent cities) still resolve to the right entry.
+        const stateSuffix = `-${stateCode.toLowerCase()}`;
+        const stateCountyEntries = Object.entries(countyData).filter(([id]) => id.endsWith(stateSuffix));
+        const stripSuffix = (s) => s
+          .toLowerCase()
+          .replace(/\s+(county|parish|borough|census area|municipality|city and borough|city)$/i, '')
+          .trim();
+        const fipsToCountyId = {};
+        stateCounties.forEach(feat => {
+          const topoName = (feat.properties.name || '').toLowerCase().trim();
+          if (!topoName) return;
+          const candidates = stateCountyEntries.filter(([, d]) => stripSuffix(d.countyName || '') === topoName);
+          if (candidates.length === 1) {
+            fipsToCountyId[feat.id] = candidates[0][0];
+          } else if (candidates.length > 1) {
+            const lastThree = parseInt(String(feat.id).slice(-3), 10);
+            const isIndependentCity = lastThree >= 500;
+            const pick = candidates.find(([, d]) => {
+              const isCity = /\scity$/i.test(d.countyName || '');
+              return isIndependentCity ? isCity : !isCity;
+            }) || candidates[0];
+            fipsToCountyId[feat.id] = pick[0];
+          }
+        });
+
+        // Resolves a TopoJSON feature to {countyId, data}. Prefers FIPS match;
+        // falls back to the legacy name-keyed lookup for regions/CT/AK where the
+        // FIPS strategy doesn't apply.
+        const resolveFeature = (d) => {
+          const countyId = fipsToCountyId[d.id];
+          if (countyId && countyData[countyId]) {
+            const merged = { ...countyData[countyId], fips: countyId };
+            const metricValue = metricConfig.getValue(countyData[countyId]);
+            if (metricValue !== undefined) merged.value = metricValue;
+            return { countyId, data: merged };
+          }
+          const fallback = stateCountyData[d.properties.name];
+          return { countyId: fallback?.fips, data: fallback };
+        };
+
         const projection = d3.geoMercator()
           .fitSize([width, height], { type: "FeatureCollection", features: stateCounties });
 
@@ -261,8 +303,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
           .append("path")
           .attr("d", path)
           .attr("fill", d => {
-            const countyName = d.properties.name;
-            const data = stateCountyData[countyName];
+            const { data } = resolveFeature(d);
             return colorScale(data?.value);
           })
           .attr("stroke", "#ccc")
@@ -270,8 +311,8 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
           .style("cursor", "pointer")
           .on("mouseenter", function(event, d) {
             const countyName = d.properties.name;
-            const data = stateCountyData[countyName];
-            
+            const { data } = resolveFeature(d);
+
             d3.select(this).attr("stroke", "#00ADEE").attr("stroke-width", 2);
             // Use container-relative coords (CSS pixels) not SVG viewBox coords
             const rect = containerRef.current?.getBoundingClientRect();
@@ -279,7 +320,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
               setMousePosition({ x: event.clientX - rect.left, y: event.clientY - rect.top });
             }
             setHoveredCounty({
-              name: countyName,
+              name: data?.countyName || countyName,
               value: data?.value,
               fips: d.id,
               hasData: !!data && data.value !== null && data.value !== undefined
@@ -291,10 +332,10 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
           })
           .on("click", function(event, d) {
             const countyName = d.properties.name;
-            const data = stateCountyData[countyName];
+            const { countyId: resolvedId, data } = resolveFeature(d);
             if (onCountyClick) {
-              const countyId = data?.fips || `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
-              onCountyClick(countyId, countyName, data || {});
+              const countyId = resolvedId || `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
+              onCountyClick(countyId, data?.countyName || countyName, data || {});
             }
           });
 
@@ -348,10 +389,10 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
           })
           .on("click", function(event, d) {
             const countyName = d.properties.name;
-            const data = stateCountyData[countyName];
+            const { countyId: resolvedId, data } = resolveFeature(d);
             if (onCountyClick) {
-              const countyId = data?.fips || `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
-              onCountyClick(countyId, countyName, data || {});
+              const countyId = resolvedId || `${countyName.toLowerCase().replace(/\s+/g, '-')}-${stateCode.toLowerCase()}`;
+              onCountyClick(countyId, data?.countyName || countyName, data || {});
             }
           });
 

@@ -103,7 +103,10 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
   const zoomRef = useRef(null);
 
   // Get metric configuration, fallback to ratio if metric not found
-  const metricConfig = COUNTY_METRIC_CONFIG[selectedMetric] || COUNTY_METRIC_CONFIG["Number of Licensed Homes to Children in Care"];
+  const metricConfig = useMemo(
+    () => COUNTY_METRIC_CONFIG[selectedMetric] || COUNTY_METRIC_CONFIG["Number of Licensed Homes to Children in Care"],
+    [selectedMetric]
+  );
 
   // Get county data for this state based on selected metric
   const stateCountyData = useMemo(() => 
@@ -461,7 +464,7 @@ const InteractiveStateMap = ({ stateCode, stateName, selectedMetric = "Number of
       });
 
     return () => { cancelled = true; };
-  }, [stateCode, stateName, selectedMetric, onCountyClick, colorScale, stateCountyData]);
+  }, [stateCode, stateName, metricConfig, onCountyClick, colorScale, stateCountyData]);
 
   if (error) {
     return (

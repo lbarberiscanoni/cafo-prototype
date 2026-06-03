@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-06-02T10:45:54.930Z",
-    "organizationCount": 539,
+    "generated": "2026-06-03T11:10:00.440Z",
+    "organizationCount": 542,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 332,
-      "withWebsite": 345,
-      "withActivities": 238,
+      "withCoordinates": 335,
+      "withWebsite": 348,
+      "withActivities": 241,
       "withNetworkMemberships": 97,
       "withCountiesServed": 190
     },
@@ -17,16 +17,16 @@
       "Bridge Organization": 13,
       "Regional Network": 1,
       "Service Organization": 132,
-      "Placement Agency": 38,
+      "Placement Agency": 40,
       "Unknown": 141,
       "Bridge Ministry": 66,
-      "Church Foster Care Ministry": 91,
+      "Church Foster Care Ministry": 92,
       "Child Placement Agency": 21
     },
     "geocoding": {
       "manual": 184,
       "cacheHit": 148,
-      "newlyGeocoded": 0,
+      "newlyGeocoded": 3,
       "newlyGeocodedNominatim": 0,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 30,
@@ -21540,6 +21540,106 @@
       "onMap": true,
       "networkMemberships": [],
       "countiesServed": []
+    },
+    {
+      "id": 2777,
+      "name": "Timberline Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "311 Ruins Road",
+        "city": "Aztec",
+        "state": "NM",
+        "zip": "87410",
+        "county": "San Juan"
+      },
+      "coordinates": {
+        "lat": 36.829255059697,
+        "lng": -108.000789879036
+      },
+      "website": "mytimberline.org/services-9",
+      "category": "Church Foster Care Ministry",
+      "activities": [
+        "support"
+      ],
+      "officialFosterMinistry": true,
+      "cafoMember": false,
+      "contact": {
+        "name": "Melissa Neil",
+        "title": "Associate Pastor",
+        "email": "melissa@mytimberline.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2778,
+      "name": "Hope's Promise",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1585 S. Perry St. Suite E",
+        "city": "Castle Rock",
+        "state": "CO",
+        "zip": "80104",
+        "county": "Douglas"
+      },
+      "coordinates": {
+        "lat": 39.355913650781,
+        "lng": -104.86143857882
+      },
+      "website": "hopespromise.com",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Beth Woods",
+        "title": "Executive Director",
+        "email": "beth@hopespromise.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2779,
+      "name": "Alabama Baptist Children's Homes and Family Ministires",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1210 Friendship Road",
+        "city": "Oxford",
+        "state": "AL",
+        "zip": "36203",
+        "county": "Calhoun"
+      },
+      "coordinates": {
+        "lat": 33.591534479061,
+        "lng": -85.814533234178
+      },
+      "website": "alabamachild.org",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Elise Vincent",
+        "title": "Area Director Central Alabama",
+        "email": "evincent@alabamachild.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
     }
   ],
   "networks": [
@@ -23409,6 +23509,33 @@
       "matchedAddress": "14720 BALTIMORE AVE, LAUREL, MD, 20707",
       "source": "census",
       "geocodedAt": "2026-05-28T10:13:51.593Z"
+    },
+    "2777": {
+      "status": "ok",
+      "lat": 36.829255059697,
+      "lng": -108.000789879036,
+      "addressHash": "311 ruins road|aztec|nm|87410",
+      "matchedAddress": "311 RUINS RD, AZTEC, NM, 87410",
+      "source": "census",
+      "geocodedAt": "2026-06-03T11:10:00.207Z"
+    },
+    "2778": {
+      "status": "ok",
+      "lat": 39.355913650781,
+      "lng": -104.86143857882,
+      "addressHash": "1585 s. perry st. suite e|castle rock|co|80104",
+      "matchedAddress": "1585 S PERRY ST, CASTLE ROCK, CO, 80104",
+      "source": "census",
+      "geocodedAt": "2026-06-03T11:10:00.340Z"
+    },
+    "2779": {
+      "status": "ok",
+      "lat": 33.591534479061,
+      "lng": -85.814533234178,
+      "addressHash": "1210 friendship road|oxford|al|36203",
+      "matchedAddress": "1210 FRIENDSHIP RD, OXFORD, AL, 36203",
+      "source": "census",
+      "geocodedAt": "2026-06-03T11:10:00.438Z"
     }
   }
 }

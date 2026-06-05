@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-06-04T10:04:13.761Z",
-    "organizationCount": 542,
+    "generated": "2026-06-05T10:02:00.498Z",
+    "organizationCount": 558,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 335,
-      "withWebsite": 348,
-      "withActivities": 241,
+      "withCoordinates": 347,
+      "withWebsite": 364,
+      "withActivities": 257,
       "withNetworkMemberships": 97,
       "withCountiesServed": 190
     },
@@ -16,21 +16,21 @@
       "State/Regional Network": 3,
       "Bridge Organization": 13,
       "Regional Network": 1,
-      "Service Organization": 132,
-      "Placement Agency": 40,
+      "Service Organization": 136,
+      "Placement Agency": 50,
       "Unknown": 141,
-      "Bridge Ministry": 66,
-      "Church Foster Care Ministry": 92,
+      "Bridge Ministry": 67,
+      "Church Foster Care Ministry": 93,
       "Child Placement Agency": 21
     },
     "geocoding": {
       "manual": 184,
       "cacheHit": 151,
-      "newlyGeocoded": 0,
-      "newlyGeocodedNominatim": 0,
+      "newlyGeocoded": 10,
+      "newlyGeocodedNominatim": 2,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 30,
-      "unresolved": 0,
+      "unresolved": 4,
       "skipped": 177
     }
   },
@@ -21390,7 +21390,7 @@
         "lat": 27.987751268023,
         "lng": -82.702336460302
       },
-      "website": "adoorofhope.com",
+      "website": "adoorofhope.com/foster-care-pinellas-county",
       "category": "Placement Agency",
       "activities": [
         "recruit_foster_kinship",
@@ -21636,6 +21636,527 @@
         "name": "Elise Vincent",
         "title": "Area Director Central Alabama",
         "email": "evincent@alabamachild.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2780,
+      "name": "Greater Amarillo Foster Parent Association",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "P.O. Box 50491",
+        "city": "Amarillo",
+        "state": "TX",
+        "zip": "79159",
+        "county": "Potter"
+      },
+      "coordinates": null,
+      "website": "gafpatx.org",
+      "category": "Service Organization",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Genifer Schuster",
+        "title": "Board member",
+        "email": "gafpatx@gmail.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2781,
+      "name": "South Dakota Kids Belong",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "P.O. Box 285",
+        "city": "Spearfish",
+        "state": "SD",
+        "zip": "57783",
+        "county": "Butte"
+      },
+      "coordinates": null,
+      "website": "sdkidsbelong.org",
+      "category": "Service Organization",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Doris cardwell",
+        "title": "Executive Director",
+        "email": "dcardwell@sdkidsbelong.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2782,
+      "name": "Ransom Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "700 N Main Avenue",
+        "city": "Sioux Falls",
+        "state": "SD",
+        "zip": "57104",
+        "county": "Minnehaha"
+      },
+      "coordinates": {
+        "lat": 43.555189609124,
+        "lng": -96.728267223682
+      },
+      "website": "ransom.church",
+      "category": "Church Foster Care Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": true,
+      "cafoMember": false,
+      "contact": {
+        "name": "Angel Metzger",
+        "title": "Compassion Director",
+        "email": "angel@ransom.church"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2783,
+      "name": "Foster Closet of San Angelo",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "14 S. Jefferson",
+        "city": "San Angelo",
+        "state": "TX",
+        "zip": "76901",
+        "county": "Irion"
+      },
+      "coordinates": {
+        "lat": 31.456695086599,
+        "lng": -100.455492775023
+      },
+      "website": "facebook.com/fosterclosetSA",
+      "category": "Service Organization",
+      "activities": [
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Rhiannon Kelso",
+        "title": "Director",
+        "email": "fosterclosetsa@gmail.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2784,
+      "name": "Open Homes Initiative",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "P.O. Box 761",
+        "city": "San Angelo",
+        "state": "TX",
+        "zip": "76902",
+        "county": "Tom Green"
+      },
+      "coordinates": null,
+      "website": "openhomesinitiative.com",
+      "category": "Bridge Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Justin Smith",
+        "title": "Director",
+        "email": "justin@openhomesinitiative.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2785,
+      "name": "Panhandle Orphan Care Network",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "P.O. Box 2344",
+        "city": "Amarillo",
+        "state": "TX",
+        "zip": "79105",
+        "county": "Potter"
+      },
+      "coordinates": null,
+      "website": "panhandleorphan.org",
+      "category": "Service Organization",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Matthew J Darrah",
+        "title": "Executive Director",
+        "email": "matt@panhandleorphan.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2786,
+      "name": "A Door of Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "10121 E ADAMO DR",
+        "city": "Tampa",
+        "state": "FL",
+        "zip": "33619",
+        "county": "Hillsborough"
+      },
+      "coordinates": {
+        "lat": 27.944474992926,
+        "lng": -82.336955131167
+      },
+      "website": "adoorofhope.com/foster-care-hillsborough-county",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Godly Daniel",
+        "title": "Executive Director",
+        "email": "info@adoorofhope.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2787,
+      "name": "A Door of Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "5230 LAND O LAKES BLVD",
+        "city": "Land O Lakes",
+        "state": "FL",
+        "zip": "34639",
+        "county": "Pasco"
+      },
+      "coordinates": {
+        "lat": 28.2323253,
+        "lng": -82.4588994
+      },
+      "website": "adoorofhope.com/foster-care-pasco-county",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Godly Daniel",
+        "title": "Executive Director",
+        "email": "info@adoorofhope.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2788,
+      "name": "A Door of Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2600 W OLD US HIGHWAY 441",
+        "city": "Mount Dora",
+        "state": "FL",
+        "zip": "32757",
+        "county": "Lake"
+      },
+      "coordinates": {
+        "lat": 28.807497202915,
+        "lng": -81.670458730836
+      },
+      "website": "adoorofhope.com/foster-care-lake-county",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Godly Daniel",
+        "title": "Executive Director",
+        "email": "info@adoorofhope.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2789,
+      "name": "A Door of Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "400 SW 1ST AVE",
+        "city": "Ocala",
+        "state": "FL",
+        "zip": "34478",
+        "county": "Marion"
+      },
+      "coordinates": {
+        "lat": 29.183266717717,
+        "lng": -82.137893437844
+      },
+      "website": "adoorofhope.com/foster-care-marion-county",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Godly Daniel",
+        "title": "Executive Director",
+        "email": "info@adoorofhope.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2790,
+      "name": "A Door of Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "19101 CORTEZ BLVD",
+        "city": "Brooksville",
+        "state": "FL",
+        "zip": "34601",
+        "county": "Hernando"
+      },
+      "coordinates": {
+        "lat": 28.546861804993,
+        "lng": -82.420131329709
+      },
+      "website": "adoorofhope.com/foster-care-hernando-county",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Godly Daniel",
+        "title": "Executive Director",
+        "email": "info@adoorofhope.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2791,
+      "name": "A Door of Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "800 N MAIN ST",
+        "city": "Bushnell",
+        "state": "FL",
+        "zip": "33513",
+        "county": "Sumter"
+      },
+      "coordinates": {
+        "lat": 28.6744752,
+        "lng": -82.112564
+      },
+      "website": "adoorofhope.com/foster-care-sumter-county",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Godly Daniel",
+        "title": "Executive Director",
+        "email": "info@adoorofhope.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2792,
+      "name": "A Door of Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "320 S LECANTO HWY",
+        "city": "Lecanto",
+        "state": "FL",
+        "zip": "34461",
+        "county": "Citrus"
+      },
+      "coordinates": {
+        "lat": 28.861613131721,
+        "lng": -82.488088194167
+      },
+      "website": "adoorofhope.com/foster-care-citrus-county",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Godly Daniel",
+        "title": "Executive Director",
+        "email": "info@adoorofhope.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2793,
+      "name": "A Door of Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "5910 POST BLVD",
+        "city": "Bradenton",
+        "state": "FL",
+        "zip": "34211",
+        "county": "Manatee"
+      },
+      "coordinates": {
+        "lat": 27.434807692834,
+        "lng": -82.383885581008
+      },
+      "website": "adoorofhope.com/foster-care-manatee-county",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Godly Daniel",
+        "title": "Executive Director",
+        "email": "info@adoorofhope.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2794,
+      "name": "A Door of Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2055 SIESTA DR",
+        "city": "Sarasota",
+        "state": "FL",
+        "zip": "34239",
+        "county": "Sarasota"
+      },
+      "coordinates": {
+        "lat": 27.302907287285,
+        "lng": -82.528713494326
+      },
+      "website": "adoorofhope.com/foster-care-sarasota-county",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Godly Daniel",
+        "title": "Executive Director",
+        "email": "info@adoorofhope.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2795,
+      "name": "A Door of Hope",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "109 N POLK AVE",
+        "city": "Arcadia",
+        "state": "FL",
+        "zip": "34266",
+        "county": "DeSoto"
+      },
+      "coordinates": {
+        "lat": 27.219366387031,
+        "lng": -81.860254224505
+      },
+      "website": "adoorofhope.com/foster-care-desoto-county",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Godly Daniel",
+        "title": "Executive Director",
+        "email": "info@adoorofhope.com"
       },
       "onMap": true,
       "networkMemberships": [],
@@ -23536,6 +24057,146 @@
       "matchedAddress": "1210 FRIENDSHIP RD, OXFORD, AL, 36203",
       "source": "census",
       "geocodedAt": "2026-06-03T11:10:00.438Z"
+    },
+    "2780": {
+      "status": "failed",
+      "reason": "census: no match; nominatim: no match",
+      "addressHash": "p.o. box 50491|amarillo|tx|79159",
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-06-05T10:01:50.534Z"
+    },
+    "2781": {
+      "status": "failed",
+      "reason": "census: no match; nominatim: no match",
+      "addressHash": "p.o. box 285|spearfish|sd|57783",
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-06-05T10:01:52.175Z"
+    },
+    "2782": {
+      "status": "ok",
+      "lat": 43.555189609124,
+      "lng": -96.728267223682,
+      "addressHash": "700 n main avenue|sioux falls|sd|57104",
+      "matchedAddress": "700 N MAIN AVE, SIOUX FALLS, SD, 57104",
+      "source": "census",
+      "geocodedAt": "2026-06-05T10:01:52.305Z"
+    },
+    "2783": {
+      "status": "ok",
+      "lat": 31.456695086599,
+      "lng": -100.455492775023,
+      "addressHash": "14 s. jefferson|san angelo|tx|76901",
+      "matchedAddress": "14 S JEFFERSON ST, SAN ANGELO, TX, 76901",
+      "source": "census",
+      "geocodedAt": "2026-06-05T10:01:52.514Z"
+    },
+    "2784": {
+      "status": "failed",
+      "reason": "census: no match; nominatim: no match",
+      "addressHash": "p.o. box 761|san angelo|tx|76902",
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-06-05T10:01:54.480Z"
+    },
+    "2785": {
+      "status": "failed",
+      "reason": "census: no match; nominatim: no match",
+      "addressHash": "p.o. box 2344|amarillo|tx|79105",
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-06-05T10:01:56.216Z"
+    },
+    "2786": {
+      "status": "ok",
+      "lat": 27.944474992926,
+      "lng": -82.336955131167,
+      "addressHash": "10121 e adamo dr|tampa|fl|33619",
+      "matchedAddress": "10121 ADAMO DR, TAMPA, FL, 33619",
+      "source": "census",
+      "geocodedAt": "2026-06-05T10:01:56.337Z"
+    },
+    "2787": {
+      "status": "ok",
+      "lat": 28.2323253,
+      "lng": -82.4588994,
+      "addressHash": "5230 land o lakes blvd|land o lakes|fl|34639",
+      "matchedAddress": "5230, Land O' Lakes Boulevard, Land O' Lakes, Pasco County, Florida, 34639, United States",
+      "source": "nominatim",
+      "geocodedAt": "2026-06-05T10:01:57.992Z"
+    },
+    "2788": {
+      "status": "ok",
+      "lat": 28.807497202915,
+      "lng": -81.670458730836,
+      "addressHash": "2600 w old us highway 441|mount dora|fl|32757",
+      "matchedAddress": "2600 W OLD US HIGHWAY 441, MOUNT DORA, FL, 32757",
+      "source": "census",
+      "geocodedAt": "2026-06-05T10:01:58.137Z"
+    },
+    "2789": {
+      "status": "ok",
+      "lat": 29.183266717717,
+      "lng": -82.137893437844,
+      "addressHash": "400 sw 1st ave|ocala|fl|34478",
+      "matchedAddress": "400 SW 1ST AVE, OCALA, FL, 34474",
+      "source": "census",
+      "geocodedAt": "2026-06-05T10:01:58.302Z"
+    },
+    "2790": {
+      "status": "ok",
+      "lat": 28.546861804993,
+      "lng": -82.420131329709,
+      "addressHash": "19101 cortez blvd|brooksville|fl|34601",
+      "matchedAddress": "19101 CORTEZ BLVD, BROOKSVILLE, FL, 34601",
+      "source": "census",
+      "geocodedAt": "2026-06-05T10:01:58.435Z"
+    },
+    "2791": {
+      "status": "ok",
+      "lat": 28.6744752,
+      "lng": -82.112564,
+      "addressHash": "800 n main st|bushnell|fl|33513",
+      "matchedAddress": "800, North Main Street, Bushnell, Sumter County, Florida, 33513, United States",
+      "source": "nominatim",
+      "geocodedAt": "2026-06-05T10:01:59.991Z"
+    },
+    "2792": {
+      "status": "ok",
+      "lat": 28.861613131721,
+      "lng": -82.488088194167,
+      "addressHash": "320 s lecanto hwy|lecanto|fl|34461",
+      "matchedAddress": "320 S LECANTO HWY, LECANTO, FL, 34461",
+      "source": "census",
+      "geocodedAt": "2026-06-05T10:02:00.129Z"
+    },
+    "2793": {
+      "status": "ok",
+      "lat": 27.434807692834,
+      "lng": -82.383885581008,
+      "addressHash": "5910 post blvd|bradenton|fl|34211",
+      "matchedAddress": "5910 POST BLVD, BRADENTON, FL, 34211",
+      "source": "census",
+      "geocodedAt": "2026-06-05T10:02:00.252Z"
+    },
+    "2794": {
+      "status": "ok",
+      "lat": 27.302907287285,
+      "lng": -82.528713494326,
+      "addressHash": "2055 siesta dr|sarasota|fl|34239",
+      "matchedAddress": "2055 SIESTA DR, SARASOTA, FL, 34239",
+      "source": "census",
+      "geocodedAt": "2026-06-05T10:02:00.374Z"
+    },
+    "2795": {
+      "status": "ok",
+      "lat": 27.219366387031,
+      "lng": -81.860254224505,
+      "addressHash": "109 n polk ave|arcadia|fl|34266",
+      "matchedAddress": "109 N POLK AVE, ARCADIA, FL, 34266",
+      "source": "census",
+      "geocodedAt": "2026-06-05T10:02:00.497Z"
     }
   }
 }

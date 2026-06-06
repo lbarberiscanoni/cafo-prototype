@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-05T10:02:00.599Z",
+  "timestamp": "2026-06-06T08:41:01.115Z",
   "dataDir": "./",
   "checks": [
     {
@@ -183,7 +183,7 @@
       "name": "with_coordinates",
       "passed": true,
       "expected": ">= 150",
-      "actual": 347,
+      "actual": 351,
       "message": null
     },
     {

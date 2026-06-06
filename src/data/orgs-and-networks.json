@@ -1,11 +1,11 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-06-05T10:02:00.498Z",
+    "generated": "2026-06-06T08:41:01.004Z",
     "organizationCount": 558,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 347,
+      "withCoordinates": 351,
       "withWebsite": 364,
       "withActivities": 257,
       "withNetworkMemberships": 97,
@@ -25,12 +25,12 @@
     },
     "geocoding": {
       "manual": 184,
-      "cacheHit": 151,
-      "newlyGeocoded": 10,
+      "cacheHit": 163,
+      "newlyGeocoded": 2,
       "newlyGeocodedNominatim": 2,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 30,
-      "unresolved": 4,
+      "unresolved": 0,
       "skipped": 177
     }
   },
@@ -21647,13 +21647,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "P.O. Box 50491",
+        "street": "505 E 9TH AVE",
         "city": "Amarillo",
         "state": "TX",
-        "zip": "79159",
+        "zip": "79105",
         "county": "Potter"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.2059059,
+        "lng": -101.8860382
+      },
       "website": "gafpatx.org",
       "category": "Service Organization",
       "activities": [
@@ -21678,13 +21681,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "P.O. Box 285",
+        "street": "120 YANKEE ST",
         "city": "Spearfish",
         "state": "SD",
         "zip": "57783",
         "county": "Butte"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 44.506697171962,
+        "lng": -103.860273891344
+      },
       "website": "sdkidsbelong.org",
       "category": "Service Organization",
       "activities": [
@@ -21776,13 +21782,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "P.O. Box 761",
+        "street": "1 N ABE ST",
         "city": "San Angelo",
         "state": "TX",
         "zip": "76902",
         "county": "Tom Green"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 31.461608276606,
+        "lng": -100.444609040734
+      },
       "website": "openhomesinitiative.com",
       "category": "Bridge Ministry",
       "activities": [
@@ -21807,13 +21816,16 @@
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "P.O. Box 2344",
+        "street": "505 E 9TH AVE",
         "city": "Amarillo",
         "state": "TX",
         "zip": "79105",
         "county": "Potter"
       },
-      "coordinates": null,
+      "coordinates": {
+        "lat": 35.2059059,
+        "lng": -101.8860382
+      },
       "website": "panhandleorphan.org",
       "category": "Service Organization",
       "activities": [
@@ -24059,20 +24071,22 @@
       "geocodedAt": "2026-06-03T11:10:00.438Z"
     },
     "2780": {
-      "status": "failed",
-      "reason": "census: no match; nominatim: no match",
-      "addressHash": "p.o. box 50491|amarillo|tx|79159",
-      "triedNominatim": true,
-      "triedExpansion": true,
-      "attemptedAt": "2026-06-05T10:01:50.534Z"
+      "status": "ok",
+      "lat": 35.2059059,
+      "lng": -101.8860382,
+      "addressHash": "505 e 9th ave|amarillo|tx|79105",
+      "matchedAddress": "Southwest 9th Avenue, Country Club Park, Amarillo, Potter County, Texas, 79106, United States",
+      "source": "nominatim",
+      "geocodedAt": "2026-06-06T08:40:59.009Z"
     },
     "2781": {
-      "status": "failed",
-      "reason": "census: no match; nominatim: no match",
-      "addressHash": "p.o. box 285|spearfish|sd|57783",
-      "triedNominatim": true,
-      "triedExpansion": true,
-      "attemptedAt": "2026-06-05T10:01:52.175Z"
+      "status": "ok",
+      "lat": 44.506697171962,
+      "lng": -103.860273891344,
+      "addressHash": "120 yankee st|spearfish|sd|57783",
+      "matchedAddress": "120 YANKEE ST, SPEARFISH, SD, 57783",
+      "source": "census",
+      "geocodedAt": "2026-06-06T08:40:59.111Z"
     },
     "2782": {
       "status": "ok",
@@ -24093,20 +24107,22 @@
       "geocodedAt": "2026-06-05T10:01:52.514Z"
     },
     "2784": {
-      "status": "failed",
-      "reason": "census: no match; nominatim: no match",
-      "addressHash": "p.o. box 761|san angelo|tx|76902",
-      "triedNominatim": true,
-      "triedExpansion": true,
-      "attemptedAt": "2026-06-05T10:01:54.480Z"
+      "status": "ok",
+      "lat": 31.461608276606,
+      "lng": -100.444609040734,
+      "addressHash": "1 n abe st|san angelo|tx|76902",
+      "matchedAddress": "1 N ABE ST, SAN ANGELO, TX, 76902",
+      "source": "census",
+      "geocodedAt": "2026-06-06T08:40:59.505Z"
     },
     "2785": {
-      "status": "failed",
-      "reason": "census: no match; nominatim: no match",
-      "addressHash": "p.o. box 2344|amarillo|tx|79105",
-      "triedNominatim": true,
-      "triedExpansion": true,
-      "attemptedAt": "2026-06-05T10:01:56.216Z"
+      "status": "ok",
+      "lat": 35.2059059,
+      "lng": -101.8860382,
+      "addressHash": "505 e 9th ave|amarillo|tx|79105",
+      "matchedAddress": "Southwest 9th Avenue, Country Club Park, Amarillo, Potter County, Texas, 79106, United States",
+      "source": "nominatim",
+      "geocodedAt": "2026-06-06T08:41:01.003Z"
     },
     "2786": {
       "status": "ok",

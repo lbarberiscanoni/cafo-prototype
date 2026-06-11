@@ -40,21 +40,22 @@ export const fmtCompact = (val, fallback = '--') => {
 export const hasValue = (val) => val !== null && val !== undefined;
 
 // ==================== DATA SOURCE ATTRIBUTION ====================
-// Years sourced directly from AFCARS (because NDACAN's curated archive
-// hasn't been published yet for that year). All other years are NDACAN.
-// Update when NDACAN releases a new year's archive.
-const AFCARS_LIVE_YEARS = new Set([2025]);
-
-const sourceForYear = (y) => AFCARS_LIVE_YEARS.has(Number(y)) ? 'AFCARS' : 'NDACAN';
+// By default every year (through 2025) is sourced from NDACAN's curated archive.
+// Washington keeps AFCARS for 2025 because NDACAN's 2025 WA archive has
+// data-quality issues. Update these sets when sourcing changes for a year/state.
+const AFCARS_LIVE_YEARS_BY_STATE = { WA: new Set([2025]) };
+const DEFAULT_AFCARS_LIVE_YEARS = new Set();
 
 /**
- * Build a citation label for one or more years.
- *   getSourceLabel(2025)              → "AFCARS 2025"
- *   getSourceLabel(2024)              → "NDACAN 2024"
- *   getSourceLabel([2021,2022,2023])  → "NDACAN 2021-2023"
- *   getSourceLabel([2021,2022,2023,2024,2025]) → "NDACAN 2021-2024, AFCARS 2025"
+ * Build a citation label for one or more years, optionally scoped to a state
+ * (two-letter code) so per-state sourcing exceptions apply.
+ *   getSourceLabel([2021,2022,2023,2024,2025])       → "NDACAN 2021-2025"
+ *   getSourceLabel(2024)                             → "NDACAN 2024"
+ *   getSourceLabel([2021,2022,2023,2024,2025], 'WA') → "NDACAN 2021-2024, AFCARS 2025"
  */
-export const getSourceLabel = (years) => {
+export const getSourceLabel = (years, stateCode) => {
+  const liveYears = AFCARS_LIVE_YEARS_BY_STATE[stateCode] || DEFAULT_AFCARS_LIVE_YEARS;
+  const sourceForYear = (y) => liveYears.has(Number(y)) ? 'AFCARS' : 'NDACAN';
   const arr = (Array.isArray(years) ? years : [years])
     .map(Number)
     .filter(y => !isNaN(y))
@@ -153,6 +154,7 @@ const latestNational = realDataJson.national[latestYear];
 
 export const nationalStats = {
   dataYear: latestYear,
+  dataYears: Object.keys(realDataJson.national).map(Number).sort((a, b) => a - b),
   childrenInCare: latestNational.childrenInCare,
   childrenInFamilyFoster: latestNational.childrenInFosterCare,
   childrenInKinship: latestNational.childrenInKinshipCare,
@@ -238,6 +240,8 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
     sourceUrl: state.source?.sourceUrl || null,
     // Latest AFCARS (NDACAN) year — citation for state-level AFCARS cards
     afcarsYear: latestAfcarsYear || null,
+    // All AFCARS years for this state — full range for source citations
+    afcarsYears: afcarsYears,
     definitions: state.source?.definitions || {},
     // AFCARS by year
     afcars: state.afcars || {},

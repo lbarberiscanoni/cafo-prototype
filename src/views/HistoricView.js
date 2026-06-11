@@ -170,7 +170,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
         }
       ].filter(Boolean),
       wraparound: [],
-      source: getSourceLabel(years)
+      source: getSourceLabel(years, stateData[regionId]?.abbreviation)
     };
   }
 
@@ -304,7 +304,7 @@ const getCategoryMetrics = (regionLevel, regionId, years) => {
         }
       ].filter(Boolean),
       wraparound: [],
-      source: countyStateSource || getSourceLabel(years)
+      source: countyStateSource || getSourceLabel(years, countyStateCode?.toUpperCase())
     };
   }
   

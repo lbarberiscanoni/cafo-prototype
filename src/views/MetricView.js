@@ -131,6 +131,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           childrenAdopted: nationalStats.childrenAdopted2023,
           churchesWithMinistry: nationalStats.churchesWithMinistry,
           dataYear: nationalStats.dataYear,
+          dataYears: nationalStats.dataYears,
         };
       case "state":
         let state = stateData[regionId];
@@ -151,6 +152,8 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           dataYear: state.dataYear || null,
           sourceUrl: state.sourceUrl || null,
           afcarsYear: state.afcarsYear || null,
+          afcarsYears: state.afcarsYears || null,
+          abbreviation: state.abbreviation || null,
         };
       case "county":
         const county = countyData[regionId] || countyData['butler-al'];
@@ -313,12 +316,15 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         title = `${selectedMetric} in ${regionName}`;
     }
 
+    // Washington keeps AFCARS 2025; scope the citation to the state when at state level.
+    const sourceStateCode = regionLevel === 'state' ? stateNameToCode[data.name] : undefined;
+
     return {
       title,
       values,
       years,
       labels: values.map(formatLabel),
-      source: getSourceLabel(years)
+      source: getSourceLabel(years, sourceStateCode)
     };
   };
 
@@ -507,7 +513,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">in Kinship Care</div>
                   </div>
                 </div>
-                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.dataYear)}</div>
+                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.dataYears)}</div>
               </div>
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Adoption Data in the U.S.</h4>
@@ -520,7 +526,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">Children Adopted{data.dataYear ? ` in FY ${data.dataYear}` : ''}</div>
                   </div>
                 </div>
-                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.dataYear)}</div>
+                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.dataYears)}</div>
               </div>
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Church Data in the U.S.</h4>
@@ -594,7 +600,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">Licensed Foster Homes</div>
                   </div>
                 </div>
-                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.afcarsYear)}</div>
+                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.afcarsYears, data.abbreviation)}</div>
               </div>
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Adoption Data</h4>
@@ -605,7 +611,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">Children Waiting for Adoption</div>
                   </div>
                 </div>
-                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.afcarsYear)}</div>
+                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.afcarsYears, data.abbreviation)}</div>
               </div>
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-mte-card">
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Biological Family Data</h4>
@@ -618,7 +624,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                     <div className="text-sm text-mte-charcoal font-lato">Family Preservation Cases</div>
                   </div>
                 </div>
-                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.afcarsYear)}</div>
+                <div className="text-xs text-mte-charcoal mt-3 pt-2 border-t border-gray-100 font-lato">Source: {getSourceLabel(data.afcarsYears, data.abbreviation)}</div>
               </div>
             </div>
           </div>
@@ -879,7 +885,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmt(stateInfo.waitingForAdoption)}</p><p className="text-sm text-mte-charcoal font-lato">Number of Children Waiting For Adoption</p></div>
                 <div><p className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(stateInfo.reunificationRate)}</p><p className="text-sm text-mte-charcoal font-lato">Biological Family Reunification Rate (%)</p></div>
               </div>
-              <div className="mt-4 text-xs text-mte-charcoal font-lato">Source: {getSourceLabel(stateInfo.dataYear)}</div>
+              <div className="mt-4 text-xs text-mte-charcoal font-lato">Source: {getSourceLabel(stateInfo.afcarsYears, stateInfo.abbreviation)}</div>
             </div>
           </section>
         );

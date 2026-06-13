@@ -779,7 +779,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>
-                <a href="/mte-data-guide.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
+                <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/edit?tab=t.0#heading=h.lhvv1cgj8bwi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
                   Download our data guide
                 </a>
               </div>
@@ -805,7 +805,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>
-                <a href="/mte-data-guide.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
+                <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/edit?tab=t.0#heading=h.lhvv1cgj8bwi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
                   Download our data guide
                 </a>
               </div>
@@ -830,7 +830,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>
-                <a href="/mte-data-guide.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
+                <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/edit?tab=t.0#heading=h.lhvv1cgj8bwi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
                   Download our data guide
                 </a>
               </div>
@@ -856,7 +856,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>
-                <a href="/mte-data-guide.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
+                <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/edit?tab=t.0#heading=h.lhvv1cgj8bwi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
                   Download our data guide
                 </a>
               </div>

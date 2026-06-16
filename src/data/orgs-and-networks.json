@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-06-15T12:27:26.169Z",
-    "organizationCount": 558,
+    "generated": "2026-06-16T11:21:54.916Z",
+    "organizationCount": 561,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 351,
-      "withWebsite": 364,
-      "withActivities": 257,
+      "withCoordinates": 354,
+      "withWebsite": 367,
+      "withActivities": 260,
       "withNetworkMemberships": 97,
       "withCountiesServed": 190
     },
@@ -16,17 +16,17 @@
       "State/Regional Network": 3,
       "Bridge Organization": 13,
       "Regional Network": 1,
-      "Service Organization": 136,
-      "Placement Agency": 50,
+      "Service Organization": 137,
+      "Placement Agency": 51,
       "Unknown": 141,
-      "Bridge Ministry": 67,
+      "Bridge Ministry": 68,
       "Church Foster Care Ministry": 93,
       "Child Placement Agency": 21
     },
     "geocoding": {
       "manual": 184,
       "cacheHit": 167,
-      "newlyGeocoded": 0,
+      "newlyGeocoded": 3,
       "newlyGeocodedNominatim": 0,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 30,
@@ -22173,6 +22173,109 @@
       "onMap": true,
       "networkMemberships": [],
       "countiesServed": []
+    },
+    {
+      "id": 2796,
+      "name": "Family Mission Field",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "3436 Molino Rd",
+        "city": "Molino",
+        "state": "FL",
+        "zip": "32577",
+        "county": "Escambia"
+      },
+      "coordinates": {
+        "lat": 30.717722403853,
+        "lng": -87.382418164195
+      },
+      "website": "familymissionfield.com",
+      "category": "Bridge Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Jenny Miller",
+        "title": "President",
+        "email": "FamilyMissionField@gmail.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2797,
+      "name": "Amarillo Children's Home",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "3400 S Bowie St.",
+        "city": "Amarillo",
+        "state": "TX",
+        "zip": "79109",
+        "county": "Potter"
+      },
+      "coordinates": {
+        "lat": 35.178245119419,
+        "lng": -101.857416341073
+      },
+      "website": "amarillochildrenshome.org/foster-care-program",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Cecilia Limas",
+        "title": "Director of Foster Care Homes",
+        "email": "climas@amarillochildrenshome.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2798,
+      "name": "Justice For Orphans Inc.",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "167 MAIN ST",
+        "city": "Ravena",
+        "state": "NY",
+        "zip": "12143",
+        "county": "Albany"
+      },
+      "coordinates": {
+        "lat": 42.471912359381,
+        "lng": -73.812650548434
+      },
+      "website": "justicefororphansny.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Kathi Sewak",
+        "title": "Executive Director",
+        "email": "kathisewak@justicefororphansny.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
     }
   ],
   "networks": [
@@ -24213,6 +24316,33 @@
       "matchedAddress": "109 N POLK AVE, ARCADIA, FL, 34266",
       "source": "census",
       "geocodedAt": "2026-06-05T10:02:00.497Z"
+    },
+    "2796": {
+      "status": "ok",
+      "lat": 30.717722403853,
+      "lng": -87.382418164195,
+      "addressHash": "3436 molino rd|molino|fl|32577",
+      "matchedAddress": "3436 MOLINO RD, MOLINO, FL, 32577",
+      "source": "census",
+      "geocodedAt": "2026-06-16T11:21:54.479Z"
+    },
+    "2797": {
+      "status": "ok",
+      "lat": 35.178245119419,
+      "lng": -101.857416341073,
+      "addressHash": "3400 s bowie st.|amarillo|tx|79109",
+      "matchedAddress": "3400 BOWIE ST, AMARILLO, TX, 79109",
+      "source": "census",
+      "geocodedAt": "2026-06-16T11:21:54.761Z"
+    },
+    "2798": {
+      "status": "ok",
+      "lat": 42.471912359381,
+      "lng": -73.812650548434,
+      "addressHash": "167 main st|ravena|ny|12143",
+      "matchedAddress": "167 MAIN ST, RAVENA, NY, 12143",
+      "source": "census",
+      "geocodedAt": "2026-06-16T11:21:54.915Z"
     }
   }
 }

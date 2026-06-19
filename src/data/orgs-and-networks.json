@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-06-18T10:38:27.753Z",
-    "organizationCount": 562,
+    "generated": "2026-06-19T10:46:33.426Z",
+    "organizationCount": 646,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 355,
-      "withWebsite": 368,
-      "withActivities": 261,
+      "withCoordinates": 434,
+      "withWebsite": 452,
+      "withActivities": 345,
       "withNetworkMemberships": 97,
       "withCountiesServed": 190
     },
@@ -16,7 +16,7 @@
       "State/Regional Network": 3,
       "Bridge Organization": 13,
       "Regional Network": 1,
-      "Service Organization": 138,
+      "Service Organization": 222,
       "Placement Agency": 51,
       "Unknown": 141,
       "Bridge Ministry": 68,
@@ -25,12 +25,12 @@
     },
     "geocoding": {
       "manual": 184,
-      "cacheHit": 170,
-      "newlyGeocoded": 1,
+      "cacheHit": 171,
+      "newlyGeocoded": 79,
       "newlyGeocodedNominatim": 0,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 30,
-      "unresolved": 0,
+      "unresolved": 5,
       "skipped": 177
     }
   },
@@ -22308,6 +22308,2763 @@
       "onMap": true,
       "networkMemberships": [],
       "countiesServed": []
+    },
+    {
+      "id": 2800,
+      "name": "Safe Families for Children",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "4300 W. Irving Park Road",
+        "city": "Chicago",
+        "state": "IL",
+        "zip": "60641",
+        "county": "Cook"
+      },
+      "coordinates": {
+        "lat": 41.953612435052,
+        "lng": -87.735513754276
+      },
+      "website": "safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2801,
+      "name": "Safe Families Anchorage",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2807 Arctic Blvd, Anchorage AK 99503",
+        "city": "Anchorage",
+        "state": "AK",
+        "zip": "99503",
+        "county": "Anchorage"
+      },
+      "coordinates": {
+        "lat": 61.19518175423,
+        "lng": -149.897832556902
+      },
+      "website": "beaconhillak.com/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2802,
+      "name": "Safe Families Antelope Valley",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "38713 Tierra Subida Avenue #200 Palmdale, CA 93551",
+        "city": "Palmdale",
+        "state": "CA",
+        "zip": "93551",
+        "county": "Los Angeles"
+      },
+      "coordinates": {
+        "lat": 34.586692931397,
+        "lng": -118.147542799773
+      },
+      "website": "antelope-valley.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2803,
+      "name": "Safe Families Atlanta",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "240 PEACHTREE ST NW, ATLANTA, GA 30303",
+        "city": "Atlanta",
+        "state": "GA",
+        "zip": "31117",
+        "county": "County"
+      },
+      "coordinates": {
+        "lat": 33.760141479566,
+        "lng": -84.387643528629
+      },
+      "website": "atlanta.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2804,
+      "name": "Safe Families Austin",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "500 E St Johns Ave, Austin TX 78752",
+        "city": "Austin",
+        "state": "TX",
+        "zip": "78752",
+        "county": "Travis"
+      },
+      "coordinates": {
+        "lat": 30.334070949211,
+        "lng": -97.706669651781
+      },
+      "website": "safefamiliesaustin.com",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2805,
+      "name": "Safe Families Beaver",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "720 11TH ST, BEAVER FALLS, PA 15010",
+        "city": "Beaver Falls",
+        "state": "PA",
+        "zip": "15010",
+        "county": "Beaver"
+      },
+      "coordinates": {
+        "lat": 40.752040838148,
+        "lng": -80.319715000567
+      },
+      "website": "http://bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2806,
+      "name": "Safe Families Butler",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "345 S MAIN ST, BUTLER, PA 16001",
+        "city": "Butler",
+        "state": "PA",
+        "zip": "16001",
+        "county": "Butler"
+      },
+      "coordinates": {
+        "lat": 40.857379688449,
+        "lng": -79.89512106033
+      },
+      "website": "bethany.org/help-a-child/emergency-care/safe-families",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2807,
+      "name": "Safe Families Central Indiana",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "4401 E 10TH ST STE 18, INDIANAPOLIS, IN 46201-9998",
+        "city": "Indianapolis",
+        "state": "IN",
+        "zip": "46268",
+        "county": "Boone"
+      },
+      "coordinates": {
+        "lat": 39.781391132085,
+        "lng": -86.094874262673
+      },
+      "website": "centralindiana.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2809,
+      "name": "Safe Families Central Valley",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2610  W. Shaw Ln. Ste 103, Fresno CA 93711",
+        "city": "Fresno",
+        "state": "CA",
+        "zip": "93711",
+        "county": "Fresno"
+      },
+      "coordinates": {
+        "lat": 36.809181663901,
+        "lng": -119.84002942747
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2810,
+      "name": "Safe Families Central Washington",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "630 Valley Mall Pkwy, East Wenatchee, Washington 98802",
+        "city": "East Wenatchee",
+        "state": "WA",
+        "zip": "98802",
+        "county": "Douglas"
+      },
+      "coordinates": {
+        "lat": 47.412891806838,
+        "lng": -120.291780151847
+      },
+      "website": "centralwashington.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2811,
+      "name": "Safe Families Chattanooga",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1807 Bailey Ave, Chattanooga, Tennessee 37404",
+        "city": "Chattanooga",
+        "state": "TN",
+        "zip": "37404",
+        "county": "Hamilton"
+      },
+      "coordinates": {
+        "lat": 35.033950667961,
+        "lng": -85.277272896385
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2812,
+      "name": "Safe Families Columbia",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "7142 Columbia Gateway Drive #170, Columbia, MD 21046",
+        "city": "Columbia",
+        "state": "MD",
+        "zip": "21046",
+        "county": "Howard"
+      },
+      "coordinates": {
+        "lat": 39.177958633064,
+        "lng": -76.807229238646
+      },
+      "website": "buildingfamiliesforchildren.org/sffc",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2813,
+      "name": "Safe Families Coos County",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1835 MCPHERSON ST, NORTH BEND, OR 97459",
+        "city": "North Bend",
+        "state": "OR",
+        "zip": "97459",
+        "county": "Coos"
+      },
+      "coordinates": {
+        "lat": 43.40874744546,
+        "lng": -124.226047698392
+      },
+      "website": "heartswithamission.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2814,
+      "name": "Safe Families Dallas Fort Worth",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1130 W. Division Street, Arlington TX 76012",
+        "city": "Arlington",
+        "state": "TX",
+        "zip": "76012",
+        "county": "Tarrant"
+      },
+      "coordinates": null,
+      "website": "dallas-ftworth.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2815,
+      "name": "Safe Families Denver",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "4860 Chambers Rd, #213 Denver, CO 80239",
+        "city": "Denver",
+        "state": "CO",
+        "zip": "80239",
+        "county": "Adams"
+      },
+      "coordinates": {
+        "lat": 39.786274482235,
+        "lng": -104.809531184067
+      },
+      "website": "denver.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2816,
+      "name": "Safe Families Des Moines",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2606 Woodland Ave. West Des Moines, Iowa 50266",
+        "city": "West Des Moines",
+        "state": "IA",
+        "zip": "50266",
+        "county": "Dallas"
+      },
+      "coordinates": {
+        "lat": 41.589943260554,
+        "lng": -93.741014182886
+      },
+      "website": "desmoines.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2817,
+      "name": "Safe Families Detroit/Madison Heights",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "18000 W Nine Mile Rd, Suite 950, Southfield, MI 48075",
+        "city": "Southfield",
+        "state": "MI",
+        "zip": "48075",
+        "county": "Oakland"
+      },
+      "coordinates": {
+        "lat": 42.458995980433,
+        "lng": -83.215826463732
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2818,
+      "name": "Safe Families Douglas County",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2191 Birch Ave., Reedsport, OR 97467",
+        "city": "Reedsport",
+        "state": "OR",
+        "zip": "97467",
+        "county": "Douglas"
+      },
+      "coordinates": {
+        "lat": 43.69230312068,
+        "lng": -124.121694808281
+      },
+      "website": "heartswithamission.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2819,
+      "name": "Safe Families East Central",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "16 S MADISON ST, SULLIVAN, IL 61951",
+        "city": "Sullivan",
+        "state": "IL",
+        "zip": "61951",
+        "county": "Coles"
+      },
+      "coordinates": {
+        "lat": 39.599218557122,
+        "lng": -88.605428318046
+      },
+      "website": "east-central.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2820,
+      "name": "Safe Families East Lansing",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "612 W. Lake Lansing, Lansing MI 48823",
+        "city": "Lansing",
+        "state": "MI",
+        "zip": "48823",
+        "county": "Clinton"
+      },
+      "coordinates": {
+        "lat": 42.759550861716,
+        "lng": -84.492227736444
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2821,
+      "name": "Safe Families Eugene",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "921 Country Club Rd. Eugene OR 97401",
+        "city": "Eugene",
+        "state": "OR",
+        "zip": "97401",
+        "county": "Lane"
+      },
+      "coordinates": {
+        "lat": 44.066408383498,
+        "lng": -123.096694740704
+      },
+      "website": "safefamilieslanecounty.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2822,
+      "name": "Safe Families Fairbanks",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "315 BARNETTE ST, FAIRBANKS, AK 99701",
+        "city": "Fairbanks",
+        "state": "AK",
+        "zip": "99701",
+        "county": "Fairbanks North Star Borough"
+      },
+      "coordinates": {
+        "lat": 64.842659044911,
+        "lng": -147.724321009328
+      },
+      "website": "beaconhillak.com/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2823,
+      "name": "Safe Families Grand Rapids",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "901 Eastern Ave. NE Grand Rapids MI 49501",
+        "city": "Grand Rapids",
+        "state": "MI",
+        "zip": "49501",
+        "county": "Kent"
+      },
+      "coordinates": {
+        "lat": 42.979297262433,
+        "lng": -85.649720385052
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2824,
+      "name": "Safe Families Greater Chicago",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "4300 W Irving Park Rd. Chicago, IL 60641",
+        "city": "Chicago",
+        "state": "IL",
+        "zip": "60641",
+        "county": "Cook"
+      },
+      "coordinates": {
+        "lat": 41.953612435052,
+        "lng": -87.735513754276
+      },
+      "website": "chicago.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2825,
+      "name": "Safe Families Greater Madison",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "65 13th Street, Prairie du Sac, WI 53578",
+        "city": "Prairie du Sac",
+        "state": "WI",
+        "zip": "53578",
+        "county": "Columbia"
+      },
+      "coordinates": {
+        "lat": 43.28283870447,
+        "lng": -89.734373295067
+      },
+      "website": "safefamilieswi.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2826,
+      "name": "Safe Families Greater Milwaukee",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "8500 W. North Ave, Wauwatosa, Wisconsin 53226",
+        "city": "Wauwatosa",
+        "state": "WI",
+        "zip": "53226",
+        "county": "Milwaukee"
+      },
+      "coordinates": {
+        "lat": 43.060630265235,
+        "lng": -88.018681931676
+      },
+      "website": "safefamilieswi.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2827,
+      "name": "Safe Families Greater Portland",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "13565 SW Walker Rd, Beaverton, OR 97005",
+        "city": "Beaverton",
+        "state": "OR",
+        "zip": "97005",
+        "county": "Washington"
+      },
+      "coordinates": {
+        "lat": 45.506039008385,
+        "lng": -122.817126391343
+      },
+      "website": "kindredpartners.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2828,
+      "name": "Safe Families Harrisburg",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2101 N. Front Street, Building #1 Suite #201, Harrisburg, Pennsylvania 17110",
+        "city": "Harrisburg",
+        "state": "PA",
+        "zip": "17110",
+        "county": "Dauphin"
+      },
+      "coordinates": {
+        "lat": 40.278017259602,
+        "lng": -76.899687459758
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2829,
+      "name": "Safe Families Iowa City",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "925 HIGHWAY 6 E, IOWA CITY, IA 52240",
+        "city": "Iowa City",
+        "state": "IA",
+        "zip": "52240",
+        "county": "Johnson"
+      },
+      "coordinates": {
+        "lat": 41.642560511663,
+        "lng": -91.522559724284
+      },
+      "website": "iowacitycedarrapids.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2830,
+      "name": "Safe Families Jackson County",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "517 Edwards Street, Medford OR 97504",
+        "city": "Medford",
+        "state": "OR",
+        "zip": "97504",
+        "county": "Jackson"
+      },
+      "coordinates": {
+        "lat": 42.33541471931,
+        "lng": -122.876450949223
+      },
+      "website": "heartswithamission.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2831,
+      "name": "Safe Families Johnson City",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "100 Dyer St. Johnson City, TN 37601",
+        "city": "Johnson City",
+        "state": "TN",
+        "zip": "37601",
+        "county": "Carter"
+      },
+      "coordinates": null,
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2832,
+      "name": "Safe Families Josephine County",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1504 NE 9th Street, Grants Pass, OR. 97526",
+        "city": "Grants Pass",
+        "state": "OR",
+        "zip": "97526",
+        "county": "Jackson"
+      },
+      "coordinates": {
+        "lat": 42.455558770645,
+        "lng": -123.317748650902
+      },
+      "website": "heartswithamission.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2833,
+      "name": "Safe Families Kansas City",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "9200 Indian Creek Parkway, Overland Park, KS 66210 KS",
+        "city": "Overland Park",
+        "state": "KS",
+        "zip": "66210",
+        "county": "Johnson"
+      },
+      "coordinates": {
+        "lat": 38.932342051075,
+        "lng": -94.690595431545
+      },
+      "website": "kansas.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2834,
+      "name": "Safe Families Klamath County",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "601 Pine St., Klamath Falls, OR 97601",
+        "city": "Klamath Falls",
+        "state": "OR",
+        "zip": "97601",
+        "county": "Klamath"
+      },
+      "coordinates": {
+        "lat": 42.225339270263,
+        "lng": -121.78344338985
+      },
+      "website": "heartswithamission.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2835,
+      "name": "Safe Families Knoxville",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "5401 Kingston Pike, Suite 275  Knoxville, TN 37919",
+        "city": "Knoxville",
+        "state": "TN",
+        "zip": "37919",
+        "county": "Knox"
+      },
+      "coordinates": {
+        "lat": 35.936753789584,
+        "lng": -83.99142575897
+      },
+      "website": "knoxville.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2836,
+      "name": "Safe Families La Crosse",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "111 9th St. N, LaCrosse, WI 54601",
+        "city": "LaCrosse",
+        "state": "WI",
+        "zip": "54601",
+        "county": "La Crosse"
+      },
+      "coordinates": {
+        "lat": 43.811814854486,
+        "lng": -91.24395338013
+      },
+      "website": "safefamilieswi.org/la-crosse",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2837,
+      "name": "Safe Families LaGrange",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "701 Lincoln Street, LaGrange, GA 30241",
+        "city": "LaGrange",
+        "state": "GA",
+        "zip": "30241",
+        "county": "Meriwether"
+      },
+      "coordinates": {
+        "lat": 33.025986480653,
+        "lng": -85.047806600214
+      },
+      "website": "twincedars.org/program/sffc",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2838,
+      "name": "Safe Families Lancaster",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1681 Crown Avenue, Suite 201, Lancaster, Pennsylvania 17601",
+        "city": "Lancaster",
+        "state": "PA",
+        "zip": "17601",
+        "county": "Lancaster"
+      },
+      "coordinates": {
+        "lat": 40.066326684283,
+        "lng": -76.302419677119
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2839,
+      "name": "Safe Families Life Connections",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "700 Cedar St, Suite #46, Alexandria, MN 56308",
+        "city": "Alexandria",
+        "state": "MN",
+        "zip": "56308",
+        "county": "Douglas"
+      },
+      "coordinates": {
+        "lat": 45.884751735472,
+        "lng": -95.383815325795
+      },
+      "website": "safefamiliesmn.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2840,
+      "name": "Safe Families Lincoln County",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "227 NW 12th St Newport, OR 97365",
+        "city": "Newport",
+        "state": "OR",
+        "zip": "97365",
+        "county": "Lincoln"
+      },
+      "coordinates": {
+        "lat": 44.645535428838,
+        "lng": -124.054694042344
+      },
+      "website": "heartswithamission.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2841,
+      "name": "Safe Families Luzerne County",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "340 Market St, Kingston, PA 18704",
+        "city": "Kingston",
+        "state": "PA",
+        "zip": "18704",
+        "county": "Luzerne"
+      },
+      "coordinates": {
+        "lat": 41.255758752699,
+        "lng": -75.891655900673
+      },
+      "website": "bethany.org/locations/us/pa/wilkes-barre",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2842,
+      "name": "Safe Families Maine",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "999 LISBON ST, LEWISTON, ME 04240",
+        "city": "Lewiston",
+        "state": "ME",
+        "zip": "4086",
+        "county": "Sagadahoc"
+      },
+      "coordinates": null,
+      "website": "maine.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2843,
+      "name": "Safe Families Mat-Su Valley",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1951 N Hemmer Rd, Palmer AK 99645",
+        "city": "Palmer",
+        "state": "AK",
+        "zip": "99645",
+        "county": "Matanuska-Susitna Borough"
+      },
+      "coordinates": {
+        "lat": 61.601284654922,
+        "lng": -149.148297553463
+      },
+      "website": "beaconhillak.com/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2844,
+      "name": "Safe Families Memphis",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "200 East Parkway North, Memphis, Tennessee 38112",
+        "city": "Memphis",
+        "state": "TN",
+        "zip": "38112",
+        "county": "Shelby"
+      },
+      "coordinates": {
+        "lat": 35.141049435766,
+        "lng": -89.982625509034
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2845,
+      "name": "Safe Families Metro East",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1111 E. Hwy 50, O'Fallon, IL 62269",
+        "city": "O'Fallon",
+        "state": "IL",
+        "zip": "62269",
+        "county": "Madison"
+      },
+      "coordinates": {
+        "lat": 38.58106181002,
+        "lng": -89.892943037164
+      },
+      "website": "metroeast.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2846,
+      "name": "Safe Families Miami",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "8601 SW 94th St, Miami, FL 33156",
+        "city": "Miami",
+        "state": "FL",
+        "zip": "33156",
+        "county": "Miami-Dade"
+      },
+      "coordinates": {
+        "lat": 25.682710093019,
+        "lng": -80.334168821665
+      },
+      "website": "safefamiliesflorida.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2847,
+      "name": "Safe Families Mid-Missouri",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "807 North Providence, Columbia, MO 65203",
+        "city": "Columbia",
+        "state": "MO",
+        "zip": "65203",
+        "county": "Boone"
+      },
+      "coordinates": {
+        "lat": 38.960322375714,
+        "lng": -92.334127405415
+      },
+      "website": "bethany.org/help-a-child/emergency-care/safe-families",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2848,
+      "name": "Safe Families Mid-Willamette Valley",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "3800 SW 185TH AVE, BEAVERTON, OR 97078",
+        "city": "Beaverton",
+        "state": "OR",
+        "zip": "97075",
+        "county": "Washington"
+      },
+      "coordinates": {
+        "lat": 45.492815397919,
+        "lng": -122.867114306676
+      },
+      "website": "kindredpartners.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2849,
+      "name": "Safe Families Monterey Bay",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "280 State Park Drive, Aptos, CA 95003",
+        "city": "Aptos",
+        "state": "CA",
+        "zip": "95003",
+        "county": "Santa Cruz"
+      },
+      "coordinates": {
+        "lat": 36.974475535736,
+        "lng": -121.91218846095
+      },
+      "website": "montereybay.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2850,
+      "name": "Safe Families Muscogee",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1225 3rd Avenue, Columbus, Georgia 31901",
+        "city": "Columbus",
+        "state": "GA",
+        "zip": "31901",
+        "county": "Muscogee"
+      },
+      "coordinates": {
+        "lat": 32.469077272356,
+        "lng": -84.9890154294
+      },
+      "website": "twincedars.org/program/sffc",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2851,
+      "name": "Safe Families Nashville",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "230 Great Circle Rd. Suite 229 Nashville TN 37220",
+        "city": "Nashville",
+        "state": "TN",
+        "zip": "37220",
+        "county": "Davidson"
+      },
+      "coordinates": {
+        "lat": 36.194555362951,
+        "lng": -86.792241334292
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2852,
+      "name": "Safe Families New York City",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "147 Prince Street, Unit 2-11, Brooklyn NY 11201",
+        "city": "Brooklyn",
+        "state": "NY",
+        "zip": "11201",
+        "county": "Kings"
+      },
+      "coordinates": null,
+      "website": "newyorkcity.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2853,
+      "name": "Safe Families North Central",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "30 Wildcat Circle, Salina, Kansas 67401",
+        "city": "Salina",
+        "state": "KS",
+        "zip": "67401",
+        "county": "Ottawa"
+      },
+      "coordinates": null,
+      "website": "northcentralks.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2854,
+      "name": "Safe Families North Florida",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1111 E Tennessee St, Suite 8, Tallahassee, Florida 32308-6914",
+        "city": "Tallahassee",
+        "state": "FL",
+        "zip": "32308",
+        "county": "Leon"
+      },
+      "coordinates": {
+        "lat": 30.446676631261,
+        "lng": -84.264962510656
+      },
+      "website": "safefamiliesflorida.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2855,
+      "name": "Safe Families Northeast",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "820 W College Ave Suite #2, Appleton, WI 54914",
+        "city": "Appleton",
+        "state": "WI",
+        "zip": "54914",
+        "county": "Outagamie"
+      },
+      "coordinates": {
+        "lat": 44.261914094563,
+        "lng": -88.41783522935
+      },
+      "website": "safefamilieswi.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2856,
+      "name": "Safe Families Northeast Florida",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "138 SEA GROVE MAIN ST, SAINT AUGUSTINE, FL 32080-7708",
+        "city": "St. Augustine",
+        "state": "FL",
+        "zip": "32080",
+        "county": "Flagler"
+      },
+      "coordinates": {
+        "lat": 29.845207403345,
+        "lng": -81.278356010774
+      },
+      "website": "safefamiliesflorida.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2857,
+      "name": "Safe Families Northeast Ohio",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2400 ORANGE AVE, CLEVELAND, OH",
+        "city": "Cleveland",
+        "state": "OH",
+        "zip": "44101",
+        "county": "Cuyahoga"
+      },
+      "coordinates": {
+        "lat": 41.49105883754,
+        "lng": -81.672292866403
+      },
+      "website": "northeast-ohio.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2858,
+      "name": "Safe Families Northern Colorado",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1511 E 11th Street, Loveland, CO 80537",
+        "city": "Loveland",
+        "state": "CO",
+        "zip": "80537",
+        "county": "Larimer"
+      },
+      "coordinates": {
+        "lat": 40.402919338053,
+        "lng": -105.056135224048
+      },
+      "website": "northern-colorado.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2859,
+      "name": "Safe Families OC United",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "418 West Commonwealth, Fullerton, California 92832",
+        "city": "Fullerton",
+        "state": "CA",
+        "zip": "92832",
+        "county": "Orange"
+      },
+      "coordinates": {
+        "lat": 33.87023158075,
+        "lng": -117.931745062485
+      },
+      "website": "ocunited.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2860,
+      "name": "Safe Families of Eastern Oregon",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1250 Hughes Lane, Baker City, Oregon 97814",
+        "city": "Baker City",
+        "state": "OR",
+        "zip": "97814",
+        "county": "Baker"
+      },
+      "coordinates": {
+        "lat": 44.795611255957,
+        "lng": -117.819698447665
+      },
+      "website": "heartswithamission.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2861,
+      "name": "Safe Families Oklahoma City",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "3 East Main Street Oklahoma City, OK 73104",
+        "city": "Oklahoma City",
+        "state": "OK",
+        "zip": "73104",
+        "county": "Cleveland"
+      },
+      "coordinates": {
+        "lat": 35.467701100436,
+        "lng": -97.512314065961
+      },
+      "website": "safefamiliesok.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2862,
+      "name": "Safe Families Orlando",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "321 Montgomery Rd, Altamonte Springs, FL 32716",
+        "city": "Altamonte Springs",
+        "state": "FL",
+        "zip": "32716",
+        "county": "Seminole"
+      },
+      "coordinates": {
+        "lat": 28.666023355433,
+        "lng": -81.402519281846
+      },
+      "website": "safefamiliesflorida.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2863,
+      "name": "Safe Families Peoria Bloomington",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "4006 N Sterling Avenue, Peoria, IL 61615",
+        "city": "Peoria",
+        "state": "IL",
+        "zip": "61615",
+        "county": "Peoria"
+      },
+      "coordinates": {
+        "lat": 40.735876827466,
+        "lng": -89.631643977574
+      },
+      "website": "peoria.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2864,
+      "name": "Safe Families Philadelphia",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "610 Old York Road, Ste 220, Jenkintown, PA 19046",
+        "city": "Jenkintown",
+        "state": "PA",
+        "zip": "19046",
+        "county": "Montgomery"
+      },
+      "coordinates": {
+        "lat": 40.100309910504,
+        "lng": -75.125991189587
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2865,
+      "name": "Safe Families Pikes Peak",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "4835 Northpark Dr. Colorado Springs, CO 80919",
+        "city": "Colorado Springs",
+        "state": "CO",
+        "zip": "80919",
+        "county": "El Paso"
+      },
+      "coordinates": {
+        "lat": 38.901529814714,
+        "lng": -104.826173522775
+      },
+      "website": "coloradosprings.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2866,
+      "name": "Safe Families Pittsburgh",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1129 Woodbourne Ave Pittsburgh, PA 15229",
+        "city": "Pittsburgh",
+        "state": "PA",
+        "zip": "15229",
+        "county": "Allegheny"
+      },
+      "coordinates": {
+        "lat": 40.389252600511,
+        "lng": -80.016943238653
+      },
+      "website": "pittsburgh.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2867,
+      "name": "Safe Families Quad Cities",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1826 16th St. Moline IL 61265",
+        "city": "Moline",
+        "state": "IL",
+        "zip": "61265",
+        "county": "Rock Island"
+      },
+      "coordinates": {
+        "lat": 41.494319436866,
+        "lng": -90.513378689467
+      },
+      "website": "quadcities.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2868,
+      "name": "Safe Families Racine/Kenosha",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "3626 Hwy 31 Racine, WI 53405",
+        "city": "Racine",
+        "state": "WI",
+        "zip": "53405",
+        "county": "Racine"
+      },
+      "coordinates": {
+        "lat": 42.765262260238,
+        "lng": -87.836404072763
+      },
+      "website": "safefamilieswi.org/racine-and-kenosha-metro",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2869,
+      "name": "Safe Families Raleigh Durham",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "300 FAYETTEVILLE ST, RALEIGH, NC 27601",
+        "city": "Raleigh",
+        "state": "NC",
+        "zip": "27622",
+        "county": "Wake"
+      },
+      "coordinates": {
+        "lat": 35.776872196076,
+        "lng": -78.639347396644
+      },
+      "website": "raleigh.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2870,
+      "name": "Safe Families Rockford",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2101 East State St, Rockford, IL 61104",
+        "city": "Rockford",
+        "state": "IL",
+        "zip": "61104",
+        "county": "Winnebago"
+      },
+      "coordinates": {
+        "lat": 42.266940866425,
+        "lng": -89.061828365937
+      },
+      "website": "rockford.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2871,
+      "name": "Safe Families SE Kansas",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "201 W 4th Street, Pittsburg, Kansas 66762",
+        "city": "Pittsburg",
+        "state": "KS",
+        "zip": "66762",
+        "county": "Cherokee"
+      },
+      "coordinates": {
+        "lat": 37.410992889591,
+        "lng": -94.706413396248
+      },
+      "website": "southeastks.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2872,
+      "name": "Safe Families South Central",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "645 3rd Street, Beloit WI, 53511",
+        "city": "Beloit",
+        "state": "WI",
+        "zip": "53511",
+        "county": "Rock"
+      },
+      "coordinates": {
+        "lat": 42.506591791716,
+        "lng": -89.036599359031
+      },
+      "website": "safefamilieswi.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2873,
+      "name": "Safe Families Southern IL",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "403 N 42nd Street, Mt. Vernon IL 62864",
+        "city": "Mt. Vernon",
+        "state": "IL",
+        "zip": "62864",
+        "county": "Jefferson"
+      },
+      "coordinates": {
+        "lat": 38.319003700677,
+        "lng": -88.942147938606
+      },
+      "website": "southernil.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2874,
+      "name": "Safe Families Southwest Michigan",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "4200 W. Michigan Avenue, Suite 202, Kalamazoo, MI 49006",
+        "city": "Kalamazoo",
+        "state": "MI",
+        "zip": "49006",
+        "county": "Kalamazoo"
+      },
+      "coordinates": {
+        "lat": 42.277127060191,
+        "lng": -85.641351770911
+      },
+      "website": "southwestmichigan.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2875,
+      "name": "Safe Families Southwest Ohio",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "11199 Montgomery Road, Cincinnati, OH 45249",
+        "city": "Cincinnati",
+        "state": "OH",
+        "zip": "45249",
+        "county": "Hamilton"
+      },
+      "coordinates": {
+        "lat": 39.26784602275,
+        "lng": -84.330927236219
+      },
+      "website": "southwestohio.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2876,
+      "name": "Safe Families Springfield",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "700 North 7th Street Suite A, Springfield, IL 62702",
+        "city": "Springfield",
+        "state": "IL",
+        "zip": "62702",
+        "county": "Sangamon"
+      },
+      "coordinates": {
+        "lat": 39.808480092625,
+        "lng": -89.646186724726
+      },
+      "website": "springfield.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2877,
+      "name": "Safe Families St. Louis",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "8706 Manchester Rd, Ste 100, St. Louis, Missouri 63144",
+        "city": "St. Louis",
+        "state": "MO",
+        "zip": "63144",
+        "county": "St Louis"
+      },
+      "coordinates": {
+        "lat": 38.612404363956,
+        "lng": -90.345817466561
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2878,
+      "name": "Safe Families Tampa",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2130 W Main Street, Tampa, FL 33607",
+        "city": "Tampa",
+        "state": "FL",
+        "zip": "33607",
+        "county": "Hillsborough"
+      },
+      "coordinates": {
+        "lat": 27.957103789767,
+        "lng": -82.482331202973
+      },
+      "website": "safefamiliesflorida.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2879,
+      "name": "Safe Families Treasure Coast",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1400 27th St Vero Beach, FL 32960",
+        "city": "Vero Beach",
+        "state": "FL",
+        "zip": "32960",
+        "county": "Indian River"
+      },
+      "coordinates": {
+        "lat": 27.64672973847,
+        "lng": -80.400753148134
+      },
+      "website": "safefamiliesflorida.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2880,
+      "name": "Safe Families Treasure Valley",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2920 Cassia Street Boise, ID 83705",
+        "city": "Boise",
+        "state": "ID",
+        "zip": "83705",
+        "county": "Ada"
+      },
+      "coordinates": {
+        "lat": 43.597162342323,
+        "lng": -116.217922034014
+      },
+      "website": "lcsnw.org/program/safe-families-for-children-treasure-valley-idaho",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2881,
+      "name": "Safe Families Wichita",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1328 N Cardington Wichita, KS  67212",
+        "city": "Wichita",
+        "state": "KS",
+        "zip": "67212",
+        "county": "Sedgwick"
+      },
+      "coordinates": {
+        "lat": 37.70744092902,
+        "lng": -97.476669532555
+      },
+      "website": "wichita.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2882,
+      "name": "Safe Families Yamhill County",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "435 NE Evans St. Suite A, McMinnville, OR 97128",
+        "city": "McMinnville",
+        "state": "OR",
+        "zip": "97128",
+        "county": "Yamhill"
+      },
+      "coordinates": {
+        "lat": 45.210996941211,
+        "lng": -123.194555330197
+      },
+      "website": "lcsnw.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2883,
+      "name": "Safe Families York",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "25 N. Duke St. York PA  17401",
+        "city": "York",
+        "state": "PA",
+        "zip": "17401",
+        "county": "York"
+      },
+      "coordinates": {
+        "lat": 39.962175195189,
+        "lng": -76.725251964548
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2884,
+      "name": "Safe Families Zeeland",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "11335 James St, Holland, MI 49424-9556",
+        "city": "Holland",
+        "state": "MI",
+        "zip": "49424",
+        "county": "Ottawa"
+      },
+      "coordinates": {
+        "lat": 42.812392066077,
+        "lng": -86.060879983162
+      },
+      "website": "bethany.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
     }
   ],
   "networks": [
@@ -24384,6 +27141,757 @@
       "matchedAddress": "110 COLLINS HOME DR, SENECA, SC, 29672",
       "source": "census",
       "geocodedAt": "2026-06-18T10:38:27.752Z"
+    },
+    "2800": {
+      "status": "ok",
+      "lat": 41.953612435052,
+      "lng": -87.735513754276,
+      "addressHash": "4300 w. irving park road|chicago|il|60641",
+      "matchedAddress": "4300 W IRVING PARK RD, CHICAGO, IL, 60641",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:15.339Z"
+    },
+    "2801": {
+      "status": "ok",
+      "lat": 61.19518175423,
+      "lng": -149.897832556902,
+      "addressHash": "2807 arctic blvd, anchorage ak 99503|anchorage|ak|99503",
+      "matchedAddress": "2807 ARCTIC BLVD, ANCHORAGE, AK, 99503",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:15.447Z"
+    },
+    "2802": {
+      "status": "ok",
+      "lat": 34.586692931397,
+      "lng": -118.147542799773,
+      "addressHash": "38713 tierra subida avenue #200 palmdale, ca 93551|palmdale|ca|93551",
+      "matchedAddress": "38713 TIERRA SUBIDA AVE, PALMDALE, CA, 93551",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:15.538Z"
+    },
+    "2803": {
+      "status": "ok",
+      "lat": 33.760141479566,
+      "lng": -84.387643528629,
+      "addressHash": "240 peachtree st nw, atlanta, ga 30303|atlanta|ga|31117",
+      "matchedAddress": "240 PEACHTREE ST NW, ATLANTA, GA, 30303",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:15.647Z"
+    },
+    "2804": {
+      "status": "ok",
+      "lat": 30.334070949211,
+      "lng": -97.706669651781,
+      "addressHash": "500 e st johns ave, austin tx 78752|austin|tx|78752",
+      "matchedAddress": "500 E ST JOHNS AVE, AUSTIN, TX, 78752",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:15.875Z"
+    },
+    "2805": {
+      "status": "ok",
+      "lat": 40.752040838148,
+      "lng": -80.319715000567,
+      "addressHash": "720 11th st, beaver falls, pa 15010|beaver falls|pa|15010",
+      "matchedAddress": "720 11TH ST, BEAVER FALLS, PA, 15010",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:15.985Z"
+    },
+    "2806": {
+      "status": "ok",
+      "lat": 40.857379688449,
+      "lng": -79.89512106033,
+      "addressHash": "345 s main st, butler, pa 16001|butler|pa|16001",
+      "matchedAddress": "345 S MAIN ST, BUTLER, PA, 16001",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:16.085Z"
+    },
+    "2807": {
+      "status": "ok",
+      "lat": 39.781391132085,
+      "lng": -86.094874262673,
+      "addressHash": "4401 e 10th st ste 18, indianapolis, in 46201-9998|indianapolis|in|46268",
+      "matchedAddress": "4401 E 10TH ST, INDIANAPOLIS, IN, 46201",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:16.211Z"
+    },
+    "2809": {
+      "status": "ok",
+      "lat": 36.809181663901,
+      "lng": -119.84002942747,
+      "addressHash": "2610 w. shaw ln. ste 103, fresno ca 93711|fresno|ca|93711",
+      "matchedAddress": "2610 W SHAW LN, FRESNO, CA, 93711",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:16.300Z"
+    },
+    "2810": {
+      "status": "ok",
+      "lat": 47.412891806838,
+      "lng": -120.291780151847,
+      "addressHash": "630 valley mall pkwy, east wenatchee, washington 98802|east wenatchee|wa|98802",
+      "matchedAddress": "630 VALLEY MALL PKWY, EAST WENATCHEE, WA, 98802",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:16.406Z"
+    },
+    "2811": {
+      "status": "ok",
+      "lat": 35.033950667961,
+      "lng": -85.277272896385,
+      "addressHash": "1807 bailey ave, chattanooga, tennessee 37404|chattanooga|tn|37404",
+      "matchedAddress": "1807 BAILEY AVE, CHATTANOOGA, TN, 37404",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:16.495Z"
+    },
+    "2812": {
+      "status": "ok",
+      "lat": 39.177958633064,
+      "lng": -76.807229238646,
+      "addressHash": "7142 columbia gateway drive #170, columbia, md 21046|columbia|md|21046",
+      "matchedAddress": "7142 COLUMBIA GATEWAY DR, COLUMBIA, MD, 21046",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:16.587Z"
+    },
+    "2813": {
+      "status": "ok",
+      "lat": 43.40874744546,
+      "lng": -124.226047698392,
+      "addressHash": "1835 mcpherson st, north bend, or 97459|north bend|or|97459",
+      "matchedAddress": "1835 MCPHERSON ST, NORTH BEND, OR, 97459",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:16.687Z"
+    },
+    "2814": {
+      "status": "failed",
+      "reason": "census: no match; nominatim: no match",
+      "addressHash": "1130 w. division street, arlington tx 76012|arlington|tx|76012",
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-06-19T10:46:18.441Z"
+    },
+    "2815": {
+      "status": "ok",
+      "lat": 39.786274482235,
+      "lng": -104.809531184067,
+      "addressHash": "4860 chambers rd, #213 denver, co 80239|denver|co|80239",
+      "matchedAddress": "4860 CHAMBERS RD, DENVER, CO, 80239",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:18.553Z"
+    },
+    "2816": {
+      "status": "ok",
+      "lat": 41.589943260554,
+      "lng": -93.741014182886,
+      "addressHash": "2606 woodland ave. west des moines, iowa 50266|west des moines|ia|50266",
+      "matchedAddress": "2606 WOODLAND AVE, WEST DES MOINES, IA, 50266",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:18.661Z"
+    },
+    "2817": {
+      "status": "ok",
+      "lat": 42.458995980433,
+      "lng": -83.215826463732,
+      "addressHash": "18000 w nine mile rd, suite 950, southfield, mi 48075|southfield|mi|48075",
+      "matchedAddress": "18000 W 9 MILE RD, SOUTHFIELD, MI, 48075",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:18.766Z"
+    },
+    "2818": {
+      "status": "ok",
+      "lat": 43.69230312068,
+      "lng": -124.121694808281,
+      "addressHash": "2191 birch ave., reedsport, or 97467|reedsport|or|97467",
+      "matchedAddress": "2191 BIRCH AVE, REEDSPORT, OR, 97467",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:18.855Z"
+    },
+    "2819": {
+      "status": "ok",
+      "lat": 39.599218557122,
+      "lng": -88.605428318046,
+      "addressHash": "16 s madison st, sullivan, il 61951|sullivan|il|61951",
+      "matchedAddress": "16 S MADISON ST, SULLIVAN, IL, 61951",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:18.944Z"
+    },
+    "2820": {
+      "status": "ok",
+      "lat": 42.759550861716,
+      "lng": -84.492227736444,
+      "addressHash": "612 w. lake lansing, lansing mi 48823|lansing|mi|48823",
+      "matchedAddress": "612 W LAKE LANSING RD, EAST LANSING, MI, 48823",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:19.040Z"
+    },
+    "2821": {
+      "status": "ok",
+      "lat": 44.066408383498,
+      "lng": -123.096694740704,
+      "addressHash": "921 country club rd. eugene or 97401|eugene|or|97401",
+      "matchedAddress": "921 COUNTRY CLUB RD, EUGENE, OR, 97401",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:19.152Z"
+    },
+    "2822": {
+      "status": "ok",
+      "lat": 64.842659044911,
+      "lng": -147.724321009328,
+      "addressHash": "315 barnette st, fairbanks, ak 99701|fairbanks|ak|99701",
+      "matchedAddress": "315 BARNETTE ST, FAIRBANKS, AK, 99701",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:19.239Z"
+    },
+    "2823": {
+      "status": "ok",
+      "lat": 42.979297262433,
+      "lng": -85.649720385052,
+      "addressHash": "901 eastern ave. ne grand rapids mi 49501|grand rapids|mi|49501",
+      "matchedAddress": "901 EASTERN AVE NE, GRAND RAPIDS, MI, 49503",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:19.327Z"
+    },
+    "2824": {
+      "status": "ok",
+      "lat": 41.953612435052,
+      "lng": -87.735513754276,
+      "addressHash": "4300 w irving park rd. chicago, il 60641|chicago|il|60641",
+      "matchedAddress": "4300 W IRVING PARK RD, CHICAGO, IL, 60641",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:19.421Z"
+    },
+    "2825": {
+      "status": "ok",
+      "lat": 43.28283870447,
+      "lng": -89.734373295067,
+      "addressHash": "65 13th street, prairie du sac, wi 53578|prairie du sac|wi|53578",
+      "matchedAddress": "65 13TH ST, PRAIRIE DU SAC, WI, 53578",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:19.525Z"
+    },
+    "2826": {
+      "status": "ok",
+      "lat": 43.060630265235,
+      "lng": -88.018681931676,
+      "addressHash": "8500 w. north ave, wauwatosa, wisconsin 53226|wauwatosa|wi|53226",
+      "matchedAddress": "8500 W NORTH AVE, WAUWATOSA, WI, 53226",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:19.617Z"
+    },
+    "2827": {
+      "status": "ok",
+      "lat": 45.506039008385,
+      "lng": -122.817126391343,
+      "addressHash": "13565 sw walker rd, beaverton, or 97005|beaverton|or|97005",
+      "matchedAddress": "13565 SW WALKER RD, BEAVERTON, OR, 97005",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:19.733Z"
+    },
+    "2828": {
+      "status": "ok",
+      "lat": 40.278017259602,
+      "lng": -76.899687459758,
+      "addressHash": "2101 n. front street, building #1 suite #201, harrisburg, pennsylvania 17110|harrisburg|pa|17110",
+      "matchedAddress": "2101 N FRONT ST, HARRISBURG, PA, 17110",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:19.830Z"
+    },
+    "2829": {
+      "status": "ok",
+      "lat": 41.642560511663,
+      "lng": -91.522559724284,
+      "addressHash": "925 highway 6 e, iowa city, ia 52240|iowa city|ia|52240",
+      "matchedAddress": "925 US HWY 6, IOWA CITY, IA, 52240",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:19.928Z"
+    },
+    "2830": {
+      "status": "ok",
+      "lat": 42.33541471931,
+      "lng": -122.876450949223,
+      "addressHash": "517 edwards street, medford or 97504|medford|or|97504",
+      "matchedAddress": "517 EDWARDS ST, MEDFORD, OR, 97501",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:20.013Z"
+    },
+    "2831": {
+      "status": "failed",
+      "reason": "census: no match; nominatim: no match",
+      "addressHash": "100 dyer st. johnson city, tn 37601|johnson city|tn|37601",
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-06-19T10:46:22.856Z"
+    },
+    "2832": {
+      "status": "ok",
+      "lat": 42.455558770645,
+      "lng": -123.317748650902,
+      "addressHash": "1504 ne 9th street, grants pass, or. 97526|grants pass|or|97526",
+      "matchedAddress": "1504 NE 9TH ST, GRANTS PASS, OR, 97526",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:23.214Z"
+    },
+    "2833": {
+      "status": "ok",
+      "lat": 38.932342051075,
+      "lng": -94.690595431545,
+      "addressHash": "9200 indian creek parkway, overland park, ks 66210 ks|overland park|ks|66210",
+      "matchedAddress": "9200 INDIAN CREEK PKWY, OVERLAND PARK, KS, 66210",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:23.376Z"
+    },
+    "2834": {
+      "status": "ok",
+      "lat": 42.225339270263,
+      "lng": -121.78344338985,
+      "addressHash": "601 pine st., klamath falls, or 97601|klamath falls|or|97601",
+      "matchedAddress": "601 PINE ST, KLAMATH FALLS, OR, 97601",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:23.483Z"
+    },
+    "2835": {
+      "status": "ok",
+      "lat": 35.936753789584,
+      "lng": -83.99142575897,
+      "addressHash": "5401 kingston pike, suite 275 knoxville, tn 37919|knoxville|tn|37919",
+      "matchedAddress": "5401 KINGSTON PIKE, KNOXVILLE, TN, 37919",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:23.569Z"
+    },
+    "2836": {
+      "status": "ok",
+      "lat": 43.811814854486,
+      "lng": -91.24395338013,
+      "addressHash": "111 9th st. n, lacrosse, wi 54601|lacrosse|wi|54601",
+      "matchedAddress": "111 9TH ST N, LA CROSSE, WI, 54601",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:23.704Z"
+    },
+    "2837": {
+      "status": "ok",
+      "lat": 33.025986480653,
+      "lng": -85.047806600214,
+      "addressHash": "701 lincoln street, lagrange, ga 30241|lagrange|ga|30241",
+      "matchedAddress": "701 LINCOLN ST, LAGRANGE, GA, 30240",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:23.796Z"
+    },
+    "2838": {
+      "status": "ok",
+      "lat": 40.066326684283,
+      "lng": -76.302419677119,
+      "addressHash": "1681 crown avenue, suite 201, lancaster, pennsylvania 17601|lancaster|pa|17601",
+      "matchedAddress": "1681 CROWN AVE, LANCASTER, PA, 17601",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:23.887Z"
+    },
+    "2839": {
+      "status": "ok",
+      "lat": 45.884751735472,
+      "lng": -95.383815325795,
+      "addressHash": "700 cedar st, suite #46, alexandria, mn 56308|alexandria|mn|56308",
+      "matchedAddress": "700 CEDAR ST, ALEXANDRIA, MN, 56308",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:23.980Z"
+    },
+    "2840": {
+      "status": "ok",
+      "lat": 44.645535428838,
+      "lng": -124.054694042344,
+      "addressHash": "227 nw 12th st newport, or 97365|newport|or|97365",
+      "matchedAddress": "227 NW 12TH ST, NEWPORT, OR, 97365",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:24.098Z"
+    },
+    "2841": {
+      "status": "ok",
+      "lat": 41.255758752699,
+      "lng": -75.891655900673,
+      "addressHash": "340 market st, kingston, pa 18704|kingston|pa|18704",
+      "matchedAddress": "340 MARKET ST, KINGSTON, PA, 18704",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:24.190Z"
+    },
+    "2842": {
+      "status": "failed",
+      "reason": "census: no match; nominatim: no match",
+      "addressHash": "999 lisbon st, lewiston, me 04240|lewiston|me|4086",
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-06-19T10:46:26.026Z"
+    },
+    "2843": {
+      "status": "ok",
+      "lat": 61.601284654922,
+      "lng": -149.148297553463,
+      "addressHash": "1951 n hemmer rd, palmer ak 99645|palmer|ak|99645",
+      "matchedAddress": "1951 N HEMMER RD, PALMER, AK, 99645",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:26.117Z"
+    },
+    "2844": {
+      "status": "ok",
+      "lat": 35.141049435766,
+      "lng": -89.982625509034,
+      "addressHash": "200 east parkway north, memphis, tennessee 38112|memphis|tn|38112",
+      "matchedAddress": "200 E PKWY N, MEMPHIS, TN, 38112",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:26.232Z"
+    },
+    "2845": {
+      "status": "ok",
+      "lat": 38.58106181002,
+      "lng": -89.892943037164,
+      "addressHash": "1111 e. hwy 50, o'fallon, il 62269|o'fallon|il|62269",
+      "matchedAddress": "1111 E US HWY 50, O FALLON, IL, 62269",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:26.345Z"
+    },
+    "2846": {
+      "status": "ok",
+      "lat": 25.682710093019,
+      "lng": -80.334168821665,
+      "addressHash": "8601 sw 94th st, miami, fl 33156|miami|fl|33156",
+      "matchedAddress": "8601 SW 94TH ST, MIAMI, FL, 33156",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:26.445Z"
+    },
+    "2847": {
+      "status": "ok",
+      "lat": 38.960322375714,
+      "lng": -92.334127405415,
+      "addressHash": "807 north providence, columbia, mo 65203|columbia|mo|65203",
+      "matchedAddress": "807 N PROVIDENCE RD, COLUMBIA, MO, 65203",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:26.536Z"
+    },
+    "2848": {
+      "status": "ok",
+      "lat": 45.492815397919,
+      "lng": -122.867114306676,
+      "addressHash": "3800 sw 185th ave, beaverton, or 97078|beaverton|or|97075",
+      "matchedAddress": "3800 SW 185TH AVE, BEAVERTON, OR, 97078",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:26.641Z"
+    },
+    "2849": {
+      "status": "ok",
+      "lat": 36.974475535736,
+      "lng": -121.91218846095,
+      "addressHash": "280 state park drive, aptos, ca 95003|aptos|ca|95003",
+      "matchedAddress": "280 STATE PARK DR, APTOS, CA, 95003",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:26.763Z"
+    },
+    "2850": {
+      "status": "ok",
+      "lat": 32.469077272356,
+      "lng": -84.9890154294,
+      "addressHash": "1225 3rd avenue, columbus, georgia 31901|columbus|ga|31901",
+      "matchedAddress": "1225 3RD AVE, COLUMBUS, GA, 31901",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:26.871Z"
+    },
+    "2851": {
+      "status": "ok",
+      "lat": 36.194555362951,
+      "lng": -86.792241334292,
+      "addressHash": "230 great circle rd. suite 229 nashville tn 37220|nashville|tn|37220",
+      "matchedAddress": "230 GREAT CIRCLE RD, NASHVILLE, TN, 37228",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:26.978Z"
+    },
+    "2852": {
+      "status": "failed",
+      "reason": "census: no match; nominatim: no match",
+      "addressHash": "147 prince street, unit 2-11, brooklyn ny 11201|brooklyn|ny|11201",
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-06-19T10:46:28.463Z"
+    },
+    "2853": {
+      "status": "failed",
+      "reason": "census: no match; nominatim: no match",
+      "addressHash": "30 wildcat circle, salina, kansas 67401|salina|ks|67401",
+      "triedNominatim": true,
+      "triedExpansion": true,
+      "attemptedAt": "2026-06-19T10:46:30.293Z"
+    },
+    "2854": {
+      "status": "ok",
+      "lat": 30.446676631261,
+      "lng": -84.264962510656,
+      "addressHash": "1111 e tennessee st, suite 8, tallahassee, florida 32308-6914|tallahassee|fl|32308",
+      "matchedAddress": "1111 E TENNESSEE ST, TALLAHASSEE, FL, 32308",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:30.385Z"
+    },
+    "2855": {
+      "status": "ok",
+      "lat": 44.261914094563,
+      "lng": -88.41783522935,
+      "addressHash": "820 w college ave suite #2, appleton, wi 54914|appleton|wi|54914",
+      "matchedAddress": "820 W COLLEGE AVE, APPLETON, WI, 54914",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:30.474Z"
+    },
+    "2856": {
+      "status": "ok",
+      "lat": 29.845207403345,
+      "lng": -81.278356010774,
+      "addressHash": "138 sea grove main st, saint augustine, fl 32080-7708|st. augustine|fl|32080",
+      "matchedAddress": "138 SEA GROVE MAIN ST, SAINT AUGUSTINE, FL, 32080",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:30.589Z"
+    },
+    "2857": {
+      "status": "ok",
+      "lat": 41.49105883754,
+      "lng": -81.672292866403,
+      "addressHash": "2400 orange ave, cleveland, oh|cleveland|oh|44101",
+      "matchedAddress": "2400 ORANGE AVE, CLEVELAND, OH, 44101",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:30.686Z"
+    },
+    "2858": {
+      "status": "ok",
+      "lat": 40.402919338053,
+      "lng": -105.056135224048,
+      "addressHash": "1511 e 11th street, loveland, co 80537|loveland|co|80537",
+      "matchedAddress": "1511 E 11TH ST, LOVELAND, CO, 80537",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:30.838Z"
+    },
+    "2859": {
+      "status": "ok",
+      "lat": 33.87023158075,
+      "lng": -117.931745062485,
+      "addressHash": "418 west commonwealth, fullerton, california 92832|fullerton|ca|92832",
+      "matchedAddress": "418 W COMMONWEALTH AVE, FULLERTON, CA, 92832",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:30.932Z"
+    },
+    "2860": {
+      "status": "ok",
+      "lat": 44.795611255957,
+      "lng": -117.819698447665,
+      "addressHash": "1250 hughes lane, baker city, oregon 97814|baker city|or|97814",
+      "matchedAddress": "1250 HUGHES LN, BAKER CITY, OR, 97814",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:31.023Z"
+    },
+    "2861": {
+      "status": "ok",
+      "lat": 35.467701100436,
+      "lng": -97.512314065961,
+      "addressHash": "3 east main street oklahoma city, ok 73104|oklahoma city|ok|73104",
+      "matchedAddress": "3 E MAIN ST, OKLAHOMA CITY, OK, 73104",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:31.120Z"
+    },
+    "2862": {
+      "status": "ok",
+      "lat": 28.666023355433,
+      "lng": -81.402519281846,
+      "addressHash": "321 montgomery rd, altamonte springs, fl 32716|altamonte springs|fl|32716",
+      "matchedAddress": "321 MONTGOMERY RD, ALTAMONTE SPRINGS, FL, 32714",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:31.215Z"
+    },
+    "2863": {
+      "status": "ok",
+      "lat": 40.735876827466,
+      "lng": -89.631643977574,
+      "addressHash": "4006 n sterling avenue, peoria, il 61615|peoria|il|61615",
+      "matchedAddress": "4006 N STERLING AVE, PEORIA, IL, 61615",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:31.306Z"
+    },
+    "2864": {
+      "status": "ok",
+      "lat": 40.100309910504,
+      "lng": -75.125991189587,
+      "addressHash": "610 old york road, ste 220, jenkintown, pa 19046|jenkintown|pa|19046",
+      "matchedAddress": "610 OLD YORK RD, JENKINTOWN, PA, 19046",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:31.397Z"
+    },
+    "2865": {
+      "status": "ok",
+      "lat": 38.901529814714,
+      "lng": -104.826173522775,
+      "addressHash": "4835 northpark dr. colorado springs, co 80919|colorado springs|co|80919",
+      "matchedAddress": "4835 NORTHPARK DR, COLORADO SPRINGS, CO, 80918",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:31.521Z"
+    },
+    "2866": {
+      "status": "ok",
+      "lat": 40.389252600511,
+      "lng": -80.016943238653,
+      "addressHash": "1129 woodbourne ave pittsburgh, pa 15229|pittsburgh|pa|15229",
+      "matchedAddress": "1129 WOODBOURNE AVE, PITTSBURGH, PA, 15226",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:31.609Z"
+    },
+    "2867": {
+      "status": "ok",
+      "lat": 41.494319436866,
+      "lng": -90.513378689467,
+      "addressHash": "1826 16th st. moline il 61265|moline|il|61265",
+      "matchedAddress": "1826 16TH ST, MOLINE, IL, 61265",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:31.717Z"
+    },
+    "2868": {
+      "status": "ok",
+      "lat": 42.765262260238,
+      "lng": -87.836404072763,
+      "addressHash": "3626 hwy 31 racine, wi 53405|racine|wi|53405",
+      "matchedAddress": "3626 STATE HWY 31, RACINE, WI, 53405",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:31.812Z"
+    },
+    "2869": {
+      "status": "ok",
+      "lat": 35.776872196076,
+      "lng": -78.639347396644,
+      "addressHash": "300 fayetteville st, raleigh, nc 27601|raleigh|nc|27622",
+      "matchedAddress": "300 FAYETTEVILLE ST, RALEIGH, NC, 27601",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:31.906Z"
+    },
+    "2870": {
+      "status": "ok",
+      "lat": 42.266940866425,
+      "lng": -89.061828365937,
+      "addressHash": "2101 east state st, rockford, il 61104|rockford|il|61104",
+      "matchedAddress": "2101 E STATE ST, ROCKFORD, IL, 61104",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:32.030Z"
+    },
+    "2871": {
+      "status": "ok",
+      "lat": 37.410992889591,
+      "lng": -94.706413396248,
+      "addressHash": "201 w 4th street, pittsburg, kansas 66762|pittsburg|ks|66762",
+      "matchedAddress": "201 W 4TH ST, PITTSBURG, KS, 66762",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:32.151Z"
+    },
+    "2872": {
+      "status": "ok",
+      "lat": 42.506591791716,
+      "lng": -89.036599359031,
+      "addressHash": "645 3rd street, beloit wi, 53511|beloit|wi|53511",
+      "matchedAddress": "645 3RD ST, BELOIT, WI, 53511",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:32.262Z"
+    },
+    "2873": {
+      "status": "ok",
+      "lat": 38.319003700677,
+      "lng": -88.942147938606,
+      "addressHash": "403 n 42nd street, mt. vernon il 62864|mt. vernon|il|62864",
+      "matchedAddress": "403 N 42ND ST, MOUNT VERNON, IL, 62864",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:32.352Z"
+    },
+    "2874": {
+      "status": "ok",
+      "lat": 42.277127060191,
+      "lng": -85.641351770911,
+      "addressHash": "4200 w. michigan avenue, suite 202, kalamazoo, mi 49006|kalamazoo|mi|49006",
+      "matchedAddress": "4200 W MICHIGAN AVE, KALAMAZOO, MI, 49006",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:32.440Z"
+    },
+    "2875": {
+      "status": "ok",
+      "lat": 39.26784602275,
+      "lng": -84.330927236219,
+      "addressHash": "11199 montgomery road, cincinnati, oh 45249|cincinnati|oh|45249",
+      "matchedAddress": "11199 MONTGOMERY RD, CINCINNATI, OH, 45249",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:32.531Z"
+    },
+    "2876": {
+      "status": "ok",
+      "lat": 39.808480092625,
+      "lng": -89.646186724726,
+      "addressHash": "700 north 7th street suite a, springfield, il 62702|springfield|il|62702",
+      "matchedAddress": "700 N 7TH ST, SPRINGFIELD, IL, 62702",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:32.644Z"
+    },
+    "2877": {
+      "status": "ok",
+      "lat": 38.612404363956,
+      "lng": -90.345817466561,
+      "addressHash": "8706 manchester rd, ste 100, st. louis, missouri 63144|st. louis|mo|63144",
+      "matchedAddress": "8706 MANCHESTER RD, SAINT LOUIS, MO, 63144",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:32.758Z"
+    },
+    "2878": {
+      "status": "ok",
+      "lat": 27.957103789767,
+      "lng": -82.482331202973,
+      "addressHash": "2130 w main street, tampa, fl 33607|tampa|fl|33607",
+      "matchedAddress": "2130 W MAIN ST, TAMPA, FL, 33607",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:32.853Z"
+    },
+    "2879": {
+      "status": "ok",
+      "lat": 27.64672973847,
+      "lng": -80.400753148134,
+      "addressHash": "1400 27th st vero beach, fl 32960|vero beach|fl|32960",
+      "matchedAddress": "1400 27TH ST, VERO BEACH, FL, 32960",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:32.963Z"
+    },
+    "2880": {
+      "status": "ok",
+      "lat": 43.597162342323,
+      "lng": -116.217922034014,
+      "addressHash": "2920 cassia street boise, id 83705|boise|id|83705",
+      "matchedAddress": "2920 CASSIA ST, BOISE, ID, 83705",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:33.049Z"
+    },
+    "2881": {
+      "status": "ok",
+      "lat": 37.70744092902,
+      "lng": -97.476669532555,
+      "addressHash": "1328 n cardington wichita, ks 67212|wichita|ks|67212",
+      "matchedAddress": "1328 N CARDINGTON ST, WICHITA, KS, 67212",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:33.140Z"
+    },
+    "2882": {
+      "status": "ok",
+      "lat": 45.210996941211,
+      "lng": -123.194555330197,
+      "addressHash": "435 ne evans st. suite a, mcminnville, or 97128|mcminnville|or|97128",
+      "matchedAddress": "435 NE EVANS ST, MCMINNVILLE, OR, 97128",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:33.238Z"
+    },
+    "2883": {
+      "status": "ok",
+      "lat": 39.962175195189,
+      "lng": -76.725251964548,
+      "addressHash": "25 n. duke st. york pa 17401|york|pa|17401",
+      "matchedAddress": "25 S DUKE ST, YORK, PA, 17401",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:33.329Z"
+    },
+    "2884": {
+      "status": "ok",
+      "lat": 42.812392066077,
+      "lng": -86.060879983162,
+      "addressHash": "11335 james st, holland, mi 49424-9556|holland|mi|49424",
+      "matchedAddress": "11335 JAMES ST, HOLLAND, MI, 49424",
+      "source": "census",
+      "geocodedAt": "2026-06-19T10:46:33.424Z"
     }
   }
 }

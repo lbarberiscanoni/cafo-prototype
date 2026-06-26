@@ -1,7 +1,7 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-06-25T09:32:48.101Z",
+    "generated": "2026-06-26T09:37:22.674Z",
     "organizationCount": 646,
     "networkCount": 32,
     "stats": {
@@ -24015,7 +24015,7 @@
     },
     {
       "id": 2853,
-      "name": "Safe Families North Central",
+      "name": "Safe Families North Central Kansas",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
@@ -24233,9 +24233,9 @@
       "officialFosterMinistry": false,
       "cafoMember": true,
       "contact": {
-        "name": "Laura Galt",
-        "title": "National Director of Strategic Partnerships",
-        "email": "lgalt@safefamilies.net"
+        "name": "Erin Kim",
+        "title": "Safe Families for Children Director",
+        "email": "erink@ocunited.org"
       },
       "onMap": true,
       "networkMemberships": [],
@@ -24554,7 +24554,7 @@
         "lat": 35.776872196076,
         "lng": -78.639347396644
       },
-      "website": "raleigh.safe-families.org",
+      "website": "safefamiliesrdu.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",

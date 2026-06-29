@@ -1,8 +1,8 @@
 {
   "metadata": {
     "generated": "2026-04-28T22:18:29.189Z",
-    "totalDescriptions": 303,
-    "withDescription": 280,
+    "totalDescriptions": 304,
+    "withDescription": 281,
     "withErrors": 23
   },
   "descriptions": {
@@ -1240,6 +1240,11 @@
     "Children 1st": {
       "description": "Provides child welfare services and support programs for vulnerable children and families in the Wichita, Kansas community.",
       "generatedAt": "2026-04-28T22:18:29.189Z"
+    },
+    "Collins Family Ministries": {
+      "description": "A Christ-centered ministry in the Upstate of South Carolina, providing resources for wholistic care of the family",
+      "generatedAt": "2026-06-29T00:00:00.000Z",
+      "source": "manual"
     }
   }
 }

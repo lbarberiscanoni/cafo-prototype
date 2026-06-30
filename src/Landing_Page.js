@@ -10,20 +10,10 @@ export default function LandingPage({ onSelectRegion, onExploreMap }) {
   const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);
   const mapRef = useRef();
 
-  // Helper function to check if county has meaningful data
-  const countyHasData = (county) => {
-    // A county has data if it has any of these key metrics
-    return (
-      (county.childrenInCare && county.childrenInCare > 0) ||
-      (county.licensedHomes && county.licensedHomes > 0) ||
-      (county.totalChurches && county.totalChurches > 0) ||
-      (county.waitingForAdoption && county.waitingForAdoption > 0)
-    );
-  };
-
   const countyOptions = useMemo(() => {
+    // Show every county — including ones whose metrics are all NULL — so people
+    // can find them and know data still needs to be populated.
     return Object.entries(countyData)
-      .filter(([id, c]) => countyHasData(c)) // Only show counties with data
       .map(([id, c]) => {
         const base = c.name.includes(",") ? c.name.split(",")[0].trim() : c.name;
         const geoLabel = getGeographyLabel(c.state);

@@ -189,16 +189,13 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
   const latestCountyYear = countyYears[0] || null;
   
   // Filter and deduplicate counties:
-  // 1. Remove junk entries (numeric-only names, or all-null data with no coords)
+  // 1. Remove junk entries (numeric-only names only)
   // 2. Take only the latest year for each county name
+  // Keep counties even when all metric fields are NULL so the count matches the
+  // dropdown (every named county is represented, populated or not).
   const validCounties = (state.counties || []).filter(c => {
     // Filter out numeric-only names (e.g. "45444")
     if (/^\d+$/.test(c.name)) return false;
-    // Filter out entries where all metric fields are null and no coordinates
-    const hasAnyData = ['childrenInCare', 'childrenInFosterCare', 'childrenInKinshipCare',
-      'childrenPlacedOutOfCounty', 'fosterKinshipHomes', 'childrenWaitingForAdoption',
-      'familyPreservationCases', 'churches', 'population'].some(k => c[k] != null);
-    if (!hasAnyData && !c.coordinates) return false;
     return true;
   });
   
@@ -279,13 +276,12 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
     countyCoordinatesByState[stateKey] = {};
   }
   
-  // Filter out junk entries and deduplicate (keep latest year per name)
+  // Filter out junk entries and deduplicate (keep latest year per name).
+  // Keep counties even when all metric fields are NULL so they still appear in
+  // the dropdown (with "nothing available"), prompting people to populate them.
+  // Only numeric-only names (e.g. "45444") are treated as junk and dropped.
   const validCounties = (state.counties || []).filter(c => {
     if (/^\d+$/.test(c.name)) return false;
-    const hasAnyData = ['childrenInCare', 'childrenInFosterCare', 'childrenInKinshipCare',
-      'childrenPlacedOutOfCounty', 'fosterKinshipHomes', 'childrenWaitingForAdoption',
-      'familyPreservationCases', 'churches', 'population'].some(k => c[k] != null);
-    if (!hasAnyData && !c.coordinates) return false;
     return true;
   });
   

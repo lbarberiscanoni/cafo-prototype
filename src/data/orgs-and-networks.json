@@ -1,7 +1,7 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-07-06T10:48:27.644Z",
+    "generated": "2026-07-07T09:51:49.046Z",
     "organizationCount": 646,
     "networkCount": 32,
     "stats": {
@@ -9,7 +9,7 @@
       "withWebsite": 452,
       "withActivities": 345,
       "withNetworkMemberships": 97,
-      "withCountiesServed": 190
+      "withCountiesServed": 193
     },
     "categories": {
       "Local Network": 33,
@@ -23096,7 +23096,63 @@
       },
       "onMap": true,
       "networkMemberships": [],
-      "countiesServed": []
+      "countiesServed": [
+        {
+          "county": "Cook",
+          "state": "IL",
+          "countyState": "Cook, IL"
+        },
+        {
+          "county": "Lake",
+          "state": "IL",
+          "countyState": "Lake, IL"
+        },
+        {
+          "county": "McHenry",
+          "state": "IL",
+          "countyState": "McHenry, IL"
+        },
+        {
+          "county": "DuPage",
+          "state": "IL",
+          "countyState": "DuPage, IL"
+        },
+        {
+          "county": "Kane",
+          "state": "IL",
+          "countyState": "Kane, IL"
+        },
+        {
+          "county": "De Kalb",
+          "state": "IL",
+          "countyState": "De Kalb, IL"
+        },
+        {
+          "county": "Grundy",
+          "state": "IL",
+          "countyState": "Grundy, IL"
+        },
+        {
+          "county": "Kankakee",
+          "state": "IL",
+          "countyState": "Kankakee, IL"
+        },
+        {
+          "county": "Will",
+          "state": "IL",
+          "countyState": "Will, IL"
+        },
+        {
+          "county": "Kendall",
+          "state": "IL",
+          "countyState": "Kendall, IL"
+        },
+        {
+          "county": "Lee",
+          "state": "IL",
+          "countyState": "Lee, IL"
+        }
+      ]
     },
     {
       "id": 2825,
@@ -24041,7 +24097,63 @@
       },
       "onMap": true,
       "networkMemberships": [],
-      "countiesServed": []
+      "countiesServed": [
+        {
+          "county": "Saline",
+          "state": "KS",
+          "countyState": "Saline, KS"
+        },
+        {
+          "county": "Geary",
+          "state": "KS",
+          "countyState": "Geary, KS"
+        },
+        {
+          "county": "Riley",
+          "state": "KS",
+          "countyState": "Riley, KS"
+        },
+        {
+          "county": "McPherson",
+          "state": "KS",
+          "countyState": "McPherson, KS"
+        },
+        {
+          "county": "Ottawa",
+          "state": "KS",
+          "countyState": "Ottawa, KS"
+        },
+        {
+          "county": "Lincoln",
+          "state": "KS",
+          "countyState": "Lincoln, KS"
+        },
+        {
+          "county": "Ellsworth",
+          "state": "KS",
+          "countyState": "Ellsworth, KS"
+        },
+        {
+          "county": "Rice",
+          "state": "KS",
+          "countyState": "Rice, KS"
+        },
+        {
+          "county": "Dickinson",
+          "state": "KS",
+          "countyState": "Dickinson, KS"
+        },
+        {
+          "county": "Cloud",
+          "state": "KS",
+          "countyState": "Cloud, KS"
+        },
+        {
+          "county": "Ellis",
+          "state": "KS",
+          "countyState": "Ellis, KS"
+        }
+      ]
     },
     {
       "id": 2854,
@@ -24899,7 +25011,18 @@
       },
       "onMap": true,
       "networkMemberships": [],
-      "countiesServed": []
+      "countiesServed": [
+        {
+          "county": "St. Lucie",
+          "state": "FL",
+          "countyState": "St. Lucie, FL"
+        },
+        {
+          "county": "Martin",
+          "state": "FL",
+          "countyState": "Martin, FL"
+        }
+      ]
     },
     {
       "id": 2880,

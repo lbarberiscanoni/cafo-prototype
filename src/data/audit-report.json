@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-06T10:48:27.747Z",
+  "timestamp": "2026-07-07T09:51:49.147Z",
   "dataDir": "./",
   "checks": [
     {
@@ -223,7 +223,7 @@
       "name": "orgs_with_counties",
       "passed": true,
       "expected": "> 0",
-      "actual": 190,
+      "actual": 193,
       "message": null
     }
   ],

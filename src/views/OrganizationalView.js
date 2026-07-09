@@ -465,14 +465,29 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
       stateCode = parts[parts.length - 1].toUpperCase();
     }
     
-    // Filter real organizations by county and state
-    return organizations.filter(org => 
-      org.county && 
-      org.county.toLowerCase().replace(/\s+county.*$/, '').trim() === countyName.toLowerCase().replace(/\s+county.*$/, '').trim() &&
-      org.state === stateCode &&
-      org.onMap === true &&
-      org.coords
-    );
+    // Normalize a county name for comparison: lowercase, strip a trailing
+    // "County"/"Parish" qualifier, and trim.
+    const normCounty = (name) =>
+      (name || '').toLowerCase().replace(/\s+(county|parish).*$/, '').trim();
+    const targetCounty = normCounty(countyName);
+
+    // An org appears in a county's card list if it is physically located there
+    // OR it lists that county in its "counties served" data (from the Counties
+    // Served tab). Many orgs serve more counties than the one they sit in.
+    return organizations.filter(org => {
+      if (org.onMap !== true || !org.coords) return false;
+
+      const locatedHere =
+        org.county &&
+        org.state === stateCode &&
+        normCounty(org.county) === targetCounty;
+
+      const servesHere = (org.countiesServed || []).some(cs =>
+        (cs.state || '').toUpperCase() === stateCode && normCounty(cs.county) === targetCounty
+      );
+
+      return locatedHere || servesHere;
+    });
   }, [regionLevel, regionId, getDisplayName]);
 
   // Get state organizations

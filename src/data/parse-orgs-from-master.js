@@ -330,6 +330,7 @@ function parseMasterSheet(workbook) {
 
   const organizations = [];
   const orgsByName = new Map();
+  const orgsById = new Map();
   const networksMap = new Map();
   let withCoords = 0;
 
@@ -399,6 +400,9 @@ function parseMasterSheet(workbook) {
 
     organizations.push(org);
     orgsByName.set(name.toLowerCase(), org);
+    if (org.id !== null && org.id !== undefined && String(org.id).trim() !== '') {
+      orgsById.set(String(org.id).trim(), org);
+    }
   }
 
   const withNetworks = organizations.filter(o => o.networkMemberships.length > 0).length;
@@ -413,37 +417,47 @@ function parseMasterSheet(workbook) {
   console.log(`   ✓ ${withNetworks} have network memberships (from Master tab)`);
   console.log(`   ✓ ${networksList.length} unique networks`);
 
-  return { organizations, orgsByName, networks: networksList };
+  return { organizations, orgsByName, orgsById, networks: networksList };
 }
 
 // Parse Counties Served sheet
-function parseCountiesServed(workbook, orgsByName) {
+function parseCountiesServed(workbook, orgsByName, orgsById) {
   console.log('');
   console.log('📋 Parsing Counties Served sheet...');
   const sheet = workbook.Sheets['Counties Served'];
   const rawData = XLSX.utils.sheet_to_json(sheet);
   console.log(`   Found ${rawData.length} rows`);
-  
+
   let matched = 0;
   let skipped = 0;
-  
+  let matchedById = 0;
+  let matchedByName = 0;
+
   for (const row of rawData) {
+    const id = row['id'];
     const orgName = cleanString(row['name']);
     const county = cleanString(row['county']);
     const state = cleanString(row['state']);
-    
-    if (!orgName) continue;
-    
-    // Find org in Master
-    const org = orgsByName.get(orgName.toLowerCase());
+
+    // Match by id first (stable across renames), fall back to name for
+    // legacy rows that predate the id column.
+    let org = null;
+    if (id !== undefined && id !== null && String(id).trim() !== '') {
+      org = orgsById.get(String(id).trim());
+      if (org) matchedById++;
+    }
+    if (!org && orgName) {
+      org = orgsByName.get(orgName.toLowerCase());
+      if (org) matchedByName++;
+    }
     if (!org) {
       skipped++;
       continue;
     }
-    
+
     // Skip if no county data
     if (!county) continue;
-    
+
     // Add county to org's counties served
     org.countiesServed.push({
       county: county,
@@ -459,7 +473,7 @@ function parseCountiesServed(workbook, orgsByName) {
     if (org.countiesServed.length > 0) orgsWithCounties++;
   }
   
-  console.log(`   ✓ ${matched} county entries matched`);
+  console.log(`   ✓ ${matched} county entries matched (${matchedById} by id, ${matchedByName} by name)`);
   console.log(`   ✓ ${orgsWithCounties} organizations have counties served data`);
   if (skipped > 0) {
     console.log(`   ⚠️  ${skipped} entries skipped (org not in Master)`);
@@ -488,10 +502,10 @@ async function parseOrganizations(inputPath, outputPath) {
   console.log('');
 
   // Parse Master sheet (includes network memberships from column AF)
-  const { organizations, orgsByName, networks } = parseMasterSheet(workbook);
+  const { organizations, orgsByName, orgsById, networks } = parseMasterSheet(workbook);
 
-  // Parse Counties Served sheet (ADR-008: for profile display)
-  const countiesResults = parseCountiesServed(workbook, orgsByName);
+  // Parse Counties Served sheet (ADR-008: for profile display + county card list)
+  const countiesResults = parseCountiesServed(workbook, orgsByName, orgsById);
 
   // Geocoding pass — fills in lat/lng for orgs without manual coords using
   // the US Census Geocoder. Reuses prior run's cache to avoid redundant calls.

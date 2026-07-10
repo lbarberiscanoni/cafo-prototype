@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-09T09:49:23.284Z",
+  "timestamp": "2026-07-10T09:44:59.220Z",
   "dataDir": "./",
   "checks": [
     {
@@ -183,7 +183,7 @@
       "name": "with_coordinates",
       "passed": true,
       "expected": ">= 150",
-      "actual": 434,
+      "actual": 435,
       "message": null
     },
     {
@@ -223,7 +223,7 @@
       "name": "orgs_with_counties",
       "passed": true,
       "expected": "> 0",
-      "actual": 193,
+      "actual": 483,
       "message": null
     }
   ],

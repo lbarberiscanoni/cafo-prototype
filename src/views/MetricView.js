@@ -67,7 +67,26 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
   const [showEmbedModal, setShowEmbedModal] = useState(false);
   const [embedCopied, setEmbedCopied] = useState(false);
 
+  // Full name of the currently-selected state (used to prioritize its counties
+  // in the county dropdown). Works whether a state or one of its counties is active.
+  const currentStateName = useMemo(() => {
+    if (regionLevel === "state") {
+      return Object.keys(stateNameToCode).find(
+        (name) => name.toLowerCase().replace(/\s+/g, "-") === regionId
+      ) || null;
+    }
+    if (regionLevel === "county" && regionId && regionId.includes("-")) {
+      const stateCode = regionId.split("-").pop();
+      return Object.keys(stateNameToCode).find(
+        (name) => stateNameToCode[name]?.toLowerCase() === stateCode.toLowerCase()
+      ) || null;
+    }
+    return null;
+  }, [regionLevel, regionId]);
+
   // Build county options for CountySelect (same shape as Landing_Page)
+  // Counties in the currently-selected state are floated to the top so users
+  // don't have to scroll the full alphabetical list after picking a state.
   const countyOptions = useMemo(() => {
     return Object.entries(countyData)
       .map(([id, c]) => {
@@ -78,11 +97,16 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
         return { id, label, data: c, state: c.state };
       })
       .sort((a, b) => {
+        if (currentStateName) {
+          const aCurrent = a.state === currentStateName;
+          const bCurrent = b.state === currentStateName;
+          if (aCurrent !== bCurrent) return aCurrent ? -1 : 1;
+        }
         const stateCompare = a.state.localeCompare(b.state);
         if (stateCompare !== 0) return stateCompare;
         return a.label.localeCompare(b.label);
       });
-  }, []);
+  }, [currentStateName]);
 
   // Handler for CountySelect
   const handleCountySelect = useCallback((opt) => {

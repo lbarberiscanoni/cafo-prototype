@@ -1,7 +1,7 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-07-15T08:23:15.863Z",
+    "generated": "2026-07-16T08:22:18.694Z",
     "organizationCount": 646,
     "networkCount": 32,
     "stats": {
@@ -19815,7 +19815,7 @@
         "title": null,
         "email": null
       },
-      "onMap": true,
+      "onMap": false,
       "networkMemberships": [
         {
           "network": "Weld County Collaboration",

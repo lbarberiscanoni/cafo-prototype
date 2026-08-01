@@ -1,7 +1,7 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-07-31T08:56:55.605Z",
+    "generated": "2026-08-01T08:27:40.115Z",
     "organizationCount": 646,
     "networkCount": 32,
     "stats": {
@@ -16,10 +16,10 @@
       "State/Regional Network": 3,
       "Bridge Organization": 13,
       "Regional Network": 1,
-      "Service Organization": 222,
+      "Service Organization": 221,
       "Placement Agency": 51,
       "Unknown": 141,
-      "Bridge Ministry": 68,
+      "Bridge Ministry": 69,
       "Church Foster Care Ministry": 93,
       "Child Placement Agency": 21
     },
@@ -22007,7 +22007,7 @@
         "lng": -104.914505138133
       },
       "website": "bridgethegaptogether.com",
-      "category": "Service Organization",
+      "category": "Bridge Ministry",
       "activities": [
         "support"
       ],

@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-08-04T08:46:29.326Z",
-    "organizationCount": 646,
+    "generated": "2026-08-05T08:43:29.312Z",
+    "organizationCount": 647,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 435,
-      "withWebsite": 452,
-      "withActivities": 345,
+      "withCoordinates": 436,
+      "withWebsite": 453,
+      "withActivities": 346,
       "withNetworkMemberships": 97,
       "withCountiesServed": 483
     },
@@ -16,7 +16,7 @@
       "State/Regional Network": 3,
       "Bridge Organization": 13,
       "Regional Network": 1,
-      "Service Organization": 221,
+      "Service Organization": 222,
       "Placement Agency": 51,
       "Unknown": 141,
       "Bridge Ministry": 69,
@@ -26,7 +26,7 @@
     "geocoding": {
       "manual": 184,
       "cacheHit": 251,
-      "newlyGeocoded": 0,
+      "newlyGeocoded": 1,
       "newlyGeocodedNominatim": 0,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 35,
@@ -28041,6 +28041,38 @@
           "countyState": "Ottawa, MI"
         }
       ]
+    },
+    {
+      "id": 2885,
+      "name": "Carol's Foster Closet",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "120 N Ave A",
+        "city": "Canton",
+        "state": "IL",
+        "zip": "61520",
+        "county": "Fulton"
+      },
+      "coordinates": {
+        "lat": 40.557392672453,
+        "lng": -90.036842422243
+      },
+      "website": "n/a",
+      "category": "Service Organization",
+      "activities": [
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Carla Coulter",
+        "title": "Director",
+        "email": "carlajcoulter@yahoo.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
     }
   ],
   "networks": [
@@ -30877,6 +30909,15 @@
       "matchedAddress": "11335 JAMES ST, HOLLAND, MI, 49424",
       "source": "census",
       "geocodedAt": "2026-06-19T10:46:33.424Z"
+    },
+    "2885": {
+      "status": "ok",
+      "lat": 40.557392672453,
+      "lng": -90.036842422243,
+      "addressHash": "120 n ave a|canton|il|61520",
+      "matchedAddress": "120 N AVE A, CANTON, IL, 61520",
+      "source": "census",
+      "geocodedAt": "2026-08-05T08:43:29.311Z"
     }
   }
 }

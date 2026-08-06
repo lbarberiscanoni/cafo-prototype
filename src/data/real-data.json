@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-08-05T08:43:29.604Z",
+    "generated": "2026-08-06T08:45:15.141Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-08-05T08:43:21.230Z",
+        "generated": "2026-08-06T08:45:07.942Z",
         "years": [
           2021,
           2022,
@@ -35,7 +35,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-08-05T08:43:21.454Z",
+        "generated": "2026-08-06T08:45:08.157Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -62,7 +62,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-08-05T08:43:25.741Z",
+        "generated": "2026-08-06T08:45:12.094Z",
         "totalRecords": 6032,
         "stateCount": 51,
         "byYear": {
@@ -92,7 +92,7 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-08-05T08:43:29.312Z",
+        "generated": "2026-08-06T08:45:14.944Z",
         "organizationCount": 647,
         "networkCount": 32,
         "stats": {
@@ -116,8 +116,8 @@
         },
         "geocoding": {
           "manual": 184,
-          "cacheHit": 251,
-          "newlyGeocoded": 1,
+          "cacheHit": 252,
+          "newlyGeocoded": 0,
           "newlyGeocodedNominatim": 0,
           "newlyGeocodedExpansion": 0,
           "cachedFailure": 35,

@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-08-27T17:30:53.896Z",
-    "organizationCount": 647,
+    "generated": "2026-08-28T18:26:17.538Z",
+    "organizationCount": 648,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 436,
-      "withWebsite": 453,
-      "withActivities": 346,
+      "withCoordinates": 437,
+      "withWebsite": 454,
+      "withActivities": 347,
       "withNetworkMemberships": 97,
       "withCountiesServed": 483
     },
@@ -16,7 +16,7 @@
       "State/Regional Network": 3,
       "Bridge Organization": 13,
       "Regional Network": 1,
-      "Service Organization": 222,
+      "Service Organization": 223,
       "Placement Agency": 51,
       "Unknown": 141,
       "Bridge Ministry": 69,
@@ -26,7 +26,7 @@
     "geocoding": {
       "manual": 184,
       "cacheHit": 252,
-      "newlyGeocoded": 0,
+      "newlyGeocoded": 1,
       "newlyGeocodedNominatim": 0,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 35,
@@ -28073,6 +28073,39 @@
       "onMap": true,
       "networkMemberships": [],
       "countiesServed": []
+    },
+    {
+      "id": 2886,
+      "name": "Foster Village Charlotte",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "4915 Monroe Road",
+        "city": "Charlotte",
+        "state": "NC",
+        "zip": "28205",
+        "county": "Mecklenburg"
+      },
+      "coordinates": {
+        "lat": 35.192097595761,
+        "lng": -80.778424255738
+      },
+      "website": "fostervillagecharlotte.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Becky Santoro",
+        "title": "Co-Founder, Executive Director",
+        "email": "becky@fostervillagecharlotte.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
     }
   ],
   "networks": [
@@ -30918,6 +30951,15 @@
       "matchedAddress": "120 N AVE A, CANTON, IL, 61520",
       "source": "census",
       "geocodedAt": "2026-08-05T08:43:29.311Z"
+    },
+    "2886": {
+      "status": "ok",
+      "lat": 35.192097595761,
+      "lng": -80.778424255738,
+      "addressHash": "4915 monroe road|charlotte|nc|28205",
+      "matchedAddress": "4915 MONROE RD, CHARLOTTE, NC, 28205",
+      "source": "census",
+      "geocodedAt": "2026-08-28T18:26:17.537Z"
     }
   }
 }

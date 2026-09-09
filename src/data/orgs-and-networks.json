@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-09-08T10:58:05.829Z",
-    "organizationCount": 648,
+    "generated": "2026-09-09T11:02:39.948Z",
+    "organizationCount": 649,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 437,
-      "withWebsite": 454,
-      "withActivities": 347,
+      "withCoordinates": 438,
+      "withWebsite": 455,
+      "withActivities": 348,
       "withNetworkMemberships": 97,
       "withCountiesServed": 483
     },
@@ -19,14 +19,14 @@
       "Service Organization": 223,
       "Placement Agency": 51,
       "Unknown": 141,
-      "Bridge Ministry": 69,
+      "Bridge Ministry": 70,
       "Church Foster Care Ministry": 93,
       "Child Placement Agency": 21
     },
     "geocoding": {
       "manual": 184,
       "cacheHit": 253,
-      "newlyGeocoded": 0,
+      "newlyGeocoded": 1,
       "newlyGeocodedNominatim": 0,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 35,
@@ -28106,6 +28106,40 @@
       "onMap": true,
       "networkMemberships": [],
       "countiesServed": []
+    },
+    {
+      "id": 2887,
+      "name": "Lifeline Children's Services",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "200 Missionary Ridge Drive",
+        "city": "Birmingham",
+        "state": "AL",
+        "zip": "35242",
+        "county": "Jefferson"
+      },
+      "coordinates": {
+        "lat": 33.420058568392,
+        "lng": -86.687831500847
+      },
+      "website": "lifelinechild.org",
+      "category": "Bridge Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Aren Williams",
+        "title": "Senior Director of Church Strategy and Integration",
+        "email": "aren.williams@lifelinechild.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
     }
   ],
   "networks": [
@@ -30960,6 +30994,15 @@
       "matchedAddress": "4915 MONROE RD, CHARLOTTE, NC, 28205",
       "source": "census",
       "geocodedAt": "2026-08-28T18:26:17.537Z"
+    },
+    "2887": {
+      "status": "ok",
+      "lat": 33.420058568392,
+      "lng": -86.687831500847,
+      "addressHash": "200 missionary ridge drive|birmingham|al|35242",
+      "matchedAddress": "200 MISSIONARY RIDGE DR, BIRMINGHAM, AL, 35242",
+      "source": "census",
+      "geocodedAt": "2026-09-09T11:02:39.947Z"
     }
   }
 }

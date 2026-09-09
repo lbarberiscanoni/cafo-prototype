@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-09-08T10:58:06.052Z",
+    "generated": "2026-09-09T11:02:40.237Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-09-08T10:57:58.869Z",
+        "generated": "2026-09-09T11:02:32.180Z",
         "years": [
           2021,
           2022,
@@ -35,7 +35,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-09-08T10:57:59.077Z",
+        "generated": "2026-09-09T11:02:32.399Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -62,7 +62,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-09-08T10:58:03.000Z",
+        "generated": "2026-09-09T11:02:36.607Z",
         "totalRecords": 6032,
         "stateCount": 51,
         "byYear": {
@@ -92,13 +92,13 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-09-08T10:58:05.829Z",
-        "organizationCount": 648,
+        "generated": "2026-09-09T11:02:39.948Z",
+        "organizationCount": 649,
         "networkCount": 32,
         "stats": {
-          "withCoordinates": 437,
-          "withWebsite": 454,
-          "withActivities": 347,
+          "withCoordinates": 438,
+          "withWebsite": 455,
+          "withActivities": 348,
           "withNetworkMemberships": 97,
           "withCountiesServed": 483
         },
@@ -110,14 +110,14 @@
           "Service Organization": 223,
           "Placement Agency": 51,
           "Unknown": 141,
-          "Bridge Ministry": 69,
+          "Bridge Ministry": 70,
           "Church Foster Care Ministry": 93,
           "Child Placement Agency": 21
         },
         "geocoding": {
           "manual": 184,
           "cacheHit": 253,
-          "newlyGeocoded": 0,
+          "newlyGeocoded": 1,
           "newlyGeocodedNominatim": 0,
           "newlyGeocodedExpansion": 0,
           "cachedFailure": 35,
@@ -129,7 +129,7 @@
     "enrichment": {
       "descriptions": {
         "source": "org-descriptions.json",
-        "merged": 307
+        "merged": 308
       },
       "coordinates": {
         "source": "county-coordinates.json",
@@ -140,8 +140,8 @@
       "states": 52,
       "countyRecords": 6032,
       "countiesWithCoordinates": 5991,
-      "organizations": 648,
-      "organizationsWithDescriptions": 307,
+      "organizations": 649,
+      "organizationsWithDescriptions": 308,
       "networks": 32
     }
   },
@@ -149467,6 +149467,41 @@
       "onMap": true,
       "networkMemberships": [],
       "countiesServed": []
+    },
+    {
+      "id": 2887,
+      "name": "Lifeline Children's Services",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "200 Missionary Ridge Drive",
+        "city": "Birmingham",
+        "state": "AL",
+        "zip": "35242",
+        "county": "Jefferson"
+      },
+      "coordinates": {
+        "lat": 33.420058568392,
+        "lng": -86.687831500847
+      },
+      "website": "lifelinechild.org",
+      "category": "Bridge Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Aren Williams",
+        "title": "Senior Director of Church Strategy and Integration",
+        "email": "aren.williams@lifelinechild.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": [],
+      "generatedDescription": "Equips churches and Christ-centered families to serve vulnerable children through adoption, foster care, pregnancy support, and family preservation ministries."
     }
   ],
   "networks": [

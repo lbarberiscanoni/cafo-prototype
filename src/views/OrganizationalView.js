@@ -860,9 +860,14 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               style={{ height: "500px", width: "100%", borderRadius: "8px" }}
               scrollWheelZoom={true}
             >
+              {/* Interim keyless basemap (Esri World Light Gray) while a CARTO basemap
+                  API key is obtained. CARTO retired keyless access to basemaps.cartocdn.com
+                  ("API KEY REQUIRED" watermark). To restore CARTO, swap the url back to
+                  https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=YOUR_KEY
+                  and restore the CARTO/OSM attribution. See carto.com/basemaps/apikey. */}
               <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-                url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
               />
               
               {/* National Level: State Text Labels + Organization Dots + Connection Lines */}

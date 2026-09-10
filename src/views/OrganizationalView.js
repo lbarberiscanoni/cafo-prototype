@@ -860,14 +860,15 @@ export default function OrganizationalView({ regionLevel, regionId, onSelectRegi
               style={{ height: "500px", width: "100%", borderRadius: "8px" }}
               scrollWheelZoom={true}
             >
-              {/* Interim keyless basemap (Esri World Light Gray) while a CARTO basemap
-                  API key is obtained. CARTO retired keyless access to basemaps.cartocdn.com
-                  ("API KEY REQUIRED" watermark). To restore CARTO, swap the url back to
-                  https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=YOUR_KEY
-                  and restore the CARTO/OSM attribution. See carto.com/basemaps/apikey. */}
+              {/* CARTO light_all basemap. The `key` is a public basemap key (sent in every
+                  tile request URL, so it is not a secret) on CARTO's free non-commercial tier
+                  (5M tiles/month; CARTO + OSM attribution required). Restrict it to this app's
+                  domains at dashboard.basemaps.carto.com. See carto.com/basemaps/apikey.
+                  Note: CARTO is retiring the raster light_all style; migrating to the vector
+                  basemap is the future-proof move (the same key covers both). */}
               <TileLayer
-                attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
-                url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=cb1_3gha_1_c2f10a95d181a336f144aa30"
               />
               
               {/* National Level: State Text Labels + Organization Dots + Connection Lines */}

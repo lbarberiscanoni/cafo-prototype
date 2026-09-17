@@ -14,6 +14,10 @@ import CountySelect from "../CountySelect";
 
 const REQUEST_DATA_URL = "https://cafo.org/morethanenough/share-your-data/";
 
+// Citation for the total church counts (used in the Total Churches rollover on
+// the county view and on the national "Church Data in the U.S." card).
+const CHURCH_DATA_SOURCE = "2020 U.S. Religion Census, © 2022 by the Association of Statisticians of American Religious Bodies (ASARB). Used by permission.";
+
 const hasNA = (...values) => values.some(v => v === null || v === undefined);
 
 const RequestDataLink = () => (
@@ -556,9 +560,13 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 <h4 className="text-base font-lato font-bold text-mte-black mb-4 text-center">Church Data in the U.S.</h4>
                 <div className="flex items-start gap-4">
                   <img src={ChurchIcon} alt="Churches" className="w-16 h-16 flex-shrink-0" />
-                  <div className="space-y-2">
+                  <div className="relative group space-y-2">
                     <div><span className="text-xl font-black text-mte-blue">{fmtCompact(data.totalChurches)}</span></div>
                     <div className="text-sm text-mte-charcoal font-lato">Churches</div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-2 bg-mte-charcoal text-white text-xs rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 text-left">
+                      Total number of churches in the U.S.
+                      {data.totalChurches != null && <div className="mt-1 pt-1 border-t border-gray-500 text-gray-300">Source: {CHURCH_DATA_SOURCE}</div>}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -876,7 +884,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </div>
             <div className="max-w-md mx-auto">
               <MetricRow label="Churches Providing Support" value={fmt(data.churchesProvidingSupport)} tooltip="Number of churches with active foster care support programs" source="DM Databases" />
-              <MetricRow label="Total Churches" value={fmt(data.totalChurches)} tooltip="Total number of churches in this county" source="DM Databases" />
+              <MetricRow label="Total Churches" value={fmt(data.totalChurches)} tooltip="Total number of churches in this county" source={CHURCH_DATA_SOURCE} />
             </div>
             <div className="mt-4 text-center space-y-1">
               <div>

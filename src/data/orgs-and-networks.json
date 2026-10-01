@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-09-30T12:15:12.009Z",
-    "organizationCount": 649,
+    "generated": "2026-10-01T12:49:33.549Z",
+    "organizationCount": 652,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 438,
-      "withWebsite": 455,
-      "withActivities": 348,
+      "withCoordinates": 441,
+      "withWebsite": 458,
+      "withActivities": 351,
       "withNetworkMemberships": 97,
       "withCountiesServed": 483
     },
@@ -16,18 +16,18 @@
       "State/Regional Network": 3,
       "Bridge Organization": 13,
       "Regional Network": 1,
-      "Service Organization": 223,
-      "Placement Agency": 51,
+      "Service Organization": 224,
+      "Placement Agency": 52,
       "Unknown": 141,
       "Bridge Ministry": 70,
-      "Church Foster Care Ministry": 93,
+      "Church Foster Care Ministry": 94,
       "Child Placement Agency": 21
     },
     "geocoding": {
       "manual": 184,
       "cacheHit": 254,
-      "newlyGeocoded": 0,
-      "newlyGeocodedNominatim": 0,
+      "newlyGeocoded": 2,
+      "newlyGeocodedNominatim": 1,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 35,
       "unresolved": 0,
@@ -28140,6 +28140,107 @@
       "onMap": true,
       "networkMemberships": [],
       "countiesServed": []
+    },
+    {
+      "id": 2888,
+      "name": "Long Hollow",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "3031 Long Hollow Pike",
+        "city": "Hendersonville",
+        "state": "TN",
+        "zip": "37072",
+        "county": "Davidson"
+      },
+      "coordinates": {
+        "lat": 36.3681139,
+        "lng": -86.6109961
+      },
+      "website": "longhollow.com/foster-care-adoption",
+      "category": "Church Foster Care Ministry",
+      "activities": [
+        "support"
+      ],
+      "officialFosterMinistry": true,
+      "cafoMember": false,
+      "contact": {
+        "name": "Ginger Moore",
+        "title": "Adoption Support Team Lead",
+        "email": "ginger@mainstreettravelco.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2889,
+      "name": "Love One Inc.",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "172 Bristol Way South",
+        "city": "Richmond Hill",
+        "state": "GA",
+        "zip": "31324",
+        "county": "Bryan"
+      },
+      "coordinates": {
+        "lat": 31.93355722149,
+        "lng": -81.312974132417
+      },
+      "website": "loveoneinc.org",
+      "category": "Service Organization",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Dawn Fegel",
+        "title": "Director + Founder",
+        "email": "Love1ministry@gmail.com"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2890,
+      "name": "A World for Children",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "3418 Olsen Blvd",
+        "city": "Amarillo",
+        "state": "TX",
+        "zip": "79109",
+        "county": "Potter"
+      },
+      "coordinates": {
+        "lat": 35.18478232339,
+        "lng": -101.877737857439
+      },
+      "website": "awfc.org",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Jessica Cary",
+        "title": "Program Director",
+        "email": "caryj@awfc.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
     }
   ],
   "networks": [
@@ -31003,6 +31104,33 @@
       "matchedAddress": "200 MISSIONARY RIDGE DR, BIRMINGHAM, AL, 35242",
       "source": "census",
       "geocodedAt": "2026-09-09T11:02:39.947Z"
+    },
+    "2888": {
+      "status": "ok",
+      "lat": 36.3681139,
+      "lng": -86.6109961,
+      "addressHash": "3031 long hollow pike|hendersonville|tn|37072",
+      "matchedAddress": "Long Hollow Baptist Church, 3031, Long Hollow Pike, Shackle Island, Hendersonville, Sumner County, Middle Tennessee, Tennessee, 37075, United States",
+      "source": "nominatim",
+      "geocodedAt": "2026-10-01T12:49:33.125Z"
+    },
+    "2889": {
+      "status": "ok",
+      "lat": 31.93355722149,
+      "lng": -81.312974132417,
+      "addressHash": "172 bristol way south|richmond hill|ga|31324",
+      "matchedAddress": "172 BRISTOL WAY, RICHMOND HILL, GA, 31324",
+      "source": "census",
+      "geocodedAt": "2026-10-01T12:49:33.281Z"
+    },
+    "2890": {
+      "status": "ok",
+      "lat": 35.18478232339,
+      "lng": -101.877737857439,
+      "addressHash": "3418 olsen blvd|amarillo|tx|79109",
+      "matchedAddress": "3418 OLSEN BLVD, AMARILLO, TX, 79109",
+      "source": "census",
+      "geocodedAt": "2026-10-01T12:49:33.548Z"
     }
   }
 }

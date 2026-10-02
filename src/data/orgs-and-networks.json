@@ -1,7 +1,7 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-10-01T12:49:33.549Z",
+    "generated": "2026-10-02T12:12:57.826Z",
     "organizationCount": 652,
     "networkCount": 32,
     "stats": {
@@ -25,9 +25,9 @@
     },
     "geocoding": {
       "manual": 184,
-      "cacheHit": 254,
-      "newlyGeocoded": 2,
-      "newlyGeocodedNominatim": 1,
+      "cacheHit": 257,
+      "newlyGeocoded": 0,
+      "newlyGeocodedNominatim": 0,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 35,
       "unresolved": 0,

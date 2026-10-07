@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-10-06T13:07:05.390Z",
-    "organizationCount": 652,
+    "generated": "2026-10-07T13:01:42.823Z",
+    "organizationCount": 653,
     "networkCount": 32,
     "stats": {
-      "withCoordinates": 441,
-      "withWebsite": 458,
-      "withActivities": 351,
+      "withCoordinates": 442,
+      "withWebsite": 459,
+      "withActivities": 352,
       "withNetworkMemberships": 97,
       "withCountiesServed": 483
     },
@@ -17,7 +17,7 @@
       "Bridge Organization": 13,
       "Regional Network": 1,
       "Service Organization": 224,
-      "Placement Agency": 52,
+      "Placement Agency": 53,
       "Unknown": 141,
       "Bridge Ministry": 70,
       "Church Foster Care Ministry": 94,
@@ -26,7 +26,7 @@
     "geocoding": {
       "manual": 184,
       "cacheHit": 257,
-      "newlyGeocoded": 0,
+      "newlyGeocoded": 1,
       "newlyGeocodedNominatim": 0,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 35,
@@ -28241,6 +28241,40 @@
       "onMap": true,
       "networkMemberships": [],
       "countiesServed": []
+    },
+    {
+      "id": 2891,
+      "name": "Southeastern Children's Home",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "115 Childrens Way",
+        "city": "Duncan",
+        "state": "SC",
+        "zip": "29334",
+        "county": "Spartanburg"
+      },
+      "coordinates": {
+        "lat": 34.921332677711,
+        "lng": -82.15988468458
+      },
+      "website": "sech.org",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Brad Brooks",
+        "title": "Executive Director",
+        "email": "bbrooks@sech.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
     }
   ],
   "networks": [
@@ -31131,6 +31165,15 @@
       "matchedAddress": "3418 OLSEN BLVD, AMARILLO, TX, 79109",
       "source": "census",
       "geocodedAt": "2026-10-01T12:49:33.548Z"
+    },
+    "2891": {
+      "status": "ok",
+      "lat": 34.921332677711,
+      "lng": -82.15988468458,
+      "addressHash": "115 childrens way|duncan|sc|29334",
+      "matchedAddress": "115 CHILDRENS WAY, DUNCAN, SC, 29334",
+      "source": "census",
+      "geocodedAt": "2026-10-07T13:01:42.822Z"
     }
   }
 }

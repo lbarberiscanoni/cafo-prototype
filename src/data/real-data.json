@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-10-06T13:07:05.627Z",
+    "generated": "2026-10-07T13:01:43.109Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-10-06T13:06:57.414Z",
+        "generated": "2026-10-07T13:01:35.196Z",
         "years": [
           2021,
           2022,
@@ -35,7 +35,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-10-06T13:06:57.638Z",
+        "generated": "2026-10-07T13:01:35.414Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -62,7 +62,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-10-06T13:07:02.136Z",
+        "generated": "2026-10-07T13:01:39.560Z",
         "totalRecords": 6032,
         "stateCount": 51,
         "byYear": {
@@ -92,13 +92,13 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-10-06T13:07:05.390Z",
-        "organizationCount": 652,
+        "generated": "2026-10-07T13:01:42.823Z",
+        "organizationCount": 653,
         "networkCount": 32,
         "stats": {
-          "withCoordinates": 441,
-          "withWebsite": 458,
-          "withActivities": 351,
+          "withCoordinates": 442,
+          "withWebsite": 459,
+          "withActivities": 352,
           "withNetworkMemberships": 97,
           "withCountiesServed": 483
         },
@@ -108,7 +108,7 @@
           "Bridge Organization": 13,
           "Regional Network": 1,
           "Service Organization": 224,
-          "Placement Agency": 52,
+          "Placement Agency": 53,
           "Unknown": 141,
           "Bridge Ministry": 70,
           "Church Foster Care Ministry": 94,
@@ -117,7 +117,7 @@
         "geocoding": {
           "manual": 184,
           "cacheHit": 257,
-          "newlyGeocoded": 0,
+          "newlyGeocoded": 1,
           "newlyGeocodedNominatim": 0,
           "newlyGeocodedExpansion": 0,
           "cachedFailure": 35,
@@ -140,7 +140,7 @@
       "states": 52,
       "countyRecords": 6032,
       "countiesWithCoordinates": 5991,
-      "organizations": 652,
+      "organizations": 653,
       "organizationsWithDescriptions": 308,
       "networks": 32
     }
@@ -149599,6 +149599,40 @@
         "name": "Jessica Cary",
         "title": "Program Director",
         "email": "caryj@awfc.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2891,
+      "name": "Southeastern Children's Home",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "115 Childrens Way",
+        "city": "Duncan",
+        "state": "SC",
+        "zip": "29334",
+        "county": "Spartanburg"
+      },
+      "coordinates": {
+        "lat": 34.921332677711,
+        "lng": -82.15988468458
+      },
+      "website": "sech.org",
+      "category": "Placement Agency",
+      "activities": [
+        "recruit_foster_kinship",
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Brad Brooks",
+        "title": "Executive Director",
+        "email": "bbrooks@sech.org"
       },
       "onMap": true,
       "networkMemberships": [],

@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-10-08T13:09:20.359Z",
+    "generated": "2026-10-09T12:55:52.906Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-10-08T13:09:12.562Z",
+        "generated": "2026-10-09T12:55:26.434Z",
         "years": [
           2021,
           2022,
@@ -35,7 +35,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-10-08T13:09:12.777Z",
+        "generated": "2026-10-09T12:55:26.658Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -62,7 +62,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-10-08T13:09:17.113Z",
+        "generated": "2026-10-09T12:55:30.927Z",
         "totalRecords": 6032,
         "stateCount": 51,
         "byYear": {
@@ -92,13 +92,13 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-10-08T13:09:20.143Z",
-        "organizationCount": 653,
-        "networkCount": 32,
+        "generated": "2026-10-09T12:55:52.681Z",
+        "organizationCount": 654,
+        "networkCount": 31,
         "stats": {
-          "withCoordinates": 442,
-          "withWebsite": 459,
-          "withActivities": 352,
+          "withCoordinates": 444,
+          "withWebsite": 461,
+          "withActivities": 354,
           "withNetworkMemberships": 97,
           "withCountiesServed": 483
         },
@@ -107,22 +107,22 @@
           "State/Regional Network": 3,
           "Bridge Organization": 13,
           "Regional Network": 1,
-          "Service Organization": 224,
+          "Service Organization": 219,
           "Placement Agency": 53,
-          "Unknown": 141,
-          "Bridge Ministry": 70,
-          "Church Foster Care Ministry": 94,
+          "Unknown": 140,
+          "Bridge Ministry": 76,
+          "Church Foster Care Ministry": 95,
           "Child Placement Agency": 21
         },
         "geocoding": {
           "manual": 184,
-          "cacheHit": 258,
-          "newlyGeocoded": 0,
-          "newlyGeocodedNominatim": 0,
+          "cacheHit": 200,
+          "newlyGeocoded": 59,
+          "newlyGeocodedNominatim": 1,
           "newlyGeocodedExpansion": 0,
-          "cachedFailure": 35,
-          "unresolved": 0,
-          "skipped": 176
+          "cachedFailure": 31,
+          "unresolved": 4,
+          "skipped": 175
         }
       }
     },
@@ -140,9 +140,9 @@
       "states": 52,
       "countyRecords": 6032,
       "countiesWithCoordinates": 5991,
-      "organizations": 653,
+      "organizations": 654,
       "organizationsWithDescriptions": 308,
-      "networks": 32
+      "networks": 31
     }
   },
   "national": {
@@ -124056,33 +124056,6 @@
       "countiesServed": []
     },
     {
-      "id": 164,
-      "name": "Kentucky's Kids Belong",
-      "isOrganization": true,
-      "isNetwork": false,
-      "address": {
-        "street": null,
-        "city": null,
-        "state": null,
-        "zip": null,
-        "county": null
-      },
-      "coordinates": null,
-      "website": null,
-      "category": null,
-      "activities": [],
-      "officialFosterMinistry": false,
-      "cafoMember": false,
-      "contact": {
-        "name": "Dayna Gleason",
-        "title": null,
-        "email": "dgleason@kykidsbelong.org"
-      },
-      "onMap": false,
-      "networkMemberships": [],
-      "countiesServed": []
-    },
-    {
       "id": 165,
       "name": "Louisiana's Kids Belong",
       "isOrganization": true,
@@ -134507,7 +134480,7 @@
         "lng": -86.13216
       },
       "website": "americaskidsbelong.org/states/in/",
-      "category": "Service Organization",
+      "category": "Bridge Ministry",
       "activities": [
         "bio_family",
         "support"
@@ -140143,7 +140116,7 @@
         "lng": -83.013176848848
       },
       "website": "ohiokidsfirst.org",
-      "category": "Service Organization",
+      "category": "Bridge Ministry",
       "activities": [
         "bio_family",
         "support"
@@ -143080,7 +143053,7 @@
         "lng": -84.707364175501
       },
       "website": null,
-      "category": "Service Organization",
+      "category": "Bridge Ministry",
       "activities": [
         "recruit_foster_kinship",
         "recruit_adoptive",
@@ -143441,7 +143414,7 @@
         "lng": -105.097977415908
       },
       "website": "americaskidsbelong.org/states/co",
-      "category": "Service Organization",
+      "category": "Bridge Ministry",
       "activities": [
         "recruit_foster_kinship",
         "recruit_adoptive",
@@ -143457,15 +143430,7 @@
       "onMap": true,
       "networkMemberships": [
         {
-          "network": "Jefferson County Collaboration",
-          "membershipOnMap": true
-        },
-        {
           "network": "Weld County Collaboration",
-          "membershipOnMap": true
-        },
-        {
-          "network": "Boulder County Collaboration",
           "membershipOnMap": true
         }
       ],
@@ -145180,7 +145145,7 @@
         "lng": -103.860273891344
       },
       "website": "sdkidsbelong.org",
-      "category": "Service Organization",
+      "category": "Bridge Ministry",
       "activities": [
         "recruit_foster_kinship",
         "recruit_adoptive",
@@ -147137,16 +147102,10 @@
       },
       "onMap": true,
       "networkMemberships": [],
-      "countiesServed": [
-        {
-          "county": "Johnson",
-          "state": "IA",
-          "countyState": "Johnson, IA"
-        }
-      ]
+      "countiesServed": []
     },
     {
-      "id": 2830,
+      "id": 2829,
       "name": "Safe Families Jackson County",
       "isOrganization": true,
       "isNetwork": false,
@@ -147158,8 +147117,8 @@
         "county": "Jackson"
       },
       "coordinates": {
-        "lat": 42.33541471931,
-        "lng": -122.876450949223
+        "lat": 42.335415401452,
+        "lng": -122.876449813981
       },
       "website": "heartswithamission.org/safefamilies",
       "category": "Service Organization",
@@ -147178,14 +147137,14 @@
       "networkMemberships": [],
       "countiesServed": [
         {
-          "county": "Jackson",
-          "state": "OR",
-          "countyState": "Jackson, OR"
+          "county": "Johnson",
+          "state": "IA",
+          "countyState": "Johnson, IA"
         }
       ]
     },
     {
-      "id": 2831,
+      "id": 2830,
       "name": "Safe Families Johnson City",
       "isOrganization": true,
       "isNetwork": false,
@@ -147214,14 +147173,14 @@
       "networkMemberships": [],
       "countiesServed": [
         {
-          "county": "Carter",
-          "state": "TN",
-          "countyState": "Carter, TN"
+          "county": "Jackson",
+          "state": "OR",
+          "countyState": "Jackson, OR"
         }
       ]
     },
     {
-      "id": 2832,
+      "id": 2831,
       "name": "Safe Families Josephine County",
       "isOrganization": true,
       "isNetwork": false,
@@ -147233,10 +147192,49 @@
         "county": "Jackson"
       },
       "coordinates": {
-        "lat": 42.455558770645,
-        "lng": -123.317748650902
+        "lat": 42.45556138899,
+        "lng": -123.317748844718
       },
       "website": "heartswithamission.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": [
+        {
+          "county": "Carter",
+          "state": "TN",
+          "countyState": "Carter, TN"
+        }
+      ]
+    },
+    {
+      "id": 2832,
+      "name": "Safe Families Kansas City",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "9200 Indian Creek Parkway, Overland Park, KS 66210 KS",
+        "city": "Overland Park",
+        "state": "KS",
+        "zip": "66210",
+        "county": "Johnson"
+      },
+      "coordinates": {
+        "lat": 38.93234317573,
+        "lng": -94.690597523588
+      },
+      "website": "kansas.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147261,21 +147259,21 @@
     },
     {
       "id": 2833,
-      "name": "Safe Families Kansas City",
+      "name": "Safe Families Klamath County",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "9200 Indian Creek Parkway, Overland Park, KS 66210 KS",
-        "city": "Overland Park",
-        "state": "KS",
-        "zip": "66210",
-        "county": "Johnson"
+        "street": "601 Pine St., Klamath Falls, OR 97601",
+        "city": "Klamath Falls",
+        "state": "OR",
+        "zip": "97601",
+        "county": "Klamath"
       },
       "coordinates": {
-        "lat": 38.932342051075,
-        "lng": -94.690595431545
+        "lat": 42.22534060716,
+        "lng": -121.783445367359
       },
-      "website": "kansas.safe-families.org",
+      "website": "heartswithamission.org/safefamilies",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147300,21 +147298,21 @@
     },
     {
       "id": 2834,
-      "name": "Safe Families Klamath County",
+      "name": "Safe Families Knoxville",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "601 Pine St., Klamath Falls, OR 97601",
-        "city": "Klamath Falls",
-        "state": "OR",
-        "zip": "97601",
-        "county": "Klamath"
+        "street": "5401 Kingston Pike, Suite 275  Knoxville, TN 37919",
+        "city": "Knoxville",
+        "state": "TN",
+        "zip": "37919",
+        "county": "Knox"
       },
       "coordinates": {
-        "lat": 42.225339270263,
-        "lng": -121.78344338985
+        "lat": 35.936756434171,
+        "lng": -83.991428023936
       },
-      "website": "heartswithamission.org/safefamilies",
+      "website": "knoxville.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147339,21 +147337,21 @@
     },
     {
       "id": 2835,
-      "name": "Safe Families Knoxville",
+      "name": "Safe Families La Crosse",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "5401 Kingston Pike, Suite 275  Knoxville, TN 37919",
-        "city": "Knoxville",
-        "state": "TN",
-        "zip": "37919",
-        "county": "Knox"
+        "street": "111 9th St. N, LaCrosse, WI 54601",
+        "city": "LaCrosse",
+        "state": "WI",
+        "zip": "54601",
+        "county": "La Crosse"
       },
       "coordinates": {
-        "lat": 35.936753789584,
-        "lng": -83.99142575897
+        "lat": 43.811817802483,
+        "lng": -91.243953391163
       },
-      "website": "knoxville.safe-families.org",
+      "website": "safefamilieswi.org/la-crosse",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147378,21 +147376,21 @@
     },
     {
       "id": 2836,
-      "name": "Safe Families La Crosse",
+      "name": "Safe Families LaGrange",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "111 9th St. N, LaCrosse, WI 54601",
-        "city": "LaCrosse",
-        "state": "WI",
-        "zip": "54601",
-        "county": "La Crosse"
+        "street": "701 Lincoln Street, LaGrange, GA 30241",
+        "city": "LaGrange",
+        "state": "GA",
+        "zip": "30241",
+        "county": "Meriwether"
       },
       "coordinates": {
-        "lat": 43.811814854486,
-        "lng": -91.24395338013
+        "lat": 33.025987969465,
+        "lng": -85.047808217373
       },
-      "website": "safefamilieswi.org/la-crosse",
+      "website": "twincedars.org/program/sffc",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147417,21 +147415,21 @@
     },
     {
       "id": 2837,
-      "name": "Safe Families LaGrange",
+      "name": "Safe Families Lancaster",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "701 Lincoln Street, LaGrange, GA 30241",
-        "city": "LaGrange",
-        "state": "GA",
-        "zip": "30241",
-        "county": "Meriwether"
+        "street": "1681 Crown Avenue, Suite 201, Lancaster, Pennsylvania 17601",
+        "city": "Lancaster",
+        "state": "PA",
+        "zip": "17601",
+        "county": "Lancaster"
       },
       "coordinates": {
-        "lat": 33.025986480653,
-        "lng": -85.047806600214
+        "lat": 40.065925302469,
+        "lng": -76.30272847037
       },
-      "website": "twincedars.org/program/sffc",
+      "website": "bethany.org/safefamilies",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147456,21 +147454,21 @@
     },
     {
       "id": 2838,
-      "name": "Safe Families Lancaster",
+      "name": "Safe Families Life Connections",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "1681 Crown Avenue, Suite 201, Lancaster, Pennsylvania 17601",
-        "city": "Lancaster",
-        "state": "PA",
-        "zip": "17601",
-        "county": "Lancaster"
+        "street": "700 Cedar St, Suite #46, Alexandria, MN 56308",
+        "city": "Alexandria",
+        "state": "MN",
+        "zip": "56308",
+        "county": "Douglas"
       },
       "coordinates": {
-        "lat": 40.066326684283,
-        "lng": -76.302419677119
+        "lat": 45.884755036394,
+        "lng": -95.383813769693
       },
-      "website": "bethany.org/safefamilies",
+      "website": "safefamiliesmn.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147495,21 +147493,21 @@
     },
     {
       "id": 2839,
-      "name": "Safe Families Life Connections",
+      "name": "Safe Families Lincoln County",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "700 Cedar St, Suite #46, Alexandria, MN 56308",
-        "city": "Alexandria",
-        "state": "MN",
-        "zip": "56308",
-        "county": "Douglas"
+        "street": "227 NW 12th St Newport, OR 97365",
+        "city": "Newport",
+        "state": "OR",
+        "zip": "97365",
+        "county": "Lincoln"
       },
       "coordinates": {
-        "lat": 45.884751735472,
-        "lng": -95.383815325795
+        "lat": 44.645534174236,
+        "lng": -124.054692913843
       },
-      "website": "safefamiliesmn.org",
+      "website": "heartswithamission.org/safefamilies",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147534,21 +147532,21 @@
     },
     {
       "id": 2840,
-      "name": "Safe Families Lincoln County",
+      "name": "Safe Families Luzerne County",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "227 NW 12th St Newport, OR 97365",
-        "city": "Newport",
-        "state": "OR",
-        "zip": "97365",
-        "county": "Lincoln"
+        "street": "340 Market St, Kingston, PA 18704",
+        "city": "Kingston",
+        "state": "PA",
+        "zip": "18704",
+        "county": "Luzerne"
       },
       "coordinates": {
-        "lat": 44.645535428838,
-        "lng": -124.054694042344
+        "lat": 41.2557568792,
+        "lng": -75.89165416266
       },
-      "website": "heartswithamission.org/safefamilies",
+      "website": "bethany.org/locations/us/pa/wilkes-barre",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147573,45 +147571,6 @@
     },
     {
       "id": 2841,
-      "name": "Safe Families Luzerne County",
-      "isOrganization": true,
-      "isNetwork": false,
-      "address": {
-        "street": "340 Market St, Kingston, PA 18704",
-        "city": "Kingston",
-        "state": "PA",
-        "zip": "18704",
-        "county": "Luzerne"
-      },
-      "coordinates": {
-        "lat": 41.255758752699,
-        "lng": -75.891655900673
-      },
-      "website": "bethany.org/locations/us/pa/wilkes-barre",
-      "category": "Service Organization",
-      "activities": [
-        "bio_family",
-        "support"
-      ],
-      "officialFosterMinistry": false,
-      "cafoMember": true,
-      "contact": {
-        "name": "Laura Galt",
-        "title": "National Director of Strategic Partnerships",
-        "email": "lgalt@safefamilies.net"
-      },
-      "onMap": true,
-      "networkMemberships": [],
-      "countiesServed": [
-        {
-          "county": "Luzerne",
-          "state": "PA",
-          "countyState": "Luzerne, PA"
-        }
-      ]
-    },
-    {
-      "id": 2842,
       "name": "Safe Families Maine",
       "isOrganization": true,
       "isNetwork": false,
@@ -147640,14 +147599,14 @@
       "networkMemberships": [],
       "countiesServed": [
         {
-          "county": "Sagadahoc",
-          "state": "ME",
-          "countyState": "Sagadahoc, ME"
+          "county": "Luzerne",
+          "state": "PA",
+          "countyState": "Luzerne, PA"
         }
       ]
     },
     {
-      "id": 2843,
+      "id": 2842,
       "name": "Safe Families Mat-Su Valley",
       "isOrganization": true,
       "isNetwork": false,
@@ -147659,10 +147618,49 @@
         "county": "Matanuska-Susitna Borough"
       },
       "coordinates": {
-        "lat": 61.601284654922,
-        "lng": -149.148297553463
+        "lat": 61.601284857746,
+        "lng": -149.148298883124
       },
       "website": "beaconhillak.com/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": [
+        {
+          "county": "Sagadahoc",
+          "state": "ME",
+          "countyState": "Sagadahoc, ME"
+        }
+      ]
+    },
+    {
+      "id": 2843,
+      "name": "Safe Families Memphis",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "200 East Parkway North, Memphis, Tennessee 38112",
+        "city": "Memphis",
+        "state": "TN",
+        "zip": "38112",
+        "county": "Shelby"
+      },
+      "coordinates": {
+        "lat": 35.141052363942,
+        "lng": -89.982624307455
+      },
+      "website": "bethany.org/safefamilies",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147687,21 +147685,21 @@
     },
     {
       "id": 2844,
-      "name": "Safe Families Memphis",
+      "name": "Safe Families Metro East",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "200 East Parkway North, Memphis, Tennessee 38112",
-        "city": "Memphis",
-        "state": "TN",
-        "zip": "38112",
-        "county": "Shelby"
+        "street": "1111 E. Hwy 50, O'Fallon, IL 62269",
+        "city": "O'Fallon",
+        "state": "IL",
+        "zip": "62269",
+        "county": "Madison"
       },
       "coordinates": {
-        "lat": 35.141049435766,
-        "lng": -89.982625509034
+        "lat": 38.581061604475,
+        "lng": -89.892945489782
       },
-      "website": "bethany.org/safefamilies",
+      "website": "metroeast.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147726,21 +147724,21 @@
     },
     {
       "id": 2845,
-      "name": "Safe Families Metro East",
+      "name": "Safe Families Miami",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "1111 E. Hwy 50, O'Fallon, IL 62269",
-        "city": "O'Fallon",
-        "state": "IL",
-        "zip": "62269",
-        "county": "Madison"
+        "street": "8601 SW 94th St, Miami, FL 33156",
+        "city": "Miami",
+        "state": "FL",
+        "zip": "33156",
+        "county": "Miami-Dade"
       },
       "coordinates": {
-        "lat": 38.58106181002,
-        "lng": -89.892943037164
+        "lat": 25.682709929629,
+        "lng": -80.334169663729
       },
-      "website": "metroeast.safe-families.org",
+      "website": "safefamiliesflorida.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147765,21 +147763,21 @@
     },
     {
       "id": 2846,
-      "name": "Safe Families Miami",
+      "name": "Safe Families Mid-Missouri",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "8601 SW 94th St, Miami, FL 33156",
-        "city": "Miami",
-        "state": "FL",
-        "zip": "33156",
-        "county": "Miami-Dade"
+        "street": "807 North Providence, Columbia, MO 65203",
+        "city": "Columbia",
+        "state": "MO",
+        "zip": "65203",
+        "county": "Boone"
       },
       "coordinates": {
-        "lat": 25.682710093019,
-        "lng": -80.334168821665
+        "lat": 38.96032282009,
+        "lng": -92.334126799298
       },
-      "website": "safefamiliesflorida.org",
+      "website": "bethany.org/help-a-child/emergency-care/safe-families",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147804,21 +147802,21 @@
     },
     {
       "id": 2847,
-      "name": "Safe Families Mid-Missouri",
+      "name": "Safe Families Mid-Willamette Valley",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "807 North Providence, Columbia, MO 65203",
-        "city": "Columbia",
-        "state": "MO",
-        "zip": "65203",
-        "county": "Boone"
+        "street": "3800 SW 185TH AVE, BEAVERTON, OR 97078",
+        "city": "Beaverton",
+        "state": "OR",
+        "zip": "97075",
+        "county": "Washington"
       },
       "coordinates": {
-        "lat": 38.960322375714,
-        "lng": -92.334127405415
+        "lat": 45.49281470249,
+        "lng": -122.867115126863
       },
-      "website": "bethany.org/help-a-child/emergency-care/safe-families",
+      "website": "kindredpartners.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147843,21 +147841,21 @@
     },
     {
       "id": 2848,
-      "name": "Safe Families Mid-Willamette Valley",
+      "name": "Safe Families Monterey Bay",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "3800 SW 185TH AVE, BEAVERTON, OR 97078",
-        "city": "Beaverton",
-        "state": "OR",
-        "zip": "97075",
-        "county": "Washington"
+        "street": "280 State Park Drive, Aptos, CA 95003",
+        "city": "Aptos",
+        "state": "CA",
+        "zip": "95003",
+        "county": "Santa Cruz"
       },
       "coordinates": {
-        "lat": 45.492815397919,
-        "lng": -122.867114306676
+        "lat": 36.974475863054,
+        "lng": -121.912189932724
       },
-      "website": "kindredpartners.org",
+      "website": "montereybay.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147882,21 +147880,21 @@
     },
     {
       "id": 2849,
-      "name": "Safe Families Monterey Bay",
+      "name": "Safe Families Muscogee",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "280 State Park Drive, Aptos, CA 95003",
-        "city": "Aptos",
-        "state": "CA",
-        "zip": "95003",
-        "county": "Santa Cruz"
+        "street": "1225 3rd Avenue, Columbus, Georgia 31901",
+        "city": "Columbus",
+        "state": "GA",
+        "zip": "31901",
+        "county": "Muscogee"
       },
       "coordinates": {
-        "lat": 36.974475535736,
-        "lng": -121.91218846095
+        "lat": 32.469080200636,
+        "lng": -84.989016360029
       },
-      "website": "montereybay.safe-families.org",
+      "website": "twincedars.org/program/sffc",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147921,21 +147919,21 @@
     },
     {
       "id": 2850,
-      "name": "Safe Families Muscogee",
+      "name": "Safe Families Nashville",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "1225 3rd Avenue, Columbus, Georgia 31901",
-        "city": "Columbus",
-        "state": "GA",
-        "zip": "31901",
-        "county": "Muscogee"
+        "street": "230 Great Circle Rd. Suite 229 Nashville TN 37220",
+        "city": "Nashville",
+        "state": "TN",
+        "zip": "37220",
+        "county": "Davidson"
       },
       "coordinates": {
-        "lat": 32.469077272356,
-        "lng": -84.9890154294
+        "lat": 36.194552852196,
+        "lng": -86.792240550109
       },
-      "website": "twincedars.org/program/sffc",
+      "website": "bethany.org/safefamilies",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -147960,45 +147958,6 @@
     },
     {
       "id": 2851,
-      "name": "Safe Families Nashville",
-      "isOrganization": true,
-      "isNetwork": false,
-      "address": {
-        "street": "230 Great Circle Rd. Suite 229 Nashville TN 37220",
-        "city": "Nashville",
-        "state": "TN",
-        "zip": "37220",
-        "county": "Davidson"
-      },
-      "coordinates": {
-        "lat": 36.194555362951,
-        "lng": -86.792241334292
-      },
-      "website": "bethany.org/safefamilies",
-      "category": "Service Organization",
-      "activities": [
-        "bio_family",
-        "support"
-      ],
-      "officialFosterMinistry": false,
-      "cafoMember": true,
-      "contact": {
-        "name": "Laura Galt",
-        "title": "National Director of Strategic Partnerships",
-        "email": "lgalt@safefamilies.net"
-      },
-      "onMap": true,
-      "networkMemberships": [],
-      "countiesServed": [
-        {
-          "county": "Davidson",
-          "state": "TN",
-          "countyState": "Davidson, TN"
-        }
-      ]
-    },
-    {
-      "id": 2852,
       "name": "Safe Families New York City",
       "isOrganization": true,
       "isNetwork": false,
@@ -148027,14 +147986,14 @@
       "networkMemberships": [],
       "countiesServed": [
         {
-          "county": "Kings",
-          "state": "NY",
-          "countyState": "Kings, NY"
+          "county": "Davidson",
+          "state": "TN",
+          "countyState": "Davidson, TN"
         }
       ]
     },
     {
-      "id": 2853,
+      "id": 2852,
       "name": "Safe Families North Central Kansas",
       "isOrganization": true,
       "isNetwork": false,
@@ -148047,6 +148006,45 @@
       },
       "coordinates": null,
       "website": "northcentralks.safe-families.org",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": [
+        {
+          "county": "Kings",
+          "state": "NY",
+          "countyState": "Kings, NY"
+        }
+      ]
+    },
+    {
+      "id": 2853,
+      "name": "Safe Families North Florida",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1111 E Tennessee St, Suite 8, Tallahassee, Florida 32308-6914",
+        "city": "Tallahassee",
+        "state": "FL",
+        "zip": "32308",
+        "county": "Leon"
+      },
+      "coordinates": {
+        "lat": 30.446677141878,
+        "lng": -84.264961994215
+      },
+      "website": "safefamiliesflorida.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148176,21 +148174,21 @@
     },
     {
       "id": 2854,
-      "name": "Safe Families North Florida",
+      "name": "Safe Families Northeast",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "1111 E Tennessee St, Suite 8, Tallahassee, Florida 32308-6914",
-        "city": "Tallahassee",
-        "state": "FL",
-        "zip": "32308",
-        "county": "Leon"
+        "street": "820 W College Ave Suite #2, Appleton, WI 54914",
+        "city": "Appleton",
+        "state": "WI",
+        "zip": "54914",
+        "county": "Outagamie"
       },
       "coordinates": {
-        "lat": 30.446676631261,
-        "lng": -84.264962510656
+        "lat": 44.261914453226,
+        "lng": -88.417833134583
       },
-      "website": "safefamiliesflorida.org",
+      "website": "safefamilieswi.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148215,21 +148213,21 @@
     },
     {
       "id": 2855,
-      "name": "Safe Families Northeast",
+      "name": "Safe Families Northeast Florida",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "820 W College Ave Suite #2, Appleton, WI 54914",
-        "city": "Appleton",
-        "state": "WI",
-        "zip": "54914",
-        "county": "Outagamie"
+        "street": "138 SEA GROVE MAIN ST, SAINT AUGUSTINE, FL 32080-7708",
+        "city": "St. Augustine",
+        "state": "FL",
+        "zip": "32080",
+        "county": "Flagler"
       },
       "coordinates": {
-        "lat": 44.261914094563,
-        "lng": -88.41783522935
+        "lat": 29.845207149411,
+        "lng": -81.278358458765
       },
-      "website": "safefamilieswi.org",
+      "website": "safefamiliesflorida.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148254,21 +148252,21 @@
     },
     {
       "id": 2856,
-      "name": "Safe Families Northeast Florida",
+      "name": "Safe Families Northeast Ohio",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "138 SEA GROVE MAIN ST, SAINT AUGUSTINE, FL 32080-7708",
-        "city": "St. Augustine",
-        "state": "FL",
-        "zip": "32080",
-        "county": "Flagler"
+        "street": "2400 ORANGE AVE, CLEVELAND, OH",
+        "city": "Cleveland",
+        "state": "OH",
+        "zip": "44101",
+        "county": "Cuyahoga"
       },
       "coordinates": {
-        "lat": 29.845207403345,
-        "lng": -81.278356010774
+        "lat": 41.491062440801,
+        "lng": -81.672292353752
       },
-      "website": "safefamiliesflorida.org",
+      "website": "northeast-ohio.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148293,21 +148291,21 @@
     },
     {
       "id": 2857,
-      "name": "Safe Families Northeast Ohio",
+      "name": "Safe Families Northern Colorado",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "2400 ORANGE AVE, CLEVELAND, OH",
-        "city": "Cleveland",
-        "state": "OH",
-        "zip": "44101",
-        "county": "Cuyahoga"
+        "street": "1511 E 11th Street, Loveland, CO 80537",
+        "city": "Loveland",
+        "state": "CO",
+        "zip": "80537",
+        "county": "Larimer"
       },
       "coordinates": {
-        "lat": 41.49105883754,
-        "lng": -81.672292866403
+        "lat": 40.402921230978,
+        "lng": -105.05613449325
       },
-      "website": "northeast-ohio.safe-families.org",
+      "website": "northern-colorado.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148332,45 +148330,6 @@
     },
     {
       "id": 2858,
-      "name": "Safe Families Northern Colorado",
-      "isOrganization": true,
-      "isNetwork": false,
-      "address": {
-        "street": "1511 E 11th Street, Loveland, CO 80537",
-        "city": "Loveland",
-        "state": "CO",
-        "zip": "80537",
-        "county": "Larimer"
-      },
-      "coordinates": {
-        "lat": 40.402919338053,
-        "lng": -105.056135224048
-      },
-      "website": "northern-colorado.safe-families.org",
-      "category": "Service Organization",
-      "activities": [
-        "bio_family",
-        "support"
-      ],
-      "officialFosterMinistry": false,
-      "cafoMember": true,
-      "contact": {
-        "name": "Laura Galt",
-        "title": "National Director of Strategic Partnerships",
-        "email": "lgalt@safefamilies.net"
-      },
-      "onMap": true,
-      "networkMemberships": [],
-      "countiesServed": [
-        {
-          "county": "Larimer",
-          "state": "CO",
-          "countyState": "Larimer, CO"
-        }
-      ]
-    },
-    {
-      "id": 2859,
       "name": "Safe Families OC United",
       "isOrganization": true,
       "isNetwork": false,
@@ -148382,8 +148341,8 @@
         "county": "Orange"
       },
       "coordinates": {
-        "lat": 33.87023158075,
-        "lng": -117.931745062485
+        "lat": 33.870227452502,
+        "lng": -117.931747375897
       },
       "website": "ocunited.org",
       "category": "Service Organization",
@@ -148402,14 +148361,14 @@
       "networkMemberships": [],
       "countiesServed": [
         {
-          "county": "Orange",
-          "state": "CA",
-          "countyState": "Orange, CA"
+          "county": "Larimer",
+          "state": "CO",
+          "countyState": "Larimer, CO"
         }
       ]
     },
     {
-      "id": 2860,
+      "id": 2859,
       "name": "Safe Families of Eastern Oregon",
       "isOrganization": true,
       "isNetwork": false,
@@ -148421,10 +148380,49 @@
         "county": "Baker"
       },
       "coordinates": {
-        "lat": 44.795611255957,
-        "lng": -117.819698447665
+        "lat": 44.795614106969,
+        "lng": -117.81969850632
       },
       "website": "heartswithamission.org/safefamilies",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Laura Galt",
+        "title": "National Director of Strategic Partnerships",
+        "email": "lgalt@safefamilies.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": [
+        {
+          "county": "Orange",
+          "state": "CA",
+          "countyState": "Orange, CA"
+        }
+      ]
+    },
+    {
+      "id": 2860,
+      "name": "Safe Families Oklahoma City",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "3 East Main Street Oklahoma City, OK 73104",
+        "city": "Oklahoma City",
+        "state": "OK",
+        "zip": "73104",
+        "county": "Cleveland"
+      },
+      "coordinates": {
+        "lat": 35.467698221479,
+        "lng": -97.512311275205
+      },
+      "website": "safefamiliesok.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148449,21 +148447,21 @@
     },
     {
       "id": 2861,
-      "name": "Safe Families Oklahoma City",
+      "name": "Safe Families Orlando",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "3 East Main Street Oklahoma City, OK 73104",
-        "city": "Oklahoma City",
-        "state": "OK",
-        "zip": "73104",
-        "county": "Cleveland"
+        "street": "321 Montgomery Rd, Altamonte Springs, FL 32716",
+        "city": "Altamonte Springs",
+        "state": "FL",
+        "zip": "32716",
+        "county": "Seminole"
       },
       "coordinates": {
-        "lat": 35.467701100436,
-        "lng": -97.512314065961
+        "lat": 28.666021508319,
+        "lng": -81.402519444859
       },
-      "website": "safefamiliesok.org",
+      "website": "safefamiliesflorida.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148488,21 +148486,21 @@
     },
     {
       "id": 2862,
-      "name": "Safe Families Orlando",
+      "name": "Safe Families Peoria Bloomington",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "321 Montgomery Rd, Altamonte Springs, FL 32716",
-        "city": "Altamonte Springs",
-        "state": "FL",
-        "zip": "32716",
-        "county": "Seminole"
+        "street": "4006 N Sterling Avenue, Peoria, IL 61615",
+        "city": "Peoria",
+        "state": "IL",
+        "zip": "61615",
+        "county": "Peoria"
       },
       "coordinates": {
-        "lat": 28.666023355433,
-        "lng": -81.402519281846
+        "lat": 40.735875231935,
+        "lng": -89.631642303645
       },
-      "website": "safefamiliesflorida.org",
+      "website": "peoria.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148527,21 +148525,21 @@
     },
     {
       "id": 2863,
-      "name": "Safe Families Peoria Bloomington",
+      "name": "Safe Families Philadelphia",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "4006 N Sterling Avenue, Peoria, IL 61615",
-        "city": "Peoria",
-        "state": "IL",
-        "zip": "61615",
-        "county": "Peoria"
+        "street": "610 Old York Road, Ste 220, Jenkintown, PA 19046",
+        "city": "Jenkintown",
+        "state": "PA",
+        "zip": "19046",
+        "county": "Montgomery"
       },
       "coordinates": {
-        "lat": 40.735876827466,
-        "lng": -89.631643977574
+        "lat": 40.100297319099,
+        "lng": -75.125991132416
       },
-      "website": "peoria.safe-families.org",
+      "website": "bethany.org/safefamilies",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148566,21 +148564,21 @@
     },
     {
       "id": 2864,
-      "name": "Safe Families Philadelphia",
+      "name": "Safe Families Pikes Peak",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "610 Old York Road, Ste 220, Jenkintown, PA 19046",
-        "city": "Jenkintown",
-        "state": "PA",
-        "zip": "19046",
-        "county": "Montgomery"
+        "street": "4835 Northpark Dr. Colorado Springs, CO 80919",
+        "city": "Colorado Springs",
+        "state": "CO",
+        "zip": "80919",
+        "county": "El Paso"
       },
       "coordinates": {
-        "lat": 40.100309910504,
-        "lng": -75.125991189587
+        "lat": 38.90153211896,
+        "lng": -104.826173594105
       },
-      "website": "bethany.org/safefamilies",
+      "website": "coloradosprings.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148605,21 +148603,21 @@
     },
     {
       "id": 2865,
-      "name": "Safe Families Pikes Peak",
+      "name": "Safe Families Pittsburgh",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "4835 Northpark Dr. Colorado Springs, CO 80919",
-        "city": "Colorado Springs",
-        "state": "CO",
-        "zip": "80919",
-        "county": "El Paso"
+        "street": "1129 Woodbourne Ave Pittsburgh, PA 15229",
+        "city": "Pittsburgh",
+        "state": "PA",
+        "zip": "15229",
+        "county": "Allegheny"
       },
       "coordinates": {
-        "lat": 38.901529814714,
-        "lng": -104.826173522775
+        "lat": 40.38925169455,
+        "lng": -80.01694323941
       },
-      "website": "coloradosprings.safe-families.org",
+      "website": "pittsburgh.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148644,21 +148642,21 @@
     },
     {
       "id": 2866,
-      "name": "Safe Families Pittsburgh",
+      "name": "Safe Families Quad Cities",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "1129 Woodbourne Ave Pittsburgh, PA 15229",
-        "city": "Pittsburgh",
-        "state": "PA",
-        "zip": "15229",
-        "county": "Allegheny"
+        "street": "1826 16th St. Moline IL 61265",
+        "city": "Moline",
+        "state": "IL",
+        "zip": "61265",
+        "county": "Rock Island"
       },
       "coordinates": {
-        "lat": 40.389252600511,
-        "lng": -80.016943238653
+        "lat": 41.494319011155,
+        "lng": -90.513378089283
       },
-      "website": "pittsburgh.safe-families.org",
+      "website": "quadcities.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148683,21 +148681,21 @@
     },
     {
       "id": 2867,
-      "name": "Safe Families Quad Cities",
+      "name": "Safe Families Racine/Kenosha",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "1826 16th St. Moline IL 61265",
-        "city": "Moline",
-        "state": "IL",
-        "zip": "61265",
-        "county": "Rock Island"
+        "street": "3626 Hwy 31 Racine, WI 53405",
+        "city": "Racine",
+        "state": "WI",
+        "zip": "53405",
+        "county": "Racine"
       },
       "coordinates": {
-        "lat": 41.494319436866,
-        "lng": -90.513378689467
+        "lat": 42.76525843186,
+        "lng": -87.836403571674
       },
-      "website": "quadcities.safe-families.org",
+      "website": "safefamilieswi.org/racine-and-kenosha-metro",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148722,21 +148720,21 @@
     },
     {
       "id": 2868,
-      "name": "Safe Families Racine/Kenosha",
+      "name": "Safe Families Raleigh Durham",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "3626 Hwy 31 Racine, WI 53405",
-        "city": "Racine",
-        "state": "WI",
-        "zip": "53405",
-        "county": "Racine"
+        "street": "300 FAYETTEVILLE ST, RALEIGH, NC 27601",
+        "city": "Raleigh",
+        "state": "NC",
+        "zip": "27622",
+        "county": "Wake"
       },
       "coordinates": {
-        "lat": 42.765262260238,
-        "lng": -87.836404072763
+        "lat": 35.776871038419,
+        "lng": -78.639346362969
       },
-      "website": "safefamilieswi.org/racine-and-kenosha-metro",
+      "website": "safefamiliesrdu.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148761,21 +148759,21 @@
     },
     {
       "id": 2869,
-      "name": "Safe Families Raleigh Durham",
+      "name": "Safe Families Rockford",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "300 FAYETTEVILLE ST, RALEIGH, NC 27601",
-        "city": "Raleigh",
-        "state": "NC",
-        "zip": "27622",
-        "county": "Wake"
+        "street": "2101 East State St, Rockford, IL 61104",
+        "city": "Rockford",
+        "state": "IL",
+        "zip": "61104",
+        "county": "Winnebago"
       },
       "coordinates": {
-        "lat": 35.776872196076,
-        "lng": -78.639347396644
+        "lat": 42.266944213424,
+        "lng": -89.061829869671
       },
-      "website": "safefamiliesrdu.org",
+      "website": "rockford.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148800,21 +148798,21 @@
     },
     {
       "id": 2870,
-      "name": "Safe Families Rockford",
+      "name": "Safe Families SE Kansas",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "2101 East State St, Rockford, IL 61104",
-        "city": "Rockford",
-        "state": "IL",
-        "zip": "61104",
-        "county": "Winnebago"
+        "street": "201 W 4th Street, Pittsburg, Kansas 66762",
+        "city": "Pittsburg",
+        "state": "KS",
+        "zip": "66762",
+        "county": "Cherokee"
       },
       "coordinates": {
-        "lat": 42.266940866425,
-        "lng": -89.061828365937
+        "lat": 37.410994201358,
+        "lng": -94.706413735497
       },
-      "website": "rockford.safe-families.org",
+      "website": "southeastks.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148839,21 +148837,21 @@
     },
     {
       "id": 2871,
-      "name": "Safe Families SE Kansas",
+      "name": "Safe Families South Central",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "201 W 4th Street, Pittsburg, Kansas 66762",
-        "city": "Pittsburg",
-        "state": "KS",
-        "zip": "66762",
-        "county": "Cherokee"
+        "street": "645 3rd Street, Beloit WI, 53511",
+        "city": "Beloit",
+        "state": "WI",
+        "zip": "53511",
+        "county": "Rock"
       },
       "coordinates": {
-        "lat": 37.410992889591,
-        "lng": -94.706413396248
+        "lat": 42.506593132947,
+        "lng": -89.03660062281
       },
-      "website": "southeastks.safe-families.org",
+      "website": "safefamilieswi.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148878,21 +148876,21 @@
     },
     {
       "id": 2872,
-      "name": "Safe Families South Central",
+      "name": "Safe Families Southern IL",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "645 3rd Street, Beloit WI, 53511",
-        "city": "Beloit",
-        "state": "WI",
-        "zip": "53511",
-        "county": "Rock"
+        "street": "403 N 42nd Street, Mt. Vernon IL 62864",
+        "city": "Mt. Vernon",
+        "state": "IL",
+        "zip": "62864",
+        "county": "Jefferson"
       },
       "coordinates": {
-        "lat": 42.506591791716,
-        "lng": -89.036599359031
+        "lat": 38.319004904169,
+        "lng": -88.942147165057
       },
-      "website": "safefamilieswi.org",
+      "website": "southernil.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148917,21 +148915,21 @@
     },
     {
       "id": 2873,
-      "name": "Safe Families Southern IL",
+      "name": "Safe Families Southwest Michigan",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "403 N 42nd Street, Mt. Vernon IL 62864",
-        "city": "Mt. Vernon",
-        "state": "IL",
-        "zip": "62864",
-        "county": "Jefferson"
+        "street": "4200 W. Michigan Avenue, Suite 202, Kalamazoo, MI 49006",
+        "city": "Kalamazoo",
+        "state": "MI",
+        "zip": "49006",
+        "county": "Kalamazoo"
       },
       "coordinates": {
-        "lat": 38.319003700677,
-        "lng": -88.942147938606
+        "lat": 42.27712348145,
+        "lng": -85.641351434394
       },
-      "website": "southernil.safe-families.org",
+      "website": "southwestmichigan.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148956,21 +148954,21 @@
     },
     {
       "id": 2874,
-      "name": "Safe Families Southwest Michigan",
+      "name": "Safe Families Southwest Ohio",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "4200 W. Michigan Avenue, Suite 202, Kalamazoo, MI 49006",
-        "city": "Kalamazoo",
-        "state": "MI",
-        "zip": "49006",
-        "county": "Kalamazoo"
+        "street": "11199 Montgomery Road, Cincinnati, OH 45249",
+        "city": "Cincinnati",
+        "state": "OH",
+        "zip": "45249",
+        "county": "Hamilton"
       },
       "coordinates": {
-        "lat": 42.277127060191,
-        "lng": -85.641351770911
+        "lat": 39.26784485955,
+        "lng": -84.330923766817
       },
-      "website": "southwestmichigan.safe-families.org",
+      "website": "southwestohio.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -148995,21 +148993,21 @@
     },
     {
       "id": 2875,
-      "name": "Safe Families Southwest Ohio",
+      "name": "Safe Families Springfield",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "11199 Montgomery Road, Cincinnati, OH 45249",
-        "city": "Cincinnati",
-        "state": "OH",
-        "zip": "45249",
-        "county": "Hamilton"
+        "street": "700 North 7th Street Suite A, Springfield, IL 62702",
+        "city": "Springfield",
+        "state": "IL",
+        "zip": "62702",
+        "county": "Sangamon"
       },
       "coordinates": {
-        "lat": 39.26784602275,
-        "lng": -84.330927236219
+        "lat": 39.808483202285,
+        "lng": -89.646188018148
       },
-      "website": "southwestohio.safe-families.org",
+      "website": "springfield.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -149034,21 +149032,21 @@
     },
     {
       "id": 2876,
-      "name": "Safe Families Springfield",
+      "name": "Safe Families St. Louis",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "700 North 7th Street Suite A, Springfield, IL 62702",
-        "city": "Springfield",
-        "state": "IL",
-        "zip": "62702",
-        "county": "Sangamon"
+        "street": "8706 Manchester Rd, Ste 100, St. Louis, Missouri 63144",
+        "city": "St. Louis",
+        "state": "MO",
+        "zip": "63144",
+        "county": "St Louis"
       },
       "coordinates": {
-        "lat": 39.808480092625,
-        "lng": -89.646186724726
+        "lat": 38.612404755933,
+        "lng": -90.345816779338
       },
-      "website": "springfield.safe-families.org",
+      "website": "bethany.org/safefamilies",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -149073,21 +149071,21 @@
     },
     {
       "id": 2877,
-      "name": "Safe Families St. Louis",
+      "name": "Safe Families Tampa",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "8706 Manchester Rd, Ste 100, St. Louis, Missouri 63144",
-        "city": "St. Louis",
-        "state": "MO",
-        "zip": "63144",
-        "county": "St Louis"
+        "street": "2130 W Main Street, Tampa, FL 33607",
+        "city": "Tampa",
+        "state": "FL",
+        "zip": "33607",
+        "county": "Hillsborough"
       },
       "coordinates": {
-        "lat": 38.612404363956,
-        "lng": -90.345817466561
+        "lat": 27.957101166242,
+        "lng": -82.482330987766
       },
-      "website": "bethany.org/safefamilies",
+      "website": "safefamiliesflorida.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -149112,19 +149110,19 @@
     },
     {
       "id": 2878,
-      "name": "Safe Families Tampa",
+      "name": "Safe Families Treasure Coast",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "2130 W Main Street, Tampa, FL 33607",
-        "city": "Tampa",
+        "street": "1400 27th St Vero Beach, FL 32960",
+        "city": "Vero Beach",
         "state": "FL",
-        "zip": "33607",
-        "county": "Hillsborough"
+        "zip": "32960",
+        "county": "Indian River"
       },
       "coordinates": {
-        "lat": 27.957103789767,
-        "lng": -82.482331202973
+        "lat": 27.646727944863,
+        "lng": -80.400750961047
       },
       "website": "safefamiliesflorida.org",
       "category": "Service Organization",
@@ -149151,21 +149149,21 @@
     },
     {
       "id": 2879,
-      "name": "Safe Families Treasure Coast",
+      "name": "Safe Families Treasure Valley",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "1400 27th St Vero Beach, FL 32960",
-        "city": "Vero Beach",
-        "state": "FL",
-        "zip": "32960",
-        "county": "Indian River"
+        "street": "2920 Cassia Street Boise, ID 83705",
+        "city": "Boise",
+        "state": "ID",
+        "zip": "83705",
+        "county": "Ada"
       },
       "coordinates": {
-        "lat": 27.64672973847,
-        "lng": -80.400753148134
+        "lat": 43.597163640821,
+        "lng": -116.217921422284
       },
-      "website": "safefamiliesflorida.org",
+      "website": "lcsnw.org/program/safe-families-for-children-treasure-valley-idaho",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -149210,21 +149208,21 @@
     },
     {
       "id": 2880,
-      "name": "Safe Families Treasure Valley",
+      "name": "Safe Families Wichita",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "2920 Cassia Street Boise, ID 83705",
-        "city": "Boise",
-        "state": "ID",
-        "zip": "83705",
-        "county": "Ada"
+        "street": "1328 N Cardington Wichita, KS  67212",
+        "city": "Wichita",
+        "state": "KS",
+        "zip": "67212",
+        "county": "Sedgwick"
       },
       "coordinates": {
-        "lat": 43.597162342323,
-        "lng": -116.217922034014
+        "lat": 37.707440732763,
+        "lng": -97.476670986868
       },
-      "website": "lcsnw.org/program/safe-families-for-children-treasure-valley-idaho",
+      "website": "wichita.safe-families.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -149249,21 +149247,21 @@
     },
     {
       "id": 2881,
-      "name": "Safe Families Wichita",
+      "name": "Safe Families Yamhill County",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "1328 N Cardington Wichita, KS  67212",
-        "city": "Wichita",
-        "state": "KS",
-        "zip": "67212",
-        "county": "Sedgwick"
+        "street": "435 NE Evans St. Suite A, McMinnville, OR 97128",
+        "city": "McMinnville",
+        "state": "OR",
+        "zip": "97128",
+        "county": "Yamhill"
       },
       "coordinates": {
-        "lat": 37.70744092902,
-        "lng": -97.476669532555
+        "lat": 45.210998801951,
+        "lng": -123.194555621538
       },
-      "website": "wichita.safe-families.org",
+      "website": "lcsnw.org",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -149288,21 +149286,21 @@
     },
     {
       "id": 2882,
-      "name": "Safe Families Yamhill County",
+      "name": "Safe Families York",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "435 NE Evans St. Suite A, McMinnville, OR 97128",
-        "city": "McMinnville",
-        "state": "OR",
-        "zip": "97128",
-        "county": "Yamhill"
+        "street": "25 N. Duke St. York PA  17401",
+        "city": "York",
+        "state": "PA",
+        "zip": "17401",
+        "county": "York"
       },
       "coordinates": {
-        "lat": 45.210996941211,
-        "lng": -123.194555330197
+        "lat": 39.962173917515,
+        "lng": -76.725252561943
       },
-      "website": "lcsnw.org",
+      "website": "bethany.org/safefamilies",
       "category": "Service Organization",
       "activities": [
         "bio_family",
@@ -149327,19 +149325,19 @@
     },
     {
       "id": 2883,
-      "name": "Safe Families York",
+      "name": "Safe Families Zeeland",
       "isOrganization": true,
       "isNetwork": false,
       "address": {
-        "street": "25 N. Duke St. York PA  17401",
-        "city": "York",
-        "state": "PA",
-        "zip": "17401",
-        "county": "York"
+        "street": "11335 James St, Holland, MI 49424-9556",
+        "city": "Holland",
+        "state": "MI",
+        "zip": "49424",
+        "county": "Ottawa"
       },
       "coordinates": {
-        "lat": 39.962175195189,
-        "lng": -76.725251964548
+        "lat": 42.812391394805,
+        "lng": -86.06087896332
       },
       "website": "bethany.org/safefamilies",
       "category": "Service Organization",
@@ -149366,45 +149364,6 @@
     },
     {
       "id": 2884,
-      "name": "Safe Families Zeeland",
-      "isOrganization": true,
-      "isNetwork": false,
-      "address": {
-        "street": "11335 James St, Holland, MI 49424-9556",
-        "city": "Holland",
-        "state": "MI",
-        "zip": "49424",
-        "county": "Ottawa"
-      },
-      "coordinates": {
-        "lat": 42.812392066077,
-        "lng": -86.060879983162
-      },
-      "website": "bethany.org/safefamilies",
-      "category": "Service Organization",
-      "activities": [
-        "bio_family",
-        "support"
-      ],
-      "officialFosterMinistry": false,
-      "cafoMember": true,
-      "contact": {
-        "name": "Laura Galt",
-        "title": "National Director of Strategic Partnerships",
-        "email": "lgalt@safefamilies.net"
-      },
-      "onMap": true,
-      "networkMemberships": [],
-      "countiesServed": [
-        {
-          "county": "Ottawa",
-          "state": "MI",
-          "countyState": "Ottawa, MI"
-        }
-      ]
-    },
-    {
-      "id": 2885,
       "name": "Carol's Foster Closet",
       "isOrganization": true,
       "isNetwork": false,
@@ -149416,8 +149375,8 @@
         "county": "Fulton"
       },
       "coordinates": {
-        "lat": 40.557392672453,
-        "lng": -90.036842422243
+        "lat": 40.557395892652,
+        "lng": -90.0368425415
       },
       "website": "n/a",
       "category": "Service Organization",
@@ -149433,10 +149392,16 @@
       },
       "onMap": true,
       "networkMemberships": [],
-      "countiesServed": []
+      "countiesServed": [
+        {
+          "county": "Ottawa",
+          "state": "MI",
+          "countyState": "Ottawa, MI"
+        }
+      ]
     },
     {
-      "id": 2886,
+      "id": 2885,
       "name": "Foster Village Charlotte",
       "isOrganization": true,
       "isNetwork": false,
@@ -149448,8 +149413,8 @@
         "county": "Mecklenburg"
       },
       "coordinates": {
-        "lat": 35.192097595761,
-        "lng": -80.778424255738
+        "lat": 35.192103146165,
+        "lng": -80.778431751782
       },
       "website": "fostervillagecharlotte.org",
       "category": "Service Organization",
@@ -149469,7 +149434,7 @@
       "countiesServed": []
     },
     {
-      "id": 2887,
+      "id": 2886,
       "name": "Lifeline Children's Services",
       "isOrganization": true,
       "isNetwork": false,
@@ -149481,8 +149446,8 @@
         "county": "Jefferson"
       },
       "coordinates": {
-        "lat": 33.420058568392,
-        "lng": -86.687831500847
+        "lat": 33.420056789598,
+        "lng": -86.687830550939
       },
       "website": "lifelinechild.org",
       "category": "Bridge Ministry",
@@ -149504,7 +149469,7 @@
       "generatedDescription": "Equips churches and Christ-centered families to serve vulnerable children through adoption, foster care, pregnancy support, and family preservation ministries."
     },
     {
-      "id": 2888,
+      "id": 2887,
       "name": "Long Hollow",
       "isOrganization": true,
       "isNetwork": false,
@@ -149536,7 +149501,7 @@
       "countiesServed": []
     },
     {
-      "id": 2889,
+      "id": 2888,
       "name": "Love One Inc.",
       "isOrganization": true,
       "isNetwork": false,
@@ -149570,7 +149535,7 @@
       "countiesServed": []
     },
     {
-      "id": 2890,
+      "id": 2889,
       "name": "A World for Children",
       "isOrganization": true,
       "isNetwork": false,
@@ -149605,7 +149570,7 @@
       "countiesServed": []
     },
     {
-      "id": 2891,
+      "id": 2890,
       "name": "Southeastern Children's Home",
       "isOrganization": true,
       "isNetwork": false,
@@ -149633,6 +149598,73 @@
         "name": "Brad Brooks",
         "title": "Executive Director",
         "email": "bbrooks@sech.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2891,
+      "name": "Kentucky Kids Belong",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1269 FOX CREEK RD, LAWRENCEBURG, KY 40342-9998",
+        "city": "Lawrenceburg",
+        "state": "KY",
+        "zip": "40342",
+        "county": "Anderson"
+      },
+      "coordinates": {
+        "lat": 38.017086485007,
+        "lng": -84.915380085041
+      },
+      "website": "americaskidsbelong.org/states/ky",
+      "category": "Bridge Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Dayna Gleason",
+        "title": "State Manager",
+        "email": "dgleason@kykidsbelong.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2892,
+      "name": "Sherwood Baptist Church",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2201 Whispering Pines Rd.",
+        "city": "Albany",
+        "state": "GA",
+        "zip": "31707",
+        "county": "Dougherty"
+      },
+      "coordinates": {
+        "lat": 31.605901530542,
+        "lng": -84.198267486703
+      },
+      "website": "sherwoodbaptist.net",
+      "category": "Church Foster Care Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": true,
+      "cafoMember": false,
+      "contact": {
+        "name": "Katie Brasher",
+        "title": "Foster Care Ministry Leader",
+        "email": "KatieB@SherwoodBaptist.net"
       },
       "onMap": true,
       "networkMemberships": [],
@@ -149889,12 +149921,11 @@
     },
     {
       "name": "Jefferson County Collaboration",
-      "memberCount": 5,
+      "memberCount": 4,
       "members": [
         "Harbor Church",
         "RISE",
         "Foothills Calvary Church",
-        "Colorado Kids Belong",
         "The Haven Impact"
       ]
     },
@@ -149910,13 +149941,6 @@
       "memberCount": 1,
       "members": [
         "One More One Less Project"
-      ]
-    },
-    {
-      "name": "Boulder County Collaboration",
-      "memberCount": 1,
-      "members": [
-        "Colorado Kids Belong"
       ]
     },
     {

@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-10-09T12:55:52.906Z",
+    "generated": "2026-10-10T12:13:21.933Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-10-09T12:55:26.434Z",
+        "generated": "2026-10-10T12:13:16.707Z",
         "years": [
           2021,
           2022,
@@ -35,7 +35,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-10-09T12:55:26.658Z",
+        "generated": "2026-10-10T12:13:16.841Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -62,7 +62,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-10-09T12:55:30.927Z",
+        "generated": "2026-10-10T12:13:19.440Z",
         "totalRecords": 6032,
         "stateCount": 51,
         "byYear": {
@@ -92,7 +92,7 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-10-09T12:55:52.681Z",
+        "generated": "2026-10-10T12:13:21.746Z",
         "organizationCount": 654,
         "networkCount": 31,
         "stats": {
@@ -116,12 +116,12 @@
         },
         "geocoding": {
           "manual": 184,
-          "cacheHit": 200,
-          "newlyGeocoded": 59,
-          "newlyGeocodedNominatim": 1,
+          "cacheHit": 259,
+          "newlyGeocoded": 1,
+          "newlyGeocodedNominatim": 0,
           "newlyGeocodedExpansion": 0,
-          "cachedFailure": 31,
-          "unresolved": 4,
+          "cachedFailure": 35,
+          "unresolved": 0,
           "skipped": 175
         }
       }
@@ -147084,8 +147084,8 @@
         "county": "Johnson"
       },
       "coordinates": {
-        "lat": 41.642560511663,
-        "lng": -91.522559724284
+        "lat": 41.642562175797,
+        "lng": -91.522560914388
       },
       "website": "iowacitycedarrapids.safe-families.org",
       "category": "Service Organization",

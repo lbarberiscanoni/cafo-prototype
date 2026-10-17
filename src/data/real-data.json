@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-10-16T11:05:17.388Z",
+    "generated": "2026-10-17T10:25:18.212Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-10-16T11:05:09.189Z",
+        "generated": "2026-10-17T10:25:11.653Z",
         "years": [
           2021,
           2022,
@@ -35,7 +35,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-10-16T11:05:09.409Z",
+        "generated": "2026-10-17T10:25:11.825Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -62,7 +62,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-10-16T11:05:13.663Z",
+        "generated": "2026-10-17T10:25:14.971Z",
         "totalRecords": 6032,
         "stateCount": 51,
         "byYear": {
@@ -92,13 +92,13 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-10-16T11:05:17.101Z",
-        "organizationCount": 654,
+        "generated": "2026-10-17T10:25:18.026Z",
+        "organizationCount": 655,
         "networkCount": 31,
         "stats": {
-          "withCoordinates": 444,
-          "withWebsite": 461,
-          "withActivities": 354,
+          "withCoordinates": 445,
+          "withWebsite": 462,
+          "withActivities": 355,
           "withNetworkMemberships": 97,
           "withCountiesServed": 483
         },
@@ -111,13 +111,13 @@
           "Placement Agency": 53,
           "Unknown": 140,
           "Bridge Ministry": 76,
-          "Church Foster Care Ministry": 95,
+          "Church Foster Care Ministry": 96,
           "Child Placement Agency": 21
         },
         "geocoding": {
           "manual": 184,
           "cacheHit": 259,
-          "newlyGeocoded": 1,
+          "newlyGeocoded": 2,
           "newlyGeocodedNominatim": 0,
           "newlyGeocodedExpansion": 0,
           "cachedFailure": 35,
@@ -140,7 +140,7 @@
       "states": 52,
       "countyRecords": 6032,
       "countiesWithCoordinates": 5991,
-      "organizations": 654,
+      "organizations": 655,
       "organizationsWithDescriptions": 308,
       "networks": 31
     }
@@ -149665,6 +149665,39 @@
         "name": "Katie Brasher",
         "title": "Foster Care Ministry Leader",
         "email": "KatieB@SherwoodBaptist.net"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2893,
+      "name": "Community Church of Greenwood",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1477 W. Main Street",
+        "city": "Greenwood",
+        "state": "IN",
+        "zip": "46142",
+        "county": "Johnson"
+      },
+      "coordinates": {
+        "lat": 39.613248651899,
+        "lng": -86.148939924782
+      },
+      "website": "ccgonline.org",
+      "category": "Church Foster Care Ministry",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": true,
+      "cafoMember": false,
+      "contact": {
+        "name": "Matt Archibald",
+        "title": "Pastor of Worship and Local Impact",
+        "email": "matt@ccgonline.org"
       },
       "onMap": true,
       "networkMemberships": [],

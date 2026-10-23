@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-10-22T11:29:47.291Z",
+    "generated": "2026-10-23T11:19:53.809Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-10-22T11:29:42.303Z",
+        "generated": "2026-10-23T11:19:45.941Z",
         "years": [
           2021,
           2022,
@@ -35,7 +35,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-10-22T11:29:42.442Z",
+        "generated": "2026-10-23T11:19:46.157Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -62,7 +62,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-10-22T11:29:44.906Z",
+        "generated": "2026-10-23T11:19:49.914Z",
         "totalRecords": 6032,
         "stateCount": 51,
         "byYear": {
@@ -92,13 +92,13 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-10-22T11:29:47.091Z",
-        "organizationCount": 655,
+        "generated": "2026-10-23T11:19:53.601Z",
+        "organizationCount": 657,
         "networkCount": 31,
         "stats": {
-          "withCoordinates": 445,
-          "withWebsite": 462,
-          "withActivities": 355,
+          "withCoordinates": 447,
+          "withWebsite": 464,
+          "withActivities": 357,
           "withNetworkMemberships": 97,
           "withCountiesServed": 483
         },
@@ -107,17 +107,17 @@
           "State/Regional Network": 3,
           "Bridge Organization": 13,
           "Regional Network": 1,
-          "Service Organization": 219,
+          "Service Organization": 220,
           "Placement Agency": 53,
           "Unknown": 140,
-          "Bridge Ministry": 76,
+          "Bridge Ministry": 77,
           "Church Foster Care Ministry": 96,
           "Child Placement Agency": 21
         },
         "geocoding": {
           "manual": 184,
           "cacheHit": 260,
-          "newlyGeocoded": 1,
+          "newlyGeocoded": 3,
           "newlyGeocodedNominatim": 0,
           "newlyGeocodedExpansion": 0,
           "cachedFailure": 35,
@@ -140,7 +140,7 @@
       "states": 52,
       "countyRecords": 6032,
       "countiesWithCoordinates": 5991,
-      "organizations": 655,
+      "organizations": 657,
       "organizationsWithDescriptions": 308,
       "networks": 31
     }
@@ -149698,6 +149698,73 @@
         "name": "Matt Archibald",
         "title": "Pastor of Worship and Local Impact",
         "email": "matt@ccgonline.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2894,
+      "name": "The Fostering Foundation",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "4390 NE 35th Street Unit 2",
+        "city": "Ocala",
+        "state": "FL",
+        "zip": "34479",
+        "county": "Marion"
+      },
+      "coordinates": {
+        "lat": 29.222882685076,
+        "lng": -82.075144765425
+      },
+      "website": "thefosteringfoundation.org",
+      "category": "Service Organization",
+      "activities": [
+        "recruit_foster_kinship",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Amy Hill",
+        "title": "Executive Director",
+        "email": "amy@thefosteringfoundation.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2895,
+      "name": "Kansas Kids Belong",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "2325 N ARKANSAS AVE, WICHITA, KS 67204-9998",
+        "city": "Wichita",
+        "state": "KS",
+        "zip": "67204",
+        "county": "Sedgwick"
+      },
+      "coordinates": {
+        "lat": 37.724850736896,
+        "lng": -97.34484776769
+      },
+      "website": "kskidsbelong.org",
+      "category": "Bridge Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Bekah Wedel",
+        "title": "Foster Friendly Coordinator",
+        "email": "bwedel@kskidsbelong.org"
       },
       "onMap": true,
       "networkMemberships": [],

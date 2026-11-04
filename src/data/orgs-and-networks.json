@@ -1,13 +1,13 @@
 {
   "metadata": {
     "source": "MTE_Master_Data.xlsx",
-    "generated": "2026-11-03T13:55:18.978Z",
-    "organizationCount": 657,
+    "generated": "2026-11-04T14:04:27.108Z",
+    "organizationCount": 659,
     "networkCount": 31,
     "stats": {
-      "withCoordinates": 447,
-      "withWebsite": 464,
-      "withActivities": 357,
+      "withCoordinates": 449,
+      "withWebsite": 466,
+      "withActivities": 359,
       "withNetworkMemberships": 97,
       "withCountiesServed": 483
     },
@@ -16,17 +16,17 @@
       "State/Regional Network": 3,
       "Bridge Organization": 13,
       "Regional Network": 1,
-      "Service Organization": 220,
+      "Service Organization": 221,
       "Placement Agency": 53,
       "Unknown": 140,
-      "Bridge Ministry": 77,
+      "Bridge Ministry": 78,
       "Church Foster Care Ministry": 96,
       "Child Placement Agency": 21
     },
     "geocoding": {
       "manual": 184,
       "cacheHit": 262,
-      "newlyGeocoded": 1,
+      "newlyGeocoded": 3,
       "newlyGeocodedNominatim": 0,
       "newlyGeocodedExpansion": 0,
       "cachedFailure": 35,
@@ -28407,6 +28407,73 @@
       "onMap": true,
       "networkMemberships": [],
       "countiesServed": []
+    },
+    {
+      "id": 2896,
+      "name": "The Gathering Well",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1915 E 8th Street",
+        "city": "Sioux Falls",
+        "state": "SD",
+        "zip": "57103",
+        "county": "Minnehaha"
+      },
+      "coordinates": {
+        "lat": 43.548430579613,
+        "lng": -96.70244188861
+      },
+      "website": "n/a",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Cara DeHaan",
+        "title": "Executive Director",
+        "email": "cara@gathering-well.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2897,
+      "name": "Backyard Orphans",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "211 E AVENUE G, MIDLOTHIAN, TX 76065-3039",
+        "city": "Midlothian",
+        "state": "TX",
+        "zip": "76065",
+        "county": "Dallas"
+      },
+      "coordinates": {
+        "lat": 32.482468165617,
+        "lng": -96.992200137557
+      },
+      "website": "backyardorphans.org",
+      "category": "Bridge Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Eric Porter",
+        "title": "Founder/CEO",
+        "email": "eporter@backyardorphans.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
     }
   ],
   "networks": [
@@ -31334,6 +31401,24 @@
       "matchedAddress": "2325 ARKANSAS AVE, WICHITA, KS, 67204",
       "source": "census",
       "geocodedAt": "2026-10-23T11:19:53.600Z"
+    },
+    "2896": {
+      "status": "ok",
+      "lat": 43.548430579613,
+      "lng": -96.70244188861,
+      "addressHash": "1915 e 8th street|sioux falls|sd|57103",
+      "matchedAddress": "1915 E 8TH ST, SIOUX FALLS, SD, 57103",
+      "source": "census",
+      "geocodedAt": "2026-11-04T14:04:26.988Z"
+    },
+    "2897": {
+      "status": "ok",
+      "lat": 32.482468165617,
+      "lng": -96.992200137557,
+      "addressHash": "211 e avenue g, midlothian, tx 76065-3039|midlothian|tx|76065",
+      "matchedAddress": "211 E AVE G, MIDLOTHIAN, TX, 76065",
+      "source": "census",
+      "geocodedAt": "2026-11-04T14:04:27.107Z"
     }
   }
 }

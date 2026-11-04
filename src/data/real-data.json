@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-11-03T13:55:19.299Z",
+    "generated": "2026-11-04T14:04:27.379Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-11-03T13:55:10.878Z",
+        "generated": "2026-11-04T14:04:22.148Z",
         "years": [
           2021,
           2022,
@@ -35,7 +35,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-11-03T13:55:11.093Z",
+        "generated": "2026-11-04T14:04:22.274Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -62,7 +62,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-11-03T13:55:15.447Z",
+        "generated": "2026-11-04T14:04:24.644Z",
         "totalRecords": 6032,
         "stateCount": 51,
         "byYear": {
@@ -92,13 +92,13 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-11-03T13:55:18.978Z",
-        "organizationCount": 657,
+        "generated": "2026-11-04T14:04:27.108Z",
+        "organizationCount": 659,
         "networkCount": 31,
         "stats": {
-          "withCoordinates": 447,
-          "withWebsite": 464,
-          "withActivities": 357,
+          "withCoordinates": 449,
+          "withWebsite": 466,
+          "withActivities": 359,
           "withNetworkMemberships": 97,
           "withCountiesServed": 483
         },
@@ -107,17 +107,17 @@
           "State/Regional Network": 3,
           "Bridge Organization": 13,
           "Regional Network": 1,
-          "Service Organization": 220,
+          "Service Organization": 221,
           "Placement Agency": 53,
           "Unknown": 140,
-          "Bridge Ministry": 77,
+          "Bridge Ministry": 78,
           "Church Foster Care Ministry": 96,
           "Child Placement Agency": 21
         },
         "geocoding": {
           "manual": 184,
           "cacheHit": 262,
-          "newlyGeocoded": 1,
+          "newlyGeocoded": 3,
           "newlyGeocodedNominatim": 0,
           "newlyGeocodedExpansion": 0,
           "cachedFailure": 35,
@@ -129,7 +129,7 @@
     "enrichment": {
       "descriptions": {
         "source": "org-descriptions.json",
-        "merged": 308
+        "merged": 309
       },
       "coordinates": {
         "source": "county-coordinates.json",
@@ -140,8 +140,8 @@
       "states": 52,
       "countyRecords": 6032,
       "countiesWithCoordinates": 5991,
-      "organizations": 657,
-      "organizationsWithDescriptions": 308,
+      "organizations": 659,
+      "organizationsWithDescriptions": 309,
       "networks": 31
     }
   },
@@ -149769,6 +149769,74 @@
       "onMap": true,
       "networkMemberships": [],
       "countiesServed": []
+    },
+    {
+      "id": 2896,
+      "name": "The Gathering Well",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "1915 E 8th Street",
+        "city": "Sioux Falls",
+        "state": "SD",
+        "zip": "57103",
+        "county": "Minnehaha"
+      },
+      "coordinates": {
+        "lat": 43.548430579613,
+        "lng": -96.70244188861
+      },
+      "website": "n/a",
+      "category": "Service Organization",
+      "activities": [
+        "bio_family",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": false,
+      "contact": {
+        "name": "Cara DeHaan",
+        "title": "Executive Director",
+        "email": "cara@gathering-well.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": []
+    },
+    {
+      "id": 2897,
+      "name": "Backyard Orphans",
+      "isOrganization": true,
+      "isNetwork": false,
+      "address": {
+        "street": "211 E AVENUE G, MIDLOTHIAN, TX 76065-3039",
+        "city": "Midlothian",
+        "state": "TX",
+        "zip": "76065",
+        "county": "Dallas"
+      },
+      "coordinates": {
+        "lat": 32.482468165617,
+        "lng": -96.992200137557
+      },
+      "website": "backyardorphans.org",
+      "category": "Bridge Ministry",
+      "activities": [
+        "recruit_foster_kinship",
+        "recruit_adoptive",
+        "support"
+      ],
+      "officialFosterMinistry": false,
+      "cafoMember": true,
+      "contact": {
+        "name": "Eric Porter",
+        "title": "Founder/CEO",
+        "email": "eporter@backyardorphans.org"
+      },
+      "onMap": true,
+      "networkMemberships": [],
+      "countiesServed": [],
+      "generatedDescription": "Helps churches establish foster care, adoption, and support ministries to create lasting positive impact on vulnerable children's lives."
     }
   ],
   "networks": [

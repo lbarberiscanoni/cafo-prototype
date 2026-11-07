@@ -21,6 +21,9 @@ echo "✓ MTE_Master_Data.xlsx"
 wget -O AFCARS.xlsx "https://docs.google.com/spreadsheets/d/1yFrhrOmVBSIzqFyuNBCtwfZD7WcXMihf-vYxZbDOdww/export?format=xlsx"
 echo "✓ AFCARS.xlsx"
 
+wget -O MTE_Church_Involvement.xlsx "https://docs.google.com/spreadsheets/d/1dEekJpkKfGO40Kos3mCp8hHypYD7nPRKqOgIlPTJBrw/export?format=xlsx"
+echo "✓ MTE_Church_Involvement.xlsx"
+
 echo ""
-echo "✅ Done! Downloaded 5 files."
+echo "✅ Done! Downloaded 6 files."
 ls -lh *.xlsx

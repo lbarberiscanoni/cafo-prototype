@@ -1,0 +1,2999 @@
+{
+  "metadata": {
+    "source": "MTE Church Involvement (CAFO), Aggregated Data sheet",
+    "year": 2025,
+    "puzzlePieces": [
+      "Wrap-around Support",
+      "Youth Support",
+      "Biological Family Services",
+      "Child Welfare System Support",
+      "Kinship Family Finding & Growth",
+      "Foster Family Finding & Growth",
+      "Professional Services",
+      "Adoptive Family Finding & Growth",
+      "Care Sharing"
+    ],
+    "generatedAt": "2026-11-07T18:48:07.984Z",
+    "countyCount": 825
+  },
+  "counties": {
+    "CA": {
+      "Alameda": {
+        "Wrap-around Support": 53,
+        "Care Sharing": 1
+      },
+      "Butte": {
+        "Wrap-around Support": 4
+      },
+      "Contra Costa": {
+        "Wrap-around Support": 22,
+        "Care Sharing": 9
+      },
+      "Los Angeles": {
+        "Wrap-around Support": 34,
+        "Care Sharing": 65
+      },
+      "Marin": {
+        "Wrap-around Support": 4
+      },
+      "Napa": {
+        "Wrap-around Support": 4,
+        "Care Sharing": 1
+      },
+      "Orange": {
+        "Wrap-around Support": 35,
+        "Biological Family Services": 1,
+        "Foster Family Finding & Growth": 1,
+        "Youth Support": 1,
+        "Care Sharing": 7
+      },
+      "San Diego": {
+        "Wrap-around Support": 41,
+        "Care Sharing": 15
+      },
+      "San Francisco": {
+        "Wrap-around Support": 17,
+        "Care Sharing": 6
+      },
+      "San Mateo": {
+        "Wrap-around Support": 8,
+        "Care Sharing": 4
+      },
+      "Santa Clara": {
+        "Wrap-around Support": 33,
+        "Care Sharing": 6
+      },
+      "Santa Cruz": {
+        "Wrap-around Support": 4
+      },
+      "Solano": {
+        "Wrap-around Support": 11
+      },
+      "Sonoma": {
+        "Wrap-around Support": 13,
+        "Care Sharing": 8
+      },
+      "Yolo": {
+        "Wrap-around Support": 1
+      },
+      "Clark": {
+        "Wrap-around Support": 1
+      },
+      "Kern": {
+        "Wrap-around Support": 1
+      },
+      "Madison": {
+        "Wrap-around Support": 1
+      },
+      "Mahoning": {
+        "Wrap-around Support": 1
+      },
+      "Montgomery": {
+        "Wrap-around Support": 1
+      },
+      "Riverside": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 23
+      },
+      "San Bernardino": {
+        "Wrap-around Support": 5,
+        "Care Sharing": 5
+      },
+      "Tulare": {
+        "Care Sharing": 25,
+        "Child Welfare System Support": 1,
+        "Youth Support": 1
+      },
+      "Fresno": {
+        "Care Sharing": 29
+      },
+      "Madera": {
+        "Care Sharing": 1
+      }
+    },
+    "MA": {
+      "Elmcrest": {
+        "Wrap-around Support": 1
+      },
+      "Bristol": {
+        "Biological Family Services": 1,
+        "Wrap-around Support": 1
+      },
+      "Essex": {
+        "Adoptive Family Finding & Growth": 2,
+        "Biological Family Services": 2,
+        "Care Sharing": 4,
+        "Child Welfare System Support": 10,
+        "Foster Family Finding & Growth": 5,
+        "Wrap-around Support": 12
+      },
+      "Middlesex": {
+        "Care Sharing": 6,
+        "Child Welfare System Support": 5,
+        "Foster Family Finding & Growth": 1,
+        "Professional Services": 1,
+        "Wrap-around Support": 17,
+        "Youth Support": 1
+      },
+      "Norfolk": {
+        "Care Sharing": 1,
+        "Wrap-around Support": 2
+      },
+      "Suffolk": {
+        "Wrap-around Support": 3
+      },
+      "Worcester": {
+        "Biological Family Services": 1,
+        "Wrap-around Support": 2
+      }
+    },
+    "NC": {
+      "Cabarrus": {
+        "Wrap-around Support": 1,
+        "Foster Family Finding & Growth": 1
+      },
+      "Brunswick": {
+        "Wrap-around Support": 1
+      },
+      "Burke": {
+        "Care Sharing": 1,
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 2
+      },
+      "Caldwell": {
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 2
+      },
+      "Catawba": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 2,
+        "Care Sharing": 10
+      },
+      "Cherokee": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 3
+      },
+      "Durham": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1,
+        "Care Sharing": 2
+      },
+      "Forsyth": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 2
+      },
+      "Iredell": {
+        "Care Sharing": 6,
+        "Wrap-around Support": 1
+      },
+      "Lincoln": {
+        "Biological Family Services": 1,
+        "Care Sharing": 1
+      },
+      "Macon": {
+        "Wrap-around Support": 1
+      },
+      "Mecklenburg": {
+        "Care Sharing": 2,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 4
+      },
+      "New Hanover": {
+        "Wrap-around Support": 2
+      },
+      "Pitt": {
+        "Wrap-around Support": 1
+      },
+      "Randolph": {
+        "Wrap-around Support": 1
+      },
+      "Wake": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 6,
+        "Care Sharing": 10
+      },
+      "Wilkes": {
+        "Wrap-around Support": 1
+      },
+      "Surry": {
+        "Care Sharing": 3
+      },
+      "Vance": {
+        "Care Sharing": 2
+      }
+    },
+    "NE": {
+      "Sarpy": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 1
+      },
+      "Lancaster": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 3
+      },
+      "Adams": {
+        "Care Sharing": 1
+      },
+      "Buffalo": {
+        "Care Sharing": 8
+      },
+      "Douglas": {
+        "Care Sharing": 2
+      }
+    },
+    "NV": {
+      "Elko": {
+        "Wrap-around Support": 1
+      },
+      "Lyon": {
+        "Wrap-around Support": 2
+      },
+      "Washoe": {
+        "Wrap-around Support": 26
+      },
+      "Clark": {
+        "Biological Family Services": 3,
+        "Care Sharing": 1,
+        "Foster Family Finding & Growth": 5,
+        "Wrap-around Support": 8
+      }
+    },
+    "AL": {
+      "Baldwin": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 3
+      },
+      "Dale": {
+        "Wrap-around Support": 1
+      },
+      "Dallas": {
+        "Wrap-around Support": 2
+      },
+      "Jefferson": {
+        "Wrap-around Support": 6,
+        "Care Sharing": 7
+      },
+      "Lee": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 1
+      },
+      "Montgomery": {
+        "Wrap-around Support": 2
+      },
+      "Shelby": {
+        "Wrap-around Support": 3,
+        "Care Sharing": 5
+      },
+      "Tuscaloosa": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 1
+      },
+      "Pike": {
+        "Care Sharing": 4
+      },
+      "Saint Clair": {
+        "Care Sharing": 3
+      }
+    },
+    "AR": {
+      "Benton": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 3
+      },
+      "Faulkner": {
+        "Foster Family Finding & Growth": 1
+      },
+      "Garland": {
+        "Biological Family Services": 1,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 2
+      },
+      "Pope": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 2
+      },
+      "Pulaski": {
+        "Youth Support": 2,
+        "Care Sharing": 9
+      },
+      "Miller": {
+        "Care Sharing": 1
+      },
+      "Sebastian": {
+        "Care Sharing": 12
+      },
+      "Washington": {
+        "Care Sharing": 6
+      },
+      "White": {
+        "Care Sharing": 6
+      },
+      "Woodruff": {
+        "Care Sharing": 1
+      }
+    },
+    "AZ": {
+      "Maricopa": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 30
+      },
+      "Coconino": {
+        "Care Sharing": 6
+      },
+      "Pima": {
+        "Care Sharing": 22
+      },
+      "Yavapai": {
+        "Care Sharing": 2
+      },
+      "Yuma": {
+        "Care Sharing": 6
+      }
+    },
+    "CT": {
+      "Hartford": {
+        "Care Sharing": 1,
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 3,
+        "Wrap-around Support": 3
+      },
+      "New Haven": {
+        "Wrap-around Support": 1
+      },
+      "New London": {
+        "Wrap-around Support": 1
+      }
+    },
+    "DC": {
+      "District of Columbia": {
+        "Wrap-around Support": 15,
+        "Care Sharing": 2
+      }
+    },
+    "FL": {
+      "Ashland": {
+        "Wrap-around Support": 1
+      },
+      "Brevard": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 16
+      },
+      "Broward": {
+        "Wrap-around Support": 3,
+        "Care Sharing": 21
+      },
+      "Carroll": {
+        "Wrap-around Support": 1
+      },
+      "Clarke": {
+        "Wrap-around Support": 2
+      },
+      "Clay": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 12
+      },
+      "Dougherty": {
+        "Wrap-around Support": 1
+      },
+      "Duval": {
+        "Wrap-around Support": 6,
+        "Care Sharing": 15
+      },
+      "Escambia": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 15
+      },
+      "Hernando": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 4
+      },
+      "Hillsborough": {
+        "Adoptive Family Finding & Growth": 1,
+        "Care Sharing": 41,
+        "Wrap-around Support": 17
+      },
+      "Lake": {
+        "Care Sharing": 6,
+        "Wrap-around Support": 2
+      },
+      "Lancaster": {
+        "Wrap-around Support": 1
+      },
+      "Leon": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 14
+      },
+      "Nassau": {
+        "Care Sharing": 5,
+        "Wrap-around Support": 1
+      },
+      "Orange": {
+        "Adoptive Family Finding & Growth": 1,
+        "Biological Family Services": 1,
+        "Care Sharing": 52,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 28,
+        "Youth Support": 1
+      },
+      "Osceola": {
+        "Care Sharing": 5,
+        "Wrap-around Support": 1
+      },
+      "Pasco": {
+        "Wrap-around Support": 3,
+        "Care Sharing": 6
+      },
+      "Pinellas": {
+        "Care Sharing": 13,
+        "Wrap-around Support": 10
+      },
+      "Polk": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 19
+      },
+      "Putnam": {
+        "Care Sharing": 12,
+        "Wrap-around Support": 1
+      },
+      "Seminole": {
+        "Biological Family Services": 1,
+        "Care Sharing": 16,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 13
+      },
+      "St Johns": {
+        "Wrap-around Support": 2
+      },
+      "Volusia": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 21
+      },
+      "Walton": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 2
+      },
+      "Alachua": {
+        "Care Sharing": 5
+      },
+      "Baker": {
+        "Care Sharing": 4
+      },
+      "Bay": {
+        "Care Sharing": 3
+      },
+      "Bradford": {
+        "Care Sharing": 1
+      },
+      "Calhoun": {
+        "Care Sharing": 1
+      },
+      "Charlotte": {
+        "Care Sharing": 4
+      },
+      "Citrus": {
+        "Care Sharing": 5
+      },
+      "Collier": {
+        "Care Sharing": 2
+      },
+      "Columbia": {
+        "Care Sharing": 7
+      },
+      "DeSoto": {
+        "Care Sharing": 2
+      },
+      "Flagler": {
+        "Care Sharing": 3
+      },
+      "Franklin": {
+        "Care Sharing": 1
+      },
+      "Gilchrist": {
+        "Care Sharing": 1
+      },
+      "Glades": {
+        "Care Sharing": 1
+      },
+      "Gulf": {
+        "Care Sharing": 1
+      },
+      "Hamilton": {
+        "Care Sharing": 1
+      },
+      "Hardee": {
+        "Care Sharing": 1
+      },
+      "Hendry": {
+        "Care Sharing": 2
+      },
+      "Highlands": {
+        "Care Sharing": 3
+      },
+      "Holmes": {
+        "Care Sharing": 1
+      },
+      "Indian River": {
+        "Care Sharing": 2
+      },
+      "Jackson": {
+        "Care Sharing": 2
+      },
+      "Jefferson": {
+        "Care Sharing": 2
+      },
+      "Lafayette": {
+        "Care Sharing": 1
+      },
+      "Lee": {
+        "Care Sharing": 17
+      },
+      "Levy": {
+        "Care Sharing": 1
+      },
+      "Madison": {
+        "Care Sharing": 1
+      },
+      "Manatee": {
+        "Care Sharing": 12
+      },
+      "Marion": {
+        "Care Sharing": 25
+      },
+      "Martin": {
+        "Care Sharing": 3
+      },
+      "Miami-Dade": {
+        "Care Sharing": 41
+      },
+      "Monroe": {
+        "Care Sharing": 1
+      },
+      "Okaloosa": {
+        "Care Sharing": 12
+      },
+      "Okeechobee": {
+        "Care Sharing": 3
+      },
+      "Palm Beach": {
+        "Care Sharing": 24
+      },
+      "Saint Johns": {
+        "Care Sharing": 9
+      },
+      "Saint Lucie": {
+        "Care Sharing": 7
+      },
+      "Santa Rosa": {
+        "Care Sharing": 5
+      },
+      "Sarasota": {
+        "Care Sharing": 14
+      },
+      "Sumter": {
+        "Care Sharing": 3
+      },
+      "Suwannee": {
+        "Care Sharing": 3
+      },
+      "Taylor": {
+        "Care Sharing": 1
+      },
+      "Wakulla": {
+        "Care Sharing": 1
+      },
+      "Washington": {
+        "Care Sharing": 1
+      }
+    },
+    "GA": {
+      "Anderson": {
+        "Wrap-around Support": 1
+      },
+      "Banks": {
+        "Wrap-around Support": 2
+      },
+      "Barrow": {
+        "Care Sharing": 7,
+        "Wrap-around Support": 3
+      },
+      "Bartow": {
+        "Care Sharing": 13,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 3
+      },
+      "Bibb": {
+        "Wrap-around Support": 1
+      },
+      "Bryan": {
+        "Care Sharing": 6,
+        "Wrap-around Support": 2
+      },
+      "Bulloch": {
+        "Care Sharing": 16,
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 1
+      },
+      "Camden": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 1
+      },
+      "Carroll": {
+        "Care Sharing": 15,
+        "Wrap-around Support": 2
+      },
+      "Catoosa": {
+        "Care Sharing": 3
+      },
+      "Chatham": {
+        "Care Sharing": 17,
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 6
+      },
+      "Chattooga": {
+        "Care Sharing": 6,
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1
+      },
+      "Cherokee": {
+        "Care Sharing": 12,
+        "Wrap-around Support": 2
+      },
+      "Clarke": {
+        "Care Sharing": 9,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 9
+      },
+      "Clayton": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 4
+      },
+      "Cobb": {
+        "Biological Family Services": 1,
+        "Care Sharing": 12,
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 1,
+        "Professional Services": 1,
+        "Wrap-around Support": 6
+      },
+      "Columbia": {
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 3
+      },
+      "Coweta": {
+        "Biological Family Services": 1,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1
+      },
+      "Dawson": {
+        "Care Sharing": 3,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 3
+      },
+      "Dekalb": {
+        "Biological Family Services": 1,
+        "Care Sharing": 1,
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 5
+      },
+      "Dougherty": {
+        "Wrap-around Support": 1
+      },
+      "Douglas": {
+        "Care Sharing": 6,
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 1
+      },
+      "Effingham": {
+        "Care Sharing": 12,
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 3
+      },
+      "Evans": {
+        "Care Sharing": 6
+      },
+      "Fayette": {
+        "Care Sharing": 2,
+        "Wrap-around Support": 1
+      },
+      "Floyd": {
+        "Wrap-around Support": 10,
+        "Care Sharing": 1
+      },
+      "Forsyth": {
+        "Biological Family Services": 1,
+        "Care Sharing": 7,
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 1
+      },
+      "Fulton": {
+        "Adoptive Family Finding & Growth": 2,
+        "Biological Family Services": 1,
+        "Care Sharing": 23,
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 8,
+        "Professional Services": 1,
+        "Wrap-around Support": 17,
+        "Youth Support": 2
+      },
+      "Glynn": {
+        "Care Sharing": 6,
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 3,
+        "Wrap-around Support": 6
+      },
+      "Gwinnett": {
+        "Adoptive Family Finding & Growth": 1,
+        "Biological Family Services": 2,
+        "Care Sharing": 39,
+        "Child Welfare System Support": 7,
+        "Foster Family Finding & Growth": 12,
+        "Wrap-around Support": 25,
+        "Youth Support": 2
+      },
+      "Habersham": {
+        "Care Sharing": 5,
+        "Wrap-around Support": 2
+      },
+      "Hall": {
+        "Adoptive Family Finding & Growth": 2,
+        "Care Sharing": 15,
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 3,
+        "Wrap-around Support": 7
+      },
+      "Haralson": {
+        "Care Sharing": 4
+      },
+      "Harris": {
+        "Care Sharing": 6,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 2
+      },
+      "Henry": {
+        "Care Sharing": 5,
+        "Wrap-around Support": 2
+      },
+      "Jackson": {
+        "Wrap-around Support": 6,
+        "Care Sharing": 2
+      },
+      "Jenkins": {
+        "Foster Family Finding & Growth": 1
+      },
+      "Laurens": {
+        "Care Sharing": 6
+      },
+      "Liberty": {
+        "Care Sharing": 7,
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 2
+      },
+      "Lumpkin": {
+        "Care Sharing": 5,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1
+      },
+      "Madison": {
+        "Wrap-around Support": 1
+      },
+      "Murray": {
+        "Biological Family Services": 1,
+        "Care Sharing": 6,
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1
+      },
+      "Muscogee": {
+        "Biological Family Services": 2,
+        "Care Sharing": 17,
+        "Child Welfare System Support": 3,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 5
+      },
+      "Newton": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 3
+      },
+      "Oconee": {
+        "Care Sharing": 7,
+        "Wrap-around Support": 5
+      },
+      "Paulding": {
+        "Care Sharing": 3
+      },
+      "Pickens": {
+        "Care Sharing": 10,
+        "Wrap-around Support": 3
+      },
+      "Pike": {
+        "Wrap-around Support": 2
+      },
+      "Putnam": {
+        "Care Sharing": 1,
+        "Foster Family Finding & Growth": 1
+      },
+      "Rabun": {
+        "Care Sharing": 8,
+        "Wrap-around Support": 10
+      },
+      "Richmond": {
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 1
+      },
+      "Spalding": {
+        "Care Sharing": 2,
+        "Wrap-around Support": 1
+      },
+      "Tattnall": {
+        "Care Sharing": 5,
+        "Wrap-around Support": 1
+      },
+      "Thomas": {
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 1
+      },
+      "Toombs": {
+        "Care Sharing": 6,
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 2
+      },
+      "Troup": {
+        "Care Sharing": 2,
+        "Wrap-around Support": 1
+      },
+      "Walker": {
+        "Care Sharing": 6
+      },
+      "Walton": {
+        "Care Sharing": 9,
+        "Wrap-around Support": 4
+      },
+      "Wayne": {
+        "Wrap-around Support": 1
+      },
+      "White": {
+        "Care Sharing": 2
+      },
+      "Whitfield": {
+        "Care Sharing": 7,
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1
+      },
+      "DeKalb": {
+        "Care Sharing": 3
+      }
+    },
+    "HI": {
+      "Honolulu": {
+        "Foster Family Finding & Growth": 1,
+        "Care Sharing": 11
+      },
+      "Hawaii": {
+        "Care Sharing": 1
+      }
+    },
+    "IA": {
+      "Black Hawk": {
+        "Wrap-around Support": 1
+      },
+      "Buena Vista": {
+        "Wrap-around Support": 1
+      },
+      "Dallas": {
+        "Wrap-around Support": 1
+      },
+      "Jasper": {
+        "Wrap-around Support": 1
+      },
+      "Madison": {
+        "Wrap-around Support": 1
+      },
+      "Polk": {
+        "Wrap-around Support": 8
+      },
+      "Story": {
+        "Wrap-around Support": 1
+      },
+      "Warren": {
+        "Wrap-around Support": 1
+      }
+    },
+    "IN": {
+      "Allen": {
+        "Biological Family Services": 1,
+        "Care Sharing": 10,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 2
+      },
+      "Bartholomew": {
+        "Wrap-around Support": 3
+      },
+      "Blackford": {
+        "Foster Family Finding & Growth": 1
+      },
+      "Boone": {
+        "Care Sharing": 2,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1
+      },
+      "Cass": {
+        "Care Sharing": 8,
+        "Foster Family Finding & Growth": 1
+      },
+      "Delaware": {
+        "Biological Family Services": 1,
+        "Care Sharing": 7,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 6
+      },
+      "Elkhart": {
+        "Care Sharing": 9,
+        "Wrap-around Support": 1
+      },
+      "Gibson": {
+        "Wrap-around Support": 9
+      },
+      "Grant": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 11
+      },
+      "Hamilton": {
+        "Care Sharing": 29,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 15,
+        "Youth Support": 1
+      },
+      "Hancock": {
+        "Care Sharing": 10,
+        "Wrap-around Support": 5
+      },
+      "Hendricks": {
+        "Care Sharing": 6,
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 6
+      },
+      "Henry": {
+        "Wrap-around Support": 1
+      },
+      "Howard": {
+        "Care Sharing": 7,
+        "Wrap-around Support": 2
+      },
+      "Johnson": {
+        "Care Sharing": 11,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 7
+      },
+      "Knox": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1
+      },
+      "Kosciusko": {
+        "Care Sharing": 11,
+        "Wrap-around Support": 4
+      },
+      "La Porte": {
+        "Wrap-around Support": 1
+      },
+      "Lake": {
+        "Care Sharing": 2,
+        "Wrap-around Support": 5
+      },
+      "Madison": {
+        "Care Sharing": 9,
+        "Wrap-around Support": 4
+      },
+      "Marion": {
+        "Care Sharing": 31,
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 3,
+        "Wrap-around Support": 15
+      },
+      "Monroe": {
+        "Wrap-around Support": 3
+      },
+      "Montgomery": {
+        "Wrap-around Support": 1
+      },
+      "Morgan": {
+        "Wrap-around Support": 1
+      },
+      "Parke": {
+        "Wrap-around Support": 1
+      },
+      "Porter": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1
+      },
+      "Putnam": {
+        "Wrap-around Support": 1
+      },
+      "Shelby": {
+        "Wrap-around Support": 1
+      },
+      "Tippecanoe": {
+        "Care Sharing": 14,
+        "Wrap-around Support": 2
+      },
+      "Vanderburgh": {
+        "Care Sharing": 14,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 5
+      },
+      "Vigo": {
+        "Care Sharing": 7,
+        "Wrap-around Support": 2
+      },
+      "Warrick": {
+        "Care Sharing": 4,
+        "Wrap-around Support": 3
+      },
+      "Wayne": {
+        "Care Sharing": 12
+      },
+      "Wells": {
+        "Care Sharing": 2
+      },
+      "Fulton": {
+        "Care Sharing": 5
+      },
+      "Huntington": {
+        "Care Sharing": 3
+      },
+      "Miami": {
+        "Care Sharing": 8
+      },
+      "Spencer": {
+        "Care Sharing": 1
+      },
+      "St Joseph": {
+        "Care Sharing": 4
+      },
+      "Steuben": {
+        "Care Sharing": 6
+      },
+      "Wabash": {
+        "Care Sharing": 10
+      }
+    },
+    "KS": {
+      "Douglas": {
+        "Wrap-around Support": 3,
+        "Care Sharing": 2
+      },
+      "Ellis": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 4
+      },
+      "Johnson": {
+        "Care Sharing": 23,
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 26
+      },
+      "Leavenworth": {
+        "Care Sharing": 3,
+        "Professional Services": 1,
+        "Wrap-around Support": 3
+      },
+      "Riley": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 2,
+        "Care Sharing": 6
+      },
+      "Sedgwick": {
+        "Wrap-around Support": 3,
+        "Care Sharing": 25
+      },
+      "Wyandotte": {
+        "Wrap-around Support": 3,
+        "Care Sharing": 5
+      },
+      "Atchison": {
+        "Care Sharing": 1
+      },
+      "Barton": {
+        "Care Sharing": 7
+      },
+      "Bourbon": {
+        "Care Sharing": 2
+      },
+      "Butler": {
+        "Care Sharing": 1
+      },
+      "Cherokee": {
+        "Care Sharing": 2
+      },
+      "Cowley": {
+        "Care Sharing": 3
+      },
+      "Crawford": {
+        "Care Sharing": 3
+      },
+      "Dickinson": {
+        "Care Sharing": 2
+      },
+      "Finney": {
+        "Care Sharing": 7
+      },
+      "Ford": {
+        "Care Sharing": 2
+      },
+      "Geary": {
+        "Care Sharing": 2
+      },
+      "Harvey": {
+        "Care Sharing": 4
+      },
+      "Hodgeman": {
+        "Care Sharing": 1
+      },
+      "Labette": {
+        "Care Sharing": 2
+      },
+      "Linn": {
+        "Care Sharing": 2
+      },
+      "Lyon": {
+        "Care Sharing": 7
+      },
+      "Marion": {
+        "Care Sharing": 2
+      },
+      "McPherson": {
+        "Care Sharing": 2
+      },
+      "Montgomery": {
+        "Care Sharing": 1
+      },
+      "Reno": {
+        "Care Sharing": 13
+      },
+      "Rice": {
+        "Care Sharing": 2
+      },
+      "Saline": {
+        "Care Sharing": 3
+      },
+      "Shawnee": {
+        "Care Sharing": 6
+      }
+    },
+    "KY": {
+      "Fayette": {
+        "Wrap-around Support": 1
+      },
+      "Jefferson": {
+        "Wrap-around Support": 1
+      },
+      "Marshall": {
+        "Wrap-around Support": 1
+      },
+      "Shelby": {
+        "Wrap-around Support": 1
+      }
+    },
+    "LA": {
+      "Rapides Parish": {
+        "Wrap-around Support": 1
+      }
+    },
+    "MD": {
+      "Howard": {
+        "Wrap-around Support": 1
+      },
+      "Montgomery": {
+        "Wrap-around Support": 2
+      },
+      "Prince George's": {
+        "Wrap-around Support": 1
+      },
+      "Washington": {
+        "Wrap-around Support": 2
+      },
+      "Baltimore City": {
+        "Care Sharing": 1
+      },
+      "Prince Georges": {
+        "Care Sharing": 4
+      }
+    },
+    "ME": {
+      "Androscoggin": {
+        "Wrap-around Support": 1
+      },
+      "York": {
+        "Wrap-around Support": 1
+      }
+    },
+    "MI": {
+      "Allegan": {
+        "Biological Family Services": 1,
+        "Wrap-around Support": 1,
+        "Care Sharing": 15
+      },
+      "Branch": {
+        "Wrap-around Support": 1
+      },
+      "Kent": {
+        "Wrap-around Support": 6,
+        "Care Sharing": 19
+      },
+      "Livingston": {
+        "Wrap-around Support": 3,
+        "Care Sharing": 4
+      },
+      "Oakland": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 7
+      },
+      "Otsego": {
+        "Wrap-around Support": 1
+      },
+      "Macomb": {
+        "Care Sharing": 8
+      },
+      "Muskegon": {
+        "Care Sharing": 1
+      },
+      "Ottawa": {
+        "Care Sharing": 25
+      },
+      "Saint Clair": {
+        "Care Sharing": 1
+      },
+      "Wayne": {
+        "Care Sharing": 3
+      }
+    },
+    "MO": {
+      "Crawford": {
+        "Wrap-around Support": 1
+      },
+      "Greene": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 7
+      },
+      "Jackson": {
+        "Wrap-around Support": 10,
+        "Care Sharing": 32
+      },
+      "Platte": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 16
+      },
+      "St Louis": {
+        "Wrap-around Support": 1
+      },
+      "Andrew": {
+        "Care Sharing": 3
+      },
+      "Bollinger": {
+        "Care Sharing": 2
+      },
+      "Boone": {
+        "Care Sharing": 9
+      },
+      "Buchanan": {
+        "Care Sharing": 11
+      },
+      "Caldwell": {
+        "Care Sharing": 2
+      },
+      "Callaway": {
+        "Care Sharing": 2
+      },
+      "Camden": {
+        "Care Sharing": 2
+      },
+      "Cape Girardeau": {
+        "Care Sharing": 15
+      },
+      "Cass": {
+        "Care Sharing": 1
+      },
+      "Clay": {
+        "Care Sharing": 25
+      },
+      "Clinton": {
+        "Care Sharing": 8
+      },
+      "Cole": {
+        "Care Sharing": 2
+      },
+      "Dallas": {
+        "Care Sharing": 2
+      },
+      "Daviess": {
+        "Care Sharing": 3
+      },
+      "Dent": {
+        "Care Sharing": 4
+      },
+      "Franklin": {
+        "Care Sharing": 3
+      },
+      "Jefferson": {
+        "Care Sharing": 7
+      },
+      "Laclede": {
+        "Care Sharing": 5
+      },
+      "Lincoln": {
+        "Care Sharing": 1
+      },
+      "Mississippi": {
+        "Care Sharing": 1
+      },
+      "New Madrid": {
+        "Care Sharing": 1
+      },
+      "Pemiscot": {
+        "Care Sharing": 2
+      },
+      "Perry": {
+        "Care Sharing": 1
+      },
+      "Pike": {
+        "Care Sharing": 6
+      },
+      "Saint Charles": {
+        "Care Sharing": 12
+      },
+      "Saint Louis": {
+        "Care Sharing": 14
+      },
+      "Saint Louis City": {
+        "Care Sharing": 2
+      },
+      "Scott": {
+        "Care Sharing": 3
+      },
+      "Taney": {
+        "Care Sharing": 1
+      },
+      "Webster": {
+        "Care Sharing": 8
+      }
+    },
+    "MS": {
+      "Lee": {
+        "Care Sharing": 1
+      },
+      "DeSoto": {
+        "Care Sharing": 1
+      },
+      "Hinds": {
+        "Care Sharing": 9
+      },
+      "Madison": {
+        "Care Sharing": 3
+      },
+      "Rankin": {
+        "Care Sharing": 3
+      }
+    },
+    "MT": {
+      "Beaverhead": {
+        "Wrap-around Support": 1
+      },
+      "Big Horn": {
+        "Biological Family Services": 1,
+        "Wrap-around Support": 1
+      },
+      "Carbon": {
+        "Biological Family Services": 1,
+        "Care Sharing": 9,
+        "Wrap-around Support": 2
+      },
+      "Cascade": {
+        "Wrap-around Support": 1
+      },
+      "Custer": {
+        "Care Sharing": 2
+      },
+      "Dawson": {
+        "Care Sharing": 6,
+        "Child Welfare System Support": 2,
+        "Wrap-around Support": 1
+      },
+      "Fergus": {
+        "Biological Family Services": 1,
+        "Care Sharing": 9,
+        "Foster Family Finding & Growth": 1,
+        "Professional Services": 1,
+        "Wrap-around Support": 8
+      },
+      "Flathead": {
+        "Biological Family Services": 3,
+        "Care Sharing": 27,
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 7
+      },
+      "Hill": {
+        "Care Sharing": 1
+      },
+      "Jefferson": {
+        "Care Sharing": 1,
+        "Wrap-around Support": 1
+      },
+      "Judith Basin": {
+        "Wrap-around Support": 1
+      },
+      "Lake": {
+        "Wrap-around Support": 3,
+        "Care Sharing": 1
+      },
+      "Lewis and Clark": {
+        "Care Sharing": 8,
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 4
+      },
+      "Lincoln": {
+        "Care Sharing": 4
+      },
+      "Missoula": {
+        "Biological Family Services": 1,
+        "Care Sharing": 6,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1
+      },
+      "Pondera": {
+        "Child Welfare System Support": 2
+      },
+      "Powder River": {
+        "Wrap-around Support": 1
+      },
+      "Ravalli": {
+        "Care Sharing": 4,
+        "Child Welfare System Support": 1
+      },
+      "Silver Bow": {
+        "Biological Family Services": 1,
+        "Care Sharing": 5
+      },
+      "Teton": {
+        "Biological Family Services": 1,
+        "Care Sharing": 2
+      },
+      "Yellowstone": {
+        "Biological Family Services": 1,
+        "Care Sharing": 9,
+        "Wrap-around Support": 3
+      }
+    },
+    "NH": {
+      "Rockingham": {
+        "Wrap-around Support": 1
+      }
+    },
+    "NJ": {
+      "Camden": {
+        "Care Sharing": 1
+      },
+      "Bergen": {
+        "Care Sharing": 1
+      },
+      "Essex": {
+        "Care Sharing": 1
+      },
+      "Morris": {
+        "Care Sharing": 1
+      },
+      "Passaic": {
+        "Care Sharing": 3
+      },
+      "Somerset": {
+        "Care Sharing": 1
+      },
+      "Sussex": {
+        "Care Sharing": 1
+      }
+    },
+    "NY": {
+      "Bronx": {
+        "Biological Family Services": 1,
+        "Care Sharing": 13,
+        "Wrap-around Support": 3
+      },
+      "Jefferson": {
+        "Wrap-around Support": 1
+      },
+      "Kings": {
+        "Biological Family Services": 1,
+        "Care Sharing": 14,
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 11
+      },
+      "Monroe": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 16
+      },
+      "Nassau": {
+        "Care Sharing": 3,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1
+      },
+      "New York": {
+        "Care Sharing": 15,
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 6
+      },
+      "Oswego": {
+        "Wrap-around Support": 1
+      },
+      "Queens": {
+        "Care Sharing": 14,
+        "Child Welfare System Support": 2,
+        "Wrap-around Support": 7
+      },
+      "Richmond": {
+        "Biological Family Services": 4,
+        "Care Sharing": 14,
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 6
+      },
+      "St Lawrence": {
+        "Wrap-around Support": 1
+      },
+      "Suffolk": {
+        "Biological Family Services": 1,
+        "Care Sharing": 2,
+        "Wrap-around Support": 1
+      },
+      "Westchester": {
+        "Care Sharing": 1,
+        "Wrap-around Support": 1
+      },
+      "York": {
+        "Wrap-around Support": 1
+      },
+      "Albany": {
+        "Care Sharing": 9
+      },
+      "Cattaraugus": {
+        "Care Sharing": 4
+      },
+      "Chautauqua": {
+        "Care Sharing": 9
+      },
+      "Chemung": {
+        "Care Sharing": 2
+      },
+      "Columbia": {
+        "Care Sharing": 5
+      },
+      "Erie": {
+        "Care Sharing": 3
+      },
+      "Fulton": {
+        "Care Sharing": 2
+      },
+      "Greene": {
+        "Care Sharing": 8
+      },
+      "Lewis": {
+        "Care Sharing": 5
+      },
+      "Montgomery": {
+        "Care Sharing": 4
+      },
+      "Niagara": {
+        "Care Sharing": 3
+      },
+      "Onondaga": {
+        "Care Sharing": 6
+      },
+      "Orange": {
+        "Care Sharing": 7
+      },
+      "Rensselaer": {
+        "Care Sharing": 9
+      },
+      "Saratoga": {
+        "Care Sharing": 9
+      },
+      "Schenectady": {
+        "Care Sharing": 6
+      },
+      "Ulster": {
+        "Care Sharing": 1
+      },
+      "Warren": {
+        "Care Sharing": 5
+      },
+      "Washington": {
+        "Care Sharing": 7
+      },
+      "Wyoming": {
+        "Care Sharing": 3
+      }
+    },
+    "OH": {
+      "Allen": {
+        "Wrap-around Support": 2
+      },
+      "Ashland": {
+        "Wrap-around Support": 15,
+        "Care Sharing": 5
+      },
+      "Belmont": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 1
+      },
+      "Carroll": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1
+      },
+      "Clark": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 21
+      },
+      "Clermont": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 4
+      },
+      "Columbiana": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 4
+      },
+      "Cuyahoga": {
+        "Wrap-around Support": 3,
+        "Care Sharing": 4
+      },
+      "Darke": {
+        "Wrap-around Support": 2
+      },
+      "Delaware": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 3
+      },
+      "Erie": {
+        "Care Sharing": 2
+      },
+      "Franklin": {
+        "Wrap-around Support": 3,
+        "Care Sharing": 16
+      },
+      "Geauga": {
+        "Wrap-around Support": 3
+      },
+      "Greene": {
+        "Wrap-around Support": 3,
+        "Care Sharing": 3
+      },
+      "Hamilton": {
+        "Care Sharing": 8,
+        "Wrap-around Support": 6
+      },
+      "Hardin": {
+        "Wrap-around Support": 1
+      },
+      "Jackson": {
+        "Wrap-around Support": 1
+      },
+      "Knox": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 3
+      },
+      "Lake": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 4
+      },
+      "Lawrence": {
+        "Biological Family Services": 1
+      },
+      "Licking": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 2
+      },
+      "Lorain": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 1
+      },
+      "Lucas": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 1
+      },
+      "Mahoning": {
+        "Wrap-around Support": 5,
+        "Care Sharing": 3
+      },
+      "Marion": {
+        "Wrap-around Support": 1
+      },
+      "Medina": {
+        "Wrap-around Support": 2
+      },
+      "Miami": {
+        "Foster Family Finding & Growth": 4,
+        "Wrap-around Support": 7,
+        "Care Sharing": 1
+      },
+      "Montgomery": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 2,
+        "Care Sharing": 11
+      },
+      "Pickaway": {
+        "Wrap-around Support": 2
+      },
+      "Portage": {
+        "Wrap-around Support": 2
+      },
+      "Richland": {
+        "Wrap-around Support": 3,
+        "Care Sharing": 2
+      },
+      "Ross": {
+        "Wrap-around Support": 1
+      },
+      "Shelby": {
+        "Wrap-around Support": 1
+      },
+      "Stark": {
+        "Biological Family Services": 1,
+        "Care Sharing": 2,
+        "Foster Family Finding & Growth": 5,
+        "Professional Services": 1,
+        "Wrap-around Support": 4
+      },
+      "Summit": {
+        "Care Sharing": 5,
+        "Foster Family Finding & Growth": 4,
+        "Wrap-around Support": 8
+      },
+      "Trumbull": {
+        "Wrap-around Support": 2
+      },
+      "Tuscarawas": {
+        "Wrap-around Support": 1
+      },
+      "Warren": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 4
+      },
+      "Athens": {
+        "Care Sharing": 1
+      },
+      "Butler": {
+        "Care Sharing": 11
+      },
+      "Champaign": {
+        "Care Sharing": 5
+      },
+      "Fairfield": {
+        "Care Sharing": 14
+      },
+      "Guernsey": {
+        "Care Sharing": 2
+      },
+      "Logan": {
+        "Care Sharing": 1
+      },
+      "Muskingum": {
+        "Care Sharing": 1
+      },
+      "Perry": {
+        "Care Sharing": 3
+      },
+      "Wayne": {
+        "Care Sharing": 1
+      }
+    },
+    "OK": {
+      "Cleveland": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 27
+      },
+      "Oklahoma": {
+        "Wrap-around Support": 4,
+        "Care Sharing": 45
+      },
+      "Adair": {
+        "Care Sharing": 5
+      },
+      "Atoka": {
+        "Care Sharing": 4
+      },
+      "Beckham": {
+        "Care Sharing": 4
+      },
+      "Blaine": {
+        "Care Sharing": 2
+      },
+      "Bryan": {
+        "Care Sharing": 3
+      },
+      "Caddo": {
+        "Care Sharing": 4
+      },
+      "Canadian": {
+        "Care Sharing": 5
+      },
+      "Carter": {
+        "Care Sharing": 9
+      },
+      "Cherokee": {
+        "Care Sharing": 8
+      },
+      "Choctaw": {
+        "Care Sharing": 2
+      },
+      "Coal": {
+        "Care Sharing": 1
+      },
+      "Comanche": {
+        "Care Sharing": 8
+      },
+      "Cotton": {
+        "Care Sharing": 2
+      },
+      "Craig": {
+        "Care Sharing": 5
+      },
+      "Creek": {
+        "Care Sharing": 7
+      },
+      "Custer": {
+        "Care Sharing": 7
+      },
+      "Delaware": {
+        "Care Sharing": 5
+      },
+      "Dewey": {
+        "Care Sharing": 3
+      },
+      "Ellis": {
+        "Care Sharing": 1
+      },
+      "Garfield": {
+        "Care Sharing": 6
+      },
+      "Garvin": {
+        "Care Sharing": 4
+      },
+      "Grady": {
+        "Care Sharing": 8
+      },
+      "Grant": {
+        "Care Sharing": 2
+      },
+      "Greer": {
+        "Care Sharing": 1
+      },
+      "Harmon": {
+        "Care Sharing": 1
+      },
+      "Harper": {
+        "Care Sharing": 1
+      },
+      "Haskell": {
+        "Care Sharing": 2
+      },
+      "Hughes": {
+        "Care Sharing": 2
+      },
+      "Jackson": {
+        "Care Sharing": 5
+      },
+      "Jefferson": {
+        "Care Sharing": 3
+      },
+      "Johnston": {
+        "Care Sharing": 3
+      },
+      "Kay": {
+        "Care Sharing": 8
+      },
+      "Kingfisher": {
+        "Care Sharing": 4
+      },
+      "Kiowa": {
+        "Care Sharing": 2
+      },
+      "Latimer": {
+        "Care Sharing": 4
+      },
+      "Le Flore": {
+        "Care Sharing": 12
+      },
+      "Lincoln": {
+        "Care Sharing": 7
+      },
+      "Logan": {
+        "Care Sharing": 2
+      },
+      "Love": {
+        "Care Sharing": 1
+      },
+      "Major": {
+        "Care Sharing": 2
+      },
+      "Marshall": {
+        "Care Sharing": 4
+      },
+      "Mayes": {
+        "Care Sharing": 7
+      },
+      "McClain": {
+        "Care Sharing": 4
+      },
+      "McCurtain": {
+        "Care Sharing": 2
+      },
+      "McIntosh": {
+        "Care Sharing": 4
+      },
+      "Murray": {
+        "Care Sharing": 2
+      },
+      "Muskogee": {
+        "Care Sharing": 7
+      },
+      "Noble": {
+        "Care Sharing": 4
+      },
+      "Nowata": {
+        "Care Sharing": 3
+      },
+      "Okfuskee": {
+        "Care Sharing": 2
+      },
+      "Okmulgee": {
+        "Care Sharing": 3
+      },
+      "Osage": {
+        "Care Sharing": 2
+      },
+      "Ottawa": {
+        "Care Sharing": 4
+      },
+      "Pawnee": {
+        "Care Sharing": 3
+      },
+      "Payne": {
+        "Care Sharing": 6
+      },
+      "Pittsburg": {
+        "Care Sharing": 7
+      },
+      "Pontotoc": {
+        "Care Sharing": 5
+      },
+      "Pottawatomie": {
+        "Care Sharing": 13
+      },
+      "Pushmataha": {
+        "Care Sharing": 3
+      },
+      "Roger Mills": {
+        "Care Sharing": 2
+      },
+      "Rogers": {
+        "Care Sharing": 11
+      },
+      "Seminole": {
+        "Care Sharing": 4
+      },
+      "Sequoyah": {
+        "Care Sharing": 7
+      },
+      "Stephens": {
+        "Care Sharing": 5
+      },
+      "Texas": {
+        "Care Sharing": 3
+      },
+      "Tillman": {
+        "Care Sharing": 1
+      },
+      "Tulsa": {
+        "Care Sharing": 36
+      },
+      "Wagoner": {
+        "Care Sharing": 8
+      },
+      "Washington": {
+        "Care Sharing": 5
+      },
+      "Washita": {
+        "Care Sharing": 4
+      },
+      "Woods": {
+        "Care Sharing": 3
+      },
+      "Woodward": {
+        "Care Sharing": 7
+      }
+    },
+    "PA": {
+      "Adams": {
+        "Wrap-around Support": 3
+      },
+      "Allegheny": {
+        "Biological Family Services": 1,
+        "Care Sharing": 1,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 2
+      },
+      "Armstrong": {
+        "Wrap-around Support": 2
+      },
+      "Bedford": {
+        "Wrap-around Support": 4
+      },
+      "Berks": {
+        "Wrap-around Support": 9
+      },
+      "Blair": {
+        "Wrap-around Support": 14
+      },
+      "Cambria": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 5
+      },
+      "Centre": {
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 27
+      },
+      "Chester": {
+        "Wrap-around Support": 1
+      },
+      "Clarion": {
+        "Care Sharing": 4,
+        "Wrap-around Support": 8
+      },
+      "Clearfield": {
+        "Wrap-around Support": 2
+      },
+      "Columbia": {
+        "Wrap-around Support": 4
+      },
+      "Crawford": {
+        "Wrap-around Support": 1
+      },
+      "Cumberland": {
+        "Wrap-around Support": 10
+      },
+      "Dauphin": {
+        "Wrap-around Support": 3
+      },
+      "Erie": {
+        "Biological Family Services": 1,
+        "Care Sharing": 3,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 8
+      },
+      "Franklin": {
+        "Wrap-around Support": 5
+      },
+      "Indiana": {
+        "Care Sharing": 1,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 6
+      },
+      "Jefferson": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 3
+      },
+      "Juniata": {
+        "Wrap-around Support": 1
+      },
+      "Lackawanna": {
+        "Wrap-around Support": 3
+      },
+      "Lancaster": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 26
+      },
+      "Lebanon": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 8
+      },
+      "Lehigh": {
+        "Biological Family Services": 1,
+        "Care Sharing": 2,
+        "Wrap-around Support": 13
+      },
+      "Luzerne": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 5
+      },
+      "Lycoming": {
+        "Biological Family Services": 1,
+        "Care Sharing": 17,
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 9
+      },
+      "Mifflin": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 4
+      },
+      "Monroe": {
+        "Wrap-around Support": 2
+      },
+      "Northampton": {
+        "Wrap-around Support": 6
+      },
+      "Northumberland": {
+        "Wrap-around Support": 5
+      },
+      "Snyder": {
+        "Wrap-around Support": 3
+      },
+      "Somerset": {
+        "Wrap-around Support": 5
+      },
+      "Tioga": {
+        "Wrap-around Support": 1
+      },
+      "Union": {
+        "Care Sharing": 1,
+        "Wrap-around Support": 3
+      },
+      "Venango": {
+        "Wrap-around Support": 1
+      },
+      "Westmoreland": {
+        "Wrap-around Support": 11
+      },
+      "York": {
+        "Wrap-around Support": 9
+      },
+      "Butler": {
+        "Care Sharing": 1
+      },
+      "Lawrence": {
+        "Care Sharing": 5
+      },
+      "Philadelphia": {
+        "Care Sharing": 13
+      },
+      "Wyoming": {
+        "Care Sharing": 1
+      }
+    },
+    "RI": {
+      "Bristol": {
+        "Wrap-around Support": 1
+      },
+      "Kent": {
+        "Wrap-around Support": 1
+      },
+      "Providence": {
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 6,
+        "Youth Support": 1
+      }
+    },
+    "SC": {
+      "Aiken": {
+        "Wrap-around Support": 2
+      },
+      "Anderson": {
+        "Care Sharing": 1,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 8
+      },
+      "Charleston": {
+        "Wrap-around Support": 1
+      },
+      "Chester": {
+        "Wrap-around Support": 1
+      },
+      "Greenville": {
+        "Wrap-around Support": 3
+      },
+      "Richland": {
+        "Wrap-around Support": 3
+      },
+      "Spartanburg": {
+        "Wrap-around Support": 6
+      },
+      "York": {
+        "Wrap-around Support": 5
+      },
+      "Clarendon": {
+        "Care Sharing": 1
+      },
+      "Georgetown": {
+        "Care Sharing": 1
+      },
+      "Horry": {
+        "Care Sharing": 5
+      },
+      "Sumter": {
+        "Care Sharing": 7
+      }
+    },
+    "TN": {
+      "Blount": {
+        "Wrap-around Support": 2,
+        "Care Sharing": 4
+      },
+      "Bradley": {
+        "Wrap-around Support": 1
+      },
+      "Davidson": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 18
+      },
+      "Sumner": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 2
+      },
+      "Washington": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 2
+      },
+      "Williamson": {
+        "Foster Family Finding & Growth": 1,
+        "Care Sharing": 7
+      },
+      "Wilson": {
+        "Adoptive Family Finding & Growth": 1,
+        "Foster Family Finding & Growth": 1,
+        "Care Sharing": 4
+      },
+      "Bedford": {
+        "Care Sharing": 5
+      },
+      "Cannon": {
+        "Care Sharing": 1
+      },
+      "Coffee": {
+        "Care Sharing": 2
+      },
+      "Dickson": {
+        "Care Sharing": 7
+      },
+      "Giles": {
+        "Care Sharing": 1
+      },
+      "Hamilton": {
+        "Care Sharing": 5
+      },
+      "Hickman": {
+        "Care Sharing": 2
+      },
+      "Humphreys": {
+        "Care Sharing": 1
+      },
+      "Knox": {
+        "Care Sharing": 10
+      },
+      "Lawrence": {
+        "Care Sharing": 1
+      },
+      "Lincoln": {
+        "Care Sharing": 2
+      },
+      "Loudon": {
+        "Care Sharing": 3
+      },
+      "Marshall": {
+        "Care Sharing": 4
+      },
+      "Maury": {
+        "Care Sharing": 11
+      },
+      "Montgomery": {
+        "Care Sharing": 2
+      },
+      "Rutherford": {
+        "Care Sharing": 3
+      },
+      "Sequatchie": {
+        "Care Sharing": 4
+      },
+      "Sevier": {
+        "Care Sharing": 2
+      },
+      "Shelby": {
+        "Care Sharing": 17
+      },
+      "Sullivan": {
+        "Care Sharing": 7
+      },
+      "Unicoi": {
+        "Care Sharing": 4
+      },
+      "Union": {
+        "Care Sharing": 2
+      },
+      "Wayne": {
+        "Care Sharing": 1
+      },
+      "Weakley": {
+        "Care Sharing": 1
+      }
+    },
+    "TX": {
+      "Harris": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 39
+      },
+      "Hood": {
+        "Wrap-around Support": 1
+      },
+      "Liberty": {
+        "Wrap-around Support": 1
+      },
+      "Nacogdoches": {
+        "Wrap-around Support": 1
+      },
+      "Taylor": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 5
+      },
+      "Travis": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 6
+      },
+      "Williamson": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 4
+      },
+      "Aransas": {
+        "Care Sharing": 3
+      },
+      "Bell": {
+        "Care Sharing": 4
+      },
+      "Bexar": {
+        "Care Sharing": 14
+      },
+      "Bowie": {
+        "Care Sharing": 6
+      },
+      "Brazoria": {
+        "Care Sharing": 6
+      },
+      "Brazos": {
+        "Care Sharing": 10
+      },
+      "Brown": {
+        "Care Sharing": 4
+      },
+      "Burnet": {
+        "Care Sharing": 2
+      },
+      "Cameron": {
+        "Care Sharing": 6
+      },
+      "Cass": {
+        "Care Sharing": 1
+      },
+      "Chambers": {
+        "Care Sharing": 1
+      },
+      "Collin": {
+        "Care Sharing": 3
+      },
+      "Dallas": {
+        "Care Sharing": 30
+      },
+      "Denton": {
+        "Care Sharing": 9
+      },
+      "Ector": {
+        "Care Sharing": 1
+      },
+      "El Paso": {
+        "Care Sharing": 5
+      },
+      "Ellis": {
+        "Care Sharing": 22
+      },
+      "Fort Bend": {
+        "Care Sharing": 1
+      },
+      "Galveston": {
+        "Care Sharing": 6
+      },
+      "Gregg": {
+        "Care Sharing": 2
+      },
+      "Hays": {
+        "Care Sharing": 2
+      },
+      "Hidalgo": {
+        "Care Sharing": 5
+      },
+      "Johnson": {
+        "Care Sharing": 5
+      },
+      "Kaufman": {
+        "Care Sharing": 3
+      },
+      "Llano": {
+        "Care Sharing": 1
+      },
+      "Lubbock": {
+        "Care Sharing": 3
+      },
+      "McLennan": {
+        "Care Sharing": 3
+      },
+      "Midland": {
+        "Care Sharing": 3
+      },
+      "Montgomery": {
+        "Care Sharing": 4
+      },
+      "Nolan": {
+        "Care Sharing": 1
+      },
+      "Nueces": {
+        "Care Sharing": 14
+      },
+      "Palo Pinto": {
+        "Care Sharing": 1
+      },
+      "Parker": {
+        "Care Sharing": 2
+      },
+      "Potter": {
+        "Care Sharing": 1
+      },
+      "Randall": {
+        "Care Sharing": 3
+      },
+      "Rockwall": {
+        "Care Sharing": 6
+      },
+      "San Patricio": {
+        "Care Sharing": 1
+      },
+      "Shelby": {
+        "Care Sharing": 4
+      },
+      "Smith": {
+        "Care Sharing": 2
+      },
+      "Tarrant": {
+        "Care Sharing": 20
+      },
+      "Van Zandt": {
+        "Care Sharing": 1
+      },
+      "Webb": {
+        "Care Sharing": 3
+      },
+      "Wichita": {
+        "Care Sharing": 4
+      },
+      "Young": {
+        "Care Sharing": 1
+      }
+    },
+    "UT": {
+      "Davis": {
+        "Wrap-around Support": 1
+      },
+      "Salt Lake": {
+        "Biological Family Services": 1,
+        "Care Sharing": 11,
+        "Child Welfare System Support": 4,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 6
+      },
+      "Tooele": {
+        "Care Sharing": 2
+      },
+      "Uintah": {
+        "Wrap-around Support": 1
+      }
+    },
+    "VA": {
+      "Alexandria City": {
+        "Wrap-around Support": 1
+      },
+      "Arlington": {
+        "Wrap-around Support": 11
+      },
+      "Caroline": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 2
+      },
+      "Clarke": {
+        "Wrap-around Support": 1
+      },
+      "Colonial Heights City": {
+        "Wrap-around Support": 1
+      },
+      "Culpeper": {
+        "Biological Family Services": 2,
+        "Care Sharing": 2,
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 3
+      },
+      "Fairfax": {
+        "Wrap-around Support": 13
+      },
+      "Frederick": {
+        "Wrap-around Support": 1
+      },
+      "Henrico": {
+        "Wrap-around Support": 1
+      },
+      "Loudoun": {
+        "Wrap-around Support": 14,
+        "Care Sharing": 9
+      },
+      "Lynchburg City": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 1,
+        "Care Sharing": 14
+      },
+      "Madison": {
+        "Wrap-around Support": 1
+      },
+      "Manassas City": {
+        "Wrap-around Support": 2
+      },
+      "Powhatan": {
+        "Child Welfare System Support": 1
+      },
+      "Prince William": {
+        "Wrap-around Support": 8
+      },
+      "Spotsylvania": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 2
+      },
+      "Stafford": {
+        "Wrap-around Support": 4,
+        "Care Sharing": 2
+      },
+      "Warren": {
+        "Wrap-around Support": 1
+      },
+      "Winchester City": {
+        "Wrap-around Support": 4
+      },
+      "Albemarle": {
+        "Care Sharing": 20
+      },
+      "Alleghany": {
+        "Care Sharing": 2
+      },
+      "Amherst": {
+        "Care Sharing": 3
+      },
+      "Appomattox": {
+        "Care Sharing": 7
+      },
+      "Bath": {
+        "Care Sharing": 10
+      },
+      "Bedford": {
+        "Care Sharing": 16
+      },
+      "Botetourt": {
+        "Care Sharing": 6
+      },
+      "Bristol City": {
+        "Care Sharing": 1
+      },
+      "Brunswick": {
+        "Care Sharing": 1
+      },
+      "Buckingham": {
+        "Care Sharing": 2
+      },
+      "Buena Vista City": {
+        "Care Sharing": 1
+      },
+      "Campbell": {
+        "Care Sharing": 5
+      },
+      "Carroll": {
+        "Care Sharing": 7
+      },
+      "Charlottesville City": {
+        "Care Sharing": 2
+      },
+      "Craig": {
+        "Care Sharing": 1
+      },
+      "Danville City": {
+        "Care Sharing": 2
+      },
+      "Falls Church City": {
+        "Care Sharing": 1
+      },
+      "Franklin": {
+        "Care Sharing": 5
+      },
+      "Fredericksburg City": {
+        "Care Sharing": 1
+      },
+      "Galax City": {
+        "Care Sharing": 3
+      },
+      "Grayson": {
+        "Care Sharing": 3
+      },
+      "Greene": {
+        "Care Sharing": 4
+      },
+      "Halifax": {
+        "Care Sharing": 2
+      },
+      "Harrisonburg City": {
+        "Care Sharing": 6
+      },
+      "Henry": {
+        "Care Sharing": 8
+      },
+      "James City": {
+        "Care Sharing": 4
+      },
+      "King George": {
+        "Care Sharing": 2
+      },
+      "Lexington City": {
+        "Care Sharing": 2
+      },
+      "Martinsville City": {
+        "Care Sharing": 3
+      },
+      "Mecklenburg": {
+        "Care Sharing": 3
+      },
+      "Montgomery": {
+        "Care Sharing": 6
+      },
+      "Pittsylvania": {
+        "Care Sharing": 3
+      },
+      "Pulaski": {
+        "Care Sharing": 4
+      },
+      "Roanoke": {
+        "Care Sharing": 12
+      },
+      "Roanoke City": {
+        "Care Sharing": 16
+      },
+      "Rockbridge": {
+        "Care Sharing": 7
+      },
+      "Rockingham": {
+        "Care Sharing": 6
+      },
+      "Smyth": {
+        "Care Sharing": 5
+      },
+      "Tazewell": {
+        "Care Sharing": 5
+      },
+      "Washington": {
+        "Care Sharing": 3
+      },
+      "Wythe": {
+        "Care Sharing": 9
+      },
+      "York": {
+        "Care Sharing": 1
+      }
+    },
+    "WA": {
+      "King": {
+        "Wrap-around Support": 18,
+        "Care Sharing": 12
+      },
+      "Kitsap": {
+        "Wrap-around Support": 7
+      },
+      "Lawrence": {
+        "Wrap-around Support": 1
+      },
+      "Mason": {
+        "Wrap-around Support": 1
+      },
+      "Pierce": {
+        "Wrap-around Support": 9,
+        "Care Sharing": 11
+      },
+      "Skagit": {
+        "Wrap-around Support": 1
+      },
+      "Snohomish": {
+        "Wrap-around Support": 4
+      },
+      "Spokane": {
+        "Wrap-around Support": 1
+      },
+      "Whatcom": {
+        "Wrap-around Support": 1
+      },
+      "Thurston": {
+        "Care Sharing": 3
+      }
+    },
+    "WI": {
+      "Columbia": {
+        "Care Sharing": 1,
+        "Wrap-around Support": 1
+      },
+      "Fond Du Lac": {
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 3
+      },
+      "La Crosse": {
+        "Wrap-around Support": 1
+      },
+      "Langlade": {
+        "Wrap-around Support": 1,
+        "Care Sharing": 2
+      },
+      "Marathon": {
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 1,
+        "Professional Services": 1,
+        "Wrap-around Support": 4
+      },
+      "Marinette": {
+        "Wrap-around Support": 1
+      },
+      "Milwaukee": {
+        "Wrap-around Support": 2
+      },
+      "Portage": {
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 3
+      },
+      "Sheboygan": {
+        "Wrap-around Support": 3
+      },
+      "Taylor": {
+        "Wrap-around Support": 1
+      },
+      "Waukesha": {
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 1,
+        "Wrap-around Support": 3,
+        "Care Sharing": 3
+      },
+      "Waupaca": {
+        "Wrap-around Support": 2
+      },
+      "Waushara": {
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 1
+      },
+      "Wood": {
+        "Care Sharing": 1,
+        "Wrap-around Support": 2
+      },
+      "Dane": {
+        "Care Sharing": 16
+      },
+      "Fond du Lac": {
+        "Care Sharing": 12
+      },
+      "Juneau": {
+        "Care Sharing": 7
+      },
+      "Sauk": {
+        "Care Sharing": 2
+      }
+    },
+    "WV": {
+      "Barbour": {
+        "Child Welfare System Support": 1,
+        "Wrap-around Support": 1
+      },
+      "Berkeley": {
+        "Wrap-around Support": 1
+      },
+      "Harrison": {
+        "Biological Family Services": 2,
+        "Care Sharing": 2,
+        "Child Welfare System Support": 4,
+        "Wrap-around Support": 4,
+        "Youth Support": 2
+      },
+      "Jackson": {
+        "Care Sharing": 1,
+        "Wrap-around Support": 1
+      },
+      "Kanawha": {
+        "Biological Family Services": 1,
+        "Care Sharing": 2,
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 3,
+        "Wrap-around Support": 9
+      },
+      "Marion": {
+        "Adoptive Family Finding & Growth": 1,
+        "Biological Family Services": 1,
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 1,
+        "Youth Support": 1
+      },
+      "Monongalia": {
+        "Child Welfare System Support": 3,
+        "Foster Family Finding & Growth": 2,
+        "Wrap-around Support": 5,
+        "Youth Support": 2,
+        "Care Sharing": 15
+      },
+      "Preston": {
+        "Care Sharing": 5,
+        "Child Welfare System Support": 1,
+        "Foster Family Finding & Growth": 1
+      },
+      "Putnam": {
+        "Child Welfare System Support": 2,
+        "Foster Family Finding & Growth": 3,
+        "Wrap-around Support": 3
+      },
+      "Raleigh": {
+        "Care Sharing": 1
+      },
+      "Wayne": {
+        "Wrap-around Support": 1
+      },
+      "West Virginia": {
+        "Foster Family Finding & Growth": 1
+      }
+    },
+    "AK": {
+      "Anchorage": {
+        "Care Sharing": 4
+      },
+      "Matanuska Susitna": {
+        "Care Sharing": 3
+      }
+    },
+    "CO": {
+      "Arapahoe": {
+        "Care Sharing": 10
+      },
+      "Delta": {
+        "Care Sharing": 3
+      },
+      "Denver": {
+        "Care Sharing": 4
+      },
+      "Douglas": {
+        "Care Sharing": 14
+      },
+      "El Paso": {
+        "Care Sharing": 22
+      },
+      "Fremont": {
+        "Care Sharing": 5
+      },
+      "Jefferson": {
+        "Care Sharing": 12
+      },
+      "Mesa": {
+        "Care Sharing": 7
+      },
+      "Pueblo": {
+        "Care Sharing": 4
+      },
+      "Teller": {
+        "Care Sharing": 3
+      }
+    },
+    "DE": {
+      "New Castle": {
+        "Care Sharing": 6
+      },
+      "Sussex": {
+        "Care Sharing": 4
+      }
+    },
+    "ID": {
+      "Ada": {
+        "Care Sharing": 2
+      }
+    },
+    "IL": {
+      "Cook": {
+        "Care Sharing": 45
+      },
+      "Will": {
+        "Care Sharing": 2
+      }
+    },
+    "MN": {
+      "Anoka": {
+        "Care Sharing": 10
+      },
+      "Goodhue": {
+        "Care Sharing": 1
+      },
+      "Hennepin": {
+        "Care Sharing": 20
+      },
+      "Olmsted": {
+        "Care Sharing": 10
+      },
+      "Ramsey": {
+        "Care Sharing": 6
+      }
+    },
+    "NM": {
+      "Bernalillo": {
+        "Care Sharing": 3
+      },
+      "Chaves": {
+        "Care Sharing": 1
+      },
+      "Sandoval": {
+        "Care Sharing": 3
+      }
+    },
+    "WY": {
+      "Natrona": {
+        "Care Sharing": 1
+      }
+    },
+    "OR": {
+      "Benton": {
+        "Wrap-around Support": 1
+      },
+      "Clackamas": {
+        "Wrap-around Support": 3
+      },
+      "Curry": {
+        "Wrap-around Support": 1
+      },
+      "Douglas": {
+        "Wrap-around Support": 1
+      },
+      "Lane": {
+        "Wrap-around Support": 1
+      },
+      "Linn": {
+        "Wrap-around Support": 1
+      },
+      "Multnomah": {
+        "Wrap-around Support": 4
+      },
+      "Washington": {
+        "Wrap-around Support": 1
+      }
+    }
+  },
+  "skipped": []
+}

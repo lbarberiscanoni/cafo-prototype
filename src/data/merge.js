@@ -247,6 +247,75 @@ function buildStates(afcarsData, sourcesData, metricsData, coordsData, countyToR
   return states;
 }
 
+// Loose county-name key for joining the church sheet to metrics geographies:
+// "Saint Louis" = "St. Louis", "DeSoto" = "De Soto", "Prince Georges" = "Prince George's".
+function churchMatchKey(name) {
+  return normalizeCountyName(String(name)).replace(/^saint\b/, 'st').replace(/[^a-z0-9]/g, '');
+}
+
+// Attach church engagement counts (churches per puzzle piece) to county/region records.
+// Church data is reported by county; in states whose metrics use regions, county counts
+// are summed into their region via countyToRegionMappings. Returns match stats.
+function mergeChurchEngagement(states, churchData, countyToRegionMappings = {}) {
+  const stats = { matchedRecords: 0, unmatched: [] };
+  if (!churchData || !churchData.counties) return stats;
+
+  for (const [abbrev, churchCounties] of Object.entries(churchData.counties)) {
+    const state = states[abbrev];
+    if (!state) {
+      stats.unmatched.push(...Object.keys(churchCounties).map(c => `${c}, ${abbrev}`));
+      continue;
+    }
+    const mapping = countyToRegionMappings[abbrev] || {};
+    const mappingByKey = Object.fromEntries(
+      Object.entries(mapping).map(([county, region]) => [churchMatchKey(county), region])
+    );
+    const recordsByKey = {};
+    for (const rec of state.counties) {
+      const key = churchMatchKey(rec.name);
+      (recordsByKey[key] = recordsByKey[key] || []).push(rec);
+    }
+    // DC is a single geography ("Washington DC"), whatever the church sheet calls it.
+    const dcKey = abbrev === 'DC' && Object.keys(recordsByKey).length === 1 ? Object.keys(recordsByKey)[0] : null;
+
+    // Resolve each church county to a geography record, then sum per geography.
+    // A county's churches count toward its own record and, where the state reports by
+    // region (in some or all years), toward that region's record too.
+    const resolve = (key) => {
+      const targets = [];
+      if (recordsByKey[key]) targets.push(key);
+      const regionKey = mappingByKey[key] ? churchMatchKey(mappingByKey[key]) : null;
+      if (regionKey && regionKey !== key && recordsByKey[regionKey]) targets.push(regionKey);
+      return targets;
+    };
+    const byGeo = {};
+    for (const [countyName, pieces] of Object.entries(churchCounties)) {
+      const key = churchMatchKey(countyName);
+      // Virginia-style independent cities: "Lynchburg City" is "Lynchburg" in the metrics.
+      let targets = dcKey ? [dcKey] : resolve(key);
+      if (!targets.length && key.endsWith('city')) targets = resolve(key.slice(0, -4));
+      if (!targets.length) {
+        stats.unmatched.push(`${countyName}, ${abbrev}`);
+        continue;
+      }
+      for (const target of targets) {
+        byGeo[target] = byGeo[target] || {};
+        for (const [piece, count] of Object.entries(pieces)) {
+          byGeo[target][piece] = (byGeo[target][piece] || 0) + count;
+        }
+      }
+    }
+
+    for (const [norm, pieces] of Object.entries(byGeo)) {
+      for (const rec of recordsByKey[norm]) {
+        rec.churchEngagement = pieces;
+        stats.matchedRecords++;
+      }
+    }
+  }
+  return stats;
+}
+
 // Merge descriptions into organizations
 function mergeDescriptions(organizations, descriptionsData) {
   if (!descriptionsData || !descriptionsData.descriptions) {
@@ -330,6 +399,18 @@ function merge(dataDir, outputPath) {
     console.log(`   ✓ Counties with coordinates: ${withCoords}`);
   }
   
+  // Attach church engagement (optional input)
+  const churchEngagement = loadJSONOptional(dataDir, 'church-engagement.json');
+  const churchStats = mergeChurchEngagement(states, churchEngagement, countyToRegionMappings);
+  if (churchEngagement) {
+    console.log(`   ✓ County records with church engagement: ${churchStats.matchedRecords}`);
+    if (churchStats.unmatched.length) {
+      console.log(`   ⚠️  Church engagement counties with no matching county record (${churchStats.unmatched.length}): ${churchStats.unmatched.join('; ')}`);
+    }
+  } else {
+    console.log(`   ⚠️  church-engagement.json: not found (skipping)`);
+  }
+
   // Merge descriptions into organizations
   const descMerged = mergeDescriptions(orgs.organizations, descriptions);
   if (descriptions) {
@@ -354,6 +435,13 @@ function merge(dataDir, outputPath) {
         coordinates: coords ? {
           source: 'county-coordinates.json',
           merged: withCoords
+        } : null,
+        churchEngagement: churchEngagement ? {
+          source: 'church-engagement.json',
+          year: churchEngagement.metadata?.year || null,
+          puzzlePieces: churchEngagement.metadata?.puzzlePieces || [],
+          matchedRecords: churchStats.matchedRecords,
+          unmatched: churchStats.unmatched
         } : null
       },
       counts: {

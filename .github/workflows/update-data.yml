@@ -31,6 +31,7 @@ jobs:
           node parse-sources.js
           node parse-metrics.js
           node parse-orgs-from-master.js
+          node parse-church-engagement.js
           node enrich-coordinates.js
           node audit.js
           node merge.js

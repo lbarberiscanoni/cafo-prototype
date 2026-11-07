@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useMemo } from "react";
+import realDataJson from "../data/real-data.json";
 import { countyData, stateData, nationalStats, historicalData, stateNameToCode, fmt, fmtPct, fmtCompact, getGeographyLabel, getSourceLabel } from "../real-data.js";
 
 // Assets
@@ -17,6 +18,22 @@ const REQUEST_DATA_URL = "https://cafo.org/morethanenough/share-your-data/";
 // Citation for the total church counts (used in the Total Churches rollover on
 // the county view and on the national "Church Data in the U.S." card).
 const CHURCH_DATA_SOURCE = "2020 U.S. Religion Census, © 2022 by the Association of Statisticians of American Religious Bodies (ASARB). Used by permission.";
+
+// Church engagement categories (MTE "puzzle pieces"), in card order, with the
+// descriptions shown on hover. Keys match FormalPuzzlePiece in CAFO's church sheet.
+const CHURCH_ENGAGEMENT_CATEGORIES = [
+  { key: "Wrap-around Support", label: "Wrap-around Support", description: "Providing wrap-around support for foster, kinship, adoptive, and biological families" },
+  { key: "Youth Support", label: "Youth Support", description: "Supporting youth in care and youth aging out of care" },
+  { key: "Biological Family Services", label: "Biological Family Services", description: "Helping strengthen and reunify biological families" },
+  { key: "Child Welfare System Support", label: "Child Welfare System Support", description: "Supporting child welfare professionals and the system" },
+  { key: "Kinship Family Finding & Growth", label: "Kinship Family Finding and Growth", description: "Finding and equipping kinship families" },
+  { key: "Foster Family Finding & Growth", label: "Foster Family Finding and Growth", description: "Finding and recruiting foster families" },
+  { key: "Professional Services", label: "Professional Services", description: "Making professional services accessible and affordable" },
+  { key: "Adoptive Family Finding & Growth", label: "Adoptive Family Finding and Growth", description: "Finding and recruiting adoptive families for waiting kids" },
+  { key: "Care Sharing", label: "Care Sharing", description: "Connecting tangible needs with tangible resources to give" },
+];
+const CHURCH_ENGAGEMENT_LEARN_MORE_URL = "https://cafo.org/morethanenough/puzzle/";
+const CHURCH_ENGAGEMENT_YEAR = realDataJson.metadata?.enrichment?.churchEngagement?.year || null;
 
 const hasNA = (...values) => values.some(v => v === null || v === undefined);
 
@@ -210,6 +227,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
           reunificationRate: county.reunificationRate,
           churchesProvidingSupport: county.churchesProvidingSupport,
           supportPercentage: county.supportPercentage,
+          churchEngagement: county.churchEngagement || null,
           state: county.state,
           sourceAgency: stateData[county.state?.toLowerCase().replace(/\s+/g, '-')]?.sourceAgency || null,
           sourceUrl: stateData[county.state?.toLowerCase().replace(/\s+/g, '-')]?.sourceUrl || null,
@@ -898,6 +916,52 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             </div>
           </div>
         </main>
+        <section className="max-w-7xl mx-auto px-4 mb-6">
+          <div className="bg-white rounded-2xl shadow-mte-card px-6 py-6 text-center">
+            <h3 className="text-2xl font-nexa text-mte-black mb-6">Church Engagement</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 text-left">
+              {CHURCH_ENGAGEMENT_CATEGORIES.map(({ key, label, description }) => {
+                const count = data.churchEngagement?.[key];
+                const hasCount = count != null;
+                return (
+                  <div key={key} className="flex items-center gap-3" data-testid="church-engagement-item">
+                    {/* Tooltips open below (so they never cover the heading) and also show on
+                        tap/focus, since phones have no hover. */}
+                    <div tabIndex={0} className="relative group flex-shrink-0 w-12 text-right outline-none">
+                      <span className="text-xl md:text-2xl font-black text-mte-blue">{hasCount ? fmt(count) : '--'}</span>
+                      {!hasCount && (
+                        <div role="tooltip" className="absolute top-full left-0 mt-2 w-56 p-2 bg-mte-charcoal text-white text-xs text-left rounded shadow-lg opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity pointer-events-none z-20">
+                          Church Engagement Data not yet collected
+                        </div>
+                      )}
+                    </div>
+                    <div tabIndex={0} className="relative group outline-none">
+                      <span className="text-sm text-mte-charcoal font-lato border-b border-dotted border-mte-charcoal cursor-help">
+                        {count === 1 ? 'Church' : 'Churches'} Engaged in {label}
+                      </span>
+                      <div role="tooltip" className="absolute top-full left-0 mt-2 w-64 p-2 bg-mte-charcoal text-white text-xs text-left rounded shadow-lg opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity pointer-events-none z-20">
+                        {description}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-6 text-center space-y-1">
+              <div className="text-xs text-mte-charcoal font-lato">
+                Source: Church engagement data reported to CAFO by partner organizations{CHURCH_ENGAGEMENT_YEAR ? ` (${CHURCH_ENGAGEMENT_YEAR})` : ''}
+              </div>
+              <div>
+                <a href={CHURCH_ENGAGEMENT_LEARN_MORE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
+                  Learn more about the church engagement categories
+                </a>
+              </div>
+              {CHURCH_ENGAGEMENT_CATEGORIES.some(({ key }) => data.churchEngagement?.[key] == null) && (
+                <div><RequestDataLink /></div>
+              )}
+            </div>
+          </div>
+        </section>
         </>
         );
       })()}

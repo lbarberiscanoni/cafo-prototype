@@ -333,6 +333,8 @@ Object.entries(realDataJson.states).forEach(([abbrev, state]) => {
       totalChurches: county.churches,
       churches: county.churches,
       coordinates: county.coordinates || null,
+      // Churches engaged per MTE puzzle piece ({ "Wrap-around Support": 12, ... }), null if none reported
+      churchEngagement: county.churchEngagement || null,
       // Average time from termination of parental rights to finalized adoption (months)
       avgMonthsToAdoption: county.monthsToAdoption ?? null,
       // Fields not in new data - set to null

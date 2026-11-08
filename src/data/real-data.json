@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated": "2026-11-07T18:48:08.087Z",
+    "generated": "2026-11-08T13:02:03.861Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
-        "generated": "2026-11-07T12:44:21.082Z",
+        "generated": "2026-11-08T13:01:55.801Z",
         "years": [
           2021,
           2022,
@@ -35,7 +35,7 @@
       },
       "sources": {
         "source": "Sources_and_Definitions.xlsx",
-        "generated": "2026-11-07T12:44:21.216Z",
+        "generated": "2026-11-08T13:01:56.015Z",
         "stateCount": 51,
         "statesWithUrl": 49,
         "dataYearDistribution": {
@@ -62,7 +62,7 @@
           "MTE_Metrics_2024.xlsx",
           "MTE_Metrics_2025.xlsx"
         ],
-        "generated": "2026-11-07T12:44:23.584Z",
+        "generated": "2026-11-08T13:01:59.918Z",
         "totalRecords": 6032,
         "stateCount": 51,
         "byYear": {
@@ -92,7 +92,7 @@
       },
       "organizations": {
         "source": "MTE_Master_Data.xlsx",
-        "generated": "2026-11-07T12:44:25.757Z",
+        "generated": "2026-11-08T13:02:03.123Z",
         "organizationCount": 659,
         "networkCount": 31,
         "stats": {

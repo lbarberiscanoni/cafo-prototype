@@ -7,7 +7,6 @@ import ChurchIcon from "../assets/church_icon.png";
 import FosterKinshipIcon from "../assets/FosterKinship_icon.png";
 import AdoptiveFamilyIcon from "../assets/Adoptive_family_icon.png";
 import BiologicalFamilyIcon from "../assets/BiologicalFamily_icon.png";
-import WrapAroundIcon from "../assets/WrapAround_icon.png";
 import MTELogo from "../assets/MTE_Logo.png";
 import InteractiveUSMap, { getAvailableMetrics } from "../InteractiveUSMap";
 import InteractiveStateMap from "../InteractiveStateMap";
@@ -808,7 +807,7 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
             Hover over any metric to see its source, definition, and date
           </p>
         </div>
-        <main className="max-w-7xl mx-auto px-4 py-6 md:py-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <main className="max-w-7xl mx-auto px-4 py-6 md:py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
             <img src={FosterKinshipIcon} alt="Foster & Kinship" className="mx-auto w-20 h-20 mb-3" />
             <HoverableText tooltip="Families who provide temporary care for children through formal foster care or informal kinship arrangements with relatives">
@@ -885,32 +884,6 @@ const MetricView = ({ regionLevel, regionId, onSelectRegion }) => {
                 </a>
               </div>
               {hasNA(data.familyPreservationCases, data.reunificationRate) && (
-                <div><RequestDataLink /></div>
-              )}
-            </div>
-          </div>
-          <div className="bg-white rounded-2xl shadow-mte-card p-6 text-center">
-            <img src={WrapAroundIcon} alt="Wraparound Support" className="mx-auto w-20 h-20 mb-3" />
-            <HoverableText tooltip="Comprehensive community-based support services for all families involved in foster care">
-              <h3 className="text-lg font-lato font-bold text-mte-black leading-none mb-4">Wraparound Support</h3>
-            </HoverableText>
-            <div className="flex justify-center items-center gap-1 mb-4">
-              <div className="text-xl md:text-2xl font-black text-mte-blue">{fmtPct(data.supportPercentage)}</div>
-              <HoverableText tooltip="Percentage of local churches actively engaged in foster care ministry">
-                <div className="text-base text-mte-charcoal font-lato whitespace-nowrap">Churches Providing Support</div>
-              </HoverableText>
-            </div>
-            <div className="max-w-md mx-auto">
-              <MetricRow label="Churches Providing Support" value={fmt(data.churchesProvidingSupport)} tooltip="Number of churches with active foster care support programs" source="DM Databases" />
-              <MetricRow label="Total Churches" value={fmt(data.totalChurches)} tooltip="Total number of churches in this county" source={CHURCH_DATA_SOURCE} />
-            </div>
-            <div className="mt-4 text-center space-y-1">
-              <div>
-                <a href="https://docs.google.com/document/d/1h4nw_B2xA2sPHO7jODee_geUKeEbwk3oV3nzL32emZ0/edit?tab=t.0#heading=h.lhvv1cgj8bwi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-lato text-mte-blue hover:text-mte-blue-80 underline transition-colors">
-                  Download our data guide
-                </a>
-              </div>
-              {hasNA(data.supportPercentage, data.churchesProvidingSupport, data.totalChurches) && (
                 <div><RequestDataLink /></div>
               )}
             </div>

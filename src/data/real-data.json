@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated": "2026-11-09T15:45:11.033Z",
+    "generated": "2026-11-09T17:10:15.871Z",
     "sources": {
       "afcars": {
         "source": "AFCARS.xlsx",
@@ -156,15 +156,16 @@
           "Mahoning, CA",
           "Montgomery, CA",
           "Elmcrest, MA",
+          "Anderson, GA",
           "Ashland, FL",
           "Carroll, FL",
           "Clarke, FL",
           "Dougherty, FL",
           "Lancaster, FL",
-          "Anderson, GA",
+          "West Virginia, WV",
           "York, NY",
-          "Lawrence, WA",
-          "West Virginia, WV"
+          "sheyboygan, WI",
+          "Lawrence, WA"
         ]
       }
     },
@@ -3804,9 +3805,9 @@
             "lng": -93.1504
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 2,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 2
+            "Biological Family Services": 1
           }
         },
         {
@@ -5264,9 +5265,9 @@
             "lng": -93.1504
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 2,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 2
+            "Biological Family Services": 1
           }
         },
         {
@@ -7572,9 +7573,9 @@
           },
           "churchEngagement": {
             "Wrap-around Support": 35,
-            "Biological Family Services": 1,
-            "Foster Family Finding & Growth": 1,
             "Youth Support": 1,
+            "Foster Family Finding & Growth": 1,
+            "Biological Family Services": 1,
             "Care Sharing": 7
           }
         },
@@ -8068,9 +8069,9 @@
             "lng": -118.8005
           },
           "churchEngagement": {
+            "Youth Support": 1,
             "Care Sharing": 25,
-            "Child Welfare System Support": 1,
-            "Youth Support": 1
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -8784,9 +8785,9 @@
           },
           "churchEngagement": {
             "Wrap-around Support": 35,
-            "Biological Family Services": 1,
-            "Foster Family Finding & Growth": 1,
             "Youth Support": 1,
+            "Foster Family Finding & Growth": 1,
+            "Biological Family Services": 1,
             "Care Sharing": 7
           }
         },
@@ -9304,9 +9305,9 @@
             "lng": -118.8005
           },
           "churchEngagement": {
+            "Youth Support": 1,
             "Care Sharing": 25,
-            "Child Welfare System Support": 1,
-            "Youth Support": 1
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -12130,10 +12131,10 @@
             "lng": -72.69
           },
           "churchEngagement": {
-            "Care Sharing": 1,
-            "Child Welfare System Support": 2,
             "Foster Family Finding & Growth": 3,
-            "Wrap-around Support": 3
+            "Child Welfare System Support": 2,
+            "Wrap-around Support": 3,
+            "Care Sharing": 1
           }
         },
         {
@@ -12338,10 +12339,10 @@
             "lng": -72.67
           },
           "churchEngagement": {
-            "Care Sharing": 1,
-            "Child Welfare System Support": 2,
             "Foster Family Finding & Growth": 3,
-            "Wrap-around Support": 3
+            "Child Welfare System Support": 2,
+            "Wrap-around Support": 3,
+            "Care Sharing": 1
           }
         },
         {
@@ -13383,9 +13384,9 @@
             "lng": -82.3088
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 1,
+            "Wrap-around Support": 17,
             "Care Sharing": 41,
-            "Wrap-around Support": 17
+            "Adoptive Family Finding & Growth": 1
           }
         },
         {
@@ -13517,8 +13518,8 @@
             "lng": -81.7113
           },
           "churchEngagement": {
-            "Care Sharing": 6,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Care Sharing": 6
           }
         },
         {
@@ -13758,8 +13759,8 @@
             "lng": -81.8019
           },
           "churchEngagement": {
-            "Care Sharing": 5,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Care Sharing": 5
           }
         },
         {
@@ -13825,12 +13826,12 @@
             "lng": -81.3235
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 1,
-            "Biological Family Services": 1,
+            "Wrap-around Support": 28,
             "Care Sharing": 52,
             "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 28,
-            "Youth Support": 1
+            "Biological Family Services": 1,
+            "Youth Support": 1,
+            "Adoptive Family Finding & Growth": 1
           }
         },
         {
@@ -13852,8 +13853,8 @@
             "lng": -81.1495
           },
           "churchEngagement": {
-            "Care Sharing": 5,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Care Sharing": 5
           }
         },
         {
@@ -13920,8 +13921,8 @@
             "lng": -82.7255
           },
           "churchEngagement": {
-            "Care Sharing": 13,
-            "Wrap-around Support": 10
+            "Wrap-around Support": 10,
+            "Care Sharing": 13
           }
         },
         {
@@ -14078,10 +14079,10 @@
             "lng": -81.2363
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 13,
             "Care Sharing": 16,
             "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 13
+            "Biological Family Services": 1
           }
         },
         {
@@ -14900,9 +14901,9 @@
             "lng": -82.3088
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 1,
+            "Wrap-around Support": 17,
             "Care Sharing": 41,
-            "Wrap-around Support": 17
+            "Adoptive Family Finding & Growth": 1
           }
         },
         {
@@ -15040,8 +15041,8 @@
             "lng": -81.7113
           },
           "churchEngagement": {
-            "Care Sharing": 6,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Care Sharing": 6
           }
         },
         {
@@ -15292,8 +15293,8 @@
             "lng": -81.8019
           },
           "churchEngagement": {
-            "Care Sharing": 5,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Care Sharing": 5
           }
         },
         {
@@ -15362,12 +15363,12 @@
             "lng": -81.3235
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 1,
-            "Biological Family Services": 1,
+            "Wrap-around Support": 28,
             "Care Sharing": 52,
             "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 28,
-            "Youth Support": 1
+            "Biological Family Services": 1,
+            "Youth Support": 1,
+            "Adoptive Family Finding & Growth": 1
           }
         },
         {
@@ -15390,8 +15391,8 @@
             "lng": -81.1495
           },
           "churchEngagement": {
-            "Care Sharing": 5,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Care Sharing": 5
           }
         },
         {
@@ -15461,8 +15462,8 @@
             "lng": -82.7255
           },
           "churchEngagement": {
-            "Care Sharing": 13,
-            "Wrap-around Support": 10
+            "Wrap-around Support": 10,
+            "Care Sharing": 13
           }
         },
         {
@@ -15622,10 +15623,10 @@
             "lng": -81.2363
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 13,
             "Care Sharing": 16,
             "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 13
+            "Biological Family Services": 1
           }
         },
         {
@@ -16045,9 +16046,9 @@
             "lng": -84.8403
           },
           "churchEngagement": {
+            "Wrap-around Support": 3,
             "Care Sharing": 13,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 3
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -16186,8 +16187,8 @@
             "lng": -81.4436
           },
           "churchEngagement": {
-            "Care Sharing": 6,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Care Sharing": 6
           }
         },
         {
@@ -16210,8 +16211,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 16,
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -16397,8 +16398,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 17,
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 6
+            "Wrap-around Support": 6,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -16441,8 +16442,8 @@
           "churchEngagement": {
             "Care Sharing": 6,
             "Child Welfare System Support": 1,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -16487,9 +16488,9 @@
             "lng": -83.3673
           },
           "churchEngagement": {
+            "Wrap-around Support": 9,
             "Care Sharing": 9,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 9
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -16572,12 +16573,12 @@
             "lng": -84.5767
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 6,
             "Care Sharing": 12,
+            "Biological Family Services": 1,
             "Child Welfare System Support": 1,
-            "Foster Family Finding & Growth": 1,
             "Professional Services": 1,
-            "Wrap-around Support": 6
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -16638,8 +16639,8 @@
           },
           "churchEngagement": {
             "Child Welfare System Support": 2,
-            "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 3
+            "Wrap-around Support": 3,
+            "Foster Family Finding & Growth": 2
           }
         },
         {
@@ -16680,8 +16681,8 @@
             "lng": -84.7634
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Foster Family Finding & Growth": 1,
+            "Biological Family Services": 1,
             "Wrap-around Support": 1
           }
         },
@@ -16761,9 +16762,9 @@
             "lng": -84.1706
           },
           "churchEngagement": {
+            "Wrap-around Support": 3,
             "Care Sharing": 3,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 3
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -16800,10 +16801,10 @@
           "familyPreservationCases": null,
           "churches": 383,
           "churchEngagement": {
-            "Biological Family Services": 1,
-            "Care Sharing": 4,
             "Child Welfare System Support": 1,
+            "Care Sharing": 4,
             "Foster Family Finding & Growth": 2,
+            "Biological Family Services": 1,
             "Wrap-around Support": 5
           }
         },
@@ -16886,9 +16887,9 @@
             "lng": -84.7679
           },
           "churchEngagement": {
-            "Care Sharing": 6,
+            "Wrap-around Support": 1,
             "Child Welfare System Support": 1,
-            "Wrap-around Support": 1
+            "Care Sharing": 6
           }
         },
         {
@@ -16949,8 +16950,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 12,
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 3
+            "Wrap-around Support": 3,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -17097,11 +17098,11 @@
             "lng": -84.125
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
-            "Care Sharing": 7,
-            "Child Welfare System Support": 1,
             "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 1
+            "Biological Family Services": 1,
+            "Wrap-around Support": 1,
+            "Child Welfare System Support": 1,
+            "Care Sharing": 7
           }
         },
         {
@@ -17142,14 +17143,14 @@
             "lng": -84.4671
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 2,
             "Biological Family Services": 1,
-            "Care Sharing": 23,
+            "Adoptive Family Finding & Growth": 2,
             "Child Welfare System Support": 2,
-            "Foster Family Finding & Growth": 8,
             "Professional Services": 1,
+            "Youth Support": 2,
+            "Foster Family Finding & Growth": 8,
             "Wrap-around Support": 17,
-            "Youth Support": 2
+            "Care Sharing": 23
           }
         },
         {
@@ -17209,10 +17210,10 @@
             "lng": -81.5407
           },
           "churchEngagement": {
-            "Care Sharing": 6,
-            "Child Welfare System Support": 1,
+            "Wrap-around Support": 6,
             "Foster Family Finding & Growth": 3,
-            "Wrap-around Support": 6
+            "Child Welfare System Support": 1,
+            "Care Sharing": 6
           }
         },
         {
@@ -17291,13 +17292,13 @@
             "lng": -84.0235
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 1,
-            "Biological Family Services": 2,
             "Care Sharing": 39,
-            "Child Welfare System Support": 7,
-            "Foster Family Finding & Growth": 12,
             "Wrap-around Support": 25,
-            "Youth Support": 2
+            "Foster Family Finding & Growth": 12,
+            "Biological Family Services": 2,
+            "Child Welfare System Support": 7,
+            "Youth Support": 2,
+            "Adoptive Family Finding & Growth": 1
           }
         },
         {
@@ -17342,11 +17343,11 @@
             "lng": -83.8196
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 2,
+            "Wrap-around Support": 7,
             "Care Sharing": 15,
-            "Child Welfare System Support": 2,
+            "Adoptive Family Finding & Growth": 2,
             "Foster Family Finding & Growth": 3,
-            "Wrap-around Support": 7
+            "Child Welfare System Support": 2
           }
         },
         {
@@ -17409,9 +17410,9 @@
             "lng": -84.9089
           },
           "churchEngagement": {
+            "Wrap-around Support": 2,
             "Care Sharing": 6,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 2
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -17752,8 +17753,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 7,
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -17833,8 +17834,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 5,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -18069,10 +18070,10 @@
           },
           "churchEngagement": {
             "Biological Family Services": 1,
-            "Care Sharing": 6,
-            "Child Welfare System Support": 1,
+            "Wrap-around Support": 1,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 1
+            "Child Welfare System Support": 1,
+            "Care Sharing": 6
           }
         },
         {
@@ -18094,11 +18095,11 @@
             "lng": -84.8771
           },
           "churchEngagement": {
-            "Biological Family Services": 2,
             "Care Sharing": 17,
+            "Wrap-around Support": 5,
             "Child Welfare System Support": 3,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 5
+            "Biological Family Services": 2,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -18143,8 +18144,8 @@
             "lng": -83.4371
           },
           "churchEngagement": {
-            "Care Sharing": 7,
-            "Wrap-around Support": 5
+            "Wrap-around Support": 5,
+            "Care Sharing": 7
           }
         },
         {
@@ -18370,8 +18371,8 @@
             "lng": -83.402
           },
           "churchEngagement": {
-            "Care Sharing": 8,
-            "Wrap-around Support": 10
+            "Wrap-around Support": 10,
+            "Care Sharing": 8
           }
         },
         {
@@ -18511,8 +18512,8 @@
             "lng": -84.2841
           },
           "churchEngagement": {
-            "Care Sharing": 2,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Care Sharing": 2
           }
         },
         {
@@ -18751,9 +18752,9 @@
             "lng": -82.3312
           },
           "churchEngagement": {
-            "Care Sharing": 6,
             "Child Welfare System Support": 1,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Care Sharing": 6
           }
         },
         {
@@ -19096,9 +19097,9 @@
             "lng": -84.9672
           },
           "churchEngagement": {
+            "Foster Family Finding & Growth": 1,
             "Care Sharing": 7,
             "Child Welfare System Support": 2,
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 1
           }
         },
@@ -19345,9 +19346,9 @@
             "lng": -84.8403
           },
           "churchEngagement": {
+            "Wrap-around Support": 3,
             "Care Sharing": 13,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 3
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -19493,8 +19494,8 @@
             "lng": -81.4436
           },
           "churchEngagement": {
-            "Care Sharing": 6,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Care Sharing": 6
           }
         },
         {
@@ -19518,8 +19519,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 16,
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -19714,8 +19715,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 17,
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 6
+            "Wrap-around Support": 6,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -19760,8 +19761,8 @@
           "churchEngagement": {
             "Care Sharing": 6,
             "Child Welfare System Support": 1,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -19808,9 +19809,9 @@
             "lng": -83.3673
           },
           "churchEngagement": {
+            "Wrap-around Support": 9,
             "Care Sharing": 9,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 9
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -19897,12 +19898,12 @@
             "lng": -84.5767
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 6,
             "Care Sharing": 12,
+            "Biological Family Services": 1,
             "Child Welfare System Support": 1,
-            "Foster Family Finding & Growth": 1,
             "Professional Services": 1,
-            "Wrap-around Support": 6
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -19966,8 +19967,8 @@
           },
           "churchEngagement": {
             "Child Welfare System Support": 2,
-            "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 3
+            "Wrap-around Support": 3,
+            "Foster Family Finding & Growth": 2
           }
         },
         {
@@ -20010,8 +20011,8 @@
             "lng": -84.7634
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Foster Family Finding & Growth": 1,
+            "Biological Family Services": 1,
             "Wrap-around Support": 1
           }
         },
@@ -20095,9 +20096,9 @@
             "lng": -84.1706
           },
           "churchEngagement": {
+            "Wrap-around Support": 3,
             "Care Sharing": 3,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 3
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -20140,10 +20141,10 @@
             "lng": -84.2264
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
-            "Care Sharing": 4,
             "Child Welfare System Support": 1,
+            "Care Sharing": 4,
             "Foster Family Finding & Growth": 2,
+            "Biological Family Services": 1,
             "Wrap-around Support": 5
           }
         },
@@ -20230,9 +20231,9 @@
             "lng": -84.7679
           },
           "churchEngagement": {
-            "Care Sharing": 6,
+            "Wrap-around Support": 1,
             "Child Welfare System Support": 1,
-            "Wrap-around Support": 1
+            "Care Sharing": 6
           }
         },
         {
@@ -20296,8 +20297,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 12,
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 3
+            "Wrap-around Support": 3,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -20451,11 +20452,11 @@
             "lng": -84.125
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
-            "Care Sharing": 7,
-            "Child Welfare System Support": 1,
             "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 1
+            "Biological Family Services": 1,
+            "Wrap-around Support": 1,
+            "Child Welfare System Support": 1,
+            "Care Sharing": 7
           }
         },
         {
@@ -20498,14 +20499,14 @@
             "lng": -84.4671
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 2,
             "Biological Family Services": 1,
-            "Care Sharing": 23,
+            "Adoptive Family Finding & Growth": 2,
             "Child Welfare System Support": 2,
-            "Foster Family Finding & Growth": 8,
             "Professional Services": 1,
+            "Youth Support": 2,
+            "Foster Family Finding & Growth": 8,
             "Wrap-around Support": 17,
-            "Youth Support": 2
+            "Care Sharing": 23
           }
         },
         {
@@ -20568,10 +20569,10 @@
             "lng": -81.5407
           },
           "churchEngagement": {
-            "Care Sharing": 6,
-            "Child Welfare System Support": 1,
+            "Wrap-around Support": 6,
             "Foster Family Finding & Growth": 3,
-            "Wrap-around Support": 6
+            "Child Welfare System Support": 1,
+            "Care Sharing": 6
           }
         },
         {
@@ -20654,13 +20655,13 @@
             "lng": -84.0235
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 1,
-            "Biological Family Services": 2,
             "Care Sharing": 39,
-            "Child Welfare System Support": 7,
-            "Foster Family Finding & Growth": 12,
             "Wrap-around Support": 25,
-            "Youth Support": 2
+            "Foster Family Finding & Growth": 12,
+            "Biological Family Services": 2,
+            "Child Welfare System Support": 7,
+            "Youth Support": 2,
+            "Adoptive Family Finding & Growth": 1
           }
         },
         {
@@ -20707,11 +20708,11 @@
             "lng": -83.8196
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 2,
+            "Wrap-around Support": 7,
             "Care Sharing": 15,
-            "Child Welfare System Support": 2,
+            "Adoptive Family Finding & Growth": 2,
             "Foster Family Finding & Growth": 3,
-            "Wrap-around Support": 7
+            "Child Welfare System Support": 2
           }
         },
         {
@@ -20777,9 +20778,9 @@
             "lng": -84.9089
           },
           "churchEngagement": {
+            "Wrap-around Support": 2,
             "Care Sharing": 6,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 2
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -21137,8 +21138,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 7,
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -21222,8 +21223,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 5,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -21470,10 +21471,10 @@
           },
           "churchEngagement": {
             "Biological Family Services": 1,
-            "Care Sharing": 6,
-            "Child Welfare System Support": 1,
+            "Wrap-around Support": 1,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 1
+            "Child Welfare System Support": 1,
+            "Care Sharing": 6
           }
         },
         {
@@ -21496,11 +21497,11 @@
             "lng": -84.8771
           },
           "churchEngagement": {
-            "Biological Family Services": 2,
             "Care Sharing": 17,
+            "Wrap-around Support": 5,
             "Child Welfare System Support": 3,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 5
+            "Biological Family Services": 2,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -21547,8 +21548,8 @@
             "lng": -83.4371
           },
           "churchEngagement": {
-            "Care Sharing": 7,
-            "Wrap-around Support": 5
+            "Wrap-around Support": 5,
+            "Care Sharing": 7
           }
         },
         {
@@ -21785,8 +21786,8 @@
             "lng": -83.402
           },
           "churchEngagement": {
-            "Care Sharing": 8,
-            "Wrap-around Support": 10
+            "Wrap-around Support": 10,
+            "Care Sharing": 8
           }
         },
         {
@@ -21933,8 +21934,8 @@
             "lng": -84.2841
           },
           "churchEngagement": {
-            "Care Sharing": 2,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Care Sharing": 2
           }
         },
         {
@@ -22185,9 +22186,9 @@
             "lng": -82.3312
           },
           "churchEngagement": {
-            "Care Sharing": 6,
             "Child Welfare System Support": 1,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Care Sharing": 6
           }
         },
         {
@@ -22547,9 +22548,9 @@
             "lng": -84.9672
           },
           "churchEngagement": {
+            "Foster Family Finding & Growth": 1,
             "Care Sharing": 7,
             "Child Welfare System Support": 2,
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 1
           }
         },
@@ -32814,10 +32815,10 @@
             "lng": -85.0665
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 10,
+            "Wrap-around Support": 2,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 2
+            "Biological Family Services": 1
           }
         },
         {
@@ -32902,8 +32903,8 @@
             "lng": -86.4687
           },
           "churchEngagement": {
-            "Care Sharing": 2,
             "Foster Family Finding & Growth": 1,
+            "Care Sharing": 2,
             "Wrap-around Support": 1
           }
         },
@@ -33135,10 +33136,10 @@
             "lng": -85.3969
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 6,
             "Care Sharing": 7,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 6
+            "Biological Family Services": 1
           }
         },
         {
@@ -33365,8 +33366,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 29,
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 15,
+            "Foster Family Finding & Growth": 1,
             "Youth Support": 1
           }
         },
@@ -33389,8 +33390,8 @@
             "lng": -85.7733
           },
           "churchEngagement": {
-            "Care Sharing": 10,
-            "Wrap-around Support": 5
+            "Wrap-around Support": 5,
+            "Care Sharing": 10
           }
         },
         {
@@ -33432,9 +33433,9 @@
           },
           "churchEngagement": {
             "Care Sharing": 6,
-            "Child Welfare System Support": 1,
+            "Wrap-around Support": 6,
             "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 6
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -33478,8 +33479,8 @@
             "lng": -86.1169
           },
           "churchEngagement": {
-            "Care Sharing": 7,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Care Sharing": 7
           }
         },
         {
@@ -33618,9 +33619,9 @@
             "lng": -86.1016
           },
           "churchEngagement": {
+            "Wrap-around Support": 7,
             "Care Sharing": 11,
-            "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 7
+            "Foster Family Finding & Growth": 2
           }
         },
         {
@@ -33767,8 +33768,8 @@
             "lng": -85.7194
           },
           "churchEngagement": {
-            "Care Sharing": 9,
-            "Wrap-around Support": 4
+            "Wrap-around Support": 4,
+            "Care Sharing": 9
           }
         },
         {
@@ -33791,9 +33792,9 @@
           },
           "churchEngagement": {
             "Care Sharing": 31,
-            "Child Welfare System Support": 2,
+            "Wrap-around Support": 15,
             "Foster Family Finding & Growth": 3,
-            "Wrap-around Support": 15
+            "Child Welfare System Support": 2
           }
         },
         {
@@ -34096,8 +34097,8 @@
             "lng": -87.0672
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -34462,8 +34463,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 14,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 5
+            "Wrap-around Support": 5,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -34715,10 +34716,10 @@
             "lng": -85.0665
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 10,
+            "Wrap-around Support": 2,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 2
+            "Biological Family Services": 1
           }
         },
         {
@@ -34811,8 +34812,8 @@
             "lng": -86.4687
           },
           "churchEngagement": {
-            "Care Sharing": 2,
             "Foster Family Finding & Growth": 1,
+            "Care Sharing": 2,
             "Wrap-around Support": 1
           }
         },
@@ -35072,10 +35073,10 @@
             "lng": -85.3969
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 6,
             "Care Sharing": 7,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 6
+            "Biological Family Services": 1
           }
         },
         {
@@ -35324,8 +35325,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 29,
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 15,
+            "Foster Family Finding & Growth": 1,
             "Youth Support": 1
           }
         },
@@ -35350,8 +35351,8 @@
             "lng": -85.7733
           },
           "churchEngagement": {
-            "Care Sharing": 10,
-            "Wrap-around Support": 5
+            "Wrap-around Support": 5,
+            "Care Sharing": 10
           }
         },
         {
@@ -35397,9 +35398,9 @@
           },
           "churchEngagement": {
             "Care Sharing": 6,
-            "Child Welfare System Support": 1,
+            "Wrap-around Support": 6,
             "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 6
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -35447,8 +35448,8 @@
             "lng": -86.1169
           },
           "churchEngagement": {
-            "Care Sharing": 7,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Care Sharing": 7
           }
         },
         {
@@ -35601,9 +35602,9 @@
             "lng": -86.1016
           },
           "churchEngagement": {
+            "Wrap-around Support": 7,
             "Care Sharing": 11,
-            "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 7
+            "Foster Family Finding & Growth": 2
           }
         },
         {
@@ -35764,8 +35765,8 @@
             "lng": -85.7194
           },
           "churchEngagement": {
-            "Care Sharing": 9,
-            "Wrap-around Support": 4
+            "Wrap-around Support": 4,
+            "Care Sharing": 9
           }
         },
         {
@@ -35790,9 +35791,9 @@
           },
           "churchEngagement": {
             "Care Sharing": 31,
-            "Child Welfare System Support": 2,
+            "Wrap-around Support": 15,
             "Foster Family Finding & Growth": 3,
-            "Wrap-around Support": 15
+            "Child Welfare System Support": 2
           }
         },
         {
@@ -36125,8 +36126,8 @@
             "lng": -87.0672
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -36527,8 +36528,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 14,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 5
+            "Wrap-around Support": 5,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -37750,10 +37751,10 @@
             "lng": -94.8223
           },
           "churchEngagement": {
-            "Care Sharing": 23,
-            "Child Welfare System Support": 2,
+            "Wrap-around Support": 26,
             "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 26
+            "Care Sharing": 23,
+            "Child Welfare System Support": 2
           }
         },
         {
@@ -37873,9 +37874,9 @@
             "lng": -95.038
           },
           "churchEngagement": {
-            "Care Sharing": 3,
+            "Wrap-around Support": 3,
             "Professional Services": 1,
-            "Wrap-around Support": 3
+            "Care Sharing": 3
           }
         },
         {
@@ -39892,10 +39893,10 @@
             "lng": -94.8223
           },
           "churchEngagement": {
-            "Care Sharing": 23,
-            "Child Welfare System Support": 2,
+            "Wrap-around Support": 26,
             "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 26
+            "Care Sharing": 23,
+            "Child Welfare System Support": 2
           }
         },
         {
@@ -40021,9 +40022,9 @@
             "lng": -95.038
           },
           "churchEngagement": {
-            "Care Sharing": 3,
+            "Wrap-around Support": 3,
             "Professional Services": 1,
-            "Wrap-around Support": 3
+            "Care Sharing": 3
           }
         },
         {
@@ -48552,8 +48553,8 @@
           "childrenAdopted": 84,
           "monthsToAdoption": 16.345238095238095,
           "churchEngagement": {
-            "Care Sharing": 1,
-            "Wrap-around Support": 5
+            "Wrap-around Support": 5,
+            "Care Sharing": 1
           }
         },
         {
@@ -48573,8 +48574,8 @@
           "childrenAdopted": 187,
           "monthsToAdoption": 11.83957219251337,
           "churchEngagement": {
-            "Biological Family Services": 1,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Biological Family Services": 1
           }
         },
         {
@@ -48594,12 +48595,12 @@
           "childrenAdopted": 90,
           "monthsToAdoption": 15.944444444444445,
           "churchEngagement": {
+            "Wrap-around Support": 29,
+            "Foster Family Finding & Growth": 6,
+            "Child Welfare System Support": 15,
+            "Care Sharing": 10,
             "Adoptive Family Finding & Growth": 2,
             "Biological Family Services": 2,
-            "Care Sharing": 10,
-            "Child Welfare System Support": 15,
-            "Foster Family Finding & Growth": 6,
-            "Wrap-around Support": 29,
             "Professional Services": 1,
             "Youth Support": 1
           }
@@ -48621,8 +48622,8 @@
           "childrenAdopted": 199,
           "monthsToAdoption": 14.859296482412061,
           "churchEngagement": {
-            "Biological Family Services": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Biological Family Services": 1
           }
         },
         {
@@ -50508,8 +50509,8 @@
             "lng": -85.8883
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Wrap-around Support": 1,
+            "Biological Family Services": 1,
             "Care Sharing": 15
           }
         },
@@ -52126,8 +52127,8 @@
             "lng": -85.8883
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Wrap-around Support": 1,
+            "Biological Family Services": 1,
             "Care Sharing": 15
           }
         },
@@ -64951,9 +64952,9 @@
             "lng": -109.0281
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 9,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Biological Family Services": 1
           }
         },
         {
@@ -65138,11 +65139,11 @@
             "lng": -109.2245
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 8,
             "Care Sharing": 9,
             "Foster Family Finding & Growth": 1,
-            "Professional Services": 1,
-            "Wrap-around Support": 8
+            "Biological Family Services": 1,
+            "Professional Services": 1
           }
         },
         {
@@ -65164,11 +65165,11 @@
             "lng": -114.0497
           },
           "churchEngagement": {
-            "Biological Family Services": 3,
             "Care Sharing": 27,
+            "Wrap-around Support": 7,
+            "Biological Family Services": 3,
             "Child Welfare System Support": 2,
-            "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 7
+            "Foster Family Finding & Growth": 2
           }
         },
         {
@@ -65375,10 +65376,10 @@
             "lng": -112.3905
           },
           "churchEngagement": {
+            "Wrap-around Support": 4,
             "Care Sharing": 8,
-            "Child Welfare System Support": 1,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 4
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -65517,10 +65518,10 @@
             "lng": -113.9237
           },
           "churchEngagement": {
+            "Wrap-around Support": 1,
             "Biological Family Services": 1,
-            "Care Sharing": 6,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 1
+            "Care Sharing": 6
           }
         },
         {
@@ -65818,8 +65819,8 @@
             "lng": -112.6567
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
-            "Care Sharing": 5
+            "Care Sharing": 5,
+            "Biological Family Services": 1
           }
         },
         {
@@ -65879,8 +65880,8 @@
             "lng": -112.2408
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
-            "Care Sharing": 2
+            "Care Sharing": 2,
+            "Biological Family Services": 1
           }
         },
         {
@@ -65997,9 +65998,9 @@
             "lng": -108.2744
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 9,
-            "Wrap-around Support": 3
+            "Wrap-around Support": 3,
+            "Biological Family Services": 1
           }
         },
         {
@@ -66104,9 +66105,9 @@
             "lng": -109.0281
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 9,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Biological Family Services": 1
           }
         },
         {
@@ -66291,11 +66292,11 @@
             "lng": -109.2245
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 8,
             "Care Sharing": 9,
             "Foster Family Finding & Growth": 1,
-            "Professional Services": 1,
-            "Wrap-around Support": 8
+            "Biological Family Services": 1,
+            "Professional Services": 1
           }
         },
         {
@@ -66317,11 +66318,11 @@
             "lng": -114.0497
           },
           "churchEngagement": {
-            "Biological Family Services": 3,
             "Care Sharing": 27,
+            "Wrap-around Support": 7,
+            "Biological Family Services": 3,
             "Child Welfare System Support": 2,
-            "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 7
+            "Foster Family Finding & Growth": 2
           }
         },
         {
@@ -66528,10 +66529,10 @@
             "lng": -112.3905
           },
           "churchEngagement": {
+            "Wrap-around Support": 4,
             "Care Sharing": 8,
-            "Child Welfare System Support": 1,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 4
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -66670,10 +66671,10 @@
             "lng": -113.9237
           },
           "churchEngagement": {
+            "Wrap-around Support": 1,
             "Biological Family Services": 1,
-            "Care Sharing": 6,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 1
+            "Care Sharing": 6
           }
         },
         {
@@ -66971,8 +66972,8 @@
             "lng": -112.6567
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
-            "Care Sharing": 5
+            "Care Sharing": 5,
+            "Biological Family Services": 1
           }
         },
         {
@@ -67032,8 +67033,8 @@
             "lng": -112.2408
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
-            "Care Sharing": 2
+            "Care Sharing": 2,
+            "Biological Family Services": 1
           }
         },
         {
@@ -67150,9 +67151,9 @@
             "lng": -108.2744
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 9,
-            "Wrap-around Support": 3
+            "Wrap-around Support": 3,
+            "Biological Family Services": 1
           }
         }
       ]
@@ -67457,10 +67458,10 @@
             "lng": -81.7048
           },
           "churchEngagement": {
-            "Care Sharing": 1,
             "Child Welfare System Support": 1,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Care Sharing": 1,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -67505,8 +67506,8 @@
             "lng": -81.5464
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Foster Family Finding & Growth": 2
           }
         },
         {
@@ -67585,8 +67586,8 @@
             "lng": -81.2151
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 2,
+            "Foster Family Finding & Growth": 1,
             "Care Sharing": 10
           }
         },
@@ -67860,8 +67861,8 @@
             "lng": -78.8766
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 1,
+            "Foster Family Finding & Growth": 1,
             "Care Sharing": 2
           }
         },
@@ -68192,8 +68193,8 @@
             "lng": -80.8734
           },
           "churchEngagement": {
-            "Care Sharing": 6,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Care Sharing": 6
           }
         },
         {
@@ -68310,7 +68311,6 @@
             "lng": -81.2235
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 1
           }
         },
@@ -68412,8 +68412,8 @@
             "lng": -80.8328
           },
           "churchEngagement": {
-            "Care Sharing": 2,
             "Foster Family Finding & Growth": 1,
+            "Care Sharing": 2,
             "Wrap-around Support": 4
           }
         },
@@ -69040,8 +69040,8 @@
             "lng": -78.6503
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 6,
+            "Foster Family Finding & Growth": 1,
             "Care Sharing": 10
           }
         },
@@ -69443,10 +69443,10 @@
             "lng": -81.7048
           },
           "churchEngagement": {
-            "Care Sharing": 1,
             "Child Welfare System Support": 1,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Care Sharing": 1,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -69493,8 +69493,8 @@
             "lng": -81.5464
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 2
+            "Wrap-around Support": 2,
+            "Foster Family Finding & Growth": 2
           }
         },
         {
@@ -69577,8 +69577,8 @@
             "lng": -81.2151
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 2,
+            "Foster Family Finding & Growth": 1,
             "Care Sharing": 10
           }
         },
@@ -69866,8 +69866,8 @@
             "lng": -78.8766
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 1,
+            "Foster Family Finding & Growth": 1,
             "Care Sharing": 2
           }
         },
@@ -70215,8 +70215,8 @@
             "lng": -80.8734
           },
           "churchEngagement": {
-            "Care Sharing": 6,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Care Sharing": 6
           }
         },
         {
@@ -70339,7 +70339,6 @@
             "lng": -81.2235
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 1
           }
         },
@@ -70446,8 +70445,8 @@
             "lng": -80.8328
           },
           "churchEngagement": {
-            "Care Sharing": 2,
             "Foster Family Finding & Growth": 1,
+            "Care Sharing": 2,
             "Wrap-around Support": 4
           }
         },
@@ -71106,8 +71105,8 @@
             "lng": -78.6503
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 6,
+            "Foster Family Finding & Growth": 1,
             "Care Sharing": 10
           }
         },
@@ -80006,10 +80005,10 @@
             "lng": -115.0135
           },
           "churchEngagement": {
-            "Biological Family Services": 3,
+            "Wrap-around Support": 8,
             "Care Sharing": 1,
-            "Foster Family Finding & Growth": 5,
-            "Wrap-around Support": 8
+            "Biological Family Services": 3,
+            "Foster Family Finding & Growth": 5
           }
         },
         {
@@ -80346,10 +80345,10 @@
             "lng": -115.0135
           },
           "churchEngagement": {
-            "Biological Family Services": 3,
+            "Wrap-around Support": 8,
             "Care Sharing": 1,
-            "Foster Family Finding & Growth": 5,
-            "Wrap-around Support": 8
+            "Biological Family Services": 3,
+            "Foster Family Finding & Growth": 5
           }
         },
         {
@@ -80795,9 +80794,9 @@
             "lng": -73.8671
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 3,
             "Care Sharing": 13,
-            "Wrap-around Support": 3
+            "Biological Family Services": 1
           }
         },
         {
@@ -81223,10 +81222,10 @@
             "lng": -73.9383
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 14,
+            "Wrap-around Support": 11,
             "Child Welfare System Support": 1,
-            "Wrap-around Support": 11
+            "Biological Family Services": 1
           }
         },
         {
@@ -81377,9 +81376,9 @@
             "lng": -73.9668
           },
           "churchEngagement": {
+            "Wrap-around Support": 6,
             "Care Sharing": 15,
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 6
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -81584,9 +81583,9 @@
             "lng": -73.8196
           },
           "churchEngagement": {
+            "Wrap-around Support": 7,
             "Care Sharing": 14,
-            "Child Welfare System Support": 2,
-            "Wrap-around Support": 7
+            "Child Welfare System Support": 2
           }
         },
         {
@@ -81630,10 +81629,10 @@
             "lng": -74.1531
           },
           "churchEngagement": {
-            "Biological Family Services": 4,
+            "Wrap-around Support": 6,
             "Care Sharing": 14,
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 6
+            "Biological Family Services": 4,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -81816,9 +81815,9 @@
             "lng": -72.8456
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 1,
             "Care Sharing": 2,
-            "Wrap-around Support": 1
+            "Biological Family Services": 1
           }
         },
         {
@@ -82090,9 +82089,9 @@
             "lng": -73.8671
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 3,
             "Care Sharing": 13,
-            "Wrap-around Support": 3
+            "Biological Family Services": 1
           }
         },
         {
@@ -82539,10 +82538,10 @@
             "lng": -73.9383
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 14,
+            "Wrap-around Support": 11,
             "Child Welfare System Support": 1,
-            "Wrap-around Support": 11
+            "Biological Family Services": 1
           }
         },
         {
@@ -82908,9 +82907,9 @@
             "lng": -73.8196
           },
           "churchEngagement": {
+            "Wrap-around Support": 7,
             "Care Sharing": 14,
-            "Child Welfare System Support": 2,
-            "Wrap-around Support": 7
+            "Child Welfare System Support": 2
           }
         },
         {
@@ -82956,10 +82955,10 @@
             "lng": -74.1531
           },
           "churchEngagement": {
-            "Biological Family Services": 4,
+            "Wrap-around Support": 6,
             "Care Sharing": 14,
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 6
+            "Biological Family Services": 4,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -83151,9 +83150,9 @@
             "lng": -72.8456
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 1,
             "Care Sharing": 2,
-            "Wrap-around Support": 1
+            "Biological Family Services": 1
           }
         },
         {
@@ -84100,8 +84099,8 @@
             "lng": -84.5428
           },
           "churchEngagement": {
-            "Care Sharing": 8,
-            "Wrap-around Support": 6
+            "Wrap-around Support": 6,
+            "Care Sharing": 8
           }
         },
         {
@@ -84602,8 +84601,8 @@
             "lng": -84.2288
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 4,
             "Wrap-around Support": 7,
+            "Foster Family Finding & Growth": 4,
             "Care Sharing": 1
           }
         },
@@ -85033,11 +85032,11 @@
             "lng": -81.3656
           },
           "churchEngagement": {
+            "Wrap-around Support": 4,
             "Biological Family Services": 1,
-            "Care Sharing": 2,
             "Foster Family Finding & Growth": 5,
-            "Professional Services": 1,
-            "Wrap-around Support": 4
+            "Care Sharing": 2,
+            "Professional Services": 1
           }
         },
         {
@@ -85060,8 +85059,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 5,
-            "Foster Family Finding & Growth": 4,
-            "Wrap-around Support": 8
+            "Wrap-around Support": 8,
+            "Foster Family Finding & Growth": 4
           }
         },
         {
@@ -85973,8 +85972,8 @@
             "lng": -84.5428
           },
           "churchEngagement": {
-            "Care Sharing": 8,
-            "Wrap-around Support": 6
+            "Wrap-around Support": 6,
+            "Care Sharing": 8
           }
         },
         {
@@ -86499,8 +86498,8 @@
             "lng": -84.2288
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 4,
             "Wrap-around Support": 7,
+            "Foster Family Finding & Growth": 4,
             "Care Sharing": 1
           }
         },
@@ -86951,11 +86950,11 @@
             "lng": -81.3656
           },
           "churchEngagement": {
+            "Wrap-around Support": 4,
             "Biological Family Services": 1,
-            "Care Sharing": 2,
             "Foster Family Finding & Growth": 5,
-            "Professional Services": 1,
-            "Wrap-around Support": 4
+            "Care Sharing": 2,
+            "Professional Services": 1
           }
         },
         {
@@ -86979,8 +86978,8 @@
           },
           "churchEngagement": {
             "Care Sharing": 5,
-            "Foster Family Finding & Growth": 4,
-            "Wrap-around Support": 8
+            "Wrap-around Support": 8,
+            "Foster Family Finding & Growth": 4
           }
         },
         {
@@ -92341,10 +92340,10 @@
             "lng": -79.9812
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 2,
             "Care Sharing": 1,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 2
+            "Biological Family Services": 1
           }
         },
         {
@@ -92533,8 +92532,8 @@
             "lng": -78.7134
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 5
+            "Wrap-around Support": 5,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -92594,8 +92593,8 @@
             "lng": -77.8199
           },
           "churchEngagement": {
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 27
+            "Wrap-around Support": 27,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -92639,8 +92638,8 @@
             "lng": -79.421
           },
           "churchEngagement": {
-            "Care Sharing": 4,
-            "Wrap-around Support": 8
+            "Wrap-around Support": 8,
+            "Care Sharing": 4
           }
         },
         {
@@ -92829,10 +92828,10 @@
             "lng": -80.0327
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 3,
+            "Wrap-around Support": 8,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 8
+            "Biological Family Services": 1
           }
         },
         {
@@ -92995,8 +92994,8 @@
             "lng": -78.9994
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 3
+            "Wrap-around Support": 3,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -93062,8 +93061,8 @@
             "lng": -76.2477
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 26
+            "Wrap-around Support": 26,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -93107,8 +93106,8 @@
             "lng": -76.4577
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 8
+            "Wrap-around Support": 8,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -93130,9 +93129,9 @@
             "lng": -75.5923
           },
           "churchEngagement": {
+            "Wrap-around Support": 13,
             "Biological Family Services": 1,
-            "Care Sharing": 2,
-            "Wrap-around Support": 13
+            "Care Sharing": 2
           }
         },
         {
@@ -93177,11 +93176,11 @@
             "lng": -77.0645
           },
           "churchEngagement": {
+            "Wrap-around Support": 9,
             "Biological Family Services": 1,
             "Care Sharing": 17,
             "Child Welfare System Support": 1,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 9
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -93241,8 +93240,8 @@
             "lng": -77.617
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 4
+            "Wrap-around Support": 4,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -93762,10 +93761,10 @@
             "lng": -79.9812
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 2,
             "Care Sharing": 1,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 2
+            "Biological Family Services": 1
           }
         },
         {
@@ -93963,8 +93962,8 @@
             "lng": -78.7134
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 5
+            "Wrap-around Support": 5,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -94027,8 +94026,8 @@
             "lng": -77.8199
           },
           "churchEngagement": {
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 27
+            "Wrap-around Support": 27,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -94074,8 +94073,8 @@
             "lng": -79.421
           },
           "churchEngagement": {
-            "Care Sharing": 4,
-            "Wrap-around Support": 8
+            "Wrap-around Support": 8,
+            "Care Sharing": 4
           }
         },
         {
@@ -94273,10 +94272,10 @@
             "lng": -80.0327
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 3,
+            "Wrap-around Support": 8,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 8
+            "Biological Family Services": 1
           }
         },
         {
@@ -94447,8 +94446,8 @@
             "lng": -78.9994
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 3
+            "Wrap-around Support": 3,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -94517,8 +94516,8 @@
             "lng": -76.2477
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 26
+            "Wrap-around Support": 26,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -94564,8 +94563,8 @@
             "lng": -76.4577
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 8
+            "Wrap-around Support": 8,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -94588,9 +94587,9 @@
             "lng": -75.5923
           },
           "churchEngagement": {
+            "Wrap-around Support": 13,
             "Biological Family Services": 1,
-            "Care Sharing": 2,
-            "Wrap-around Support": 13
+            "Care Sharing": 2
           }
         },
         {
@@ -94637,11 +94636,11 @@
             "lng": -77.0645
           },
           "churchEngagement": {
+            "Wrap-around Support": 9,
             "Biological Family Services": 1,
             "Care Sharing": 17,
             "Child Welfare System Support": 1,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 9
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -94704,8 +94703,8 @@
             "lng": -77.617
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 4
+            "Wrap-around Support": 4,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -95420,10 +95419,10 @@
             "lng": -71.58
           },
           "churchEngagement": {
-            "Child Welfare System Support": 2,
             "Foster Family Finding & Growth": 2,
             "Wrap-around Support": 6,
-            "Youth Support": 1
+            "Youth Support": 1,
+            "Child Welfare System Support": 2
           }
         },
         {
@@ -95531,10 +95530,10 @@
             "lng": -71.58
           },
           "churchEngagement": {
-            "Child Welfare System Support": 2,
             "Foster Family Finding & Growth": 2,
             "Wrap-around Support": 6,
-            "Youth Support": 1
+            "Youth Support": 1,
+            "Child Welfare System Support": 2
           }
         },
         {
@@ -95727,9 +95726,9 @@
             "lng": -82.6378
           },
           "churchEngagement": {
-            "Care Sharing": 1,
+            "Wrap-around Support": 8,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 8
+            "Care Sharing": 1
           }
         },
         {
@@ -96643,9 +96642,9 @@
             "lng": -82.6378
           },
           "churchEngagement": {
-            "Care Sharing": 1,
+            "Wrap-around Support": 8,
             "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 8
+            "Care Sharing": 1
           }
         },
         {
@@ -100387,8 +100386,8 @@
             "lng": -86.2973
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 1,
             "Foster Family Finding & Growth": 1,
+            "Adoptive Family Finding & Growth": 1,
             "Care Sharing": 4
           }
         },
@@ -102292,8 +102291,8 @@
             "lng": -86.2973
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 1,
             "Foster Family Finding & Growth": 1,
+            "Adoptive Family Finding & Growth": 1,
             "Care Sharing": 4
           }
         }
@@ -113002,11 +113001,11 @@
             "lng": -111.9236
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 11,
             "Child Welfare System Support": 4,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 6
+            "Wrap-around Support": 6,
+            "Biological Family Services": 1,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -113569,11 +113568,11 @@
             "lng": -111.9236
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
             "Care Sharing": 11,
             "Child Welfare System Support": 4,
-            "Foster Family Finding & Growth": 1,
-            "Wrap-around Support": 6
+            "Wrap-around Support": 6,
+            "Biological Family Services": 1,
+            "Foster Family Finding & Growth": 1
           }
         },
         {
@@ -114366,11 +114365,11 @@
             "lng": -77.9558
           },
           "churchEngagement": {
-            "Biological Family Services": 2,
-            "Care Sharing": 2,
-            "Child Welfare System Support": 1,
+            "Wrap-around Support": 3,
             "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 3
+            "Child Welfare System Support": 1,
+            "Biological Family Services": 2,
+            "Care Sharing": 2
           }
         },
         {
@@ -116198,8 +116197,8 @@
             "lng": -79.1908
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 1,
+            "Foster Family Finding & Growth": 1,
             "Care Sharing": 14
           }
         },
@@ -117118,11 +117117,11 @@
             "lng": -77.9558
           },
           "churchEngagement": {
-            "Biological Family Services": 2,
-            "Care Sharing": 2,
-            "Child Welfare System Support": 1,
+            "Wrap-around Support": 3,
             "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 3
+            "Child Welfare System Support": 1,
+            "Biological Family Services": 2,
+            "Care Sharing": 2
           }
         },
         {
@@ -119130,8 +119129,8 @@
             "lng": -79.1908
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 1,
+            "Foster Family Finding & Growth": 1,
             "Care Sharing": 14
           }
         },
@@ -120801,8 +120800,8 @@
             "lng": -89.3337
           },
           "churchEngagement": {
-            "Care Sharing": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Care Sharing": 1
           }
         },
         {
@@ -120979,8 +120978,8 @@
             "lng": -88.4883
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 3,
+            "Foster Family Finding & Growth": 1,
             "Care Sharing": 12
           }
         },
@@ -121317,8 +121316,8 @@
             "lng": -89.7591
           },
           "churchEngagement": {
-            "Child Welfare System Support": 2,
             "Foster Family Finding & Growth": 1,
+            "Child Welfare System Support": 2,
             "Professional Services": 1,
             "Wrap-around Support": 4
           }
@@ -121576,8 +121575,8 @@
             "lng": -89.5014
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 3
+            "Wrap-around Support": 3,
+            "Foster Family Finding & Growth": 2
           }
         },
         {
@@ -121773,7 +121772,7 @@
             "lng": -87.9454
           },
           "churchEngagement": {
-            "Wrap-around Support": 3
+            "Wrap-around Support": 2
           }
         },
         {
@@ -121931,9 +121930,9 @@
             "lng": -88.3045
           },
           "churchEngagement": {
-            "Child Welfare System Support": 1,
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 3,
+            "Foster Family Finding & Growth": 1,
+            "Child Welfare System Support": 1,
             "Care Sharing": 3
           }
         },
@@ -122233,8 +122232,8 @@
             "lng": -89.3337
           },
           "churchEngagement": {
-            "Care Sharing": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Care Sharing": 1
           }
         },
         {
@@ -122411,8 +122410,8 @@
             "lng": -88.4883
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 3,
+            "Foster Family Finding & Growth": 1,
             "Care Sharing": 12
           }
         },
@@ -122749,8 +122748,8 @@
             "lng": -89.7591
           },
           "churchEngagement": {
-            "Child Welfare System Support": 2,
             "Foster Family Finding & Growth": 1,
+            "Child Welfare System Support": 2,
             "Professional Services": 1,
             "Wrap-around Support": 4
           }
@@ -123008,8 +123007,8 @@
             "lng": -89.5014
           },
           "churchEngagement": {
-            "Foster Family Finding & Growth": 2,
-            "Wrap-around Support": 3
+            "Wrap-around Support": 3,
+            "Foster Family Finding & Growth": 2
           }
         },
         {
@@ -123205,7 +123204,7 @@
             "lng": -87.9454
           },
           "churchEngagement": {
-            "Wrap-around Support": 3
+            "Wrap-around Support": 2
           }
         },
         {
@@ -123363,9 +123362,9 @@
             "lng": -88.3045
           },
           "churchEngagement": {
-            "Child Welfare System Support": 1,
-            "Foster Family Finding & Growth": 1,
             "Wrap-around Support": 3,
+            "Foster Family Finding & Growth": 1,
+            "Child Welfare System Support": 1,
             "Care Sharing": 3
           }
         },
@@ -123546,8 +123545,8 @@
             "lng": -80.003
           },
           "churchEngagement": {
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -123857,11 +123856,11 @@
             "lng": -80.3799
           },
           "churchEngagement": {
+            "Youth Support": 2,
             "Biological Family Services": 2,
-            "Care Sharing": 2,
             "Child Welfare System Support": 4,
             "Wrap-around Support": 4,
-            "Youth Support": 2
+            "Care Sharing": 2
           }
         },
         {
@@ -123883,7 +123882,6 @@
             "lng": -81.6748
           },
           "churchEngagement": {
-            "Care Sharing": 1,
             "Wrap-around Support": 1
           }
         },
@@ -123925,11 +123923,11 @@
             "lng": -81.5281
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 9,
             "Care Sharing": 2,
-            "Child Welfare System Support": 2,
             "Foster Family Finding & Growth": 3,
-            "Wrap-around Support": 9
+            "Child Welfare System Support": 2,
+            "Biological Family Services": 1
           }
         },
         {
@@ -124027,10 +124025,10 @@
             "lng": -80.2434
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 1,
             "Biological Family Services": 1,
-            "Child Welfare System Support": 2,
+            "Adoptive Family Finding & Growth": 1,
             "Foster Family Finding & Growth": 1,
+            "Child Welfare System Support": 2,
             "Youth Support": 1
           }
         },
@@ -124149,9 +124147,9 @@
           },
           "churchEngagement": {
             "Child Welfare System Support": 3,
+            "Youth Support": 2,
             "Foster Family Finding & Growth": 2,
             "Wrap-around Support": 5,
-            "Youth Support": 2,
             "Care Sharing": 15
           }
         },
@@ -124307,8 +124305,8 @@
             "lng": -79.6682
           },
           "churchEngagement": {
-            "Care Sharing": 5,
             "Child Welfare System Support": 1,
+            "Care Sharing": 5,
             "Foster Family Finding & Growth": 1
           }
         },
@@ -124331,8 +124329,8 @@
             "lng": -81.909
           },
           "churchEngagement": {
-            "Child Welfare System Support": 2,
             "Foster Family Finding & Growth": 3,
+            "Child Welfare System Support": 2,
             "Wrap-around Support": 3
           }
         },
@@ -124646,8 +124644,8 @@
             "lng": -80.003
           },
           "churchEngagement": {
-            "Child Welfare System Support": 1,
-            "Wrap-around Support": 1
+            "Wrap-around Support": 1,
+            "Child Welfare System Support": 1
           }
         },
         {
@@ -124957,11 +124955,11 @@
             "lng": -80.3799
           },
           "churchEngagement": {
+            "Youth Support": 2,
             "Biological Family Services": 2,
-            "Care Sharing": 2,
             "Child Welfare System Support": 4,
             "Wrap-around Support": 4,
-            "Youth Support": 2
+            "Care Sharing": 2
           }
         },
         {
@@ -124983,7 +124981,6 @@
             "lng": -81.6748
           },
           "churchEngagement": {
-            "Care Sharing": 1,
             "Wrap-around Support": 1
           }
         },
@@ -125025,11 +125022,11 @@
             "lng": -81.5281
           },
           "churchEngagement": {
-            "Biological Family Services": 1,
+            "Wrap-around Support": 9,
             "Care Sharing": 2,
-            "Child Welfare System Support": 2,
             "Foster Family Finding & Growth": 3,
-            "Wrap-around Support": 9
+            "Child Welfare System Support": 2,
+            "Biological Family Services": 1
           }
         },
         {
@@ -125127,10 +125124,10 @@
             "lng": -80.2434
           },
           "churchEngagement": {
-            "Adoptive Family Finding & Growth": 1,
             "Biological Family Services": 1,
-            "Child Welfare System Support": 2,
+            "Adoptive Family Finding & Growth": 1,
             "Foster Family Finding & Growth": 1,
+            "Child Welfare System Support": 2,
             "Youth Support": 1
           }
         },
@@ -125249,9 +125246,9 @@
           },
           "churchEngagement": {
             "Child Welfare System Support": 3,
+            "Youth Support": 2,
             "Foster Family Finding & Growth": 2,
             "Wrap-around Support": 5,
-            "Youth Support": 2,
             "Care Sharing": 15
           }
         },
@@ -125407,8 +125404,8 @@
             "lng": -79.6682
           },
           "churchEngagement": {
-            "Care Sharing": 5,
             "Child Welfare System Support": 1,
+            "Care Sharing": 5,
             "Foster Family Finding & Growth": 1
           }
         },
@@ -125431,8 +125428,8 @@
             "lng": -81.909
           },
           "churchEngagement": {
-            "Child Welfare System Support": 2,
             "Foster Family Finding & Growth": 3,
+            "Child Welfare System Support": 2,
             "Wrap-around Support": 3
           }
         },
